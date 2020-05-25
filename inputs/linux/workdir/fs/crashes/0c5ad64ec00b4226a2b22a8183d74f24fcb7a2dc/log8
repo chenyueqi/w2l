@@ -1,0 +1,102 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:60526' (ECDSA) to the list of known hosts.
+2020/04/21 20:34:26 fuzzer started
+2020/04/21 20:34:27 dialing manager at 10.0.2.10:41625
+2020/04/21 20:34:27 syscalls: 49
+2020/04/21 20:34:27 code coverage: enabled
+2020/04/21 20:34:27 comparison tracing: enabled
+2020/04/21 20:34:27 extra coverage: enabled
+2020/04/21 20:34:27 setuid sandbox: enabled
+2020/04/21 20:34:27 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 20:34:27 Android sandbox: enabled
+2020/04/21 20:34:27 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 20:34:27 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 20:34:27 net packet injection: /dev/net/tun does not exist
+2020/04/21 20:34:27 net device setup: enabled
+2020/04/21 20:34:27 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 20:34:27 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 20:34:27 USB emulation: /dev/raw-gadget does not exist
+20:34:27 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x500, 0x0)
+
+20:34:27 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/consoles\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+20:34:27 executing program 1:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000000240)=""/65, 0x41)
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+syzkaller login: [   10.826025] audit: type=1400 audit(1587501267.836:8): avc:  denied  { execmem } for  pid=425 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+20:34:27 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000000040)=""/223, 0xdf)
+read(r0, &(0x7f0000001000)=""/4096, 0x7ffff000)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/slabinfo\x00', 0x0, 0x0)
+close(r1)
+r2 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/ldiscs\x00', 0x300, 0x0)
+read(r2, &(0x7f0000001080)=""/4096, 0x1000)
+read(0xffffffffffffffff, &(0x7f0000001080)=""/4096, 0x1000)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/ldiscs\x00', 0x300, 0x0)
+read(0xffffffffffffffff, &(0x7f0000000140)=""/87, 0x57)
+
+[   10.946075] cgroup1: Unknown subsys name 'perf_event'
+[   10.955513] cgroup1: Unknown subsys name 'net_cls'
+[   10.972823] ------------[ cut here ]------------
+[   10.974227] cgroup1: Unknown subsys name 'perf_event'
+[   10.974885] Found leaking site of iovec, kvec and others 2/2
+[   10.978181] cgroup1: Unknown subsys name 'net_cls'
+[   10.979867] WARNING: CPU: 1 PID: 431 at lib/iov_iter.c:631 _copy_to_iter+0xcd/0xf80
+[   10.984743] cgroup1: Unknown subsys name 'perf_event'
+[   10.985294] Kernel panic - not syncing: panic_on_warn set ...
+[   10.990582] CPU: 1 PID: 431 Comm: syz-executor.0 Not tainted 5.5.3 #71
+[   10.993117] cgroup1: Unknown subsys name 'net_cls'
+[   10.993419] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   10.993420] Call Trace:
+[   10.993458]  dump_stack+0x15e/0x1ae
+[   10.993493]  panic+0x228/0x700
+[   10.998796] cgroup1: Unknown subsys name 'perf_event'
+[   11.001485]  ? _copy_to_iter+0xcd/0xf80
+[   11.001488]  __warn+0x1fe/0x200
+[   11.001517]  ? _copy_to_iter+0xcd/0xf80
+[   11.001537]  report_bug+0x359/0x480
+[   11.001542]  ? _copy_to_iter+0xcd/0xf80
+[   11.002898] cgroup1: Unknown subsys name 'net_cls'
+[   11.004344]  do_invalid_op+0x6e/0x110
+[   11.004359]  invalid_op+0x1e/0x30
+[   11.004363] RIP: 0010:_copy_to_iter+0xcd/0xf80
+[   11.004365] Code: 81 c7 48 06 00 00 48 c7 c6 1c 9a dd 9f e8 4b ed c1 01 48 85 c0 74 1e e8 b1 8f 61 ff 48 c7 c7 af f4 df 9f 31 c0 e8 c3 de 3a ff <0f> 0b eb 0c e8 9a 8f 61 ff eb 05 e8 93 8f 61 ff 49 8d 5f 10 48 89
+[   11.004382] RSP: 0018:ffff88805168fb20 EFLAGS: 00010246
+[   11.004384] RAX: 9655a43773a70700 RBX: 0000000000000002 RCX: 0000000000000000
+[   11.004386] RDX: ffff888067b61d00 RSI: 0000000000000000 RDI: 0000000000000000
+[   11.004389] RBP: 1ffff1100a2d1fb9 R08: dffffc0000000000 R09: ffffed100da66092
+[   11.045467] R10: ffffed100da66092 R11: 0000000000000000 R12: 0000000000000000
+[   11.048607] R13: dffffc0000000000 R14: 000000000000003c R15: ffff88805168fdc8
+[   11.051838]  ? memset+0x1f/0x40
+[   11.053252]  __skb_datagram_iter+0xf1/0x800
+[   11.055227]  ? skb_copy_datagram_iter+0x170/0x170
+[   11.057411]  skb_copy_datagram_iter+0x158/0x170
+[   11.059629]  netlink_recvmsg+0x249/0xf80
+[   11.061543]  ? security_socket_recvmsg+0xb7/0xd0
+[   11.063715]  ? netlink_sendmsg+0xd10/0xd10
+[   11.065579]  __sys_recvfrom+0x4dc/0x4f0
+[   11.067308]  ? _raw_spin_lock_irq+0x5e/0x110
+[   11.069291]  __x64_sys_recvfrom+0xda/0xf0
+[   11.071061]  do_syscall_64+0xd1/0x160
+[   11.072674]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.074778] RIP: 0033:0x41680a
+[   11.076135] Code: d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 8b 05 6e 1b 87 00 41 89 ca 85 c0 75 1b 45 31 c9 45 31 c0 b8 2d 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 66 f3 c3 0f 1f 40 00 41 56 41 55 41 89 ce 41
+[   11.084118] RSP: 002b:00007ffff4073788 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   11.087359] RAX: ffffffffffffffda RBX: 0000000000c82200 RCX: 000000000041680a
+[   11.090419] RDX: 0000000000000400 RSI: 0000000000c82250 RDI: 0000000000000003
+[   11.093506] RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+[   11.096811] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[   11.099649] R13: 0000000000000000 R14: 0000000000c82250 R15: 0000000000000003
+[   11.108495] Dumping ftrace buffer:
+[   11.110238]    (ftrace buffer empty)
+[   11.112124] Kernel Offset: 0x1be00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   11.116851] Rebooting in 1 seconds..

@@ -1,0 +1,91 @@
+Warning: Permanently added '[localhost]:60085' (ECDSA) to the list of known hosts.
+[   16.165206] audit: type=1400 audit(1587418036.276:11): avc:  denied  { map } for  pid=1581 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:27:16 fuzzer started
+2020/04/20 21:27:16 dialing manager at 10.0.2.10:42445
+2020/04/20 21:27:16 syscalls: 52
+2020/04/20 21:27:16 code coverage: enabled
+2020/04/20 21:27:16 comparison tracing: enabled
+2020/04/20 21:27:16 extra coverage: enabled
+2020/04/20 21:27:16 setuid sandbox: enabled
+2020/04/20 21:27:16 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:27:16 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:27:16 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:27:16 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:27:16 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:27:16 net device setup: enabled
+2020/04/20 21:27:16 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:27:16 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:27:16 USB emulation: /dev/raw-gadget does not exist
+21:27:17 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000010c0)='/proc/sysvipc/shm\x00', 0x0, 0x0)
+close(r0)
+fspick(r0, &(0x7f0000000000)='./file0\x00', 0x0)
+
+21:27:17 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f00000000c0)=""/152, 0x98)
+read(r0, &(0x7f0000000240)=""/189, 0xbd)
+
+21:27:17 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x1006411, 0x0)
+
+21:27:17 executing program 2:
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4800)
+pipe2$9p(&(0x7f0000000580), 0x88000)
+write$P9_RFSYNC(r0, &(0x7f0000000080)={0x7, 0x33, 0x1}, 0x7)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+r2 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmallocinfo\x00', 0x0, 0x0)
+splice(r2, &(0x7f0000000100)=0x80000000000040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+vmsplice(r1, &(0x7f0000000540)=[{&(0x7f0000002080)="92f364f9e11163ba9da48640e40c8dcbc1fb32a288ff5e8abbea5ae916d9b92e227e9c48d128543f15389c330658fc744224dc5f2d42ba71bf08a9c8999e604fae2fc023264f59e20c5df0de9644b126654b0d6cf521f15efd1b21bdac45e0bfce122f141de8f7223e869af1f5f82a43100d85291d476d05b6a8b0ae01b9f7adb4faaae162bc3ee6ae871487812978450f772e47a0da26652b6627ab9a8c7e6eea8fb88bcf7791c82dcd460f009d9b897aad551c9f38a1aa70370e501bd6f972ac5d82c752ce108914946c0636f88301f164dc118cdb2f45e93b30496f8b2c6e96ac86375376bf68590c6f8f4474b4464ff6e065ede7e755297527309731cea8bcded7b1d39cce996a4a06a1a6f84a9e33740c0a7bc9c99317bbe929276eed8484063031f117e4dd6f3e226b621f4bd7ed519f465b9b001e542eeacbd8e976229354fc4e741688b97d3a6eab39eb18aa26466a46540051ae91abbd2cba6f2afb92bf26f092d85f580214cc14830337a0ee5668dd4fd3c889d8a55b2630e8862cce5392c2d81ed0785b5a2f65d20d84bac0577cc24bb35f501e9577e4f23b08b14a2bce0bf3ecd30379f3f2e6110ca378a95606c86fb0faad8b5ba299b93baa29def5e11363c34a8ac5ee2530943c57773e805e7c58a5bd568e3b559ee51d4e3899b0180deeb541960cc2d52e28e963e9cf0eeb2bb3394b7603e5fa3c942fd02ce4749d751fa80ac42e6ad58bb45147be2ca4a301e400a910943ca147fd6c7b108892f1d55705a30485f0b0d23854874ecb0d1b5023ff6bfba8d2c25cc2a8cddd09b40a98d7319fd7ce22c7e793270a75bd0fbb8012eb5c4a41ef2a08620c61ab9d8a404c57b8baef5318eca239483aecf6c461aeeff0631a435cfde2ed3c32591f8a9e3a06a412dec175d9627e2c5cc951abb3c004938f8f800422c803335d33e9807ba311a5966bad0f730d28a3616dfd5897c32ce54ad11e9ab09f2cf1cc728ad96b23b167d23833264c9791e47ebb36631efe5bd0c90133759c26e98ce90c72e961c039978c6cdda2c2d6c85d625eb0c8f7b8e7151b6dfc346e70baa6584e788899bba2440179434af4fbda2fb94bd939913cadc0527bfc3dbaf061adc3f31baf6bf6d0f48abda50042d740806d6d7464a47db0874a8c3fb63a205e65c31efa52456ec6e268c507176206d176ee1cd3ea1af77fbe87c94cf6535f1961cfc65395c18f1de184c7944890d100acaa9520a995bb16214bd2aa3c41131126ccbff227f653c5d3cdd25865c8600239141faabed0f9d506c3670dac40b14cf54ff01e4df928d68c4d0ccaefb05cb31cdd837954c6d0a3635427176b3c2e7d539ef32c23482a9c8c3d4de5eaae33a26392bac8f3b7bbf77af0aade8f4c7d8018114c0ec925f71d2b49245b62da6e346e46aa63efabad7398e7ab025586b411d00fad8a7ed3eaa5ba189461ef1a7f7d5e1e01a57e51096b9df18dd5e6e3ae3685599740bb4df400f84a1769216d4e2db8250274792bc49c8d4b18f8fa9f28f48fb9061d8c719233f21d574e14e4620ac14f922ce67df8a712596caa0254f636a1a3d391715f39a08983b633228107b06020fc6bf797a590c6f2190336908e3d7cbd3228117eecc1b925d1c25a0f7a68997598cc0e78195331cf76a51bc28a08d0161dd3b556a72b75dd918ad493d4d8566a0dffdace0c1333d78ffbf5f8136915c87b0ebaa01e885e52a73f030e7577b73f95b88ed2381affa780a9e3cd9c70d5bcb145672ebd600a58b21fb7f1cbaadde262f8c2892a8badbbca297e2adea191a1302bdf92bd53090395ba7662af57733d0c05224200cff08b372f128f46714ad1a9db11a102703dd625b3227e7493b5408ffb5ebaa8c5c9f97e8c064857da16c497ebd63a645b29fa29bbbbd1678657ed69ce154559a74f601a8bbc859f09620fc71bc5a1203ca98b9db69ffe2f26f0ec7c0d22ae0df9f20480f3ed13e2b574543cabd6ee679a1a84981a460ed00eabe93297cc8f2f740b466487fd7b6de02bb770ea117c3ffcbbf6d68d07229301f7edea07edadd566b33e2a87dd33ac36a81dbea3c169ebee98fa6cd78cc6f9c013aae824a375b63fd430fce480171f9b437632bdaee1980ce8d200e67243d0d584f4676f156003c32371655e60693ec0facd00b0f1ea60b7d9b985b9dadbdefb7f151b84f2b03520a7311a00f6a5df03f6666a2f4e4cde8d0d3d7122dd4532aa03059a9c92cd987c61e7b4b4009ffe8da4024f592056d7d40eee55e067747cc521c128869783aefd43d4fc7e416fe237950478e7a2ffeb13c0e3c10aa63c03fe2763b5456cce0cbd2e3661839a4e34b47f872d375b16ae05440a6ea1613b409bdb76c8b6d79b8af5e6337d93ba6e0260c7b207bf095fc321916395796c60852f2fbee357680a24515628a1d9e2fe5835a4ca7e5b67274d5fea69714c08e5e40d57a488b53a67fab1e0b2fda2671a04757d46d2faa390367065a5f257f3fb7fb811db434036c834c9db5e781ba8fd4ba0eca1c71cc6bd8c79a1b5fc39f13442952a07cdda7efefe938e68b57ab2ed44f4c3fa24d525113993734e701e0e6b1c97438c1ff8028667dd348de755f079b60766b44a01ca502da2d513076ca6cb4adb6f07fa12e24ae1848fd817d40b46160e6751ec081955d7b800d88e72e1f1c75575a10a9a29a3cfdb9ff813d399edad4dd0d03fc6e66e3f4a9354ea83010fe1e9f50e828cf103dc78ffc29774e9b816575f73629ef03bf6b3ef0fee386421f45a4e30811c0462071281acef52fe0b69e73ff6daa9f88847ceddf3df40d71224492221d8a10a74203f646a5d5f5feb9b586293505fa3a202143579cd44b03829af5fb0de9f89d20542b7c92df0d261dbab7081c555bd75c5efc0b2ec803d3bfe438ed6a9b5c99c243fb7cb3cda6d9e6bebb2e9aa8e436aec968dfa404241abad579fac1fc84bdc510dc47033f1352e075f0e764aceda9a9350af35735998c14f3afbce245f62ce1351143a7168d6e48c44a86fb8ecfc4201ba3e1592f2afea41962383d5dfb84e757ee91bd88517c1f5bebce0d158e70730dc19111af119cb97b0526b6dd1937feba0314808ea23ff9c86ec4467a3e2c9d8ea6654a3fee9667e381888fafa229f383988ec8d30a746598a5ec618241cf076c7f643b6958e0209904bf43b4678054675043e77798e0bc6a4d14f5933b7b87a654ad20bbe9a9f8676ce2b4927fa2e98e848b30c87b2b398f161666fe7fe4cf497a64c42995058910a6a53d92d5fe2c61b18618bcf7e9671a30d0d3210dc17fc0ea8291745bf51acc2903b9ee5f63e1bcd498b9ca85d45202b9e72a6c258814db6b3b7c727edb5e7193b52b680970e636faf27501c56e4613cdcc3eaeb1def48b4061174639d1879b74c754937eafad59023f49044dff3de05904758fbf0f1e2e9cd5a39e7f13359384adcd8d3df4ee5656a00660b6bcfd3fe659c6d3821c122c0b339b5afb66ddb0b8de6564aeec34d68c37e29ae440074e6890590134ff9573911175e6e226f9cce2c686142c7eccb16bf091750833c4fda618abb22b5b74fdac9eec1798970f5bbb353db4a3793307928e147f577b1f6e5e931c93a63f1e188f736eb70a8a70de622e383744a055f7643959e41a5ba3fd00144fdd1b6a6b0a40ff7a262e1a3e093c5e6ae3d85fd576078058876305ba90e56e09a4288f852514616cf4de087f57fdb7c1130955ec4047fe0a79a88c860579b00a774f55cfe23219ca78e575527f0128678b487412e008043ebe20208032ca0f6048da1d791638a6337d2ef8d4b7db1af10a3d741ffa759004c6f16f99367ae94aab36d729f949add5affccba09cecc8afccf07351337fb25a18b9442b2837b46d2538df07e8c7e5570d898869697695fe44962c5774154ea9c762f172d59aefdc14849f8c9e528dafa301c1aeda245cf5c4ea2a0588123d2d9e47926f6e2001af7be130f7e97cecbdf305bf5ea0e6ee32becda9c2b6974846793b701316cad3a079f64c0cd55b9fa2b2d43ae4a8ac53d8a75d7fc1cb4e28670316ea847b1e21e1966f6ff62a13384c42316b6d178399f07957020e09b04529d82007978", 0xb5c}, {&(0x7f0000000440)}, {0x0}], 0x3, 0x0)
+r3 = openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+read(r3, 0x0, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(0xffffffffffffffff, &(0x7f00000003c0)=[{0x0}, {0x0}], 0x2, 0x0)
+
+[   17.255413] audit: type=1400 audit(1587418037.366:12): avc:  denied  { map } for  pid=1597 comm="syz-executor.1" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8630 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   17.280897] cgroup1: Unknown subsys name 'perf_event'
+[   17.282315] cgroup1: Unknown subsys name 'net_cls'
+[   17.299896] cgroup1: Unknown subsys name 'perf_event'
+[   17.301240] cgroup1: Unknown subsys name 'net_cls'
+[   17.310726] cgroup1: Unknown subsys name 'perf_event'
+[   17.311948] cgroup1: Unknown subsys name 'net_cls'
+[   17.322108] cgroup1: Unknown subsys name 'perf_event'
+[   17.323358] cgroup1: Unknown subsys name 'net_cls'
+[   17.772664] audit: type=1400 audit(1587418037.883:13): avc:  denied  { create } for  pid=1603 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.780303] audit: type=1400 audit(1587418037.883:14): avc:  denied  { write } for  pid=1603 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.784696] audit: type=1400 audit(1587418037.883:15): avc:  denied  { read } for  pid=1603 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.191033] audit: type=1400 audit(1587418039.301:16): avc:  denied  { associate } for  pid=1603 comm="syz-executor.0" name="syz0" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   19.227604] ------------[ cut here ]------------
+[   19.228673] Found allocation of pipe_buffer
+[   19.229546] WARNING: CPU: 1 PID: 3395 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.230996] Modules linked in:
+[   19.231609] CPU: 1 PID: 3395 Comm: syz-executor.2 Not tainted 5.5.3 #59
+[   19.232982] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.235299] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.236222] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 7e ba e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 7e ba 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.239778] RSP: 0018:ffff888066af7dc0 EFLAGS: 00010246
+[   19.240798] RAX: 113ac77cbf171e00 RBX: 0000000000000002 RCX: ffffc90003e3f000
+[   19.242161] RDX: ffffffffb7800000 RSI: 0000000000000569 RDI: 000000000000056a
+[   19.243521] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100cd5ef75
+[   19.244887] R10: ffffed100cd5ef75 R11: 0000000000000000 R12: ffff888068d0c900
+[   19.246258] R13: dffffc0000000000 R14: ffffffffbaa47fb0 R15: 0000000000000010
+[   19.247654] FS:  00007eff42d16700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   19.249207] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.250311] CR2: 000000000047dde0 CR3: 000000006a79c006 CR4: 00000000001606e0
+[   19.251720] Call Trace:
+[   19.252215]  create_pipe_files+0x85/0x6e0
+[   19.253006]  __do_pipe_flags+0x46/0x200
+[   19.253770]  do_pipe2+0x41/0x230
+[   19.254414]  ? put_timespec64+0xbe/0xf0
+[   19.255165]  __x64_sys_pipe2+0x56/0x60
+[   19.255918]  do_syscall_64+0xd1/0x160
+[   19.256656]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.257653] RIP: 0033:0x467519
+[   19.258262] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.261820] RSP: 002b:00007eff42d15c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.263268] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.264642] RDX: 0000000000000000 RSI: 0000000000004800 RDI: 0000000020000000
+[   19.266011] RBP: 00007eff42d166bc R08: 0000000000000000 R09: 0000000000000000
+[   19.267374] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.268729] R13: 000000000000081e R14: 00000000004c93b8 R15: 0000000000701660
+[   19.270083] ---[ end trace 1775d07966d3d342 ]---

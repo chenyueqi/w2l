@@ -1,0 +1,202 @@
+Warning: Permanently added '[localhost]:41234' (ECDSA) to the list of known hosts.
+2020/04/20 21:26:13 fuzzer started
+[   14.626880] audit: type=1400 audit(1587417973.797:11): avc:  denied  { map } for  pid=1581 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:26:14 dialing manager at 10.0.2.10:42445
+2020/04/20 21:26:14 syscalls: 52
+2020/04/20 21:26:14 code coverage: enabled
+2020/04/20 21:26:14 comparison tracing: enabled
+2020/04/20 21:26:14 extra coverage: enabled
+2020/04/20 21:26:14 setuid sandbox: enabled
+2020/04/20 21:26:14 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:26:14 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:26:14 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:26:14 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:26:14 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:26:14 net device setup: enabled
+2020/04/20 21:26:14 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:26:14 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:26:14 USB emulation: /dev/raw-gadget does not exist
+21:26:14 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='autofs\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:26:14 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+[   15.637287] audit: type=1400 audit(1587417974.808:12): avc:  denied  { map } for  pid=1597 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8630 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+21:26:14 executing program 2:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, &(0x7f0000000100)=',\x00'/15)
+
+21:26:14 executing program 3:
+mount(0x0, &(0x7f0000000000)='.\x00', 0x0, 0x51400, 0x0)
+
+[   15.683365] cgroup1: Unknown subsys name 'perf_event'
+[   15.684737] cgroup1: Unknown subsys name 'net_cls'
+[   15.693558] cgroup1: Unknown subsys name 'perf_event'
+[   15.694724] cgroup1: Unknown subsys name 'net_cls'
+[   15.694851] cgroup1: Unknown subsys name 'perf_event'
+[   15.697048] cgroup1: Unknown subsys name 'net_cls'
+[   15.701054] cgroup1: Unknown subsys name 'perf_event'
+[   15.702450] cgroup1: Unknown subsys name 'net_cls'
+[   16.099718] audit: type=1400 audit(1587417975.270:13): avc:  denied  { create } for  pid=1606 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   16.104284] audit: type=1400 audit(1587417975.270:14): avc:  denied  { write } for  pid=1606 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   16.108729] audit: type=1400 audit(1587417975.270:15): avc:  denied  { read } for  pid=1606 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.385988] audit: type=1400 audit(1587417976.556:16): avc:  denied  { associate } for  pid=1604 comm="syz-executor.1" name="syz1" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+[   17.474146] FAT-fs (md0): unable to read boot sector
+[   17.475548] FAT-fs (md0): unable to read boot sector
+[   17.485470] autofs4:pid:3374:autofs_fill_super: called with bogus options
+[   17.487064] autofs4:pid:3374:autofs_fill_super: called with bogus options
+21:26:16 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='autofs\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 2:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, &(0x7f0000000100)=',\x00'/15)
+
+[   17.494437] autofs4:pid:3378:autofs_fill_super: called with bogus options
+[   17.498122] FAT-fs (md0): unable to read boot sector
+21:26:16 executing program 3:
+mount(0x0, &(0x7f0000000000)='.\x00', 0x0, 0x51400, 0x0)
+
+21:26:16 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='autofs\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 2:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, &(0x7f0000000100)=',\x00'/15)
+
+21:26:16 executing program 3:
+mount(0x0, &(0x7f0000000000)='.\x00', 0x0, 0x51400, 0x0)
+
+[   17.584629] autofs4:pid:3430:autofs_fill_super: called with bogus options
+[   17.584875] FAT-fs (md0): unable to read boot sector
+21:26:16 executing program 3:
+mount(0x0, &(0x7f0000000000)='.\x00', 0x0, 0x51400, 0x0)
+
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='autofs\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:26:16 executing program 2:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, &(0x7f0000000100)=',\x00'/15)
+
+[   17.599130] autofs4:pid:3438:autofs_fill_super: called with bogus options
+21:26:16 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+[   17.604944] FAT-fs (md0): unable to read boot sector
+21:26:16 executing program 1:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000040)='.\x00', 0x0, 0x210d00d, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:26:16 executing program 0:
+pipe2(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$9p(r1, &(0x7f00000000c0)="fe", 0x1)
+vmsplice(r1, &(0x7f0000000300)=[{&(0x7f0000000100)="a0", 0x1}], 0x1, 0x0)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x1, 0x0)
+write$P9_RMKNOD(r1, &(0x7f0000000340)={0x14}, 0x14)
+
+[   17.615656] ------------[ cut here ]------------
+[   17.616402] Found allocation of pipe_buffer
+[   17.617229] WARNING: CPU: 0 PID: 3448 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   17.618481] Modules linked in:
+[   17.619009] CPU: 0 PID: 3448 Comm: syz-executor.0 Not tainted 5.5.3 #59
+[   17.620121] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   17.621911] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   17.622686] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 1e b6 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 1e b6 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   17.625763] RSP: 0018:ffff888053197dc0 EFLAGS: 00010246
+[   17.626583] RAX: ac70a56213492900 RBX: 0000000000000002 RCX: ffffc9000058b000
+[   17.627703] RDX: ffffffffb3200000 RSI: 0000000000000571 RDI: 0000000000000572
+[   17.628815] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100da46092
+[   17.629990] R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88806c62c900
+[   17.631148] R13: dffffc0000000000 R14: ffffffffb6447fb0 R15: 0000000000000010
+[   17.632323] FS:  00007fe1a6a45700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   17.633593] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   17.634510] CR2: 000000000047dde0 CR3: 0000000066cea004 CR4: 00000000001606f0
+[   17.635644] Call Trace:
+[   17.636058]  create_pipe_files+0x85/0x6e0
+[   17.636718]  __do_pipe_flags+0x46/0x200
+[   17.637367]  do_pipe2+0x41/0x230
+[   17.637909]  ? put_timespec64+0xbe/0xf0
+[   17.638554]  __x64_sys_pipe2+0x56/0x60
+[   17.639161]  do_syscall_64+0xd1/0x160
+[   17.639803]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   17.640633] RIP: 0033:0x467519
+[   17.641091] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   17.643962] RSP: 002b:00007fe1a6a44c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   17.645177] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   17.646275] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   17.647438] RBP: 00007fe1a6a456bc R08: 0000000000000000 R09: 0000000000000000
+[   17.648534] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   17.649639] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   17.650847] ---[ end trace 03ae7220aa9860c9 ]---
+[   17.655014] ------------[ cut here ]------------
+[   17.655787] Found allocation of pipe_buffer
+[   17.656500] WARNING: CPU: 0 PID: 3448 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   17.657667] Modules linked in:
+[   17.658113] CPU: 0 PID: 3448 Comm: syz-executor.0 Tainted: G        W         5.5.3 #59
+[   17.659329] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   17.661111] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   17.661836] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 1e b6 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 1e b6 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   17.664709] RSP: 0018:ffff888053197dc0 EFLAGS: 00010246
+[   17.665502] RAX: ac70a56213492900 RBX: 0000000000000002 RCX: ffffc9000058b000
+[   17.666619] RDX: ffffffffb3200000 RSI: 0000000000000569 RDI: 000000000000056a
+[   17.667678] RBP: 0000000000000120 R08: dffffc0000000000 R09: ffffed100a632f75
+[   17.668775] R10: ffffed100a632f75 R11: 0000000000000000 R12: ffff88806c62c400
+[   17.669857] R13: dffffc0000000000 R14: ffffffffb6447fb0 R15: 0000000000000010
+[   17.670986] FS:  00007fe1a6a45700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   17.672782] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   17.673677] CR2: 0000000000741958 CR3: 0000000066cea004 CR4: 00000000001606f0
+[   17.674789] Call Trace:
+[   17.675187]  create_pipe_files+0x85/0x6e0
+[   17.675823]  __do_pipe_flags+0x46/0x200
+[   17.676569]  do_pipe2+0x41/0x230
+[   17.677096]  ? put_timespec64+0xbe/0xf0
+[   17.677716]  __x64_sys_pipe2+0x56/0x60
+[   17.678337]  do_syscall_64+0xd1/0x160
+[   17.678910]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   17.679727] RIP: 0033:0x467519
+[   17.680239] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   17.683158] RSP: 002b:00007fe1a6a44c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   17.684383] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   17.685504] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   17.686628] RBP: 00007fe1a6a456bc R08: 0000000000000000 R09: 0000000000000000
+[   17.687747] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   17.688888] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   17.689995] ---[ end trace 03ae7220aa9860ca ]---

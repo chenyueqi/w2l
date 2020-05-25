@@ -1,0 +1,237 @@
+Warning: Permanently added '[localhost]:43524' (ECDSA) to the list of known hosts.
+2020/04/15 18:56:02 fuzzer started
+[   17.295163] audit: type=1400 audit(1586976962.388:11): avc:  denied  { map } for  pid=1585 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/15 18:56:02 dialing manager at 10.0.2.10:36237
+2020/04/15 18:56:02 syscalls: 30
+2020/04/15 18:56:02 code coverage: enabled
+2020/04/15 18:56:02 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/15 18:56:02 extra coverage: enabled
+2020/04/15 18:56:02 setuid sandbox: enabled
+2020/04/15 18:56:02 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/15 18:56:02 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/15 18:56:02 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/15 18:56:02 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/15 18:56:02 net packet injection: /dev/net/tun does not exist
+2020/04/15 18:56:02 net device setup: enabled
+2020/04/15 18:56:02 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/15 18:56:02 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/15 18:56:02 USB emulation: /dev/raw-gadget does not exist
+18:56:05 executing program 0:
+r0 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+write$binfmt_script(r0, &(0x7f0000000000)={'#! ', './file0', [{}, {0x20, '\''}], 0xa, "118de2871b7015c34d73e7244ad22df1f413ba57cb170a4c686af1f3f0a618cedc506c07cb07bb12d9343cf131e1d1d311f564ce2d020689b160b84ae301a8658a3a84a1f4840a1eb4e4ea7b5033978bbf0152077a7abda5c139341c9f9bc43e3f12c4c0ad15a03790aef759b683b0076ef1f4f847d6da3c60598fd98a634c735192a0209ca29648868c265d7f3c9245b858b4e9a90e75c019"}, 0xa7)
+r1 = openat$vcs(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/vcs\x00', 0x200040, 0x0)
+ioctl$VT_DISALLOCATE(r1, 0x5608)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000100)={{0x107, 0x4, 0x0, 0x148, 0x66, 0x1ff, 0xd3, 0x9}, "5044b7971c567f9e9eb7b2da6dba2a15ff47fdfb5e926500ab981e4a1ce59348ea5d0ddd15b299b3db23ff9d63ed7a43011919751f64023a51d3550d1c7bab66e451a5e531ab298d0f0a1c67bad6cd7f103fbdbea83781212143bc8c6bcd110fce5d0002ecda8564bce7f24f5cc76e719b1ffee6b8e0c40c88759398639051ea996166315909b8dbf17059a5912d5235bd628f28f1e5293161f2", [[], [], [], [], [], [], []]}, 0x7ba)
+syz_open_dev$vcsa(&(0x7f00000008c0)='/dev/vcsa#\x00', 0x1, 0x100)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x3)
+ioctl$VT_DISALLOCATE(r2, 0x5608)
+r3 = syz_open_dev$ptys(0xc, 0x3, 0x0)
+ioctl$VT_GETMODE(r3, 0x5601, &(0x7f0000000900))
+r4 = syz_open_pts(0xffffffffffffffff, 0x688c02)
+write$binfmt_misc(r4, &(0x7f0000000940)={'syz1', "e2b3a0253726a922665bc8c2e4ec53140c25f1650c3e8b0179878c32dcd48c5fcff28372b4a2fffb3648ec96f4fc93b5a142992e1b905b0fd55344b3a471bc4d6665561ce0f9cc7600c5c77945"}, 0x51)
+r5 = openat$vcsu(0xffffffffffffff9c, &(0x7f00000009c0)='/dev/vcsu\x00', 0x1, 0x0)
+r6 = syz_open_dev$vcsn(&(0x7f0000000a00)='/dev/vcs#\x00', 0x7, 0x680480)
+poll(&(0x7f0000000a40)=[{r0, 0x142}, {r1, 0x8641}, {r4, 0x8002}, {r1, 0x10}, {0xffffffffffffffff, 0x80}, {r5, 0x100}, {r6, 0x60}], 0x7, 0x3fa)
+write$binfmt_script(r4, &(0x7f0000000a80)={'#! ', './file0', [{0x20, 'em0@@'}, {0x20, 'vmnet1,systemkeyringppp1:^md5sum'}, {0x20, '/dev/vcsu\x00'}, {}, {0x20, 'prockeyring'}], 0xa, "d9cd52311b0f7e6fa5cd0fa7f91d30bcf98c5fe4a291348befbc7f6673597c"}, 0x69)
+r7 = syz_open_dev$vcsn(&(0x7f0000000b00)='/dev/vcs#\x00', 0x7, 0x1c3002)
+write(r7, &(0x7f0000000b40)="cbdab6d21fc4fd3ca0b44ff7ae3269cf2d2f8f458ae06a6ef3a0993613c28956733328f3d5db79db2dac0fa6815527366719bdac68be0038dd2ffa5b969e5ec3510ab5e70043fe4f62aa98bd83c7d98247435e1ecf305053eb62733729795402ebb24eb7cf317d32041dc27770fa563ae894515d035082bba55ca402e830b25a4da3ba9c624ee31a4e3669386fc2b52f657c4ccca9401efca1ebaee5eb5b92540d88c30bf0b050d303cd930855d2256f49f0c902229998a71b163ad399d1a3a1ce13e7e17ea9d8ef75465a536e9b43d93448db", 0xd3)
+r8 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000c40)='/dev/vcsu\x00', 0x2c6a40, 0x0)
+write$binfmt_elf32(r8, &(0x7f0000000c80)={{0x7f, 0x45, 0x4c, 0x46, 0x81, 0x6, 0x8, 0xfc, 0x1, 0x0, 0x3, 0x7, 0x34, 0x38, 0x2d8, 0xff, 0x8, 0x20, 0x2, 0x5, 0xfc00, 0x3}, [{0x4, 0x101, 0x200, 0x401, 0x1ff, 0xfffffffc, 0x33, 0x5}], "39a3271e233feff3e28fc7cd645b0d11b582f4ad05183c43c4e4307d734ffb88d971e9d74ac7bf114fec1db311d9133a5f68e388bbd20799c1b443d2767c57d57ecbad314b135bb6f38c535beab8cd117b3b4354eb11d0a49745c352f61e8d2b2275cf5e3351c135ef0abb07fe6f7936642c2e3f4c776a49d7e49f7b8681058834f18e0a32fc19fd773589fd7d8374fb379077245b70ea1265f6f8e8eda233f145a9d26772c367b8f66a714659d8bce042392728426e5219bc77e18dec72a82c2e2f99dcfe34456f8c7db80a9b7dbaa780f46370c8c51ccfab1d7f83644cb789a4cdbd957479446fd029506e69a6530b9ffebd218c08b30e", [[], [], [], [], [], []]}, 0x750)
+
+18:56:05 executing program 1:
+r0 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vcs\x00', 0x800, 0x0)
+r1 = syz_open_dev$vcsa(&(0x7f0000000040)='/dev/vcsa#\x00', 0x9, 0xc17db52be8fb20ca)
+write$binfmt_aout(r1, &(0x7f0000000080)={{0xcc, 0x9a, 0x2, 0x293, 0x296, 0x11, 0x127, 0x51}, "0622fbc1d1311cc2570f5123176d14bde9d2371fbc752aaf301b4a3471c6342d6ad4874c668b78558bfabe71a6a2490d17ec6dd9a54df91a66f98eefac2bf7c6c0bacfc31aafde6145e47253df1adf1dbac17163de90c96301a4fc6b95c217f6e526d70e385ce995460d2100932027c5e0ded242786bc077bcdb2a24f76a13970db094da6d1d2138ae10b8427ea03386f4e0489d24f9aee089afdb231fce22e67feb9f984775e37b0b73a7182ba6fd4b9043", [[], [], [], [], [], []]}, 0x6d2)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000000780)={'syz1', "33179967cb3989742b1e354feef6977ed1e799652179236f"}, 0x1c)
+mmap(&(0x7f0000ffc000/0x2000)=nil, 0x2000, 0x1000002, 0x4000010, r0, 0x6efa2000)
+r2 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+write$binfmt_misc(r2, &(0x7f00000007c0)={'syz0', "f5f75e689be936529829591cb79fc0da3069e775a3"}, 0x19)
+syz_open_dev$vcsa(&(0x7f0000000800)='/dev/vcsa#\x00', 0xffffffff, 0x101001)
+mmap(&(0x7f0000ffc000/0x1000)=nil, 0x1000, 0x3, 0x10, 0xffffffffffffffff, 0x1b9d7000)
+r3 = syz_open_dev$vcsa(&(0x7f0000000840)='/dev/vcsa#\x00', 0xae, 0x42100)
+write(r3, &(0x7f0000000880)="a633a25bda783423acfaf2edabfbc42bd493fa07f59c809d97dd8f3cfdb3382911ef1fd37fb86948e33772c815884a20c4352a072101fecb50f0fe4219e372b778fbfad89616313525dbe9fe05993a60c86289d9d5a59e9de4bf39015272d4fa7f27854e584a7a0a0ad40618d4682a0430f2f2c5ea4d82ac3499b3b9c5312ac0aaa9266e05b0916439c04ce2bdcd918e583bb6bd328edbf504b6a4703705f0536553c25c1611a19a90e87da68d6e5cecf17e3c3bf7c6176099333e6ee92b92c5d9c4a5ef5e3e49d1e8efc2ffdc55147730ccbb2f23203104faab0967dd97f2c3f4bcb1845eceeaecc017a787", 0xec)
+r4 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000980)='/dev/vcs\x00', 0x22201, 0x0)
+write$binfmt_elf64(r4, &(0x7f00000009c0)={{0x7f, 0x45, 0x4c, 0x46, 0x40, 0x1b, 0x1, 0x4, 0xda1, 0x2, 0x3, 0x9, 0x3e, 0x40, 0x1a5, 0xd45, 0x6, 0x38, 0x2, 0x81, 0x718, 0x6a6}, [{0x3, 0x1, 0x3, 0x6587, 0x6, 0x3, 0x8, 0x7}, {0x2, 0x57a9, 0x7, 0x0, 0x19ee, 0x9, 0x9, 0x1000}], "c8ee7b4c608f9128674f8e26d47d6615ede682933f3edadf28a366947b3e78de6619658415383ae3f3a7c5a88e8e1038b0d1a3fc1c43489d3c1e5cd5f55a5fdef2041c882707a460d881b842b40239ec959b75163907ec86d8c068de83b8c102fbd3640406f0a784d71f4034d2df7629dc4827c8f18c046ac7ede801f8c8c78b09f774efda88f3235a48c32a317c3d1c222c6836411bba0f88ee8af401d4029bbe691903657d4887c687735a62733ca0e1f772a0dbeaf008f259263c9d2d4417ab814a51dd50123ad151c7a699a5fbc7645e803642613871b3332c87eedb40b7e7ef17e384c0592962532f73f28da1", [[], [], [], [], [], []]}, 0x79f)
+r5 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000001180)='/dev/ttyS3\x00', 0x8000, 0x0)
+write$binfmt_aout(r5, &(0x7f00000011c0)={{0x108, 0x4, 0x2, 0xf7, 0x3de, 0x6, 0xce, 0x77224007}, "86c6b0745736e7c9c7f5e2607ef221f9ec0e73244d285aae223b0916bd22b7f0220666f0142ea68176278c628d76d33a2bf5c2ebfba45d7d67f15a11aed6efe06984b47555ac03ac3259006958cdec380dd1a585dac5ed84791068c55fdb9aa09bab321651c00e7531ed66657277d171263a29aa68f18d71a04a8467d29751b624aa7cd15390da142eb3e37534e2178358d485511b1b2efa66015fa2dd983ba3bf8d28fd5940079b5d3a17f817bd4505e1485ad97e350f45724d84d330d935372136ddc9fc7cf113bebf619e93c2f7d76608f466ec18b79ca3c549f7edbdd5e5386afe91de69737dc3da0a1ab6f65555813b7d09cec4b9e43e", [[], []]}, 0x319)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000001500)='/dev/ptmx\x00', 0x1, 0x0)
+r6 = syz_open_dev$tty1(0xc, 0x4, 0x4)
+write$binfmt_aout(r6, &(0x7f0000001540)={{0x10b, 0x2, 0x5, 0x21f, 0x1b4, 0x8, 0x1e7, 0x7}, "b263ce5c5666391c3be38057de27e710d3d3104a5c03e3bc3b5c03fcfc859b158a752c2e7a7a3524cb777e2df0ec677ffb791d6374cb54f9fb0acd627c9f7963584ae6a2082e21b3906c73af896ec33e", [[], [], [], [], [], []]}, 0x670)
+r7 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000001bc0)='/dev/vcsa\x00', 0x100, 0x0)
+read(r7, &(0x7f0000001c00)=""/4, 0x4)
+
+[   20.274933] audit: type=1400 audit(1586976965.368:12): avc:  denied  { map } for  pid=1602 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+18:56:05 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x4, 0x208080)
+syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0x1ff, 0x20000)
+syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0xfffffffffffffffc, 0x800)
+write(r0, &(0x7f00000000c0)="fd71ace70b98ed679be5b8d30407e3daa124df94dcdeb2d4f9f979cf2364f35d7c9ddc745ee05199fe5d96a303a160fd650622c9269a1f0e65c7ee5338b8012c0ef36bdcc8ff6eeea0af251f4f6222f448a28da52de4a0a6f206aedb4c4155c17ef14ed73882b6fda3945e99a9b5785dc9fc19542e74a3da12b8530dd7079f112964736a4ecde8ed7ff0d9687828a57a828902b5db8e6b96b5dadf4ff9b8aa2d803b7488b8dd8a4f46205aafd4dd6ed38eefdb", 0xb3)
+r1 = syz_open_dev$sg(&(0x7f0000000180)='/dev/sg#\x00', 0x5, 0x101041)
+r2 = openat$ttyS3(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/ttyS3\x00', 0x10000, 0x0)
+write$binfmt_aout(r2, &(0x7f0000000200)={{0xcc, 0x5, 0x21, 0x1ee, 0xc9, 0x81, 0x21b}, "8001098a0939089240b44c12d505e1f47434d2604a16", [[], [], [], [], [], [], []]}, 0x736)
+r3 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000940)='/dev/vcsa\x00', 0x0, 0x0)
+write$binfmt_aout(r3, &(0x7f0000000980)={{0x107, 0xd3, 0x5, 0x1d6, 0x229, 0x6, 0x249, 0x7}, "827928d676ff01f76c4d8d4b4a2fa2a7b2fbb09632f10ef389e50b45986e8be58134f41a65588f60836a1ead640f9da735827db64fc7121a0ed04c6bea32bb2d8bbd5dee977285c9e31b2fa6487466b79402e0f385b5268fe932b476f074c500dc8662c3b1dfe3b6eb1c8c754d878ae3b29d41d545a64a8b0df0bd5ce4acd6c2d788f13ca7ff08a28366e0680c82fc45b3e2807e6cfece14fbda2a2b5293aff374cf958060e604f5bcc269f5ac647ef826490a271ad9cfa84e6c24e3e55e5a40195d0ff602be3aa3a5cef04015026dcc466e771f1d5e60367040682088a3a8c6572136bb10b1d37853bee159302484a605fb4079", [[], [], [], [], []]}, 0x614)
+openat$vcs(0xffffffffffffff9c, &(0x7f0000000fc0)='/dev/vcs\x00', 0xc2881, 0x0)
+r4 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000001000)='/dev/ttyS3\x00', 0x1800, 0x0)
+write$binfmt_aout(r4, &(0x7f0000001040)={{0x108, 0x3, 0x3d, 0x11f, 0x269, 0x8, 0xdd, 0x1}, "30933aca51f10d1a5f86db4236750ad48c06bafeea20cd150fa598eb4f438c9db7d8ebf4522d89def7ee994696d143650d92545cdbd15d03d6ae4cd423ca18e76e8ec0a050fa2a2ed51ce8afc1193a3d85aff2cb739a0333a2b1f828967218323fb2a986fdd784ff471029647123add2a0781a0e39448a51a1662c5e898aa51b82ccf32cd89b0848be7c3d18fbcd0cbc85fd4903b21e56140dfde987263e71f5d27d7bfc01a4b0b2151386300024e255514eb2af8b6f3604", [[], [], [], []]}, 0x4d8)
+r5 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000001540)='/dev/vcsu\x00', 0x80, 0x0)
+write$binfmt_aout(r5, &(0x7f0000001580)={{0xcc, 0x54, 0xff, 0x393, 0x1b5, 0xecf, 0xcb, 0x7}, "7579cf0cac4bf99359b17477390debeadfddab8c5142558210052e9d617b8fcba77cce49fba6705e7a1b10a50d9d370dac4e664545011809826abb8fb84d9fc09a23a69e4a313f9f8306e647bb4a6a703a", [[], []]}, 0x271)
+r6 = syz_open_dev$ptys(0xc, 0x3, 0x1)
+mmap(&(0x7f0000ffe000/0x1000)=nil, 0x1000, 0x0, 0x100010, r6, 0xf381000)
+write$binfmt_elf32(r1, &(0x7f0000001800)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x8, 0xf9, 0x1, 0x80000001, 0x2, 0x3, 0x7fff, 0x224, 0x38, 0x2a6, 0xffff74e1, 0xdca, 0x20, 0x2, 0x4, 0x3, 0xdea2}, [{0x3, 0xbc2, 0x7922, 0x4ea, 0xfff, 0x1000, 0x2, 0x5}, {0x2, 0x0, 0x1, 0x101, 0x10001, 0x8, 0x5ca5, 0x10000}], "a356b007e3a5d65d927ed6419775c6367fb69a5ae1d0ab161c", [[], [], [], [], [], [], [], []]}, 0x891)
+r7 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+read(r7, &(0x7f00000020c0)=""/150, 0x96)
+read(r6, &(0x7f0000002180)=""/222, 0xde)
+
+18:56:05 executing program 2:
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x151080, 0x0)
+ioctl$VT_RESIZE(r0, 0x5609, &(0x7f0000000040)={0x8, 0x1000, 0x1})
+ioctl$VT_RESIZEX(r0, 0x560a, &(0x7f0000000080)={0x4, 0x7, 0x4, 0xe75c, 0x25, 0x92})
+ioctl$VT_RESIZE(r0, 0x5609, &(0x7f00000000c0)={0x6, 0xe3, 0x40})
+r1 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000100)='/dev/vcsu\x00', 0x2400, 0x0)
+ioctl$VT_DISALLOCATE(r1, 0x5608)
+r2 = syz_open_pts(r1, 0x4202)
+syz_open_dev$ptys(0xc, 0x3, 0x0)
+r3 = syz_open_dev$ptys(0xc, 0x3, 0x0)
+write$binfmt_aout(r3, &(0x7f0000000140)={{0xcc, 0x0, 0xff, 0x1fb, 0x1fe, 0x3, 0xc, 0x9c}, "69e6c6fa97ac5532ceb4886ad5a18aca90eac14baa6a60b715c76293a5d9b2893c1ce4755edc983fc8cb9af73587fbe25272f5c3", [[], [], []]}, 0x354)
+ioctl$VT_WAITACTIVE(r0, 0x5607)
+ioctl$VT_RESIZEX(r2, 0x560a, &(0x7f00000004c0)={0xff54, 0x0, 0xc7, 0x5c9d, 0x22})
+r4 = syz_open_dev$ptys(0xc, 0x3, 0x1)
+ioctl$VT_ACTIVATE(r4, 0x5606, 0x4)
+mmap(&(0x7f0000ffe000/0x2000)=nil, 0x2000, 0x8, 0x40010, r1, 0xd8422000)
+ioctl$VT_GETSTATE(r4, 0x5603, &(0x7f0000000500)={0x1, 0x3f, 0x9})
+r5 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000540)='/dev/ttyS3\x00', 0x4000, 0x0)
+syz_open_pts(r5, 0x40)
+r6 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000580)='/dev/ptmx\x00', 0x80000, 0x0)
+ioctl$VT_GETSTATE(r6, 0x5603, &(0x7f00000005c0)={0x8873, 0x7, 0x7})
+
+[   20.349008] cgroup1: Unknown subsys name 'perf_event'
+[   20.351811] cgroup1: Unknown subsys name 'net_cls'
+[   20.359737] cgroup1: Unknown subsys name 'perf_event'
+[   20.362345] cgroup1: Unknown subsys name 'net_cls'
+[   20.381637] cgroup1: Unknown subsys name 'perf_event'
+[   20.383168] cgroup1: Unknown subsys name 'net_cls'
+[   20.401074] cgroup1: Unknown subsys name 'perf_event'
+[   20.412968] cgroup1: Unknown subsys name 'net_cls'
+[   21.053669] audit: type=1400 audit(1586976966.146:13): avc:  denied  { create } for  pid=1610 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   21.062693] audit: type=1400 audit(1586976966.147:14): avc:  denied  { write } for  pid=1610 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   21.071350] audit: type=1400 audit(1586976966.163:15): avc:  denied  { read } for  pid=1610 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   23.099816] audit: type=1400 audit(1586976968.193:16): avc:  denied  { associate } for  pid=1610 comm="syz-executor.0" name="syz0" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+18:56:08 executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0xb5, 0x22001)
+write$binfmt_aout(r0, &(0x7f00000001c0)={{0x0, 0x0, 0x0, 0x182, 0x4000000}, "458ba76785", [[]]}, 0x125)
+write$binfmt_aout(r0, &(0x7f0000000300)={{0x10b, 0x7, 0x3f, 0x2d0, 0x337, 0x200, 0x2fa, 0x8}, "d0d50596c59c715e067547f9b88fbab6422e9691f8a6ad32f27a6012886056fdeed7a535db801e6b760d065df2ad546592f7803cc710835af928b7a34919895a5b5a61d7fbfcff3c960fdca413b8560eccda324637435268bc3ee66d2e47f6a18d888306b04dc5bddc3740ec9f5ae9b0e379efe4db32f1643a6fa1b1fe98a28beb80edf87f1b830fffafda6cc6fe8dd7f3b2606a653807684e7fe067be4071878dba0e65edae000a1307db2f0d192c93a6695c89e271393b331094171d5698d4035ac604dd5fc0", [[], [], [], [], [], [], [], []]}, 0x8e7)
+
+[   23.170417] sg_write: data in/out 350/241 bytes for SCSI command 0x85-- guessing data in;
+[   23.170417]    program syz-executor.0 not setting count and/or reply_len properly
+[   23.177773] sg_write: data in/out 350/241 bytes for SCSI command 0x85-- guessing data in;
+[   23.177773]    program syz-executor.0 not setting count and/or reply_len properly
+18:56:08 executing program 0:
+ioctl$VT_ACTIVATE(0xffffffffffffffff, 0x5606, 0x4)
+r0 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x820002, 0x0)
+r1 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x141402, 0x0)
+read(r1, &(0x7f0000001180)=""/4096, 0x1000)
+write$binfmt_elf64(r0, &(0x7f00000000c0)={{0x7f, 0x45, 0x4c, 0x46, 0x2, 0x7, 0x3f, 0x4d, 0x6c, 0x3, 0x3e, 0x4, 0x27c, 0x40, 0x2d3, 0x0, 0x9, 0x38, 0x2, 0x2, 0x6f8f, 0x4}, [{0x4, 0x15, 0x308, 0x8, 0x100000001, 0xfffffffffffffffe, 0x3b13e908, 0xffffffff}, {0x70000000, 0x5, 0x8001, 0x1f, 0x101, 0xb4b8, 0x8, 0x6}], "", [[], [], [], [], [], []]}, 0x6b0)
+write$binfmt_elf64(r1, &(0x7f00000009c0)=ANY=[@ANYBLOB="7f"], 0x1)
+ioctl$VT_GETMODE(r1, 0x5601, &(0x7f0000000080))
+poll(&(0x7f0000000040)=[{r0}, {r0}], 0x2, 0x101)
+write$binfmt_aout(r0, &(0x7f0000000780)={{0x107, 0x8, 0xbe, 0x247, 0x1a7, 0x0, 0x18a, 0x9}, "b4ccfa2250ae934635204c021c39ec754cc76479a7307edaf3ca17d2b65db7816b9414600c95ba1bc8202094a0308fd12357cc3caed9851901404464d145d61ac219b6883cdaff9a89f7a5097218f4d6238b369a585b335d8568bd6cf7ab50269e", [[]]}, 0x181)
+write$binfmt_aout(r0, 0x0, 0x0)
+
+18:56:08 executing program 2:
+r0 = syz_open_dev$sg(&(0x7f0000000140)='/dev/sg#\x00', 0x6, 0x0)
+r1 = syz_open_dev$sg(&(0x7f00000007c0)='/dev/sg#\x00', 0x0, 0xe0901)
+write$binfmt_aout(r1, &(0x7f0000000280)={{}, "034b24b9a1e8b78ff6a7e8bf7733", [[]]}, 0x12e)
+write$binfmt_aout(r1, &(0x7f0000000280)={{0x10b, 0x20, 0xaf, 0x215, 0x36, 0x3, 0x3e0}, "ba445c082b46185b760baac8016253fc4ef803caa576091d725130916d973a553bd3b6d32ebc26a041040ed70e2abf98fc51b7e0cd012719f095c23aa9b83025f05db0d726339a660dd34e857cbe45090f83b670fdf110", [[], [], []]}, 0x377)
+mmap(&(0x7f0000000000/0x12000)=nil, 0x12000, 0x800005, 0x12, r0, 0x0)
+openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ttyS3\x00', 0x18000, 0x0)
+syz_open_dev$vcsa(&(0x7f0000000000)='/dev/vcsa#\x00', 0x0, 0x40)
+r2 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x820002, 0x0)
+r3 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000080)='/dev/vcs\x00', 0x90400, 0x0)
+ioctl$VT_GETMODE(r3, 0x5601, &(0x7f00000000c0))
+write$binfmt_misc(r2, &(0x7f0000000600)=ANY=[@ANYBLOB="d6d8f3610ed3d4d82ba3995a932d136d7f1a1bb7d43d6d5507f6ba401c061a9443da3f894c5be13406727e922df0c00b35ad90c3f98eae0d2019f2", @ANYBLOB="397a3d0fcebd48885c942e5fdabb8f892bfd582c4105001f8007b73f33ba021807d0bb4b0343e571c8c61c2b93788af3ca270ef7ca03e96a354c5287489e49562769555f48742cd9835d557d6be76d16736561d150699653ceca334504b0a04d4266bf8886425d863de96aaab2ef88649847641e58e26f448aff42ac65acde894a40407d2297ec8f3fb58f6c9b7b95e31a8f804b1daccaaf113f79ddca5ae8ca63cd6ba3711d30bb325081638f40a5eb68a815c507884be6db0385d5aa", @ANYRES16, @ANYRESDEC, @ANYPTR=&(0x7f00000011c0)=ANY=[], @ANYRES16, @ANYRES64, @ANYRESDEC], 0xff6e)
+r4 = syz_open_dev$sg(&(0x7f00000007c0)='/dev/sg#\x00', 0x0, 0xe0901)
+write$binfmt_aout(r4, &(0x7f0000000280)={{}, "034b24b9a1e8b78ff6a7e8bf7733", [[]]}, 0x12e)
+write$binfmt_elf64(r4, &(0x7f0000000800)={{0x7f, 0x45, 0x4c, 0x46, 0x1, 0x8, 0xf9, 0x7f, 0x7, 0x2, 0x3, 0xfff, 0x4b, 0x40, 0x136, 0x81, 0x42, 0x38, 0x1, 0x400, 0x9, 0x1ff}, [{0x7, 0x7, 0x9, 0x8000, 0x5, 0x5, 0x0, 0x2}, {0x6, 0x8, 0x80, 0x8, 0x401, 0x6, 0x8}], "fe093d5dd3466a230cf7b650fd758440c1aea7f8fd25a7ad8bbb1105f05177b0f5ca26ede00cd73285d3b7927a468b52bbdad4e0785067ced745d2980811829e935d61e9f0e9c2fe1dbace011dd9ffe638c361055e05cc91e42c91ccacfe98ab006cd9292189216af93719acc04eb4af4b34d69dad4f8b60d40571c1870b028365b3fa5ac8870a5e314cab823cba614e70dd633169c900900a978ebe736602f2afa8dba11618dcf2adda470198caf55a0708f552aca8891eb139798eb882e08355d3e0e83c673a8d73fa0e88a5144b50c835260db5b21658c7ad0cbd3975a28e46538b44f747074a75504cd82f7a881bb2e8e7d61013819c0fd092ae84c62112ddeb21c68368b0342f8aecf7e2816fcea55b6596a765d779e19c03266fed6076cfa5523aadad7b292e6cb66a171ef84553dda7bbc117f0106a6210c5cd1f62beee9abf005ea0124b9f980e995169e312cc60e975afd60281a48198c583151bd6af9498c8ebf00d238ae9d5c9395cb883235203971f9d44d6b9bb3a724414b9d8c3128e1eb94685e3916c3b6622ebf2cad29d8e275ddbf03300e18b045d98f273f678b7ba4a83ae794d93c60b243bc28c9b8a58bcfb752f29eedb1d47ad8e5b1da34dd5f12e72d5a800c19a5b4ff566605d356b76f843b00e261cc0196d2c58efd1668db75f69bd8b5d4c1757789322abec1e7c832880c4e64dc739b7c1506de3dde2b914cf335385a6e7a90da47cb555ea4fa9d83cf3b88d1b1b2ce527f4f21b3650b28618275ae76ec0671c6e94c1dee2c45ef47cca3d0a6ae705ef98c33aa13c8047ccd9d9738a7a7c0cb1d57b1ff64a827dde4409d1ef1909caab8a8efbe21b0abdbcbc1afa0f785ad2963a0855dd84568d95ed939e99de9beec51bb00cae4d493fe3a4f7cfcaa9714eb4b8d06675b397f2066f21155c2963044477a48a852834867f1020da0eeecfe3a8dd5d7e2a37577d15bf161593a5de5f730abce7c2f975b479461ce028600787dd96613ea75279eb8341b9d2aaae718322675278cc14579034fd03a1e25bd19efcd4cf7bc8cc3598f78160fac822ec0b8abe7b85d254c8bf929c047271c194c9d182b7ab74ebd23466bd595204bf1f76618f85000b28cb37e64077812c8829a4d2f97245bb505c5e68392f8021947b7ea092112308326e08553b8415b35bb6bf356a20deec8a245757e05b76825b0d2b9077f78efde26c490046f43e017a0500ac2dfa5da13d81a065229393dbab7c8141849b7e2582d6903a4369bdcc05940505e413f6608bf50501fb94083a2dba371bd41b8e540f729850a7816cb5f537fd56ad5bb656e512a9355513a17e8f879467bdf9332dbecf206906cd3a9f7c7ba799cfc23f0b14fc0cd3178af29ae49a7accf24f3a01b9e098a4c9c69c6417e9d8a50d591c4a69a37eed10ee37a1c4e6d6fc95c642714183efe37a30d9475ce9f82fc68008215dad85ba08cb2d614ddfdc7660ddd44ec2c1c462d9930253c6597ac556f6e65d4194413029f086a748484311fe51611722de14bdd1f7bade6dabd3f734b5bd1026aef131d6006a637b946e8186d703bcce4438278b33e01c6a041ad00d2d4c784c8b4486f4ff82591ca6eb27a11f1693f2ef08b88d7c7b029c1299f0d6457a61e9e0cb0d05817427b30b839ec81fb432e0d3c2dfdb6e1e82b7396c0d97f311d9d78d50dc5a787086bebfe388e5a93dd161a3cf664f4f231ad9621dcf6f13d6b7844c640efda466183b6b41c249dc708d5554dfb0cbe7549c0b324f329c58c4ed99abe607c6df23c5c71c2d4f4998de447ef0228f0deafc2570a78eb45913f179c9bf98aff990c47f25bc5d02ecae4301961127cbd7e8f48e69d5bc72d89e8426c8ae44051cac3db0c4497ce117cec2fab5d1c83f33cad3e178e74517e1791a2d4cbbd5961ecbc0ddca78369172ba8711d8e6408d3548722cf84466f039314cee8e03abf680dd38a03ce065aa550e387543847184fd752b0b82c078e59ae7db67f0505841e70d9d107e1ab32b01fa4daccff23607911a34cfde7341edbea70b3f56372aa33b51f1798fe2cae40425f1f445218e97d19879ea8bbe6c1082424a7b520108f1fae32bce975aa3a16aee38598e1486a877ba706cad417026d63f3cfc835b56db45d3228156424e244e2badd45f32fc8e88329419fdc472dbab00efc456282677a3af698cad050e4cae8c41b049e9299f7c332f41facd552dc52cba58fda2e53f56ca82d829e3a1aec2129f3e0660520eccb810559a9def893a34192b9d34bed82d6a6c97c74fe3dade23eb5cb13c9e4fc7f8121dc7c3a8fd127adbe5bf5ea1485963aabf0bd4bbc6ce0d800eb05366848a8230fff9b6a6bca03b6c7a0985b49b75831d7453c5d27637fcfefe45050e2939a2eb0bbc5111e7e0be0a745ac1230d07fc7daf644cf4c7c4c163d9838f5eb6d61c6e5c7eaab2d811519d3d7f89a7829653f2969177e60d3098d53c6b5aba966e75e5c7e1304b7ae7e44f223a59218c29ebe2237831df39458b721dcf463a32496456d9bbc24fe5185f048561af0e5606f9b852d8e04d5784e8d25068258f76c7c6c942eecad47d608444c5fcaef72643e34c6aac3c909f0a36b90faddd53b126ab668e0b78163e07870039e9ed6719edf07dd871c8ec38221979971cbfc3ccc32990dd3e56043deed09db41b4aeb98e08b7738d924c694ac557c71f7e62978314ef11395c8479464533448bcf5598231c732f5487598be8a6236214bd2c4e8664864955b99ddb3f0522a4bb91a9b2cf5fa7fb683f2e384a168d0e35a9b4f5956792976f4ca3d2df811b0f1dd2e86df940fbcaa3de45408e64ac6e1c2f10ea5f8c25e7457095c81f50cffc58dc39ca2a30c8663e1945c4c7434901f147161b3a65dbbc096b91f9de050cac955fae976843bdee5bb86a6540b095349a6ef46e0ef80e4441145f1cf9acf64255171178959f294609d926c3e6c99ddd2da83566fe1b34ffaac1d6267df47323d6b03b89884482dbcd1599d6469b55c5f6be67bf04b82097b9de3a3973911decfc04237677b2cb63de24da3b2ca2f80e79d45e967cc0fcc72062f528bc066ad7914dc258042b4271af637760aa704913ba90f03253a421ccc9237ffd3f2a38ed4560aabf153d2df2ce53f73bbd7dcaedb87586a63240817477a2cf0f5ff7d4e8f41fbe3a9bd0039344ab0910c3b7920604543b31061c50eb661e3a0f44453c4d066768c84281536b23a2a80937df30a44ca9bedd6448f1742b5f37c3d0b7ea9ebe1387e68af240d200d8b80e45f432a4e58b4b0c092f2975c8f6e5eb8a5a847d3d34e72dd34e11675bbf75321686f0ccf800c0786ff3fb97591e80d5322bcbb182cfb0f7f5ac3d7c82b8b56a7f251640183a63602fcda22e87e213fb5c46d3abd0f7a3c82e904d4e25bea3b27800c6146f54fb8ff2d456fa508b6cb03370ef57d95956c2c4b197a79ae96ce5cc17a765b57678e4c2ba84232930d757e91a73d7b291128f115b81b8e957f7021ed6c3baa9419d66e1be3b01e82e97d618b7590ca2572f04aee9c41f16c40c09c4b7bee45766b7415f7ae13cefc9244f55f70c2dd559ec6e4d894bb572bfaa22b567a7510a22a5ff2cc8dab924b17dd71e5a73ec45f66c7e2d1c4469b3598771da5db6203863091d4e2d89a02ea4bb979f50f35077dde9345cf4e9dd440e37744026b8a09c4e1f36b9f93566e7e1879482d673599921daeaa9285a29b0aed358188b3dbd0898dafb6dd16846d824a2837f8bd1abafb6c1cba3ddbc0de6e25754abe17b7e1ad565a2c02cd49e5274cbad5f7e431b2b80dd911f1c2a60d3774f5379c15e1cf00eb044ddf9b13269610fdaea3f3b7e15f10ff12955865138b3071df33ed07a961a50174741f33b8713817aa32cb3bfbeccc80529bd221926c269c47910c5c2e0f0edabd59bb0e4721becb8103f8f502229cebb7c91ec90a06739cebfaf1ac6bec59c40027f5614e8f2bcd95cee44fcb1a4e1cb2c5acb991d2bfd2b54d9483c51dc9c9ecebe80cc0c7258d769bf36ba3ff6ad94ed41c0de5b27c57f5f315707a4b30eef50ade04ffb8e0d7bb98c73cf08051651c80d5459098feacf63b38ac00347ff4f33aaac7588e862b4000319ebd0807f65fdaeb3692f9022f887b230b736eac2daeadd537504ccddd1af305eb8a2f1f338e0d194205dd7a6e224503b4b2bfbf93d850ab3838f544c818f3582d0ecb0f6b5f11b6633fb1edb8f0ff08f43b879512fcedb741e434cbe5354c6eab16239e27eb7948018fa3ad6098b69412314ba5cbae970a772a493729d3568689f1c37c3a26d6d434bcdef01b8dfb79544c6ab0e817600b505d177bf22d93386cd57c154bdab94283f6cd004dba010a8fe4e4f1bc379675cb3c7a4f215e2bdd5ea8380d13b8892cda780088c2d9f28938e20f747fd1fde8eb0a77f771b666b5f2c6191115c689c53630f95a0b2e360dd7de1bdf4432aa2c6891a7766f919e7afd0c66fc62c5b88046fcf006a4d01c623524ed9adcd93875ed21ddb37c2497b02b885102f1fcfc4aaa7833c312e0867d0fb06c238ad2226487c11d56c39c8a7a9c47cf6d6a255ef34742262bc650cbcf28b69c7ac549759524e58ada24b0ad1ac2f0a7a34f50d8ae95b009aa15a44d034f586d7eca2ab8c32e29dc5d82577de846ca3e24b6bd703e17af9e3f6fc6e8375689ddc8ca1ac1e9fbcbcddc9ebe80b35ab35c69c37e6fc51fdc8d895a261b9ae1cd7a7d8ac0f9edfaf42ee5aa80863d067cb065435809b70838621696b36a870c6eb713ca6d749773fb36cc09c6d2e78c5b7efa2b48efc7f3f17d14e36ca71220df20dd123cbbea13c55cc7f0da1385d8f22d379209df63bd3a517a2cbc2621401ad530e94dadc4410e227e7d3fc48806348fc7e8b0f5455ba09d34a86f39082b76b940f7fbdb014a63590b7faaa7c26d8f01d23f0ba868f420c0c94dffd5377ad1c6c361a4d0264bd6c8516cc7826a8c30bd92d9a034ab271ee8b9629fd3b98d319cd452fc2510fee27de6c408aa388e7f78a00dd844fbc80ca44b7fc75a319a068ad2fc0769a9760df46757621e154621994928dbd12429acb885cc9dc775eee2486f66b136b1a954a873bea794c6b1056ca2680408fb7c9ea18e7d6114996e51217b13db6281e1526f8ceaec3af479d0ebf23aa141a95451eb5159043f2634f60b67128b5440240b6d704276a414e89cf56cb7cc7f3fe0e1c6a981f1e5a269bce3ea6e287faba0388a72d8579a84ca7928e9e87279883c4296e5576fc9fd6a15a80e98e699e14fd3970eeb0e242cce4488ce0780c1113143bd653ab5b77fa1886f4505e93811f99c962f5bec79d243e1cd2988192516223cdc6d22892ab78f7aca996c121622cd05d165ddfa50ff42df338dd14e47cf8832a68fc64b86b9e8faa203732f3cccbde56367e70942f6786a73f4f75afbb0eb9c39bab7233247cbe29c5f929d71f60ab387dc367ab88a66968597bf3e5fcb61b2febd170babe41f1e8436cc21c7372459fb24e5fa495b64ad75d83984197a308091df53d224907d5798b50cfb8a3c74212d8a10dab89ad99060cee58150741db194c7965d1186e2621a7f2cb0b97a330fc67129082eeb1e1a22274278df87e3034f212643dfa6f3818df3565c09ed84730ea0ab29575558e910d35788ad8dd2cde77a7b9321450bee229a0bc36bd5d78d0bad404d3b8f72cec0014fe44df64b4b16c2ec810dbaec1811b67736de662445ba5aace61130eb1e41b34a625771c26a3a7ad417027b75fb", [[], [], [], [], [], [], []]}, 0x17b0)
+r5 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x141402, 0x0)
+write(r5, &(0x7f0000000180)="a87a01bc8804b8d3102114676b0a9d554c681cac1d878e87d4b1bb31919276020ae41905e1c2b25c890158b01e9039939b0e370a1c276a9a38c7f10460c6461fcf866d4beb40f114c7ac037862d5d3258627ec82896b2ba6c3630dc290d3bdefef21e5761c9b264b3274b70580fd527514b74bf18c38ea873bfd6d8fc3cb3f84a3ad00", 0xfef6)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x107a82, 0x0)
+
+[   23.409318] audit: type=1400 audit(1586976968.502:17): avc:  denied  { map } for  pid=3425 comm="syz-executor.1" path="/dev/vcs" dev="devtmpfs" ino=1049 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:device_t:s0 tclass=chr_file permissive=1
+18:56:08 executing program 3:
+syz_open_dev$sg(&(0x7f0000002040)='/dev/sg#\x00', 0x0, 0x0)
+r0 = syz_open_dev$ttys(0xc, 0x2, 0x0)
+ioctl$VT_OPENQRY(r0, 0x5600, &(0x7f0000000200))
+r1 = syz_open_dev$sg(0x0, 0x0, 0x0)
+r2 = syz_open_dev$sg(0x0, 0x0, 0x0)
+mmap(&(0x7f0000c26000/0x3000)=nil, 0x3000, 0x0, 0x13, r2, 0x0)
+mmap(&(0x7f0000ffa000/0x2000)=nil, 0x2000, 0x0, 0x12, r1, 0x0)
+r3 = syz_open_dev$sg(&(0x7f00000007c0)='/dev/sg#\x00', 0x0, 0xe0901)
+syz_open_dev$sg(&(0x7f0000000240)='/dev/sg#\x00', 0x7fff, 0x800)
+write$binfmt_aout(r3, &(0x7f0000000280)={{}, "034b24b9a1e8b78ff6a7e8bf7733", [[]]}, 0x12e)
+read(r3, &(0x7f0000000000)=""/183, 0xb7)
+mmap(&(0x7f0000ffe000/0x1000)=nil, 0x1000, 0x0, 0x12, r1, 0x0)
+r4 = syz_open_dev$sg(0x0, 0x0, 0x0)
+mmap(&(0x7f0000ffa000/0x3000)=nil, 0x3000, 0x0, 0x12, r4, 0x0)
+write$binfmt_misc(r1, &(0x7f00000000c0)={'syz1', "daf66620d6ace78788343abde72a0f4724a9153423797ef25b85b4b16c17914a93742c642b224bf217a5c0ff5229cf6f7081b3d47cbda997bff1f016508c5b8d527678bcaf003a6e4f16b228ae9086d865d9a6cf4a3c4aa19990624f12c6df2c7113d3a5c18ad0ec74911f07d491094c8dcea7f310c71e966c65fafcc3b030bf98e434da0b3c177270ee20949c8aaaf1c0ddc1574519160ba920043d992413171b2ee9dffaf2c68e8a73ce339a80184f81f24704fae4338fe1b75266dc583c4da684c3ff737790f300a461d75d1618f45bf4c59bf10a4779d6214490e28143e0bb875e04bbccfc9277b05228908f8c0fe6c320e1b1f3b6b807600fd802"}, 0x101)
+
+18:56:08 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000140)='/dev/sg#\x00', 0x6, 0x0)
+mmap(&(0x7f0000000000/0x12000)=nil, 0x12000, 0x800005, 0x12, r0, 0x0)
+syz_open_dev$vcsa(&(0x7f0000000000)='/dev/vcsa#\x00', 0x0, 0x40)
+r1 = syz_open_dev$sg(0x0, 0x0, 0x187e82)
+r2 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x20c0, 0x0)
+write(r2, &(0x7f00000000c0)="b63c9edac78e9443c91e6f102a5c75d95f94832e242cb58d504ea42408ffff661c3ed359efc94c2c38e968c08c62c97da1c4b980e8bb0b0400310000003c302b8abb369edf76c14cf4c8aa519a9b7d44518833de670459764fec0ffcffb1956526729a4f9aad5c996c54dc45d199159016bd31d8bbba96de79b94bda73", 0xfffffc68)
+r3 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x141402, 0x0)
+read(r3, &(0x7f0000001180)=""/4096, 0x1000)
+write$binfmt_elf64(r3, &(0x7f00000009c0)=ANY=[@ANYBLOB="7f"], 0x1)
+r4 = syz_open_pts(r3, 0x200)
+read(r4, &(0x7f0000000340)=""/4096, 0x1000)
+write$binfmt_misc(r1, &(0x7f0000000300)={'syz0'}, 0xfec9)
+mmap(&(0x7f0000008000/0x3000)=nil, 0x3000, 0x0, 0x13, r0, 0x0)
+r5 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000000)='/dev/ptmx\x00', 0x141402, 0x0)
+write(r5, &(0x7f00000000c0)="b63c9edac78e9443c91e6f102a5c75d95f94832e242cb58d504ea42408ffff661c3ed359efc94c2c38e968c08c62c97da1c4b980e8bb0b0400310000003c302b8abb369edf76c14cf4c8aa519a9b7d44518833de670459764fec0ffcffb1956526729a4f9aad5c996c54dc45d199159016bd31d8bbba96de79b94bda73", 0xfffffc68)
+syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0x2, 0x801)
+
+[   23.462660] Kernel panic - not syncing: Found leaking site of vc_data and inode
+[   23.464745] CPU: 1 PID: 3426 Comm: syz-executor.1 Not tainted 5.5.3 #19
+[   23.466499] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   23.471692] Call Trace:
+[   23.472821]  dump_stack+0x195/0x1fe
+[   23.474595]  ? log_buf_vmcoreinfo_setup+0x12c/0x12c
+[   23.477189]  ? show_regs_print_info+0x12/0x12
+[   23.479431]  ? __alloc_pages_nodemask+0x38f/0x780
+[   23.481541]  panic+0x201/0x64d
+[   23.482926]  ? _raw_spin_lock+0x170/0x170
+[   23.484681]  ? 0xffffffff97000000
+[   23.486165]  ? nmi_panic+0x73/0x73
+[   23.487617]  ? do_syscall_64+0xa5/0x130
+[   23.489309]  ? is_console_locked+0x5/0x10
+[   23.491425]  ? vcs_size+0x239/0x390
+[   23.493221]  vcs_read+0x746/0x900
+[   23.494872]  ? vcs_lseek+0x90/0x90
+[   23.496634]  __vfs_read+0xff/0x770
+[   23.498531]  ? rw_verify_area+0x290/0x290
+[   23.500870]  ? __fsnotify_parent+0xcc/0x290
+[   23.503139]  ? __fsnotify_parent+0x290/0x290
+[   23.505436]  ? fget_many+0x20/0x20
+[   23.506981]  ? put_timespec64+0xf6/0x140
+[   23.508862]  ? security_file_permission+0x193/0x2b0
+[   23.511311]  vfs_read+0x102/0x300
+[   23.513014]  ksys_read+0x134/0x230
+[   23.514746]  ? vfs_write+0x440/0x440
+[   23.516449]  ? fpregs_assert_state_consistent+0x8a/0xb0
+[   23.518882]  do_syscall_64+0xa5/0x130
+[   23.520576]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   23.522919] RIP: 0033:0x467519
+[   23.524329] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   23.534027] RSP: 002b:00007fed66d79c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   23.537728] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   23.541203] RDX: 0000000000000004 RSI: 0000000020001c00 RDI: 0000000000000009
+[   23.544651] RBP: 00007fed66d7a6bc R08: 0000000000000000 R09: 0000000000000000
+[   23.548107] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   23.551592] R13: 0000000000000873 R14: 00000000004c8399 R15: 0000000000701660
+[   23.555578] Dumping ftrace buffer:
+[   23.557285]    (ftrace buffer empty)
+[   23.559113] Kernel Offset: 0x16000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   23.564300] Rebooting in 1 seconds..

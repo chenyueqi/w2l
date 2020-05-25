@@ -1,0 +1,33 @@
+Kernel panic - not syncing: Found leaking site of sg_header
+CPU: 0 PID: 2946 Comm: syz-executor.3 Not tainted 5.5.3 #21
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+sd 0:0:0:0: [sg0] tag#0 FAILED Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK cmd_age=0s
+sd 0:0:0:0: [sg0] tag#0 CDB: Volume set (in), Read cd
+ panic+0x201/0x64d kernel/panic.c:221
+sd 0:0:0:0: [sg0] tag#0 CDB[00]: be f4 a9 0d 5d 4e ff 50 cf fd e8 bf 52 38 68 19
+ sg_read+0x1a80/0x1a80 drivers/scsi/sg.c:527
+sd 0:0:0:0: [sg0] tag#0 CDB[10]: 83 2f da 34 3d 43 08 23 e5 e3 c9 98 75 61 2b 98
+sd 0:0:0:0: [sg0] tag#0 CDB[20]: 11 89 f0 63 82 1c 86 0a 49 08 1d 03 3b fb fc 96
+ __vfs_read+0xff/0x770 fs/read_write.c:425
+sd 0:0:0:0: [sg0] tag#0 CDB[30]: 35 35 2a 0d ac 37 0f f7 b6 32 e0 5c 18 55 06
+ vfs_read+0x102/0x300 fs/read_write.c:461
+ ksys_read+0x134/0x230 fs/read_write.c:587
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+sd 0:0:0:0: [sg0] tag#0 FAILED Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK cmd_age=0s
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f24f0029c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 000000000000006b RSI: 0000000020000280 RDI: 0000000000000003
+RBP: 00007f24f002a6bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+sd 0:0:0:0: [sg0] tag#0 CDB: Volume set (in), Read cd
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x11400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

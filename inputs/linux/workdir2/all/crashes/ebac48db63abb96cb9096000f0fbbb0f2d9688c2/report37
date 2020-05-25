@@ -1,0 +1,36 @@
+SELinux: unrecognized netlink message: protocol=0 nlmsg_type=512 sclass=netlink_route_socket pig=4548 comm=syz-executor.2
+------------[ cut here ]------------
+SELinux: unrecognized netlink message: protocol=0 nlmsg_type=512 sclass=netlink_route_socket pig=4553 comm=syz-executor.2
+Found allocation of tcp_fastopen_context
+WARNING: CPU: 0 PID: 4554 at net/ipv4/tcp_fastopen.c:76 tcp_fastopen_reset_cipher+0x2a/0x2b0 net/ipv4/tcp_fastopen.c:76
+Modules linked in:
+CPU: 0 PID: 4554 Comm: syz-executor.0 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:tcp_fastopen_reset_cipher+0x2a/0x2b0 net/ipv4/tcp_fastopen.c:76
+Code: 55 41 57 41 56 41 55 41 54 53 50 49 89 cd 48 89 d3 49 89 f6 48 89 fd e8 d4 2e 14 fe 48 c7 c7 1f 6e cb aa 31 c0 e8 66 9f ed fd <0f> 0b 48 c7 c0 60 1e cd aa 48 c1 e8 03 49 bf 00 00 00 00 00 fc ff
+RSP: 0018:ffff888067d4fcc0 EFLAGS: 00010246
+RAX: ea05514f9d9e0800 RBX: ffff888067d4fe00 RCX: ffffc90000533000
+RDX: ffffffffa7c00000 RSI: 0000000000000304 RDI: 0000000000000305
+RBP: ffff8880527f0f40 R08: dffffc0000000000 R09: ffffed100da442d4
+R10: ffffed100da442d4 R11: 0000000000000000 R12: 0000000020000000
+R13: 0000000000000000 R14: ffff88806c43c800 R15: ffff888067d4fe00
+FS:  00007f1a02a3d700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffd89338ce0 CR3: 000000006c474003 CR4: 00000000001606f0
+Call Trace:
+ do_tcp_setsockopt+0x34d/0x2620 net/ipv4/tcp.c:2860
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1a02a3cc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000021 RSI: 0000000000000006 RDI: 0000000000000003
+RBP: 00007f1a02a3d6bc R08: 0000000000000010 R09: 0000000000000000
+R10: 0000000020000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000b0e R14: 00000000004d6018 R15: 0000000000701660
+---[ end trace 15d117960881436e ]---

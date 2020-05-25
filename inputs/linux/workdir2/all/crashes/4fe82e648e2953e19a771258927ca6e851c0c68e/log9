@@ -1,0 +1,278 @@
+Warning: Permanently added '[localhost]:45506' (ECDSA) to the list of known hosts.
+[   19.249986] audit: type=1400 audit(1586565662.083:11): avc:  denied  { map } for  pid=1584 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/11 00:41:02 fuzzer started
+2020/04/11 00:41:02 dialing manager at 10.0.2.10:42260
+2020/04/11 00:41:02 syscalls: 468
+2020/04/11 00:41:02 code coverage: enabled
+2020/04/11 00:41:02 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/11 00:41:02 extra coverage: enabled
+2020/04/11 00:41:02 setuid sandbox: enabled
+2020/04/11 00:41:02 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/11 00:41:02 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/11 00:41:02 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/11 00:41:02 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/11 00:41:02 net packet injection: /dev/net/tun does not exist
+2020/04/11 00:41:02 net device setup: enabled
+2020/04/11 00:41:02 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/11 00:41:02 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/11 00:41:02 USB emulation: /dev/raw-gadget does not exist
+00:41:05 executing program 0:
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+ioctl$sock_SIOCSIFVLAN_DEL_VLAN_CMD(r0, 0x8983, &(0x7f0000000000)={0x1, 'veth1_to_batadv\x00', {}, 0xec80})
+r1 = accept$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x0, @broadcast}, &(0x7f0000000080)=0x10)
+ioctl$void(r1, 0x5451)
+ioctl$sock_SIOCGSKNS(r1, 0x894c, &(0x7f00000000c0)=0x6)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$IP_VS_SO_GET_DAEMON(r2, 0x0, 0x487, &(0x7f0000000100), &(0x7f0000000140)=0x30)
+r3 = socket$inet6_udplite(0xa, 0x2, 0x88)
+ioctl$ifreq_SIOCGIFINDEX_vcan(0xffffffffffffffff, 0x8933, &(0x7f0000000180)={'vxcan0\x00', <r4=>0x0})
+getsockopt$inet_IP_XFRM_POLICY(r1, 0x0, 0x11, &(0x7f00000001c0)={{{@in=@empty, @in=@dev, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r5=>0x0}}, {{@in=@dev}, 0x0, @in=@multicast1}}, &(0x7f00000002c0)=0xe8)
+setsockopt$inet6_IPV6_XFRM_POLICY(r3, 0x29, 0x23, &(0x7f0000000300)={{{@in6=@remote, @in6=@empty, 0x4e22, 0x8, 0x4e21, 0x1, 0xa, 0x20, 0x20, 0x0, r4, r5}, {0x8000, 0x7, 0x8, 0x4, 0x9, 0x6897, 0x1, 0xda6}, {0x80000000, 0x3, 0x40, 0x81}, 0x8, 0x0, 0x0, 0x1, 0x0, 0x1}, {{@in6=@mcast1, 0x4d5, 0x6c}, 0xa, @in6=@local, 0x0, 0x1, 0x1, 0x2, 0x9, 0x7, 0x7}}, 0xe8)
+ioctl$sock_inet6_udp_SIOCOUTQ(0xffffffffffffffff, 0x5411, &(0x7f0000000400))
+r6 = socket(0x2e, 0x80000, 0x6)
+ioctl$ifreq_SIOCGIFINDEX_team(0xffffffffffffffff, 0x8933, &(0x7f0000000500)={'team0\x00', <r7=>0x0})
+setsockopt$inet_mreqn(r6, 0x0, 0x20, &(0x7f0000000540)={@rand_addr=0x6, @multicast2, r7}, 0xc)
+setsockopt$inet_tcp_TCP_REPAIR_WINDOW(r6, 0x6, 0x1d, &(0x7f0000000580)={0xfffffff7, 0x5, 0x3, 0x7fff, 0xff}, 0x14)
+r8 = socket$inet_udplite(0x2, 0x2, 0x88)
+r9 = socket$inet_icmp(0x2, 0x2, 0x1)
+connect(r8, &(0x7f00000005c0)=@pppol2tpv3={0x18, 0x1, {0x0, r9, {0x2, 0x4e23, @remote}, 0x1, 0x4, 0x2}}, 0x80)
+ioctl$sock_inet6_udp_SIOCINQ(0xffffffffffffffff, 0x541b, &(0x7f0000000700))
+
+00:41:05 executing program 1:
+r0 = accept$packet(0xffffffffffffffff, &(0x7f0000000000)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @link_local}, &(0x7f0000000040)=0x14)
+getsockopt$packet_int(r0, 0x107, 0x12, &(0x7f0000000080), &(0x7f00000000c0)=0x4)
+r2 = accept(0xffffffffffffffff, &(0x7f0000000540)=@ipx, &(0x7f00000005c0)=0x80)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r0, 0x8933, &(0x7f0000000600)={'batadv0\x00', <r3=>0x0})
+setsockopt$packet_drop_memb(r2, 0x107, 0x2, &(0x7f0000000640)={r3, 0x1, 0x6, @link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0x1}}, 0x10)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(r2, 0x10e, 0x1, &(0x7f0000000680)=0x1, 0x4)
+r4 = socket$packet(0x11, 0x3, 0x300)
+ioctl$FS_IOC_GET_ENCRYPTION_POLICY(r4, 0x400c6615, &(0x7f00000006c0)={0x0, @aes128})
+r5 = socket(0x5, 0xa, 0x10000)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r5, 0x8933, &(0x7f0000000700)={'wg2\x00', r1})
+r6 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCGIFCONF(r6, 0x8912, &(0x7f00000007c0)=@req={0x28, &(0x7f0000000780)={'vlan0\x00', @ifru_settings={0x3, 0x8ca, @cisco=&(0x7f0000000740)={0x2, 0x2}}}})
+pipe(&(0x7f0000000800)={<r7=>0xffffffffffffffff, <r8=>0xffffffffffffffff})
+getsockopt$inet6_buf(r7, 0x29, 0x1c, &(0x7f0000000840)=""/22, &(0x7f0000000880)=0x16)
+sendmsg$NFT_MSG_GETCHAIN(r8, &(0x7f0000000980)={&(0x7f00000008c0)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000940)={&(0x7f0000000900)={0x20, 0x4, 0xa, 0x5, 0x0, 0x0, {0x2, 0x0, 0x7}, [@NFTA_CHAIN_HANDLE={0xc, 0x2, 0x1, 0x0, 0x1}]}, 0x20}, 0x1, 0x0, 0x0, 0x40488c4}, 0x4000000)
+socketpair(0xb, 0x5, 0x0, &(0x7f00000009c0)={<r9=>0xffffffffffffffff})
+sendmsg$IPCTNL_MSG_CT_DELETE(r9, &(0x7f0000000b00)={&(0x7f0000000a00)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f0000000ac0)={&(0x7f0000000a40)={0x50, 0x2, 0x1, 0x204, 0x0, 0x0, {0x1}, [@CTA_TUPLE_MASTER={0x3c, 0xe, 0x0, 0x1, [@CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x21}}, @CTA_TUPLE_IP={0x2c, 0x1, 0x0, 0x1, @ipv6={{0x14, 0x3, @dev={0xfe, 0x80, [], 0x12}}, {0x14, 0x4, @local}}}]}]}, 0x50}, 0x1, 0x0, 0x0, 0x24004090}, 0x4004800)
+getsockopt$IPT_SO_GET_INFO(r2, 0x0, 0x40, &(0x7f0000000b40)={'filter\x00'}, &(0x7f0000000bc0)=0x54)
+r10 = accept$inet(0xffffffffffffffff, &(0x7f0000000c00)={0x2, 0x0, @remote}, &(0x7f0000000c40)=0x10)
+ioctl$sock_inet_SIOCSIFPFLAGS(r10, 0x8934, &(0x7f0000000c80)={'netdevsim0\x00', 0x6570})
+
+00:41:05 executing program 3:
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+getsockopt$inet_mreqsrc(r0, 0x0, 0x3, &(0x7f0000000000)={@local, @broadcast, @local}, &(0x7f0000000040)=0xc)
+socketpair(0x5, 0x80000, 0x6, &(0x7f0000000140)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+sendmsg$AUDIT_MAKE_EQUIV(r1, &(0x7f0000000240)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f0000000200)={&(0x7f00000001c0)={0x28, 0x3f7, 0x10, 0x70bd27, 0x25dfdbfd, {0x7, 0x7, './file0', './file0'}, ["", ""]}, 0x28}, 0x1, 0x0, 0x0, 0x40000}, 0x0)
+setsockopt$inet6_tcp_TCP_FASTOPEN_KEY(0xffffffffffffffff, 0x6, 0x21, &(0x7f0000000280)="01f367400424a1a78488989c92a11c83", 0x10)
+r2 = socket(0x1f, 0x1, 0x31)
+sendmsg$NFNL_MSG_CTHELPER_DEL(r2, &(0x7f0000000500)={&(0x7f0000000380)={0x10, 0x0, 0x0, 0x400}, 0xc, &(0x7f00000004c0)={&(0x7f00000003c0)={0xc8, 0x2, 0x9, 0x300, 0x0, 0x0, {0x7, 0x0, 0x9}, [@NFCTH_POLICY={0xc, 0x4, 0x0, 0x1, {0x8, 0x1, 0x1, 0x0, 0x5}}, @NFCTH_TUPLE={0x48, 0x2, [@CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x2f}}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x2f}}, @CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @loopback}, {0x8, 0x2, @dev={0xac, 0x14, 0x14, 0xf}}}}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x2f}}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x88}}]}, @NFCTH_POLICY={0xc, 0x4, 0x0, 0x1, {0x8, 0x1, 0x1, 0x0, 0x4}}, @NFCTH_STATUS={0x8, 0x6, 0x1, 0x0, 0x1}, @NFCTH_POLICY={0xc, 0x4, 0x0, 0x1, {0x8, 0x1, 0x1, 0x0, 0x7}}, @NFCTH_PRIV_DATA_LEN={0x8, 0x5, 0x1, 0x0, 0x19}, @NFCTH_TUPLE={0x10, 0x2, [@CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x1}}]}, @NFCTH_TUPLE={0x10, 0x2, [@CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x21}}]}, @NFCTH_TUPLE={0x18, 0x2, [@CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @broadcast}, {0x8, 0x2, @local}}}]}]}, 0xc8}, 0x1, 0x0, 0x0, 0x48001}, 0x80)
+getsockname(0xffffffffffffffff, &(0x7f0000000540)=@pppol2tp={0x18, 0x1, {0x0, <r3=>0xffffffffffffffff, {0x2, 0x0, @broadcast}}}, &(0x7f00000005c0)=0x80)
+setsockopt$inet6_icmp_ICMP_FILTER(r3, 0x1, 0x1, &(0x7f0000000600)={0x4}, 0x4)
+r4 = socket(0xa, 0x5, 0x8)
+ioctl$FS_IOC_SETVERSION(r4, 0x40087602, &(0x7f0000000640)=0x3ff)
+ioctl$FS_IOC_GETVERSION(0xffffffffffffffff, 0x80087601, &(0x7f0000000680))
+r5 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_NAME_TYPE_CMD(r5, 0x8983, &(0x7f00000006c0)={0x6, 'bond0\x00', {0x7ff}, 0x1})
+ioctl$sock_inet_SIOCGIFBRDADDR(r0, 0x8919, &(0x7f0000000700)={'macvtap0\x00', {0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x1c}}})
+setsockopt$sock_linger(r2, 0x1, 0xd, &(0x7f0000000740), 0x8)
+r6 = socket$inet6_udp(0xa, 0x2, 0x0)
+ioctl$sock_inet6_udp_SIOCOUTQ(r6, 0x5411, &(0x7f0000000780))
+setsockopt$inet6_MCAST_MSFILTER(0xffffffffffffffff, 0x29, 0x30, &(0x7f00000007c0)={0x3, {{0xa, 0x4e20, 0x2, @dev={0xfe, 0x80, [], 0x37}, 0x2}}, 0x1, 0x6, [{{0xa, 0x4e24, 0x80, @local, 0xfffffeb2}}, {{0xa, 0x4e22, 0x5, @rand_addr="10d414d0abfd9b3fdb9fcd2a70a97c77", 0x1ff}}, {{0xa, 0x4e24, 0x8000, @initdev={0xfe, 0x88, [], 0x0, 0x0}, 0x40}}, {{0xa, 0x4e21, 0x9c, @empty, 0xffffff80}}, {{0xa, 0x4e21, 0x8, @dev={0xfe, 0x80, [], 0x1b}, 0xf5}}, {{0xa, 0x4e22, 0x7fffffff, @loopback, 0x20}}]}, 0x390)
+getsockopt$inet_udp_int(0xffffffffffffffff, 0x11, 0x6d, &(0x7f0000000b80), &(0x7f0000000bc0)=0x4)
+
+00:41:05 executing program 2:
+r0 = socket$netlink(0x10, 0x3, 0xe)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000040)={<r1=>0x0}, &(0x7f0000000080)=0xc)
+ioctl$sock_FIOGETOWN(0xffffffffffffffff, 0x8903, &(0x7f0000000240)=<r2=>0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000280)={{{@in=@initdev, @in6=@local, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in=@local}, 0x0, @in6=@mcast1}}, &(0x7f0000000380)=0xe8)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f00000003c0)={0x0, 0x0, <r4=>0x0}, 0xffffffffffffffff)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000400)={<r5=>0x0}, &(0x7f0000000440)=0xc)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, &(0x7f0000000480)={{{@in=@initdev, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r6=>0x0}}, {{@in=@multicast1}, 0x0, @in6=@loopback}}, &(0x7f0000000580)=0xe8)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f00000005c0)={0x0, 0x0, <r7=>0x0}, &(0x7f0000000600)=0xc)
+socketpair$nbd(0x1, 0x1, 0x0, &(0x7f0000000640)={<r8=>0xffffffffffffffff})
+r9 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$netlink(r0, &(0x7f0000000700)={&(0x7f0000000000)=@proc={0x10, 0x0, 0x25dfdbfe, 0x208000}, 0xc, &(0x7f0000000200)=[{&(0x7f00000000c0)={0x104, 0x21, 0x200, 0x70bd28, 0x25dfdbff, "", [@generic="d69d536909c404981e3b75e74c2062ac83bc079c945b16b9434e6581bf0900d4511c6e4ff77010f70e105bf3e54b1c2aa8bdcce3d6699dbfb58ce814bffdee3b01790a7383", @generic="d7cddfe9ade46eadbfa58411c5c6faa300b732031319868588113a1de7b814cd4b73aff2001d1e9c81cb997ff5bd6f6b2c62b59dcb5150ff6639da3723953e0c54807ac7fb14d3b1b87cb271e7ad44da0e0cc291d224b233884ec1833a2a75ae5e702d", @nested={0x49, 0x23, 0x0, 0x1, [@typed={0x8, 0x3c, 0x0, 0x0, @pid=r1}, @generic="10f267d924bc063713e9751db990fb6e470c4cb9a35856826c94c3ad02644a004623c0f169af5844d2ef1c8202a879db0010ade1e6a21f95399aac7219"]}]}, 0x104}], 0x1, &(0x7f0000000680)=[@cred={{0x1c, 0x1, 0x2, {r2, r3, r4}}}, @cred={{0x1c, 0x1, 0x2, {r5, r6, r7}}}, @rights={{0x20, 0x1, 0x1, [0xffffffffffffffff, r8, 0xffffffffffffffff, r9]}}], 0x60, 0x4000000}, 0x4000000)
+r10 = accept4(0xffffffffffffffff, &(0x7f0000000740)=@xdp, &(0x7f00000007c0)=0x80, 0x800)
+getsockname$packet(r10, &(0x7f0000000800)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @random}, &(0x7f0000000840)=0x14)
+r11 = socket(0x21, 0x800, 0x5)
+getsockopt$IP_VS_SO_GET_INFO(r11, 0x0, 0x481, &(0x7f0000000880), &(0x7f00000008c0)=0xc)
+r12 = accept4$unix(0xffffffffffffffff, 0x0, &(0x7f0000001e40), 0x81000)
+connect$unix(r12, &(0x7f0000001e80)=@file={0x1, './file0\x00'}, 0x6e)
+r13 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCGIFCONF(r13, 0x8912, &(0x7f0000001f40)=@req={0x28, &(0x7f0000001f00)={'ip6erspan0\x00', @ifru_hwaddr=@link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0xe}}})
+sendmsg(0xffffffffffffffff, &(0x7f0000002300)={&(0x7f0000002000)=@can, 0x80, &(0x7f0000002200)=[{&(0x7f0000002080)="17338475416c3ced5df2ae36c29468ed8d3a9c9c1ed25818e3be128e1685f6525a497b878ac859476786173ee5aa9d900fe06a69484448a63be033dea3271c4e955f690404905ea1edd40901b709c273b02e604598267625fb5e61ef446ee0cc974c0b80d5a07f524bc14bae9a1f2b4bcede009fc54006f92b04fd69429dd3710195fa06758f5977d93c112343c95b076d21452282d28f5fa0ecc6c18906c4d5c9515703fba9d714dc857a0023b85e6b6fbe44061549fab229908effdac4e31e5d58fc7d8e1f9b584a34291ab4c01350df5b58090f3aea53c230499916adc2e165071f73023245dbbea62cdf06a811bd", 0xf0}, {&(0x7f0000002180)="f968c5404cfb2b4673d443d0d8a4e7ce6e8f2a5779997ddc3b4fed3742723a7b572ca1b1f8bbb320ff42b3f96ef36c483611c47ffe9c5229bb430efdddb8060a7efc2ea27c2d195b08841a7c33503f0fb7e9d20883181c1fbefa108247377645c087ae9febce658d9e9454798dc054dc22a7a2f9d844a329cabcee0b5e64486d", 0x80}], 0x2, &(0x7f0000002240)=[{0x58, 0x109, 0xfffffff8, "b4999b8393ae07435cc3b6d8d18daec940d390c215c5fc7dc7db935f2d68504bcc0157cb5b5a3fce90131706d5d27861546989172192e3c3c0ce492c084d6333eaed47"}, {0x60, 0x1, 0xfffffffa, "c6a87c1f47fdf7ec16d79a52404233e07312c8b3b6eb106aa97faa5d0e5d0a97776c209177cff9483ff4c5da8c3936350d961c05e00e9801d4a2bef518f0197b6cceeb620494cabbfb"}], 0xb8}, 0x50)
+
+[   22.285013] audit: type=1400 audit(1586565665.118:12): avc:  denied  { map } for  pid=1602 comm="syz-executor.2" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   22.373894] cgroup1: Unknown subsys name 'perf_event'
+[   22.375191] cgroup1: Unknown subsys name 'net_cls'
+[   22.411507] cgroup1: Unknown subsys name 'perf_event'
+[   22.418249] cgroup1: Unknown subsys name 'net_cls'
+[   22.434115] cgroup1: Unknown subsys name 'perf_event'
+[   22.436250] cgroup1: Unknown subsys name 'net_cls'
+[   22.438630] cgroup1: Unknown subsys name 'perf_event'
+[   22.442274] cgroup1: Unknown subsys name 'net_cls'
+[   23.054652] audit: type=1400 audit(1586565665.887:13): avc:  denied  { create } for  pid=1617 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   23.063779] audit: type=1400 audit(1586565665.888:14): avc:  denied  { write } for  pid=1617 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   23.072015] audit: type=1400 audit(1586565665.895:15): avc:  denied  { read } for  pid=1617 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.795944] audit: type=1400 audit(1586565667.629:16): avc:  denied  { associate } for  pid=1617 comm="syz-executor.1" name="syz1" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+00:41:07 executing program 1:
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_inet_SIOCADDRT(r0, 0x890b, &(0x7f00000000c0)={0x0, {0x2, 0x0, @local}, {0x2, 0x0, @multicast2}, {0x2, 0x0, @broadcast}})
+
+00:41:07 executing program 1:
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+sendmmsg$inet6(r0, &(0x7f0000003d00)=[{{&(0x7f0000000000)={0xa, 0x4e24, 0x0, @ipv4={[], [], @loopback}}, 0x1c, 0x0}}, {{&(0x7f00000006c0)={0xa, 0x4e22, 0x0, @remote}, 0x1c, 0x0, 0x0, &(0x7f0000000500)=ANY=[@ANYBLOB="2400005838a6deb0effa00ddff00002900000032100000ff0100000000000000", @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00'], 0x28}}], 0x2, 0x0)
+
+00:41:07 executing program 1:
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+socketpair$unix(0x1, 0x1, 0x0, &(0x7f0000000080)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+r2 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r3 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+sendmsg$unix(r1, &(0x7f0000000440)={0x0, 0x0, 0x0, 0x0, &(0x7f0000000400)=[@rights={{0x18, 0x1, 0x1, [r2, r3]}}], 0x18}, 0x0)
+r4 = accept$unix(r1, &(0x7f0000000000), &(0x7f00000000c0)=0x6e)
+accept4$unix(r4, &(0x7f0000000180)=@abs, &(0x7f0000000200)=0x6e, 0x0)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r0, 0x29, 0x20, &(0x7f0000000080)={@initdev={0xfe, 0x88, [], 0x0, 0x0}, 0xfffffff9, 0x0, 0x1, 0x0, 0x0, 0x200}, 0x20)
+socketpair(0xf, 0x4, 0xfffffffe, &(0x7f0000000100)={0xffffffffffffffff, <r5=>0xffffffffffffffff})
+setsockopt$inet_tcp_int(r5, 0x6, 0xc, &(0x7f0000000140)=0xffff, 0x4)
+
+00:41:07 executing program 1:
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+getsockopt$inet6_int(r0, 0x29, 0x49, &(0x7f0000000040), &(0x7f0000000280)=0x4)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+getsockopt$packet_buf(0xffffffffffffffff, 0x107, 0x2, &(0x7f00000002c0)=""/76, &(0x7f0000000340)=0x4c)
+bind$inet6(r1, &(0x7f0000000080)={0xa, 0x4e21, 0x1, @empty}, 0x1c)
+r2 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPCTNL_MSG_EXP_DELETE(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000001c0)=ANY=[@ANYBLOB="24000000020201080000000000000000000000000f00060073616e652d323030303000009cde7f38800976d7f6943e7ba22dc100fc652968c76b84fb4dfe2ffa06f363ef48b24bd9d145ffec092199acd092e2b9165b7e1d71ab4920dcb8ed6a080bb6e6116ce4bff333e74431bc38d7f50cfa0e29741c74fa706b1d4ba46ab107300df07cca46410a76c2"], 0x24}}, 0x0)
+sendmsg$NFT_MSG_GETOBJ_RESET(r2, &(0x7f0000000100)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f00000000c0)={&(0x7f0000000380)=ANY=[@ANYBLOB="3c0000003a0a030073797a30000000002900a6972cc6805dd8806cb049a79bf08000000408000b40000000067c3bde425c53541693bff0adc94373cf11"], 0x3c}}, 0x34044054)
+
+[   24.972492] audit: type=1400 audit(1586565667.805:17): avc:  denied  { create } for  pid=3361 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+[   24.979095] audit: type=1400 audit(1586565667.812:18): avc:  denied  { write } for  pid=3361 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+[   25.045841] ------------[ cut here ]------------
+[   25.047105] Found allocation of xfrm_policy
+[   25.048156] WARNING: CPU: 1 PID: 3401 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270
+[   25.050149] Modules linked in:
+[   25.050876] CPU: 1 PID: 3401 Comm: syz-executor.0 Not tainted 5.5.3 #13
+[   25.052806] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   25.055859] RIP: 0010:xfrm_policy_alloc+0x20/0x270
+[   25.057087] Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae 4b ba 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+[   25.061208] RSP: 0018:ffff88805196f7c0 EFLAGS: 00010246
+[   25.062449] RAX: 5c07e9a3be838b00 RBX: ffff888068c806a0 RCX: ffffc90001623000
+[   25.064104] RDX: ffffffffb7400000 RSI: 0000000000000546 RDI: 0000000000000547
+[   25.065755] RBP: 0000000000000a20 R08: dffffc0000000000 R09: 0000000000000003
+[   25.067426] R10: ffffed100a32de71 R11: 0000000000000004 R12: ffff88805196f8e0
+[   25.069101] R13: ffff888067cb8000 R14: ffff888067cb8000 R15: 0000000000000000
+[   25.070769] FS:  00007fc7cc6b6700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   25.072637] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   25.073969] CR2: 00007ffd6b28cff8 CR3: 0000000069762002 CR4: 00000000001606e0
+[   25.075630] Call Trace:
+[   25.076242]  xfrm_compile_policy+0x95b/0x1290
+[   25.077273]  xfrm_user_policy+0x242/0x580
+[   25.078215]  ? km_report+0x100/0x100
+[   25.079066]  ? security_capable+0xae/0xd0
+[   25.080020]  do_ipv6_setsockopt+0xd34/0x32c0
+[   25.081048]  ? ipv6_setsockopt+0x130/0x130
+[   25.082040]  ? __sys_socket+0x154/0x340
+[   25.082964]  ? sock_alloc_file+0xb4/0x240
+[   25.083929]  ? __sys_socket+0x154/0x340
+[   25.084698]  ? do_syscall_64+0xa5/0x130
+[   25.085443]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.086446]  ? sock_alloc_file+0xb4/0x240
+[   25.087224]  ? __sys_socket+0x154/0x340
+[   25.087968]  ? __x64_sys_socket+0x76/0x80
+[   25.088746]  ? do_syscall_64+0xa5/0x130
+[   25.089500]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.090506]  ? __sys_socket+0x104/0x340
+[   25.091258]  ? __x64_sys_socket+0x76/0x80
+[   25.092045]  ? do_syscall_64+0xa5/0x130
+[   25.092801]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.093823]  ? avc_has_perm_noaudit+0x307/0x380
+[   25.094710]  ? memcpy+0x38/0x50
+[   25.095328]  ? avc_has_perm_noaudit+0x29c/0x380
+[   25.096217]  ? wait_rcu_exp_gp+0x40/0x40
+[   25.096976]  ? avc_denied+0x180/0x180
+[   25.097695]  ? security_file_alloc+0x32/0x1f0
+[   25.098547]  ? avc_has_perm+0xb8/0x250
+[   25.099265]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   25.100382]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   25.101366]  ? avc_has_perm_noaudit+0x380/0x380
+[   25.102275]  ? errseq_sample+0x9/0x50
+[   25.102994]  ? alloc_file+0x3a9/0x480
+[   25.103714]  ? selinux_socket_setsockopt+0x23a/0x310
+[   25.104669]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   25.105649]  ? __fget+0x31f/0x360
+[   25.106307]  ? _copy_to_user+0x6f/0x90
+[   25.107046]  ipv6_setsockopt+0x3b/0x130
+[   25.107837]  __sys_setsockopt+0x1c2/0x210
+[   25.108652]  __x64_sys_setsockopt+0xb1/0xc0
+[   25.109467]  do_syscall_64+0xa5/0x130
+[   25.110193]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.111351] RIP: 0033:0x467519
+[   25.112116] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   25.116545] RSP: 002b:00007fc7cc6b5c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   25.118307] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   25.119945] RDX: 0000000000000023 RSI: 0000000000000029 RDI: 0000000000000005
+[   25.121585] RBP: 00007fc7cc6b66bc R08: 00000000000000e8 R09: 0000000000000000
+[   25.123216] R10: 0000000020000300 R11: 0000000000000246 R12: 00000000ffffffff
+[   25.124552] R13: 0000000000000a84 R14: 00000000004d4d80 R15: 0000000000701660
+[   25.125830] ---[ end trace d1aff3b4477b33cd ]---
+[   25.129586] ------------[ cut here ]------------
+[   25.130468] Found allocation of xfrm_policy
+[   25.131320] WARNING: CPU: 1 PID: 3410 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270
+[   25.132916] Modules linked in:
+[   25.133518] CPU: 1 PID: 3410 Comm: syz-executor.0 Tainted: G        W         5.5.3 #13
+[   25.134966] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   25.137003] RIP: 0010:xfrm_policy_alloc+0x20/0x270
+[   25.137861] Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae 4b ba 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+[   25.141708] RSP: 0018:ffff88806c76f7c0 EFLAGS: 00010246
+[   25.143061] RAX: c0c27afd637d4900 RBX: ffff888068c808a0 RCX: ffffc90001c26000
+[   25.144894] RDX: ffffffffb7400000 RSI: 0000000000000548 RDI: 0000000000000549
+[   25.147141] RBP: 0000000000000a20 R08: dffffc0000000000 R09: 0000000000000003
+[   25.149233] R10: ffffed100d8ede71 R11: 0000000000000004 R12: ffff88806c76f8e0
+[   25.150762] R13: ffff888067cb8000 R14: ffff888067cb8000 R15: 0000000000000000
+[   25.152078] FS:  00007fc7cc674700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   25.153868] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   25.155250] CR2: 00007fc7cc673db8 CR3: 0000000069762005 CR4: 00000000001606e0
+[   25.156941] Call Trace:
+[   25.157579]  xfrm_compile_policy+0x95b/0x1290
+[   25.158527]  xfrm_user_policy+0x242/0x580
+[   25.159294]  ? km_report+0x100/0x100
+[   25.160072]  ? security_capable+0xae/0xd0
+[   25.160972]  do_ipv6_setsockopt+0xd34/0x32c0
+[   25.161804]  ? ipv6_setsockopt+0x130/0x130
+[   25.162528]  ? avc_ss_reset+0x360/0x360
+[   25.163259]  ? avc_has_perm_noaudit+0x307/0x380
+[   25.164603]  ? memcpy+0x38/0x50
+[   25.165297]  ? avc_has_perm_noaudit+0x29c/0x380
+[   25.166243]  ? avc_denied+0x180/0x180
+[   25.167120]  ? wait_rcu_exp_gp+0x40/0x40
+[   25.167891]  ? kcov_ioctl+0x21d/0xc50
+[   25.168659]  ? avc_has_perm+0xb8/0x250
+[   25.169451]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   25.170474]  ? selinux_file_ioctl+0x101a/0x10f0
+[   25.171433]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   25.172394]  ? avc_has_perm_noaudit+0x380/0x380
+[   25.173278]  ? __switch_to_asm+0x40/0x70
+[   25.174064]  ? __switch_to_asm+0x34/0x70
+[   25.174838]  ? __switch_to_asm+0x40/0x70
+[   25.175572]  ? __switch_to_asm+0x40/0x70
+[   25.176327]  ? selinux_socket_setsockopt+0x23a/0x310
+[   25.177314]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   25.178258]  ? __fget+0x31f/0x360
+[   25.179073]  ? _copy_to_user+0x6f/0x90
+[   25.179978]  ? __schedule+0xb4a/0x10b0
+[   25.180879]  ipv6_setsockopt+0x3b/0x130
+[   25.181586]  __sys_setsockopt+0x1c2/0x210
+[   25.182292]  __x64_sys_setsockopt+0xb1/0xc0
+[   25.183095]  do_syscall_64+0xa5/0x130
+[   25.183786]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.184943] RIP: 0033:0x467519
+[   25.185492] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   25.188773] RSP: 002b:00007fc7cc673c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   25.190143] RAX: ffffffffffffffda RBX: 000000000074c040 RCX: 0000000000467519
+[   25.191625] RDX: 0000000000000023 RSI: 0000000000000029 RDI: 0000000000000005
+[   25.193047] RBP: 00007fc7cc6746bc R08: 00000000000000e8 R09: 0000000000000000
+[   25.194331] R10: 0000000020000300 R11: 0000000000000246 R12: 00000000ffffffff
+[   25.195616] R13: 0000000000000a84 R14: 00000000004d4d80 R15: 0000000000701660
+[   25.196918] ---[ end trace d1aff3b4477b33ce ]---

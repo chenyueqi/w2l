@@ -1,0 +1,93 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:31683' (ECDSA) to the list of known hosts.
+2020/04/20 01:38:49 fuzzer started
+2020/04/20 01:38:50 dialing manager at 10.0.2.10:42229
+2020/04/20 01:38:50 syscalls: 12
+2020/04/20 01:38:50 code coverage: enabled
+2020/04/20 01:38:50 comparison tracing: enabled
+2020/04/20 01:38:50 extra coverage: enabled
+2020/04/20 01:38:50 setuid sandbox: enabled
+2020/04/20 01:38:50 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:38:50 Android sandbox: enabled
+2020/04/20 01:38:50 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:38:50 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:38:50 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:38:50 net device setup: enabled
+2020/04/20 01:38:50 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:38:50 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:38:50 USB emulation: /dev/raw-gadget does not exist
+01:38:50 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_rm_watch(r0, 0x0)
+
+01:38:50 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0xc0189436, 0x3ffffb)
+
+01:38:50 executing program 2:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:38:50 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+syzkaller login: [   10.515061] audit: type=1400 audit(1587346730.524:8): avc:  denied  { execmem } for  pid=417 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.575975] cgroup1: Unknown subsys name 'perf_event'
+[   10.578529] cgroup1: Unknown subsys name 'net_cls'
+[   10.603653] cgroup1: Unknown subsys name 'perf_event'
+[   10.606274] cgroup1: Unknown subsys name 'net_cls'
+[   10.631398] cgroup1: Unknown subsys name 'perf_event'
+[   10.633596] cgroup1: Unknown subsys name 'net_cls'
+[   10.636435] cgroup1: Unknown subsys name 'perf_event'
+[   10.640278] cgroup1: Unknown subsys name 'net_cls'
+[   11.693056] ------------[ cut here ]------------
+[   11.695516] Found allocation of inotify_event_info
+[   11.695808] WARNING: CPU: 1 PID: 2197 at fs/notify/inotify/inotify_user.c:636 do_inotify_init+0xe9/0x500
+[   11.703035] Kernel panic - not syncing: panic_on_warn set ...
+[   11.706156] CPU: 1 PID: 2197 Comm: syz-executor.0 Not tainted 5.5.3 #48
+[   11.709203] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.715028] Call Trace:
+[   11.716273]  dump_stack+0x15e/0x1ae
+[   11.717604]  panic+0x228/0x700
+[   11.718739]  ? 0xffffffff88600000
+[   11.720492]  ? do_inotify_init+0xe9/0x500
+[   11.722526]  __warn+0x1fe/0x200
+[   11.724096]  ? do_inotify_init+0xe9/0x500
+[   11.725919]  report_bug+0x359/0x480
+[   11.727548]  ? do_inotify_init+0xe9/0x500
+[   11.729475]  do_invalid_op+0x6e/0x110
+[   11.731195]  invalid_op+0x1e/0x30
+[   11.732636] RIP: 0010:do_inotify_init+0xe9/0x500
+[   11.734897] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 5e 8b e8 2f 6f 27 02 48 85 c0 74 1e e8 75 10 c7 ff 48 c7 c7 7c 6d 5e 8b 31 c0 e8 87 5f a0 ff <0f> 0b eb 0c e8 5e 10 c7 ff eb 05 e8 57 10 c7 ff 48 c7 c0 60 ae 69
+[   11.743525] RSP: 0018:ffff88806544fed8 EFLAGS: 00010246
+[   11.746084] RAX: dbab6ad619883500 RBX: 0000000000000002 RCX: ffffc9000017d000
+[   11.749493] RDX: ffffffff88600000 RSI: 0000000000000306 RDI: 0000000000000307
+[   11.753161] RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff1868bc4
+[   11.757125] R10: fffffbfff1868bc4 R11: 0000000000000000 R12: dffffc0000000000
+[   11.760652] R13: 0000000000004000 R14: 0000000000000000 R15: ffff888061018000
+[   11.764150]  ? 0xffffffff88600000
+[   11.765805]  ? do_inotify_init+0xe9/0x500
+[   11.767795]  __x64_sys_inotify_init1+0x33/0x40
+[   11.770065]  do_syscall_64+0xd1/0x160
+[   11.771924]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.774594] RIP: 0033:0x467519
+[   11.776494] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   11.785880] RSP: 002b:00007f65231c3c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000126
+[   11.789670] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   11.793242] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[   11.796491] RBP: 00007f65231c46bc R08: 0000000000000000 R09: 0000000000000000
+[   11.799789] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   11.803009] R13: 00000000000001f4 R14: 00000000004c2870 R15: 0000000000701640
+[   11.810073] Dumping ftrace buffer:
+[   11.811685]    (ftrace buffer empty)
+[   11.813364] Kernel Offset: 0x7600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   11.818454] Rebooting in 1 seconds..

@@ -1,0 +1,55 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/20 01:12:46 fuzzer started
+2020/04/20 01:12:47 dialing manager at 10.0.2.10:37337
+2020/04/20 01:12:47 checking machine...
+2020/04/20 01:12:47 checking revisions...
+2020/04/20 01:12:47 testing simple program...
+syzkaller login: [   10.203200] audit: type=1400 audit(1587345167.211:8): avc:  denied  { execmem } for  pid=422 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.203701] thread: syz-executor.0
+[   10.214441] ------------[ cut here ]------------
+[   10.216950] Found leaking site of pipe_buffer
+[   10.219423] WARNING: CPU: 1 PID: 422 at fs/pipe.c:331 pipe_read+0x5da/0xee0
+[   10.223124] Kernel panic - not syncing: panic_on_warn set ...
+[   10.226378] CPU: 1 PID: 422 Comm: syz-executor.0 Not tainted 5.5.3 #43
+[   10.229095] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   10.235245] Call Trace:
+[   10.236437]  dump_stack+0x15e/0x1ae
+[   10.238046]  panic+0x228/0x700
+[   10.239692]  ? pipe_read+0x5da/0xee0
+[   10.241351]  __warn+0x1fe/0x200
+[   10.243019]  ? pipe_read+0x5da/0xee0
+[   10.245095]  report_bug+0x359/0x480
+[   10.246878]  ? pipe_read+0x5da/0xee0
+[   10.248296]  do_invalid_op+0x6e/0x110
+[   10.249482]  invalid_op+0x1e/0x30
+[   10.250875] RIP: 0010:pipe_read+0x5da/0xee0
+[   10.252736] Code: 50 e9 fa fb ff ff e8 05 33 d5 ff 48 c7 c7 8c 54 fe 89 48 89 de 31 c0 e8 50 24 c0 ff 48 c7 c7 9a 54 fe 89 31 c0 e8 06 82 ae ff <0f> 0b e9 b4 fd ff ff 48 8b 4c 24 10 80 e1 07 80 c1 03 38 c1 0f 8c
+[   10.261160] RSP: 0018:ffff888064f3fc78 EFLAGS: 00010246
+[   10.263439] RAX: 1d6903ad0657cc00 RBX: ffff888067718648 RCX: 0000000000000000
+[   10.267020] RDX: ffff888067718000 RSI: 0000000000000000 RDI: 0000000000000000
+[   10.269795] RBP: ffff888067efc000 R08: dffffc0000000000 R09: ffffed100da66092
+[   10.272718] R10: ffffed100da66092 R11: 0000000000000000 R12: 0000000000000018
+[   10.276917] R13: ffff888067efc000 R14: dffffc0000000000 R15: 0000000000000000
+[   10.280176]  ? pipe_read+0x5da/0xee0
+[   10.281925]  ? iov_iter_init+0x83/0x160
+[   10.284218]  __vfs_read+0x534/0x6d0
+[   10.285596]  vfs_read+0x167/0x380
+[   10.287125]  ksys_read+0x112/0x210
+[   10.288732]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   10.291181]  do_syscall_64+0xd1/0x160
+[   10.292906]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   10.295213] RIP: 0033:0x41667e
+[   10.296422] Code: 00 00 00 00 48 c7 c2 bc ff ff ff f7 d8 64 89 02 48 c7 c0 ff ff ff ff c3 0f 1f 40 00 8b 05 ee 1c 87 00 85 c0 75 16 31 c0 0f 05 <48> 3d 00 f0 ff ff 77 5a f3 c3 0f 1f 84 00 00 00 00 00 41 54 55 49
+[   10.303650] RSP: 002b:00007ffdaa8d3408 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   10.306146] RAX: ffffffffffffffda RBX: 00007ffdaa8d3450 RCX: 000000000041667e
+[   10.308377] RDX: 0000000000000018 RSI: 00007ffdaa8d3430 RDI: 00000000000000f9
+[   10.310949] RBP: 00007ffdaa8d3458 R08: 0000000000000000 R09: 0000005b0000006e
+[   10.313324] R10: 0000000000000008 R11: 0000000000000246 R12: 0000000000418cb0
+[   10.316318] R13: 0000000000000000 R14: 0000000000718018 R15: 0000000000000000
+[   10.319839] Dumping ftrace buffer:
+[   10.320987]    (ftrace buffer empty)
+[   10.322493] Kernel Offset: 0x6000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   10.325862] Rebooting in 1 seconds..

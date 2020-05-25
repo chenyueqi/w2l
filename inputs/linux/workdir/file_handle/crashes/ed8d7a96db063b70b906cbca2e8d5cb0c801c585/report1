@@ -1,0 +1,44 @@
+------------[ cut here ]------------
+Found allocation of seq_file
+WARNING: CPU: 0 PID: 434 at fs/seq_file.c:58 seq_open+0xaf/0x1f0 fs/seq_file.c:58
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 434 Comm: syz-executor.0 Not tainted 5.5.3 #45
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:seq_open+0xaf/0x1f0 fs/seq_file.c:58
+Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f be 97 e8 39 e3 2e 02 48 85 c0 74 1e e8 7f 74 ce ff 48 c7 c7 6e 59 be 97 31 c0 e8 91 c3 a7 ff <0f> 0b eb 0c e8 68 74 ce ff eb 05 e8 61 74 ce ff 48 8b 3d 0a 6b 9d
+RSP: 0018:ffff8880507e7a48 EFLAGS: 00010246
+RAX: 3a83d25fbc54f100 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff8880683dba00 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 1ffff1100d88cc19 R08: dffffc0000000000 R09: ffffed100da46092
+R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88806c4660c8
+R13: dffffc0000000000 R14: ffffffff97a21978 R15: ffff88806c466000
+ kernfs_fop_open+0x554/0xb10 fs/kernfs/file.c:705
+ do_dentry_open+0x810/0xf50 fs/open.c:797
+ do_last fs/namei.c:3359 [inline]
+ path_openat+0x13e9/0x3d30 fs/namei.c:3476
+ do_filp_open+0x191/0x3a0 fs/namei.c:3506
+ do_sys_open+0x2b6/0x530 fs/open.c:1097
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x4169eb
+Code: 4e 89 f0 25 00 00 41 00 3d 00 00 41 00 74 40 8b 05 8e 19 87 00 85 c0 75 61 89 f2 b8 01 01 00 00 48 89 fe bf 9c ff ff ff 0f 05 <48> 3d 00 f0 ff ff 0f 87 99 00 00 00 48 8b 4c 24 28 64 48 33 0c 25
+RSP: 002b:00007fff19d383b0 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007fff19d3845c RCX: 00000000004169eb
+RDX: 0000000000080001 RSI: 00000000004cdd40 RDI: 00000000ffffff9c
+RBP: 00007fff19d38440 R08: 0000000000000000 R09: 000000000000001c
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000004cdd40
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x13c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

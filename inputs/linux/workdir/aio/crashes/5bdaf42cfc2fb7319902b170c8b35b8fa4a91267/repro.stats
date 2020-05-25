@@ -1,0 +1,198 @@
+Extracting prog: 38.931163044s
+Minimizing prog: 3m24.679190325s
+Simplifying prog options: 0s
+Extracting C: 11.835921845s
+Simplifying C: 1m6.264377149s
+
+
+1250 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 1250 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-openat$vcsu-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+r2 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r0, 0x2, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x0, 0x0, r1, &(0x7f0000000200)='|', 0x1}, &(0x7f00000003c0)={0x0, 0x600, 0x0, 0x6, 0x0, r2, 0x0}])
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r1, &(0x7f0000000200)='|', 0xf}])
+
+program crashed: WARNING in rw_copy_check_uvector
+single: successfully extracted reproducer
+found reproducer with 3 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040))
+openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, 0xffffffffffffffff, &(0x7f0000000200)='|', 0xf}])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$zero-io_submit
+detailed listing:
+executing program 0:
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r0, &(0x7f0000000200)='|', 0xf}])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, 0x0)
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r0, &(0x7f0000000200)='|', 0xf}])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r1, &(0x7f0000000200)='|', 0xf}])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x0, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[0x0])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r1, 0x0}])
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+detailed listing:
+executing program 0:
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r1, &(0x7f0000000200)}])
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in corrupted
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): io_setup-openat$zero-io_submit
+program crashed: WARNING in rw_copy_check_uvector
+reproducing took 5m21.710661322s
+repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of iovec
+WARNING: CPU: 1 PID: 412 at fs/read_write.c:793 rw_copy_check_uvector+0xe4/0x380
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 412 Comm: syz-executor110 Not tainted 5.5.3 #50
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:rw_copy_check_uvector+0xe4/0x380
+Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 1e 8e e8 04 01 38 02 48 85 c0 74 25 e8 4a a2 d7 ff 48 c7 c7 af 4f 1e 8e 31 c0 e8 5c f1 b0 ff <0f> 0b eb 13 e8 33 a2 d7 ff eb 25 e8 2c a2 d7 ff eb 05 e8 25 a2 d7
+RSP: 0018:ffff88806570fb28 EFLAGS: 00010246
+RAX: a1b93cf6f468ce00 RBX: 000000000000000f RCX: 0000000000000000
+RDX: ffff8880657b8000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806570fba8
+R13: ffff88806570fc40 R14: 0000000020000200 R15: dffffc0000000000
+ import_iovec+0x8a/0x2c0
+ aio_read+0x22d/0x440
+ io_submit_one+0xe1a/0x2540
+ __se_sys_io_submit+0x116/0x2b0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a439
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc9f45a028 EFLAGS: 00000246 ORIG_RAX: 00000000000000d1
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a439
+RDX: 0000000020000400 RSI: 0000000000000001 RDI: 00007fab77a37000
+RBP: 0000000000401ce0 R08: 0000000000400400 R09: 0000000000400400
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d80
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xa200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of iovec
+WARNING: CPU: 1 PID: 412 at fs/read_write.c:793 rw_copy_check_uvector+0xe4/0x380
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 412 Comm: syz-executor110 Not tainted 5.5.3 #50
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:rw_copy_check_uvector+0xe4/0x380
+Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 1e 8e e8 04 01 38 02 48 85 c0 74 25 e8 4a a2 d7 ff 48 c7 c7 af 4f 1e 8e 31 c0 e8 5c f1 b0 ff <0f> 0b eb 13 e8 33 a2 d7 ff eb 25 e8 2c a2 d7 ff eb 05 e8 25 a2 d7
+RSP: 0018:ffff88806570fb28 EFLAGS: 00010246
+RAX: a1b93cf6f468ce00 RBX: 000000000000000f RCX: 0000000000000000
+RDX: ffff8880657b8000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806570fba8
+R13: ffff88806570fc40 R14: 0000000020000200 R15: dffffc0000000000
+ import_iovec+0x8a/0x2c0
+ aio_read+0x22d/0x440
+ io_submit_one+0xe1a/0x2540
+ __se_sys_io_submit+0x116/0x2b0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a439
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc9f45a028 EFLAGS: 00000246 ORIG_RAX: 00000000000000d1
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a439
+RDX: 0000000020000400 RSI: 0000000000000001 RDI: 00007fab77a37000
+RBP: 0000000000401ce0 R08: 0000000000400400 R09: 0000000000400400
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d80
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xa200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

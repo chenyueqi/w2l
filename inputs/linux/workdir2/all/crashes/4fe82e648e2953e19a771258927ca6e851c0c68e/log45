@@ -1,0 +1,269 @@
+Warning: Permanently added '[localhost]:44791' (ECDSA) to the list of known hosts.
+[   17.753876] audit: type=1400 audit(1586569542.283:11): avc:  denied  { map } for  pid=1585 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/11 01:45:42 fuzzer started
+2020/04/11 01:45:42 dialing manager at 10.0.2.10:42260
+2020/04/11 01:45:42 syscalls: 468
+2020/04/11 01:45:42 code coverage: enabled
+2020/04/11 01:45:42 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/11 01:45:42 extra coverage: enabled
+2020/04/11 01:45:42 setuid sandbox: enabled
+2020/04/11 01:45:42 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/11 01:45:42 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/11 01:45:42 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/11 01:45:42 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/11 01:45:42 net packet injection: /dev/net/tun does not exist
+2020/04/11 01:45:42 net device setup: enabled
+2020/04/11 01:45:42 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/11 01:45:42 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/11 01:45:42 USB emulation: /dev/raw-gadget does not exist
+01:45:46 executing program 3:
+r0 = socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$EXT4_IOC_SETFLAGS(r0, 0x40086602, &(0x7f0000000000)=0x20004008)
+r1 = socket$inet6_icmp(0xa, 0x2, 0x3a)
+connect$inet6(r1, &(0x7f0000000040)={0xa, 0x4e20, 0x96fa, @empty, 0x6}, 0x1c)
+r2 = accept4$packet(0xffffffffffffffff, &(0x7f0000000080), &(0x7f00000000c0)=0x14, 0x800)
+ioctl$sock_TIOCINQ(r2, 0x541b, &(0x7f0000000100))
+setsockopt$inet_mtu(0xffffffffffffffff, 0x0, 0xa, &(0x7f0000000140)=0x1, 0x4)
+getsockopt$inet_tcp_buf(0xffffffffffffffff, 0x6, 0xe, &(0x7f0000000180)=""/128, &(0x7f0000000200)=0x80)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f0000000240)=0x4, 0x4)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_REALDEV_NAME_CMD(0xffffffffffffffff, 0x8983, &(0x7f0000000280)={0x8, 'veth0_virt_wifi\x00', {'veth0\x00'}, 0x7})
+r3 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$IP_VS_SO_SET_ADD(r3, 0x0, 0x482, &(0x7f00000002c0)={0x2b, @empty, 0x4e24, 0x1, 'none\x00', 0x11, 0x20, 0x6d}, 0x2c)
+getsockopt$IP_VS_SO_GET_INFO(r3, 0x0, 0x481, &(0x7f0000000300), &(0x7f0000000340)=0xc)
+pipe(&(0x7f0000000380)={<r4=>0xffffffffffffffff})
+setsockopt$inet6_tcp_TCP_REPAIR_WINDOW(r4, 0x6, 0x1d, &(0x7f00000003c0)={0x1, 0x9f, 0x5, 0x0, 0x3ff}, 0x14)
+r5 = socket$inet6_tcp(0xa, 0x1, 0x0)
+sendto(r5, &(0x7f0000000400)="8f6938831814f8cc8cc94586a72c7729309df86396bbe6c8525a510a96cdc1d4af56d4efa9c5950a23d782", 0x2b, 0x4008000, &(0x7f0000000440)=@l2tp6={0xa, 0x0, 0x6, @initdev={0xfe, 0x88, [], 0x0, 0x0}, 0x8}, 0x80)
+r6 = accept$inet(0xffffffffffffffff, 0x0, &(0x7f00000004c0))
+getsockopt$inet_udp_int(r6, 0x11, 0xb, &(0x7f0000000500), &(0x7f0000000540)=0x4)
+socket$packet(0x11, 0x3, 0x300)
+
+01:45:46 executing program 0:
+r0 = accept$inet6(0xffffffffffffffff, &(0x7f0000000000)={0xa, 0x0, 0x0, @remote}, &(0x7f0000000040)=0x1c)
+getpeername$packet(0xffffffffffffffff, &(0x7f0000000080)={0x11, 0x0, <r1=>0x0, 0x1, 0x0, 0x6, @broadcast}, &(0x7f00000000c0)=0x14)
+sendmsg(r0, &(0x7f0000001840)={&(0x7f0000000100)=@can={0x1d, r1}, 0x80, &(0x7f0000000340)=[{&(0x7f0000000180)="42bffb5e0efaff484ef6cedd90d9dace3a490f2327e5459c7e9c8fb930fb3c03a886e7e1ab42d2fd3a7607919a1c3d818314745e937b3da823f4228180485815f59633b4e29cb60029d434bb754e80aba10905bdd8fdb4daffe1c5c437d44ca1863fd527a2467e73d942054ace998454f022b01daca9ed835af3f24a227e58a096339a9d94725637c7200006b0d9f745f87ba06952f9aaacbf2ef95eef2b2df2dacfa6052ebdbf83133c8ab4918efd470d8fc329d1f78a58e2fcd9bd20dde572aebbb8a6142cdb7b2c6adfc27c16ad7a34e547ee5d", 0xd5}, {&(0x7f0000000280)="6178ceef7135531c4a8e298df5a1d99c289eacd236dd0796eaf88e892296ba000ccd2e7b9a3a34f02e1ac2e507e591ca9c8d305af79caaca7f774a9cf1474e0d7e2c3192ac926ef39155490c3401f3bfc200967cde4ae9323efd1c0a2a2bb39b6b16dd8ff6d68a1f06a34251422804977b", 0x71}, {&(0x7f0000000300)="5531455b8c0d013243d149ec555ebbd0eec7a4c4570d4627d27622e1fd77b42db0d4b32a77242b2ea778681dd3ccccfbf09ff0e76a9570e0ae599dba", 0x3c}], 0x3, &(0x7f0000000380)=[{0x30, 0x101, 0xaa2, "503725551fc7c966cb1d693450f393eb1c82cea19dce75382e"}, {0xe0, 0x11, 0x6, "a98f2d9ad6381208feb26b3916477d189cec7631e4b4e154db123a48ffd48cd6b9865ce7b4c8305c2d231e93a1224389a46d871132ccdc6e3719205ec98564637eecb496e0afc52ca8a9a36f06bbbad8e049b668bdb9f6b493f4a9432235e0bf16e72ab6ae05f682e8286e42489019a9923eede28649375d3d0483d69de1fd47de8aa5880fe9dad0bb2c14e56ca61d7c82a4abcad219ede1bbd3c6368e691c008e5cf006871a886c0f2d431a98e2243c4ca9c895df0e66306d0d1812a17e8d31e428edd85bb15f05d6717976a2"}, {0xf0, 0x103, 0x5, "f3045beb01c0ae30257b1f9de73ae158660d891db9d9ee84f39ba3a0726a6fd0db413205ce92cce2460575ea70fc7804485973dd94d02bc9b19b4314828bf9e92fb5a7a0ee930939c73a1b4517c7184f7fe94e69720f20d49386937ea2df2f6899ae26cdca52d01ba278d09b79eb0272e19df4d9a472060f18f50de9fba36f72effda033fb52039577f9bd2e281778729cc9c0cf25708d14a23c2c95a4ea934ce4e03d65e0a3c05e091ac892092c1473c552dfdd1fff3b8ed07ebc923b73087863f351e715f139d49816bdd99cf9eddcd3e8a06491d21b9976f72a07bb86fe"}, {0xf0, 0x0, 0x10001, "18bc27345872656f00d7d5a1140a0f2f111f1759cd6930022415e1b8726a543da24d26173d30352c5f827d09956d7bac64f97348e28baadfd3090f38a954e1624865c977b6f7aeb754e6cc09800ff7da2914e720a332efd2dbfb679df8c5a13a33fbec206ac9dd0f445afc3704100c0c60903c79433ce6a2fe83c2474529b24d5ce56dfd999deaa2b9b9e6d49ebc404745d4a70cb9a041beecc268d9d4b9a823a8c034b57871a168d94943cf1b31646fee13ddf9cd4daf0408cff9fd63ce299813496c1bf07907fed10602e64a0377a1d9c5d50883abdf723ea7a4649f0d"}, {0xc0, 0x104, 0xddcd, "12b4e1cd259656efa170c892e486c7b2dbaf5e21e0b5c07c814d4dcc98c3e1b26da6f6d6c19e055e919576e8469db9d2e9f394b5b82009f12a889645e790bcff34f40f0007756614f8f903fc62edec9a0923c96bb3eb13fbb4f2b8edfa6bec3375f5feaaf8277330a82404c7caf564593b6537e4b284c547267aa469487d9041fc5fddcf5ba6f7cb146e25c91004092c5d7f2faaf39a7194e051c5035cd872473ae0cd52c0c6553ed9dacfef"}, {0x1010, 0x10d, 0x2019, "131e52bcee318a6ffcbca534b91ee52e1841576c537c97554daa87b62b2c78b69c187617efce90ea61a73bf379d5b49fa0d5c824d71d89c3d4121bc5c748ea20a0b917b0adb47d951aa62ef6e25e2832c1409213f065240b7210f53d0fc88c6b3098b85414dc5417dcf3c6cb480d61618ab2ac3b8440bb876f88dfeeb37924e375540745d948a267af26f12b2881551dd97e5ad9ca90974bb1e89c006243e7e199678d35098611014dd0273aea79201148333e922f00ea5ed417661f5bcba30d93059e9f9778634a954904c9de93b1567cc87f2a3602ab509c7f1c81be35fb499a844b8e0e9e99d82c94a367e2541f8a30990d6b101b9c1c4315b78a3e0b36879223d63d5506d8127f5b3f9f62efde44e4ef1ab95ae6f72caa30b7915523e8c33d5c9c53a4578da362ad3ac3306f685f589b9c395f35f74237bd8ca8f012729f425a8eaff875daca0b1ae6c3d280e82bdf8c7c7f89816d25b8c26763ab5bcfc99a9a8ad5e30c97897b6123d236dc163b6f3867b15177aa7db0f03c32e6388768605cb9ae22ce433229494db5f737240356b3fbacaa79555f9a0299dc645da262b39b6c2b85dc457818d77ff2ef04b3af737dee54e7e4366f232e85e7b76bc66edde1f720459ca7e03496b56c7eec6119f5d9a35871816bf8ff4d6a0dba081b489c64593b296bf7ba51a3f58395b62eff45fd72382918c16344e080b7639746d8782a04fa9e86119bc73b3c2bbae72f3b4e5c193b97916c10f631e005e7896982ae2c6caafb5646d4fc05d7af5c69910d8c4e61a57f02d7bd4e5547ab5810c02e62b4730e819916c595f884e2e7c9ec418fb3a61378141a0cf4c35c326f2792fc4a31496ab114f16ae25df620819189e70bf207de527a61e43302174ffeae92b254e650577fe1610c25ece3b6089bd7273d288090cbac921844450e15fee158c5bc6e64a960270e6f06c8f97b3a8c8f63a346ae5c91a9e8b7890e158eba7c6fe3482cd202313cfc1262e9facef518cc5121891d7b6000241669148469e6a2d0d76efd1f7da014e91b1ff078938e0f25f5c6f63d23ccc1b7a9a3eda357c67d97c866d2327bbe3a190f336b1a6a3084a88f0cb7bd33fb89e4e6b22d5a98f75df4c340edfbb1b3fbdb015afbfbbe9898dfe64b2d57a3ada6a7e254188795e457b22c92d8dd6f4419da0351f1bd2aff789bf1c7701f842a1db659da4d82c3ed1d517e6565f1fc1a512699673362bf224e6b77eb65eaa351a8419c9a99ee4b446a54c743a745ac35df1ec4926dc647bf670deb4df01faf8d772499cab294d4c87a3a1a81ccd87906a6769d322b08e195e70d375138eded2ace4dc6326d2ba5d70a552afe2d1b926928326318ade14b6bd1b8de1cafdd237adbbaad029f1be0077c802dadda38404aa4334e5fb7c97ba00ba5278b69a9c9f6f573831eb8cdddf03172d8903222c300113ad08022e0935c7a2d0b4555271960f5a93c3db953d2d5f6f2867003d702d0a36a187c689ad8845977ea9ce4456c321ff3da4ec408b6c6b3e17b4aa569810ea461f885499b1c4b1357f72a04100687067c1ee4d2a820c14650141bcb6bbe0a3cb87d9417783daa1d589fda7ea0888d86621dcb47394a488cd119a4580fe6fa977d3da171494bb4d678e115a54dc5ae0c9c6c19d9191e58809570a0c1ffa049a33cb9914f947c9eb5bccacd28df518d20b26a608f5e780828e357689ba39f011c382f24298ead3661f1611c060b6e0dcb0d666630fde0fafe830cc46c075d05dbe8e099e656247cdfa4be552e6b04ecdcbc78936eccc85df8d06295ef120af10565794b183407698095151e3f8fb36de8c9c3de95b19b10cb5e7537185858565d070c25378848eaa24713108e7f3803f4bad32d01d1807b5531e5e8bc61e6801b3b12cbc75797c5eba9a77287c93542c54d04e629a1629ae3dbbdca5c80cf40a115b08aff3cd9a46ad55cccd9ff6748ef226aabeeaf709a9fe0998cd53054836887bc18c606d1e328721c47fbfbbc8ca279d25528062da367030ab9f31491df8910ee5ed6041996f4715ce1c04629befffc170613128299ef34212fbe24faa2b4ba199ec34e80c6739fcfbc533ef44742b8d2c91375d3188b28350862b2414d2c8f9fd42c78bc4708e9d1fde41c95d52974b3922ebb1e9eb7f9268a2ea772aa6379efa39b4f62af6a30229a83dd3dd93fcc98e777bd0b12bfab93423ad1f8dba04ce270c0e11c6cc8aa7a25153bd234100a0aac41188fc56bcff5ee48cecadc36421a8bf67d728b217dbc4f918558dbf49e59cb98a448c838c439da944ac9477c95ce26c6bcfddcc7ef2113f276e1c4eadd536addd112cf97f04660a4dbcf0ab2089fd345c734c912897d7dd24262747743d680217ccc85c4a4bcc2b07c0a60ed9aff1cf1455241fa5f2d0fcaf99c975ca7f5c007f7c560e7088d284d7e5065767d912e7f51bd9ff28f0fa0d047b18004d18561d70d960d978d4328cc39398cc57f5a44125e2aa9906c3eda5528614eea98a979ee4bd03cdd798a92fc85653812e2060227aa59d45a81c64e6a7f35935cceda7e0113578a92c298bd3d22de59116ff0c17524f46c0420c79a4ea8dfc4e906b2126ea0db1befd46fe62c7340ad1df0a3f10265956e692a25235a4cbba698aed58857beda6b5c8312ac629c775d416eea71ffa00dc95d4de3796947b8b2103f7464d862ccc93a3c27396b4bcc3fccf7038bf226bbb517ab01d4e0dcdec4c48635a0a4c64389fbf87139deb8c37eaf8a0f9dd8b842b82e6b16448be6bed0aef18128be53df361cb82a8a909a3a3dac0c31f4fde09c303544d56627b4c73f88e12880ddf0ec5c808b1ce4d025ca1a07c0ea4b67a9f0be7fb4d53f2489c6db0697d5834b400191ac9a2631efe707ea5ed8f7807d07e1c4ae3a5b4ad82643653529e91a15aa4449087cb185726422e94d766c9dcc82d9cb2a627fecfc326a2112e4380337483c7f943a292a4d90f60b5388dade8a2ae8e404c1d25403c2496a22d083d2ac21044d678fb454cbccf71e20875171d8b96e459b7e1d95899f75b729da55612f0ab2cd74f1901d4b622358fff2b03545f4ce9573b5623d753e80dd49d7a445a482eb27840c9949a3aab81507de112c1e17516406b74803bf3794b71d0955a74121817a7c6846ab8f552d3a667c1848e5bb30a7253ecb1d00725f251a00770fc50fb033207ba57942f7be794727b46e4711bafee5fe09ee273399425dde410bc8332eb4623c7785bb2eeab37606b4c6c89d82fbf1daaaf12b8b7e63925399fe774367c9cd3b63a8c9298bbae2c658686bd24936d8171d81cc24e426bbd3d744aa629071596e8a4b2635bf2fa16c294b6161f2cdecd3147f53aedee1a4fc01c8295b67c65d8e53cfd968fa5b4c28d2aa7c06f55fce2edd1fd3005f53ecfb05538430440107343b5bb768f987261a9bcb862376b7ee3b8bdec62a260c5eb1041ed52110be69e29c8fb0b6ec9dcdedc9a7aa39f15451aa30f4965e5151c3dd6669ebf882aee71964aaa03794d625087b54484feadfc75fe1b0f347083d7adae1f0aab2846be44d773768cdb12c1c1e8b6a3581c4c7de224f855621bc82007dc859348b9bb5f75738e8a7eab249cc6d7b1ac40aec5d207981026c7afe98a5f72e721aa8d49fb31b643a8c65c82b70c34896df13739d0ea3a28a5c9069139b0b463559572ecac2f5fceea7973eece7a51e3fed9b210f262eadafd5ec11c5c777ef748c63f39f67130404665b983cb99b7c7fd00b201600b8d92cf51dcd2f853642e854c14ffedb80b35084f5eaacc95998d2d65efc6f638720378e218a0b6c5e1dd314c3a30bf11766d86fbd357a9539908f49be05147f3c369f51f9200e6d51bf75c9af8658e406fefbc08e7d72d9154f3f23593d1d2c05afed4915eebeb07b69ab5efb1d5ed0577d2c12169f07302b1026e57847f820468aec75e8aafa04c16330ec21a949d4786bf22f0e36c36012a9e67086efa26d3f5bf71f3ca2d0532114bd3b458468c56624105899b56515bd3f142e4b50fadd7f3864adeb8ae32be8d30ea58f469418b31ce4821b09b13b50798e47135614c8cce4232240d99cca29b1e6731c4f844c9db469ddbf9f87cb7b3db8110e5ee4791205308fe4bf2a90529af4c238d5ed516361a25580d7aff6dd9eaeba9ef82816f9027f74691ca580a19d423566d055ddeed3466d4d512b7795aa7f35069090de0697b9874d9eda769602baeab08563a3d30b10074b556c3740fc3c7cbf0e5587c225d1fb1fe1696ddf68d46f685a455268616656439d14d84c47f0cfd5b20b9a5c3644573923feb83449e648f536b1dbbdd53aa2618678e8cd680e69dd75faf4046c02518060f9a1c77b94dff234d7bbd1e9fb2fb412c7d8cf755d0d25244bc8a616175860d7303ff6aee9c6b3b6344754b6a1325e17a701b752098f6a5725b6683873063e9d0a2e03a9ad19e2c84d6c00b48b0ed48aa509464376f15f7970fdcda020e3dc57457ffaee5861e6ad1200de4c9195580f2feed8e9790735d5e391f4eebd32bf9372bb3c13f705e869bb1d12e7a916b355034b9ee08bde5676f7848b9da8327e1319a2670937e228a6f8a4e30afe141f8a5775f315d2c60ac6851c7cff002dd57bdaa27a2951feccbdead63a12a9c7e5ccabc305b13e336cd7becc72a0ef88e04e0973f61f5bb472e1a3230035a5018db3b83849c492a44e0ab6ee125c2634c270f4caa84332bdf0365a01f2ff2d90cef2390ef0069fed1c1061dd6abf33111d72c243427ad4582a83f5a346d3292ef867075b501d93620eabd77bd1412c8add591c6964e73f2a39b42b9d225b67823c02fe1cd7ea19340984358cc7f8d3c7b0a4dec71e037ebc75c73ed722def8ba99416d03be0e1ca3b1e08b913943fa7c203b3b18c2e68e084ecaee97aed971d93c70cfc334cb5a0b5bfd3287013609eaf050202dfd8553a82ddac29438f47b67d206df95e0201b45410d200aa9149ae2d44a1aaa0fe7d80b9cf818e97d1f5580048572b84128e3eff6f4d3e3d8ba8712e38b4c4d6148e6a503c1b5ac9fb90e3cda0cc69e1d7554624503c0aabababcf29f672a4f3a03ae4329b2ae8af9226472892fa735c6e5bff1cc46be1c26c4fb4d7238601977c47607486262c93ed11576ae314b0e8a3249aa0a351d51da8a2b6351f6203ca436658999c08795500ce48d105541e9d273501d9f33a8300a25ace8e235a4c6976cc90c68e1400776c32788da787dad3c7b10a3e0c190e5ed3a365892c98163b1a8d5cf5ae627df48da755894c83cf26acb76f960748056cf21dfb077469ed26ce2e53cd3a869333b8d44de74955966707376b2219ed8903459d858bf1885d983388101f3530dfe573baaf2f20339f39388ef0de17f890cd83b5114147740afcb392dcc59b112e6cb81d13a68e7d6eb2dec263d1bfa45404a48ec8d50f3ae2ea854577d093ea8a4b5b9cfdc7df7dd1d640ccab90aafce2b89f95039ed64d2225e17e38baeb61cf92ed08ce1191efb65cab6f7e3de062ed56a2d5af5c4b8a5412de6e7bc8bae591e877f8bb817092e6a0037dab4944fae99f17640a7fe051fea2c04304153f9349a3037b67bdb1c4495cd365ae61dcabeaac6a9d444fa9cbbbf2711d33b27d665d6b917682ec09924d180450ae47b3261f821756452b1b032a1d9aaf5afad8b12a3b137a31bb2766276bd8516eec10935312b0f55f583525d786aee2fec7a6075fa6e2c1371992c1b44e8a0dc33e17ee5464251b7ca2e2e1cfbda22913ed8cf1637e649"}, {0xa0, 0x10f, 0xe8, "38141cd56bc18a8915d47181955417de8f7e35c5afbf932f898f4ec39a988a294851b84f9ca32797a2ec053d1866b223994b4adf7a55be5f1c144a4107d980829af4b3b5e3706c666b5daeb15bfba493b3ce8f786a34018b57c3b682482cc04c5814d943722b1f4159686daf7b046642d9a7bc56e8cad7a53ae6cfecf5fd8812165b5f2b8428b43b35bc59"}, {0x30, 0xff, 0x8, "837645aa46f271bcde7045283f60e47aba25e0d6c907e6cfa4a502c7b20505"}], 0x1490}, 0x810)
+r2 = socket$inet_tcp(0x2, 0x1, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000001940)={{{@in6=@initdev, @in=@loopback, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in6=@initdev}}}, &(0x7f0000001a40)=0xe8)
+setsockopt$inet_IP_XFRM_POLICY(r2, 0x0, 0x11, &(0x7f0000001a80)={{{@in6=@dev={0xfe, 0x80, [], 0x30}, @in=@multicast2, 0x4e22, 0x4, 0x4e22, 0x0, 0xa, 0x0, 0x80, 0x87, 0x0, r3}, {0x7fff, 0xfb, 0x0, 0x3, 0x5, 0x8, 0x7}, {0x892, 0x9, 0xffffffffffffff24, 0xfffffffffffffffc}, 0x5, 0x6e6bb8, 0x0, 0x0, 0x1, 0x1}, {{@in6=@mcast1, 0x4d6, 0x32}, 0xa, @in6=@loopback, 0x3506, 0x2, 0x3, 0x1, 0x4, 0x4, 0xf30}}, 0xe8)
+r4 = accept(r2, &(0x7f0000001b80)=@xdp, &(0x7f0000001c00)=0x80)
+ioctl$FS_IOC_GETVERSION(r4, 0x80087601, &(0x7f0000001c40))
+r5 = accept4$inet6(r4, 0x0, &(0x7f0000001c80), 0x800)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r5, 0x29, 0x20, &(0x7f0000001cc0)={@local, 0x8, 0x1, 0x1, 0x7, 0x4777, 0xfffb}, 0x20)
+r6 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPSET_CMD_PROTOCOL(r6, &(0x7f0000001e00)={&(0x7f0000001d00)={0x10, 0x0, 0x0, 0x80000000}, 0xc, &(0x7f0000001dc0)={&(0x7f0000001d40)={0x4c, 0x1, 0x6, 0x101, 0x0, 0x0, {0x5, 0x0, 0x7}, [@IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}]}, 0x4c}, 0x1, 0x0, 0x0, 0x4}, 0x400c801)
+r7 = accept4(0xffffffffffffffff, &(0x7f0000001e40)=@sco={0x1f, @none}, &(0x7f0000001ec0)=0x80, 0x80000)
+getsockopt$inet6_udp_int(r7, 0x11, 0xa, &(0x7f0000001f00), &(0x7f0000001f40)=0x4)
+getsockopt$sock_cred(r7, 0x1, 0x11, &(0x7f0000001fc0)={<r8=>0x0}, &(0x7f0000002000)=0xc)
+sendmsg$AUDIT_SET(r7, &(0x7f00000020c0)={&(0x7f0000001f80)={0x10, 0x0, 0x0, 0x10000000}, 0xc, &(0x7f0000002080)={&(0x7f0000002040)={0x34, 0x3e9, 0x400, 0x70bd2b, 0x25dfdbfb, {0x10, 0x1, 0x0, r8, 0x8000, 0x8, 0x5bf1, 0x0, 0x1}, ["", "", ""]}, 0x34}, 0x1, 0x0, 0x0, 0x1}, 0x40)
+sendmsg$TCPDIAG_GETSOCK(r4, &(0x7f0000002300)={&(0x7f0000002100)={0x10, 0x0, 0x0, 0x1000}, 0xc, &(0x7f00000022c0)={&(0x7f0000002140)={0x170, 0x12, 0x1, 0x70bd2b, 0x25dfdbfb, {0x25, 0x4, 0x7, 0x81, {0x4e22, 0x4e21, [0xc9, 0x4, 0x9, 0x5], [0x9, 0x8000, 0x8, 0x4], r1, [0x1000000, 0x7]}, 0x8, 0x3}, [@INET_DIAG_REQ_BYTECODE={0x4d, 0x1, "4117e13612b2f4be08d888409321a353460c9ff8f4a812fa5f5a45878558d9bf065437ac2e4d45330c8be865188b8fb50f44eb5cb3bd584c57249f4443b7855a5c607c5033832993f6"}, @INET_DIAG_REQ_BYTECODE={0x89, 0x1, "f3abe5142239b933db33f1f0029b3513319d659ee8402d6e4dab602ba2f79938e9a03a2478ee3fd8d7c498748c882c84dbb5fe8258892a5f4f9c8cc7b033f162bf122d81871c4d70ed2ad79145909c89ea564d32a7767b2e5fd3679113dffd0e2536420f3a24c9f04764ba666e35abd0076722d5aef2eef75afa198cc16f969a5c45bd57bb"}, @INET_DIAG_REQ_BYTECODE={0x48, 0x1, "5407469ab1eba4852cf88f86e8d87bddb73d75ab77c601c9bd622937379edb373791cc9b7094bd403e26f353bd2166d781fead83e1a13b2c9799d20611e66aaddc2e4d66"}]}, 0x170}, 0x1, 0x0, 0x0, 0x20000801}, 0x20000000)
+getsockname(0xffffffffffffffff, &(0x7f0000002340)=@pppol2tpin6={0x18, 0x1, {0x0, <r9=>0xffffffffffffffff}}, &(0x7f00000023c0)=0x80)
+setsockopt$IP_VS_SO_SET_ZERO(r9, 0x0, 0x48f, &(0x7f0000002400)={0x21, @empty, 0x4e22, 0x3, 'lblcr\x00', 0xa, 0x8, 0x3c}, 0x2c)
+ioctl$sock_FIOGETOWN(r5, 0x8903, &(0x7f0000002440))
+
+01:45:46 executing program 1:
+r0 = accept$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @local}, &(0x7f0000000040)=0x10)
+getsockopt$inet_mtu(r0, 0x0, 0xa, &(0x7f0000000080), &(0x7f00000000c0)=0x4)
+r1 = accept$inet(r0, &(0x7f0000000100)={0x2, 0x0, @local}, &(0x7f0000000140)=0x10)
+getsockopt$ARPT_SO_GET_ENTRIES(r1, 0x0, 0x61, &(0x7f0000000180)={'filter\x00', 0x28, "b60576cfa56d1a1b641e44f23b539afbc57ab2f8b2d9b105f54cbeebc61f2b5694d048ddb78c4512"}, &(0x7f0000000200)=0x4c)
+connect$inet(0xffffffffffffffff, &(0x7f0000000240)={0x2, 0x4e20, @rand_addr=0x5}, 0x10)
+setsockopt$IP_VS_SO_SET_ADDDEST(r1, 0x0, 0x487, &(0x7f0000000280)={{0x1d, @local, 0x4e20, 0x3, 'sed\x00', 0x8, 0x9, 0x74}, {@remote, 0x4e22, 0x4, 0x8, 0x1f, 0x3}}, 0x44)
+setsockopt$inet_mreqsrc(r1, 0x0, 0x26, &(0x7f0000000300)={@empty, @empty, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0xc)
+socketpair(0x28, 0xa, 0x6, &(0x7f0000000400)={0xffffffffffffffff, <r2=>0xffffffffffffffff})
+getsockopt$IPT_SO_GET_REVISION_MATCH(r2, 0x0, 0x42, &(0x7f0000000440)={'icmp\x00'}, &(0x7f0000000480)=0x1e)
+r3 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+setsockopt$inet_MCAST_LEAVE_GROUP(r3, 0x0, 0x2d, &(0x7f00000004c0)={0x20, {{0x2, 0x4e23, @loopback}}}, 0x88)
+sendmsg$IPSET_CMD_TEST(r2, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)={0xa4, 0xb, 0x6, 0x0, 0x0, 0x0, {0x2, 0x0, 0x4}, [@IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz1\x00'}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_DATA={0x68, 0x7, 0x0, 0x1, [@IPSET_ATTR_COMMENT={0x29, 0x1a, 'GPLposix_acl_access[nodevGPL&^vmnet1\x00'}, @IPSET_ATTR_COMMENT={0x6, 0x1a, '[\x00'}, @IPSET_ATTR_PORT={0x6, 0x4, 0x1, 0x0, 0x4e20}, @IPSET_ATTR_ETHER={0xa, 0x11, @link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0x3}}, @IPSET_ATTR_TIMEOUT={0x8, 0x6, 0x1, 0x0, 0x7}, @IPSET_ATTR_TIMEOUT={0x8, 0x6, 0x1, 0x0, 0x1b}, @IPSET_ATTR_NAMEREF={0x9, 0x13, 'syz1\x00'}]}, @IPSET_ATTR_PROTOCOL={0x5}]}, 0xa4}, 0x1, 0x0, 0x0, 0x4008054}, 0x5)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, &(0x7f00000007c0)={{{@in=@multicast1, @in6=@dev, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r4=>0x0}}, {{@in=@multicast1}, 0x0, @in6}}, &(0x7f00000008c0)=0xe8)
+recvfrom$packet(r2, 0xffffffffffffffff, 0x0, 0x40010062, &(0x7f0000000900)={0x11, 0x11, r4, 0x1, 0x2, 0x6, @broadcast}, 0x14)
+setsockopt$inet_int(0xffffffffffffffff, 0x0, 0xb, &(0x7f0000000940)=0x2, 0x4)
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$inet6_mtu(r2, 0x29, 0x17, &(0x7f0000000980), 0x4)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+getsockopt$IP_VS_SO_GET_SERVICE(r6, 0x0, 0x483, &(0x7f0000000a80), &(0x7f0000000b00)=0x68)
+ioctl$EXT4_IOC_SWAP_BOOT(r5, 0x6611)
+
+01:45:46 executing program 2:
+socketpair(0x27, 0xa, 0x7ff, &(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+getsockopt$inet_tcp_TCP_REPAIR_WINDOW(r0, 0x6, 0x1d, &(0x7f0000000040), &(0x7f0000000080)=0x14)
+getsockopt$inet6_tcp_TCP_REPAIR_WINDOW(r0, 0x6, 0x1d, &(0x7f00000000c0), &(0x7f0000000100)=0x14)
+pipe(&(0x7f0000000140)={<r1=>0xffffffffffffffff})
+setsockopt$inet6_MRT6_ADD_MFC_PROXY(r1, 0x29, 0xd2, &(0x7f0000000180)={{0xa, 0x4e24, 0xc5d2, @empty, 0x80000001}, {0xa, 0x4e21, 0x4, @mcast1, 0x7fffffff}, 0x0, [0x7, 0x0, 0xfffffa2f, 0x2, 0xfffffffd, 0x440a, 0x6, 0x1]}, 0x5c)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, &(0x7f00000002c0)={{{@in=@remote, @in=@local, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r2=>0x0}}, {{@in=@multicast1}, 0x0, @in6=@remote}}, &(0x7f00000003c0)=0xe8)
+ioctl$sock_inet6_SIOCDELRT(r1, 0x890c, &(0x7f0000000400)={@rand_addr="6ec5cf6a43cf68e1dd80672055072f93", @mcast2, @local, 0x37f, 0x8, 0x800, 0x0, 0x9b, 0x4000214, r2})
+r3 = socket$nl_route(0x10, 0x3, 0x0)
+setsockopt(r3, 0x10000, 0x1f, &(0x7f0000000480)="e3bd178bc9eaa7365071808f83fbcb4a3ce2da64a94fae9f88c93635a21031f93e2afaa699d9c59a306cb4185c938986d3d77aec3ca61c05a5a6487987d3206633bbee7fef8bd7ec7b1a9b62bd5622e596eb9f573594f3ef68d71030a252603388a3c59874033a1eed18b0f7888533f43df11f8ffe", 0x75)
+r4 = accept(0xffffffffffffffff, &(0x7f0000000500)=@pppoe={0x18, 0x0, {0x0, @multicast}}, &(0x7f0000000580)=0x80)
+sendmsg$IPSET_CMD_SAVE(r4, &(0x7f00000006c0)={&(0x7f00000005c0)={0x10, 0x0, 0x0, 0x2}, 0xc, &(0x7f0000000680)={&(0x7f0000000600)={0x64, 0x8, 0x6, 0x101, 0x0, 0x0, {0xa, 0x0, 0x2}, [@IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz2\x00'}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz2\x00'}]}, 0x64}, 0x1, 0x0, 0x0, 0x800}, 0x0)
+getpeername(r0, &(0x7f0000000700)=@pppol2tpv3={0x18, 0x1, {0x0, <r5=>0xffffffffffffffff, {0x2, 0x0, @empty}}}, &(0x7f0000000780)=0x80)
+sendmsg$IPCTNL_MSG_CT_GET_CTRZERO(r5, &(0x7f00000009c0)={&(0x7f00000007c0)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000980)={&(0x7f0000000800)={0x168, 0x3, 0x1, 0x201, 0x0, 0x0, {0x2, 0x0, 0x9}, [@CTA_NAT_DST={0x20, 0xd, 0x0, 0x1, [@CTA_NAT_V6_MAXIP={0x14, 0x5, @dev={0xfe, 0x80, [], 0x38}}, @CTA_NAT_V4_MAXIP={0x8, 0x2, @multicast1}]}, @CTA_ID={0x8, 0xc, 0x1, 0x0, 0x4}, @CTA_MARK_MASK={0x8}, @CTA_SEQ_ADJ_REPLY={0x1c, 0x10, 0x0, 0x1, [@CTA_SEQADJ_CORRECTION_POS={0x8, 0x1, 0x1, 0x0, 0x7}, @CTA_SEQADJ_OFFSET_BEFORE={0x8, 0x2, 0x1, 0x0, 0x10001}, @CTA_SEQADJ_OFFSET_BEFORE={0x8, 0x2, 0x1, 0x0, 0x400}]}, @CTA_MARK={0x8, 0x8, 0x1, 0x0, 0x100}, @CTA_TUPLE_REPLY={0x3c, 0x2, 0x0, 0x1, [@CTA_TUPLE_IP={0x2c, 0x1, 0x0, 0x1, @ipv6={{0x14, 0x3, @ipv4={[], [], @remote}}, {0x14, 0x4, @remote}}}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x21}}]}, @CTA_TUPLE_REPLY={0x90, 0x2, 0x0, 0x1, [@CTA_TUPLE_IP={0x2c, 0x1, 0x0, 0x1, @ipv6={{0x14, 0x3, @mcast1}, {0x14, 0x4, @empty}}}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x21}}, @CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @multicast2}, {0x8, 0x2, @initdev={0xac, 0x1e, 0x0, 0x0}}}}, @CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @local}, {0x8, 0x2, @dev={0xac, 0x14, 0x14, 0x1d}}}}, @CTA_TUPLE_ZONE={0x6, 0x3, 0x1, 0x0, 0x2}, @CTA_TUPLE_ZONE={0x6}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x1}}, @CTA_TUPLE_ZONE={0x6, 0x3, 0x1, 0x0, 0x4}, @CTA_TUPLE_ZONE={0x6}]}, @CTA_LABELS={0x10, 0x16, 0x1, 0x0, [0x0, 0x1, 0x3c]}, @CTA_SEQ_ADJ_REPLY={0x24, 0x10, 0x0, 0x1, [@CTA_SEQADJ_OFFSET_AFTER={0x8, 0x3, 0x1, 0x0, 0x6}, @CTA_SEQADJ_CORRECTION_POS={0x8, 0x1, 0x1, 0x0, 0x80}, @CTA_SEQADJ_CORRECTION_POS={0x8, 0x1, 0x1, 0x0, 0x180000}, @CTA_SEQADJ_OFFSET_AFTER={0x8, 0x3, 0x1, 0x0, 0x8000}]}]}, 0x168}, 0x1, 0x0, 0x0, 0x10010004}, 0x804)
+r6 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+getsockopt$inet6_int(r6, 0x29, 0xd1, &(0x7f0000000a00), &(0x7f0000000a40)=0x4)
+r7 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+setsockopt$inet_opts(r7, 0x0, 0x9, &(0x7f0000000d00)="0d985b589207e874c2f7c5b108a594095745c11af046958f4c4d8a8f8856700a767e73079b2cebc66c901aa81b45c5e94fda70adda31bfde755d9686741438da516b156ad9136aed70e9f6f8c9bbf0c4afdc032c96741594882c463e9f768b033ee84861ff6b4f7a441a476961853503adbc0d326bcdcb2f4721ef1453086a363bf56b8aa08933dbca3dd9be3df130f138e03a348dd3966d9613667a13e7b483186cecd9fd", 0xa5)
+r8 = socket$nl_audit(0x10, 0x3, 0x9)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000e00)={<r9=>0x0}, &(0x7f0000000e40)=0xc)
+sendmsg$AUDIT_SET(r8, &(0x7f0000000f00)={&(0x7f0000000dc0)={0x10, 0x0, 0x0, 0x800000}, 0xc, &(0x7f0000000ec0)={&(0x7f0000000e80)={0x34, 0x3e9, 0x1, 0x70bd2d, 0x25dfdbfb, {0x1, 0x0, 0x1, r9, 0xdc13, 0x9, 0xa6, 0x0, 0x5}, ["", "", ""]}, 0x34}, 0x1, 0x0, 0x0, 0xe2f4d386982d9e7f}, 0x40000)
+
+[   22.115359] audit: type=1400 audit(1586569546.651:12): avc:  denied  { map } for  pid=1603 comm="syz-executor.3" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8629 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   22.142961] cgroup1: Unknown subsys name 'perf_event'
+[   22.146284] cgroup1: Unknown subsys name 'net_cls'
+[   22.188922] cgroup1: Unknown subsys name 'perf_event'
+[   22.195282] cgroup1: Unknown subsys name 'net_cls'
+[   22.215507] cgroup1: Unknown subsys name 'perf_event'
+[   22.218485] cgroup1: Unknown subsys name 'net_cls'
+[   22.240004] cgroup1: Unknown subsys name 'perf_event'
+[   22.245189] cgroup1: Unknown subsys name 'net_cls'
+[   22.840998] audit: type=1400 audit(1586569547.376:13): avc:  denied  { create } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.849031] audit: type=1400 audit(1586569547.376:14): avc:  denied  { write } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.868249] audit: type=1400 audit(1586569547.398:15): avc:  denied  { read } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.979238] audit: type=1400 audit(1586569549.513:16): avc:  denied  { associate } for  pid=1614 comm="syz-executor.1" name="syz1" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   25.074323] audit: type=1400 audit(1586569549.610:17): avc:  denied  { getopt } for  pid=3298 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+01:45:49 executing program 1:
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+sendmmsg$inet(r0, &(0x7f0000000780)=[{{&(0x7f0000000040)={0x2, 0x4e24, @rand_addr=0x5}, 0x10, 0x0}}, {{&(0x7f0000000140)={0x2, 0x4e20, @dev}, 0x10, 0x0, 0x0, &(0x7f0000000000)=[@ip_retopts={{0x24, 0x0, 0x7, {[@generic={0x44, 0x12, "5b14e145f02b1cb544569f23b4c7c0bd"}]}}}], 0x28}}], 0x2, 0x0)
+
+01:45:49 executing program 1:
+r0 = socket$nl_audit(0x10, 0x3, 0x9)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(r0, 0x10e, 0x1, &(0x7f0000000640)=0x5, 0x4)
+close(r0)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+setsockopt$inet6_opts(r1, 0x29, 0x36, &(0x7f0000000080)=ANY=[@ANYBLOB="f400000009000000e900000000000000aefa2520"], 0x10)
+r2 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+getsockopt$SO_BINDTODEVICE(r2, 0x1, 0x19, &(0x7f00000000c0), 0x10)
+connect$inet6(r1, &(0x7f0000000040)={0xa, 0x0, 0x0, @loopback}, 0x1c)
+setsockopt$inet6_tcp_TCP_QUEUE_SEQ(r1, 0x6, 0x15, &(0x7f0000000000)=0x7, 0x4)
+
+[   25.164848] audit: type=1400 audit(1586569549.700:18): avc:  denied  { audit_read } for  pid=3344 comm="syz-executor.1" capability=37  scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=capability2 permissive=1
+01:45:49 executing program 1:
+r0 = socket$nl_netfilter(0x10, 0x3, 0xc)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000040)={'sit0\x00', &(0x7f0000000000)=ANY=[@ANYBLOB="1d00"/16]})
+
+[   25.193981] audit: type=1400 audit(1586569549.729:19): avc:  denied  { create } for  pid=3359 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+[   25.201539] audit: type=1400 audit(1586569549.737:20): avc:  denied  { ioctl } for  pid=3359 comm="syz-executor.1" path="socket:[11308]" dev="sockfs" ino=11308 ioctlcmd=0x8946 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+01:45:49 executing program 1:
+socket$inet_tcp(0x2, 0x1, 0x0)
+socket$inet_udplite(0x2, 0x2, 0x88)
+r0 = socket$inet_udplite(0x2, 0x2, 0x88)
+sendmmsg$inet(r0, &(0x7f0000000780)=[{{&(0x7f0000000040)={0x2, 0x4e24, @remote}, 0x10, 0x0}}, {{&(0x7f0000000140)={0x2, 0x4e20, @dev}, 0x10, 0x0, 0x0, &(0x7f00000000c0)=[@ip_retopts={{0x18, 0x0, 0x7, {[@generic={0x88, 0x2}, @timestamp={0x44, 0x4}]}}}], 0x18}}], 0x2, 0x0)
+getsockopt$inet_mreqsrc(r0, 0x0, 0x26, 0x0, &(0x7f00000001c0))
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_mreqn(r1, 0x0, 0x23, 0x0, 0x0)
+ioctl$sock_inet_tcp_SIOCOUTQ(r1, 0x5411, &(0x7f0000000000))
+
+01:45:49 executing program 3:
+r0 = socket$inet6(0xa, 0x803, 0x7)
+sendmmsg$inet6(r0, &(0x7f0000000200)=[{{&(0x7f0000000040)={0xa, 0x0, 0x0, @dev}, 0x1c, 0x0}}, {{&(0x7f0000000000)={0xa, 0x0, 0x0, @empty}, 0x7, &(0x7f00000001c0)=[{&(0x7f0000000080)="bd577e853c562cc72f648eff56678e2b24a1fdd400f2d2ab51468d1a92e66a7e8b286dfc7b16cc015754de6d12d408335dfd2c8a602c578cd26ac604f79d55", 0x3f}, {&(0x7f00000000c0)="df70079c06c378313d3fec4ef4bf933361b495ed086169b91d36f92b89246f35372845de2f1b7f38f6bc0c8e80a55625ed026bf8440f42f7609a9d0a478bd917b93daa3140cba35f2ca7aef55bee89a6d46143513db0a043f127750ccb49e170345ab389486d8653f87e4a653de1", 0x6e}, {&(0x7f0000000140)="4c114637e78841e473b40763aef4e4155af1bd64649ad103036bbfd3ba4bbd3c0a96422e4bd9d2e7c881ef178fd8daab6f86a26b3c78827c46ed934f7b9757b132e6c8", 0x43}], 0x3, 0xffffffffffffffff}}], 0x2, 0x0)
+r1 = socket$inet_tcp(0x2, 0x1, 0x0)
+setsockopt$inet_mreqn(r1, 0x0, 0x23, 0x0, 0x0)
+setsockopt$inet_tcp_TCP_MD5SIG(r1, 0x6, 0xe, &(0x7f0000000280)={@in6={{0xa, 0x4e21, 0x7, @remote, 0x21}}, 0x0, 0x0, 0x42, 0x0, "31f05508cffcdd355773398b58aaf6de46fd9a62701435ba62e968deca431172e41738588d71a1489f8aaa6e8500ee5f3d54632ced5c0b9445be5857fa8fd4a9820c4bac7adb8c2fea9161586975e799"}, 0xd8)
+
+[   25.367799] ------------[ cut here ]------------
+[   25.368941] Found allocation of xfrm_policy
+[   25.370374] WARNING: CPU: 1 PID: 3426 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270
+[   25.375956] Modules linked in:
+[   25.377837] CPU: 1 PID: 3426 Comm: syz-executor.0 Not tainted 5.5.3 #13
+[   25.382732] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   25.388070] RIP: 0010:xfrm_policy_alloc+0x20/0x270
+[   25.390570] Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae eb a3 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+[   25.399203] RSP: 0018:ffff888066def8c0 EFLAGS: 00010246
+[   25.402453] RAX: c99f59415b672400 RBX: ffff888069ac86a0 RCX: ffffc9000157b000
+[   25.405360] RDX: ffffffffa0e00000 RSI: 000000000000054a RDI: 000000000000054b
+[   25.408210] RBP: 0000000000000a20 R08: dffffc0000000000 R09: 0000000000000003
+[   25.412486] R10: ffffed100cdbde91 R11: 0000000000000004 R12: ffff888066def9e0
+[   25.414635] R13: ffff8880533b8f40 R14: ffff8880533b8f40 R15: 0000000000000000
+[   25.416509] FS:  00007f32b3c50700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   25.418502] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   25.419667] CR2: 0000000020001840 CR3: 0000000066fee005 CR4: 00000000001606e0
+[   25.421302] Call Trace:
+[   25.421981]  xfrm_compile_policy+0x95b/0x1290
+[   25.423087]  xfrm_user_policy+0x242/0x580
+[   25.424183]  ? km_report+0x100/0x100
+[   25.424885]  ? security_capable+0xae/0xd0
+[   25.425633]  do_ip_setsockopt+0x1088/0x3a40
+[   25.426661]  ? ip_setsockopt+0xb0/0xb0
+[   25.427602]  ? avc_has_perm_noaudit+0x29c/0x380
+[   25.428671]  ? wait_rcu_exp_gp+0x40/0x40
+[   25.429656]  ? avc_denied+0x180/0x180
+[   25.430580]  ? __fget+0x301/0x360
+[   25.431445]  ? security_file_alloc+0x32/0x1f0
+[   25.432908]  ? avc_has_perm+0xb8/0x250
+[   25.434522]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   25.436269]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   25.437802]  ? avc_has_perm_noaudit+0x380/0x380
+[   25.439734]  ? __switch_to_asm+0x40/0x70
+[   25.442038]  ? __switch_to_asm+0x34/0x70
+[   25.442959]  ? __switch_to_asm+0x40/0x70
+[   25.443847]  ? __switch_to_asm+0x40/0x70
+[   25.445326]  ? selinux_socket_setsockopt+0x23a/0x310
+[   25.446914]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   25.448379]  ? __fget+0x31f/0x360
+[   25.449860]  ? _copy_to_user+0x6f/0x90
+[   25.450832]  ? __schedule+0xb4a/0x10b0
+[   25.452144]  ip_setsockopt+0x43/0xb0
+[   25.453220]  __sys_setsockopt+0x1c2/0x210
+[   25.454472]  __x64_sys_setsockopt+0xb1/0xc0
+[   25.455574]  do_syscall_64+0xa5/0x130
+[   25.456555]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.457983] RIP: 0033:0x467519
+[   25.458781] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   25.463412] RSP: 002b:00007f32b3c4fc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   25.465163] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   25.466788] RDX: 0000000000000011 RSI: 0000000000000000 RDI: 0000000000000003
+[   25.468457] RBP: 00007f32b3c506bc R08: 00000000000000e8 R09: 0000000000000000
+[   25.470109] R10: 0000000020001a80 R11: 0000000000000246 R12: 00000000ffffffff
+[   25.471997] R13: 0000000000000aa6 R14: 00000000004d5008 R15: 0000000000701660
+[   25.474253] ---[ end trace 0b71f4036b519016 ]---
+[   25.480312] audit: type=1400 audit(1586569550.016:21): avc:  denied  { write } for  pid=3425 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+[   25.487365] ------------[ cut here ]------------
+[   25.488608] Found allocation of xfrm_policy
+[   25.489702] WARNING: CPU: 1 PID: 3426 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270
+[   25.492469] Modules linked in:
+[   25.494051] CPU: 1 PID: 3426 Comm: syz-executor.0 Tainted: G        W         5.5.3 #13
+[   25.496719] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   25.501855] RIP: 0010:xfrm_policy_alloc+0x20/0x270
+[   25.502913] Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae eb a3 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+[   25.507790] RSP: 0018:ffff888066def8c0 EFLAGS: 00010246
+[   25.509169] RAX: c99f59415b672400 RBX: ffff888069ac88a0 RCX: ffffc9000157b000
+[   25.510791] RDX: ffffffffa0e00000 RSI: 000000000000054e RDI: 000000000000054f
+[   25.512742] RBP: 0000000000000a20 R08: dffffc0000000000 R09: 0000000000000003
+[   25.515056] R10: ffffed100cdbde91 R11: 0000000000000004 R12: ffff888066def9e0
+[   25.516761] R13: ffff8880533b8f40 R14: ffff8880533b8f40 R15: 0000000000000000
+[   25.518616] FS:  00007f32b3c50700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   25.520680] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   25.522193] CR2: 0000555afdd35ab8 CR3: 0000000066fee005 CR4: 00000000001606e0
+[   25.523975] Call Trace:
+[   25.524600]  xfrm_compile_policy+0x95b/0x1290
+[   25.525643]  xfrm_user_policy+0x242/0x580
+[   25.526614]  ? km_report+0x100/0x100
+[   25.527479]  ? security_capable+0xae/0xd0
+[   25.528524]  do_ip_setsockopt+0x1088/0x3a40
+[   25.529529]  ? ip_setsockopt+0xb0/0xb0
+[   25.530450]  ? avc_has_perm_noaudit+0x29c/0x380
+[   25.531552]  ? wait_rcu_exp_gp+0x40/0x40
+[   25.532738]  ? avc_denied+0x180/0x180
+[   25.533601]  ? __fget+0x301/0x360
+[   25.534398]  ? security_file_alloc+0x32/0x1f0
+[   25.535464]  ? avc_has_perm+0xb8/0x250
+[   25.536402]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   25.537994]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   25.539569]  ? avc_has_perm_noaudit+0x380/0x380
+[   25.540726]  ? errseq_sample+0x9/0x50
+[   25.541598]  ? alloc_file+0x3a9/0x480
+[   25.542484]  ? selinux_socket_setsockopt+0x23a/0x310
+[   25.543979]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   25.545462]  ? __fget+0x31f/0x360
+[   25.546430]  ? _copy_to_user+0x6f/0x90
+[   25.547523]  ip_setsockopt+0x43/0xb0
+[   25.548527]  __sys_setsockopt+0x1c2/0x210
+[   25.549657]  __x64_sys_setsockopt+0xb1/0xc0
+[   25.550812]  do_syscall_64+0xa5/0x130
+[   25.551836]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   25.553268] RIP: 0033:0x467519
+[   25.554184] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   25.559371] RSP: 002b:00007f32b3c4fc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   25.562401] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   25.564388] RDX: 0000000000000011 RSI: 0000000000000000 RDI: 0000000000000003
+[   25.566326] RBP: 00007f32b3c506bc R08: 00000000000000e8 R09: 0000000000000000
+[   25.568326] R10: 0000000020001a80 R11: 0000000000000246 R12: 00000000ffffffff
+[   25.570296] R13: 0000000000000aa6 R14: 00000000004d5008 R15: 0000000000701660
+[   25.572333] ---[ end trace 0b71f4036b519017 ]---

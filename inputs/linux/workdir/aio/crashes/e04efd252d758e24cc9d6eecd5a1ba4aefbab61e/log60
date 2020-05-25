@@ -1,0 +1,157 @@
+Warning: Permanently added '[localhost]:64001' (ECDSA) to the list of known hosts.
+2020/04/17 06:19:50 fuzzer started
+2020/04/17 06:19:51 dialing manager at 10.0.2.10:35647
+2020/04/17 06:19:51 syscalls: 2
+2020/04/17 06:19:51 code coverage: enabled
+2020/04/17 06:19:51 comparison tracing: enabled
+2020/04/17 06:19:51 extra coverage: enabled
+2020/04/17 06:19:51 setuid sandbox: enabled
+2020/04/17 06:19:51 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/17 06:19:51 Android sandbox: enabled
+2020/04/17 06:19:51 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/17 06:19:51 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/17 06:19:51 net packet injection: /dev/net/tun does not exist
+2020/04/17 06:19:51 net device setup: enabled
+2020/04/17 06:19:51 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/17 06:19:51 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/17 06:19:51 USB emulation: /dev/raw-gadget does not exist
+06:19:52 executing program 0:
+io_destroy(0x0)
+io_setup(0x8, &(0x7f0000000000)=<r0=>0x0)
+io_setup(0x421, &(0x7f0000000040))
+io_setup(0xffffff37, &(0x7f0000000080)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x369, &(0x7f00000000c0))
+io_setup(0x1, &(0x7f0000000100)=<r2=>0x0)
+io_setup(0x6, &(0x7f0000000140))
+io_setup(0x7, &(0x7f0000000180))
+io_setup(0x5, &(0x7f00000001c0))
+io_destroy(0x0)
+io_setup(0x5, &(0x7f0000000200))
+io_destroy(r0)
+io_setup(0x7fffffff, &(0x7f0000000240))
+io_destroy(r1)
+io_setup(0x3, &(0x7f0000000280)=<r3=>0x0)
+io_destroy(r3)
+io_destroy(r2)
+io_setup(0x1, &(0x7f00000002c0)=<r4=>0x0)
+io_destroy(r4)
+
+06:19:52 executing program 1:
+io_setup(0x0, &(0x7f0000000000))
+io_setup(0x6, &(0x7f0000000040))
+io_setup(0x4, &(0x7f0000000080))
+io_setup(0xa1d, &(0x7f00000000c0)=<r0=>0x0)
+io_setup(0x94b, &(0x7f0000000100)=<r1=>0x0)
+io_setup(0x3f, &(0x7f0000000140)=<r2=>0x0)
+io_destroy(r0)
+io_setup(0xf3, &(0x7f0000000180)=<r3=>0x0)
+io_destroy(0x0)
+io_destroy(r1)
+io_destroy(r3)
+io_destroy(r2)
+io_setup(0x1, &(0x7f00000001c0)=<r4=>0x0)
+io_destroy(r4)
+io_destroy(r1)
+io_setup(0x9, &(0x7f0000000200))
+io_setup(0x7ff, &(0x7f0000000240)=<r5=>0x0)
+io_destroy(r5)
+io_destroy(r1)
+io_destroy(0x0)
+
+06:19:52 executing program 2:
+io_setup(0x0, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_destroy(r0)
+io_setup(0x1, &(0x7f0000000040))
+io_setup(0x7, &(0x7f0000000080)=<r1=>0x0)
+io_setup(0x7f, &(0x7f00000000c0)=<r2=>0x0)
+io_destroy(r2)
+io_setup(0x3f, &(0x7f0000000100)=<r3=>0x0)
+io_destroy(r1)
+io_destroy(r0)
+io_setup(0x2, &(0x7f0000000140))
+io_setup(0x0, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x1, &(0x7f00000001c0))
+io_destroy(r2)
+io_destroy(r3)
+io_setup(0x5, &(0x7f0000000200))
+io_destroy(r4)
+io_setup(0xffffffc0, &(0x7f0000000240))
+io_destroy(0x0)
+
+06:19:52 executing program 3:
+io_setup(0xc0000, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x7, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000080)=<r2=>0x0)
+io_setup(0x5, &(0x7f00000000c0))
+io_setup(0x6, &(0x7f0000000100))
+io_setup(0xd3, &(0x7f0000000140))
+io_destroy(r1)
+io_setup(0x8001, &(0x7f0000000180))
+io_setup(0xfffffffb, &(0x7f00000001c0))
+io_destroy(r2)
+io_destroy(0x0)
+io_destroy(r1)
+io_setup(0x18fcc5ba, &(0x7f0000000200))
+io_setup(0x800, &(0x7f0000000240)=<r3=>0x0)
+io_destroy(r3)
+io_destroy(r0)
+io_setup(0x6, &(0x7f0000000280))
+
+syzkaller login: [   17.245816] audit: type=1400 audit(1587104392.251:8): avc:  denied  { execmem } for  pid=336 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   17.383756] cgroup1: Unknown subsys name 'perf_event'
+[   17.397455] cgroup1: Unknown subsys name 'net_cls'
+[   17.409306] cgroup1: Unknown subsys name 'perf_event'
+[   17.413245] cgroup1: Unknown subsys name 'net_cls'
+[   17.424612] cgroup1: Unknown subsys name 'perf_event'
+[   17.428400] cgroup1: Unknown subsys name 'net_cls'
+[   17.440783] cgroup1: Unknown subsys name 'perf_event'
+[   17.444643] cgroup1: Unknown subsys name 'net_cls'
+[   19.043639] ------------[ cut here ]------------
+[   19.046687] Found allocation of kioctx
+[   19.047015] WARNING: CPU: 0 PID: 2103 at fs/aio.c:735 ioctx_alloc+0x145/0x2500
+[   19.053978] Kernel panic - not syncing: panic_on_warn set ...
+[   19.057256] CPU: 0 PID: 2103 Comm: syz-executor.1 Not tainted 5.5.3 #34
+[   19.061460] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.069190] Call Trace:
+[   19.071010]  dump_stack+0x15e/0x1ae
+[   19.073571]  panic+0x228/0x700
+[   19.075662]  ? 0xffffffffb1e00000
+[   19.077944]  ? ioctx_alloc+0x145/0x2500
+[   19.080595]  __warn+0x1fe/0x200
+[   19.082752]  ? ioctx_alloc+0x145/0x2500
+[   19.085312]  report_bug+0x359/0x480
+[   19.087677]  ? ioctx_alloc+0x145/0x2500
+[   19.090336]  do_invalid_op+0x6e/0x110
+[   19.092793]  invalid_op+0x1e/0x30
+[   19.095012] RIP: 0010:ioctx_alloc+0x145/0x2500
+[   19.097852] Code: 8b 1d 3f 4e c4 02 bf 02 00 00 00 89 de e8 33 d6 c5 ff 83 fb 02 75 17 e8 19 d2 c5 ff 48 c7 c7 60 6f de b4 31 c0 e8 2b 21 9f ff <0f> 0b eb 05 e8 02 d2 c5 ff 48 8b 3d 33 9e 60 03 be c0 0d 00 00 e8
+[   19.109999] RSP: 0018:ffff888064b6fe00 EFLAGS: 00010246
+[   19.113372] RAX: 3d295d3036c73b00 RBX: 0000000000000002 RCX: ffffc9000157b000
+[   19.117839] RDX: ffffffffb1e00000 RSI: 00000000000002d0 RDI: 00000000000002d1
+[   19.122275] RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff6b68bc3
+[   19.126942] R10: fffffbfff6b68bc3 R11: 0000000000000000 R12: 0000000000000006
+[   19.131675] R13: 1ffff1100a481d2c R14: 0000000000000010 R15: ffff88805240e960
+[   19.136253]  ? 0xffffffffb1e00000
+[   19.137863]  ? _copy_to_user+0x8e/0xb0
+[   19.139713]  ? put_timespec64+0xbe/0xf0
+[   19.141697]  __se_sys_io_setup+0x6a/0x1d0
+[   19.143655]  do_syscall_64+0xd1/0x160
+[   19.145441]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.147759] RIP: 0033:0x467519
+[   19.149224] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.158501] RSP: 002b:00007fdb5bdafc48 EFLAGS: 00000246 ORIG_RAX: 00000000000000ce
+[   19.163500] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.168036] RDX: 0000000000000000 RSI: 0000000020000040 RDI: 0000000000000006
+[   19.171582] RBP: 00007fdb5bdb06bc R08: 0000000000000000 R09: 0000000000000000
+[   19.175240] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.178612] R13: 00000000000001fa R14: 00000000004c28bf R15: 0000000000701640
+[   19.184656] Dumping ftrace buffer:
+[   19.186472]    (ftrace buffer empty)
+[   19.188317] Kernel Offset: 0x30e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   19.193653] Rebooting in 1 seconds..

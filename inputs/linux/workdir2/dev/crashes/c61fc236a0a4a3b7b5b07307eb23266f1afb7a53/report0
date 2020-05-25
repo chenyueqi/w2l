@@ -1,0 +1,84 @@
+------------[ cut here ]------------
+Found allocation of rchan_buf
+WARNING: CPU: 1 PID: 5586 at kernel/relay.c:169 relay_create_buf kernel/relay.c:169 [inline]
+WARNING: CPU: 1 PID: 5586 at kernel/relay.c:169 relay_open_buf+0x10a/0xc90 kernel/relay.c:454
+Modules linked in:
+CPU: 1 PID: 5586 Comm: syz-executor.2 Not tainted 5.5.3 #16
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:relay_create_buf kernel/relay.c:169 [inline]
+RIP: 0010:relay_open_buf+0x10a/0xc90 kernel/relay.c:454
+Code: 0c 87 24 00 49 81 3f 01 00 08 00 72 0a e8 4e d5 fe ff e9 41 06 00 00 48 89 6c 24 50 48 c7 c7 22 e7 bd 96 31 c0 e8 d6 45 d8 ff <0f> 0b 48 c7 c0 40 1e cd 96 48 c1 e8 03 42 80 3c 28 00 74 0c 48 c7
+RSP: 0018:ffff888053737458 EFLAGS: 00010246
+RAX: 7a2bb36dac03f100 RBX: 1ffff1100d14de02 RCX: ffffc90002cba000
+RDX: ffffffff93c00000 RSI: 0000000000000ad0 RDI: 0000000000000ad1
+RBP: 1ffff1100d14de09 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100a6e6e05 R11: 0000000000000004 R12: ffff888068a6f048
+R13: dffffc0000000000 R14: ffff888068a6f000 R15: ffff888068a6f010
+FS:  00007f1315654700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2e521000 CR3: 00000000673de003 CR4: 00000000001606e0
+Call Trace:
+ relay_open+0x4ad/0x9a0 kernel/relay.c:603
+ do_blk_trace_setup+0x414/0x9e0 kernel/trace/blktrace.c:525
+ __blk_trace_setup kernel/trace/blktrace.c:570 [inline]
+ blk_trace_ioctl+0x2b3/0x820 kernel/trace/blktrace.c:709
+ blkdev_ioctl+0x11be/0x2b70 block/ioctl.c:568
+ block_ioctl+0xae/0xf0 fs/block_dev.c:1983
+ do_vfs_ioctl+0x6b9/0x18b0 fs/ioctl.c:47
+ ksys_ioctl fs/ioctl.c:749 [inline]
+ __do_sys_ioctl fs/ioctl.c:756 [inline]
+ __se_sys_ioctl fs/ioctl.c:754 [inline]
+ __x64_sys_ioctl+0xc8/0xf0 fs/ioctl.c:754
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1315653c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000440 RSI: 00000000c0481273 RDI: 0000000000000003
+RBP: 00007f13156546bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000228 R14: 00000000004c2b60 R15: 0000000000701660
+---[ end trace 80e3268cceab522a ]---
+------------[ cut here ]------------
+Found allocation of rchan_buf
+WARNING: CPU: 1 PID: 5586 at kernel/relay.c:169 relay_create_buf kernel/relay.c:169 [inline]
+WARNING: CPU: 1 PID: 5586 at kernel/relay.c:169 relay_open_buf+0x10a/0xc90 kernel/relay.c:454
+Modules linked in:
+CPU: 1 PID: 5586 Comm: syz-executor.2 Tainted: G        W         5.5.3 #16
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:relay_create_buf kernel/relay.c:169 [inline]
+RIP: 0010:relay_open_buf+0x10a/0xc90 kernel/relay.c:454
+Code: 0c 87 24 00 49 81 3f 01 00 08 00 72 0a e8 4e d5 fe ff e9 41 06 00 00 48 89 6c 24 50 48 c7 c7 22 e7 bd 96 31 c0 e8 d6 45 d8 ff <0f> 0b 48 c7 c0 40 1e cd 96 48 c1 e8 03 42 80 3c 28 00 74 0c 48 c7
+RSP: 0018:ffff888053737458 EFLAGS: 00010246
+RAX: 7a2bb36dac03f100 RBX: 1ffff1100d14de02 RCX: ffffc90002cba000
+RDX: ffffffff93c00000 RSI: 0000000000017064 RDI: 0000000000017065
+RBP: 1ffff1100d14de09 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100a6e6e05 R11: 0000000000000004 R12: ffff888068a6f048
+R13: dffffc0000000000 R14: ffff888068a6f000 R15: ffff888068a6f010
+FS:  00007f1315654700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2e521000 CR3: 00000000673de004 CR4: 00000000001606e0
+Call Trace:
+ relay_open+0x4ad/0x9a0 kernel/relay.c:603
+ do_blk_trace_setup+0x414/0x9e0 kernel/trace/blktrace.c:525
+ __blk_trace_setup kernel/trace/blktrace.c:570 [inline]
+ blk_trace_ioctl+0x2b3/0x820 kernel/trace/blktrace.c:709
+ blkdev_ioctl+0x11be/0x2b70 block/ioctl.c:568
+ block_ioctl+0xae/0xf0 fs/block_dev.c:1983
+ do_vfs_ioctl+0x6b9/0x18b0 fs/ioctl.c:47
+ ksys_ioctl fs/ioctl.c:749 [inline]
+ __do_sys_ioctl fs/ioctl.c:756 [inline]
+ __se_sys_ioctl fs/ioctl.c:754 [inline]
+ __x64_sys_ioctl+0xc8/0xf0 fs/ioctl.c:754
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1315653c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000440 RSI: 00000000c0481273 RDI: 0000000000000003
+RBP: 00007f13156546bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000228 R14: 00000000004c2b60 R15: 0000000000701660
+---[ end trace 80e3268cceab522b ]---

@@ -1,0 +1,34 @@
+------------[ cut here ]------------
+Found leaking site of ip_options
+WARNING: CPU: 1 PID: 7787 at net/ipv4/ip_sockglue.c:1360 do_ip_getsockopt+0x11b4/0x1d70 net/ipv4/ip_sockglue.c:1360
+Modules linked in:
+CPU: 1 PID: 7787 Comm: syz-executor.2 Not tainted 5.5.3 #19
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:do_ip_getsockopt+0x11b4/0x1d70 net/ipv4/ip_sockglue.c:1360
+Code: 8b 4c 24 28 44 89 e8 e8 ba 99 76 00 85 c0 0f 85 9c 03 00 00 e8 1d 46 1f fe 45 31 e4 48 c7 c7 da 5b 4b 86 31 c0 e8 ac b6 f8 fd <0f> 0b 44 89 ea 49 83 c7 10 48 8b 7c 24 20 4c 89 fe e8 a6 d7 bb fe
+RSP: 0018:ffff8880679d7a20 EFLAGS: 00010246
+RAX: 493dd6c5f1427e00 RBX: 00007fffffffeffd RCX: ffffc9000183c000
+RDX: ffffffff83400000 RSI: 0000000000000520 RDI: 0000000000000521
+RBP: ffff8880679d7dd0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100cf3aebd R11: 0000000000000004 R12: 0000000000000000
+R13: 0000000000000010 R14: 1ffff1100cf3af4c R15: ffff8880679d7aa0
+FS:  00007f166df27700(0000) GS:ffff888068d00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000744e68 CR3: 0000000065892006 CR4: 00000000001606e0
+Call Trace:
+ ip_getsockopt+0xa0/0x200 net/ipv4/ip_sockglue.c:1566
+ __sys_getsockopt+0x19d/0x1f0 net/socket.c:2162
+ __do_sys_getsockopt net/socket.c:2177 [inline]
+ __se_sys_getsockopt net/socket.c:2174 [inline]
+ __x64_sys_getsockopt+0xb1/0xc0 net/socket.c:2174
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f166df26c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000004 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007f166df276bc R08: 0000000020000000 R09: 0000000000000000
+R10: 0000000020000180 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000171 R14: 00000000004c256d R15: 0000000000701660
+---[ end trace 9dafcc50ae47cea2 ]---

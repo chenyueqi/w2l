@@ -1,0 +1,174 @@
+[    7.983577] apt-get (279) used greatest stack depth: 26272 bytes left
+[[0;32m  OK  [0m] Started Daily apt download activities.
+         Starting Daily apt upgrade and clean activities...
+[[0;32m  OK  [0m] Started Daily apt upgrade and clean activities.
+Warning: Permanently added '[localhost]:52618' (ECDSA) to the list of known hosts.
+2020/04/20 19:24:19 fuzzer started
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+2020/04/20 19:24:20 dialing manager at 10.0.2.10:45239
+2020/04/20 19:24:20 syscalls: 35
+2020/04/20 19:24:20 code coverage: enabled
+2020/04/20 19:24:20 comparison tracing: enabled
+2020/04/20 19:24:20 extra coverage: enabled
+2020/04/20 19:24:20 setuid sandbox: enabled
+2020/04/20 19:24:20 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 19:24:20 Android sandbox: enabled
+2020/04/20 19:24:20 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 19:24:20 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 19:24:20 net packet injection: /dev/net/tun does not exist
+2020/04/20 19:24:20 net device setup: enabled
+2020/04/20 19:24:20 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 19:24:20 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 19:24:20 USB emulation: /dev/raw-gadget does not exist
+19:24:20 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x1}, 0x0, 0x0, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, r0)
+r2 = request_key(&(0x7f00000001c0)='user\x00', &(0x7f0000000200)={'syz', 0x0}, &(0x7f0000000240)='syz', r0)
+request_key(&(0x7f0000000100)='trusted\x00', &(0x7f0000000140)={'syz', 0x3}, &(0x7f0000000180)='keyring\x00', r2)
+r3 = add_key(&(0x7f0000000280)='cifs.spnego\x00', &(0x7f00000002c0)={'syz', 0x0}, &(0x7f0000000300)="1363ade859f616923a4a4661d2200320533e665a51124e692015a5cc15a0ce0b9f9c10d66de5ec0345be3dab6f2148e7e9d15d98517e95fc48707977eeebd2ca3b1666b9746f471c597b6b7577dbffb2d98a5d67e3ffbba6b52a208aea9ee8828736253bac976b9978bf70627ecf71e418254f457c7091caefbd2fc7955bc1f181bfd03d982d4dd6e0b9a79bc2fca945b476d10bf7d5229c7bd9bf329ae6186234670f9c40882802370309704da89503900590059fcf5b512343dea22b92c69cd1dc14088e2f4de7e9794cd35af126eb466501dd9e092a7007d5b1cb7387fbdef34ec40963a54ee6b692a8f9e346ab8eb6bbabb32f19", 0xf6, 0xfffffffffffffffd)
+r4 = add_key$keyring(&(0x7f0000000480)='keyring\x00', &(0x7f00000004c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$search(0xa, r3, &(0x7f0000000400)='big_key\x00', &(0x7f0000000440)={'syz', 0x3}, r4)
+r5 = request_key(&(0x7f0000000500)='rxrpc\x00', &(0x7f0000000540)={'syz', 0x0}, &(0x7f0000000580)='keyring\x00', 0xfffffffffffffffe)
+keyctl$invalidate(0x15, r5)
+keyctl$negate(0xd, r3, 0x1, r2)
+add_key$keyring(&(0x7f00000005c0)='keyring\x00', &(0x7f0000000600)={'syz', 0x1}, 0x0, 0x0, r2)
+r6 = add_key(&(0x7f0000000640)='cifs.spnego\x00', &(0x7f0000000680)={'syz', 0x1}, &(0x7f00000006c0)="d062dee4154743cbd6597ae6", 0xc, 0xfffffffffffffff9)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000700)={r6, 0xb6, 0xd2}, &(0x7f0000000740)={'enc=', 'oaep', ' hash=', {'blake2s-256\x00'}}, &(0x7f00000007c0)="ac012b56d5b5f35d24ee5ee7a05f52dea66e28d6d78b8422460f60239abc2ccdf3026c121d67ad0d30447ef089ef0040e6cfc0b892705167c8537701e0725683173a567f432953b17c0a888fe3705518931bcedcf06539b0d056b2ab643affbd5c05ecd8e0aec2dfe5e261bd4e392107bf445ad6527600f6edaf148b97e03baf71c01482660cf47db986767cb62ced1243a3eca409b7b138f4d61d25255e099c393b8081c074e160e4cf00a5376ed60c415ddc123a04", &(0x7f0000000880)="8bdfa3d9338cae7993c2c649e28c320fdc6f2b2479e4e26a997e0652b97b4a0e2bb2733a8429df0177dbbcd7e8013762e4fe0ffb2bf5fa8f665db257586cd4f878f52b25cd6f0d21f2790a4cba75ce887acaa7841d3679d6c1a6f76c7584fefdc0fe3554864b562464abd345f8d46c0b186cf87519512815647ce3010839784846ab3764f8371c9a613a362f6e70044052b0dee4df2dfc39425ae06ae211d638b230c43c7adbee91528c305bc0d61ec8f5a5f728d5cbcaad1a34b36d3c70b360a5b39e567c86f7e778ebf5994e2045aa6481")
+add_key(&(0x7f0000000980)='user\x00', &(0x7f00000009c0)={'syz', 0x3}, &(0x7f0000000a00)="2457b1219612bc3e55f04947ad5cf1b14db5c9f96622c5f5ba5abf7d1a23ac533a7e32c1e3083467bcbdf5bba9b06c2b2b266b388cbd41e25efdb54e458e3ad1dd6a255ea0798ecac8cb99fc", 0x4c, 0xfffffffffffffff8)
+r7 = request_key(&(0x7f0000000a80)='.dead\x00', &(0x7f0000000ac0)={'syz', 0x0}, &(0x7f0000000b00)='\x00', r1)
+r8 = add_key$keyring(&(0x7f0000000b40)='keyring\x00', &(0x7f0000000b80)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffff9)
+keyctl$reject(0x13, r7, 0x100000001, 0x4b, r8)
+keyctl$restrict_keyring(0x1d, r2, &(0x7f0000000bc0)='big_key\x00', &(0x7f0000000c00)='keyring\x00')
+r9 = add_key(&(0x7f0000000c40)='asymmetric\x00', &(0x7f0000000c80)={'syz', 0x0}, 0x0, 0x0, 0x0)
+keyctl$search(0xa, r9, &(0x7f0000000cc0)='.request_key_auth\x00', &(0x7f0000000d00)={'syz', 0x2}, r7)
+
+19:24:20 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+keyctl$KEYCTL_PKEY_ENCRYPT(0x19, &(0x7f0000000080)={r0, 0x1f, 0xf8}, 0x0, &(0x7f00000000c0)="154a6ce7f1d3c33b0710f7df23f110ebb046f3ebfd2160d796f5b40394ff15", &(0x7f0000000100)=""/248)
+r1 = add_key(&(0x7f0000000200)='logon\x00', &(0x7f0000000240)={'syz', 0x0}, 0x0, 0x0, r0)
+r2 = request_key(&(0x7f0000000280)='rxrpc\x00', &(0x7f00000002c0)={'syz', 0x0}, &(0x7f0000000300)='syz', 0xfffffffffffffff8)
+keyctl$link(0x8, r2, r1)
+r3 = add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f0000000440)={'syz', 0x2}, 0x0, 0x0, r0)
+add_key(&(0x7f0000000340)='syzkaller\x00', &(0x7f0000000380)={'syz', 0x3}, &(0x7f00000003c0)="7772c95fdf172fc4216e3b10a82ea282b78cf805f7454d9651b5355a8c3101d699f6fca4be9b873cde03013de43f3a2c76236c141144ec8aafc656b1bd17bd", 0x3f, r3)
+r4 = add_key$user(&(0x7f0000000480)='user\x00', &(0x7f00000004c0)={'syz', 0x2}, &(0x7f0000000500)="45e2b140209ea27a4ed837032c4533c17b362b714afa99423ed7460a185ffca2bbb5651ac095ce358431d233bf8b88", 0x2f, 0xfffffffffffffffc)
+keyctl$invalidate(0x15, r4)
+add_key$keyring(&(0x7f0000000540)='keyring\x00', &(0x7f0000000580)={'syz', 0x2}, 0x0, 0x0, r0)
+r5 = add_key(&(0x7f00000005c0)='big_key\x00', &(0x7f0000000600)={'syz', 0x1}, &(0x7f0000000640)="d3d1a546e12f585afdd2ce21f641f89b37e3713cebd6c677c6b351d32b0c08154d90bc1cde66ca41757c4d99ba3ffcaded5929ade0bd4edf56a5758364722805419f661de8b453fa92d0e4d4e3b1e00a867b11f321b0e14dad7fc5eb88a91781b97100bf1cc210d8bde7293a991944ee848896e43d99b94c84bd898ddccaf9d0257cda9e1029a914bb442cd42ac35089c1fff67844026a5f6a0dc66dc7379771c0bf2e74a1aba7a77e7d942b5bad0679a0e605ff28667dc29ee2a0069824e74daaefb7f7591505d58ffd478d6ecd7a647ccc6bfd9615d78b0e8b0a58cbee5c24266185d390a1c46c63df4245d34d0bd23c48e32e", 0xf4, r1)
+keyctl$KEYCTL_MOVE(0x1e, 0x0, r5, r3, 0x0)
+request_key(&(0x7f0000000740)='dns_resolver\x00', &(0x7f0000000780)={'syz', 0x0}, &(0x7f00000007c0)='proc\xda,-em0cpuset]\x00', 0xfffffffffffffffa)
+add_key$keyring(&(0x7f0000000800)='keyring\x00', &(0x7f0000000840)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+r6 = add_key(&(0x7f0000000880)='asymmetric\x00', &(0x7f00000008c0)={'syz', 0x0}, &(0x7f0000000900)="4ef89689d1ca1ec0dff29c86974a5039226e7abec187a7afe2011526700cec5de34aeba6905c5f09a1b411e986d6e267cd0992a52246b308c03138957d1fee", 0x3f, 0xfffffffffffffffa)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r6, &(0x7f0000000940)='.request_key_auth\x00', 0x0)
+r7 = add_key$keyring(&(0x7f0000000a00)='keyring\x00', &(0x7f0000000a40)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+add_key(&(0x7f0000000980)='.dead\x00', &(0x7f00000009c0)={'syz', 0x0}, 0x0, 0x0, r7)
+request_key(&(0x7f0000000a80)='id_resolver\x00', &(0x7f0000000ac0)={'syz', 0x0}, &(0x7f0000000b00)='\x00', 0xfffffffffffffffc)
+keyctl$link(0x8, 0x0, 0x0)
+
+19:24:20 executing program 1:
+r0 = add_key(&(0x7f0000000000)='pkcs7_test\x00', &(0x7f0000000040)={'syz', 0x3}, &(0x7f0000000080)="2bfb8b86df67649e4a13a5ed4d87e50fde73e90b5b77f67abb680d7df25645fe4f4397469203e81aa1cb80f41e163811b80d40e467c227280314f1efe29ca1fbf8593f4e2506ce50ba008882053f2c0eb5795d8d8dbd7e56a1b36c581de753489b574bb17fc9634e8b20bb84a7027a286f60ec7216d6d045a42938d85d47480410", 0x81, 0x0)
+r1 = add_key(&(0x7f0000000140)='id_resolver\x00', &(0x7f0000000180)={'syz', 0x1}, &(0x7f00000001c0)="04c8c8cb53675846e93c248a9c99ddc7b7bb7e0cf7abec43b4f7d61b16205c5692e4e28fc263fefaabac59d73c70084d", 0x30, 0xfffffffffffffffb)
+r2 = add_key$user(&(0x7f0000000200)='user\x00', &(0x7f0000000240)={'syz', 0x2}, &(0x7f0000000280)="539e6c0ac2c9cc29bb4ab04d9ffdc0602b99806ea269736c68a21172de41615ff2167866681d25c89b8970cb2e5d93cb715eb113d0c156ee78cc190e93ce381e59d9b3820127691d0339d8e0952ebbc32ef3076fdbdfbdf75dabdcc0665215fab35f12b122c6b35b975f4c75a9fe0ea560321d2b8b1fe883d1786fdae932cc00fb9809b3d6fa74d959c4348caeb23d06a37ac4744e64c514a4d85f06d2f56f445990d4385bb175297c2a1f12b334ad9d1015a44017de4cf4700da852892cf5b5ad45e55614ecffddeb4de11ac9890303c9fc3cef5610a429a89097f8", 0xdc, 0xfffffffffffffffa)
+keyctl$dh_compute(0x17, &(0x7f0000000380)={r0, r1, r2}, &(0x7f00000003c0)=""/169, 0xa9, &(0x7f00000004c0)={&(0x7f0000000480)={'wp512\x00'}})
+keyctl$get_security(0x11, 0x0, &(0x7f0000000500)=""/57, 0x39)
+r3 = add_key(&(0x7f0000000600)='rxrpc_s\x00', &(0x7f0000000640)={'syz', 0x1}, &(0x7f0000000680)="7e4e7ad073cb9cbd8d7f267d97ea91dc37e3ad50806940bc988a6cffd397aaea0625b4764fa2a9c9d55f426b77204ce37bcb", 0x32, 0xfffffffffffffffe)
+request_key(&(0x7f0000000540)='.request_key_auth\x00', &(0x7f0000000580)={'syz', 0x1}, &(0x7f00000005c0)='^/bdev(ppp0wlan1\xacsecurity{\x00', r3)
+keyctl$session_to_parent(0x12)
+add_key(&(0x7f00000006c0)='pkcs7_test\x00', &(0x7f0000000700)={'syz', 0x1}, &(0x7f0000000740)="146585ea84f38c3e2cd75dcd2f920cb2aedf3da0137f5dfe4e414dd01713a185573bbc09524d42d09003a42cf86eb0f8b6cb936215583c1ef209bb0f110fda85f34f93c32e36bd0e86d4db5cb0b2020586ddb8da444eaf5bcd59587cafb636c7ea9541fab55748da6ed847e0a4b636545ad7aa584080f44216c2f8bc144f980fbf0a234778e2f3544c73e64565740f827b8041d10b7d158636540b10a5e07663371fa4175f08a6e6caea577a34ca09880f0b83d094e7aa688c8774cd938596f730e0f744cb2f48b14dbd1f150d11dece6d76", 0xd2, 0xfffffffffffffffd)
+keyctl$revoke(0x3, 0x0)
+r4 = add_key$user(&(0x7f0000000840)='user\x00', &(0x7f0000000880)={'syz', 0x1}, &(0x7f00000008c0)="59c42081116b76f390a9f3b8161d0c43a6649847ec6047a15909afe6086bf34514ea89263a318b4d850d63586d896b293f8e4420836f362c18df986b911c796c2af0c723877ea4d90d8b252366bfbf675bec761fd396898bc0c035fc84441fb6c370228ca8b902ef5a8e8332b785e380bde3cf2d90a5c53cabbdbd8944ff26597848c0e99ee4091b547a8cd58820154d831e7baba2be9dbefd18e0fa140b323c15a524d16a71804cc4a2010608812083567b1850995acd3541192667106249c1bdebc5cc7724", 0xc6, r3)
+keyctl$set_timeout(0xf, r4, 0x0)
+r5 = add_key$keyring(&(0x7f0000000b00)='keyring\x00', &(0x7f0000000b40)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffff9)
+add_key(&(0x7f00000009c0)='keyring\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)="fcfa10a3aa1e9d9ea050ea794cae65e6c84c7e6aebb82f17c73a715fe932394405461b77a489a4249791b4e56db7847eafab0c6d688a8c42c7bd75c1041b6ec37165a49a2eb052c4475b1161c9af00db213be942bfe45d55c2f8bf0b7403a44dea49c14fd6900fad613f07c19818b330167c229f21a03f69cd5153041c7802456f493a8a8034376df30887f02834ea5e8e6a66f3c7834336f12da486e2e7ccb00a1553", 0xa3, r5)
+r6 = request_key(&(0x7f0000000b80)='cifs.idmap\x00', &(0x7f0000000bc0)={'syz', 0x1}, &(0x7f0000000c00)=',procvboxnet0\x00', r3)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r6, 0x0, &(0x7f0000000c40)='pkcs7_test\x00', &(0x7f0000000c80))
+r7 = add_key$keyring(&(0x7f0000000cc0)='keyring\x00', &(0x7f0000000d00)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffd)
+r8 = add_key(&(0x7f0000000d40)='dns_resolver\x00', &(0x7f0000000d80)={'syz', 0x0}, 0x0, 0x0, 0x0)
+keyctl$link(0x8, r7, r8)
+keyctl$invalidate(0x15, 0x0)
+
+19:24:20 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$set_timeout(0xf, r0, 0x3)
+r1 = request_key(&(0x7f0000000080)='id_legacy\x00', &(0x7f00000000c0)={'syz', 0x1}, &(0x7f0000000100)='system(ppp1\x00', 0xfffffffffffffffd)
+keyctl$invalidate(0x15, r1)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r0, 0x0, &(0x7f0000000140)='syz', &(0x7f0000000180))
+keyctl$invalidate(0x15, r0)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r1, 0x0, &(0x7f00000001c0)='id_legacy\x00', &(0x7f0000000200))
+r2 = add_key$keyring(&(0x7f0000000240)='keyring\x00', &(0x7f0000000280)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f00000002c0)={r2, 0x89, 0x36}, &(0x7f0000000300)={'enc=', 'raw', ' hash=', {'sha1-generic\x00'}}, &(0x7f0000000380)="6832bf931de8f94bde6de67626d684915ecf85020c32fdc8708ce958acb55c3772d48182fd977bdddcede0014cdef84704606af2585e304bbed68ca4843263258ced3208096537fe744b911cda1574cd4b4f0e719e8e79b245dad826cf322a6df5f186f964995ec8c7249212ee236e889a5a247d4e80c344876b12d28bb646f5921926faf32af78f34", &(0x7f0000000440)="b548043493adf2c4ee291c44195c400106138878cbc5ab4d4af6dbcfe6f769d4afdead832d83a7dd635da2b2d8ee8200295fffb9f37c")
+r3 = add_key(&(0x7f0000000480)='cifs.spnego\x00', &(0x7f00000004c0)={'syz', 0x3}, &(0x7f0000000500)="1621024eef403b1597c5bc4b7540e288c5bd5681d8147e8c4e90c4027e42017a211a4ada761da2e49eaa1d01905e2d03738c53b1f943d6f5e9b86b4c1f88bdc2b5357715dc2c65f01e1653d68c0f6d6d9f95fd7c20e94f17612bdb210968c91a42e5c1d225188551ca8d87c9faf20faa7d8949a92d85db3b5d836e9290b685199563715c7d8a9b6db91c4bbc9105716d0a0e77fd76720b273aaede1ae2ca92511dc4ce45231bff1d7e15b91115a56ffe049ac30f28f32f6c76", 0xb9, 0xfffffffffffffffc)
+r4 = add_key$keyring(&(0x7f00000005c0)='keyring\x00', &(0x7f0000000600)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffe)
+keyctl$negate(0xd, r3, 0x1, r4)
+keyctl$search(0xa, 0x0, &(0x7f0000000640)='keyring\x00', &(0x7f0000000680)={'syz', 0x0}, 0xfffffffffffffffc)
+r5 = request_key(&(0x7f00000006c0)='asymmetric\x00', &(0x7f0000000700)={'syz', 0x2}, &(0x7f0000000740)='syz', r1)
+keyctl$search(0xa, 0x0, &(0x7f0000000780)='encrypted\x00', &(0x7f00000007c0)={'syz', 0x3}, r3)
+r6 = request_key(&(0x7f0000000880)='.request_key_auth\x00', &(0x7f00000008c0)={'syz', 0x0}, &(0x7f0000000900)='\xbe]nodevvboxnet0\x00', 0xfffffffffffffffb)
+keyctl$search(0xa, r5, &(0x7f0000000800)='id_legacy\x00', &(0x7f0000000840)={'syz', 0x0}, r6)
+keyctl$get_security(0x11, 0x0, &(0x7f0000000940)=""/221, 0xdd)
+r7 = add_key(&(0x7f0000000a40)='user\x00', &(0x7f0000000a80)={'syz', 0x0}, &(0x7f0000000ac0)="944f0094ef8edc80d7255648f44b1fded969856da77bbefe1a8839ce00106dbb50b4c5398f9c27f11533b9fa30ccd05ce67bb0640f7c511a37cfd420c36ff15689ff85c5b0ab30c7970bb440add08000fd741bf9e844acb24c6ba75bf881e3dff2d04df0d5f66f174074c6e6fef580e7643b52549f14d31b5c49230008df1fcaf4b1581a06daf15df9", 0x89, 0xfffffffffffffffe)
+keyctl$search(0xa, r7, &(0x7f0000000b80)='logon\x00', &(0x7f0000000bc0)={'syz', 0x0}, 0xffffffffffffffff)
+
+syzkaller login: [   10.893597] audit: type=1400 audit(1587410660.901:8): avc:  denied  { execmem } for  pid=424 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.968864] cgroup1: Unknown subsys name 'perf_event'
+[   10.978793] cgroup1: Unknown subsys name 'net_cls'
+[   11.049588] cgroup1: Unknown subsys name 'perf_event'
+[   11.052308] cgroup1: Unknown subsys name 'net_cls'
+[   11.052971] cgroup1: Unknown subsys name 'perf_event'
+[   11.060144] cgroup1: Unknown subsys name 'perf_event'
+[   11.062715] cgroup1: Unknown subsys name 'net_cls'
+[   11.067731] cgroup1: Unknown subsys name 'net_cls'
+19:24:22 executing program 1:
+keyctl$KEYCTL_PKEY_DECRYPT(0x1a, 0x0, 0x0, &(0x7f0000000300)="b7b43f3a8742d025cc7fa60c9fc66a92eb5e1bbdbe495bede94eadcc3eb67f2323", 0x0)
+
+19:24:22 executing program 1:
+r0 = add_key(&(0x7f0000000080)='asymmetric\x00', 0x0, &(0x7f0000000040)="100710000494020037", 0x9, 0xffffffffffffffff)
+keyctl$invalidate(0x15, r0)
+r1 = add_key$user(&(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x3}, &(0x7f0000000080)="c2", 0x1, 0xfffffffffffffffe)
+keyctl$setperm(0xb, r1, 0x0)
+r2 = request_key(&(0x7f00000000c0)='user\x00', &(0x7f0000000100)={'syz', 0x0}, &(0x7f0000000140)='$\\\x00', r0)
+keyctl$reject(0x13, r1, 0x8, 0x0, r2)
+keyctl$instantiate(0xc, r0, &(0x7f0000000000)=@encrypted_new={'new ', 'default', 0x20, 'user:', 'asymmetric\x00', 0x20, 0x9}, 0x32, 0xfffffffffffffffc)
+
+19:24:22 executing program 1:
+r0 = add_key(&(0x7f0000000a00)='logon\x00', &(0x7f0000000a40)={'syz', 0x3}, &(0x7f0000000a80)="de", 0x1, 0xfffffffffffffffd)
+keyctl$describe(0x6, r0, &(0x7f0000000000)=""/142, 0x8e)
+
+19:24:22 executing program 1:
+r0 = add_key$user(&(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x3}, &(0x7f0000000080)="c2", 0x1, 0xfffffffffffffffe)
+r1 = add_key$user(&(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x3}, &(0x7f0000000080)="c2", 0x1, 0xfffffffffffffffe)
+keyctl$setperm(0xb, r1, 0x0)
+keyctl$setperm(0xb, r1, 0x22120220)
+keyctl$read(0xb, r0, &(0x7f0000000040)=""/4096, 0x1000)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', 0x0, 0x0, 0x4000, 0xffffffffffffffff)
+
+[   12.158238] Kernel panic - not syncing: Found leaking of user_key_payload
+[   12.161399] CPU: 1 PID: 2172 Comm: syz-executor.1 Not tainted 5.5.3 #53
+[   12.164993] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.170824] Call Trace:
+[   12.172470]  dump_stack+0x15e/0x1ae
+[   12.174234]  panic+0x228/0x700
+[   12.175700]  ? 0xffffffffad800000
+[   12.177201]  user_read+0xa0/0xa0
+[   12.178651]  keyctl_read_key+0x1f1/0x240
+[   12.180471]  __se_sys_keyctl+0x4e2/0xcd0
+[   12.182334]  ? __se_sys_add_key+0x348/0x3d0
+[   12.184417]  ? _copy_to_user+0x8e/0xb0
+[   12.186291]  ? put_timespec64+0xbe/0xf0
+[   12.188248]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   12.190917]  ? __x64_sys_keyctl+0x1c/0xc0
+[   12.192943]  do_syscall_64+0xd1/0x160
+[   12.195023]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.197471] RIP: 0033:0x467519
+[   12.198969] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.207934] RSP: 002b:00007f1cba07dc48 EFLAGS: 00000246 ORIG_RAX: 00000000000000fa
+[   12.211632] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.215139] RDX: 0000000020000040 RSI: 000000000f0df089 RDI: 000000000000000b
+[   12.218488] RBP: 00007f1cba07e6bc R08: 0000000000000000 R09: 0000000000000000
+[   12.221449] R10: 0000000000001000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.224590] R13: 0000000000000705 R14: 00000000004c83ba R15: 0000000000701640
+[   12.232073] Dumping ftrace buffer:
+[   12.233714]    (ftrace buffer empty)
+[   12.235522] Kernel Offset: 0x2c800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.240524] Rebooting in 1 seconds..

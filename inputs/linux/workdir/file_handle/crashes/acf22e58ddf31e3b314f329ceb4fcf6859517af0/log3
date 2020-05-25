@@ -1,0 +1,367 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:42442' (ECDSA) to the list of known hosts.
+2020/04/20 01:31:19 fuzzer started
+2020/04/20 01:31:20 dialing manager at 10.0.2.10:41885
+2020/04/20 01:31:20 syscalls: 8
+2020/04/20 01:31:20 code coverage: enabled
+2020/04/20 01:31:20 comparison tracing: enabled
+2020/04/20 01:31:20 extra coverage: enabled
+2020/04/20 01:31:20 setuid sandbox: enabled
+2020/04/20 01:31:20 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:31:20 Android sandbox: enabled
+2020/04/20 01:31:20 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:31:20 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:31:20 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:31:20 net device setup: enabled
+2020/04/20 01:31:20 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:31:20 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:31:20 USB emulation: /dev/raw-gadget does not exist
+01:31:20 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "f5"}, 0x44edc0)
+
+01:31:20 executing program 3:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000080)='ns/pid_for_children\x00')
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000040)='ns/pid\x00')
+
+01:31:20 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000180)=""/223, 0xdf)
+
+01:31:20 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='fdinfo\x00')
+name_to_handle_at(r0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+
+syzkaller login: [   10.628131] audit: type=1400 audit(1587346280.635:8): avc:  denied  { execmem } for  pid=428 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.723297] cgroup1: Unknown subsys name 'perf_event'
+[   10.723935] cgroup1: Unknown subsys name 'perf_event'
+[   10.729036] cgroup1: Unknown subsys name 'net_cls'
+[   10.733470] cgroup1: Unknown subsys name 'net_cls'
+[   10.750443] cgroup1: Unknown subsys name 'perf_event'
+[   10.752877] cgroup1: Unknown subsys name 'net_cls'
+[   10.763430] cgroup1: Unknown subsys name 'perf_event'
+[   10.766116] cgroup1: Unknown subsys name 'net_cls'
+01:31:21 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "f5"}, 0x44edc0)
+
+01:31:21 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "f5"}, 0x44edc0)
+
+01:31:21 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000180)=""/223, 0xdf)
+
+01:31:21 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000180)=""/223, 0xdf)
+
+01:31:21 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000180)=""/223, 0xdf)
+
+01:31:21 executing program 3:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000080)='ns/pid_for_children\x00')
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000040)='ns/pid\x00')
+
+01:31:21 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "f5"}, 0x44edc0)
+
+01:31:21 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='fdinfo\x00')
+name_to_handle_at(r0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:21 executing program 1:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='net/if_inet6\x00')
+
+01:31:21 executing program 3:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000080)='ns/pid_for_children\x00')
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000040)='ns/pid\x00')
+
+01:31:21 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='net/ip_tables_matches\x00')
+read(r0, &(0x7f00000002c0)=""/223, 0xdf)
+read(r0, 0x0, 0x0)
+
+01:31:21 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='fdinfo\x00')
+name_to_handle_at(r0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:21 executing program 3:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000080)='ns/pid_for_children\x00')
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000040)='ns/pid\x00')
+
+01:31:21 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:21 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000040)='smaps_rollup\x00')
+
+01:31:21 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='fdinfo\x00')
+name_to_handle_at(r0, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:21 executing program 3:
+open$dir(&(0x7f0000000080)='./file0\x00', 0x1110c0, 0x0)
+r0 = open$dir(&(0x7f0000000040)='./file0\x00', 0x60000, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:21 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/softnet_stat\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+
+01:31:21 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 3:
+open$dir(&(0x7f0000000080)='./file0\x00', 0x1110c0, 0x0)
+r0 = open$dir(&(0x7f0000000040)='./file0\x00', 0x60000, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+open$dir(&(0x7f0000000080)='./file0\x00', 0x1110c0, 0x0)
+r0 = open$dir(&(0x7f0000000040)='./file0\x00', 0x60000, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 3:
+open$dir(&(0x7f0000000080)='./file0\x00', 0x1110c0, 0x0)
+r0 = open$dir(&(0x7f0000000040)='./file0\x00', 0x60000, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='maps\x00')
+read(r0, &(0x7f0000002380)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='attr/prev\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='coredump_filter\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='coredump_filter\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000180)=""/72, 0x48)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='attr/prev\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='coredump_filter\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='coredump_filter\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='attr/prev\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='attr/prev\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='net/route\x00')
+read(r0, &(0x7f0000000080)=""/203, 0xcb)
+read(r0, &(0x7f0000000200)=""/94, 0x5e)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/rt_cache\x00')
+read(r0, &(0x7f0000000040)=""/192, 0xc0)
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f00000000c0)='attr/sockcreate\x00')
+read(r0, 0x0, 0x0)
+
+01:31:22 executing program 3:
+open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+name_to_handle_at(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', &(0x7f0000001280)=ANY=[], &(0x7f0000000080), 0x0)
+
+[   12.162317] ------------[ cut here ]------------
+[   12.164293] Found leaking site of file_handle
+[   12.164439] WARNING: CPU: 0 PID: 2386 at fs/fhandle.c:78 __se_sys_name_to_handle_at+0x3b2/0x600
+[   12.170865] Kernel panic - not syncing: panic_on_warn set ...
+[   12.173902] CPU: 0 PID: 2386 Comm: syz-executor.3 Not tainted 5.5.3 #48
+[   12.177410] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.182878] Call Trace:
+[   12.184079]  dump_stack+0x15e/0x1ae
+[   12.185797]  panic+0x228/0x700
+[   12.187273]  ? 0xffffffffb8800000
+[   12.189002]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   12.191435]  __warn+0x1fe/0x200
+[   12.192959]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   12.195378]  report_bug+0x359/0x480
+[   12.197044]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   12.199469]  do_invalid_op+0x6e/0x110
+[   12.200728]  invalid_op+0x1e/0x30
+[   12.202378] RIP: 0010:__se_sys_name_to_handle_at+0x3b2/0x600
+[   12.205149] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 7e bb e8 56 35 1d 02 48 85 c0 74 2d e8 9c d6 bc ff 48 c7 c7 61 7b 7e bb 31 c0 e8 ae 25 96 ff <0f> 0b eb 1b e8 85 d6 bc ff bd f4 ff ff ff e9 b8 00 00 00 e8 76 d6
+[   12.214108] RSP: 0018:ffff888061407ea8 EFLAGS: 00010246
+[   12.216420] RAX: bacd98760dde4400 RBX: 0000000000000002 RCX: ffffc90000788000
+[   12.219577] RDX: ffffffffb8800000 RSI: 00000000000003d1 RDI: 00000000000003d2
+[   12.223081] RBP: 00000000ffffffb5 R08: dffffc0000000000 R09: fffffbfff78a8bc4
+[   12.226425] R10: fffffbfff78a8bc4 R11: 0000000000000000 R12: 0000000020000080
+[   12.229759] R13: dffffc0000000000 R14: 0000000020001280 R15: ffff888061407ec0
+[   12.233105]  ? 0xffffffffb8800000
+[   12.234410]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   12.236883]  do_syscall_64+0xd1/0x160
+[   12.238589]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.241108] RIP: 0033:0x467519
+[   12.242506] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.250731] RSP: 002b:00007f89f6c33c48 EFLAGS: 00000246 ORIG_RAX: 000000000000012f
+[   12.254144] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.257307] RDX: 0000000020001280 RSI: 0000000020000040 RDI: ffffffffffffff9c
+[   12.260506] RBP: 00007f89f6c346bc R08: 0000000000000000 R09: 0000000000000000
+[   12.263863] R10: 0000000020000080 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.267041] R13: 0000000000000770 R14: 00000000004c88cd R15: 0000000000701640
+[   12.274062] Dumping ftrace buffer:
+[   12.275773]    (ftrace buffer empty)
+[   12.277588] Kernel Offset: 0x37800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.282397] Rebooting in 1 seconds..

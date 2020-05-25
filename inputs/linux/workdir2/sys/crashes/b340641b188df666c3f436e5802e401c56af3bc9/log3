@@ -1,0 +1,118 @@
+Warning: Permanently added '[localhost]:64465' (ECDSA) to the list of known hosts.
+[   16.719082] audit: type=1400 audit(1587417942.182:11): avc:  denied  { map } for  pid=1581 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:25:42 fuzzer started
+2020/04/20 21:25:42 dialing manager at 10.0.2.10:42445
+2020/04/20 21:25:42 syscalls: 52
+2020/04/20 21:25:42 code coverage: enabled
+2020/04/20 21:25:42 comparison tracing: enabled
+2020/04/20 21:25:42 extra coverage: enabled
+2020/04/20 21:25:42 setuid sandbox: enabled
+2020/04/20 21:25:42 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:25:42 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:25:42 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:25:42 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:25:42 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:25:42 net device setup: enabled
+2020/04/20 21:25:42 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:25:42 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:25:42 USB emulation: /dev/raw-gadget does not exist
+21:25:43 executing program 0:
+write$binfmt_elf64(0xffffffffffffffff, &(0x7f0000000140)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, [{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x100000000}]}, 0x78)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="000000000000000000000000020000c97fff"], 0x12)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x06\x00\x00\x00\x00\x00\x00\x00')
+
+21:25:43 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0xe, r1, 0x0, 0xfffffffffffffff3, 0x0)
+
+21:25:43 executing program 1:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040)='ramfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+[   17.780604] audit: type=1400 audit(1587417943.244:12): avc:  denied  { map } for  pid=1598 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8630 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+21:25:43 executing program 2:
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='./'], &(0x7f0000000080)='.\x00', 0x0, 0x2001004, 0x0)
+
+[   17.836753] cgroup1: Unknown subsys name 'perf_event'
+[   17.838137] cgroup1: Unknown subsys name 'net_cls'
+[   17.841845] cgroup1: Unknown subsys name 'perf_event'
+[   17.841966] cgroup1: Unknown subsys name 'perf_event'
+[   17.843444] cgroup1: Unknown subsys name 'net_cls'
+[   17.844533] cgroup1: Unknown subsys name 'net_cls'
+[   17.845922] cgroup1: Unknown subsys name 'perf_event'
+[   17.849381] cgroup1: Unknown subsys name 'net_cls'
+[   18.230030] audit: type=1400 audit(1587417943.693:13): avc:  denied  { create } for  pid=1602 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   18.234702] audit: type=1400 audit(1587417943.693:14): avc:  denied  { write } for  pid=1602 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   18.244268] audit: type=1400 audit(1587417943.703:15): avc:  denied  { read } for  pid=1602 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.618616] audit: type=1400 audit(1587417945.080:16): avc:  denied  { associate } for  pid=1602 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   19.658153] ------------[ cut here ]------------
+[   19.659086] Found allocation of pipe_buffer
+[   19.659891] WARNING: CPU: 0 PID: 3301 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.661236] Modules linked in:
+[   19.661777] CPU: 0 PID: 3301 Comm: syz-executor.3 Not tainted 5.5.3 #59
+[   19.663040] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.665064] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.665905] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 5e 9a e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 5e 9a 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.669179] RSP: 0018:ffff888067dcfdc0 EFLAGS: 00010246
+[   19.670114] RAX: ce1f33d9af89fb00 RBX: 0000000000000002 RCX: ffffc900011f9000
+[   19.671387] RDX: ffffffff97600000 RSI: 000000000000056b RDI: 000000000000056c
+[   19.672654] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100cfb9f75
+[   19.673921] R10: ffffed100cfb9f75 R11: 0000000000000000 R12: ffff8880682ba800
+[   19.675194] R13: dffffc0000000000 R14: ffffffff9a847fb0 R15: 0000000000000010
+[   19.676463] FS:  00007f496197a700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   19.677895] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.678918] CR2: 0000000000745f88 CR3: 000000006aba2003 CR4: 00000000001606f0
+[   19.680185] Call Trace:
+[   19.680638]  create_pipe_files+0x85/0x6e0
+[   19.681376]  __do_pipe_flags+0x46/0x200
+[   19.682071]  do_pipe2+0x41/0x230
+[   19.682674]  ? put_timespec64+0xbe/0xf0
+[   19.683386]  __x64_sys_pipe2+0x56/0x60
+[   19.684075]  do_syscall_64+0xd1/0x160
+[   19.684745]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.685651] RIP: 0033:0x467519
+[   19.686211] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.689486] RSP: 002b:00007f4961979c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.690821] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.692082] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.693348] RBP: 00007f496197a6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.694609] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.695872] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.697134] ---[ end trace 0d59b280e8c87ec3 ]---
+[   19.704072] ------------[ cut here ]------------
+[   19.705059] Found allocation of pipe_buffer
+[   19.705865] WARNING: CPU: 0 PID: 3301 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.707218] Modules linked in:
+[   19.707784] CPU: 0 PID: 3301 Comm: syz-executor.3 Tainted: G        W         5.5.3 #59
+[   19.709204] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.711242] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.712083] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 5e 9a e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 5e 9a 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.715365] RSP: 0018:ffff888067dcfdc0 EFLAGS: 00010246
+[   19.716295] RAX: ce1f33d9af89fb00 RBX: 0000000000000002 RCX: ffffc900011f9000
+[   19.717552] RDX: ffffffff97600000 RSI: 0000000000000569 RDI: 000000000000056a
+[   19.718810] RBP: 0000000000000120 R08: dffffc0000000000 R09: ffffed100cfb9f75
+[   19.720069] R10: ffffed100cfb9f75 R11: 0000000000000000 R12: ffff8880682ba700
+[   19.721332] R13: dffffc0000000000 R14: ffffffff9a847fb0 R15: 0000000000000010
+[   19.722591] FS:  00007f496197a700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   19.724014] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.725036] CR2: 000000000074c000 CR3: 000000006aba2004 CR4: 00000000001606f0
+[   19.726297] Call Trace:
+[   19.726748]  create_pipe_files+0x85/0x6e0
+[   19.727478]  __do_pipe_flags+0x46/0x200
+[   19.728186]  do_pipe2+0x41/0x230
+[   19.728780]  ? put_timespec64+0xbe/0xf0
+[   19.729480]  __x64_sys_pipe2+0x56/0x60
+[   19.730165]  do_syscall_64+0xd1/0x160
+[   19.730828]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.731744] RIP: 0033:0x467519
+[   19.732297] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.735519] RSP: 002b:00007f4961979c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.736828] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.738062] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.739318] RBP: 00007f496197a6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.740564] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.741815] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.743079] ---[ end trace 0d59b280e8c87ec4 ]---

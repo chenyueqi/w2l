@@ -1,0 +1,27 @@
+sg_write: data in/out 682/132 bytes for SCSI command 0xeb-- guessing data in;
+   program syz-executor794 not setting count and/or reply_len properly
+Kernel panic - not syncing: Found leaking site of sg_header
+CPU: 0 PID: 328 Comm: syz-executor794 Not tainted 5.5.3 #20
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+ panic+0x201/0x64d kernel/panic.c:221
+ sg_read+0x1a80/0x1a80 drivers/scsi/sg.c:527
+ __vfs_read+0xff/0x770 fs/read_write.c:425
+ vfs_read+0x102/0x300 fs/read_write.c:461
+ ksys_read+0x134/0x230 fs/read_write.c:587
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44e149
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd420d62e8 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 0000000000400418 RCX: 000000000044e149
+RDX: 00000000000000fa RSI: 0000000020000000 RDI: 0000000000000003
+RBP: 0000000000401fd0 R08: 0000000000400418 R09: 0000000000400418
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000402070
+R13: 0000000000000000 R14: 00000000006bd018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x31400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

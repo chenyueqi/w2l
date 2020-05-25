@@ -1,0 +1,45 @@
+audit: type=1400 audit(1587345167.211:8): avc:  denied  { execmem } for  pid=422 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+thread: syz-executor.0
+------------[ cut here ]------------
+Found leaking site of pipe_buffer
+WARNING: CPU: 1 PID: 422 at fs/pipe.c:331 pipe_read+0x5da/0xee0 fs/pipe.c:331
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 422 Comm: syz-executor.0 Not tainted 5.5.3 #43
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:pipe_read+0x5da/0xee0 fs/pipe.c:331
+Code: 50 e9 fa fb ff ff e8 05 33 d5 ff 48 c7 c7 8c 54 fe 89 48 89 de 31 c0 e8 50 24 c0 ff 48 c7 c7 9a 54 fe 89 31 c0 e8 06 82 ae ff <0f> 0b e9 b4 fd ff ff 48 8b 4c 24 10 80 e1 07 80 c1 03 38 c1 0f 8c
+RSP: 0018:ffff888064f3fc78 EFLAGS: 00010246
+RAX: 1d6903ad0657cc00 RBX: ffff888067718648 RCX: 0000000000000000
+RDX: ffff888067718000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffff888067efc000 R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: 0000000000000018
+R13: ffff888067efc000 R14: dffffc0000000000 R15: 0000000000000000
+ call_read_iter include/linux/fs.h:1896 [inline]
+ new_sync_read fs/read_write.c:414 [inline]
+ __vfs_read+0x534/0x6d0 fs/read_write.c:427
+ vfs_read+0x167/0x380 fs/read_write.c:461
+ ksys_read+0x112/0x210 fs/read_write.c:587
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x41667e
+Code: 00 00 00 00 48 c7 c2 bc ff ff ff f7 d8 64 89 02 48 c7 c0 ff ff ff ff c3 0f 1f 40 00 8b 05 ee 1c 87 00 85 c0 75 16 31 c0 0f 05 <48> 3d 00 f0 ff ff 77 5a f3 c3 0f 1f 84 00 00 00 00 00 41 54 55 49
+RSP: 002b:00007ffdaa8d3408 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 00007ffdaa8d3450 RCX: 000000000041667e
+RDX: 0000000000000018 RSI: 00007ffdaa8d3430 RDI: 00000000000000f9
+RBP: 00007ffdaa8d3458 R08: 0000000000000000 R09: 0000005b0000006e
+R10: 0000000000000008 R11: 0000000000000246 R12: 0000000000418cb0
+R13: 0000000000000000 R14: 0000000000718018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x6000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

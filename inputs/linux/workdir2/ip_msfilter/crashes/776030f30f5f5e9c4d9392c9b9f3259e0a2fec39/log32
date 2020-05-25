@@ -1,0 +1,1336 @@
+Warning: Permanently added '[localhost]:15963' (ECDSA) to the list of known hosts.
+[   17.928901] audit: type=1400 audit(1586947391.036:11): avc:  denied  { map } for  pid=1586 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/15 10:43:11 fuzzer started
+2020/04/15 10:43:11 dialing manager at 10.0.2.10:37146
+2020/04/15 10:43:11 syscalls: 11
+2020/04/15 10:43:11 code coverage: enabled
+2020/04/15 10:43:11 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/15 10:43:11 extra coverage: enabled
+2020/04/15 10:43:11 setuid sandbox: enabled
+2020/04/15 10:43:11 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/15 10:43:11 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/15 10:43:11 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/15 10:43:11 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/15 10:43:11 net packet injection: /dev/net/tun does not exist
+2020/04/15 10:43:11 net device setup: enabled
+2020/04/15 10:43:11 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/15 10:43:11 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/15 10:43:11 USB emulation: /dev/raw-gadget does not exist
+10:43:12 executing program 0:
+r0 = accept$inet(0xffffffffffffffff, &(0x7f0000000000), &(0x7f0000000040)=0x10)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x4e23, @loopback}, 0x10)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x4e21, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x1)
+connect$inet(r1, &(0x7f0000000100)={0x2, 0x4e21, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+r2 = accept4$inet(0xffffffffffffffff, &(0x7f0000000140)={0x2, 0x0, @local}, &(0x7f0000000180)=0x10, 0x800)
+setsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f00000001c0)="27caefee3b260c14e58c03a8e435233b2d01dc8a61d7717de75dadccd3b5c60cb06a90bf2da27d0b742e94c9dd895e23206c317ffa2d4bbefa8181cc16b80540616f7c0e00a891b41c7e0fe4c835f0bd562eda659bfed2e0db3d6b7dd673dc28150f48ec99be5e028c003278816bcb41ee372e77893b8b85d605bc2d750d3601249703f551757212fa96d46d1f6d84409c21fd8deae625f503500081258d43ab44b1c18e69b75019da68a36ca6306a8319962198bfb7962e43dd224a8d61985239", 0xc1)
+r3 = accept$inet(r0, &(0x7f00000002c0)={0x2, 0x0, @loopback}, &(0x7f0000000300)=0x10)
+recvfrom$inet(r3, &(0x7f0000000340)=""/175, 0xaf, 0x2000, &(0x7f0000000400)={0x2, 0x4e22, @multicast1}, 0x10)
+r4 = accept4$inet(r1, &(0x7f0000000440)={0x2, 0x0, @empty}, &(0x7f0000000480)=0x10, 0x800)
+connect$inet(r4, &(0x7f00000004c0)={0x2, 0x4e22, @rand_addr=0x6}, 0x10)
+socket$inet(0x2, 0x5, 0xfffffffe)
+r5 = accept4$inet(r1, &(0x7f0000000500)={0x2, 0x0, @multicast2}, &(0x7f0000000540)=0x10, 0x800)
+bind$inet(r5, &(0x7f0000000580)={0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x27}}, 0x10)
+socket$inet(0x2, 0x3, 0xff5)
+socket$inet(0x2, 0x2, 0x400)
+r6 = accept4$inet(0xffffffffffffffff, &(0x7f00000005c0)={0x2, 0x0, @multicast1}, &(0x7f0000000600)=0x10, 0x40000)
+connect$inet(r6, &(0x7f0000000640)={0x2, 0x4e22, @local}, 0x10)
+r7 = accept4$inet(0xffffffffffffffff, &(0x7f0000000680)={0x2, 0x0, @loopback}, &(0x7f00000006c0)=0x10, 0x80000)
+accept4$inet(r7, &(0x7f0000000700)={0x2, 0x0, @remote}, &(0x7f0000000740)=0x10, 0x0)
+
+10:43:12 executing program 1:
+r0 = accept$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @multicast2}, &(0x7f0000000040)=0x10)
+recvfrom$inet(r0, &(0x7f0000000080)=""/4096, 0x1000, 0x42, 0x0, 0x0)
+r1 = accept$inet(r0, 0x0, &(0x7f0000001080))
+connect$inet(r1, &(0x7f00000010c0)={0x2, 0x4e20, @loopback}, 0x10)
+connect$inet(r1, &(0x7f0000001100)={0x2, 0x4e21, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f0000001140)={0x4, {{0x2, 0x4e23, @broadcast}}, 0x0, 0x6, [{{0x2, 0x4e20, @multicast2}}, {{0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x25}}}, {{0x2, 0x4e22, @multicast1}}, {{0x2, 0x4e21, @dev={0xac, 0x14, 0x14, 0x1d}}}, {{0x2, 0x4e23, @multicast2}}, {{0x2, 0x4e20, @initdev={0xac, 0x1e, 0x0, 0x0}}}]}, 0x390)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x2a, &(0x7f0000001500)="708681da74005202c213533480a4b5dce5fafe76ce89522d29a2beaa1b06aa1e7979d21e0be98d8f5cf95c566274d7033f376f634a82d0303fdfd8874231e295c79e239b4c1efc5a45df50274d0f7406d7cd59767877badf1a75d72685b01a2ea5c45c5ab32801b2086dbf46ab390be793e9cc8a8d9816587b46698f29704c899618bb8c0f", 0x85)
+connect$inet(r0, &(0x7f00000015c0)={0x2, 0x4e23, @broadcast}, 0x10)
+r2 = accept$inet(0xffffffffffffffff, &(0x7f0000001600)={0x2, 0x0, @multicast1}, &(0x7f0000001640)=0x10)
+bind$inet(r2, &(0x7f0000001680)={0x2, 0x4e23, @loopback}, 0x10)
+r3 = socket$inet(0x2, 0x6, 0x0)
+getsockopt$inet_buf(r3, 0x0, 0x11, &(0x7f00000016c0)=""/126, &(0x7f0000001740)=0x7e)
+r4 = socket$inet(0x2, 0x1, 0x20)
+getsockname$inet(r3, &(0x7f0000001780)={0x2, 0x0, @broadcast}, &(0x7f00000017c0)=0x10)
+r5 = accept4$inet(r2, &(0x7f0000001800)={0x2, 0x0, @multicast2}, &(0x7f0000001840)=0x10, 0x80000)
+setsockopt$inet_buf(r5, 0x0, 0x26, &(0x7f0000001880)="2aae43790bc72aa15428b37c16bd2e800d0cdb8b65d4d85a2c16cb33f271790aa28148c6dcc4907212345f1c842cfbfd737809d60b211ee06f798bda48ddfadc1c225d0f8052295f6070cd421328bda6d195e3f04b4a906b735afd3718a26e1730634f075bef76016d9689fd5af80cb75f736a1d63bb712d04cc73980effce3c4700dfe96963d63e0ae2cc2983bab3d994ba5ed71324a92300e05cd33244a2fa7699e6da49b22d7d5a61f1d0ee37fda59846b936e7224f7e067c721f476b2a9f27fe35613c59bafd66866f05a1358d5a5e900a793478f72cbe894b954a92daff59be01b08a44f936f099681fa1fd99e2534c7b", 0xf3)
+getsockname$inet(r3, &(0x7f0000001980)={0x2, 0x0, @local}, &(0x7f00000019c0)=0x10)
+setsockopt$inet_MCAST_MSFILTER(r4, 0x0, 0x30, &(0x7f0000001a00)={0xca, {{0x2, 0x4e20, @empty}}, 0x1, 0x5, [{{0x2, 0x4e20, @remote}}, {{0x2, 0x4e21, @multicast1}}, {{0x2, 0x4e24, @local}}, {{0x2, 0x4e24, @multicast1}}, {{0x2, 0x4e21, @initdev={0xac, 0x1e, 0x1, 0x0}}}]}, 0x310)
+connect$inet(r4, &(0x7f0000001d40)={0x2, 0x4e23, @loopback}, 0x10)
+accept$inet(r2, 0x0, &(0x7f0000001d80))
+
+[   19.758977] audit: type=1400 audit(1586947392.866:12): avc:  denied  { map } for  pid=1603 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+10:43:12 executing program 2:
+r0 = accept$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @remote}, &(0x7f0000000040)=0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2b, &(0x7f0000000080), &(0x7f00000000c0))
+r1 = accept$inet(0xffffffffffffffff, &(0x7f0000000100)={0x2, 0x0, @loopback}, &(0x7f0000000140)=0x10)
+connect$inet(r1, &(0x7f0000000180)={0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x2c}}, 0x10)
+r2 = socket$inet(0x2, 0x800, 0x7)
+connect$inet(r2, &(0x7f00000001c0)={0x2, 0x4e20, @broadcast}, 0x10)
+bind$inet(0xffffffffffffffff, &(0x7f0000000200)={0x2, 0x4e24, @broadcast}, 0x10)
+connect$inet(0xffffffffffffffff, &(0x7f0000000240)={0x2, 0x4e23, @rand_addr=0x1}, 0x10)
+r3 = accept4$inet(r2, &(0x7f0000000280)={0x2, 0x0, @multicast2}, &(0x7f00000002c0)=0x10, 0x800)
+setsockopt$inet_buf(r3, 0x0, 0x2f, &(0x7f0000000300)="0a4b80d9995e1accc7b51d124d7b4080dc0c4eaaf94efdd79a493ad22441e60570108abf6b25945e3e8b770d6dd79f191688520cea06a2611fb0a8b940f8cc8c2fe09d595d19378b601fa122e8ed389fadcfe216b345413db4e6f6b3b8635515d85d31d13b395935ad3cd872d63f468f4b68179bbe8cdea52157456a2c918fee8549b19487d717c6c32a4edd8c0b643a6961918f20f17530484f8e10d90e59245298fafd9f573f5e2ffe9230b8081434e3c3196542437afa17", 0xb9)
+r4 = socket$inet(0x2, 0x5, 0xfee)
+r5 = accept$inet(0xffffffffffffffff, &(0x7f00000003c0)={0x2, 0x0, @empty}, &(0x7f0000000400)=0x10)
+bind$inet(r5, &(0x7f0000000440)={0x2, 0x4e20, @multicast1}, 0x10)
+r6 = accept$inet(r4, &(0x7f0000000480)={0x2, 0x0, @initdev}, &(0x7f00000004c0)=0x10)
+recvfrom$inet(r6, &(0x7f0000000500)=""/170, 0xaa, 0x40000002, &(0x7f00000005c0)={0x2, 0x4e20, @local}, 0x10)
+r7 = accept$inet(0xffffffffffffffff, &(0x7f0000000600)={0x2, 0x0, @empty}, &(0x7f0000000640)=0x10)
+connect$inet(r7, &(0x7f0000000680)={0x2, 0x4e21, @multicast1}, 0x10)
+accept$inet(r7, 0x0, &(0x7f00000006c0))
+r8 = socket$inet(0x2, 0x800, 0x9)
+getsockopt$inet_buf(r8, 0x0, 0x2a, &(0x7f0000000700)=""/69, &(0x7f0000000780)=0x45)
+
+10:43:12 executing program 3:
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x4e20, @multicast2}, 0x10)
+r0 = accept4$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x0, @local}, &(0x7f0000000080)=0x10, 0x80000)
+getsockopt$inet_buf(r0, 0x0, 0x2f, &(0x7f00000000c0)=""/83, &(0x7f0000000140)=0x53)
+bind$inet(0xffffffffffffffff, &(0x7f0000000180)={0x2, 0x4e20, @rand_addr=0x40}, 0x10)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x10, &(0x7f00000001c0)=""/178, &(0x7f0000000280)=0xb2)
+r1 = accept4$inet(r0, &(0x7f00000002c0)={0x2, 0x0, @loopback}, &(0x7f0000000300)=0x10, 0x80000)
+bind$inet(r1, &(0x7f0000000340)={0x2, 0x4e20, @loopback}, 0x10)
+connect$inet(r0, &(0x7f0000000380)={0x2, 0x4e21, @multicast2}, 0x10)
+r2 = socket$inet(0x2, 0x5, 0x200)
+bind$inet(r1, &(0x7f00000003c0)={0x2, 0x4e21, @multicast2}, 0x10)
+recvfrom$inet(r1, &(0x7f0000000400)=""/45, 0x2d, 0x20, &(0x7f0000000440)={0x2, 0x4e20, @remote}, 0x10)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x9, &(0x7f0000000480)="a649ad4e5c2ed640ab59f2069b8293a56b0e129d696a9e2ba9ca6968c52ac249197131caeb454ec7e1a152b9f865b2ab21ded4185d37d68c8aa5b2c6e513700b73db63edc078829485d5b27d7f8d9f9eec91a192918a81f2b0f3c19b6f5794dda87907636e0c70bea2e2211429755b80ff404d623bf2bd996812eb6c6675c0a75bce", 0x82)
+setsockopt$inet_buf(r2, 0x0, 0x2c, &(0x7f0000000540)="f50c2b88ee376760b29fca6733c91fab23d887492571b875b68e6b59a0ac1a5cb3f7fd2f0461c10620b1c03f09a53230ed70e7f52017bb42c8aa870bcf2133a300c763216b48ec53492c02a822765e3744d383da62a757487f4a2dcffc67e62e6e30a1f6104674c9a47aeccbc4869e9a84d9f2417931c87eaa13c2b9b14928e80bcf6a9bb381e33c7f4393fa1afb0c2939e9cac8f781bd6f464bdf33b6bb33b54a6f389d5084a7a624c82022c9f5b756de50dc80c43496fa", 0xb8)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000600)="cdcf26fa27274ab4195343ae5dde910206763617e0f083fefc677eaad6f63b8194b1b2e74a6a6e84ec99c3187b002ba2a0ce4389cabd4cb731b4b65c9fe01d20805322c9f4585707e3e167c5bcc4e6e36e4946baa7d5f16a91614388ae4ca7caf7b7a6caa054e1182fc71eb0da06397237d24fb5130ad845a3f4fe9a91997409912882ca048b", 0x86)
+r3 = socket$inet(0x2, 0x3, 0x8)
+bind$inet(r3, &(0x7f00000006c0)={0x2, 0x4e21, @remote}, 0x10)
+r4 = accept4$inet(r2, 0x0, &(0x7f0000000700), 0x100000)
+connect$inet(r3, &(0x7f0000000740)={0x2, 0x4e21, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+r5 = accept$inet(r4, &(0x7f0000000780)={0x2, 0x0, @multicast2}, &(0x7f00000007c0)=0x10)
+setsockopt$inet_buf(r5, 0x0, 0x24, &(0x7f0000000800)="c3600d07231b0a8415679f04b5cfd10f2b2bf590f6149d7e6daf16bffb37f4e43c9e219f2a6582f899d63f9f3cb89d7fc290befd6db642d42afdfc3ad2813dbab4d5d754c8eda3", 0x47)
+
+[   19.906811] cgroup1: Unknown subsys name 'perf_event'
+[   19.914152] cgroup1: Unknown subsys name 'net_cls'
+[   19.926358] cgroup1: Unknown subsys name 'perf_event'
+[   19.927776] cgroup1: Unknown subsys name 'perf_event'
+[   19.930409] cgroup1: Unknown subsys name 'net_cls'
+[   19.931962] cgroup1: Unknown subsys name 'net_cls'
+[   19.935302] cgroup1: Unknown subsys name 'perf_event'
+[   19.942978] cgroup1: Unknown subsys name 'net_cls'
+[   20.601196] audit: type=1400 audit(1586947393.708:13): avc:  denied  { create } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   20.609061] audit: type=1400 audit(1586947393.708:14): avc:  denied  { write } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   20.619322] audit: type=1400 audit(1586947393.708:15): avc:  denied  { read } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.394292] audit: type=1400 audit(1586947395.501:16): avc:  denied  { associate } for  pid=1610 comm="syz-executor.2" name="syz2" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+10:43:15 executing program 2:
+r0 = socket$inet(0x2, 0x3, 0x5)
+r1 = socket$inet(0x2, 0x3, 0x5)
+getsockopt$inet_buf(r1, 0x0, 0x21, 0x0, &(0x7f0000000000))
+recvfrom$inet(r0, 0x0, 0x0, 0x2000, 0x0, 0x0)
+socket$inet(0x2, 0x2, 0xffffff5e)
+
+10:43:15 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+connect$inet(r1, &(0x7f0000000080)={0x2, 0x4, @dev={0xac, 0x14, 0x14, 0x37}}, 0x10)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000000)="441405010f81d9a3d4ffde00e2edff1e00", 0x11)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:15 executing program 0:
+r0 = socket$inet(0x2, 0xa, 0x8)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r0, &(0x7f0000000180)=""/233, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0x265c6643)
+r2 = socket$inet(0x2, 0xa, 0x8)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockname$inet(0xffffffffffffffff, &(0x7f00000002c0)={0x2, 0x0, @empty}, &(0x7f0000000300)=0x10)
+recvfrom$inet(r2, &(0x7f0000000180)=""/233, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0xffffff8c)
+r3 = socket$inet(0x2, 0x1, 0x40000)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(0xffffffffffffffff, 0x0, 0x0)
+r4 = accept$inet(r3, 0x0, &(0x7f0000000040))
+connect$inet(r4, &(0x7f0000000080)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x3b}}, 0x10)
+r5 = socket$inet(0x2, 0x800, 0x5)
+r6 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r6, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r6, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r6, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockopt$inet_buf(r6, 0x0, 0x24, &(0x7f0000000100)=""/50, &(0x7f0000000280)=0x32)
+getsockopt$inet_buf(r5, 0x0, 0x20, &(0x7f00000021c0)=""/4079, &(0x7f00000000c0)=0xfef)
+
+[   22.551676] syz-executor.0 uses obsolete (PF_INET,SOCK_PACKET)
+10:43:15 executing program 1:
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x20, &(0x7f0000000040)="0b82fc", 0x3)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e20}, 0x10)
+
+10:43:15 executing program 3:
+socket$inet(0x2, 0x0, 0x0)
+r0 = socket$inet(0x2, 0x80000, 0x0)
+getsockopt$inet_buf(r0, 0x0, 0x23, &(0x7f0000000080)=""/19, &(0x7f00000000c0)=0x13)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockname$inet(r1, &(0x7f0000000100)={0x2, 0x0, @remote}, &(0x7f0000000140)=0x10)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d12089401", 0x15)
+r2 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r2, 0x0, 0x40, &(0x7f0000000000)="eb2131a26a9a72aa9c4986023471791ca4256e6b1aae23dddf77ef046cfa9d11b16d8fa2e4452008891290", 0x2b)
+
+10:43:15 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x209)
+recvfrom$inet(r0, 0x0, 0x0, 0x20, 0x0, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @rand_addr=0x9}, 0xfffffffffffffedf)
+connect$inet(r1, &(0x7f0000000140)={0x2, 0x4e20, @loopback}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+recvfrom$inet(0xffffffffffffffff, &(0x7f00000002c0)=""/144, 0x90, 0x0, &(0x7f0000000180)={0x2, 0x4e24, @rand_addr=0x9}, 0x10)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r5 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r5, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r6 = socket$inet(0x2, 0x3, 0x6)
+accept$inet(r6, &(0x7f00000000c0)={0x2, 0x0, @broadcast}, &(0x7f0000000100)=0x10)
+socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x30, &(0x7f0000000200)="bc91741d100098515dfa7604b796a0c40cc784535000e869a91800a8a09157988b0217e8f7a663f47be186552ed6d52c634e670ff1641fd1d925d381a18695ddc31282d3ad2c4139f5c52633f7b34ac6c6a16d8da8a6604e55bcdca9eb2828b5c8f2020900087fbe0b05ba51b91270e39e2551eb54050cb6351c2f55f7ded067afee9dc9d7dba7748baf2d8a67def8ae2c21bd85d904373b245c17e8bac8af4cef0962eab15f21f8", 0xfffffffffffffe86)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r7 = socket$inet(0x2, 0x5, 0x0)
+getsockopt$inet_buf(r7, 0x0, 0x2a, &(0x7f0000000040)=""/22, &(0x7f0000000080)=0x16)
+
+10:43:15 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+accept$inet(r0, &(0x7f00000000c0), &(0x7f0000000100)=0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x4, &(0x7f0000000080)="7e0b6eec6b4749bdb80a00001f", 0xd)
+r2 = socket$inet(0x2, 0x978dd633501b80af, 0x8)
+r3 = socket$inet(0x2, 0xa, 0x0)
+socket$inet(0x2, 0x6, 0x2)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r3, &(0x7f0000000040)={0x2, 0x4e23, @local}, 0x10)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:15 executing program 3:
+r0 = socket$inet(0x2, 0x3, 0x6)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f0000000040)=""/148, &(0x7f0000000100)=0x94)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r0, 0x0, 0x18, 0x0, 0x0, 0x0)
+r3 = socket$inet(0x2, 0x6, 0x5)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_buf(r4, 0x0, 0x27, &(0x7f0000000240)="bbe7eafbd026b23e30bd7e77af2b42701c35c867099ccad90e16ac1813a9ef4140335db147bcaa01a681cde8c7845da9373134ddba340782c779d15c897fedeb22ca8ba22ab3cde91483f5", 0x4b)
+setsockopt$inet_buf(r3, 0x0, 0x28, &(0x7f0000000140)="ff00aea0f210a6da1e290a868cff0505c1b60a164cf9a669be18e54cc271915272bfa1128f7076b75f00dd79ca266a209915737f69259f20ad0ab5d4f153dae9143c2c350acae6eadf8d92279b3d4df084137356e6ceeefc2557224643c4b0f0285f6317f04ba2b17ddcdc915df41d0f2090ac6ed337704a440b4e36c3bb626e5efd474a75f3252e0bffadc199dc05da04ef3e4db28b6ebd0b5d0ea4d615acf090bb916183c040cf36aab0f945388bbbd17f471bd09ebff901c7ba0033c2eb32f7d8e3d22feaadb1f6e36d8d2f", 0xcd)
+r5 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r5, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r5, &(0x7f00000002c0)=""/63, 0x3f, 0x0, &(0x7f0000000300)={0x2, 0x4e24, @rand_addr=0x5}, 0x10)
+
+10:43:15 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e21, @multicast1}, 0x4)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r1, &(0x7f0000000100)={0x2, 0x4e21, @multicast1}, 0x10)
+getsockname$inet(r2, &(0x7f0000000040)={0x2, 0x0, @local}, &(0x7f0000000080)=0x10)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r4, &(0x7f0000000140)={0x2, 0x4e24, @multicast2}, 0x10)
+
+10:43:16 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f00000002c0)=ANY=[@ANYBLOB="080000000000000002004e2400008001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000400000002004e20ac14142300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e24e00054deefe1e42f3022de9c67ed337bf3000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e23ac1e000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e24e000000200"/656], 0x290)
+r1 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e24, @multicast1}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x23, &(0x7f0000000200)="85495c0b60c25fa7c9b587d92b52e1ccf3d74518e2da5cdb856cc43a3f90c809a1f0403075f1c63db94a77a3aa2c2a1807101a50668c839323439ed7c3284197fba573cf7574815f1ba199430a360c381d1b35d1e6d722fc273d52c674b01a3852b563e6c7e1898d843b7b72db3068e4fe5fa513129e85b2c85d4e64002379bb138d7eed33b19878dc413e8fe752ac8ebbe6ad56ab55b5020664bcee35ae2f5b341144a359cfa3ffea2a82aee934444f6a9943fd3ab9cb9a6299eff7a31f", 0xbe)
+r2 = socket$inet(0x2, 0x1, 0x5)
+setsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f0000000100)="3887073ce6d40826c00d1cd6d8d7369093c138166d7693fc4378927df128a50a44496ab42472706dbb6b720b427a1cdc77de8cc7056a57e4f9410f9468d6f136dddcfae204b428388b488806eccb6d02acea8c75342466b24423d03a264c3a97b515e054de5c61c19ad2dd1e7573dc5401bcfbbeb0944eb24381e0225e7d96d5d531c5c8b0bad6fd37fcc6c3560ad8a7dd2ccb90ac78f78828bc89ed1920c3aba4a2b6b680bad07abc30fd854f70132bcdb34bad551a7938ccc5962e34990b4b4e7c111d23cd7e0c490e4162b20fdd4fc8a98cce557a80c6deb769f8ae6012eb11a83419dff01704f67b3c08c859f95b328f7661", 0xf4)
+
+10:43:16 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e21, @multicast2}, 0x10)
+r1 = socket$inet(0x2, 0x2, 0x0)
+getsockopt$inet_buf(r0, 0x0, 0x25, &(0x7f0000000080)=""/121, &(0x7f0000000100)=0x79)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e22, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x18, &(0x7f0000000200), 0x22)
+
+10:43:16 executing program 0:
+r0 = socket$inet(0x2, 0x5, 0x3)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+connect$inet(r1, &(0x7f0000000240)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x26}}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000000000)=ANY=[@ANYBLOB="070000000000000002004e24e0000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000300000002004e20e000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e24ac1e000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e21ac1414aa00"/528], 0x210)
+
+10:43:16 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000000)="8907041cb9", 0x5)
+recvfrom$inet(0xffffffffffffffff, &(0x7f0000000040)=""/48, 0x30, 0x2000, 0x0, 0x0)
+
+10:43:16 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000080)="b10a8a040000000000000008", 0xc)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+connect$inet(r1, &(0x7f0000000100)={0x2, 0x4e20, @broadcast}, 0x10)
+
+10:43:16 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000000080)={0x5, {{0x2, 0x4e21, @dev={0xac, 0x14, 0x14, 0x28}}}, 0x0, 0xa, [{{0x2, 0x4e24, @local}}, {{0x2, 0x4e24, @remote}}, {{0x2, 0x4e21, @multicast2}}, {{0x2, 0x4e23, @local}}, {{0x2, 0x4e23, @rand_addr=0x7fffffff}}, {{0x2, 0x4e22, @initdev={0xac, 0x1e, 0x0, 0x0}}}, {{0x2, 0x4e24, @remote}}, {{0x2, 0x4e21, @rand_addr=0x8}}, {{0x2, 0x4e23, @rand_addr=0xddb}}, {{0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x16}}}]}, 0x590)
+r1 = socket$inet(0x2, 0x3, 0x5)
+socket$inet(0x2, 0x3, 0x9)
+setsockopt$inet_buf(r1, 0x0, 0x29, &(0x7f0000000040)='+', 0x49ee)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x2d, &(0x7f0000000640), &(0x7f0000000680))
+bind$inet(r1, &(0x7f0000000640)={0x2, 0x4e23, @multicast2}, 0x10)
+socket$inet(0x2, 0x1, 0x1a0d20e0)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r3 = accept$inet(r2, &(0x7f00000006c0)={0x2, 0x0, @multicast2}, &(0x7f0000000700)=0x10)
+setsockopt$inet_buf(r3, 0x0, 0x4, &(0x7f0000000740)="2b9d862a448d558f", 0x8)
+
+10:43:16 executing program 2:
+r0 = socket$inet(0x2, 0x6, 0x1040)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000001200)={0x8001, {{0x2, 0x0, @multicast1}}}, 0x90)
+
+10:43:16 executing program 1:
+r0 = socket$inet(0x2, 0xa, 0x300)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x8)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getpeername$inet(r3, &(0x7f0000000180)={0x2, 0x0, @dev}, &(0x7f00000001c0)=0x10)
+setsockopt$inet_buf(r2, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fdf090000207d", 0xc)
+accept$inet(r1, &(0x7f0000000000)={0x2, 0x0, @multicast1}, 0x0)
+accept$inet(r0, &(0x7f0000000140)={0x2, 0x0, @multicast1}, &(0x7f0000000080)=0x10)
+socket$inet(0x2, 0x0, 0x0)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:16 executing program 2:
+socket$inet(0x2, 0x3, 0x5)
+r0 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r0, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockname$inet(r0, &(0x7f0000000100), &(0x7f0000000080)=0x10)
+
+10:43:16 executing program 1:
+r0 = accept$inet(0xffffffffffffffff, &(0x7f0000000100)={0x2, 0x0, @loopback}, &(0x7f0000000140)=0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2d, &(0x7f0000000180)=""/45, &(0x7f00000001c0)=0x2d)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x4, &(0x7f0000000040)="07050500fd", 0x5)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x4e22, @remote}, 0x10)
+r3 = accept$inet(r1, 0x0, &(0x7f0000000200))
+r4 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r4, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r4, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r4, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockopt$inet_buf(r4, 0x0, 0x2a, &(0x7f00000002c0)=""/185, &(0x7f0000000380)=0xb9)
+recvfrom$inet(r3, &(0x7f0000000240)=""/28, 0x1c, 0x0, &(0x7f0000000280)={0x2, 0x4e24, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+accept$inet(r2, &(0x7f00000000c0)={0x2, 0x0, @empty}, &(0x7f0000000080)=0x10)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0xa, 0x0)
+r1 = accept$inet(r0, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000040)=0x10)
+recvfrom$inet(r1, 0x0, 0x0, 0x40010102, 0x0, 0x0)
+
+10:43:17 executing program 0:
+socket$inet(0x2, 0x5, 0x3)
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x2e, 0xffffffffffffffff, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r2, 0x0, 0x19, &(0x7f0000000100)=""/139, &(0x7f0000000080)=0x8b)
+socket$inet(0x2, 0x3, 0x0)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e1f, @remote}, 0x10)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000000)="441405010f81d9a3d4ffde00e2edff1e00", 0x11)
+accept$inet(r0, 0x0, &(0x7f0000000080))
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0xa, &(0x7f0000000000)="02", 0x1)
+accept4$inet(r0, &(0x7f0000000080), &(0x7f00000000c0)=0x10, 0x800)
+socket$inet(0x2, 0x5, 0xffff)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e22, @broadcast}, 0x10)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x3, 0x5)
+socket$inet(0x2, 0x3, 0x7fffffff)
+setsockopt$inet_buf(r0, 0x0, 0x8, &(0x7f0000000500)='4', 0x1)
+
+10:43:17 executing program 3:
+socket$inet(0x2, 0x3, 0xc8)
+bind$inet(0xffffffffffffffff, &(0x7f00000000c0)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x3e}}, 0x10)
+connect$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x3, 0x6)
+r1 = socket$inet(0x2, 0x800, 0x800)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x9, &(0x7f0000000000)="32675426bfbe67910d7bd9f955184fcb4a87d27cfbfec3734a44cb45b867c0c1b00e53c22437dbf5f161b67e37ae28a43730215410eedccaee42688512e6f4100a1d1eb0e774ff298c197a20d734edd775bc5137e5716fbd26d4153883baffeb5267dfd112a807fe08bf1d317e0fc22157fd81fe95105f41814e87d54c1709d5baf414beb096be200d5569", 0x8b)
+setsockopt$inet_buf(r0, 0x0, 0x12, &(0x7f00000000c0), 0x49)
+
+10:43:17 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x3e}}, 0x10)
+r1 = socket$inet(0x2, 0x80000, 0x7)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f00000002c0)={0x10001, {{0x2, 0x0, @loopback}}}, 0x90)
+
+10:43:17 executing program 3:
+socket$inet(0x2, 0xa, 0x300)
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+accept4$inet(r1, &(0x7f0000000000)={0x2, 0x0, @empty}, &(0x7f0000000080)=0x10, 0x80800)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r0, &(0x7f0000000000)=""/125, 0x7d, 0x12012, &(0x7f0000000080)={0x2, 0x4e22, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+
+10:43:17 executing program 0:
+socket$inet(0x2, 0x800, 0x80)
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockname$inet(r0, &(0x7f0000000100)={0x2, 0x0, @empty}, &(0x7f0000000180)=0x10)
+r1 = socket$inet(0x2, 0x5, 0xb)
+accept4$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000040)=0x10, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x4, &(0x7f0000000140)="441406f3777f706378dc869a0000000000", 0x11)
+r2 = socket$inet(0x2, 0x80000, 0x2)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+r3 = socket$inet(0x2, 0xa, 0x8)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r3, &(0x7f0000000280)=""/228, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0x12c52c2)
+socket$inet(0x2, 0x0, 0x5)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r2, &(0x7f0000000080)={0x2, 0x4e21, @multicast1}, 0x10)
+connect$inet(r1, &(0x7f00000001c0)={0x2, 0x4e27, @multicast2}, 0xffffffffffffff01)
+
+10:43:17 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x5)
+socket$inet(0x2, 0x6, 0x81)
+socket$inet(0x2, 0x800, 0x9)
+setsockopt$inet_buf(r0, 0x0, 0x12, 0x0, 0x0)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x5, 0xfe)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @multicast2}, 0x10)
+recvfrom$inet(r0, &(0x7f0000001140)=""/4100, 0x1004, 0x0, 0x0, 0x0)
+getsockopt$inet_buf(r0, 0x0, 0x24, &(0x7f0000000040)=""/56, &(0x7f0000000080)=0x38)
+
+10:43:17 executing program 1:
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x20, &(0x7f0000000000)="ebca579e7f7fff35", 0x8)
+setsockopt$inet_buf(r0, 0x0, 0x9, &(0x7f0000000040)="73a73b2037a9774a13e34d9927be37269e4fccd9611f3de3117f8c08d5c9a5a006e734666b8c582cc708a6fa00f05a", 0x2f)
+
+10:43:17 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x6)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+connect$inet(r1, &(0x7f0000000100)={0x2, 0x4e21, @empty}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r2, 0x0, 0x2c, &(0x7f0000000140)="420db3c391b84652fb17c4456d9e4f238b967771db72c383c1106473ee326640e9034bd1d7e8aa4921db88a2046b444632bf374432c15edfb17fe24743923883ef124c1cd8d5e7712f25350cc39250d88e75ef85e4fc60cdd17181e81ccef7554dbe90bd3672b351761bffa1c150ec77c46cd95ad979bea7f45bdba85000cb2c6a", 0x81)
+r3 = accept4$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast1}, &(0x7f0000000040)=0x10, 0x0)
+bind$inet(r3, &(0x7f0000000080)={0x2, 0x4e24, @multicast2}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r3, 0x0, 0x30, &(0x7f0000000200)={0x1, {{0x2, 0x4e21, @empty}}, 0x1, 0x1, [{{0x2, 0x4e21, @rand_addr=0x6}}]}, 0x110)
+socket$inet(0x2, 0x3, 0x8)
+socket$inet(0x2, 0x5, 0x4)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x2, 0x202)
+bind$inet(r0, &(0x7f0000000440)={0x2, 0x4e21, @multicast2}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000040)=""/28, &(0x7f0000000080)=0x1c)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x9, &(0x7f0000000480)="760c5c777839b04709d2ee346e9d4c80f40d6c65beb7ded9a540d6087d075bbf18fcc953d7542b2c9304cc9043174fbf10d3fb984afe26fc91c39014f8984fd76d151d29c12595166797cf1a9e9b7c8aef97307d757462f46b658c65cda6b4ad283c7cb7eddcb2c77e95c7bcf4ecba4a89470b0ae80eb1517904e437d7d9f1272a8a98305281f2db1e9d798f7c4c71afd042ce3d2e06affedb2d3053fd7889284441520c65dc83fef4f07524596244776e7a4fdc796590f2d9a3acbadc8c1089d9b6665e27060a34ffc562e3d2fc", 0xce)
+setsockopt$inet_buf(r1, 0x0, 0x0, &(0x7f0000000140)="d7f50b9d2e5cd1cf6add17", 0xe)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x11, &(0x7f00000000c0)=""/40, &(0x7f0000000100)=0x28)
+r3 = socket$inet(0x2, 0x4, 0x68e2618d)
+connect$inet(r3, &(0x7f0000000240)={0x2, 0x4e23, @multicast2}, 0xffffffffffffff7e)
+socket$inet(0x2, 0x80000, 0x3)
+setsockopt$inet_buf(r0, 0x0, 0xf, 0xfffffffffffffffd, 0x34)
+r4 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r4, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r4, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x140, 0x0, 0x0)
+setsockopt$inet_MCAST_MSFILTER(r4, 0x0, 0x30, &(0x7f00000007c0)=ANY=[@ANYBLOB="05000000000000000200af4262820002006f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000d5e33fa9cc6eb1d650f00002004e24e000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004e247f0000010000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008d2a1b3504ad1ebdf4fbb2088edd6ad978b657d2af3f9d6daf4865385ea8836802138d446e6ef427095f87fb1c28fef12ca91ea0da624433b6c7080f33375bb19329066de61087c212e36b92d285f8aaa9aba96fa8cf7f58a10954f3d5335cdb3553db6d79ac53cd0b4b8b2c6c50f0ce3e5e596d8e0a915b9a5e52d3c0cffb08115a5e52b381ff427bb578327cb68fb55a11"], 0x190)
+setsockopt$inet_buf(r0, 0x0, 0x20, &(0x7f0000000180)="1f30e05a623d278c5832b72a7f1789db88b567d1c61e465ac368ef2a15c30dc1f8424d3f92b5af78fd519be45a562ed13b9b0155efb6f05e167af87bb6f76e911459f39b052779a60a80d704555b53ed9612dd6c2eab5fe0057878be5f5e64c6da6ee7657a232ae081882deda59541ef268e9696a73f18ffdbe1b03d82ebf8d90750104f534b49032c9c2d2743d6c5f7f4248ef018489a86c2a72b48ad6b99e10c3dcc3a", 0xa4)
+
+10:43:17 executing program 3:
+socket$inet(0x2, 0xa, 0x0)
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e22, @local}, 0x10)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000040)=""/44, &(0x7f0000000080)=0x2c)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f0000000000)="c2", 0x1)
+
+10:43:17 executing program 0:
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x40, 0x0, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+r2 = socket$inet(0x2, 0x1, 0x1)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+bind$inet(r2, &(0x7f0000000080)={0x2, 0x4e21, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f0000000000)={0x2, 0x4e21, @loopback}, 0x10)
+
+10:43:17 executing program 2:
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x24, &(0x7f0000000000)="b87acf", 0x3)
+setsockopt$inet_buf(r0, 0x0, 0xf, &(0x7f00000010c0)="87", 0x1)
+bind$inet(r0, &(0x7f0000000040)={0x2, 0x0, @remote}, 0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r1, &(0x7f0000000080)={0x2, 0x4e21, @multicast2}, 0xfffffffffffffde8)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r2 = accept$inet(r1, 0x0, &(0x7f0000000040))
+accept4$inet(r2, 0x0, 0xfffffffffffffffd, 0x800)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @empty}, 0x10)
+
+10:43:17 executing program 3:
+r0 = socket$inet(0x2, 0xa, 0x8)
+r1 = socket$inet(0x2, 0x3, 0x5)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x29, 0x40012142, 0x0, 0x3d)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x10, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r3, &(0x7f0000000180)=""/222, 0xde, 0x40010002, &(0x7f0000000100)={0x2, 0x4e21, @dev={0xac, 0x14, 0x14, 0x15}}, 0x10)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(0xffffffffffffffff, &(0x7f0000000380)={0x2, 0x4e22, @multicast2}, 0x10)
+getsockopt$inet_buf(r2, 0x0, 0x2d, &(0x7f0000000040)=""/2, &(0x7f0000000080)=0x2)
+recvfrom$inet(r0, &(0x7f0000000280)=""/228, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0x12c52c2)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r5 = socket$inet(0x2, 0x3, 0x5)
+getsockopt$inet_buf(r5, 0x0, 0x20, &(0x7f00000021c0)=""/4079, &(0x7f00000000c0)=0xfef)
+
+10:43:18 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r0, &(0x7f0000000200)=""/199, 0xc7, 0x10023, &(0x7f0000000300)={0x2, 0x4e22, @empty}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x4, 0x0, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x2, 0x0, 0x0)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r2, &(0x7f00000001c0)=""/49, 0x31, 0x40000060, 0x0, 0x0)
+connect$inet(r4, &(0x7f0000000180)={0x2, 0x4e20, @loopback}, 0x10)
+getpeername$inet(r3, &(0x7f0000000100)={0x2, 0x0, @dev}, &(0x7f0000000140)=0x10)
+setsockopt$inet_buf(r2, 0x0, 0x9, &(0x7f0000000000)="490902fa1e68541591ec4074a46bd4c6b97f233d8283e13b3e0b1cb7f3d149a9c1c3b1e23a819af5f0e20cd9565283d19748b585126afb0eb557d208de92e223c257dc1f7aefd136f61a85d4631c9137f746df4d2161a88fcdbb04c00238c675b52fdfed401285ee09c9fd3d03f544862baa28f45d6075e9353aa21fc5c814a44c4ad2259972a0f260f08a45", 0x8c)
+
+10:43:18 executing program 3:
+r0 = socket$inet(0x2, 0x3, 0x2)
+connect$inet(r0, &(0x7f0000000080)={0x2, 0x0, @empty}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000000)=""/122, &(0x7f00000000c0)=0x7a)
+connect$inet(r0, &(0x7f0000000180)={0x2, 0x0, @loopback}, 0x10)
+
+10:43:18 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e20, @broadcast}, 0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f0000000100)={0x6, {{0x2, 0x4e22, @rand_addr=0x3}}, 0x1, 0x1, [{{0x2, 0x4e22, @broadcast}}]}, 0x110)
+socket$inet(0x2, 0x800, 0x0)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x4e20, @loopback}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r2, &(0x7f0000000040)=""/46, 0x2e, 0x40000040, &(0x7f0000000240)={0x2, 0x4e24, @loopback}, 0x10)
+
+10:43:18 executing program 0:
+r0 = socket$inet(0x2, 0xa, 0x300)
+r1 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f0000000100)={0xff, {{0x2, 0x4e21, @multicast1}}, 0x1, 0x2, [{{0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x11}}}, {{0x2, 0x4e24, @rand_addr=0x6}}]}, 0x190)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:18 executing program 3:
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x18, &(0x7f0000000200)="e9", 0x1)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x4e21, @loopback}, 0x10)
+bind$inet(r0, &(0x7f0000000040)={0x2, 0x0, @multicast1}, 0x10)
+
+10:43:18 executing program 1:
+r0 = socket$inet(0x2, 0x80000, 0x7)
+recvfrom$inet(r0, 0x0, 0x0, 0x20, 0x0, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+
+10:43:18 executing program 0:
+r0 = socket$inet(0x2, 0x4, 0x0)
+r1 = socket$inet(0x2, 0x2, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x10, &(0x7f0000000080)="a590f0f20ff91bddb2b7a65bb0f6d114b750073e54f7d6119a2978ff54849a4025c51b340ac96337809dbc1d3b4600d94a67678dacb872197c4ea84aa7733a3363c5271519b603a7745410a7eb892595ed5675e14030c76cb809b810e0fc186faf5849677b2f66f7eb99b43383b722db5b19b9f484d54fcbb9e45579c409bf0575e6faa7b6438844de5d599b28ad9ed4bd49b4b0a7c8240e79e417bb99", 0x9d)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000040)="9408001300", 0x5)
+socket$inet(0x2, 0x5, 0x7fffffff)
+
+10:43:18 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000000180)={0x4e2, {{0x2, 0x4e23, @initdev={0xac, 0x1e, 0x0, 0x0}}}, 0x0, 0x8, [{{0x2, 0x4e23, @rand_addr=0xff}}, {{0x2, 0x4e21, @multicast1}}, {{0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x3c}}}, {{0x2, 0x4e24, @multicast2}}, {{0x2, 0x4e21, @broadcast}}, {{0x2, 0x4e24, @initdev={0xac, 0x1e, 0x0, 0x0}}}, {{0x2, 0x4e21, @remote}}, {{0x2, 0x4e24, @multicast1}}]}, 0x490)
+r1 = socket$inet(0x2, 0xa, 0x300)
+r2 = socket$inet(0x2, 0x1, 0x0)
+r3 = socket$inet(0x2, 0x3, 0x8)
+setsockopt$inet_buf(r3, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fdf090000207d", 0xc)
+accept$inet(r2, &(0x7f0000000000)={0x2, 0x0, @multicast1}, 0x0)
+accept$inet(r1, &(0x7f0000000140)={0x2, 0x0, @multicast1}, &(0x7f0000000080)=0x10)
+socket$inet(0x2, 0x0, 0x0)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r2, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r2, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:18 executing program 2:
+socket$inet(0x2, 0xa, 0x300)
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x14, 0x0, 0xff84)
+r2 = accept4$inet(r1, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000080)=0x10, 0x800)
+connect$inet(r2, &(0x7f0000000100)={0x2, 0x4e23, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+r3 = accept$inet(0xffffffffffffffff, &(0x7f0000000140)={0x2, 0x0, @multicast2}, &(0x7f0000000180)=0x10)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x27, &(0x7f00000002c0), &(0x7f0000000300))
+connect$inet(r2, &(0x7f00000002c0)={0x2, 0x4e22, @remote}, 0x10)
+setsockopt$inet_buf(r3, 0x0, 0xb, &(0x7f00000001c0)="cd977ff2fbe0eb9ae362f90374d00e9d47382c44933edc79339a114c131946e94067e3a1485d67c9ed9b50713d0c5a8cfd4708dc091ea89d1bd737e56ed5f60c4eb3e3d3dcc1f4e700753fa6661be5fe1020c69723059342bbec2222e1c5517a7a3a83920de630cd26e560eefd3e6ba4bced15099c70b5c8681b702628ad7dc980a0af785d6c02ef147f336a7b9808d55f5ccb1c0e9343b255b98e0100c899332a94fa55eb0a95232f452e0948ec2a72fbe51076b0fa96d2ebb31ec60fa940ed2a01c306eb7617d9cf5139b379dac7a66f2702df7a277e91effa", 0xda)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:18 executing program 1:
+r0 = socket$inet(0x2, 0x4, 0x4005)
+setsockopt$inet_buf(r0, 0x0, 0x10, 0x0, 0x0)
+
+10:43:18 executing program 0:
+r0 = socket$inet(0x2, 0x0, 0xfff)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r2 = socket$inet(0x2, 0x6, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x27, &(0x7f0000000080)="f8ee10b2671338947514881b320cfd9f6d1bf7a5d37cab258ac2c516bf65a1f2d65fb44ce87f526c29238f6f673a591f6e6b9d00004b", 0x36)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r2, 0x0, 0xf, &(0x7f00000010c0)="87", 0x1)
+bind$inet(r0, &(0x7f0000000140)={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+getpeername$inet(0xffffffffffffffff, &(0x7f00000002c0)={0x2, 0x0, @multicast1}, &(0x7f0000000300)=0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @empty}, 0x10)
+r3 = socket$inet(0x2, 0x6, 0x6)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x2d, &(0x7f0000000380)="5693b8db80ca9f13f60d6eaa13de6681cda3e2aab1e4ec26d5c5a98fafa02cfcb330191c1b5b7d908176fc0bb4a0d2b7730b4d097c8b086e49e59c0000", 0x3d)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+r4 = accept4$inet(r1, 0x0, &(0x7f0000000340), 0x800)
+r5 = socket$inet(0x2, 0x1, 0x5)
+connect$inet(r5, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r5, &(0x7f0000000280)={0x2, 0x4e23, @loopback}, 0x10)
+getsockopt$inet_buf(r4, 0x0, 0x23, &(0x7f0000000180)=""/193, &(0x7f0000000100)=0xc1)
+
+10:43:18 executing program 1:
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d12089401", 0x15)
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000080)="eb023471791ca4256e6b1aae23dddf77ef046cfa9d11b16d8fa2e4452008891290", 0xffffffffffffffa9)
+
+10:43:19 executing program 3:
+socket$inet(0x2, 0xa, 0x0)
+socket$inet(0x2, 0x3, 0x9)
+
+10:43:19 executing program 1:
+r0 = socket$inet(0x2, 0xa, 0x8)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r0, &(0x7f0000000180)=""/233, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0x265c6643)
+r2 = socket$inet(0x2, 0xa, 0x8)
+recvfrom$inet(r2, &(0x7f0000000180)=""/233, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0xffffff8c)
+accept4$inet(r0, &(0x7f0000000040)={0x2, 0x0, @initdev}, &(0x7f0000000080)=0x10, 0x80800)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(0xffffffffffffffff, 0x0, 0x0)
+r4 = socket$inet(0x2, 0x3, 0x5)
+getsockopt$inet_buf(r4, 0x0, 0x20, &(0x7f00000021c0)=""/4079, &(0x7f00000000c0)=0xfef)
+
+10:43:19 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e20, @broadcast}, 0x10)
+r1 = socket$inet(0x2, 0x2, 0x0)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e20, @loopback}, 0x10)
+
+10:43:19 executing program 0:
+r0 = socket$inet(0x2, 0x801, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r2, &(0x7f0000000080)={0x2, 0x4e22, @local}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x4e22, @multicast2}, 0x9)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:19 executing program 2:
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000080)="60302f6ad63764bd7f29d5781c1c65cd1afab754e1e9e3a0d961e51210ec475c13b9fe4e634db2f073aa47f367a30b062ad5e4431510a2278827183ee10a2bd47f1e5a133109e2e56a8964bc9daa451d591eb304f85b90ca753a9236168cbf87b55e425a2472093a4a61d58c4283c2a5e2132089268baa866d611bc731e397fff797347deae85630bc424d6057e36f3fb48f0f58631b16692ea8d71b9a89a67815269e0d29e3079b02c3267cd15a40d14d4e28e81849b67c1e04d3d6b5825d80a692df3c012e3f4ec19004dc8ffbe394d273f034ce7e67e2a44fde266fbeb4d1ccb1c25c7db1ff7a9b9b7caecac0f656d8aae558444b81d60ca6", 0xfa)
+setsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000040)="e3da03d11e8e2f77107246d9", 0xc)
+
+10:43:19 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000040)=""/178, &(0x7f0000000100)=0xb2)
+
+10:43:19 executing program 2:
+r0 = socket$inet(0x2, 0x0, 0x0)
+connect$inet(r0, &(0x7f0000000200)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x2d}}, 0x10)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d12089401", 0x15)
+r1 = socket$inet(0x2, 0x6, 0x5)
+r2 = accept$inet(r1, &(0x7f0000000080)={0x2, 0x0, @empty}, &(0x7f00000000c0)=0x10)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000100)="aa15e5ba29b1734be21e33a87f9bdbed8795ce554893db0d8ea9ed6b17dc14c71d1c6f59a3e004015ab3502d1d441b695fc1f7d251404c3476000d0ee75277e51bfb0cd565af7313566a6dfcfa957dc2adf63df74ecb2e31624bcce9e9de8be123404fbdaeb019af1c07ea54c45d5171126e017df63d60896932c145e1aeaa594cfd6d6db7871ef610f38bc0b254f6dfa63ebda241749df2d8a6af3bd5d8da22ae85b4345849c0d0598c65b783261ad9bd733657194ae3e4c0490a9944cfbe456fd645442f6179763b914535ce5e11e5c8c420849de4ef753f1058256656b4587592746bcee77d3ad11e7f190c5b24c6a9549d", 0xf3)
+setsockopt$inet_buf(r1, 0x0, 0x25, &(0x7f0000000000)="eb2131a26a9a72aa9c4986023471791ca4256e6b1aae23dddf77ef046cfa9d11b16d8fa2e4452008891290", 0x2b)
+
+10:43:19 executing program 3:
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d120894fc", 0x15)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000001140)="6aeaf4b16a4885f6788797e60d4117d0d16b6878d816f3c2d7cd786ea0accd98e539459e07917736826557f03fcf0a4160e314d38f64b649e639146b376a7de9726aea95062d4a4cc5d454ff4e20012c99d49adb19c100a6bc062aa8da4f645022ea48f085c2d5c5d8f6c21975fdd81a70a7ef03ee9a7a8fd5882e2b21562e7e6f2252cc755264ab4c080f54ab94d23fab7dfa1f3ba597b125727c57380c4ad734b24aacede3c3f9c32710456d3f25979502053d1a02aae2f7e55c670219fc865f62570ac5a859aa4fa07170826c220b2834a1ef433c397a01c79c71a9f2fef42788849a12dce1788f4e3edd649ccb82143f81ebbd7ecba905f26dedd238d02c3be0218de6b8334f9fc18f4e530f142b72ab60f8828356e90650efedebebbd9a313f5f78ab16c10dae5e9a2d15b6074439da7a4df3a2eb527f077d9a0599de0612f797f1942eea70a2096c657ee83d4c6f9713a6dadb29369b1d8984e4cb5383d4a5f935c0e58c155f3add9101692f82247c02dfa4c6816f9f8eccd91a1e33acdb29639715bc977b76a26f57e0d5dd1e8cb9aad4c072d8227c5ea0275edd60b110a6aef01a451b6d96f4f232a438680b16c3b4d95acc4f441bfe72f108f74bedb1a21fa1a925beecd213f461314521836e4f396af5f2a69b8dae737a25b5fdec5a7cd67b6b0a3ad5be05f42b0d641d90b415a55e79291f20f71013bda1d4a6806284f01923541aa5a802f28fba2b66ad231713f207f6bd5a9b155ddade8264d810acdfac1aad3aa1bfa74fcbb9f1c15161b05e8bd537feaf70c5c1d9389e639c67e909f04cd64240597bd21531f8903737c7498c0aed11deaca16a0de77501a73763497eee5fd1a1bd330397c6fb9c24ef3d1ed24cb4a764e2d8a97d3ece0115bb691a0a711bfd04d5f67e0ca824609490f0fdf2fccb057db48b0ea7c15ebe4f88774fb0010bbe9ef7d15dee476009f985aa81c7b11becd873c09ccd8208898bf65fb4399b3092283ade17e8efe011bb94a0a50e3b23b59475013e16b85fc390a6c01bafbd5a9df2a49c021e0ff8f5a969549b122102bc5f473a5c2c37573b5142fec192423c22e247085580fcc76b3b8367c10a1cce36128b0469f4a9b6b2c5107a21d89a60a10cfb0d86df46008e8d0cb19c22e854273b695c19f9beb7e5e8d9e64a7168b6b08dfdafa32676042078dbe8d5c66e18804732c769a44d0124cb1858552f443d3cb1a03bf0bd1cfba07353985bcc014549d8f2ad20ef828496cd644eb6c9e80dc156c37c06bf3446133bef36b60eac5c6e7c0b539084a6862b728b27e19121e63ca88621f18c8fffab2ee69b1d298b2b415abc815642ba9ae3de9e7fe042ad3e304c1351529d36b18bad07f83f59001da031b707b73106238cede5f738bacbd39f2c36e4581fec957d504a5095dc22967d1a5044c361fb6faa054f1844b6573d7052533a6d0165a0635215f7d81c5f92813ee1b9f95d7847b41cdda3086a30daba092580669a3acb3920154ae517ca41fb2fbb6e87ac9444ede80ae32d072d2229e5415e88265ddb489afd7e45c49a87d6a89e106c45fa1c8482fccb02f81b88be2849255723cfb4af48e22b4b5c260198d7c6fd15ce4081d4b120324476793be609804179d9e143d5f87dc3da8b01e6bc321b84563e5d97e27a25f92603e5ee9cc8f8de68c17c36be623ad5b4eb7e32c5e949f02fd80290a6e2922f1a0c895dcdff8dbf181c3d56bfd21bbc522cf755a21224bdcf916c37c746162202b074fd2275283613605667b71cdde2e93486d05054b7458b197dabe405c8990096e7e13475ebae330bc204682fb0d1dff6d14415e312f007ef0aee2b59b2c930734cf1babc1df8a1e93e8a0348bd83b1448ee56e300a64971ef9fe5cdfe131f9a27268349fccbe8c97a489ed573ca5f64e0aea8271209d8bc07d982d8b98bf118801bd6a1db1f491680c655807e9bed61ec6529a492db31a00d9817abfc30404e6bcc80e93e44ddc5ccfcf0fe063bc552dcaa1765066993a3791c72cafdfc8344241b274bae1bfabcc437e10be63fabf951b6536cf8f6182b6c3a102d6bb8f05f829bae3662439ae4cd3a204fa7beefc1b51d336bfacaeae9ba0d4242321d1863a3ab9ab658f2b7c03d77f72b77dcd30af0de37a2ec9b9bab9e781da", 0x5ff)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000080)="23d8f3806d9e9828178b970c0ed44ff4d55992ef297b2349d7fc3b42b9016759f10ff4a966ba454e3be10379a992ad8d38e4024c4b6ea104de163618", 0x3c)
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x26, &(0x7f00000000c0)="43d759beaf76daa89e0218e439dd435432ceab3f84b99ba31e2794240c1aea4e80c1b69bcb726812d84cb38ce115c7e46a9813f87af2a78ab1b1ea141a44de", 0x3f)
+setsockopt$inet_buf(r0, 0x0, 0x40, &(0x7f0000000000)="eb3c31a26a9a72aa9c4986023471791ca4256e6b1aae23dd20088912900000000000000000000000004e", 0x2a)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f0000000100)={0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0xc}}, 0x10)
+
+10:43:19 executing program 2:
+r0 = socket$inet(0x2, 0x2, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0xf, &(0x7f00000010c0)="87", 0x1)
+r1 = socket$inet(0x2, 0x4, 0x1c)
+setsockopt$inet_buf(r1, 0x0, 0x2d, &(0x7f0000000140)="618afef8c178260b00316f3093ca04547807e74b5b9b669e675916a32e8d9d0411cdbc6d6d1efd332ce4f88d2533a3947013652fc2288dfeb81300", 0x3b)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x10, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockname$inet(r2, &(0x7f0000000040)={0x2, 0x0, @multicast1}, &(0x7f0000000080)=0x10)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast2}, 0x10)
+r3 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r3, 0x0, 0x286f15f79cd1a302, &(0x7f0000002100)=""/4096, &(0x7f0000000100)=0x1000)
+
+10:43:19 executing program 1:
+r0 = socket$inet(0x2, 0xa, 0x300)
+getsockname$inet(r0, &(0x7f0000001180)={0x2, 0x0, @multicast2}, &(0x7f00000011c0)=0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r2, 0x0, 0x14, 0x0, 0xff84)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(0xffffffffffffffff, &(0x7f0000001280)=""/2, 0x2, 0x2, &(0x7f00000012c0)={0x2, 0x4e22, @multicast1}, 0x10)
+r3 = accept4$inet(r2, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000080)=0x10, 0x800)
+connect$inet(r3, &(0x7f0000000100)={0x2, 0x4e23, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+r4 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r4, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r4, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+r5 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r5, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getpeername$inet(r1, &(0x7f0000001200)={0x2, 0x0, @multicast1}, &(0x7f0000001240)=0x10)
+recvfrom$inet(r4, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r4, &(0x7f0000000140)=""/4096, 0x1000, 0x21, &(0x7f0000001140)={0x2, 0x4e20, @loopback}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:19 executing program 0:
+r0 = socket$inet(0x2, 0x3, 0x100003)
+setsockopt$inet_buf(r0, 0x0, 0x2d, &(0x7f00000000c0)="4cbf977cbbeee7504d986d7a0148a36bb19b90d2816361915ed08c62993891cff405df2a5222b7e74aa75d0ddc82fb1e889aba1e7d38e5d29d8306c4284f2772008697cee7cec9a668f2102a66399241eb2570dc8c8e0201428967499b2d093f890841e5fff15b9674e0e1cb7a53e159c7deb6af7d6c63c559f0dc3b3f5100cccd06938087e14dff73baf633485ace3c7d26e5a6d7d4e1766d51bca8e6676798c33bd889d82abb887cde3efc3172f70dab28372beadf30948bfffcd1e221c98c7df24b396d4c0c7cb2ecb3206966cbfc2f3630", 0xd3)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2a, &(0x7f0000000000)=""/79, &(0x7f0000000080)=0x4f)
+socket$inet(0x2, 0x80000, 0x100)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r1, &(0x7f0000000340)={0x2, 0x4e21, @multicast1}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r2, 0x0, 0x25, &(0x7f0000000280)=""/99, &(0x7f0000000300)=0x63)
+r3 = socket$inet(0x2, 0x80000, 0xffffff80)
+recvfrom$inet(r3, &(0x7f00000001c0)=""/87, 0x57, 0x0, &(0x7f0000000240)={0x2, 0x4e20, @multicast2}, 0x10)
+
+10:43:19 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x8)
+setsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000100)="ebca57ad7f7fdf090000207d", 0xc)
+getsockname$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, &(0x7f0000000040)=0x10)
+socket$inet(0x2, 0x3, 0x8)
+
+10:43:19 executing program 1:
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d12089401", 0x15)
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000080)=""/206, &(0x7f0000000180)=0xce)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x20, &(0x7f0000000000)="eb023471791c1c256e68adc932cddf77ef046cfa9d11316d8fa2e4452018891290", 0x21)
+
+10:43:19 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockname$inet(r1, &(0x7f0000000000)={0x2, 0x0, @initdev}, &(0x7f0000000080)=0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r2, &(0x7f0000000100)={0x2, 0x4e22, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+
+10:43:19 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x20, &(0x7f0000000000)="e6ed9d789e59fe5f02428f73", 0xc)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e22, @rand_addr=0x65180d69}, 0x10)
+socket$inet(0x2, 0x800, 0x3)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f0000000080)={0x9, {{0x2, 0x4e24, @loopback}}, 0x0, 0xa, [{{0x2, 0x4e22, @remote}}, {{0x2, 0x4e20, @remote}}, {{0x2, 0x4e24, @remote}}, {{0x2, 0x4e24, @local}}, {{0x2, 0x4e24, @loopback}}, {{0x2, 0x4e21, @remote}}, {{0x2, 0x4e23, @remote}}, {{0x2, 0x4e21, @rand_addr=0x3ff}}, {{0x2, 0x4e21, @local}}, {{0x2, 0x4e22, @remote}}]}, 0x590)
+
+10:43:20 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f00000001c0)={0x4, {{0x2, 0x4e22, @multicast2}}, 0x1, 0x5, [{{0x2, 0x4e21, @local}}, {{0x2, 0x4e22, @multicast1}}, {{0x2, 0x4e21, @multicast1}}, {{0x2, 0x4e20, @initdev={0xac, 0x1e, 0x0, 0x0}}}, {{0x2, 0x4e20, @broadcast}}]}, 0x310)
+r1 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r1, &(0x7f0000000080)={0x2, 0x4e22, @local}, 0x10)
+bind$inet(0xffffffffffffffff, &(0x7f0000000040)={0x2, 0x4e22, @local}, 0x10)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @local}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+bind$inet(r2, &(0x7f0000000180)={0x2, 0x4e24, @broadcast}, 0x10)
+setsockopt$inet_buf(r1, 0x0, 0x30, &(0x7f00000000c0)="c3cf5e4976bc43977325ed860cb904b0420311166e8a654183d2afdbb796a9625ed92346330d593e2d737e85f3a1d640eb9ddd6e0e89947f89e21360a307f9367d6f16cf7b0300ffc9238dc8043d72c70d3e88c4661084ecd319e4e10aeccd9598daead2dc27f56d04e8faec21d319ac69e59662d1f2968ecacaec3454a502a7857b4f76711c5e15e8", 0x89)
+
+10:43:20 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x29, &(0x7f0000000000)="adbfc5b54c444ad815c6130001000000", 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f0000000040)={0x2, 0x4e20, @local}, 0x10)
+
+10:43:20 executing program 1:
+r0 = socket$inet(0x2, 0xa, 0x8)
+r1 = socket$inet(0x2, 0x3, 0x5)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r0, &(0x7f0000000280)=""/228, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0x12c52c2)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+getsockopt$inet_buf(r0, 0x0, 0x24, &(0x7f0000000180)=""/240, &(0x7f0000000040)=0xf0)
+r3 = socket$inet(0x2, 0x3, 0x5)
+getsockopt$inet_buf(r3, 0x0, 0x20, &(0x7f00000021c0)=""/4079, &(0x7f00000000c0)=0xfef)
+
+10:43:20 executing program 0:
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f00000000c0)="ffe3710000000000070000000000000080", 0x11)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000001740)='D', 0x1)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d120894fc", 0x15)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000001140)="6aeaf4b16a4885f6788797e60d4117d0d16b6878d816f3c2d7cd786ea0accd98e539459e07917736826557f03fcf0a4160e314d38f64b649e639146b376a7de9726aea95062d4a4cc5d454ff4e20012c99d49adb19c100a6bc062aa8da4f645022ea48f085c2d5c5d8f6c21975fdd81a70a7ef03ee9a7a8fd5882e2b21562e7e6f2252cc755264ab4c080f54ab94d23fab7dfa1f3ba597b125727c57380c4ad734b24aacede3c3f9c32710456d3f25979502053d1a02aae2f7e55c670219fc865f62570ac5a859aa4fa07170826c220b2834a1ef433c397a01c79c71a9f2fef42788849a12dce1788f4e3edd649ccb82143f81ebbd7ecba905f26dedd238d02c3be0218de6b8334f9fc18f4e530f142b72ab60f8828356e90650efedebebbd9a313f5f78ab16c10dae5e9a2d15b6074439da7a4df3a2eb527f077d9a0599de0612f797f1942eea70a2096c657ee83d4c6f9713a6dadb29369b1d8984e4cb5383d4a5f935c0e58c155f3add9101692f82247c02dfa4c6816f9f8eccd91a1e33acdb29639715bc977b76a26f57e0d5dd1e8cb9aad4c072d8227c5ea0275edd60b110a6aef01a451b6d96f4f232a438680b16c3b4d95acc4f441bfe72f108f74bedb1a21fa1a925beecd213f461314521836e4f396af5f2a69b8dae737a25b5fdec5a7cd67b6b0a3ad5be05f42b0d641d90b415a55e79291f20f71013bda1d4a6806284f01923541aa5a802f28fba2b66ad231713f207f6bd5a9b155ddade8264d810acdfac1aad3aa1bfa74fcbb9f1c15161b05e8bd537feaf70c5c1d9389e639c67e909f04cd64240597bd21531f8903737c7498c0aed11deaca16a0de77501a73763497eee5fd1a1bd330397c6fb9c24ef3d1ed24cb4a764e2d8a97d3ece0115bb691a0a711bfd04d5f67e0ca824609490f0fdf2fccb057db48b0ea7c15ebe4f88774fb0010bbe9ef7d15dee476009f985aa81c7b11becd873c09ccd8208898bf65fb4399b3092283ade17e8efe011bb94a0a50e3b23b59475013e16b85fc390a6c01bafbd5a9df2a49c021e0ff8f5a969549b122102bc5f473a5c2c37573b5142fec192423c22e247085580fcc76b3b8367c10a1cce36128b0469f4a9b6b2c5107a21d89a60a10cfb0d86df46008e8d0cb19c22e854273b695c19f9beb7e5e8d9e64a7168b6b08dfdafa32676042078dbe8d5c66e18804732c769a44d0124cb1858552f443d3cb1a03bf0bd1cfba07353985bcc014549d8f2ad20ef828496cd644eb6c9e80dc156c37c06bf3446133bef36b60eac5c6e7c0b539084a6862b728b27e19121e63ca88621f18c8fffab2ee69b1d298b2b415abc815642ba9ae3de9e7fe042ad3e304c1351529d36b18bad07f83f59001da031b707b73106238cede5f738bacbd39f2c36e4581fec957d504a5095dc22967d1a5044c361fb6faa054f1844b6573d7052533a6d0165a0635215f7d81c5f92813ee1b9f95d7847b41cdda3086a30daba092580669a3acb3920154ae517ca41fb2fbb6e87ac9444ede80ae32d072d2229e5415e88265ddb489afd7e45c49a87d6a89e106c45fa1c8482fccb02f81b88be2849255723cfb4af48e22b4b5c260198d7c6fd15ce4081d4b120324476793be609804179d9e143d5f87dc3da8b01e6bc321b84563e5d97e27a25f92603e5ee9cc8f8de68c17c36be623ad5b4eb7e32c5e949f02fd80290a6e2922f1a0c895dcdff8dbf181c3d56bfd21bbc522cf755a21224bdcf916c37c746162202b074fd2275283613605667b71cdde2e93486d05054b7458b197dabe405c8990096e7e13475ebae330bc204682fb0d1dff6d14415e312f007ef0aee2b59b2c930734cf1babc1df8a1e93e8a0348bd83b1448ee56e300a64971ef9fe5cdfe131f9a27268349fccbe8c97a489ed573ca5f64e0aea8271209d8bc07d982d8b98bf118801bd6a1db1f491680c655807e9bed61ec6529a492db31a00d9817abfc30404e6bcc80e93e44ddc5ccfcf0fe063bc552dcaa1765066993a3791c72cafdfc8344241b274bae1bfabcc437e10be63fabf951b6536cf8f6182b6c3a102d6bb8f05f829bae3662439ae4cd3a204fa7beefc1b51d336bfacaeae9ba0d4242321d1863a3ab9ab658f2b7c03d77f72b77dcd30af0de37a2ec9b9bab9e781da", 0x5ff)
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r0, &(0x7f0000001100)={0x2, 0x4e22, @multicast1}, 0x10)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x0, &(0x7f0000000080)="23d8f3806d9e9828178b970c0ed44ff4d55992ef297b2349d7fc3b42b9016759f10ff4a966ba454e3be10379a992ad8d38e4024c4b6ea104de163618", 0x3c)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x40, &(0x7f0000000000)="eb3c31a26a9a72aa9c4986023471791ca4256e6b1aae23dd20088912900000000000000000000000004e", 0x2a)
+setsockopt$inet_buf(r0, 0x0, 0x24, &(0x7f0000001780)="86f8308a8f166b1a9f63150c29863dfa6a32a2538acd9e35cb76b9629767264563ffb06700e9dfcb99933d3b46d86606f7045914c700c90d7049c206aa5771a579a7e63769d14f71ff20131fd7f1989d4c22045c985751bd07d37c049f413684f76ceafce5e9fd4f8397ad5bc79d219bfb960b13afd44b6a868ba159b4efce0b", 0x80)
+setsockopt$inet_buf(r1, 0x0, 0x2d, &(0x7f0000000100)="9db55736db73c07ce6c066e418f5b08512aa534cb11e4859dce273a3fa879f7930a946e0e54024bd3a44a6cede1440b53ae3fd7ac0d8f06191620eda082aa4314f903c2e97f9dada35d8477f1451fa75099fe8f1865b61bf98ce1f73da7a53be9df70010517fd4ef3cbbc4393dbf08bb6480fbf01c3009f21e528f14b323a37cf622611a90fa57ed654629d4ebc24f7f753e903eba998ba26c00592f9b90849863134c770b8fac5d368ac53f35712dd9c0da31c5eaac37ebde84d07b4cd1e74a30cc609b6550ed85d8bf2f242ccdc47f3b56c258a9e8c71bf282b529f7b47ca293bb820af91b6f20895505dc0b4709028101c8d10dc0c1d6b27a5ac723e3cff83a6d17c4b295826cf7a752f979603f83c3086532d98d2c404ba3812100a08f059756a34188e7354cac1cdbe3a619d98fc13c780537c7372530787ec94956df675e0d0d9ac4c5ff025b4d0ff5e29d7f205e87fce13b36878feeeea545f7f1ee047c55d445937d5d2475b525ac541f4bd0d30a2b5e7fef2825ea48d5807e7eba968ec207b177b708ffd3217cc5058e170ab160555e907988b98e65eafd47c5ca11a0db6610a2a87ea11e2e854bfea23f70b9416a1da2dcbe515426505f481fece5ef1fa250d97eaa1c0bfd55f03a78cfa95b864164fa0abfc9d189d1767b0f2c208601b310f69fcd932f06a9dfe98aaba24a74ab2a71cbd205de92afad444266778e4126769775fdc2365f054ea6deedbe158a9fd27e8ce06de47c5550f200ec47d4606e2e29d7739eb5e6247b95e1010956c664a5e14002f8679ec23be5da534120ef3714715050c704d41d6a7c13de5099af2b54c29b64950196850fdd4f881cd5b6bdd754fbb26e5054d3be3ba77700afd0a28563dbd63906e9582033f4997b7a1aeb119ea3ac626a9116b395be34f5798b3dc88967189a61e2fc85efa9c0669aed8eed586a54be91d6e5ff4f423bd4b189cdec6c0368166f3ea25fc55161dc67b951bc9c76ccfb0d19608e1e51db5066ea0fbf81e370c86f9a120913ddf4c6cbbda0d25e52f8240ffb5dbd38ca8ea15e16406daa82423993893544706d230eb697ecb7ba1e280990a4d1e51f721b2751bf061122cf61dc4606da521f8d291d8b762605226c12b92d13a0821eb67f279d97b81716f0f265206b0f1b30118494c5d9d05dc151618b4d6c7ace82eedcd543e9c145d4332603415e9b404d4c0c18bdb173deea44085b3c5490ff701dd24b253be89664813cfd11d176d45ecbad0e5652112b6d99288356e2cdff390d835bb8f22022d8d6c9dddae85a600a742593028726018e896a73e770d7de226eca1fee97cfca23e0f942ac371cdcf13d47b82a85ce606ac928decb94eaf77f112235e79317d1abc49bb744e29ade0dd9e769136e9b87768ae243eaec6017972be8a627211c304ce70b878afaf9a58303dc2e7dc426e2152823606818d434e7b0dddc5020b48e94796f7d2fe1031a040b580b47f410e08fcdec6dda9cf714caef3685a4cdda210fe135e443fe8a1c914ad7052951a8afb7e484226bca4bf8a6dcb4ce09710342299457401efd1abf10e9656a16695f59bbd2f55c6247ad411f3b0b21a35d83f26acbb2edd891a482ff5c64a7ab9369116ed71ff1e4364d0bb65fd404d5bbf8f26c6f918f21191db2d98c4fa34aef069173299ecdb2f852d773e8c4bf422edce89df31e6c096d80b52eab8b9fd5ab6f24c5d64f4a9780f55884693df688cc0b323c40032fc824b41eeb198d9c4fd3a4b675582706485a962f9d42ce61f5503725ef8f244426e7714fc057928393b50e759aa0a59d5d70f949e8bed78db84bb192e67e3f939f0b789a85498d4595a2dc500460757c968f6f226be05cbef657b392c400965c08eca50af2bfb6024244a03974070644e0a0bcc2e71fec361b69be5231f91e18aba10fbc66c9ea6a66f528bd60519de7e4efe239312c11b72a1d7b82281cae3b633c99cccf48599798c962a65e7c85df017914c3397e84023f64aa8002603d405df3527d1d3af499dda619b943cdfbdffc9ce7a0a1b561928c0b35dbc59a2cdf2c4d38a0237f008270b60cc72da64f5bc09a6cf0d201f6b0dabd42d4a502d4611c0e5454233278944999f778cb64c45a119524ee2c6f75458f6ff67d8d3e3502eea3bba0a3c2d5d1e81b51c5af5a030cb5fdc594be8a77801b637f325594e352d57a4deb872f77021287ac1b5c0f5c0b278a03f8aba87e74d8ac738815a018b95f306e7dfb524a6f2d92de2a1ca644804968033c36da65dd245f75ec21808f913eda463fc6c34e6afa424cd47b5559873180d5f76c44a53b8a1a84bd37d0ceccc9e70ae7458a3758ac3bfd0b50158a89d85a5163bc06cefd6472ea71879361c8de8b95a50d1084ae53e81361648682a80ba9ebf859d109fd0ae0e8424e9a0d19dd165bf889072078fcec65f0aebaf68f26d98f58dc2ea1a3dff4a97693df9327ed651c6b4d36a8a24444cfb1acc5f4b897691a0ab4f8364d50428c63e85df4e5732f48fd7b7b13c035950069a62b0be7fa417a2e89688218ffc504efb8cdc60c7935b3f33f492a4c2c8a874508a4df7bd3cbd2d155c526ffce1db9e85c5f3e242fdca9ef123844cd487d63e8e03ca66114f65f0bbfcab33fbf64b7cdba40eb6a68bab8c494c85ef99333d4108dc61dec0138232efe9e5007b5acd53352bae8f992a91a5b40f9893add676b891eac4c655c390975c8a1492daf60cdc10be67192757d6544237208114204ab5e798ed841699a4e7cc4fa469f17113a445a829e2e4a1a6552c2443c6ff3339e4993ec82f209c0508d249bbe4b95786f8e0d5df65accc0a65ea135c53a6d419a07f318bf94a0012856ead138e806eec4d112e90551abe9e73845a89213f469fcd031e33df0815bd0e9b3dc0da0cc6a71c503d30a383533e19dae89eaf2cf0c8c3195072887a7e52586f536fa050a6f5f2c47dc05fb89271ff603cd596f99c696854d20ba50b954cbd55e877ed33c3efaf026153e9504cf9703cd959b9c5b112a6627bd4ca0682d4e764e0b49795c136529a57119f3674e24aa5d75a0638e61c73142aec6108496a2c603be6e62e751ef80293665ac95cab605c8121176bf8d8be9684f67bafa78b99c1e884f2d70b7f1ccde081f171bb0da1440136441e264e6b69ab409cfae1f12d2966780c68a77f0d51962b94cd913a895185bf36b869383bfa397e6ceb41e2462646f322aac57b3229b54e19d1f35a636676e808cd01a502858949211fa97e2410a4ea69cf4dcab4a6a3efd1a07dd535af0d3550a8c315a1f80fa633111c58bbdcc502dc9e778832010282f15ecc35172bd9dd83e49d9200bf13b949d65a332d3ef3a1baab125297ee342052d80015146507148b3693da8a11b32fd39d67ffd206b50ae9b615f01e334eecac5d61b218ec079587504e4586ece84ececbe3a20796f84756f81474a239181d3f6ed2d85b5ff488bb7e04a39d0bdd09879a2f5d576cf7b51d1da775b452a54b9cf75b23c4e647d82e26044c87f93fcf5214f3eded8b3911a19eeb798397183ae9c79c97a52cc20a25d2ef5000f8166c71585e38970376189a3cb53548fa615295b4b1a6247d56d80752f58b62cb073954a386db26b30ae0e989d0b5eababf7c3dc2b60e9a48646be9ad093263f36ed3106db576b78f5af1eeb82fcbf677c76552ff1b8232cf3928a9a0a82807638d0bccf17151a3c44f586df2d0dab32f5f78d40874ddb777c814d0f13adf55b612032878950eb04225e12141dda03ac74266a326cb81dacaa56427da7ee9096eb5d7571abfca116c4bb7f62e56310a04bd47f7614de312446c9f30e3517cc98434bd28d4ab803e33d7d1cc7f5db3b60e5fc669c483af9a30b6b18ade305de830276f522fdc4298b5aaef6def6c66e6df0adef5c6f74e93c4e53f4a87bb5e9dbe8379332321c8f7e103a838aae1e762a45e7125ddf3ce9518249d74931563dbddf0ed024d305b680d0249af12d20249535d08ab0fa1382f37e94f0f0fc84c1f960b5c771fb3d33800b060c4811c1693fa2ef390a1a83ed83d3e91aa57e05bc63fe63450a4d161b889c26bc37f2bea41bcb196edc05bd4c81aac48256f97e3604c7870888d7698ee5c6231d42ecbff8609a5e3b3965dcaadcd878689f4577fa83a7d8577cf7f876e9fdd8202af62a0ea1bf1a736235fd6f5eb49dfac83c056e02dce071e51a47b1205e6174a5345f95afda4979528e9bfe5355853085059e7c5793e3363d1c465a65f3ba06790de4e81271cc3ccb3d1f52ea04b224fac24f343df1dd9aae9790ed59c0c4c275f0c5d97b5cbb2d8160b7d18ec69cf163d5e8ee34fbdd60b453b5b2b8cdd41bb2c08c9b671199dd46d710541bfe5207fb36f5a0b8922af1daefd9ec358499aedea894bd337c0e51403b7690ffa0ae643b3e12d0eba56905bfeea3f325e55d8ce5f9d395627828be9124af5df0f61d9beb8fa9ea558f6064a64ab8287c2fb95c2061582ae2fb8a6334e9c10d152b84bdeed512ff2f4ecb651691d054a08bf663ea9b04df77fafc0749341b246a7c87722bac76a147727bea8a784f39b3543b7c28d6e83863fa6a20f832f6bf2ea1ac7187532abaf7d00dd002a37aa021b267994d60084bf17dfd16a2f639f205bb3638ae689d7ad36fe73ee8c7df3617a58414095dd3ef7f117154ae8cc8b53423b4d2f78dbd5d1cc72f487839639b0e0be264e73e1049d431617aa8ef4c59be23e581feb79e0f9ede06bbdb0a019baec9f431fec1a56291658187614fd9153a88784229939170a56b1041845dcaf5a03a23381359b53d16d2b7c7e5fbd8f5766ebca6bd3c36907470494d9297da302e15910ec80cb43e1f261a115ebaccaba7101fa959a423528a97c3fc5f721c41191b38cccfaf3e52a11e88d5809a7e542889a69be1f05768deda3f06555f4fa4c19038bf65e951926c60e058ef47c4d0e478d69176a60dec00eb03f3f862c1db8551bfee5d474c8a54560c4735df4e5678991b06dec55b8bf2c9d5790d9b6d23efdddb612ed9773f3aede24973e5363debb49f4c510fccd6cc5f83576ef63de81396975a0757226d38664082d71338b7f1933b686986ba67dcb7679f96ee49b24c792a5f8ee39fb1816b1bd2f9fa5deba060eeeff34df5e2546fff2f1ef23d32d6ff4bee32ee6d0dcd619991a13c2e59bb3c2c870dfb48e938f4326c1a9aae90c24a8a6f664ad79ea20e4e8f25a2ebf62e801d8c44bdac6cd14a17f50137a6012f41bffd52ee6257cf99e80338d6021ce2c87f740ae18029f70b2347c4248ea43986158c95b586bae00698d02b04bd3f9ade2c244e0fd3a721cdc486a2a77040009dd5f6f3cfd0efe88a4f37dcb96fd607090eadc470477bd91fbc22d80634eee16efd06a2e3a4d285efd11eae29c0d79f7750060da47abeb1b6d76cc2c21eea922630c823394730d037807c8964b56c89c0071fae31111a3d4536432651b35969592c89c871d1ace5d9cd0a95cfe14f6d83b1d8c72c5d732068a90399d83174912475f74dc73c75f4c5c3aebbe7a771558bd2437bf04c89d4fca911cb05d73c659ea114c51e441c1b9a6fdb5c67f36cb4a7cc8826055a757ca9c9299a263e9abf23b11b4ee9203ed252d27944da4de18aa884e891e45e07c2dfda6d6003cca356060092cec01e96fcafd208429c190413f62cd3c8cb46fb2a29542b670535eb552cecf531034ef3cd3bde23406e5318511f472f9b17225b86ab87aeaaf9fb89f240d5de5d02c2e89961f53cbd575a5c77880adef6", 0x1000)
+
+10:43:20 executing program 3:
+socket$inet(0x2, 0x3, 0x5)
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r1 = accept4$inet(0xffffffffffffffff, &(0x7f00000000c0)={0x2, 0x0, @dev}, &(0x7f0000000100)=0x10, 0x0)
+connect$inet(r1, &(0x7f0000000080)={0x2, 0x0, @multicast1}, 0x10)
+r2 = socket$inet(0x2, 0x2, 0x20)
+getsockopt$inet_buf(r2, 0x0, 0x25, &(0x7f0000000000)=""/49, &(0x7f0000000040)=0x31)
+
+10:43:20 executing program 0:
+r0 = socket$inet(0x2, 0x3, 0x8)
+setsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000200)="ebca579e7f7fdb316f97167d", 0xc)
+socket$inet(0x2, 0x3, 0x5)
+r1 = socket$inet(0x2, 0x3, 0x8)
+getsockopt$inet_buf(r0, 0x0, 0x2e, &(0x7f00000002c0)=""/150, &(0x7f0000000040)=0x96)
+setsockopt$inet_buf(r1, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fff358079167d", 0xc)
+setsockopt$inet_buf(r1, 0x0, 0x10, &(0x7f0000000000)="ebca579e7f01ff35", 0x31)
+r2 = socket$inet(0x2, 0x80000, 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fff358079167d", 0xc)
+setsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f0000001280)="4c7fffba6fc47d810ae7976d45c10849a41c3e5b89f051fe3dec8e7d1c2b68fc68ec6248412588ac8f9c73d4223d15fafbf2a3778ab6b68480cb0f38ac1bf0f96da6f1de3133fb4d9c207b865a2d140b4078b10743cc5265d3632712", 0x5c)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x27, &(0x7f0000000140)="ebca579e7f7fff350379167d373752f1aae4aaa46330cdf6e804092b97a65266fc7b73dbbd4710a20bbf5fe9d7f2c617375587bdf0c164a238e866fc385c8f899768d7ceff97abaceab01baeaeaf5212cc6556cd4654906b598f06034c6702011e86fc2f605b847f4edea8caf306f26ab69a0bf33d47a7de357167df18bf5d9641fadf76d16a60903a547074c0", 0x8d)
+recvfrom$inet(r0, &(0x7f0000000280)=""/22, 0x16, 0x10101, 0x0, 0x0)
+r3 = socket$inet(0x2, 0x3, 0x5)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e22, @multicast1}, 0x10)
+setsockopt$inet_buf(r3, 0x0, 0x23, &(0x7f0000000000)="ebca579e7f01ff35", 0x8)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x24, &(0x7f0000001340)="860d212bd0ec1e2f9a5ddcfbfeb53b4787fd7f2704b5f3e8092a16d2305679d31da7ee3f371c2617592682287600cc119802b4f9bcc1a673585b07557a1e63678f912793098ce897149bd4a6f2980231b11cc4315532336b5e2974df39d0989179dd1e6fe44aab75e411799f1f4072cf53e65183ef17c728d9cfc764ab453f54f5662210734d288e633fc72ae6c2124bcabed051b6c9defcdccfe8c10c08ce582e8786a3eaf2b7ebabae5b1a85f3d3ebeebbce51e1fb7affbb68a169669403eff95c2197bd194a49f86fa8b38f6949be28ed2666d91a5867352412ba7c651417d04a6b6296d69632bce5362a0e5883e8761faff673bd86cb5a8b78e0d5a2201f4ab8c7f84f69d9acf3b6a526db25664aef877e93b707b6164a7f31901247855756a0e628ab3eb454142ea973c4e6e8036135348576baae8106ccdf26bc4bf9fc3f8e78df2b4445df55cba22d27791ea969932befb4ae59067a5664f3e678332c56d2c804216afaea7130f2ebd8b3e214c9f89f72a3cd884c530f6976f585bf14cd05f8465868550aea83c5d78b125a40bb48c4f1e38489e2974df6ad56b76d74c195751d45a53ed25db3d55e35d60a05c7458b962f004fb343a2a3445ded3080cde0b39ec7329d24aa5d59ba48b3c00a2e0ef26d538ed3f34395bc583352081094f701b728e96e223f8a0270d70b7add409571556befd0905e4132a7307abbc26847d764da4b6820d34ae3dac98f2812c7aa5c53888c0f549342bc3d1d6644358945877d5ef2257d7047ce5c8ec0d00430fbb6eb8ec588cf0a2dcba04ea2fbcfa723069191d523825597443b57492028698fec163a2dccac1e702f3ad0ac1ca5b78bbffbdbd3ddf464565262a922bfba29d6f9cdb914520415870323415186ffbcb738d68fcae4e273d537e077c197581781feb408fedcae66f1d840f6ef79ead2e2dccd7dcc1b9e7e6cf3e84658e91e9085c6cb5078119dfbd1920f2fcd6783e3e6b470e1da7634c4bd42c385d0bc83671f63a3b58e5b77f471c105ff8708b571501e65bb7b1d37320abfa31b459dd2ce6548b78007e64bf1274c0f78a663a864c6385c4723db7b3fba5bb79b0465a97e3698b960544a248875b4496ecc7f216ee8411a6cd2d507c43bf54ba766256c23afab6097b65a5ba283024bc2a2d8a04e9c5e4dc225f845b54058d9f9d28a72ee5619794e18a17d0ece7819de77686be131883c7f14dabf62c4970a6036f70b2c351e760391ea287395e765aa2e7a165a0ffea40c6e686632befac7092a55e834f03daf913d4ceaaf52fcf42b71bed6e78f612af84dde3179081f00b91498e37efdd2917cd7d396f5e260da61798440f15989e8354a6382cdeebd6bc211e2317c8258583d6a27c9442e33374845e489895f66bb0b0b9945fab9494d175ac8c3fe354201e9455db58529b7165a88ba5e6844828e5dbfd943fec78681e582ab2aedf05d685d97d61e1ee2ffb9a5cb85338a31d45fecfd79f481e22ffcfc2ed7ad30615695a840c6189d8194289daf77ba642467d44a05d899e6a5f3da563c801835c0f2ca3d92b65786e7e88953b494f2b9c6bbf3c4b73875c8f1a841a8078930153d8410c88f686d011e02b471a46c8051b4b37d69290f5b6f42f276257a32ab1211fa8d6a953d7394fd5f496905f9fd0b3b82ce84b5c0a282f38e533d4b992765d4a69c58c5f9fda2a943efacd6b94f6f3df9ae6559cb37ed474409fd2133ae16ea2643fc884e780ad011febd49109ee9b459e723224d9b9f7c0eabf9df9dfb0b87146ebae7b9ff37d3f93f3c91459ba6da03bfcd05e3db217911fd6f44a74ae42f10d3066e5dd51591d7b54e4d068e10a2603f42d3cc9bdc60a68589614fec52edd58aee48756e6643e82f8404e448fe4ec71110c677f8235d24b06e3b82451facdce8db3050cac132b46c80b9e4e4de6e1c3aed180ef511e29f838db95e132952801b470fdbc0eb7d3b170e2728f8195758f1e29e962ca8f76aa91b96119030fd144a34c384b1de728db419fd1a8147715ebdb362daf2b3edd7591bf477e85324b4d0e62633ce70fa0c6dcaa6b67b58ee1025b032855cc239b4a326a4e1e6858eb3fc404f813ecdd5acee3777378ebe158f32b165ef803705981a281231458f2663ea25700cfced9b70391cb7b6848b6cb20dbc9819330856d4b354d575c398796c7f96a09cd8bd81547277f48599a36e18461d69f12ac3d2fc99c6317f821169fb9ea96a9d11c91098eeca6debd84bb8a9e095878d7027af91008a4cc8e27d4050b1576e7bfd21db747f38289aeb8aa13b3aa7b5734f9247b39aee2ce4d2d43cd779d2c4372cd8119b444e12ece845feb26c18c0045da31a793845e5d5585a70ec0031a8b734ae3d200859925075b598d15f500d5c6b57d14de3f199165041393b9b4f69b960d99b762b0db0e630ae0e1779881e9bfcc0193cb57454d6ccb9dcfed9b4199f867bc4ed25489325329a380b1c254fabf181bf4bd2696a224a9fb8a2f9c7efd8847e974e0220220f3c8011f5e8a0e6128fef7cefae85b5df1c5831090ad2b596bbdc4c4581890e25e4009227d1d862d88920028b5193aba29c83c9b115ce6ce2fbfbd4d1b9e2d7cf68376b511fc0f6053d8dd7bb92ce6769f660602663c84e86c54421efcd91d0e76fbd81ff1db63a499c7633d9e3c3e0737e1b9a7541a8048a89e169fd02e7f5bbf575357b194d9f5f138d7e9625a59eff3fd61a88a0b48e2e6aa18b4afd3c2a2ed3a72182fdc6a9a1da91d2ed8e43dbd76f229280ac8fa1d81d9d0b3ece9dd57df4bf5e7429b35d5fcb43781f04e56bc30f832e295f8864df8679fc304bdd9d4df02311cee1774b46487ee56e09bc5923562faf823fe0aa0189640e7464d084ec6abcfd75555ca2e18c7156f06af6970a636135e2db0ed3b5828afce9ba553b31380a6956ba3c571258f590ef6c256bf5aa72b48f67215aa1a55fccf1c3c9cb3960b113fc637abded190093eff9cc141c5e8e9b56768fcdf2f3d9fe10d74a84ecf463126de3fce2818f1b18d543a2079380e82a0096be5313071ecaa650d7497916ec33e092ab9a2f4e5bde03c3336778cc5e70d42484ebb02824266d609390764bf87ffb1d2742fe561a328bd54a050dac13f7d2d96b41a6c3b6055126b7ddc762115dcc286203f16a6551a62cfb82a8523196d846edeb8a37dcdfbd6e16d254090e359b42208cc183a1f2347631b2f6a8601012008a2f7ff4859eedc79b0ccfd9ee010ed34d3c15585bb2f265fde6d42da4f799c5bf1603bb28e881fe1bdcc8b97279ae6afaaacf759bc6b15e0e2c08ea1408420bd3dcde8d1de2b638ff4a9e8fe27ed0b5b7cc4c2264aa9e5a2eec16d919540dc45253416cb04f950f1bdb519d6f8383f65da15ce26fc8ac968d2aa045256c1c4099939d5edb61995e52c7eb94130ffcd9f997dc3309a91c3afb7ae5fde09e48afff8d952a232d98e69b03cfaf37af90941b8a283effdfb83bc8fc87d6ab1ee3c46cae07427809ff1da53274ca2d13158914b4de1cf78fe915072b5ce2fc869f752cec8cd2d462538e22b6771d88acb026e54dfe17b67304620c16112a2396d64fd04ef7630fecf071a05f859dc9e20dd9a92b0a11c7732c31a3737cf26b6eae9d74255ab3649980903b7bdb948c18214c231fe2463447ec676adfec4be79cd837ceda314871cc118efb5c1c2bfbe3e9ba571a245c738bec729223a1ce3f65beb060b856b031d90e6ede1a56d2d78faa696634e0b2c2a1ba8ca7263fb2d3515f92c91224e6de598201d2be62abae7c265998abeb92eecbcdbfca47725e48a3771d349a3c3b00fa6ce50635db9610dd01c36ceda796be132664fab7615e4b8d261f610e7d013c10b703bfb5f1ebe91902e0a6ee3d235a4d4da22539b25cf52daad3dc27bbfce79ddfc15e80424815dd194a0f5c3be8b1d72687f59a83d68e5cd134119675223d23d498f3836109aa1eb4fd92cea511959bc13a76ad0c99959cbb791a50efc0171899e40f6ad58e4f379610a1668fc0040ac67b13e3cd0c2a645f0f38ad57bf25f1b60339bee8fa8183dff8c4905dd23ba6424341f1047c3c0ee373e9d70faafa6052877f61fc8fcf4e380bed7611b163233e0c54b348fbca70556a8069ef099a449fd5686fdfb12c81bc5a3c9987c0ad90b7912ddaa977b3f188fa3576380875a503cd0a68d754dd19582fea80bca1e69e559ad21d0ef5ea1da15317ad5958e6532342404b55d1e2ce8483c0bef1edcae9a6442d60fa175705599b73444c1884f4aca06a11cdc66cf107a36ab95bc5a603d8db3b437e22e65e8c19d8a5865f1549bdc18ac44abb861ef0ecbe3ad47502f65e9d957b5a0c288de220ac99111e1b94b8666cea7839adaa26cf2df96de74f002da00f6c4cd215efadc3fd2d3863225898e8328a0055b8db8a455c36c50d322a54c2194be80b9157d3af47bbf36cbe2b17e2a2c78fce5e4ae78d9ff4e8d61d2792f5fafc5467fe7debad314829754be3b479873048d413ebbd788962af245087ab09b455bbc74e04b98b346ee2f98cbf1fb3ed4a06a55a9dabdf155ad3ab94611795f0ab3616ba9bcab9e74031ed7af50d34b529efe58495870787f7601bf9a0dfca6980fe282341614e95e5a5d0474ceb78038f0ba9947e5ff1465fd73be452b477e7dc6f1669e40e3b3da7f55cc013e9de1017da8f00e821f9067f3c44723caeb879ec229648ac3d52fb3c3c1085b9fa1e52866643252a6e880fe9bd6b6c6937dda01f476d67587e02f7e9f654852fc18c2151b562af2f39bc1f3816ea3b48e08e83b5618eb189109cdbd159033107c348457a55922a4555657eedcd89077f668d90ae61246b1ac302dd8fb400efb70ca260cf8aa39f958e8d13c1082e80115fc75c553c733973fbf526e021d515068ae5c89c503c4a2dfd7e1c91401d9fce0260a4f2c642b33d1094b72404cd0ce6e997f7ec3b0664f3a7b72ff9f29411b90162e8fd24ba56daff07717700fb609975483a48322aaae09b9de71da55260ffdd1852ad07bf9a1c7895677f684ce0e71fbfdfbf314d2fc213f9bbfa48dbfa15aebbfb1f0cc5aca13b38a65fd82298957fef04cebe0564cd30fe11ec2906fa2cfe287f4d9ebe497fc5e2cd5c024160190aa2ee6ee6b45e6efbe9bc52af9c575d0afdcfa0749cc03c481262a6972b33f80a6b53ce70e7ada276cfd6af475cf990a458c3a0877d200c6601ff900ce91ec0e6d37809e80ece91e9f0fb4b7604011d571c0eada1a0924c588bba4c252a8619fa91525daaf44ec4b8572cebee53006ac9a331b0a7e2941ddd453a10feff49b6b1a52834c1258c9acbb089a0fb22f59fdce3934b53398450a1d8ff586f3d77c532889230d238a51352886a209b51820ca3299ef510802f646bcf0cca17321180b2cb635852615c45fc8df03b2afcaef87d106b16d5ece8fa7bfb3aece7c3d0084963e4eb05915a34a9c330077bd2c27860e86f02f7e146c51bc6e3b6bd7052e5a402b88af6323ca9700c41a497e6941490f17f5e8450986da93990b1ae6faf413c1b14a92f7484e2364e929eeb0a67e1b083577564b994eaf5720b12c0cc16f4aef6df2ae3aca88e9575ebbcfb7853559e87f3bf764f664c94e0daf19ffb34c3a9796dc30f51cfcc0978c4d036607367a77e46b3ec5c7e5e60932986ee1f5bc3b20f1d8643d227ea825c330799067fb044425389582d3f4f9ca93f3ea0ead901413cb31eeff2ce12ddb5990887ef4fd78d8fddcea30baba10979688bf6b1580cf16bc6ef325a", 0x1000)
+
+10:43:20 executing program 3:
+r0 = socket$inet(0x2, 0x801, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e20, @empty}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:20 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0xf, &(0x7f00000010c0)="87", 0x1)
+bind$inet(r0, &(0x7f0000000140)={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @empty}, 0x10)
+
+10:43:20 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+socket$inet(0x2, 0x1, 0xffffff0a)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x2, &(0x7f0000000080)='$', 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000100)="b116a58d9ff4cd60d925231522eb8c013d120894fc", 0x15)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0xf, &(0x7f0000000200)="283ca40619392d0b098b7275237efe", 0xf)
+r1 = accept$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast2}, &(0x7f0000000040)=0x10)
+accept4$inet(r1, &(0x7f00000000c0)={0x2, 0x0, @dev}, &(0x7f0000000180)=0x10, 0x80000)
+
+10:43:20 executing program 2:
+r0 = socket$inet(0x2, 0x0, 0x1)
+r1 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x11, &(0x7f0000000180)="6fd47f1e4f3e766a97535f00c280045c1f47adffb14195640f1749e39ffe5282a7df70594cdcea61fb18dce2523d4bd2cfb9fa4d9ccb6494e3ce1b9f521389062a56aae97954a12bfe67d3eda49a11e646e68f66df8249c3e464baef60429cc4ef8c67f08bf99621521095ad3b1e559ebecf2e72657c05", 0x77)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+recvfrom$inet(r1, &(0x7f0000000040)=""/249, 0xf9, 0x40000000, &(0x7f0000000140)={0x2, 0x4e21, @local}, 0x10)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e23, @empty}, 0x10)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r2, &(0x7f0000000200)=""/190, 0xbe, 0x40000001, 0x0, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x10, &(0x7f00000000c0), 0x0)
+
+10:43:21 executing program 0:
+r0 = socket$inet(0x2, 0x2, 0x0)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0x30}}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000000)="3b0883b80d9aabb6890b040024060019c4", 0x11)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @multicast2}, 0x10)
+accept$inet(r0, &(0x7f0000000100)={0x2, 0x0, @multicast2}, &(0x7f0000000140)=0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f00000000c0)={0x2, 0x4e21, @local}, 0x10)
+
+10:43:21 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0xa, 0x8)
+getsockopt$inet_buf(r0, 0x0, 0x2d, &(0x7f0000000080)=""/143, &(0x7f0000000000)=0x8f)
+recvfrom$inet(r1, &(0x7f0000000480)=""/228, 0xe9, 0x0, &(0x7f0000000140)={0x2, 0x0, @multicast2}, 0xb0d999)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @empty}, 0x10)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x2b, &(0x7f0000000180)=""/54, &(0x7f00000001c0)=0x36)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r2, 0x0, 0x20, &(0x7f0000000240)="f84906878fd8b709b89739e3f3c179964cfe0e999a06d67fa99c074dca233e42bd67b56f53ac6d541b4ac54c6bcff98ff4c4bb11629113f7b0d249a117b9cd5eb14e0841c68a5cc6c5aa233162d686c4f2dc374bd2202d3b39a9f13913c5305032401f37b8ca1338b3a8190150697cac152672216e32ca029a74f4221f0b39d489555566f602f669d2242a0769dcd321ef3853df24724b52b9b804f1b4a4400e073c0bf1be08eb283f89725171317a2058d5f1a60e5730ab34a00ad6fd756bb03d11cd6a9758f202e50ae87f4d759e58de38104aa320db640429b09922", 0xdd)
+connect$inet(r0, &(0x7f0000000200)={0x2, 0x4e21, @dev={0xac, 0x14, 0x14, 0x1c}}, 0x10)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x80000, 0x40)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:21 executing program 0:
+r0 = socket$inet(0x2, 0x2, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+r2 = accept$inet(r1, &(0x7f0000000000)={0x2, 0x0, @dev}, &(0x7f0000000080)=0x10)
+setsockopt$inet_buf(r2, 0x0, 0x10, &(0x7f00000000c0)="f0094e0100b081e1b34f318287a8c9885ccc41b8ebf14e9008d2d92d754f1b96cda404564f2036ac4830bc8e2b4d941dec8d22a0cf0be07e6f6462c8954e05dc2b871b3d1e6dbfad1b089271ada437d5433747a892a7a7256204bff8ace1979c4247b0f7fd", 0x65)
+socket$inet(0x2, 0x2, 0x1ff)
+bind$inet(r0, &(0x7f0000000040)={0x2, 0x3, @multicast2}, 0x10)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast2}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r2 = accept4$inet(r1, &(0x7f0000000040)={0x2, 0x0, @dev}, &(0x7f0000000080)=0x10, 0x80000)
+accept4$inet(r2, &(0x7f00000000c0)={0x2, 0x0, @initdev}, &(0x7f0000000100)=0x10, 0x80000)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @empty}, 0x10)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+recvfrom$inet(r3, &(0x7f0000000140)=""/119, 0x77, 0x2101, &(0x7f00000001c0)={0x2, 0x4e24, @local}, 0x10)
+r4 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r4, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_buf(r4, 0x0, 0x2c, &(0x7f0000000200)="f75c428daf2cbb4758a918c5e11c4ba25cc788472dc86efd24d85267cf56bb4ce60d4d8931205ac5957f7677fdb9ca90b6b4f1fdb93e48105ce7e17013fc33b5509b81cd8d086c63c7d789984bb593d5e54b7bb8e24cba064993e0d1b75a9837703c77c56d7330c962a85d26dab94af48cd9ce4b2983cd35d6ffa349b931c9451689030d5e40ba23d27973ab6ea3103177eaaab36f55b3bbfb0b18bda6f2644a01a1242f8d73d8cf179d06e41b2d816d18549bbc569981c7dbec40e229fd2a836cf40c2af18868d0d731c49eafa64ac9ad58429269b80284bc95f048384454274ed1494a439ee930709d184ba6986be459ab50fe50c32b2915c7934505", 0xfd)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = accept$inet(0xffffffffffffffff, &(0x7f00000000c0)={0x2, 0x0, @broadcast}, &(0x7f0000000100)=0x10)
+getsockname$inet(r2, &(0x7f0000000180)={0x2, 0x0, @local}, &(0x7f0000000200)=0x10)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r3 = socket$inet(0x2, 0x4, 0x7)
+connect$inet(r3, &(0x7f0000000240)={0x2, 0x4e21, @remote}, 0x10)
+getpeername$inet(r1, &(0x7f0000000040)={0x2, 0x0, @remote}, &(0x7f0000000080)=0x10)
+setsockopt$inet_buf(r0, 0x0, 0xa, &(0x7f0000000000)="02", 0x1)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+socket$inet(0x2, 0x4, 0x6)
+
+10:43:21 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x1000)
+getsockname$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast2}, &(0x7f0000000040)=0x10)
+socket$inet(0x2, 0x5, 0x6)
+
+10:43:21 executing program 3:
+r0 = socket$inet(0x2, 0x2, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+accept$inet(r3, &(0x7f0000000200)={0x2, 0x0, @broadcast}, &(0x7f0000000240)=0x10)
+r4 = socket$inet(0x2, 0x80000, 0x7)
+connect$inet(r4, &(0x7f0000000280)={0x2, 0x4e21, @loopback}, 0x10)
+bind$inet(r1, &(0x7f0000000180)={0x2, 0x4e23, @local}, 0x10)
+getpeername$inet(r0, &(0x7f0000000100)={0x2, 0x0, @multicast2}, &(0x7f0000000140)=0x10)
+setsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000000)="63d719cd6e142ebcffc660ba254c7b93ba7041988334a46fd7cff6a926c63095ba4541f5e9a62a95d1bfb6fa47982ea968857a01cfca9c82f0fe51aaa55b56e501e847dadbc8e8f2e0ccd64dc891112c1a614ee0988acc68cf542172534e818e2c5616dba5cf21abc2f45fc9fbac47de01f90f8b685ea067aa2f5481cfbfd405f9ebc4dd8964a82de97a7398933356eefeacf7e8aa9c74a3b5c678f618657b4a6f20bb5d7abdc0e9a59bbfdb4f0cfe73f6184b7f80dd816efcdec73145d2c7b86f1d5e05ac7b47c108948f22e7de6d00b4eb6bd0224ee37b6d5a5d7ea8aaf5eb170c607b5422383f8b3920aeac3d6c33f1", 0xf1)
+socket$inet(0x2, 0x80000, 0x6)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r0, 0x0, 0x28, &(0x7f0000000100)="00000000000000000800e03706cb6021bbdfe1526648b06939905610b5c026feac4dfc3514fde895434892ce8aca650c6fa14afe2e394d651b3073989c754a366969a32ab355409ae3eb0631b3a2122e9b99a04507d972dc983aa707885fe35dac2a5167fbcd1c8a8daa90dd6d65642dd00dc174f4bb0600712c1c0703ce39424d28978a2b15d28527a4b36c327cece8803722f9cd2059202f45fe541c1b0d3c9c5f359fc17b0115800afa7860a55c1745e73952130400753c7306b16fd540545ff8ff5df967abeab0dc3833c921c92f5f0b5ec51aae5e6dfa9212b3f689eb0000000000000000", 0xffffffffffffff94)
+setsockopt$inet_buf(r0, 0x0, 0x2d, &(0x7f0000000040)="72bca0b881674bb8d05e5b44b51c81ba6fe54185567d065e3d6ce6e29fb8231ac9d78cd3b97f117350ae3ea8f2ecc6bfd01bb18f0c854195745396b52beb71ae116b7ab9534cbac1dcf22c49c2e098ef3d8490b6055f3077585aab48641d5a70ea7ed1b6da610342158266fd3eb080b8479ce480cbf744c47d879ecc66a26d57e2bbc13f1c23ae0a7ccaa83598f8dc52d2593adc0dc53a", 0x97)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x4e24, @rand_addr=0x80000000}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x1a}}, 0x10)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e20, @broadcast}, 0x10)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x4e20, @loopback}, 0x10)
+
+10:43:21 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @broadcast}, 0x10)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+
+10:43:21 executing program 2:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0xa, &(0x7f0000000000)="02", 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x2b, &(0x7f0000000040)="2b901af31910c6526879c4325f68445b54eec486676b6eb6dd4f783c658819f61050919c386c07907a9c153be09e27115f43947d0e61505eb2b3b4f2521cd2c93d827fed5902dda1462932f0f8b3f69424d7e0421db08713", 0x58)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+
+10:43:21 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r0, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+accept4$inet(r0, &(0x7f0000000000)={0x2, 0x0, @initdev}, &(0x7f0000000040)=0x10, 0x80800)
+socket$inet(0x2, 0x3, 0x4)
+
+10:43:21 executing program 0:
+r0 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f00000002c0)={0x0, {{0x2, 0x0, @loopback}}, 0x0, 0x2}, 0x228)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x0, &(0x7f0000000000)="e35b9e60b4016c2a95d01e381a62134db406839cb9493c9423c3ce53c1dcc33f82dd46932ab32d23cca23149a5f312f32941fc29fd12408df1004a005ed6135e4f63e5bd2ed60a1f6485765aa303ed65f9ffe8febd1729ca", 0x58)
+
+10:43:21 executing program 2:
+socket$inet(0x2, 0x3, 0x6)
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @broadcast}, 0x10)
+r1 = accept$inet(r0, &(0x7f0000000080)={0x2, 0x0, @multicast1}, &(0x7f0000000100)=0x10)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f0000000180)={0x7, {{0x2, 0x4e20, @empty}}, 0x1, 0x4, [{{0x2, 0x4e22, @rand_addr=0x1}}, {{0x2, 0x4e24, @loopback}}, {{0x2, 0x4e24, @multicast1}}, {{0x2, 0x4e22, @loopback}}]}, 0x290)
+r2 = accept4$inet(r1, &(0x7f00000004c0)={0x2, 0x0, @multicast1}, &(0x7f0000000500)=0x10, 0x800)
+setsockopt$inet_buf(r2, 0x0, 0x23, &(0x7f0000000540)="fc18f67c18d2f8a3f653de54fa0b0e35b20aa1333ab10eb8d7d67dcb35", 0x1d)
+connect$inet(r1, &(0x7f0000000480)={0x2, 0x4e21, @multicast1}, 0x10)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+r4 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r4, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r4, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r4, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r4, 0x0, 0x7c, &(0x7f0000000580)="94368c2d8c38909b33336490836ab279d563a9a6e785e3dda7c189e134e6f0c720a6928a4e27c3aba132605804c512f00b6aec03858e1ef70335ca78d9daf76c344c75bb825b56ffe702772a8b452d8e6f84a69bc24084ed2de61d7ea87ca83670db6ba0a86b4462c61d19178e361b1bf9466c3e38b07adbeadf856f11372c2308b6", 0x82)
+bind$inet(0xffffffffffffffff, &(0x7f0000000440)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r3, &(0x7f0000000000)={0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x10}}, 0x10)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+
+10:43:22 executing program 3:
+socket$inet(0x2, 0xa, 0x300)
+r0 = socket$inet(0x2, 0x1, 0x0)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x14, 0x0, 0xff84)
+r2 = accept4$inet(r1, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000080)=0x10, 0x800)
+connect$inet(r2, &(0x7f0000000100)={0x2, 0x4e23, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0x0)
+bind$inet(r3, &(0x7f00000000c0)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x42}}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+
+10:43:22 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000000000)={0x3f, {{0x2, 0x4e22, @multicast2}}, 0x0, 0x4, [{{0x2, 0x4e20, @local}}, {{0x2, 0x4e21, @loopback}}, {{0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x42}}}, {{0x2, 0x4e22, @remote}}]}, 0x290)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_MCAST_MSFILTER(r1, 0x0, 0x30, &(0x7f00000002c0)=ANY=[@ANYBLOB="00000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010f38b1501bf44b00000000000000000000000000000000000000000000000000000000000300000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000ac1e0001000000000000640e0900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000ac141400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055e49356d85e1e137f67000000000000000000000000000000000000000000000100"/524], 0x210)
+
+10:43:22 executing program 0:
+socket$inet(0x2, 0xa, 0x300)
+r0 = socket$inet(0x2, 0x5, 0x5)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x14, 0x0, 0xff84)
+setsockopt$inet_buf(r1, 0x0, 0x20, &(0x7f0000000480)="4196b46e69d2489c0839f5d7bb28d174d6b32e9ca2716833bbf49f76e4343f0372e8ee4a2fb085368d033949fabd086e49ed2afff6fecb940dc22e67329715fff6d05dddb5385dd56fbe73f541c8f5cb85538a82612b12c56e6f33d6f2114e748d750b4d247a9d6835166fa8520b9514e608ec1f888061111c247f0d6221e1e671c7fa7b2928b9df6996a40ee76bc42a7d288b1105b28c185679ccf2b706a83b987c45cef9163893dcc164ec1f4518f40603d2c9efd24b6139de3e907c4ac2b285a04e0a", 0xc4)
+r2 = accept4$inet(r1, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000080)=0x10, 0x800)
+socket$inet(0x2, 0x800, 0x2)
+r3 = accept4$inet(0xffffffffffffffff, &(0x7f0000000240)={0x2, 0x0, @initdev}, &(0x7f0000000280)=0x10, 0x1000)
+setsockopt$inet_MCAST_MSFILTER(r3, 0x0, 0x30, &(0x7f0000000580)={0x200, {{0x2, 0x4e20, @remote}}, 0x0, 0x2, [{{0x2, 0x4e21, @remote}}, {{0x2, 0x4e23, @empty}}]}, 0x190)
+recvfrom$inet(r3, &(0x7f00000002c0)=""/251, 0xfb, 0x40012062, &(0x7f00000003c0)={0x2, 0x4e20, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+setsockopt$inet_buf(r3, 0x0, 0x30, &(0x7f0000000140)="284695e13935296d0aab68a7d762dd6613e1dc00c857de18f6447e64a6792c4d2c0d29e64cca45219a0f3654532b3b3bd708583568940b43f4c72a7d8efee0f3c888e0a29a5bdeee14733db17ea65d5fb067ff8b9d2602bd26f09cf1aeac2e2451942019bfa44bb247f2353964b19578c6a57b5115e0427d134b944f510bf40a7a0d6e145a18dbfb7dcc96040000000000000041306a53a1cbd69d854ce52fef7771de07dad01ebc7466fd9a753abcd9f5d4bf6338f4c0ab4e9cef7f007e506757634b15c0ad232397b256301ed2e51ba7f5855d865bae439074a3500910fc52fc7d564092b2a34de622ff04000000", 0xfffffffffffffed0)
+connect$inet(r2, &(0x7f0000000100)={0x2, 0x4e23, @multicast1}, 0x10)
+accept4$inet(r3, &(0x7f0000000400), &(0x7f0000000440)=0x10, 0x800)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @empty}, 0x10)
+socket$inet(0x2, 0x2, 0x2)
+
+10:43:22 executing program 1:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f0000000000)={0x3, {{0x2, 0x4e22, @empty}}, 0x0, 0x7, [{{0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x19}}}, {{0x2, 0x4e20, @multicast2}}, {{0x2, 0x4e21, @multicast2}}, {{0x2, 0x4e21, @remote}}, {{0x2, 0x4e22, @empty}}, {{0x2, 0x4e20, @initdev={0xac, 0x1e, 0x1, 0x0}}}, {{0x2, 0x4e21, @multicast1}}]}, 0x410)
+r1 = socket$inet(0x2, 0x3, 0x5)
+setsockopt$inet_buf(r1, 0x0, 0x22, 0x0, 0x0)
+
+10:43:22 executing program 2:
+socket$inet(0x2, 0x0, 0x5)
+r0 = socket$inet(0x2, 0xa, 0x90b)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x11, &(0x7f0000000040)="b9ebec1088d9265898c91bb29f786fb3d781421262c2e7f5a913259a26ae03d21161a8dfdac34acd3dcb40b528ca8f46b581dab6a75e178edb68b7667935793dfe3991a3aafd492ddc1bdfb6a1472e445304afc722dde83e1964c9975c9875ba112e1332a6b569ec2017a01cfd53ad40a9bd350343fe948cd97ad7ce2bc53a86a8c3e9cfeccc2a90fbecb5f42bdb821fdc6651b3741cbeb76be6c6293e25f1292fd1f36da0a78fbebba73fcb8b4fcb5ddfaa9202d4a77c215725a80b5eacf10b7df9248f7c1e82e8e31fbf5789ba9582d74a5a4af65070fdb90f03575b1b6bb0523c21c104dcde744005ff32267da9e2", 0xf0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x4e22, @empty}, 0x10)
+
+10:43:22 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x9)
+setsockopt$inet_buf(r0, 0x0, 0x28, &(0x7f0000000040)="e300"/12, 0xc)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x11, &(0x7f0000000080)="d4a346d621082613dc638e473cef07358b9e4f28838d97cff1fa9228d0a724bc27edd1861adbf8235a569afef2147d03c8580f2c6290bec73c1f5acf3afdbd7e26ccb0b271ac4e1d82bc7bda68493c319d79", 0x52)
+
+10:43:22 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, 0x10)
+accept4$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast1}, &(0x7f0000000080)=0x10, 0x0)
+r1 = socket$inet(0x2, 0x1, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r2, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0x0)
+getsockopt$inet_buf(r2, 0x0, 0x24, &(0x7f0000000180)=""/245, &(0x7f0000000100)=0xf5)
+bind$inet(r1, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+connect$inet(r1, &(0x7f0000000040)={0x2, 0x0, @empty}, 0x10)
+connect$inet(r1, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+
+10:43:22 executing program 0:
+r0 = socket$inet(0x2, 0x3, 0x6)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000040)="11", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x12, &(0x7f00000000c0)="f8", 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x2f, &(0x7f0000000100)="74fbb9671832066338e511f6128573d4cf2c70429354d1ad8a696661ac1d483d3951473aa1805e3564d0a721840dab93848ec57c684116abf8d7cf98b506371ed155fc8e4eb0a8dace05a18c808fb2cfbfa951f5a31c123c84a2b750b3e5896e459784505ad75c41be8018111126f6f083e5", 0x72)
+setsockopt$inet_buf(r0, 0x0, 0x6, &(0x7f00000000c0)="f8", 0x1)
+r2 = socket$inet(0x2, 0x1, 0x0)
+getsockname$inet(r1, &(0x7f0000000180)={0x2, 0x0, @multicast2}, &(0x7f00000001c0)=0x10)
+r3 = accept$inet(r2, &(0x7f0000000240)={0x2, 0x0, @loopback}, &(0x7f0000000280)=0x10)
+connect$inet(r3, &(0x7f00000002c0)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0x16}}, 0x10)
+setsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f0000000040)="b116a58d9ff4cd60d925230822eb8c013d120894fc", 0x15)
+bind$inet(r1, &(0x7f0000000200)={0x2, 0x4e23, @loopback}, 0x10)
+connect$inet(r2, &(0x7f0000000000)={0x2, 0x0, @empty}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0xd, &(0x7f0000000080)='g', 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+socket$inet(0x2, 0x1, 0x80000000)
+
+[   29.784677] ------------[ cut here ]------------
+[   29.786971] Found leaking site of ip_options
+[   29.789224] WARNING: CPU: 1 PID: 3979 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020
+[   29.793164] Modules linked in:
+[   29.794801] CPU: 1 PID: 3979 Comm: syz-executor.0 Not tainted 5.5.3 #19
+[   29.797344] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   29.802524] RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020
+[   29.805123] Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b 6b a8 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+[   29.811310] RSP: 0018:ffff888052fcf900 EFLAGS: 00010246
+[   29.812849] RAX: 9e4b3348c8c72000 RBX: ffff888067add674 RCX: ffffc90000a4d000
+[   29.814832] RDX: ffffffffa5600000 RSI: 0000000000000542 RDI: 0000000000000543
+[   29.816963] RBP: ffff888052fcfaf0 R08: dffffc0000000000 R09: 0000000000000003
+[   29.819512] R10: ffffed100a5f9e99 R11: 0000000000000004 R12: ffff888052c40f40
+[   29.821706] R13: dffffc0000000000 R14: 0000000000000030 R15: ffff888052fcf9f0
+[   29.823913] FS:  00007f7107ffc700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   29.827049] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   29.829746] CR2: 000000000047dde0 CR3: 0000000069d12001 CR4: 00000000001606e0
+[   29.832489] Call Trace:
+[   29.833766]  ? iov_iter_init+0x140/0x140
+[   29.835189]  ? local_bh_enable+0x20/0x20
+[   29.836227]  ? do_futex+0x1635/0x3bd0
+[   29.837212]  ? __skb_datagram_iter+0x57a/0x6c0
+[   29.838362]  ? __skb_recv_datagram+0x260/0x260
+[   29.839493]  ? skb_copy_datagram_iter+0x150/0x150
+[   29.840702]  ? skb_copy_datagram_iter+0x138/0x150
+[   29.841881]  raw_recvmsg+0x43b/0x860
+[   29.842777]  ? raw_sendmsg+0x1eb0/0x1eb0
+[   29.843755]  ? __fget+0x31f/0x360
+[   29.844577]  inet_recvmsg+0x53e/0x550
+[   29.845465]  ? inet_sendpage+0x120/0x120
+[   29.846434]  ? security_socket_recvmsg+0xae/0xd0
+[   29.847590]  ? inet_sendpage+0x120/0x120
+[   29.848562]  __sys_recvfrom+0x4e4/0x590
+[   29.849510]  ? __ia32_sys_send+0xb0/0xb0
+[   29.850291]  ? get_timespec64+0x1a0/0x1a0
+[   29.851185]  ? __x64_sys_clock_gettime+0x180/0x1d0
+[   29.852365]  ? switch_fpu_return+0x10/0x10
+[   29.853382]  ? __ia32_sys_clock_settime+0x1e0/0x1e0
+[   29.854494]  __x64_sys_recvfrom+0xda/0xf0
+[   29.855179]  do_syscall_64+0xa5/0x130
+[   29.855831]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   29.856819] RIP: 0033:0x467519
+[   29.857574] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   29.862837] RSP: 002b:00007f7107ffbc48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   29.864634] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   29.866324] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000004
+[   29.868091] RBP: 00007f7107ffc6bc R08: 0000000000000000 R09: 0000000000000000
+[   29.869847] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   29.871600] R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+[   29.873367] ---[ end trace d92eb7bb07c29aab ]---
+[   29.929659] ------------[ cut here ]------------
+[   29.932113] Found leaking site of ip_options
+[   29.934185] WARNING: CPU: 0 PID: 3980 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020
+[   29.937857] Modules linked in:
+[   29.939530] CPU: 0 PID: 3980 Comm: syz-executor.0 Tainted: G        W         5.5.3 #19
+[   29.941821] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   29.944932] RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020
+[   29.945924] Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b 6b a8 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+[   29.949455] RSP: 0018:ffff88806be87900 EFLAGS: 00010246
+[   29.950469] RAX: d84307753fe8a600 RBX: ffff8880686b2534 RCX: ffffc90000e4f000
+[   29.951821] RDX: ffffffffa5600000 RSI: 0000000000000542 RDI: 0000000000000543
+[   29.960341] RBP: ffff88806be87af0 R08: dffffc0000000000 R09: 0000000000000003
+[   29.962230] R10: ffffed100d7d0e99 R11: 0000000000000004 R12: ffff888052c40f40
+[   29.964088] R13: dffffc0000000000 R14: 0000000000000030 R15: ffff88806be879f0
+[   29.965739] FS:  00007f7107fdb700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   29.967607] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   29.968931] CR2: 00007f4e30c5d190 CR3: 0000000069d12006 CR4: 00000000001606f0
+[   29.970589] Call Trace:
+[   29.971185]  ? iov_iter_init+0x140/0x140
+[   29.972121]  ? local_bh_enable+0x20/0x20
+[   29.973074]  ? do_futex+0x1635/0x3bd0
+[   29.973946]  ? __skb_datagram_iter+0x57a/0x6c0
+[   29.974992]  ? __skb_recv_datagram+0x260/0x260
+[   29.976359]  ? skb_copy_datagram_iter+0x150/0x150
+[   29.978443]  ? skb_copy_datagram_iter+0x138/0x150
+[   29.980523]  raw_recvmsg+0x43b/0x860
+[   29.982120]  ? raw_sendmsg+0x1eb0/0x1eb0
+[   29.984032]  ? __fget+0x31f/0x360
+[   29.985298]  inet_recvmsg+0x53e/0x550
+[   29.986923]  ? inet_sendpage+0x120/0x120
+[   29.988426]  ? security_socket_recvmsg+0xae/0xd0
+[   29.990484]  ? inet_sendpage+0x120/0x120
+[   29.991998]  __sys_recvfrom+0x4e4/0x590
+[   29.992915]  ? __switch_to_asm+0x34/0x70
+[   29.993811]  ? __switch_to_asm+0x40/0x70
+[   29.994729]  ? __switch_to_asm+0x34/0x70
+[   29.995762]  ? __ia32_sys_send+0xb0/0xb0
+[   29.996752]  ? __switch_to_asm+0x40/0x70
+[   29.997741]  ? get_timespec64+0x1a0/0x1a0
+[   29.998763]  ? __schedule+0xb4a/0x10b0
+[   29.999728]  ? __x64_sys_clock_gettime+0x180/0x1d0
+[   30.000946]  ? switch_fpu_return+0x10/0x10
+[   30.001984]  ? __ia32_sys_clock_settime+0x1e0/0x1e0
+[   30.003223]  __x64_sys_recvfrom+0xda/0xf0
+[   30.004248]  do_syscall_64+0xa5/0x130
+[   30.009211]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   30.011133] RIP: 0033:0x467519
+[   30.012172] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   30.019164] RSP: 002b:00007f7107fdac48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   30.021444] RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+[   30.023231] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000004
+[   30.024921] RBP: 00007f7107fdb6bc R08: 0000000000000000 R09: 0000000000000000
+[   30.026574] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   30.028541] R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+[   30.030487] ---[ end trace d92eb7bb07c29aac ]---

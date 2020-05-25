@@ -1,0 +1,46 @@
+netlink: 8 bytes leftover after parsing attributes in process `syz-executor.3'.
+------------[ cut here ]------------
+Found leaking site of xfrm_algo
+WARNING: CPU: 0 PID: 3483 at net/xfrm/xfrm_user.c:928 copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Modules linked in:
+CPU: 0 PID: 3483 Comm: syz-executor.0 Not tainted 5.5.3 #18
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Code: 89 e3 48 c1 eb 03 42 80 3c 33 00 74 08 4c 89 e7 e8 7e 0d 24 fe 49 83 3c 24 00 74 66 48 c7 c7 57 b5 eb 91 31 c0 e8 69 cc d7 fd <0f> 0b 42 80 3c 33 00 74 08 4c 89 e7 e8 58 0d 24 fe 49 8b 1c 24 48
+RSP: 0018:ffff8880527d71a0 EFLAGS: 00010246
+RAX: f2a6c9cf29ba1300 RBX: 1ffff1100d49c9c8 RCX: ffffc9000052b000
+RDX: ffffffff8ee00000 RSI: 00000000000011be RDI: 00000000000011bf
+RBP: ffff8880527d72d0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100a4fadad R11: 0000000000000004 R12: ffff88806a4e4e40
+R13: ffff88806a794500 R14: dffffc0000000000 R15: ffff88806a4e4d00
+FS:  00007f03cf152700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fffd4ee3af0 CR3: 0000000068568003 CR4: 00000000001606f0
+Call Trace:
+ xfrm_notify_sa net/xfrm/xfrm_user.c:2883 [inline]
+ xfrm_send_state_notify+0xc7f/0x1cf0 net/xfrm/xfrm_user.c:2907
+ km_state_notify+0x77/0xd0 net/xfrm/xfrm_state.c:2137
+ xfrm_add_sa+0x373b/0x3870 net/xfrm/xfrm_user.c:712
+ xfrm_user_rcv_msg+0x595/0x640 net/xfrm/xfrm_user.c:2688
+ netlink_rcv_skb+0x1f6/0x3b0 net/netlink/af_netlink.c:2477
+ xfrm_netlink_rcv+0x6e/0x80 net/xfrm/xfrm_user.c:2696
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0xad1/0xba0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x8e1/0xd40 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x8c0/0x8f0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmsg+0x21c/0x300 net/socket.c:2417
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f03cf151c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000020000440 RDI: 0000000000000003
+RBP: 00007f03cf1526bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+---[ end trace f38d10bfe32e1f75 ]---
+netlink: 8 bytes leftover after parsing attributes in process `syz-executor.3'.

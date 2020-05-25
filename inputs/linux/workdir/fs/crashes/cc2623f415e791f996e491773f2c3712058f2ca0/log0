@@ -1,0 +1,139 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/21 20:38:23 fuzzer started
+2020/04/21 20:38:24 dialing manager at 10.0.2.10:46589
+2020/04/21 20:38:24 checking machine...
+2020/04/21 20:38:24 checking revisions...
+2020/04/21 20:38:24 testing simple program...
+syzkaller login: [   10.479841] audit: type=1400 audit(1587501504.487:8): avc:  denied  { execmem } for  pid=429 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+2020/04/21 20:38:24 building call list...
+[   10.994772] audit: type=1400 audit(1587501505.002:9): avc:  denied  { create } for  pid=407 comm="syz-fuzzer" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=dccp_socket permissive=1
+2020/04/21 20:38:25 syscalls: 49
+2020/04/21 20:38:25 code coverage: enabled
+2020/04/21 20:38:25 comparison tracing: enabled
+2020/04/21 20:38:25 extra coverage: enabled
+2020/04/21 20:38:25 setuid sandbox: enabled
+2020/04/21 20:38:25 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 20:38:25 Android sandbox: enabled
+2020/04/21 20:38:25 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 20:38:25 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 20:38:25 net packet injection: /dev/net/tun does not exist
+2020/04/21 20:38:25 net device setup: enabled
+2020/04/21 20:38:25 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 20:38:25 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 20:38:25 USB emulation: /dev/raw-gadget does not exist
+20:38:25 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/zoneinfo\x00', 0x364, 0x0)
+
+20:38:25 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000001000)=""/4096, 0x1000)
+
+20:38:25 executing program 2:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000000240)=""/65, 0x41)
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+20:38:25 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+[   11.701784] cgroup1: Unknown subsys name 'perf_event'
+[   11.704924] cgroup1: Unknown subsys name 'net_cls'
+[   11.718049] cgroup1: Unknown subsys name 'perf_event'
+[   11.720449] cgroup1: Unknown subsys name 'net_cls'
+[   11.744885] cgroup1: Unknown subsys name 'perf_event'
+[   11.750224] cgroup1: Unknown subsys name 'net_cls'
+[   11.767347] cgroup1: Unknown subsys name 'perf_event'
+[   11.770047] cgroup1: Unknown subsys name 'net_cls'
+20:38:26 executing program 2:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000000240)=""/65, 0x41)
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+20:38:26 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000001000)=""/4096, 0x1000)
+
+20:38:26 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000001000)=""/4096, 0x1000)
+
+20:38:26 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/zoneinfo\x00', 0x364, 0x0)
+
+20:38:26 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/zoneinfo\x00', 0x364, 0x0)
+
+20:38:26 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000001000)=""/4096, 0x1000)
+
+20:38:26 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/zoneinfo\x00', 0x364, 0x0)
+
+20:38:26 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+20:38:26 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x4000, 0x0)
+read(r0, &(0x7f0000001000)=""/4096, 0x1000)
+
+20:38:26 executing program 0:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000000240)=""/65, 0x41)
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+20:38:26 executing program 2:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000000240)=""/65, 0x41)
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+[   12.810976] ------------[ cut here ]------------
+[   12.813318] Found leaking site of fname
+[   12.813452] WARNING: CPU: 1 PID: 583 at fs/ext4/dir.c:532 call_filldir+0x27d/0x5c0
+[   12.818558] Kernel panic - not syncing: panic_on_warn set ...
+[   12.821461] CPU: 1 PID: 583 Comm: syz-executor.1 Not tainted 5.5.3 #72
+[   12.824458] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.829454] Call Trace:
+[   12.830525]  dump_stack+0x15e/0x1ae
+[   12.832099]  panic+0x228/0x700
+[   12.833404]  ? call_filldir+0x27d/0x5c0
+[   12.835032]  __warn+0x1fe/0x200
+[   12.836384]  ? call_filldir+0x27d/0x5c0
+[   12.838052]  report_bug+0x359/0x480
+[   12.839575]  ? call_filldir+0x27d/0x5c0
+[   12.841280]  do_invalid_op+0x6e/0x110
+[   12.842856]  invalid_op+0x1e/0x30
+[   12.844271] RIP: 0010:call_filldir+0x27d/0x5c0
+[   12.846147] Code: 81 c7 48 06 00 00 48 c7 c6 12 a2 de 8f e8 bb 39 13 02 48 85 c0 74 2d e8 21 dc b2 ff 48 c7 c7 2b 55 de 8f 31 c0 e8 33 2b 8c ff <0f> 0b eb 1f 0f 1f 44 00 00 66 2e 0f 1f 84 00 00 00 00 00 e8 fb db
+[   12.854278] RSP: 0018:ffff88804f6d7c40 EFLAGS: 00010246
+[   12.856735] RAX: a9716dbd32b45f00 RBX: 0000000000000002 RCX: 0000000000000000
+[   12.859985] RDX: ffff88804f6c8000 RSI: 0000000000000225 RDI: 0000000000000225
+[   12.863137] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff2168bc3
+[   12.866219] R10: fffffbfff2168bc3 R11: 0000000000000000 R12: ffff8880699e33a0
+[   12.869585] R13: dffffc0000000000 R14: ffff888068247780 R15: ffff88804f6d7ec0
+[   12.872770]  ? kmem_cache_alloc_trace+0x188/0x200
+[   12.875050]  ext4_readdir+0x2492/0x2a40
+[   12.876815]  ? memset+0x1f/0x40
+[   12.878304]  ? down_read_killable+0xcd/0x1c0
+[   12.880258]  iterate_dir+0x2a6/0x510
+[   12.881951]  __se_sys_getdents+0x191/0x3f0
+[   12.883837]  ? fillonedir+0x250/0x250
+[   12.885539]  do_syscall_64+0xd1/0x160
+[   12.887181]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.889409] RIP: 0033:0x4656a8
+[   12.890712] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   12.898549] RSP: 002b:00007ffd7c654ab0 EFLAGS: 00000202 ORIG_RAX: 000000000000004e
+[   12.901767] RAX: ffffffffffffffda RBX: 0000000001bd4c10 RCX: 00000000004656a8
+[   12.904852] RDX: 0000000000008000 RSI: 0000000001bd4c10 RDI: 0000000000000003
+[   12.907766] RBP: 0000000001bd4c10 R08: 0000000000000076 R09: 0000000000000000
+[   12.910722] R10: 0000000000000804 R11: 0000000000000202 R12: ffffffffffffffbc
+[   12.913744] R13: 0000000000000016 R14: 0000000000000002 R15: 00000000ffffffff
+[   12.922329] Dumping ftrace buffer:
+[   12.923963]    (ftrace buffer empty)
+[   12.925681] Kernel Offset: 0xbe00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.930299] Rebooting in 1 seconds..

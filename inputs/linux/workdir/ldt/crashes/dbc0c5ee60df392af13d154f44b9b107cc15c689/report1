@@ -1,0 +1,52 @@
+------------[ cut here ]------------
+Found allocation of vm_area_struct
+WARNING: CPU: 1 PID: 325 at kernel/fork.c:352 vm_area_alloc+0x7b/0x180 kernel/fork.c:352
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 325 Comm: syz-executor Not tainted 5.5.3 #54
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:vm_area_alloc+0x7b/0x180 kernel/fork.c:352
+Code: 81 c7 48 06 00 00 48 c7 c6 f8 e8 9c 95 e8 bd eb 87 02 48 85 c0 74 1e e8 a3 7e 27 00 48 c7 c7 05 e9 9c 95 31 c0 e8 b5 cd 00 00 <0f> 0b eb 0c e8 8c 7e 27 00 eb 05 e8 85 7e 27 00 48 8b 3d f6 ba bc
+RSP: 0018:ffff888065287920 EFLAGS: 00010246
+RAX: 11a9bc423f8c7e00 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff888067a3d700 RSI: 000000000000021a RDI: 000000000000021a
+RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff2ce8bc4
+R10: fffffbfff2ce8bc4 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888067aa2e20 R14: ffff888067cf3a80 R15: dffffc0000000000
+ mmap_region+0xae1/0x1af0 mm/mmap.c:1748
+ do_mmap+0xad1/0x1140 mm/mmap.c:1549
+ do_mmap_pgoff include/linux/mm.h:2338 [inline]
+ vm_mmap_pgoff+0x145/0x1d0 mm/util.c:506
+ elf_map+0x1a7/0x310 fs/binfmt_elf.c:377
+ load_elf_binary+0xf71/0x29c0 fs/binfmt_elf.c:982
+ search_binary_handler+0x185/0x650 fs/exec.c:1658
+ exec_binprm+0x8e/0x350 fs/exec.c:1701
+ __do_execve_file+0xeae/0x1810 fs/exec.c:1821
+ do_execveat_common fs/exec.c:1867 [inline]
+ do_execve fs/exec.c:1884 [inline]
+ __do_sys_execve fs/exec.c:1960 [inline]
+ __se_sys_execve fs/exec.c:1955 [inline]
+ __x64_sys_execve+0x90/0xa0 fs/exec.c:1955
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x47c61b
+Code: Bad RIP value.
+RSP: 002b:000000c4200512d0 EFLAGS: 00000202 ORIG_RAX: 000000000000003b
+RAX: ffffffffffffffda RBX: 000000000000000c RCX: 000000000047c61b
+RDX: 000000c4201a0a10 RSI: 000000c42000a0a0 RDI: 000000c4200226c0
+RBP: 000000c4200513d8 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000202 R12: 00000000004727f6
+R13: 0000000000000032 R14: 0000000000000031 R15: 0000000000000100
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x11a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

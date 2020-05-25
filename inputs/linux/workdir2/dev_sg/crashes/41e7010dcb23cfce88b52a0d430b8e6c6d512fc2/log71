@@ -1,0 +1,165 @@
+
+Debian GNU/Linux 7 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:29864' (ECDSA) to the list of known hosts.
+syzkaller login: [   17.786073] audit: type=1400 audit(1586978047.794:11): avc:  denied  { map } for  pid=1587 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/15 19:14:07 fuzzer started
+2020/04/15 19:14:08 dialing manager at 10.0.2.10:36237
+2020/04/15 19:14:08 syscalls: 30
+2020/04/15 19:14:08 code coverage: enabled
+2020/04/15 19:14:08 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/15 19:14:08 extra coverage: enabled
+2020/04/15 19:14:08 setuid sandbox: enabled
+2020/04/15 19:14:08 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/15 19:14:08 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/15 19:14:08 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/15 19:14:08 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/15 19:14:08 net packet injection: /dev/net/tun does not exist
+2020/04/15 19:14:08 net device setup: enabled
+2020/04/15 19:14:08 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/15 19:14:08 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/15 19:14:08 USB emulation: /dev/raw-gadget does not exist
+19:14:11 executing program 0:
+syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0xffffffffffffffff, 0x800)
+mmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1, 0x10010, 0xffffffffffffffff, 0xef141000)
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x2)
+ioctl$VT_OPENQRY(r0, 0x5600, &(0x7f0000000040))
+r1 = syz_open_dev$vcsn(&(0x7f0000000080)='/dev/vcs#\x00', 0x4b, 0x202002)
+write$binfmt_aout(r1, &(0x7f00000000c0)={{0x107, 0xff, 0x4, 0xf1, 0x1b3, 0x0, 0x29b, 0x80000000}, "69719947edfe346340ea1f7b42995cbf4ad7eb1b6590b6852ad9784889634b8febe0bfb1c5b6c25fb6befe2913ac721740825e75c0db9c10461327f839ee0c8f5b4bb1626a3422d4289145307c6d744a5442f1604b1f960f68bc3f98509526c4fc09c6732c5656e06bdd0cdc47fb3fa48b81238b46c1d03803b2125789d17aeb71c615d0c06cad6c85f1c4ba2caea1d4aa7c92467051b9c66059bc6ed29e8c23f0cc98bfb5", [[]]}, 0x1c5)
+mmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000, 0x1000004, 0x10, 0xffffffffffffffff, 0xd0af000)
+write(r1, &(0x7f00000002c0)="57d116a0fa68a7d1b0ebc694921e0dd5d070cf7883a8b767e98aa35166ef26e9b894411fef9302ebf3f9fdfa2e73f040f7ab4f793f2e5ba122afe3d77cd92c81e54d62037e4727467aac0482f978cba75d6ffda34bc2a2d201a2523b1d8180e21b9ff5e3533ce198905690fe821140d3c64631e72636f41772db7ed9a6a8567e8d4fdda2eb10e683e0e2069907cc396a3011b56fda7191217614967a77b7acd8f6665f03858257fa84ece4e7d9db5df705c9bab0b9f6ca4613ba5c7a2d023db93b69453ea0554edb673e", 0xca)
+r2 = syz_open_dev$tty1(0xc, 0x4, 0x4)
+r3 = syz_open_dev$vcsn(&(0x7f00000003c0)='/dev/vcs#\x00', 0x9, 0x1)
+openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000400)='/dev/ttyS3\x00', 0x808802, 0x0)
+write(r2, &(0x7f0000000440)="17c191be32be4819beb123cc12ecb62b80dfabcd6b1ea0611aa19ba606b8", 0x1e)
+r4 = syz_open_dev$vcsn(&(0x7f0000000480)='/dev/vcs#\x00', 0x7, 0x80000)
+write$binfmt_misc(r4, &(0x7f00000004c0)={'syz1', "d4ac764804fdfd4c192d8e65032e2cad4e19e45d832457f8b8e86be501cc6406aaae4f2dba3cd98bca0d5c48f073043f5ab4eb124bf8a01ff109b2d63bca49e450167314905e0291ce871a"}, 0x4f)
+r5 = syz_open_dev$vcsa(&(0x7f0000000540)='/dev/vcsa#\x00', 0x0, 0x400001)
+write$binfmt_misc(r5, &(0x7f0000000580)={'syz0', "c4ca0282dba028f8b508fdd1d56a28164b508ddf04da033bc4d72510c93b44b7b143eb0dfa854e743787282f709592db8d27e154b41b0fcc14861ba8a9d4782304f88392d1cf99d20937"}, 0x4e)
+syz_open_dev$sg(&(0x7f0000000600)='/dev/sg#\x00', 0x822, 0x10000)
+r6 = syz_open_pts(r3, 0x101400)
+read(r6, &(0x7f0000000640)=""/253, 0xfd)
+syz_open_dev$sg(&(0x7f0000000740)='/dev/sg#\x00', 0xffffffff, 0x20000)
+
+19:14:11 executing program 1:
+r0 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vcsa\x00', 0x101200, 0x0)
+ioctl$VT_RESIZEX(r0, 0x560a, &(0x7f0000000040)={0x3, 0x8, 0x2, 0xcac, 0x5, 0x2})
+ioctl$VT_DISALLOCATE(0xffffffffffffffff, 0x5608)
+r1 = syz_open_dev$tty1(0xc, 0x4, 0x3)
+write$binfmt_aout(r1, &(0x7f0000000080)={{0xcc, 0x81, 0x2, 0x328, 0x387, 0x0, 0x392, 0x10001}, "d1a059868007b47ac24d8918d643c0692e19d1bf7cb2b6183eb944f3eb7396891327f37c23efa2c8b97a791088ec25858329ff548f024800791686acf17da2268a7104afc5701f2ae1cf97979d7732ced3a17c2b25c78da960a3f892c04604dd99f63d8f6ad21c38eb290421816cf7047cd6e05a25b273f35674afb792fa8936127418c19eb245e5481615e85b002a847fa5c4dadb856f8f9c79ccae2f71529fce9b42ac5cca"}, 0xc6)
+r2 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vcs\x00', 0x44400, 0x0)
+r3 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+read(r3, &(0x7f00000001c0)=""/61, 0x3d)
+r4 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000200)='/dev/vcs\x00', 0x80, 0x0)
+ioctl$VT_GETSTATE(r4, 0x5603, &(0x7f0000000240)={0x6, 0x1, 0x2})
+write$binfmt_elf32(r2, &(0x7f0000000280)={{0x7f, 0x45, 0x4c, 0x46, 0xff, 0xc2, 0x0, 0x20, 0x9, 0x0, 0x3e, 0xff, 0x3e3, 0x38, 0x4a, 0x7, 0x1, 0x20, 0x1, 0x0, 0xffff, 0x80}, [{0xd434d0f48465b30d, 0x764, 0x2cb, 0x57b, 0x3, 0x9, 0x3800000, 0x80000001}, {0x3, 0x3, 0x0, 0xf1, 0xffff5385, 0xbaf0, 0x6, 0x400}], "f4a6a46a3aaf2391bbfbd95339daeb71c8ac95faacd00c82ecb0da628cb38319c9ac2b51085b1d97f7490d99e4f55badf299d39a643963eeef", [[], [], [], [], [], [], [], []]}, 0x8b1)
+r5 = syz_open_dev$vcsa(&(0x7f0000000b40)='/dev/vcsa#\x00', 0x7, 0x80001)
+read(r5, &(0x7f0000000b80)=""/98, 0x62)
+r6 = syz_open_dev$vcsa(&(0x7f0000000c00)='/dev/vcsa#\x00', 0x3, 0xc0200)
+write$binfmt_script(r6, &(0x7f0000000c40)={'#! ', './file0', [{0x20, '/dev/vcsa\x00'}, {0x20, '/dev/vcs\x00'}, {0x20, '/dev/vcsa#\x00'}, {0x20, 'vmnet0posix_acl_access&]'}, {0x20, '/dev/vcsa\x00'}], 0xa, "214083ca8c119ec7284fcefa265bad1e0d1c53a6fb7a70654cd2c1983a9315f81f72875f03c970132881a0d3d95c55376df5a8ce8e7c6db3b9f5856b6f58f20ab9ffdc60e0556513438f670c1e0fdb7d198b19fdc3a46ed83cfc45bc062885c4e65832ac2c0c0688549e6697d0489bc1070fde540f572127b163b12774770bb7"}, 0xd0)
+r7 = syz_open_dev$vcsn(&(0x7f0000000d40)='/dev/vcs#\x00', 0x3f, 0x10000)
+mmap(&(0x7f0000ffe000/0x2000)=nil, 0x2000, 0x2000007, 0x11, r7, 0x271c3000)
+r8 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000d80)='/dev/ptmx\x00', 0x440840, 0x0)
+write$binfmt_aout(r8, &(0x7f0000000dc0)={{0xcc, 0x7, 0x20, 0x2b6, 0xd1, 0x3, 0x2ba, 0x3}, "ee01264ad145fa7f09573b17fa3f6ba4288e2b7c506ee79125a654d5cf5dfdca1f9b43d702da72645ec02be1c6872aa143b703a273395b3102410eef1fb3532a92b27ab2d918fabbf22c4f561c145dd2a78569fb26e9cc4d0d8c4ffb62b36beeb2db57cdca0c58cf78a202d879aa2e15b57e5defdd13bed1f14cad2e10622124997538f8406a5c69dbffad728ee0850f71f573889b25e440b48214cb5913ba723ffd46f200e96c862a1c763af017196fdc5b3f0bba7ca19864a48c3e58ec30e7168717497de74ee4a2ed6eba5bbd61f3c85ebe512b3f19f96c43eea9bd078f6353d3e4cd48acd217eec6", [[]]}, 0x20a)
+syz_open_dev$tty1(0xc, 0x4, 0x2)
+
+19:14:11 executing program 3:
+r0 = syz_open_pts(0xffffffffffffffff, 0x800)
+ioctl$VT_WAITACTIVE(r0, 0x5607)
+ioctl$VT_RESIZE(r0, 0x5609, &(0x7f0000000000)={0xdce, 0x6, 0x400})
+r1 = syz_open_dev$ptys(0xc, 0x3, 0x1)
+ioctl$VT_RELDISP(r1, 0x5605)
+openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ttyS3\x00', 0x200, 0x0)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000080)='/dev/ptmx\x00', 0x2200, 0x0)
+syz_open_dev$vcsa(&(0x7f00000000c0)='/dev/vcsa#\x00', 0xd47, 0x220000)
+r2 = syz_open_pts(r0, 0x101)
+ioctl$VT_RELDISP(r2, 0x5605)
+r3 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000100)='/dev/vcsu\x00', 0xa4040, 0x0)
+ioctl$VT_DISALLOCATE(r3, 0x5608)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000140)='/dev/ptmx\x00', 0x0, 0x0)
+r4 = syz_open_dev$vcsa(&(0x7f0000000180)='/dev/vcsa#\x00', 0x9, 0x101000)
+write$binfmt_aout(r4, &(0x7f00000001c0)={{0x108, 0xe5, 0xfc, 0x35b, 0x107, 0x9, 0x3d6, 0x200}, "560847911c8231b92b4b0f3ba08abaa02e52aa2e612eb7715d71f238948895e06e9e3aa6710ff5eff5012c3cd82dfc78677460ba4476d7bcbf5e7ed05ac2dd7c694fa39d3ec14a94191db00054c77a684e630213dd4fe64350088ccb65177cbad0e13a5ca8d445f595cff2fbfd15302b322e211ed2fe901df2d1e80aa19ddb51b395fc9f12ca13d3e83c8f5f71ebbef7ca656f4993070074be3491f446", [[], [], []]}, 0x3bd)
+r5 = syz_open_dev$vcsn(&(0x7f0000000580)='/dev/vcs#\x00', 0x40, 0x8a402)
+read(r5, &(0x7f00000005c0)=""/4096, 0x1000)
+r6 = syz_open_dev$tty1(0xc, 0x4, 0x3)
+syz_open_pts(r6, 0x8000)
+ioctl$VT_GETSTATE(0xffffffffffffffff, 0x5603, &(0x7f00000015c0)={0x5, 0xc6bd, 0x1})
+
+19:14:11 executing program 2:
+r0 = syz_open_dev$tty1(0xc, 0x4, 0x1)
+r1 = syz_open_dev$vcsn(&(0x7f0000000000)='/dev/vcs#\x00', 0xf0eb, 0x380)
+r2 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x80400, 0x0)
+r3 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+r4 = syz_open_dev$ttys(0xc, 0x2, 0x1)
+r5 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000080)='/dev/vcsu\x00', 0xc0, 0x0)
+r6 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/ptmx\x00', 0x802, 0x0)
+r7 = syz_open_dev$vcsn(&(0x7f0000000100)='/dev/vcs#\x00', 0x0, 0x2)
+r8 = syz_open_pts(0xffffffffffffffff, 0x4380)
+poll(&(0x7f0000000140)=[{r0, 0x80}, {r1, 0x200}, {0xffffffffffffffff, 0x44f0}, {r2, 0x1004}, {r3, 0x8000}, {r4, 0x204}, {r5, 0x8080}, {r6, 0x181}, {r7, 0x5c2}, {r8, 0x8048}], 0xa, 0x3)
+ioctl$VT_ACTIVATE(r6, 0x5606, 0x4)
+r9 = openat$vcsu(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/vcsu\x00', 0x4001, 0x0)
+read(r9, &(0x7f0000000200)=""/216, 0xd8)
+r10 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000300)='/dev/vcsu\x00', 0x240, 0x0)
+r11 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000340)='/dev/ttyS3\x00', 0x40000, 0x0)
+r12 = syz_open_dev$sg(&(0x7f0000000380)='/dev/sg#\x00', 0x3, 0x0)
+r13 = openat$vcsa(0xffffffffffffff9c, &(0x7f00000003c0)='/dev/vcsa\x00', 0x101000, 0x0)
+r14 = syz_open_pts(0xffffffffffffffff, 0x8800)
+r15 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000400)='/dev/ptmx\x00', 0x8180, 0x0)
+poll(&(0x7f0000000440)=[{r10, 0xa4}, {r11, 0x8462}, {r12, 0x814a}, {r3, 0x8}, {0xffffffffffffffff, 0x80}, {r13}, {r14, 0x10}, {r4, 0xa6}, {r15, 0x200}, {r2, 0x300}], 0xa, 0x8)
+
+[   21.250638] audit: type=1400 audit(1586978051.258:12): avc:  denied  { map } for  pid=1604 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8626 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   21.383485] cgroup1: Unknown subsys name 'perf_event'
+[   21.387666] cgroup1: Unknown subsys name 'net_cls'
+[   21.394403] cgroup1: Unknown subsys name 'perf_event'
+[   21.396661] cgroup1: Unknown subsys name 'net_cls'
+[   21.414577] cgroup1: Unknown subsys name 'perf_event'
+[   21.420484] cgroup1: Unknown subsys name 'net_cls'
+[   21.424465] cgroup1: Unknown subsys name 'perf_event'
+[   21.426569] cgroup1: Unknown subsys name 'net_cls'
+[   22.149327] audit: type=1400 audit(1586978052.157:13): avc:  denied  { create } for  pid=1609 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.160425] audit: type=1400 audit(1586978052.157:14): avc:  denied  { write } for  pid=1609 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.171822] audit: type=1400 audit(1586978052.166:15): avc:  denied  { read } for  pid=1609 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.134263] audit: type=1400 audit(1586978054.140:16): avc:  denied  { associate } for  pid=1609 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   24.201127] Kernel panic - not syncing: Found leaking site of vc_data and inode
+[   24.203556] CPU: 0 PID: 3310 Comm: syz-executor.3 Not tainted 5.5.3 #19
+[   24.206753] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   24.211994] Call Trace:
+[   24.213127]  dump_stack+0x195/0x1fe
+[   24.214204]  ? log_buf_vmcoreinfo_setup+0x12c/0x12c
+[   24.215486]  ? show_regs_print_info+0x12/0x12
+[   24.216675]  ? __alloc_pages_nodemask+0x38f/0x780
+[   24.217924]  panic+0x201/0x64d
+[   24.218741]  ? _raw_spin_lock+0x170/0x170
+[   24.219779]  ? 0xffffffffb8000000
+[   24.220755]  ? nmi_panic+0x73/0x73
+[   24.221817]  ? do_syscall_64+0xa5/0x130
+[   24.223118]  ? __alloc_pages_nodemask+0x38f/0x780
+[   24.224993]  ? is_console_locked+0x5/0x10
+[   24.226191]  ? vcs_size+0x1cd/0x390
+[   24.227047]  vcs_read+0x746/0x900
+[   24.227860]  ? vcs_lseek+0x90/0x90
+[   24.228702]  __vfs_read+0xff/0x770
+[   24.229533]  ? rw_verify_area+0x290/0x290
+[   24.230501]  ? __fsnotify_parent+0xcc/0x290
+[   24.231502]  ? __fsnotify_parent+0x290/0x290
+[   24.232541]  ? fget_many+0x20/0x20
+[   24.233361]  ? put_timespec64+0xf6/0x140
+[   24.234316]  ? security_file_permission+0x193/0x2b0
+[   24.235476]  vfs_read+0x102/0x300
+[   24.236269]  ksys_read+0x134/0x230
+[   24.237089]  ? vfs_write+0x440/0x440
+[   24.237949]  ? fpregs_assert_state_consistent+0x8a/0xb0
+[   24.239206]  do_syscall_64+0xa5/0x130
+[   24.240105]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   24.241332] RIP: 0033:0x467519
+[   24.242070] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   24.246553] RSP: 002b:00007efd2a7ccc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   24.248327] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   24.249999] RDX: 0000000000001000 RSI: 00000000200005c0 RDI: 0000000000000006
+[   24.251205] RBP: 00007efd2a7cd6bc R08: 0000000000000000 R09: 0000000000000000
+[   24.252412] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   24.253625] R13: 0000000000000873 R14: 00000000004c8399 R15: 0000000000701660
+[   24.255326] Dumping ftrace buffer:
+[   24.256183]    (ftrace buffer empty)
+[   24.257020] Kernel Offset: 0x37000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   24.260088] Rebooting in 1 seconds..

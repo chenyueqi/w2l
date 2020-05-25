@@ -1,0 +1,1463 @@
+Warning: Permanently added '[localhost]:52864' (ECDSA) to the list of known hosts.
+[   16.081435] audit: type=1400 audit(1587418815.356:11): avc:  denied  { map } for  pid=1580 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:40:15 fuzzer started
+2020/04/20 21:40:15 dialing manager at 10.0.2.10:34632
+2020/04/20 21:40:15 syscalls: 52
+2020/04/20 21:40:15 code coverage: enabled
+2020/04/20 21:40:15 comparison tracing: enabled
+2020/04/20 21:40:15 extra coverage: enabled
+2020/04/20 21:40:15 setuid sandbox: enabled
+2020/04/20 21:40:15 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:40:15 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:40:15 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:40:15 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:40:15 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:40:15 net device setup: enabled
+2020/04/20 21:40:15 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:40:15 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:40:15 USB emulation: /dev/raw-gadget does not exist
+21:40:16 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:16 executing program 2:
+mount(&(0x7f00000002c0)=@filename='\x00', &(0x7f0000000300)='.\x00', 0x0, 0x1008, 0x0)
+
+21:40:16 executing program 1:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:16 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/schedstat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0xb, r1, 0x0, 0xfffffffffffffff3, 0x0)
+
+[   17.287255] audit: type=1400 audit(1587418816.562:12): avc:  denied  { map } for  pid=1598 comm="syz-executor.2" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   17.332963] cgroup1: Unknown subsys name 'perf_event'
+[   17.334600] cgroup1: Unknown subsys name 'net_cls'
+[   17.336637] cgroup1: Unknown subsys name 'perf_event'
+[   17.337845] cgroup1: Unknown subsys name 'net_cls'
+[   17.341105] cgroup1: Unknown subsys name 'perf_event'
+[   17.342395] cgroup1: Unknown subsys name 'net_cls'
+[   17.343400] cgroup1: Unknown subsys name 'perf_event'
+[   17.345303] cgroup1: Unknown subsys name 'net_cls'
+[   17.820499] audit: type=1400 audit(1587418817.095:13): avc:  denied  { create } for  pid=1602 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.828264] audit: type=1400 audit(1587418817.096:14): avc:  denied  { write } for  pid=1602 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.832842] audit: type=1400 audit(1587418817.096:15): avc:  denied  { read } for  pid=1602 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.200434] audit: type=1400 audit(1587418818.475:16): avc:  denied  { associate } for  pid=1602 comm="syz-executor.1" name="syz1" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+21:40:18 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:18 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:18 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:18 executing program 2:
+mount(&(0x7f00000002c0)=@filename='\x00', &(0x7f0000000300)='.\x00', 0x0, 0x1008, 0x0)
+
+21:40:18 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/schedstat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0xb, r1, 0x0, 0xfffffffffffffff3, 0x0)
+
+21:40:18 executing program 2:
+mount(&(0x7f00000002c0)=@filename='\x00', &(0x7f0000000300)='.\x00', 0x0, 0x1008, 0x0)
+
+21:40:19 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:19 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/schedstat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0xb, r1, 0x0, 0xfffffffffffffff3, 0x0)
+
+21:40:19 executing program 1:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:19 executing program 2:
+mount(&(0x7f00000002c0)=@filename='\x00', &(0x7f0000000300)='.\x00', 0x0, 0x1008, 0x0)
+
+21:40:19 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/schedstat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0xb, r1, 0x0, 0xfffffffffffffff3, 0x0)
+
+21:40:19 executing program 2:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:19 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:19 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:19 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:19 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:20 executing program 1:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:20 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:20 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f00000030c0)=""/4096, 0x1000)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:20 executing program 2:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:20 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:20 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:20 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:20 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:20 executing program 1:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:20 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:20 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:20 executing program 2:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+read(0xffffffffffffffff, 0x0, 0x0)
+vmsplice(r0, &(0x7f0000002440)=[{&(0x7f0000001100)="92", 0x1}], 0x1, 0x0)
+write$P9_RREAD(r1, &(0x7f0000001280)={0xc8, 0x75, 0x0, {0xbd, "c971284c60b20c6c2f1f73c6f99bc18a451a50f236b3d602995da8a84a493f8b2c8ddca644235d6f08a6faab6a2432aab9f25c09bb661871388dac2bf2c8c6ca515b0c90e10459b810c2f5f9c6523522aa07c4848158da4d01975844c27a0bc386a0027c8fdf3359c613e6b85383d5c91a2946526372bbeff3edb32752792fc89c9ca4d4b113ad818197a49b1cdc282dcece16e59a8aad1ed6fda3dbf5664fc669e6b2d55da6a5fbff39833c87e996f7014ba4ee86483a605457748bda"}}, 0xffffff78)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+
+21:40:21 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:21 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:21 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4096, 0x1000)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0x100f)
+read(r0, &(0x7f0000006700)=""/4108, 0x77c)
+read(r0, &(0x7f00000020c0)=""/4096, 0x1000)
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+fspick(r0, &(0x7f0000000000)='./file0\x00', 0x0)
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+fspick(r0, &(0x7f0000000000)='./file0\x00', 0x0)
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000100)='hugetlbfs\x00', 0x0, &(0x7f0000000380)='n\x8adevvboxnet0mime_type,trustedposix_acl_access.vmnet0security4\x00')
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000100)=0x3d, r2, 0x0, 0xfffffffffffffffa, 0x0)
+pipe2(&(0x7f0000000200)={<r3=>0xffffffffffffffff}, 0x800)
+write(r3, &(0x7f0000000240)="947c50df75df97c12b5c14fbafe37b8441d6c4e589bdb197204840fe7863769cfa078ce3c363a861f3eed952b28b73f90d9705a6a2356399923d535c84cff262a525d903300bf3c1f37ef973ee34a97bee4a6a4ec64f2e75930690569ee489913b2d11813eff3efdb49143a0152071045768310e8c66610bb5cb495283474ffbee00a02399182fbf8483c59b395613758c9a6c826eb4393105fc8a12f464101cda847799a2783bf3149f7134349b75223b262f9411e418aa", 0xb8)
+write$binfmt_script(r2, &(0x7f0000000080)={'#! ', './file0', [{0x20, '\x1bprocvmnet1securityselinuxppp1'}, {0x20, '/proc/locks\x00'}, {0x20, 'em0'}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {}, {0x20, '/proc/locks\x00'}, {0x20, '/proc/locks\x00'}, {0x20, '{'}, {0x20, '/proc/locks\x00'}], 0xa, "38e974bc96fc3fdfbcf044571abd94ad747f8f73e0d441798009290c4aa66b9d0312fcc8a8ccb3395ed0edc55cd05b675b1c4df3df54123f1753db18e70acc43b560dff774eed9a7c0f4ace70d87d22d1adb90f21f5c37e25922e8fca47d1187b6292df9d6379ea7b9c5558b1a916e147a5e49ae10e5ed7e501aa0c47b090fbcddd6f71f3be9b2220ed5599ea92e617b9b22d79c81b4c2d3758c7b90e367ce9e75f51816927735122bfea51a2663870fe99956cd38db1cef2b358842e52aec88f33ed85c9dc9b7aa978e2b2db6c44b0c4f4c"}, 0x151)
+
+[   22.564193] hugetlbfs: Unknown parameter 'nŠdevvboxnet0mime_type'
+[   22.566077] hugetlbfs: Unknown parameter 'nŠdevvboxnet0mime_type'
+21:40:21 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000100)='hugetlbfs\x00', 0x0, &(0x7f0000000380)='n\x8adevvboxnet0mime_type,trustedposix_acl_access.vmnet0security4\x00')
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+fspick(r0, &(0x7f0000000000)='./file0\x00', 0x0)
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+fspick(r0, &(0x7f0000000000)='./file0\x00', 0x0)
+
+[   22.586774] hugetlbfs: Unknown parameter 'nŠdevvboxnet0mime_type'
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000100)='hugetlbfs\x00', 0x0, &(0x7f0000000380)='n\x8adevvboxnet0mime_type,trustedposix_acl_access.vmnet0security4\x00')
+
+[   22.596762] hugetlbfs: Unknown parameter 'nŠdevvboxnet0mime_type'
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000100)='hugetlbfs\x00', 0x0, &(0x7f0000000380)='n\x8adevvboxnet0mime_type,trustedposix_acl_access.vmnet0security4\x00')
+
+21:40:21 executing program 2:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000080)='debugfs\x00', 0x0, &(0x7f0000000300)='\x1aZ\x06\f!7_\xdb\xf5\x90\xec\xac,[\xc2\xbc\x81\xc0\xb0\xa5\xa5U\xe8\xc9\x0eD\x83\xe5\x8b\xfa\xbe\x88\xb6\xfb$\x16\a\xe0\x1bC^WK\x1bq\xc6V\xbc\x96\x16m\xae\xc5\xf27\xf7\xc1m\x05\xe4T$\xccz\xb8\x1d\xf0\\\xdeU9\xdah\x98\xe4QVq\xfb-*X\xb8.l\x8c\xd7\x85\x020tG\xe6\xf6\xb7\rr\x82\xca\xe6f\x17\xe0\x1a#0\x9eD\x10\xcd\x87~\xd4\xf9\xbem\xb7\xd7\xa7\x0e\x94\x94\'\xf3\x7f\"\xcf\xe0\xea\x85\x06S|\xea\"\xe8\x95\xb0\xeb\xa0\x93\x8etY\xd39\x8a\x19\x81\xe5\x18\xb0\xbb=\xc5Y\x94TpY\xf5\xbf\xbf\xba\xe0fG\xf6\xd8gU=\x7f\x10\xb3$\xa8\"\"\x8f\xc1\xe2\x86\xbb\xc1Y\x18\xbb4\xd8\xd6\xf3T\xa0\xef\xb6z\x11aJ\x19\x98\xea\x9c\xc2\xefw\xdd(\xb3\x7f[0L\xa1\xbew\xccm|0\x19\xa9#\x02\xa7z\x83\xa0q\v\x82:\x8a\x02\r\xc5:{Hr|3\xdd\xe4c:\x81\x9f\xe7I\x9d\x907w\x86M\x8f\x06P\xef\x8b\a\x8b)\x9fTJ\xd2[\x10\xfa\x83\x18\x94\xe2D\xcdVF\xac\xe6\x85\x87\x9a\xed1h$-\xed16\xb6\xcd;\xfb14pR\x13\x1eDI\xd1\x8b\xe3\xe7\xc1,\"?\x9cv\n6M*\xd9\xbdiS~\rk\xcfA\x80\xaf\x84\x1dn\xf0g\xe1\xeeAY\xb42\xc57\xf2]\xbb\xff(&\x0e\x93\xc8\xa37\x19@sck\xfd\\\xf9\xd4\x00w,\xbaX\xe9\x98\xe1\xa40\xc1')
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+[   22.620029] hugetlbfs: Unknown parameter 'nŠdevvboxnet0mime_type'
+21:40:21 executing program 2:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000080)='debugfs\x00', 0x0, &(0x7f0000000300)='\x1aZ\x06\f!7_\xdb\xf5\x90\xec\xac,[\xc2\xbc\x81\xc0\xb0\xa5\xa5U\xe8\xc9\x0eD\x83\xe5\x8b\xfa\xbe\x88\xb6\xfb$\x16\a\xe0\x1bC^WK\x1bq\xc6V\xbc\x96\x16m\xae\xc5\xf27\xf7\xc1m\x05\xe4T$\xccz\xb8\x1d\xf0\\\xdeU9\xdah\x98\xe4QVq\xfb-*X\xb8.l\x8c\xd7\x85\x020tG\xe6\xf6\xb7\rr\x82\xca\xe6f\x17\xe0\x1a#0\x9eD\x10\xcd\x87~\xd4\xf9\xbem\xb7\xd7\xa7\x0e\x94\x94\'\xf3\x7f\"\xcf\xe0\xea\x85\x06S|\xea\"\xe8\x95\xb0\xeb\xa0\x93\x8etY\xd39\x8a\x19\x81\xe5\x18\xb0\xbb=\xc5Y\x94TpY\xf5\xbf\xbf\xba\xe0fG\xf6\xd8gU=\x7f\x10\xb3$\xa8\"\"\x8f\xc1\xe2\x86\xbb\xc1Y\x18\xbb4\xd8\xd6\xf3T\xa0\xef\xb6z\x11aJ\x19\x98\xea\x9c\xc2\xefw\xdd(\xb3\x7f[0L\xa1\xbew\xccm|0\x19\xa9#\x02\xa7z\x83\xa0q\v\x82:\x8a\x02\r\xc5:{Hr|3\xdd\xe4c:\x81\x9f\xe7I\x9d\x907w\x86M\x8f\x06P\xef\x8b\a\x8b)\x9fTJ\xd2[\x10\xfa\x83\x18\x94\xe2D\xcdVF\xac\xe6\x85\x87\x9a\xed1h$-\xed16\xb6\xcd;\xfb14pR\x13\x1eDI\xd1\x8b\xe3\xe7\xc1,\"?\x9cv\n6M*\xd9\xbdiS~\rk\xcfA\x80\xaf\x84\x1dn\xf0g\xe1\xeeAY\xb42\xc57\xf2]\xbb\xff(&\x0e\x93\xc8\xa37\x19@sck\xfd\\\xf9\xd4\x00w,\xbaX\xe9\x98\xe1\xa40\xc1')
+
+21:40:21 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000010c0)=""/84, 0x54)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:40:21 executing program 0:
+mount(&(0x7f0000000040)=@md0='/dev/md0\x00', &(0x7f0000000100)='.\x00', &(0x7f0000000140)='msdos\x00', 0x0, &(0x7f0000000180)='\x00\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:21 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)=ANY=[@ANYBLOB="00007f00f17f000056"], 0x9)
+close(r0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+vmsplice(r1, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x1, 0x0)
+write$P9_RREADLINK(r1, &(0x7f0000000040)={0x10, 0x17, 0x0, {0x7, './file0'}}, 0x10)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:40:21 executing program 2:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000080)='debugfs\x00', 0x0, &(0x7f0000000300)='\x1aZ\x06\f!7_\xdb\xf5\x90\xec\xac,[\xc2\xbc\x81\xc0\xb0\xa5\xa5U\xe8\xc9\x0eD\x83\xe5\x8b\xfa\xbe\x88\xb6\xfb$\x16\a\xe0\x1bC^WK\x1bq\xc6V\xbc\x96\x16m\xae\xc5\xf27\xf7\xc1m\x05\xe4T$\xccz\xb8\x1d\xf0\\\xdeU9\xdah\x98\xe4QVq\xfb-*X\xb8.l\x8c\xd7\x85\x020tG\xe6\xf6\xb7\rr\x82\xca\xe6f\x17\xe0\x1a#0\x9eD\x10\xcd\x87~\xd4\xf9\xbem\xb7\xd7\xa7\x0e\x94\x94\'\xf3\x7f\"\xcf\xe0\xea\x85\x06S|\xea\"\xe8\x95\xb0\xeb\xa0\x93\x8etY\xd39\x8a\x19\x81\xe5\x18\xb0\xbb=\xc5Y\x94TpY\xf5\xbf\xbf\xba\xe0fG\xf6\xd8gU=\x7f\x10\xb3$\xa8\"\"\x8f\xc1\xe2\x86\xbb\xc1Y\x18\xbb4\xd8\xd6\xf3T\xa0\xef\xb6z\x11aJ\x19\x98\xea\x9c\xc2\xefw\xdd(\xb3\x7f[0L\xa1\xbew\xccm|0\x19\xa9#\x02\xa7z\x83\xa0q\v\x82:\x8a\x02\r\xc5:{Hr|3\xdd\xe4c:\x81\x9f\xe7I\x9d\x907w\x86M\x8f\x06P\xef\x8b\a\x8b)\x9fTJ\xd2[\x10\xfa\x83\x18\x94\xe2D\xcdVF\xac\xe6\x85\x87\x9a\xed1h$-\xed16\xb6\xcd;\xfb14pR\x13\x1eDI\xd1\x8b\xe3\xe7\xc1,\"?\x9cv\n6M*\xd9\xbdiS~\rk\xcfA\x80\xaf\x84\x1dn\xf0g\xe1\xeeAY\xb42\xc57\xf2]\xbb\xff(&\x0e\x93\xc8\xa37\x19@sck\xfd\\\xf9\xd4\x00w,\xbaX\xe9\x98\xe1\xa40\xc1')
+
+21:40:21 executing program 1:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000300)='.\x00', &(0x7f0000000340)='msdos\x00', 0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+
+[   22.648069] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)=ANY=[@ANYBLOB="00007f00f17f000056"], 0x9)
+close(r0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+vmsplice(r1, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x1, 0x0)
+write$P9_RREADLINK(r1, &(0x7f0000000040)={0x10, 0x17, 0x0, {0x7, './file0'}}, 0x10)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+[   22.652927] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 2:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000080)='debugfs\x00', 0x0, &(0x7f0000000300)='\x1aZ\x06\f!7_\xdb\xf5\x90\xec\xac,[\xc2\xbc\x81\xc0\xb0\xa5\xa5U\xe8\xc9\x0eD\x83\xe5\x8b\xfa\xbe\x88\xb6\xfb$\x16\a\xe0\x1bC^WK\x1bq\xc6V\xbc\x96\x16m\xae\xc5\xf27\xf7\xc1m\x05\xe4T$\xccz\xb8\x1d\xf0\\\xdeU9\xdah\x98\xe4QVq\xfb-*X\xb8.l\x8c\xd7\x85\x020tG\xe6\xf6\xb7\rr\x82\xca\xe6f\x17\xe0\x1a#0\x9eD\x10\xcd\x87~\xd4\xf9\xbem\xb7\xd7\xa7\x0e\x94\x94\'\xf3\x7f\"\xcf\xe0\xea\x85\x06S|\xea\"\xe8\x95\xb0\xeb\xa0\x93\x8etY\xd39\x8a\x19\x81\xe5\x18\xb0\xbb=\xc5Y\x94TpY\xf5\xbf\xbf\xba\xe0fG\xf6\xd8gU=\x7f\x10\xb3$\xa8\"\"\x8f\xc1\xe2\x86\xbb\xc1Y\x18\xbb4\xd8\xd6\xf3T\xa0\xef\xb6z\x11aJ\x19\x98\xea\x9c\xc2\xefw\xdd(\xb3\x7f[0L\xa1\xbew\xccm|0\x19\xa9#\x02\xa7z\x83\xa0q\v\x82:\x8a\x02\r\xc5:{Hr|3\xdd\xe4c:\x81\x9f\xe7I\x9d\x907w\x86M\x8f\x06P\xef\x8b\a\x8b)\x9fTJ\xd2[\x10\xfa\x83\x18\x94\xe2D\xcdVF\xac\xe6\x85\x87\x9a\xed1h$-\xed16\xb6\xcd;\xfb14pR\x13\x1eDI\xd1\x8b\xe3\xe7\xc1,\"?\x9cv\n6M*\xd9\xbdiS~\rk\xcfA\x80\xaf\x84\x1dn\xf0g\xe1\xeeAY\xb42\xc57\xf2]\xbb\xff(&\x0e\x93\xc8\xa37\x19@sck\xfd\\\xf9\xd4\x00w,\xbaX\xe9\x98\xe1\xa40\xc1')
+
+[   22.654904] FAT-fs (md0): unable to read boot sector
+[   22.657555] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 0:
+mount(&(0x7f0000000040)=@md0='/dev/md0\x00', &(0x7f0000000100)='.\x00', &(0x7f0000000140)='msdos\x00', 0x0, &(0x7f0000000180)='\x00\x00\x00\x00\x00\x00\x00\x00')
+
+[   22.665798] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)=ANY=[@ANYBLOB="00007f00f17f000056"], 0x9)
+close(r0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+vmsplice(r1, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x1, 0x0)
+write$P9_RREADLINK(r1, &(0x7f0000000040)={0x10, 0x17, 0x0, {0x7, './file0'}}, 0x10)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:40:21 executing program 2:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/timer_list\x00', 0x0, 0x0)
+
+21:40:21 executing program 0:
+mount(&(0x7f0000000040)=@md0='/dev/md0\x00', &(0x7f0000000100)='.\x00', &(0x7f0000000140)='msdos\x00', 0x0, &(0x7f0000000180)='\x00\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:21 executing program 1:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000300)='.\x00', &(0x7f0000000340)='msdos\x00', 0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+
+[   22.675055] FAT-fs (md0): unable to read boot sector
+[   22.679030] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 0:
+mount(&(0x7f0000000040)=@md0='/dev/md0\x00', &(0x7f0000000100)='.\x00', &(0x7f0000000140)='msdos\x00', 0x0, &(0x7f0000000180)='\x00\x00\x00\x00\x00\x00\x00\x00')
+
+[   22.686100] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)=ANY=[@ANYBLOB="00007f00f17f000056"], 0x9)
+close(r0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+vmsplice(r1, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x1, 0x0)
+write$P9_RREADLINK(r1, &(0x7f0000000040)={0x10, 0x17, 0x0, {0x7, './file0'}}, 0x10)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:21 executing program 1:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000300)='.\x00', &(0x7f0000000340)='msdos\x00', 0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+
+[   22.694974] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 3:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000240)=[{&(0x7f0000000040)='F', 0x1}], 0x1, 0x0)
+read(r0, &(0x7f0000001080)=""/1, 0x1)
+
+21:40:21 executing program 0:
+pipe2$9p(&(0x7f0000001100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+vmsplice(r0, &(0x7f0000001140)=[{&(0x7f00000011c0)="a7", 0x1}], 0x1, 0x0)
+
+21:40:21 executing program 1:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000300)='.\x00', &(0x7f0000000340)='msdos\x00', 0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x2b)
+
+21:40:21 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+[   22.712229] FAT-fs (md0): unable to read boot sector
+21:40:21 executing program 3:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000240)=[{&(0x7f0000000040)='F', 0x1}], 0x1, 0x0)
+read(r0, &(0x7f0000001080)=""/1, 0x1)
+
+21:40:22 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, 0x0, 0x0)
+splice(r1, &(0x7f0000000100)=0x40, r0, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 0:
+pipe2$9p(&(0x7f0000001100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+vmsplice(r0, &(0x7f0000001140)=[{&(0x7f00000011c0)="a7", 0x1}], 0x1, 0x0)
+
+21:40:22 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, 0x0, 0x0)
+splice(r1, &(0x7f0000000100)=0x40, r0, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 0:
+pipe2$9p(&(0x7f0000001100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+vmsplice(r0, &(0x7f0000001140)=[{&(0x7f00000011c0)="a7", 0x1}], 0x1, 0x0)
+
+21:40:22 executing program 3:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000240)=[{&(0x7f0000000040)='F', 0x1}], 0x1, 0x0)
+read(r0, &(0x7f0000001080)=""/1, 0x1)
+
+21:40:22 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, 0x0, 0x0)
+splice(r1, &(0x7f0000000100)=0x40, r0, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, 0x0, 0x0)
+splice(r1, &(0x7f0000000100)=0x40, r0, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:22 executing program 0:
+pipe2$9p(&(0x7f0000001100)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+vmsplice(r0, &(0x7f0000001140)=[{&(0x7f00000011c0)="a7", 0x1}], 0x1, 0x0)
+
+21:40:22 executing program 3:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000240)=[{&(0x7f0000000040)='F', 0x1}], 0x1, 0x0)
+read(r0, &(0x7f0000001080)=""/1, 0x1)
+
+21:40:22 executing program 1:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/102374, 0x18fe6)
+read(r0, &(0x7f0000000080)=""/4111, 0x105e)
+read(r0, &(0x7f000001a100)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 1:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/102374, 0x18fe6)
+read(r0, &(0x7f0000000080)=""/4111, 0x105e)
+read(r0, &(0x7f000001a100)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=ANY=[], &(0x7f0000000000)='.\x00', 0x0, 0xa50c6, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:22 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/102374, 0x18fe6)
+read(r0, &(0x7f0000000080)=""/4111, 0x105e)
+read(r0, &(0x7f000001a100)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f00000036c0)=""/4128, 0x8be)
+read(r0, &(0x7f0000001bc0)=""/246, 0xf6)
+
+21:40:22 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+splice(r1, &(0x7f0000000100), r0, 0x0, 0xff, 0x0)
+
+21:40:22 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:40:22 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+splice(r1, &(0x7f0000000100), r0, 0x0, 0xff, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:40:22 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/102374, 0x18fe6)
+read(r0, &(0x7f0000000080)=""/4111, 0x105e)
+read(r0, &(0x7f000001a100)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:40:22 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+splice(r1, &(0x7f0000000100), r0, 0x0, 0xff, 0x0)
+
+21:40:22 executing program 3:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r0, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0)
+write$P9_RRENAMEAT(0xffffffffffffffff, &(0x7f00000000c0)={0x7}, 0x7)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:40:22 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+splice(r1, &(0x7f0000000100), r0, 0x0, 0xff, 0x0)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:40:22 executing program 0:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000080)='debugfs\x00', 0x0, 0x0)
+
+21:40:22 executing program 2:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000000)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x0)
+r3 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmallocinfo\x00', 0x0, 0x0)
+splice(r3, &(0x7f0000000100)=0x80000000000040, r2, 0x0, 0xfffffffffffffffa, 0x0)
+splice(r1, 0x0, r0, 0x0, 0x3, 0x0)
+write$binfmt_script(r2, &(0x7f0000000140)=ANY=[@ANYBLOB="2321202e2f66696c6530202f70726f632f766d616c6c6f63696e666f00202f70726f632f766d616c6c5f63696e666f00202f70726f632f766d616c6c6f63696e666f00202f70726f632f766d616c6c6f63696e666f000a05b21413ddceda942680382a41ccb8fe23ab07885d801da15da02949a52a72630fda644c6d91b75d0eeaa0383e6ad5c22fd0d204e7bd786d0ba3d04f935da4f80077c82633a712a6a879216e51d14261f5aea1af69cc86c6a47abf970dd4e5ef195ab1b0854049f37648435d16deb940fcb6d2229eacf0c53532ec71b11d9b51e7076ca85d9f9297a0fec26abedc41935bd6ffe529909e98ffea789cf9148ebd12ac042b161e8c098f7dd2678053cd25b259947feb5f5662528c85eaf22af93ae38de04bfe0633be36c3ce426ff4c3015a1a789466d21a92e4cbf2421d805085"], 0x137)
+
+21:40:22 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:22 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x955c68, 0x0)
+
+21:40:22 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x955c68, 0x0)
+
+21:40:22 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000000)='tracefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+
+21:40:22 executing program 2:
+pipe(&(0x7f00000002c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000002100)=""/4111, 0x100f)
+read(r0, &(0x7f0000000080)=""/243, 0xf3)
+vmsplice(r1, &(0x7f0000000040)=[{&(0x7f0000000000)="8b", 0x1}], 0x1, 0x0)
+
+21:40:23 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x955c68, 0x0)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000000)='tracefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+
+21:40:23 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', 0x0, 0x955c68, 0x0)
+
+21:40:23 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000000)='tracefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+
+21:40:23 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000000)='tracefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+
+21:40:23 executing program 2:
+pipe(&(0x7f00000002c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000002100)=""/4111, 0x100f)
+read(r0, &(0x7f0000000080)=""/243, 0xf3)
+vmsplice(r1, &(0x7f0000000040)=[{&(0x7f0000000000)="8b", 0x1}], 0x1, 0x0)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:23 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:23 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:23 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:24 executing program 2:
+pipe(&(0x7f00000002c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000002100)=""/4111, 0x100f)
+read(r0, &(0x7f0000000080)=""/243, 0xf3)
+vmsplice(r1, &(0x7f0000000040)=[{&(0x7f0000000000)="8b", 0x1}], 0x1, 0x0)
+
+21:40:24 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:24 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:24 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+21:40:24 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='sysfs\x00', 0x0, 0x0)
+umount2(&(0x7f0000000000)='.\x00', 0x0)
+
+21:40:24 executing program 3:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="02000000000070267a780000020000007f"], 0x11)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+[   25.443148] rpcbind: RPC call returned error 13
+[   25.446637] rpcbind: RPC call returned error 13
+21:40:24 executing program 3:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="02000000000070267a780000020000007f"], 0x11)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+[   25.459257] rpcbind: RPC call returned error 13
+21:40:24 executing program 3:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="02000000000070267a780000020000007f"], 0x11)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+[   25.473418] rpcbind: RPC call returned error 13
+21:40:25 executing program 2:
+pipe(&(0x7f00000002c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+read(r0, &(0x7f0000002100)=""/4111, 0x100f)
+read(r0, &(0x7f0000000080)=""/243, 0xf3)
+vmsplice(r1, &(0x7f0000000040)=[{&(0x7f0000000000)="8b", 0x1}], 0x1, 0x0)
+
+21:40:25 executing program 0:
+write$P9_RREADDIR(0xffffffffffffffff, &(0x7f0000000140)=ANY=[@ANYBLOB="87000000290000000000000000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c653040000000000000000000000005000000ffffffff"], 0x7c)
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:25 executing program 3:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="02000000000070267a780000020000007f"], 0x11)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:25 executing program 1:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+[   26.232565] rpcbind: RPC call returned error 13
+21:40:25 executing program 1:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:25 executing program 3:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:25 executing program 0:
+write$P9_RREADDIR(0xffffffffffffffff, &(0x7f0000000140)=ANY=[@ANYBLOB="87000000290000000000000000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c653040000000000000000000000005000000ffffffff"], 0x7c)
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:25 executing program 1:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:26 executing program 3:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:26 executing program 0:
+write$P9_RREADDIR(0xffffffffffffffff, &(0x7f0000000140)=ANY=[@ANYBLOB="87000000290000000000000000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c653040000000000000000000000005000000ffffffff"], 0x7c)
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:26 executing program 1:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:26 executing program 2:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000040)='nfs\x00', 0x0, &(0x7f0000000540)='\x05\x00\x00\x00\x10\x16\x00\'\x1a\xcb\xca\xfanQ\xb2{\xbf\x93\x7f\a88F\xdbMH\xccrn$O\xe979\xfc;mX\xda\xd4\x81y\xbc\x8e\x83\xec\xb0O\xcd,#2\xe6\xfd\ty\xad0\xc0o\xc2\x8e\xa5\xff\t\x13\x8a\x90F\x05\x170\x1b\xff\xc2\tT\f\xef\xeda\x18h\a\x97\xe0xf\x1b\x1buj\x19+\x80`\r\xccpJ<\x1bb\xd5X\xe5\xf2)=q\x12\x13\xdc\x96M\x05\xe4\x113\x93Vsv\x9fk6Y\xbe\xf3\x80\x8fM\x05\xd1]\bk\xd0\x97\a\xdf2Q\x9aT[\xa4\xf5&\x12\x01\xfb\xca\x90t\xb4\xef\xafT\xf4\xda\x83l\x11\xf9\x06,\xacb$Z\x9b\x1d\x8a\xb5\xba\xfau\x12`~A\xc4%\x13{\xc2\xbf\xd6_\x9b\xd0\x9f\xc3\xf9\xc6\xc4\x11T^\rYl\xc0\xd0\x1f\xbfO \xf2Df\xef\xf3_\x1bg\xb6\f:\x9e\x8c\xdd-L\xfc$\xf0\x8eh\xb2\xcd\xd9\x01\xc1\v\xc2\xd9U=\xce\xdbp\x92H\x03j?&\xc4>\x88:iP\xa2\xf1\x8etp \xc1\x81T\xdb\x18\x05\xda\xea\xfa\x15\x8d\xaf\xecs\x05\x9f.>\xfc\xa6r9t*\xc7)\xba\xbb\xdc\bC<\xd9\x9de\x9f\xc2&t\xe3\xbc;\xdb\xfe2\t*\xe4\xc7\x02\xe9\xb3\xd5\xce\xb6\b\x95\x95\xbeSp\xdd\xaf\xddZ\xda\x04\x03_\x7f\xfb\x1c\x12\x99\x05\x9a\x98\xfaFr\xf4$\x02\xef\xfe\xda\xf6_/\xd5D\x02\x00\x17\xeb\x01\x00\x00\x000|\xd1\x96\xdb9$\xb9\x86\xdf\xe2m\xa9\xfe6\x7f\xf7b\"\x10\x18\x9f\xb2\x9f\xc2S\xf6\"\xfe\xae\t\x9e/R\x8c+\x03s)\xe2&)wi\xf3\xc5Up\xf3\x13\x12,\x7f\xf9^N\xb3\xe8nmnxG\x8f\xfd\xc2\x93\x91\xac\xbdr\xb3\x88\xfa\xe2m\xff\xe6/\xe1%\xfe\xef\x02L\xc1\xf5\xc1\x15\\\xe2\x14\xb9p*\xdc\x7f\xd2!\xb7\x0e\xa6\xb1r\xcc\xe6\x82\xb88\xd9\x82\x93h\x83\xc5\xf4\xcf\x84\xcb\xd6i\xab\xc2.>K\xbd\\\x10j\xe5n5\x1e\xf3\x8df\x15\xa1\xccWCt\x06E\xe6\x1a\xe0\xdc\x1d1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00x\x7f\xd5\xac\xfa\v:\xcc*\xf09\x82\xda\xd3\xc7\xbbz6\x8c1\x1eK*\x108w\x16\x96\x1f%/OY\x89Q\xdd,z\xaa\x1fy\xcd\xf2QR\xd3H\xbd\x9f\xd8\xc2U\xbb\x15\x15|/\xc4N\aw\xd2\xc3m$\x92\x14\x14\x7fl\v\x04\xf7\xf0a\xb2\xef|}\xcf\x0e\x19]\x16\b\xb0\x16C\x93\x9e\x16\x9fP\xc2\x8a\xeemB\x94\xd3w\xa7\xfc\xd7 N\x95\x05\xaf\xba\"\xf7\xd8i\x15\xa5\x17Y\x935Htk\x19\xf6\xb1\x18\x9eA\xec:\xec\xe7\x86\x12\xf3\xe4+\x17G\xbfR\x84\xcbl\x18o\xd6\x16\x89HA\x1c\x97\x1a\xc1w\b\x0e\x05\xa9\xe6\x04dVM\xb6\xba\xcf\x0f\xaa)\xe7\x17u\x1f\xdeV2\x9b\x95\xa6\x9f/\xdb4w`\x13r\xa5i\xd2au\xeb\x01\xf0q\xc6\xd8-\xc7\b\x9a\xb7c\"\xaa\xa20\xa3\xe9\x1f`2\x9f-\x19\xa4(\xb1\xf6\xb8ze\xefsuU\x1d\x9d\xa1\x83?C\x1a\xe4\x89\x03\x87\x9d*\xc6\xe5\x83\xd1#\xb5znF7ga\x13\xd3\xbd\xd6r\"\xb4\x9a\x1e\t\x1f\xe9D\xa9\x8c\xe2\xd9\xf5\xed\xcf\xebl\x03?\xa4\xcf[\xee\xbe\xce\xcfJ\x82{S\x96\xfb\xef~\xfah>_\t\x0eq\xa7\"D\x00\x1c\xd8=t\xba\tv\\\xce}\x8c\x84\xb7\xc4M\x85\x04p\xcb\xa8\xbcR\xca\xc2\xe4\x15\x83\xd1\xa7\x1a\xa3\x9c\xb0\x9d\xc2C\xf7\xd2~\x89r\x8b\nw\x12\xfa\x04\xed\xe1\x8e\xea\t\x12a\xd2\x89\x13z{)\xdfH\xca#K/\xeeb\x86\xb8\xa6\x10\xf2!\x85\xa4\xde\xc4\t?U\xe6\xf4\x8dL\xed\x03\xb79\x82\xc4\xb6\x9d-\xa1 9\xe3\xe1m\x80\x890\xb1!\xaeW\xa1R\xeb\xdcS\xc1b-\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x96\xcb\xd1\xbc\x88c\x8f\xddi\x84%\x03N\x87\xe5Z\xc3\xc1M\xc0\xb3\x9c\x0e\xf5A\xd7\xee\xf4wE\x86*\x9b|\x01\xfd\x9b\t\xa7\xcb\xdaO;\x84\xaf\x96\x99\x17\xb9;\xdd.;\x1d\xd0\xb4^\xb8r|\xe8\xe2It5\x96\x93<Ae\x13\"\xc7\x03e\x9d\x8bp\xc1D\xd9\xcf\xd6\xb4\x02\x8b\x8b\x03\xb2\x7fS\xbd\xc8\xc6\xd4\xbb\xe3\xaa\xc3\xc4\x1d\xe8\xde5\xfb\xc7\x17\xae~\xc7\xbf\xdd\x15\xa8r\xbeE\xd0\xd0\xba\xf0\x18\xdc@\x00]X}C%W\x8fs\xeb\x86\x8fA\xe5\xc8\xc5\x05\xda\x1d\xc5\xb3\xf7\x1f\xf5\xb2\x1d\x98]\xa5n\xd5\x1d\xd2<\xcf\xe0\x8e!\xe3\xb7\x01\x88!*\x9cBJ^w3l\x16\x83\xbc\x81KW\x06\xcb\xcd\xfd(\x06j\xfc\r\x85\xaax\x9c4\xd5\xd5A)\xfdw\xa22.\xd2i')
+
+21:40:26 executing program 3:
+r0 = fsopen(&(0x7f00000004c0)='nfs4\x00', 0x0)
+pipe2(&(0x7f00000005c0)={<r1=>0xffffffffffffffff}, 0x0)
+splice(r1, &(0x7f0000000600), r0, 0x0, 0x5, 0x0)
+
+21:40:26 executing program 2:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000040)='nfs\x00', 0x0, &(0x7f0000000540)='\x05\x00\x00\x00\x10\x16\x00\'\x1a\xcb\xca\xfanQ\xb2{\xbf\x93\x7f\a88F\xdbMH\xccrn$O\xe979\xfc;mX\xda\xd4\x81y\xbc\x8e\x83\xec\xb0O\xcd,#2\xe6\xfd\ty\xad0\xc0o\xc2\x8e\xa5\xff\t\x13\x8a\x90F\x05\x170\x1b\xff\xc2\tT\f\xef\xeda\x18h\a\x97\xe0xf\x1b\x1buj\x19+\x80`\r\xccpJ<\x1bb\xd5X\xe5\xf2)=q\x12\x13\xdc\x96M\x05\xe4\x113\x93Vsv\x9fk6Y\xbe\xf3\x80\x8fM\x05\xd1]\bk\xd0\x97\a\xdf2Q\x9aT[\xa4\xf5&\x12\x01\xfb\xca\x90t\xb4\xef\xafT\xf4\xda\x83l\x11\xf9\x06,\xacb$Z\x9b\x1d\x8a\xb5\xba\xfau\x12`~A\xc4%\x13{\xc2\xbf\xd6_\x9b\xd0\x9f\xc3\xf9\xc6\xc4\x11T^\rYl\xc0\xd0\x1f\xbfO \xf2Df\xef\xf3_\x1bg\xb6\f:\x9e\x8c\xdd-L\xfc$\xf0\x8eh\xb2\xcd\xd9\x01\xc1\v\xc2\xd9U=\xce\xdbp\x92H\x03j?&\xc4>\x88:iP\xa2\xf1\x8etp \xc1\x81T\xdb\x18\x05\xda\xea\xfa\x15\x8d\xaf\xecs\x05\x9f.>\xfc\xa6r9t*\xc7)\xba\xbb\xdc\bC<\xd9\x9de\x9f\xc2&t\xe3\xbc;\xdb\xfe2\t*\xe4\xc7\x02\xe9\xb3\xd5\xce\xb6\b\x95\x95\xbeSp\xdd\xaf\xddZ\xda\x04\x03_\x7f\xfb\x1c\x12\x99\x05\x9a\x98\xfaFr\xf4$\x02\xef\xfe\xda\xf6_/\xd5D\x02\x00\x17\xeb\x01\x00\x00\x000|\xd1\x96\xdb9$\xb9\x86\xdf\xe2m\xa9\xfe6\x7f\xf7b\"\x10\x18\x9f\xb2\x9f\xc2S\xf6\"\xfe\xae\t\x9e/R\x8c+\x03s)\xe2&)wi\xf3\xc5Up\xf3\x13\x12,\x7f\xf9^N\xb3\xe8nmnxG\x8f\xfd\xc2\x93\x91\xac\xbdr\xb3\x88\xfa\xe2m\xff\xe6/\xe1%\xfe\xef\x02L\xc1\xf5\xc1\x15\\\xe2\x14\xb9p*\xdc\x7f\xd2!\xb7\x0e\xa6\xb1r\xcc\xe6\x82\xb88\xd9\x82\x93h\x83\xc5\xf4\xcf\x84\xcb\xd6i\xab\xc2.>K\xbd\\\x10j\xe5n5\x1e\xf3\x8df\x15\xa1\xccWCt\x06E\xe6\x1a\xe0\xdc\x1d1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00x\x7f\xd5\xac\xfa\v:\xcc*\xf09\x82\xda\xd3\xc7\xbbz6\x8c1\x1eK*\x108w\x16\x96\x1f%/OY\x89Q\xdd,z\xaa\x1fy\xcd\xf2QR\xd3H\xbd\x9f\xd8\xc2U\xbb\x15\x15|/\xc4N\aw\xd2\xc3m$\x92\x14\x14\x7fl\v\x04\xf7\xf0a\xb2\xef|}\xcf\x0e\x19]\x16\b\xb0\x16C\x93\x9e\x16\x9fP\xc2\x8a\xeemB\x94\xd3w\xa7\xfc\xd7 N\x95\x05\xaf\xba\"\xf7\xd8i\x15\xa5\x17Y\x935Htk\x19\xf6\xb1\x18\x9eA\xec:\xec\xe7\x86\x12\xf3\xe4+\x17G\xbfR\x84\xcbl\x18o\xd6\x16\x89HA\x1c\x97\x1a\xc1w\b\x0e\x05\xa9\xe6\x04dVM\xb6\xba\xcf\x0f\xaa)\xe7\x17u\x1f\xdeV2\x9b\x95\xa6\x9f/\xdb4w`\x13r\xa5i\xd2au\xeb\x01\xf0q\xc6\xd8-\xc7\b\x9a\xb7c\"\xaa\xa20\xa3\xe9\x1f`2\x9f-\x19\xa4(\xb1\xf6\xb8ze\xefsuU\x1d\x9d\xa1\x83?C\x1a\xe4\x89\x03\x87\x9d*\xc6\xe5\x83\xd1#\xb5znF7ga\x13\xd3\xbd\xd6r\"\xb4\x9a\x1e\t\x1f\xe9D\xa9\x8c\xe2\xd9\xf5\xed\xcf\xebl\x03?\xa4\xcf[\xee\xbe\xce\xcfJ\x82{S\x96\xfb\xef~\xfah>_\t\x0eq\xa7\"D\x00\x1c\xd8=t\xba\tv\\\xce}\x8c\x84\xb7\xc4M\x85\x04p\xcb\xa8\xbcR\xca\xc2\xe4\x15\x83\xd1\xa7\x1a\xa3\x9c\xb0\x9d\xc2C\xf7\xd2~\x89r\x8b\nw\x12\xfa\x04\xed\xe1\x8e\xea\t\x12a\xd2\x89\x13z{)\xdfH\xca#K/\xeeb\x86\xb8\xa6\x10\xf2!\x85\xa4\xde\xc4\t?U\xe6\xf4\x8dL\xed\x03\xb79\x82\xc4\xb6\x9d-\xa1 9\xe3\xe1m\x80\x890\xb1!\xaeW\xa1R\xeb\xdcS\xc1b-\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x96\xcb\xd1\xbc\x88c\x8f\xddi\x84%\x03N\x87\xe5Z\xc3\xc1M\xc0\xb3\x9c\x0e\xf5A\xd7\xee\xf4wE\x86*\x9b|\x01\xfd\x9b\t\xa7\xcb\xdaO;\x84\xaf\x96\x99\x17\xb9;\xdd.;\x1d\xd0\xb4^\xb8r|\xe8\xe2It5\x96\x93<Ae\x13\"\xc7\x03e\x9d\x8bp\xc1D\xd9\xcf\xd6\xb4\x02\x8b\x8b\x03\xb2\x7fS\xbd\xc8\xc6\xd4\xbb\xe3\xaa\xc3\xc4\x1d\xe8\xde5\xfb\xc7\x17\xae~\xc7\xbf\xdd\x15\xa8r\xbeE\xd0\xd0\xba\xf0\x18\xdc@\x00]X}C%W\x8fs\xeb\x86\x8fA\xe5\xc8\xc5\x05\xda\x1d\xc5\xb3\xf7\x1f\xf5\xb2\x1d\x98]\xa5n\xd5\x1d\xd2<\xcf\xe0\x8e!\xe3\xb7\x01\x88!*\x9cBJ^w3l\x16\x83\xbc\x81KW\x06\xcb\xcd\xfd(\x06j\xfc\r\x85\xaax\x9c4\xd5\xd5A)\xfdw\xa22.\xd2i')
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 1:
+fsconfig$FSCONFIG_SET_FLAG(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 0:
+write$P9_RREADDIR(0xffffffffffffffff, &(0x7f0000000140)=ANY=[@ANYBLOB="87000000290000000000000000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c65300000000000000000000000000000000000000000000007002e2f66696c653040000000000000000000000005000000ffffffff"], 0x7c)
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 1:
+fsconfig$FSCONFIG_SET_FLAG(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+
+21:40:26 executing program 2:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000040)='nfs\x00', 0x0, &(0x7f0000000540)='\x05\x00\x00\x00\x10\x16\x00\'\x1a\xcb\xca\xfanQ\xb2{\xbf\x93\x7f\a88F\xdbMH\xccrn$O\xe979\xfc;mX\xda\xd4\x81y\xbc\x8e\x83\xec\xb0O\xcd,#2\xe6\xfd\ty\xad0\xc0o\xc2\x8e\xa5\xff\t\x13\x8a\x90F\x05\x170\x1b\xff\xc2\tT\f\xef\xeda\x18h\a\x97\xe0xf\x1b\x1buj\x19+\x80`\r\xccpJ<\x1bb\xd5X\xe5\xf2)=q\x12\x13\xdc\x96M\x05\xe4\x113\x93Vsv\x9fk6Y\xbe\xf3\x80\x8fM\x05\xd1]\bk\xd0\x97\a\xdf2Q\x9aT[\xa4\xf5&\x12\x01\xfb\xca\x90t\xb4\xef\xafT\xf4\xda\x83l\x11\xf9\x06,\xacb$Z\x9b\x1d\x8a\xb5\xba\xfau\x12`~A\xc4%\x13{\xc2\xbf\xd6_\x9b\xd0\x9f\xc3\xf9\xc6\xc4\x11T^\rYl\xc0\xd0\x1f\xbfO \xf2Df\xef\xf3_\x1bg\xb6\f:\x9e\x8c\xdd-L\xfc$\xf0\x8eh\xb2\xcd\xd9\x01\xc1\v\xc2\xd9U=\xce\xdbp\x92H\x03j?&\xc4>\x88:iP\xa2\xf1\x8etp \xc1\x81T\xdb\x18\x05\xda\xea\xfa\x15\x8d\xaf\xecs\x05\x9f.>\xfc\xa6r9t*\xc7)\xba\xbb\xdc\bC<\xd9\x9de\x9f\xc2&t\xe3\xbc;\xdb\xfe2\t*\xe4\xc7\x02\xe9\xb3\xd5\xce\xb6\b\x95\x95\xbeSp\xdd\xaf\xddZ\xda\x04\x03_\x7f\xfb\x1c\x12\x99\x05\x9a\x98\xfaFr\xf4$\x02\xef\xfe\xda\xf6_/\xd5D\x02\x00\x17\xeb\x01\x00\x00\x000|\xd1\x96\xdb9$\xb9\x86\xdf\xe2m\xa9\xfe6\x7f\xf7b\"\x10\x18\x9f\xb2\x9f\xc2S\xf6\"\xfe\xae\t\x9e/R\x8c+\x03s)\xe2&)wi\xf3\xc5Up\xf3\x13\x12,\x7f\xf9^N\xb3\xe8nmnxG\x8f\xfd\xc2\x93\x91\xac\xbdr\xb3\x88\xfa\xe2m\xff\xe6/\xe1%\xfe\xef\x02L\xc1\xf5\xc1\x15\\\xe2\x14\xb9p*\xdc\x7f\xd2!\xb7\x0e\xa6\xb1r\xcc\xe6\x82\xb88\xd9\x82\x93h\x83\xc5\xf4\xcf\x84\xcb\xd6i\xab\xc2.>K\xbd\\\x10j\xe5n5\x1e\xf3\x8df\x15\xa1\xccWCt\x06E\xe6\x1a\xe0\xdc\x1d1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00x\x7f\xd5\xac\xfa\v:\xcc*\xf09\x82\xda\xd3\xc7\xbbz6\x8c1\x1eK*\x108w\x16\x96\x1f%/OY\x89Q\xdd,z\xaa\x1fy\xcd\xf2QR\xd3H\xbd\x9f\xd8\xc2U\xbb\x15\x15|/\xc4N\aw\xd2\xc3m$\x92\x14\x14\x7fl\v\x04\xf7\xf0a\xb2\xef|}\xcf\x0e\x19]\x16\b\xb0\x16C\x93\x9e\x16\x9fP\xc2\x8a\xeemB\x94\xd3w\xa7\xfc\xd7 N\x95\x05\xaf\xba\"\xf7\xd8i\x15\xa5\x17Y\x935Htk\x19\xf6\xb1\x18\x9eA\xec:\xec\xe7\x86\x12\xf3\xe4+\x17G\xbfR\x84\xcbl\x18o\xd6\x16\x89HA\x1c\x97\x1a\xc1w\b\x0e\x05\xa9\xe6\x04dVM\xb6\xba\xcf\x0f\xaa)\xe7\x17u\x1f\xdeV2\x9b\x95\xa6\x9f/\xdb4w`\x13r\xa5i\xd2au\xeb\x01\xf0q\xc6\xd8-\xc7\b\x9a\xb7c\"\xaa\xa20\xa3\xe9\x1f`2\x9f-\x19\xa4(\xb1\xf6\xb8ze\xefsuU\x1d\x9d\xa1\x83?C\x1a\xe4\x89\x03\x87\x9d*\xc6\xe5\x83\xd1#\xb5znF7ga\x13\xd3\xbd\xd6r\"\xb4\x9a\x1e\t\x1f\xe9D\xa9\x8c\xe2\xd9\xf5\xed\xcf\xebl\x03?\xa4\xcf[\xee\xbe\xce\xcfJ\x82{S\x96\xfb\xef~\xfah>_\t\x0eq\xa7\"D\x00\x1c\xd8=t\xba\tv\\\xce}\x8c\x84\xb7\xc4M\x85\x04p\xcb\xa8\xbcR\xca\xc2\xe4\x15\x83\xd1\xa7\x1a\xa3\x9c\xb0\x9d\xc2C\xf7\xd2~\x89r\x8b\nw\x12\xfa\x04\xed\xe1\x8e\xea\t\x12a\xd2\x89\x13z{)\xdfH\xca#K/\xeeb\x86\xb8\xa6\x10\xf2!\x85\xa4\xde\xc4\t?U\xe6\xf4\x8dL\xed\x03\xb79\x82\xc4\xb6\x9d-\xa1 9\xe3\xe1m\x80\x890\xb1!\xaeW\xa1R\xeb\xdcS\xc1b-\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x96\xcb\xd1\xbc\x88c\x8f\xddi\x84%\x03N\x87\xe5Z\xc3\xc1M\xc0\xb3\x9c\x0e\xf5A\xd7\xee\xf4wE\x86*\x9b|\x01\xfd\x9b\t\xa7\xcb\xdaO;\x84\xaf\x96\x99\x17\xb9;\xdd.;\x1d\xd0\xb4^\xb8r|\xe8\xe2It5\x96\x93<Ae\x13\"\xc7\x03e\x9d\x8bp\xc1D\xd9\xcf\xd6\xb4\x02\x8b\x8b\x03\xb2\x7fS\xbd\xc8\xc6\xd4\xbb\xe3\xaa\xc3\xc4\x1d\xe8\xde5\xfb\xc7\x17\xae~\xc7\xbf\xdd\x15\xa8r\xbeE\xd0\xd0\xba\xf0\x18\xdc@\x00]X}C%W\x8fs\xeb\x86\x8fA\xe5\xc8\xc5\x05\xda\x1d\xc5\xb3\xf7\x1f\xf5\xb2\x1d\x98]\xa5n\xd5\x1d\xd2<\xcf\xe0\x8e!\xe3\xb7\x01\x88!*\x9cBJ^w3l\x16\x83\xbc\x81KW\x06\xcb\xcd\xfd(\x06j\xfc\r\x85\xaax\x9c4\xd5\xd5A)\xfdw\xa22.\xd2i')
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 0:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 1:
+fsconfig$FSCONFIG_SET_FLAG(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+
+21:40:26 executing program 0:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 2:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000040)='nfs\x00', 0x0, &(0x7f0000000540)='\x05\x00\x00\x00\x10\x16\x00\'\x1a\xcb\xca\xfanQ\xb2{\xbf\x93\x7f\a88F\xdbMH\xccrn$O\xe979\xfc;mX\xda\xd4\x81y\xbc\x8e\x83\xec\xb0O\xcd,#2\xe6\xfd\ty\xad0\xc0o\xc2\x8e\xa5\xff\t\x13\x8a\x90F\x05\x170\x1b\xff\xc2\tT\f\xef\xeda\x18h\a\x97\xe0xf\x1b\x1buj\x19+\x80`\r\xccpJ<\x1bb\xd5X\xe5\xf2)=q\x12\x13\xdc\x96M\x05\xe4\x113\x93Vsv\x9fk6Y\xbe\xf3\x80\x8fM\x05\xd1]\bk\xd0\x97\a\xdf2Q\x9aT[\xa4\xf5&\x12\x01\xfb\xca\x90t\xb4\xef\xafT\xf4\xda\x83l\x11\xf9\x06,\xacb$Z\x9b\x1d\x8a\xb5\xba\xfau\x12`~A\xc4%\x13{\xc2\xbf\xd6_\x9b\xd0\x9f\xc3\xf9\xc6\xc4\x11T^\rYl\xc0\xd0\x1f\xbfO \xf2Df\xef\xf3_\x1bg\xb6\f:\x9e\x8c\xdd-L\xfc$\xf0\x8eh\xb2\xcd\xd9\x01\xc1\v\xc2\xd9U=\xce\xdbp\x92H\x03j?&\xc4>\x88:iP\xa2\xf1\x8etp \xc1\x81T\xdb\x18\x05\xda\xea\xfa\x15\x8d\xaf\xecs\x05\x9f.>\xfc\xa6r9t*\xc7)\xba\xbb\xdc\bC<\xd9\x9de\x9f\xc2&t\xe3\xbc;\xdb\xfe2\t*\xe4\xc7\x02\xe9\xb3\xd5\xce\xb6\b\x95\x95\xbeSp\xdd\xaf\xddZ\xda\x04\x03_\x7f\xfb\x1c\x12\x99\x05\x9a\x98\xfaFr\xf4$\x02\xef\xfe\xda\xf6_/\xd5D\x02\x00\x17\xeb\x01\x00\x00\x000|\xd1\x96\xdb9$\xb9\x86\xdf\xe2m\xa9\xfe6\x7f\xf7b\"\x10\x18\x9f\xb2\x9f\xc2S\xf6\"\xfe\xae\t\x9e/R\x8c+\x03s)\xe2&)wi\xf3\xc5Up\xf3\x13\x12,\x7f\xf9^N\xb3\xe8nmnxG\x8f\xfd\xc2\x93\x91\xac\xbdr\xb3\x88\xfa\xe2m\xff\xe6/\xe1%\xfe\xef\x02L\xc1\xf5\xc1\x15\\\xe2\x14\xb9p*\xdc\x7f\xd2!\xb7\x0e\xa6\xb1r\xcc\xe6\x82\xb88\xd9\x82\x93h\x83\xc5\xf4\xcf\x84\xcb\xd6i\xab\xc2.>K\xbd\\\x10j\xe5n5\x1e\xf3\x8df\x15\xa1\xccWCt\x06E\xe6\x1a\xe0\xdc\x1d1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x14\x00x\x7f\xd5\xac\xfa\v:\xcc*\xf09\x82\xda\xd3\xc7\xbbz6\x8c1\x1eK*\x108w\x16\x96\x1f%/OY\x89Q\xdd,z\xaa\x1fy\xcd\xf2QR\xd3H\xbd\x9f\xd8\xc2U\xbb\x15\x15|/\xc4N\aw\xd2\xc3m$\x92\x14\x14\x7fl\v\x04\xf7\xf0a\xb2\xef|}\xcf\x0e\x19]\x16\b\xb0\x16C\x93\x9e\x16\x9fP\xc2\x8a\xeemB\x94\xd3w\xa7\xfc\xd7 N\x95\x05\xaf\xba\"\xf7\xd8i\x15\xa5\x17Y\x935Htk\x19\xf6\xb1\x18\x9eA\xec:\xec\xe7\x86\x12\xf3\xe4+\x17G\xbfR\x84\xcbl\x18o\xd6\x16\x89HA\x1c\x97\x1a\xc1w\b\x0e\x05\xa9\xe6\x04dVM\xb6\xba\xcf\x0f\xaa)\xe7\x17u\x1f\xdeV2\x9b\x95\xa6\x9f/\xdb4w`\x13r\xa5i\xd2au\xeb\x01\xf0q\xc6\xd8-\xc7\b\x9a\xb7c\"\xaa\xa20\xa3\xe9\x1f`2\x9f-\x19\xa4(\xb1\xf6\xb8ze\xefsuU\x1d\x9d\xa1\x83?C\x1a\xe4\x89\x03\x87\x9d*\xc6\xe5\x83\xd1#\xb5znF7ga\x13\xd3\xbd\xd6r\"\xb4\x9a\x1e\t\x1f\xe9D\xa9\x8c\xe2\xd9\xf5\xed\xcf\xebl\x03?\xa4\xcf[\xee\xbe\xce\xcfJ\x82{S\x96\xfb\xef~\xfah>_\t\x0eq\xa7\"D\x00\x1c\xd8=t\xba\tv\\\xce}\x8c\x84\xb7\xc4M\x85\x04p\xcb\xa8\xbcR\xca\xc2\xe4\x15\x83\xd1\xa7\x1a\xa3\x9c\xb0\x9d\xc2C\xf7\xd2~\x89r\x8b\nw\x12\xfa\x04\xed\xe1\x8e\xea\t\x12a\xd2\x89\x13z{)\xdfH\xca#K/\xeeb\x86\xb8\xa6\x10\xf2!\x85\xa4\xde\xc4\t?U\xe6\xf4\x8dL\xed\x03\xb79\x82\xc4\xb6\x9d-\xa1 9\xe3\xe1m\x80\x890\xb1!\xaeW\xa1R\xeb\xdcS\xc1b-\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x96\xcb\xd1\xbc\x88c\x8f\xddi\x84%\x03N\x87\xe5Z\xc3\xc1M\xc0\xb3\x9c\x0e\xf5A\xd7\xee\xf4wE\x86*\x9b|\x01\xfd\x9b\t\xa7\xcb\xdaO;\x84\xaf\x96\x99\x17\xb9;\xdd.;\x1d\xd0\xb4^\xb8r|\xe8\xe2It5\x96\x93<Ae\x13\"\xc7\x03e\x9d\x8bp\xc1D\xd9\xcf\xd6\xb4\x02\x8b\x8b\x03\xb2\x7fS\xbd\xc8\xc6\xd4\xbb\xe3\xaa\xc3\xc4\x1d\xe8\xde5\xfb\xc7\x17\xae~\xc7\xbf\xdd\x15\xa8r\xbeE\xd0\xd0\xba\xf0\x18\xdc@\x00]X}C%W\x8fs\xeb\x86\x8fA\xe5\xc8\xc5\x05\xda\x1d\xc5\xb3\xf7\x1f\xf5\xb2\x1d\x98]\xa5n\xd5\x1d\xd2<\xcf\xe0\x8e!\xe3\xb7\x01\x88!*\x9cBJ^w3l\x16\x83\xbc\x81KW\x06\xcb\xcd\xfd(\x06j\xfc\r\x85\xaax\x9c4\xd5\xd5A)\xfdw\xa22.\xd2i')
+
+21:40:26 executing program 1:
+fsconfig$FSCONFIG_SET_FLAG(0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0)
+
+21:40:26 executing program 2:
+pipe2$9p(&(0x7f0000001100)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$P9_RRENAME(r0, 0x0, 0x3d)
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 0:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, 0xffffffffffffffff, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:26 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:26 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, 0xffffffffffffffff, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:26 executing program 3:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='/'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+mount(&(0x7f0000000000)=@filename='.\x00', &(0x7f0000000180)='.\x00', 0x0, 0x99d848, 0x0)
+
+21:40:26 executing program 0:
+pipe2$9p(&(0x7f00000010c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x84800)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+write$P9_RATTACH(r1, &(0x7f0000000000)={0x14}, 0xfffffe87)
+read(r0, &(0x7f0000000040)=""/61, 0x3d)
+
+21:40:26 executing program 0:
+pipe2$9p(&(0x7f00000010c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x84800)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+write$P9_RATTACH(r1, &(0x7f0000000000)={0x14}, 0xfffffe87)
+read(r0, &(0x7f0000000040)=""/61, 0x3d)
+
+21:40:26 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, 0xffffffffffffffff, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:26 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup2\x00', 0x0, &(0x7f0000000340)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~C*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG2\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\xbe\x16\xef\xb4\xdb\x00'/137)
+
+[   27.164385] cgroup2: Unknown parameter 'no'
+[   27.167955] cgroup2: Unknown parameter 'no'
+21:40:26 executing program 0:
+pipe2$9p(&(0x7f00000010c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x84800)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+write$P9_RATTACH(r1, &(0x7f0000000000)={0x14}, 0xfffffe87)
+read(r0, &(0x7f0000000040)=""/61, 0x3d)
+
+21:40:27 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/timer_list\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, 0xffffffffffffffff, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:40:27 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup2\x00', 0x0, &(0x7f0000000340)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~C*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG2\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\xbe\x16\xef\xb4\xdb\x00'/137)
+
+21:40:27 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:27 executing program 0:
+pipe2$9p(&(0x7f00000010c0)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x84800)
+write$P9_RRENAME(r1, 0x0, 0x3d)
+write$P9_RATTACH(r1, &(0x7f0000000000)={0x14}, 0xfffffe87)
+read(r0, &(0x7f0000000040)=""/61, 0x3d)
+
+[   27.955315] cgroup2: Unknown parameter 'no'
+21:40:27 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup2\x00', 0x0, &(0x7f0000000340)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~C*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG2\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\xbe\x16\xef\xb4\xdb\x00'/137)
+
+[   27.969472] cgroup2: Unknown parameter 'no'
+21:40:27 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup2\x00', 0x0, &(0x7f0000000340)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~C*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG2\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\xbe\x16\xef\xb4\xdb\x00'/137)
+
+21:40:27 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:27 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+[   27.986293] cgroup2: Unknown parameter 'no'
+21:40:27 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', 0x0, 0x0, 0x0)
+pipe2(&(0x7f0000000180), 0x0)
+
+21:40:27 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', 0x0, 0x0, 0x0)
+pipe2(&(0x7f0000000180), 0x0)
+
+21:40:28 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', 0x0, 0x0, 0x0)
+pipe2(&(0x7f0000000180), 0x0)
+
+21:40:28 executing program 3:
+mount(0x0, &(0x7f0000000300)='.\x00', 0x0, 0x0, 0x0)
+pipe2(&(0x7f0000000180), 0x0)
+
+21:40:28 executing program 3:
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='/'], &(0x7f0000000000)='.\x00', 0x0, 0x10d009, 0x0)
+umount2(&(0x7f00000003c0)='.\x00', 0x9)
+
+21:40:28 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 3:
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='/'], &(0x7f0000000000)='.\x00', 0x0, 0x10d009, 0x0)
+umount2(&(0x7f00000003c0)='.\x00', 0x9)
+
+21:40:28 executing program 3:
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='/'], &(0x7f0000000000)='.\x00', 0x0, 0x10d009, 0x0)
+umount2(&(0x7f00000003c0)='.\x00', 0x9)
+
+21:40:28 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 3:
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='/'], &(0x7f0000000000)='.\x00', 0x0, 0x10d009, 0x0)
+umount2(&(0x7f00000003c0)='.\x00', 0x9)
+
+21:40:28 executing program 3:
+umount2(0x0, 0x0)
+
+21:40:28 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x4000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+write$P9_ROPEN(r1, &(0x7f0000000100)={0x18}, 0x18)
+read(r0, &(0x7f0000000300)=""/238, 0xee)
+
+21:40:28 executing program 3:
+umount2(0x0, 0x0)
+
+21:40:28 executing program 3:
+umount2(0x0, 0x0)
+
+21:40:28 executing program 3:
+umount2(0x0, 0x0)
+
+21:40:29 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x0, 0x0, 0x38c, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:40:29 executing program 1:
+mount(&(0x7f0000000040)=@sr0='/dev/sr0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+
+21:40:29 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x0, 0x0, 0x38c, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:40:29 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000200)='tmpfs\x00', 0x0, &(0x7f0000000340)='nodevvboxnet\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0f\x133\x94\xb7\xc7=\x8f\v!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1')
+
+21:40:29 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/drivers\x00', 0x0, 0x0)
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='/dev/'], &(0x7f0000000080)='.\x00', 0x0, 0x1000, 0x0)
+
+21:40:29 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x0, 0x0, 0x38c, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+[   30.438561] tmpfs: Unknown parameter 'nodevvboxnet›%µ0mime_type,2%trustedp~six_acl_access.vmnet0security3”·Ç'
+21:40:29 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000200)='tmpfs\x00', 0x0, &(0x7f0000000340)='nodevvboxnet\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0f\x133\x94\xb7\xc7=\x8f\v!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1')
+
+21:40:29 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/drivers\x00', 0x0, 0x0)
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='/dev/'], &(0x7f0000000080)='.\x00', 0x0, 0x1000, 0x0)
+
+21:40:29 executing program 3:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x0, 0x0, 0x38c, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+[   30.454756] tmpfs: Unknown parameter 'nodevvboxnet›%µ0mime_type,2%trustedp~six_acl_access.vmnet0security3”·Ç'
+21:40:29 executing program 1:
+mount(&(0x7f0000000040)=@sr0='/dev/sr0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+
+21:40:29 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000200)='tmpfs\x00', 0x0, &(0x7f0000000340)='nodevvboxnet\x9b%\xb50mime_type,2%trustedp~six_acl_access.vmnet0security\x0f\x133\x94\xb7\xc7=\x8f\v!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1')
+
+21:40:29 executing program 3:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="000000000000000000000000020000c97f10"], 0x12)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:40:29 executing program 0:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/drivers\x00', 0x0, 0x0)
+mount(&(0x7f0000000040)=ANY=[@ANYBLOB='/dev/'], &(0x7f0000000080)='.\x00', 0x0, 0x1000, 0x0)
+
+[   30.562553] ------------[ cut here ]------------
+[   30.562963] tmpfs: Unknown parameter 'nodevvboxnet›%µ0mime_type,2%trustedp~six_acl_access.vmnet0security3”·Ç'
+[   30.564167] Found allocation of ip_options
+[   30.564279] WARNING: CPU: 1 PID: 3929 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0
+[   30.571412] Modules linked in:
+[   30.572528] CPU: 1 PID: 3929 Comm: syz-executor.3 Not tainted 5.5.3 #60
+[   30.574532] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   30.578009] RIP: 0010:ip_setup_cork+0x4f1/0x8c0
+[   30.579341] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 de 9e e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 21 82 e8 9e 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+[   30.584668] RSP: 0018:ffff88806d309720 EFLAGS: 00010246
+[   30.586185] RAX: b1bdf2680019e100 RBX: 0000000000000002 RCX: 0000000000000301
+[   30.588229] RDX: ffff888068672b80 RSI: 0000000000000001 RDI: 0000000000000000
+[   30.590224] RBP: 1ffff1100d575865 R08: dffffc0000000000 R09: ffffed100da642d4
+[   30.592162] R10: ffffed100da642d4 R11: 0000000000000000 R12: dffffc0000000000
+[   30.594120] R13: ffff88806abac320 R14: ffff88806abac328 R15: ffff88806d3099b8
+[   30.596061] FS:  00007f88f8a27700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   30.598268] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   30.599794] CR2: 0000000020001000 CR3: 000000006a306006 CR4: 00000000001606e0
+[   30.601670] Call Trace:
+[   30.602328]  <IRQ>
+[   30.602880]  ip_append_data+0x155/0x1a0
+[   30.603886]  ? icmp_err+0x280/0x280
+[   30.604806]  icmp_push_reply+0x100/0x420
+[   30.605832]  __icmp_send+0x1129/0x2210
+[   30.606817]  ? __is_insn_slot_addr+0xb0/0xd0
+[   30.607932]  ? udp4_lib_lookup2+0x606/0x640
+[   30.609025]  ? stack_trace_save+0x150/0x150
+[   30.610108]  ? kernel_text_address+0xa9/0xf0
+[   30.611168]  ? __udp4_lib_lookup+0x24e/0x340
+[   30.612231]  __udp4_lib_rcv+0x19fd/0x2d00
+[   30.613238]  ? udp_v4_early_demux+0x1260/0x1260
+[   30.614444]  ip_protocol_deliver_rcu+0x36c/0x670
+[   30.615605]  ip_local_deliver+0x399/0x4f0
+[   30.616595]  ? ip_local_deliver+0x4f0/0x4f0
+[   30.617632]  ip_rcv+0x22b/0x280
+[   30.618421]  ? ip_rcv_core+0xa50/0xa50
+[   30.619359]  ? ip_local_deliver_finish+0x210/0x210
+[   30.620554]  __netif_receive_skb+0x353/0x490
+[   30.621599]  process_backlog+0x32b/0x6a0
+[   30.622540]  napi_poll+0x24d/0x6b0
+[   30.623354]  net_rx_action+0x2bd/0x870
+[   30.624256]  __do_softirq+0x242/0x5be
+[   30.625133]  do_softirq_own_stack+0x2a/0x40
+[   30.626120]  </IRQ>
+[   30.626642]  __local_bh_enable_ip+0xfa/0x110
+[   30.627658]  ip_finish_output2+0xae0/0x1610
+[   30.628654]  ? ip_finish_output+0x4f1/0x6e0
+[   30.633064]  ip_output+0x31c/0x400
+[   30.633847]  ? ip_mc_finish_output+0x190/0x190
+[   30.634863]  ip_local_out+0x351/0x480
+[   30.635707]  ? __ip_local_out+0x410/0x410
+[   30.636625]  ip_send_skb+0x41/0xd0
+[   30.637406]  udp_send_skb+0x8e9/0x1120
+[   30.638268]  udp_sendmsg+0x1c53/0x2ac0
+[   30.639135]  ? ip_do_fragment+0x2170/0x2170
+[   30.640096]  ? select_task_rq_fair+0x5f5/0x3350
+[   30.641141]  ? inet_send_prepare+0x1b0/0x470
+[   30.642129]  ? inet_send_prepare+0x470/0x470
+[   30.643099]  sock_sendmsg+0x145/0x170
+[   30.643903]  xs_sendpages+0x34d/0x950
+[   30.644709]  ? __switch_to_asm+0x40/0x70
+[   30.645573]  ? __set_cyc2ns_scale+0x2d0/0x2d0
+[   30.646508]  xs_udp_send_request+0x162/0x3d0
+[   30.647421]  xprt_request_transmit+0x14d/0xcf0
+[   30.648372]  xprt_transmit+0x132/0x420
+[   30.649187]  call_transmit+0x1a9/0x1f0
+[   30.649995]  ? call_encode+0x880/0x880
+[   30.650798]  ? call_encode+0x880/0x880
+[   30.651618]  __rpc_execute+0x2d5/0xce0
+[   30.652435]  rpc_run_task+0x4ee/0x620
+[   30.653234]  rpc_create_xprt+0x2f6/0x700
+[   30.654066]  ? xprt_create_transport+0x2da/0x370
+[   30.655025]  rpc_create+0x5df/0x8a0
+[   30.655761]  ? _raw_spin_lock+0x5d/0x110
+[   30.656583]  nfs_create_rpc_client+0x5a0/0x740
+[   30.657509]  nfs_init_client+0x53/0xf0
+[   30.658293]  nfs_create_server+0x7fe/0x2310
+[   30.659169]  ? __se_sys_mount+0xd3/0x100
+[   30.659991]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   30.661072]  ? link_path_walk+0x16ad/0x1790
+[   30.661952]  nfs_try_mount+0x399/0xf70
+[   30.662746]  ? memcpy+0x38/0x50
+[   30.663404]  ? _raw_spin_lock+0x5d/0x110
+[   30.664196]  nfs_fs_mount+0x1853/0x2810
+[   30.664974]  ? nfs_free_parsed_mount_data+0x100/0x100
+[   30.665983]  ? nfs_fill_super+0x860/0x860
+[   30.666794]  legacy_get_tree+0xe8/0x190
+[   30.667572]  ? init_once+0x2e0/0x2e0
+[   30.668296]  vfs_get_tree+0x8c/0x270
+[   30.669033]  do_mount+0x1714/0x2290
+[   30.669743]  ? copy_mount_options+0x1f8/0x330
+[   30.670617]  ? copy_mount_options+0x2a6/0x330
+[   30.671488]  __se_sys_mount+0xd3/0x100
+[   30.672247]  do_syscall_64+0xd1/0x160
+[   30.672989]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   30.674012] RIP: 0033:0x467519
+[   30.674640] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   30.678313] RSP: 002b:00007f88f8a26c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[   30.679806] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   30.681210] RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+[   30.682617] RBP: 00007f88f8a276bc R08: 0000000020000180 R09: 0000000000000000
+[   30.684020] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   30.685425] R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+[   30.686828] ---[ end trace 9ab19d76c83a127b ]---
+[   30.696258] tmpfs: Unknown parameter 'nodevvboxnet›%µ0mime_type,2%trustedp~six_acl_access.vmnet0security3”·Ç'

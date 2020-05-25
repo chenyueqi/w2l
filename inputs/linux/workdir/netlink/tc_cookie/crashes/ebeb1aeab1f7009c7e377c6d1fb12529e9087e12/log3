@@ -1,0 +1,55 @@
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+2020/04/17 04:53:16 fuzzer started
+2020/04/17 04:55:17 dialing manager at 10.0.2.10:44841
+2020/04/17 04:55:17 checking machine...
+2020/04/17 04:55:17 checking revisions...
+syzkaller login: [  149.954644] ------------[ cut here ]------------
+[  149.957561] Found allocation of policy_load_memory
+[  149.960498] WARNING: CPU: 0 PID: 331 at security/selinux/selinuxfs.c:396 sel_open_policy+0x213/0x460
+[  149.975386] Kernel panic - not syncing: panic_on_warn set ...
+[  149.978874] CPU: 0 PID: 331 Comm: syz-fuzzer Not tainted 5.5.3 #32
+[  149.982340] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[  149.988131] Call Trace:
+[  149.989478]  dump_stack+0x15e/0x1ae
+[  149.991328]  panic+0x228/0x700
+[  149.995293]  ? sel_open_policy+0x213/0x460
+[  149.997307]  __warn+0x1fe/0x200
+[  149.998888]  ? sel_open_policy+0x213/0x460
+[  150.001012]  report_bug+0x359/0x480
+[  150.002806]  ? sel_open_policy+0x213/0x460
+[  150.004798]  do_invalid_op+0x6e/0x110
+[  150.006782]  invalid_op+0x1e/0x30
+[  150.008434] RIP: 0010:sel_open_policy+0x213/0x460
+[  150.011114] Code: 8b 2d 11 df 75 02 bf 02 00 00 00 89 ee e8 05 67 77 ff 83 fd 02 75 17 e8 eb 62 77 ff 48 c7 c7 a9 ad bf 8a 31 c0 e8 fd b1 50 ff <0f> 0b eb 05 e8 d4 62 77 ff 48 c7 c0 50 ae c9 8a 48 c1 e8 03 42 80
+[  150.020034] RSP: 0018:ffff88806a05fa88 EFLAGS: 00010246
+[  150.025647] RAX: 2b810882d8f0bd00 RBX: 1ffff1100d7bb5c6 RCX: 0000000000000000
+[  150.029241] RDX: ffff888065785a00 RSI: 0000000000000000 RDI: 0000000000000000
+[  150.032787] RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da46092
+[  150.036431] R10: ffffed100da46092 R11: 0000000000000000 R12: dffffc0000000000
+[  150.040014] R13: 0000000000000000 R14: ffff8880675ea348 R15: ffff88806bddae30
+[  150.043331]  ? sel_open_policy+0x213/0x460
+[  150.045391]  ? sel_mmap_policy+0xf0/0xf0
+[  150.047432]  do_dentry_open+0x810/0xf50
+[  150.049328]  path_openat+0x13e9/0x3d30
+[  150.051109]  ? do_sys_open+0x274/0x530
+[  150.053103]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[  150.055404]  ? selinux_inode_getattr+0x268/0x360
+[  150.057586]  ? mntput_no_expire+0xa2/0xc70
+[  150.059598]  ? dput+0x78a/0x940
+[  150.061217]  do_filp_open+0x191/0x3a0
+[  150.063132]  ? __alloc_fd+0x4df/0x5a0
+[  150.064858]  do_sys_open+0x2b6/0x530
+[  150.066599]  do_syscall_64+0xd1/0x160
+[  150.068413]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[  150.070865] RIP: 0033:0x47c5aa
+[  150.072268] Code: e8 7b 6b fb ff 48 8b 7c 24 10 48 8b 74 24 18 48 8b 54 24 20 4c 8b 54 24 28 4c 8b 44 24 30 4c 8b 4c 24 38 48 8b 44 24 08 0f 05 <48> 3d 01 f0 ff ff 76 20 48 c7 44 24 40 ff ff ff ff 48 c7 44 24 48
+[  150.081420] RSP: 002b:000000c4201657e8 EFLAGS: 00000212 ORIG_RAX: 0000000000000101
+[  150.085262] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 000000000047c5aa
+[  150.088699] RDX: 0000000000080000 RSI: 000000c420024720 RDI: ffffffffffffff9c
+[  150.091904] RBP: 000000c420165868 R08: 0000000000000000 R09: 0000000000000000
+[  150.095146] R10: 0000000000000000 R11: 0000000000000212 R12: ffffffffffffffff
+[  150.098586] R13: 000000000000003a R14: 0000000000000039 R15: 0000000000000100
+[  150.187455] Dumping ftrace buffer:
+[  150.188941]    (ftrace buffer empty)
+[  150.190671] Kernel Offset: 0x6c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  150.200039] Rebooting in 1 seconds..

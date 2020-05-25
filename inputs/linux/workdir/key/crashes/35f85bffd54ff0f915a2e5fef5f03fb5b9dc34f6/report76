@@ -1,0 +1,25 @@
+Kernel panic - not syncing: Found leaking of user_key_payload
+CPU: 1 PID: 2316 Comm: syz-executor.3 Not tainted 5.5.3 #53
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ user_read+0xa0/0xa0 security/keys/user_defined.c:185
+ keyctl_read_key+0x1f1/0x240 security/keys/keyctl.c:855
+ __do_sys_keyctl security/keys/keyctl.c:1756 [inline]
+ __se_sys_keyctl+0x4e2/0xcd0 security/keys/keyctl.c:1714
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ff81e60fc48 EFLAGS: 00000246 ORIG_RAX: 00000000000000fa
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000280 RSI: 00000000338704e8 RDI: 000000000000000b
+RBP: 00007ff81e6106bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000038 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000705 R14: 00000000004c83ba R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x1d600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

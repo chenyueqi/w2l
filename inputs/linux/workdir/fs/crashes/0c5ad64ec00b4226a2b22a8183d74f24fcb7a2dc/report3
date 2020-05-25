@@ -1,0 +1,55 @@
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found leaking site of iovec, kvec and others 2/2
+WARNING: CPU: 1 PID: 424 at lib/iov_iter.c:631 _copy_to_iter+0xcd/0xf80 lib/iov_iter.c:631
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 424 Comm: syz-executor.1 Not tainted 5.5.3 #71
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:_copy_to_iter+0xcd/0xf80 lib/iov_iter.c:631
+cgroup1: Unknown subsys name 'perf_event'
+Code: 81 c7 48 06 00 00 48 c7 c6 1c 9a fd 84 e8 4b ed c1 01 48 85 c0 74 1e e8 b1 8f 61 ff 48 c7 c7 af f4 ff 84 31 c0 e8 c3 de 3a ff <0f> 0b eb 0c e8 9a 8f 61 ff eb 05 e8 93 8f 61 ff 49 8d 5f 10 48 89
+RSP: 0018:ffff88804c2ffb20 EFLAGS: 00010246
+RAX: c4d1e41dcbc61d00 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff8880678cba00 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 1ffff1100985ffb9 R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: 0000000000000000
+R13: dffffc0000000000 R14: 000000000000003c R15: ffff88804c2ffdc8
+ __skb_datagram_iter+0xf1/0x800 net/core/datagram.c:423
+cgroup1: Unknown subsys name 'net_cls'
+ skb_copy_datagram_iter+0x158/0x170 net/core/datagram.c:529
+ skb_copy_datagram_msg include/linux/skbuff.h:3489 [inline]
+ netlink_recvmsg+0x249/0xf80 net/netlink/af_netlink.c:1975
+cgroup1: Unknown subsys name 'perf_event'
+ sock_recvmsg_nosec net/socket.c:873 [inline]
+ sock_recvmsg net/socket.c:891 [inline]
+ __sys_recvfrom+0x4dc/0x4f0 net/socket.c:2042
+ __do_sys_recvfrom net/socket.c:2060 [inline]
+ __se_sys_recvfrom net/socket.c:2056 [inline]
+ __x64_sys_recvfrom+0xda/0xf0 net/socket.c:2056
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x41680a
+Code: d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 8b 05 6e 1b 87 00 41 89 ca 85 c0 75 1b 45 31 c9 45 31 c0 b8 2d 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 66 f3 c3 0f 1f 40 00 41 56 41 55 41 89 ce 41
+cgroup1: Unknown subsys name 'net_cls'
+RSP: 002b:00007ffcd19cd988 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+RAX: ffffffffffffffda RBX: 0000000000c82200 RCX: 000000000041680a
+RDX: 0000000000000400 RSI: 0000000000c82250 RDI: 0000000000000003
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000c82250 R15: 0000000000000003
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x1000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

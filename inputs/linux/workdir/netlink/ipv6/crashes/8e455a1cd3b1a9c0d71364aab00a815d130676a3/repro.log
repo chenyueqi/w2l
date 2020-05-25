@@ -1,0 +1,51 @@
+Warning: Permanently added '[localhost]:63841' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   31.014097] ------------[ cut here ]------------
+[   31.016703] Found leaking site of ipv6_opt_hdr
+[   31.017796] WARNING: CPU: 1 PID: 368 at net/ipv6/ipv6_sockglue.c:1017 do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.024092] Kernel panic - not syncing: panic_on_warn set ...
+[   31.026590] CPU: 1 PID: 368 Comm: syz-executor417 Not tainted 5.5.3 #38
+[   31.028862] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   31.032757] Call Trace:
+[   31.033693]  dump_stack+0x15e/0x1ae
+[   31.034984]  panic+0x228/0x700
+[   31.036148]  ? do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.037792]  __warn+0x1fe/0x200
+[   31.038919]  ? do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.040563]  report_bug+0x359/0x480
+[   31.041827]  ? do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.043408]  do_invalid_op+0x6e/0x110
+[   31.044742]  invalid_op+0x1e/0x30
+[   31.046014] RIP: 0010:do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.047895] Code: 8b 2d 5e be e6 00 bf 02 00 00 00 89 ee e8 52 46 e8 fd 83 fd 02 75 23 e8 38 42 e8 fd 48 c7 c7 0d c5 08 87 31 c0 e8 4a 91 c1 fd <0f> 0b eb 11 e8 21 42 e8 fd 31 ed e9 ca 00 00 00 e8 15 42 e8 fd 48
+[   31.054535] RSP: 0018:ffff88805f4dfcb8 EFLAGS: 00010246
+[   31.056485] RAX: 82ff84c5b1e0eb00 RBX: ffff888068dc3798 RCX: 0000000000000000
+[   31.059085] RDX: ffff88806c6e4880 RSI: 000000000000021a RDI: 000000000000021a
+[   31.061555] RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff0fa8bc4
+[   31.063882] R10: fffffbfff0fa8bc4 R11: 0000000000000000 R12: 0000000000000037
+[   31.066413] R13: dffffc0000000000 R14: 0000000020000280 R15: ffff888068dc37c0
+[   31.068788]  ? do_ipv6_getsockopt+0x15c6/0x29e0
+[   31.070352]  ? __lru_cache_add+0x15d/0x1c0
+[   31.071850]  ? selinux_netlbl_socket_setsockopt+0xfc/0x400
+[   31.073813]  ? do_anonymous_page+0x869/0xbd0
+[   31.075327]  ? memset+0x1f/0x40
+[   31.076501]  ? selinux_socket_getsockopt+0xaf/0x240
+[   31.078268]  ? __handle_mm_fault+0xbaf/0x2f10
+[   31.080048]  ipv6_getsockopt+0x5e/0x2a0
+[   31.081533]  ? tcp_getsockopt+0x66/0xd0
+[   31.082983]  __sys_getsockopt+0x1b5/0x230
+[   31.084331]  __x64_sys_getsockopt+0xb1/0xc0
+[   31.086453]  do_syscall_64+0xd1/0x160
+[   31.088128]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   31.090050] RIP: 0033:0x44a3c9
+[   31.091332] Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   31.099999] RSP: 002b:00007ffddf39fe08 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+[   31.102901] RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a3c9
+[   31.105546] RDX: 0000000000000037 RSI: 0000000000000029 RDI: 0000000000000003
+[   31.108086] RBP: 0000000000401c70 R08: 0000000020000280 R09: 0000000000400400
+[   31.110788] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d10
+[   31.113434] R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+[   31.116452] Dumping ftrace buffer:
+[   31.117732]    (ftrace buffer empty)
+[   31.118941] Kernel Offset: 0x3000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   31.122656] Rebooting in 1 seconds..

@@ -1,0 +1,43 @@
+------------[ cut here ]------------
+Found allocation of policy_load_memory
+WARNING: CPU: 0 PID: 331 at security/selinux/selinuxfs.c:396 sel_open_policy+0x213/0x460 security/selinux/selinuxfs.c:396
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 331 Comm: syz-fuzzer Not tainted 5.5.3 #32
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:sel_open_policy+0x213/0x460 security/selinux/selinuxfs.c:396
+Code: 8b 2d 11 df 75 02 bf 02 00 00 00 89 ee e8 05 67 77 ff 83 fd 02 75 17 e8 eb 62 77 ff 48 c7 c7 a9 ad bf 8a 31 c0 e8 fd b1 50 ff <0f> 0b eb 05 e8 d4 62 77 ff 48 c7 c0 50 ae c9 8a 48 c1 e8 03 42 80
+RSP: 0018:ffff88806a05fa88 EFLAGS: 00010246
+RAX: 2b810882d8f0bd00 RBX: 1ffff1100d7bb5c6 RCX: 0000000000000000
+RDX: ffff888065785a00 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da46092
+R10: ffffed100da46092 R11: 0000000000000000 R12: dffffc0000000000
+R13: 0000000000000000 R14: ffff8880675ea348 R15: ffff88806bddae30
+ do_dentry_open+0x810/0xf50 fs/open.c:797
+ do_last fs/namei.c:3359 [inline]
+ path_openat+0x13e9/0x3d30 fs/namei.c:3476
+ do_filp_open+0x191/0x3a0 fs/namei.c:3506
+ do_sys_open+0x2b6/0x530 fs/open.c:1097
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x47c5aa
+Code: e8 7b 6b fb ff 48 8b 7c 24 10 48 8b 74 24 18 48 8b 54 24 20 4c 8b 54 24 28 4c 8b 44 24 30 4c 8b 4c 24 38 48 8b 44 24 08 0f 05 <48> 3d 01 f0 ff ff 76 20 48 c7 44 24 40 ff ff ff ff 48 c7 44 24 48
+RSP: 002b:000000c4201657e8 EFLAGS: 00000212 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 000000000047c5aa
+RDX: 0000000000080000 RSI: 000000c420024720 RDI: ffffffffffffff9c
+RBP: 000000c420165868 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000212 R12: ffffffffffffffff
+R13: 000000000000003a R14: 0000000000000039 R15: 0000000000000100
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x6c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

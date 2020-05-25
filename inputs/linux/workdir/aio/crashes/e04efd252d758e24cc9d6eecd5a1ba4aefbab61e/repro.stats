@@ -1,0 +1,427 @@
+Extracting prog: 31.898946133s
+Minimizing prog: 4m40.032361369s
+Simplifying prog options: 0s
+Extracting C: 13.14848309s
+Simplifying C: 1m8.475335507s
+
+
+4 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 4 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+io_setup(0xffff, &(0x7f0000000200)=<r6=>0x0)
+io_destroy(r6)
+io_setup(0xca4f, &(0x7f0000000240))
+io_setup(0x0, &(0x7f0000000280))
+io_destroy(0x0)
+
+program crashed: WARNING in ioctx_alloc
+single: successfully extracted reproducer
+found reproducer with 20 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+io_setup(0xffff, &(0x7f0000000200)=<r6=>0x0)
+io_destroy(r6)
+io_setup(0xca4f, &(0x7f0000000240))
+io_setup(0x0, &(0x7f0000000280))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+io_setup(0xffff, &(0x7f0000000200)=<r6=>0x0)
+io_destroy(r6)
+io_setup(0xca4f, &(0x7f0000000240))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+io_setup(0xffff, &(0x7f0000000200)=<r6=>0x0)
+io_destroy(r6)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+io_setup(0xffff, &(0x7f0000000200))
+
+program crashed: WARNING in corrupted
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0)=<r5=>0x0)
+io_destroy(r5)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+io_setup(0x40, &(0x7f00000001c0))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180)=<r4=>0x0)
+io_destroy(r4)
+
+program crashed: WARNING in corrupted
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+io_setup(0x1ff, &(0x7f0000000180))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140)=<r3=>0x0)
+io_destroy(r3)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+io_setup(0x2b373f00, &(0x7f0000000140))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f0000000100))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+io_setup(0xff, &(0x7f00000000c0))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+io_destroy(r2)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080)=<r2=>0x0)
+io_destroy(r2)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+io_setup(0x80000000, &(0x7f0000000080))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040)=<r1=>0x0)
+io_destroy(r1)
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy-io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x9, &(0x7f0000000040))
+
+program crashed: WARNING in ioctx_alloc
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup-io_destroy
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+
+program crashed: WARNING in corrupted
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, &(0x7f0000000000))
+
+program crashed: WARNING in corrupted
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): 
+detailed listing:
+executing program 0:
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+detailed listing:
+executing program 0:
+io_setup(0x2, 0x0)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in corrupted
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): io_setup
+program crashed: WARNING in ioctx_alloc
+reproducing took 6m33.555139292s
+repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of kioctx
+WARNING: CPU: 0 PID: 326 at fs/aio.c:735 ioctx_alloc+0x145/0x2500
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 326 Comm: syz-executor317 Not tainted 5.5.3 #34
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:ioctx_alloc+0x145/0x2500
+Code: 8b 1d 3f 4e c4 02 bf 02 00 00 00 89 de e8 33 d6 c5 ff 83 fb 02 75 17 e8 19 d2 c5 ff 48 c7 c7 60 6f de 92 31 c0 e8 2b 21 9f ff <0f> 0b eb 05 e8 02 d2 c5 ff 48 8b 3d 33 9e 60 03 be c0 0d 00 00 e8
+RSP: 0018:ffff888064ca7e00 EFLAGS: 00010246
+RAX: e1ef3d526f43b600 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff8880699a1d00 RSI: 000000000000021a RDI: 000000000000021a
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff2768bc3
+R10: fffffbfff2768bc3 R11: 0000000000000000 R12: 0000000000000002
+R13: 1ffff1100d33441c R14: 0000000000000010 R15: ffff8880699a20e0
+ __se_sys_io_setup+0x6a/0x1d0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a319
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fff64975058 EFLAGS: 00000246 ORIG_RAX: 00000000000000ce
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a319
+RDX: 0000000000400bc1 RSI: 0000000020000000 RDI: 0000000000000002
+RBP: 0000000000401bc0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 0000000000401c60
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xee00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of kioctx
+WARNING: CPU: 0 PID: 326 at fs/aio.c:735 ioctx_alloc+0x145/0x2500
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 326 Comm: syz-executor317 Not tainted 5.5.3 #34
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:ioctx_alloc+0x145/0x2500
+Code: 8b 1d 3f 4e c4 02 bf 02 00 00 00 89 de e8 33 d6 c5 ff 83 fb 02 75 17 e8 19 d2 c5 ff 48 c7 c7 60 6f de 92 31 c0 e8 2b 21 9f ff <0f> 0b eb 05 e8 02 d2 c5 ff 48 8b 3d 33 9e 60 03 be c0 0d 00 00 e8
+RSP: 0018:ffff888064ca7e00 EFLAGS: 00010246
+RAX: e1ef3d526f43b600 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff8880699a1d00 RSI: 000000000000021a RDI: 000000000000021a
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff2768bc3
+R10: fffffbfff2768bc3 R11: 0000000000000000 R12: 0000000000000002
+R13: 1ffff1100d33441c R14: 0000000000000010 R15: ffff8880699a20e0
+ __se_sys_io_setup+0x6a/0x1d0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a319
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fff64975058 EFLAGS: 00000246 ORIG_RAX: 00000000000000ce
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a319
+RDX: 0000000000400bc1 RSI: 0000000020000000 RDI: 0000000000000002
+RBP: 0000000000401bc0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 0000000000401c60
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xee00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

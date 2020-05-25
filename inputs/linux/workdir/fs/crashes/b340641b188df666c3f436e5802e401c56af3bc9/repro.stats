@@ -1,0 +1,258 @@
+Extracting prog: 1m2.937219258s
+Minimizing prog: 2m20.046929246s
+Simplifying prog options: 0s
+Extracting C: 12.866044825s
+Simplifying C: 1m14.555397011s
+
+
+237 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 237 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): fsopen-fsopen-fsopen-write$binfmt_misc-fsopen-write$binfmt_misc-splice-write$binfmt_misc-write$binfmt_misc-fsopen
+detailed listing:
+executing program 0:
+fsopen(&(0x7f0000001900)='configfs\x00', 0x0)
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+write$binfmt_misc(r1, 0x0, 0x0)
+r2 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+write$binfmt_misc(r2, 0x0, 0x0)
+splice(r1, &(0x7f0000001080)=0x3ff, r2, &(0x7f00000010c0)=0xfff, 0x80, 0x2)
+write$binfmt_misc(r0, 0x0, 0x0)
+write$binfmt_misc(r0, &(0x7f0000001940)=ANY=[@ANYBLOB="73797a31f3fbbb83a5ac509f241568743739ea47af026af93ed104857886dfcd5ce6c96d78bfc346e993765712f92acd43db6d97b3f7fd4ddc0c6235e1b142921a608c92fd1b34f7e8b62531050f45574eb49d2148a8c02c833d2dbb4b1448b7d49990286aefc703541c62e37c6868967652d81c0560fa2246641ef93ce4a7c02e23cc7497e8645823f52ad70d954b6b1df60ef6475703d3bdeef3ed8158c946824cd8342684f49c19299e24d683ace055dcaa5eb6e90879892ea4417a1e24759f45eb90af49517f0ab507bc3e73db5932ccd5a879b647c14b7453eb3c9b443603bcb404a38c2637c4d9c8a4b11acaf8d225536feceaaacce00050c6f7bba7ac06989a5e108b5bf821f970e6e17258d1d10161aef80b99c49542824987a7645e749aebdab8efced8fbbe2cde5914dce86853c3daec5816be5c4c6f782440cd927b9235eeae3b522995efc8e11dd93dec7548ae85a24ca758849bbb13610256d1d224d4b17e284d0eaa4c940256f08737bae77cd4cf6afd90c669ba478aeb243139c6bc1517a42c0259615304c66ac7e7e5f779475fce7d3e98a9fbffc0f8ea3ff243470f595258ef054bfdef1c3d565849652a785e445afea65bbfad1aafba55746b8644b375d213732a42160a4afd9ca69eb61177b233bcb3d807418efe8e9446ba82f7b7c017b7a24bfe1636f958bdd80651af81f1aeb2cace961571cec0116496f478c6bfdaa457524120b43b28ab0abb6323f561077789d2b82e629d792f00dac54fecfd43d2a06c6118d2301ebf818a2775914268b8286cd4e3385ceab5c07e47f43c148148fd7d6620ec6e51b85e84bfeb400706b9a80a7086248e3a8f1ce16ca1805dd04c05d43ae028c9768e0abd6b84b4e9218be0afd20c8935bee31e8355f59493b0e7243cc0cd41b5b8670ca65d6f0c14f2090ebb9734b609fce248728a766394c566f4bedb010f055039f390648fb71a7edc2c3207490464f42bf1da8e95672547af1b083f3b16824631a74c878ca5ad98197792237efab10a2cc072124efadb0a57b2ddb014d6da69ac8a55b0c94fba93d5a69639806eff40db09b03b7834758dc8dc68f36c991eae16ee0ff5ab61cf3864d2fb93bc3ed8b0c8f0f64b126c47e1122d908ff6a13ef7acfcd5823e0534bf8e47f4589eb31667227c358fca01b77a2d92f01185fe0354bcda13ee34dee7e161494d435edc931a5751f9e3cf769c0028b218f051f97c600b907e8f65ad1922658f871ec2878c28eb29f698247382c11d4a0c8e2b20661e2636e25d414dab510d3393b5e50d0f4833fa42940caa5e3d88f8d79db50ef4f6722af7f72cc30aec4a01b0d13c0366d7225dc742e3b805282928c1355d3a8b9cae126eae5dff65b60d18d650ca263ab47ff764619e31d1b0f27bcb97eae8c299f02339b9721d771aa300aedd700dc0195cefd1640a1ca7aa9921a48655bdc558894134299abc8f7434239b160d1c547322817454a82134e2ac8e14129e063c755766a608c3c4a00494eb34d11df530d23e677fcd3aff1dec61da450a8e970cd33f29cee510bcb06a44fb28068253be14b952cf8cb5f3b98b38b48a6df899043f2513b41dd8317e1389fa6b4653ef72ac61e556ce7c63f0ecc2d1f19ff0f3a64ca975506c2966dc3be9891ef0c6870a1bdea57ed79a56cef34e8a9ab4a1535ec7a7b8b92ed514b117e592685dc143488412539799778a9357f11f3c90fa067af4e2dfc94bf6ccd99109d8fbcdbf93f86eba32676343f0af4dda4ad9a3927fdfa2c02655d36db223dbbfae13004df3e5a5e262adb01c06e2de0f61dcafed755df90cec54611c249a84d7cb28ee8abab1f04a63cfc991bf043e8f3c62d62d9062851b6e0901f956b94d5a3eb1930d4f116836c979f5029ecef7b6729b49a8f85edd5d9418481cf592f392f813c6788ed7e8dcf0654619864a7846adef959fa002d502c8487aee842c1e5d344847abd14acc2f1c5fc68920129140198962e891e71fa9376895d4b0227f33b62a8f53065bc8c9de057f9115b952a2138f8d0f9e1b6de1e009cdda9aa4eec9dbc6f5f294b3b68238303c9bcdf990356db619a19b89a47114d9cafe82ba563ea4541491e3fc4691acf9e7783dfe18862e651dd977edbe798df7db156726ee25b11fa59d90a9b1ee42bc806effbeb1a1c8139c03bb627ecbf0abd3974bc80e42e957d0d959da7426f32ddfc03319b3534c7f57d42f3719224dc3ad9801862815566003b8122dc8f6761157668c2cfd6744e27d7fd0a732cb07abc925d59c7ccfe9018c6f83eb127ab972f865500b576812bbcd2ff82264c49f2b15377e69833de6612a1119ff03a9fa7e9be2c4fcb1f3142456771cf19b2367d8ac7246e64de847a233d624228a2924a77c75eba757196325872805a294f29c845979c1b82760d99af297c415d71e4b2505f6e01df7adde9519c57f49a7700d70e5c708c693957492cacdbe74bb23859ed43545d5aac9eb063a6b5f5f60367e6fcbd8182ef2bfd3d8db6e45a1549bb47780fa052dadf84090c524742b0080e191461b22a111106970cb5631907630e3d63d3cf40d0c57c6fbab6872d164087ee54c1c512d1f2e482f5f201f2604f3b3569ca865c019218411936b1c551e7843515c310a1facdd090508d2533d5a55a6c759dc25238f6275cb643a20a0f2f558c8d3d4153d81b4621fa721901547ff4976f73d250924352e30c4f9daaabe07e88abbfdb8f18d14792f935f7815485570c2175e0553365f517d6baccb27c15921db1a17be93a0b6f6c1b99f71219726e62f7d6d3f3947ff49b68b57ddde9c229692d2f48b80bef983e05d61406dced38e6ba52d0eb498de62a4af29934794ceb4c5b85e982d6791e9943da200340f82b6b126f5676c354d879cb7e089b38235a482511b9ef4f789bf368259d72bad38b11e2d1414b3d67fc7821166e0d6028b0aadd4c0f64b4cb0abdb8d8e65b9631101655d8a1b69b44e936608d70ede9f91ea8f6c03ce53e5ca402aaf2414ce436134c4bf5cf0bbc074f0a609c334d1094a01795ea5a4346678b946a5be1494c7e522388807edc990cd34baf3d759aa3795c2f60ef8c34d1f7a9631e9d727a3a135193ff0482ab659d2f6f6af6307aae14f003ae8ecfa82232060ddedef98dda17acb19406a2315fcb271c3f0b2c1d5e63752fb66fcd7c3772d6073c8a556e18797a0327497f13d74d21eda587a53dc9035ac3addec135c9cdf80967ad34c1e71b975313ba305ef47cbb770bc42449426ac06102be7ad8ecc0fe879337bf661d1ce5aa979313996a2d51fd9fb01a37f9bbaa996e636dba8494b129250cfda9bf98729dee31a96a11537b7e546eceec5efe180cc3d76b90d2888276ed44d78627954086b8a72317c4c255a054f244f154e25f27be0e2fd02cc2ae4bbfd3a54ab01ec213fb653b3b18c2c7465ae178f789c45ca6f54d9340df7d8fd94db13fd5d9eebeb5e9e74b8dd6fa48c2a9c062c451be5867571fa67d69362d7ffc902a1610087165a160e1089e499ebc4180d8f8ad2f9429fee56a8a4ca5fd219e580c809d52fad4a388c05fbf9a55e256da24f14e86f225b2f2d887e52ed02b23ad0909b3101f8c398e3404abbed5cec4246fa0d7893949049fa37a6a53d8c710f2d64dcbb0cdb837d6b20f48d16c574d01159928367602c9e05b1f79025b67c3b3b6f725229254ec3f4ea7386abefc1bbe4176f69ae4de13c7b48fd32ffccf4884620fd47a693a7c1a4e3ee5bb024de4f5e00fb971ed75987296628060c5bdd5f274ffc4dff431f90f596d48194adf622dd1157360b9af6ffac9fff62370801f413d0f3899eaa28fa6f43e95c8a3e056be9f29cef887b58626dc89ea7afcf3c4eb1d570a650aa46d261b6284b8309e1c2fdd3abac010174ffbb4276029edf90832ca25670f532cba6db1f3872fe19c6f03e2bff9e9725bc43fcd9247690d748fc9446f14a02af13a45ae3e15148e3b116417a71ea323be0b09365636a1ccb49dbdb239b8743add5fa6c10345917017c23d1034b130e07427f542f9822ee898d1927f2e12a2499d4c48f4225c9afff0ef68e18ffa8ff63033bd751875206426a9507028928dfe08985426a8fc8ea6f8837cddb47aa4eb6bf8e6f33b0fd442a585945c0d1c9f2c7508bc0bf09fe25e557de02a6ebb7f79529556b9ddf209426fdc5fc790bde5fea7d10954db437191d4feee2d8c0d50a6ae79fb37d6c7183f91352e44c6bf1f7f406ca93e914c302b51e609dc7239599cc8a28d0638352303f061b17a9d598ce40b7c8b26ccea377038ea813a53f9b3b6486a5dbe916116f93f4daed9cc9eb89f6c431fbd949c802ba744f29da62d6d077210d0b3177442948acb3b8a37bf9018c52eec01d49fd56e1e3576a66f695cae29b2ba311da932b30e6fdebdad87ac15840ce854f283d8113f630693cdb514c80c9024c0e9513cb6139df86294901a0c2fce67b210d75aef284b08f147b1cbd6f2a83bce810cc545b7fb69ca9965385d2342aaf64c1c6c3b8fb6ab3d84439291f65563db8502eb5a221934e75f914dd46591e40de238b1056e2e1dd6ce3ba2c4026f8589380b4030ea6960fe0206668b12c8c82a2d81d9661497253dfe48ac9517b2f31bcf0211fdf1546b09a1423d9b95c7fbfa5e517ff2761e42d6edfe132c4406467b2ce06ab78f7a179062fdd46635ef5e8c545a15074fedecc8a8b5267e25931f99a81f8983f0826249981b280164a82c4337cfa4d0a0aaa8763507cfa768c0d313620e8dce66410fac1d6ebc89589774adb83d9acf1202529eb7970a07e9b3da8aac5b814c9108a775a86dd015f2423e52e5fdef67d787b5af7147c3d8072904bdf8c2a40f8ce60d42b9cbec9936a9793f04127cdd17e50bae7bda45bc85288594787af4f51d1225d940269d3fee3f5986382ff2ec498b0ab4e1df878e0813070c8312acd7aebeae46694c29ab5c66963e75b6a248c457371568a6e1d273f9bc033a01c47efba8e3225a8d6521add3cef3aba150777be18ec9b520cb9030fc81d9ec5793efcec5e5e384d3ecbafd4d6b21ce9e724fb67d97a3adb39472e0312735536c89b64c7e22a387b83476dacec1b0e5d83aeb6a0a6ed482f1a7e0b3f1ae64886ad39542621535cfb1ebdb23e3f79ffd997eb6a8f77b6395d114f4e3a656061edf36ca1cc0dc2f2d7036765af9717f173c87289193965d9315655226d30555c738826a330301ed5f116098f6e32ad95dce20b245038c6cac166a165be0da86e846d57b4ce6a2b93627ffd9b96d7d8828408c246823a5e38e54fe99c0030032e764d6168a31fd9f54fbdbb75c6fc527e3de01c522b7afe5f835131c439835273b4b0c5a342e21d08a910415152ef0081f963d542596e67775ed2f5b8701af43f696fb7280b0c8de6b02f5213214fa7412ad5d020decaca41f2797ff2a72d6932d0edf5ca9176b99aa144eb74bb85b44b72cd29e4d61bc10ec244d5c29cdda80b2f7d62c3fc5040026b09d4db8bfebfcb5f85d49b385390333d2de3fe16a6f248068510e30c097ee516a375ae44232aa6023e676b7f98974d453ee5c096a83198ea0b087baf3dd3e68bb16d9fa43264d157c093304eb7946f52eb8c959c9f69cd7db9c970354afa9db589fc2bdc09e92b47315f77d9f755a40303fd99d93f819e3b99d2d2d1f995e416e6af0ec0e65e620c6dcbd9e3fd17ee718c3d2d0512dcdea87ed9eab3ffa69b1e4ce49c5bcc74939b828144f4fdcadbad04d893daac36873049b5a665b60269e031d0d8ad097d763f983450d8b65aaade28"], 0x1004)
+fsopen(&(0x7f0000000000)='reiserfs\x00', 0x1)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): fsopen-fsopen-fsopen-write$binfmt_misc-fsopen-write$binfmt_misc-splice-write$binfmt_misc-write$binfmt_misc-fsopen
+detailed listing:
+executing program 0:
+fsopen(&(0x7f0000001900)='configfs\x00', 0x0)
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+write$binfmt_misc(r1, 0x0, 0x0)
+r2 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+write$binfmt_misc(r2, 0x0, 0x0)
+splice(r1, &(0x7f0000001080)=0x3ff, r2, &(0x7f00000010c0)=0xfff, 0x80, 0x2)
+write$binfmt_misc(r0, 0x0, 0x0)
+write$binfmt_misc(r0, &(0x7f0000001940)=ANY=[@ANYBLOB="73797a31f3fbbb83a5ac509f241568743739ea47af026af93ed104857886dfcd5ce6c96d78bfc346e993765712f92acd43db6d97b3f7fd4ddc0c6235e1b142921a608c92fd1b34f7e8b62531050f45574eb49d2148a8c02c833d2dbb4b1448b7d49990286aefc703541c62e37c6868967652d81c0560fa2246641ef93ce4a7c02e23cc7497e8645823f52ad70d954b6b1df60ef6475703d3bdeef3ed8158c946824cd8342684f49c19299e24d683ace055dcaa5eb6e90879892ea4417a1e24759f45eb90af49517f0ab507bc3e73db5932ccd5a879b647c14b7453eb3c9b443603bcb404a38c2637c4d9c8a4b11acaf8d225536feceaaacce00050c6f7bba7ac06989a5e108b5bf821f970e6e17258d1d10161aef80b99c49542824987a7645e749aebdab8efced8fbbe2cde5914dce86853c3daec5816be5c4c6f782440cd927b9235eeae3b522995efc8e11dd93dec7548ae85a24ca758849bbb13610256d1d224d4b17e284d0eaa4c940256f08737bae77cd4cf6afd90c669ba478aeb243139c6bc1517a42c0259615304c66ac7e7e5f779475fce7d3e98a9fbffc0f8ea3ff243470f595258ef054bfdef1c3d565849652a785e445afea65bbfad1aafba55746b8644b375d213732a42160a4afd9ca69eb61177b233bcb3d807418efe8e9446ba82f7b7c017b7a24bfe1636f958bdd80651af81f1aeb2cace961571cec0116496f478c6bfdaa457524120b43b28ab0abb6323f561077789d2b82e629d792f00dac54fecfd43d2a06c6118d2301ebf818a2775914268b8286cd4e3385ceab5c07e47f43c148148fd7d6620ec6e51b85e84bfeb400706b9a80a7086248e3a8f1ce16ca1805dd04c05d43ae028c9768e0abd6b84b4e9218be0afd20c8935bee31e8355f59493b0e7243cc0cd41b5b8670ca65d6f0c14f2090ebb9734b609fce248728a766394c566f4bedb010f055039f390648fb71a7edc2c3207490464f42bf1da8e95672547af1b083f3b16824631a74c878ca5ad98197792237efab10a2cc072124efadb0a57b2ddb014d6da69ac8a55b0c94fba93d5a69639806eff40db09b03b7834758dc8dc68f36c991eae16ee0ff5ab61cf3864d2fb93bc3ed8b0c8f0f64b126c47e1122d908ff6a13ef7acfcd5823e0534bf8e47f4589eb31667227c358fca01b77a2d92f01185fe0354bcda13ee34dee7e161494d435edc931a5751f9e3cf769c0028b218f051f97c600b907e8f65ad1922658f871ec2878c28eb29f698247382c11d4a0c8e2b20661e2636e25d414dab510d3393b5e50d0f4833fa42940caa5e3d88f8d79db50ef4f6722af7f72cc30aec4a01b0d13c0366d7225dc742e3b805282928c1355d3a8b9cae126eae5dff65b60d18d650ca263ab47ff764619e31d1b0f27bcb97eae8c299f02339b9721d771aa300aedd700dc0195cefd1640a1ca7aa9921a48655bdc558894134299abc8f7434239b160d1c547322817454a82134e2ac8e14129e063c755766a608c3c4a00494eb34d11df530d23e677fcd3aff1dec61da450a8e970cd33f29cee510bcb06a44fb28068253be14b952cf8cb5f3b98b38b48a6df899043f2513b41dd8317e1389fa6b4653ef72ac61e556ce7c63f0ecc2d1f19ff0f3a64ca975506c2966dc3be9891ef0c6870a1bdea57ed79a56cef34e8a9ab4a1535ec7a7b8b92ed514b117e592685dc143488412539799778a9357f11f3c90fa067af4e2dfc94bf6ccd99109d8fbcdbf93f86eba32676343f0af4dda4ad9a3927fdfa2c02655d36db223dbbfae13004df3e5a5e262adb01c06e2de0f61dcafed755df90cec54611c249a84d7cb28ee8abab1f04a63cfc991bf043e8f3c62d62d9062851b6e0901f956b94d5a3eb1930d4f116836c979f5029ecef7b6729b49a8f85edd5d9418481cf592f392f813c6788ed7e8dcf0654619864a7846adef959fa002d502c8487aee842c1e5d344847abd14acc2f1c5fc68920129140198962e891e71fa9376895d4b0227f33b62a8f53065bc8c9de057f9115b952a2138f8d0f9e1b6de1e009cdda9aa4eec9dbc6f5f294b3b68238303c9bcdf990356db619a19b89a47114d9cafe82ba563ea4541491e3fc4691acf9e7783dfe18862e651dd977edbe798df7db156726ee25b11fa59d90a9b1ee42bc806effbeb1a1c8139c03bb627ecbf0abd3974bc80e42e957d0d959da7426f32ddfc03319b3534c7f57d42f3719224dc3ad9801862815566003b8122dc8f6761157668c2cfd6744e27d7fd0a732cb07abc925d59c7ccfe9018c6f83eb127ab972f865500b576812bbcd2ff82264c49f2b15377e69833de6612a1119ff03a9fa7e9be2c4fcb1f3142456771cf19b2367d8ac7246e64de847a233d624228a2924a77c75eba757196325872805a294f29c845979c1b82760d99af297c415d71e4b2505f6e01df7adde9519c57f49a7700d70e5c708c693957492cacdbe74bb23859ed43545d5aac9eb063a6b5f5f60367e6fcbd8182ef2bfd3d8db6e45a1549bb47780fa052dadf84090c524742b0080e191461b22a111106970cb5631907630e3d63d3cf40d0c57c6fbab6872d164087ee54c1c512d1f2e482f5f201f2604f3b3569ca865c019218411936b1c551e7843515c310a1facdd090508d2533d5a55a6c759dc25238f6275cb643a20a0f2f558c8d3d4153d81b4621fa721901547ff4976f73d250924352e30c4f9daaabe07e88abbfdb8f18d14792f935f7815485570c2175e0553365f517d6baccb27c15921db1a17be93a0b6f6c1b99f71219726e62f7d6d3f3947ff49b68b57ddde9c229692d2f48b80bef983e05d61406dced38e6ba52d0eb498de62a4af29934794ceb4c5b85e982d6791e9943da200340f82b6b126f5676c354d879cb7e089b38235a482511b9ef4f789bf368259d72bad38b11e2d1414b3d67fc7821166e0d6028b0aadd4c0f64b4cb0abdb8d8e65b9631101655d8a1b69b44e936608d70ede9f91ea8f6c03ce53e5ca402aaf2414ce436134c4bf5cf0bbc074f0a609c334d1094a01795ea5a4346678b946a5be1494c7e522388807edc990cd34baf3d759aa3795c2f60ef8c34d1f7a9631e9d727a3a135193ff0482ab659d2f6f6af6307aae14f003ae8ecfa82232060ddedef98dda17acb19406a2315fcb271c3f0b2c1d5e63752fb66fcd7c3772d6073c8a556e18797a0327497f13d74d21eda587a53dc9035ac3addec135c9cdf80967ad34c1e71b975313ba305ef47cbb770bc42449426ac06102be7ad8ecc0fe879337bf661d1ce5aa979313996a2d51fd9fb01a37f9bbaa996e636dba8494b129250cfda9bf98729dee31a96a11537b7e546eceec5efe180cc3d76b90d2888276ed44d78627954086b8a72317c4c255a054f244f154e25f27be0e2fd02cc2ae4bbfd3a54ab01ec213fb653b3b18c2c7465ae178f789c45ca6f54d9340df7d8fd94db13fd5d9eebeb5e9e74b8dd6fa48c2a9c062c451be5867571fa67d69362d7ffc902a1610087165a160e1089e499ebc4180d8f8ad2f9429fee56a8a4ca5fd219e580c809d52fad4a388c05fbf9a55e256da24f14e86f225b2f2d887e52ed02b23ad0909b3101f8c398e3404abbed5cec4246fa0d7893949049fa37a6a53d8c710f2d64dcbb0cdb837d6b20f48d16c574d01159928367602c9e05b1f79025b67c3b3b6f725229254ec3f4ea7386abefc1bbe4176f69ae4de13c7b48fd32ffccf4884620fd47a693a7c1a4e3ee5bb024de4f5e00fb971ed75987296628060c5bdd5f274ffc4dff431f90f596d48194adf622dd1157360b9af6ffac9fff62370801f413d0f3899eaa28fa6f43e95c8a3e056be9f29cef887b58626dc89ea7afcf3c4eb1d570a650aa46d261b6284b8309e1c2fdd3abac010174ffbb4276029edf90832ca25670f532cba6db1f3872fe19c6f03e2bff9e9725bc43fcd9247690d748fc9446f14a02af13a45ae3e15148e3b116417a71ea323be0b09365636a1ccb49dbdb239b8743add5fa6c10345917017c23d1034b130e07427f542f9822ee898d1927f2e12a2499d4c48f4225c9afff0ef68e18ffa8ff63033bd751875206426a9507028928dfe08985426a8fc8ea6f8837cddb47aa4eb6bf8e6f33b0fd442a585945c0d1c9f2c7508bc0bf09fe25e557de02a6ebb7f79529556b9ddf209426fdc5fc790bde5fea7d10954db437191d4feee2d8c0d50a6ae79fb37d6c7183f91352e44c6bf1f7f406ca93e914c302b51e609dc7239599cc8a28d0638352303f061b17a9d598ce40b7c8b26ccea377038ea813a53f9b3b6486a5dbe916116f93f4daed9cc9eb89f6c431fbd949c802ba744f29da62d6d077210d0b3177442948acb3b8a37bf9018c52eec01d49fd56e1e3576a66f695cae29b2ba311da932b30e6fdebdad87ac15840ce854f283d8113f630693cdb514c80c9024c0e9513cb6139df86294901a0c2fce67b210d75aef284b08f147b1cbd6f2a83bce810cc545b7fb69ca9965385d2342aaf64c1c6c3b8fb6ab3d84439291f65563db8502eb5a221934e75f914dd46591e40de238b1056e2e1dd6ce3ba2c4026f8589380b4030ea6960fe0206668b12c8c82a2d81d9661497253dfe48ac9517b2f31bcf0211fdf1546b09a1423d9b95c7fbfa5e517ff2761e42d6edfe132c4406467b2ce06ab78f7a179062fdd46635ef5e8c545a15074fedecc8a8b5267e25931f99a81f8983f0826249981b280164a82c4337cfa4d0a0aaa8763507cfa768c0d313620e8dce66410fac1d6ebc89589774adb83d9acf1202529eb7970a07e9b3da8aac5b814c9108a775a86dd015f2423e52e5fdef67d787b5af7147c3d8072904bdf8c2a40f8ce60d42b9cbec9936a9793f04127cdd17e50bae7bda45bc85288594787af4f51d1225d940269d3fee3f5986382ff2ec498b0ab4e1df878e0813070c8312acd7aebeae46694c29ab5c66963e75b6a248c457371568a6e1d273f9bc033a01c47efba8e3225a8d6521add3cef3aba150777be18ec9b520cb9030fc81d9ec5793efcec5e5e384d3ecbafd4d6b21ce9e724fb67d97a3adb39472e0312735536c89b64c7e22a387b83476dacec1b0e5d83aeb6a0a6ed482f1a7e0b3f1ae64886ad39542621535cfb1ebdb23e3f79ffd997eb6a8f77b6395d114f4e3a656061edf36ca1cc0dc2f2d7036765af9717f173c87289193965d9315655226d30555c738826a330301ed5f116098f6e32ad95dce20b245038c6cac166a165be0da86e846d57b4ce6a2b93627ffd9b96d7d8828408c246823a5e38e54fe99c0030032e764d6168a31fd9f54fbdbb75c6fc527e3de01c522b7afe5f835131c439835273b4b0c5a342e21d08a910415152ef0081f963d542596e67775ed2f5b8701af43f696fb7280b0c8de6b02f5213214fa7412ad5d020decaca41f2797ff2a72d6932d0edf5ca9176b99aa144eb74bb85b44b72cd29e4d61bc10ec244d5c29cdda80b2f7d62c3fc5040026b09d4db8bfebfcb5f85d49b385390333d2de3fe16a6f248068510e30c097ee516a375ae44232aa6023e676b7f98974d453ee5c096a83198ea0b087baf3dd3e68bb16d9fa43264d157c093304eb7946f52eb8c959c9f69cd7db9c970354afa9db589fc2bdc09e92b47315f77d9f755a40303fd99d93f819e3b99d2d2d1f995e416e6af0ec0e65e620c6dcbd9e3fd17ee718c3d2d0512dcdea87ed9eab3ffa69b1e4ce49c5bcc74939b828144f4fdcadbad04d893daac36873049b5a665b60269e031d0d8ad097d763f983450d8b65aaade28"], 0x1004)
+fsopen(&(0x7f0000000000)='reiserfs\x00', 0x1)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK-mount-umount2-pipe2-write$P9_RREADLINK-openat$procfs
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+mount(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+umount2(&(0x7f0000001c80)='./file0/file0/file0\x00', 0x0)
+pipe2(&(0x7f0000000100)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x80000)
+write$P9_RREADLINK(r2, &(0x7f0000000140)=ANY=[@ANYBLOB="2e00a08e4cb9000700072f66696c6530"], 0x10)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+
+program crashed: WARNING in alloc_pipe_info
+single: successfully extracted reproducer
+found reproducer with 10 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK-mount-umount2-pipe2-write$P9_RREADLINK
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+mount(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+umount2(&(0x7f0000001c80)='./file0/file0/file0\x00', 0x0)
+pipe2(&(0x7f0000000100)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x80000)
+write$P9_RREADLINK(r2, &(0x7f0000000140)=ANY=[@ANYBLOB="2e00a08e4cb9000700072f66696c6530"], 0x10)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK-mount-umount2-pipe2
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+mount(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+umount2(&(0x7f0000001c80)='./file0/file0/file0\x00', 0x0)
+pipe2(&(0x7f0000000100), 0x80000)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK-mount-umount2
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+mount(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+umount2(&(0x7f0000001c80)='./file0/file0/file0\x00', 0x0)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK-mount
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+mount(0x0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH-write$P9_RXATTRWALK
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r1, &(0x7f00000001c0)={0xf, 0x1f, 0x2, 0x1}, 0xf)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p-write$P9_RFLUSH
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180), 0x800)
+write$P9_RFLUSH(r0, &(0x7f0000000200)={0x7, 0x6d, 0x2}, 0x7)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK-pipe2$9p
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+pipe2$9p(&(0x7f0000000180), 0x800)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2-write$P9_RSYMLINK
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r0, &(0x7f0000000040)={0x14, 0x11, 0x1, {0x80, 0x3, 0x3}}, 0x14)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+detailed listing:
+executing program 0:
+pipe2(&(0x7f0000000000), 0x4000)
+
+program crashed: WARNING in alloc_pipe_info
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): 
+detailed listing:
+executing program 0:
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+detailed listing:
+executing program 0:
+pipe2(0x0, 0x4000)
+
+program crashed: WARNING in alloc_pipe_info
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in corrupted
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): pipe2
+program crashed: WARNING in alloc_pipe_info
+reproducing took 4m50.405602445s
+repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of pipe_buffer
+WARNING: CPU: 0 PID: 329 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 329 Comm: syz-executor930 Not tainted 5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:alloc_pipe_info+0x259/0x4f0
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 9e a7 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 9e a7 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+RSP: 0018:ffff88806be3fdc0 EFLAGS: 00010246
+RAX: 4faa3f3dfe8f3000 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff888067f75700 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000070 R08: dffffc0000000000 R09: ffffed100da46092
+R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88806a517800
+R13: dffffc0000000000 R14: ffffffffa7c47fb0 R15: 0000000000000010
+ create_pipe_files+0x85/0x6e0
+ __do_pipe_flags+0x46/0x200
+ do_pipe2+0x41/0x230
+ __x64_sys_pipe2+0x56/0x60
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a319
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc91324108 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a319
+RDX: 0000000000400bc1 RSI: 0000000000004000 RDI: 0000000000000000
+RBP: 0000000000401bc0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 0000000000401c60
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x23a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of pipe_buffer
+WARNING: CPU: 0 PID: 329 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 329 Comm: syz-executor930 Not tainted 5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:alloc_pipe_info+0x259/0x4f0
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 9e a7 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 9e a7 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+RSP: 0018:ffff88806be3fdc0 EFLAGS: 00010246
+RAX: 4faa3f3dfe8f3000 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff888067f75700 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000070 R08: dffffc0000000000 R09: ffffed100da46092
+R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88806a517800
+R13: dffffc0000000000 R14: ffffffffa7c47fb0 R15: 0000000000000010
+ create_pipe_files+0x85/0x6e0
+ __do_pipe_flags+0x46/0x200
+ do_pipe2+0x41/0x230
+ __x64_sys_pipe2+0x56/0x60
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a319
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc91324108 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a319
+RDX: 0000000000400bc1 RSI: 0000000000004000 RDI: 0000000000000000
+RBP: 0000000000401bc0 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 0000000000401c60
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x23a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

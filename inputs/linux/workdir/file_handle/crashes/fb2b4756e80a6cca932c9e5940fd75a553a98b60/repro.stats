@@ -1,0 +1,164 @@
+Extracting prog: 1m15.240071406s
+Minimizing prog: 2m5.911874031s
+Simplifying prog options: 0s
+Extracting C: 12.250619017s
+Simplifying C: 1m7.046409448s
+
+
+1632 programs, 4 VMs, timeouts [15s 6m0s]
+extracting reproducer from 1632 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open$dir-open$dir-open_by_handle_at-name_to_handle_at-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x200040, 0x0)
+r1 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open$dir(&(0x7f00000001c0)='./file0/file0\x00', 0x280, 0x100)
+open_by_handle_at(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="5e00000002000000ce42"], 0x10d740)
+name_to_handle_at(r1, &(0x7f0000000100)='./file0\x00', &(0x7f0000000140)={0x9, 0x7b0d8212, ','}, &(0x7f0000000180), 0x2800)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9f, 0x2, "0b243bc04e4c5a967b3a4e77b33d1a7d22c1052c698dc3596eb6fd79a5fa301f0a580a5e63375502da10a612cc05eb9373367eff097971460ee0619bce620355ad587cf1d4fcdf0ba30c412467cc57e979d5df657a6fa0376522c05d2ee2dcb4ef2576fe2275dede27261f0c6ed8289d59520f036ade1504a2dc9076fab335e204807be02c823d2e833f9e2cf2e6403c4cd0d385d10f5b"}, 0x2e941)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0000000000ffe1000000"], 0x6900)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_procfs-gettid-syz_open_procfs$namespace-name_to_handle_at-syz_open_procfs$namespace-gettid-syz_open_procfs$namespace-syz_open_procfs$namespace-open$dir-open_by_handle_at-name_to_handle_at
+detailed listing:
+executing program 0:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000280)='wchan\x00')
+r0 = gettid()
+syz_open_procfs$namespace(r0, &(0x7f0000000040)='ns/ipc\x00')
+name_to_handle_at(0xffffffffffffff9c, &(0x7f0000000140)='./file0\x00', &(0x7f0000000180)={0x87, 0x3, "2402dcff76983e529228670fff9d26a027f3903f9354be1cd3a818870f4f4a89030a295fa573a833f7503e560723c9c706a430607509175d41dac78ebddf198859f00b47fdf9a6ff16a6039c19cfcdba79c41d3fe4085d914e8394dd42a4a9e2b52726b50006ed9e0d22dc5f47d4a89d6d455487ced1af6f9d220a0a0eb3b9"}, &(0x7f0000000240), 0x1000)
+syz_open_procfs$namespace(r0, 0x0)
+r1 = gettid()
+syz_open_procfs$namespace(r1, 0x0)
+syz_open_procfs$namespace(r1, &(0x7f0000000080)='ns/pid_for_children\x00')
+r2 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="5e00000002000000ce42"], 0x10d740)
+name_to_handle_at(r2, &(0x7f0000000000)='./file0\x00', &(0x7f00000000c0)={0x20, 0x1, "d09889889a43d2a171586d1957efbcd9956f88f4581e98f1"}, &(0x7f0000000100), 0x0)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at-openat$dir
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "c60b"}, 0x2f00)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000040)='./file0\x00', 0x6001, 0x24)
+
+program crashed: kernel panic: Attempted to kill init!
+single: successfully extracted reproducer
+found reproducer with 3 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "c60b"}, 0x2f00)
+
+program crashed: kernel panic: Attempted to kill init!
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir
+detailed listing:
+executing program 0:
+open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open_by_handle_at
+detailed listing:
+executing program 0:
+open_by_handle_at(0xffffffffffffffff, &(0x7f00000000c0)={0xa, 0x2, "c60b"}, 0x2f00)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(0x0, 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "c60b"}, 0x2f00)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, 0x0, 0x2f00)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+detailed listing:
+executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x8, 0x2}, 0x2f00)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): open$dir-open_by_handle_at
+program crashed: kernel panic: Attempted to kill init!
+reproducing took 4m40.449045776s
+repro crashed as (corrupted=false):
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+CPU: 0 PID: 1 Comm: systemd Not tainted 5.5.3 #39
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ do_exit+0x212c/0x2130
+ do_group_exit+0x155/0x2d0
+ get_signal+0x133b/0x1f40
+ do_signal+0x29/0x5e0
+ prepare_exit_to_usermode+0x269/0x390
+ ret_from_intr+0x20/0x20
+RIP: 0033:0x7f2203ffcf10
+Code: Bad RIP value.
+RSP: 002b:00007ffe4be45578 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 000055de7ac63d10 RCX: 00007f220402d2e3
+RDX: 00007ffe4be45700 RSI: 00007ffe4be45830 RDI: 0000000000000007
+RBP: 0000000000000007 R08: 1fe84e0fec0e57a4 R09: 0000000000000630
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007ffe4c643310
+R13: 0000000000000001 R14: ffffffffffffffff R15: 0000000000000002
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x22a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+CPU: 0 PID: 1 Comm: systemd Not tainted 5.5.3 #39
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ do_exit+0x212c/0x2130
+ do_group_exit+0x155/0x2d0
+ get_signal+0x133b/0x1f40
+ do_signal+0x29/0x5e0
+ prepare_exit_to_usermode+0x269/0x390
+ ret_from_intr+0x20/0x20
+RIP: 0033:0x7f2203ffcf10
+Code: Bad RIP value.
+RSP: 002b:00007ffe4be45578 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 000055de7ac63d10 RCX: 00007f220402d2e3
+RDX: 00007ffe4be45700 RSI: 00007ffe4be45830 RDI: 0000000000000007
+RBP: 0000000000000007 R08: 1fe84e0fec0e57a4 R09: 0000000000000630
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007ffe4c643310
+R13: 0000000000000001 R14: ffffffffffffffff R15: 0000000000000002
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x22a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

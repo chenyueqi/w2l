@@ -1,0 +1,243 @@
+Warning: Permanently added '[localhost]:26582' (ECDSA) to the list of known hosts.
+syzkaller login: [   25.228729] audit: type=1400 audit(1586571459.466:11): avc:  denied  { map } for  pid=1586 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/11 02:17:39 fuzzer started
+2020/04/11 02:17:40 dialing manager at 10.0.2.10:42260
+2020/04/11 02:17:40 syscalls: 468
+2020/04/11 02:17:40 code coverage: enabled
+2020/04/11 02:17:40 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/11 02:17:40 extra coverage: enabled
+2020/04/11 02:17:40 setuid sandbox: enabled
+2020/04/11 02:17:40 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/11 02:17:40 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/11 02:17:40 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/11 02:17:40 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/11 02:17:40 net packet injection: /dev/net/tun does not exist
+2020/04/11 02:17:40 net device setup: enabled
+2020/04/11 02:17:40 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/11 02:17:40 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/11 02:17:40 USB emulation: /dev/raw-gadget does not exist
+02:17:45 executing program 1:
+r0 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+sendmsg$SOCK_DIAG_BY_FAMILY(r0, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f0000000080)={&(0x7f0000000040)={0x24, 0x14, 0x11, 0x70bd2b, 0x25dfdbfc, {0x27, 0x6}, [@INET_DIAG_REQ_BYTECODE={0xf, 0x1, "81ade9ed3406f376436785"}]}, 0x24}, 0x1, 0x0, 0x0, 0x40}, 0x4000001)
+sendmsg$NFNL_MSG_COMPAT_GET(0xffffffffffffffff, &(0x7f0000000200)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x400}, 0xc, &(0x7f00000001c0)={&(0x7f0000000140)={0x44, 0x0, 0xb, 0x101, 0x0, 0x0, {0x2, 0x0, 0x8}, [@NFTA_COMPAT_REV={0x8, 0x2, 0x1, 0x0, 0x2}, @NFTA_COMPAT_REV={0x8, 0x2, 0x1, 0x0, 0x4}, @NFTA_COMPAT_TYPE={0x8}, @NFTA_COMPAT_TYPE={0x8}, @NFTA_COMPAT_TYPE={0x8, 0x3, 0x1, 0x0, 0x1}, @NFTA_COMPAT_REV={0x8, 0x2, 0x1, 0x0, 0x5}]}, 0x44}, 0x1, 0x0, 0x0, 0x4}, 0x14)
+sendmsg$IPCTNL_MSG_CT_GET(0xffffffffffffffff, &(0x7f0000000380)={&(0x7f0000000240)={0x10, 0x0, 0x0, 0x20000000}, 0xc, &(0x7f0000000340)={&(0x7f0000000280)={0x8c, 0x1, 0x1, 0x201, 0x0, 0x0, {0x2, 0x0, 0x2}, [@CTA_TIMEOUT={0x8, 0x7, 0x1, 0x0, 0x7}, @CTA_LABELS={0x28, 0x16, 0x1, 0x0, [0x50, 0x1, 0x7, 0xfffffff8, 0x9, 0x1, 0x9, 0xbe7c, 0x20]}, @CTA_LABELS={0x14, 0x16, 0x1, 0x0, [0xa1, 0x2, 0x8000, 0x4]}, @CTA_TUPLE_MASTER={0x18, 0xe, 0x0, 0x1, [@CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @loopback}, {0x8, 0x2, @dev={0xac, 0x14, 0x14, 0x32}}}}]}, @CTA_HELP={0xc, 0x5, 0x0, 0x1, {0x5, 0x1, '\x00'}}, @CTA_STATUS={0x8, 0x3, 0x1, 0x0, 0x1000}, @CTA_MARK_MASK={0x8, 0x15, 0x1, 0x0, 0x2}]}, 0x8c}, 0x1, 0x0, 0x0, 0x4000805}, 0x4880)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_FLAG_CMD(r1, 0x8983, &(0x7f00000003c0)={0x7, 'rose0\x00', {0x6}, 0x80})
+pipe(&(0x7f00000004c0)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff})
+sendmsg$IPCTNL_MSG_EXP_NEW(r3, &(0x7f0000000640)={&(0x7f0000000500)={0x10, 0x0, 0x0, 0x80000}, 0xc, &(0x7f0000000600)={&(0x7f0000000540)={0xa0, 0x0, 0x2, 0xf0cb8c6b1107eb6c, 0x0, 0x0, {0xa, 0x0, 0xa}, [@CTA_EXPECT_HELP_NAME={0xe, 0x6, 'irc-20000\x00'}, @CTA_EXPECT_TIMEOUT={0x8, 0x4, 0x1, 0x0, 0x1}, @CTA_EXPECT_FN={0x13, 0xb, 'callforwarding\x00'}, @CTA_EXPECT_ZONE={0x6}, @CTA_EXPECT_FN={0xa, 0xb, 'Q.931\x00'}, @CTA_EXPECT_ID={0x8, 0x5, 0x1, 0x0, 0x1}, @CTA_EXPECT_MASTER={0x18, 0x1, 0x0, 0x1, [@CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @multicast2}, {0x8, 0x2, @remote}}}]}, @CTA_EXPECT_TUPLE={0x2c, 0x2, 0x0, 0x1, [@CTA_TUPLE_ZONE={0x6, 0x3, 0x1, 0x0, 0x3}, @CTA_TUPLE_PROTO={0xc, 0x2, 0x0, 0x1, {0x5, 0x1, 0x3a}}, @CTA_TUPLE_IP={0x14, 0x1, 0x0, 0x1, @ipv4={{0x8, 0x1, @local}, {0x8, 0x2, @dev={0xac, 0x14, 0x14, 0x35}}}}]}]}, 0xa0}, 0x1, 0x0, 0x0, 0x80d4}, 0x800)
+r4 = socket$nl_audit(0x10, 0x3, 0x9)
+setsockopt$netlink_NETLINK_NO_ENOBUFS(r4, 0x10e, 0x5, &(0x7f0000000680)=0x5, 0x4)
+r5 = socket$nl_netfilter(0x10, 0x3, 0xc)
+sendmsg$IPSET_CMD_GET_BYINDEX(r5, &(0x7f0000000b80)={&(0x7f0000000ac0)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000b40)={&(0x7f0000000b00)={0x3c, 0xf, 0x6, 0x5, 0x0, 0x0, {0x0, 0x0, 0xa}, [@IPSET_ATTR_INDEX={0x6, 0xb, 0x1}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_INDEX={0x6, 0xb, 0x3}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_INDEX={0x6, 0xb, 0xffffffffffffffff}]}, 0x3c}, 0x1, 0x0, 0x0, 0x20008014}, 0x0)
+r6 = socket$inet(0x2, 0x5, 0x3ff)
+r7 = socket$inet6_icmp(0xa, 0x2, 0x3a)
+bind$inet6(r7, &(0x7f0000000bc0)={0xa, 0x3, 0x0, @mcast1, 0xffffff60}, 0x1c)
+setsockopt$inet6_tcp_TCP_REPAIR_QUEUE(r3, 0x6, 0x14, &(0x7f0000000c00)=0x2, 0x4)
+sendmsg$IPCTNL_MSG_CT_GET_DYING(r2, &(0x7f0000000d00)={&(0x7f0000000c40)={0x10, 0x0, 0x0, 0x9000000}, 0xc, &(0x7f0000000cc0)={&(0x7f0000000c80)={0x14, 0x6, 0x1, 0x201, 0x0, 0x0, {0xc, 0x0, 0x6}, ["", ""]}, 0x14}, 0x1, 0x0, 0x0, 0x40}, 0x4000801)
+setsockopt$inet_tcp_TCP_QUEUE_SEQ(r6, 0x6, 0x15, &(0x7f0000000d40)=0xffff, 0x4)
+sendmsg$IPCTNL_MSG_CT_GET(r3, &(0x7f0000000f40)={&(0x7f0000000d80)={0x10, 0x0, 0x0, 0x80000}, 0xc, &(0x7f0000000f00)={&(0x7f0000000dc0)={0x104, 0x1, 0x1, 0x5, 0x0, 0x0, {0xa, 0x0, 0x7}, [@CTA_PROTOINFO={0x38, 0x4, 0x0, 0x1, @CTA_PROTOINFO_SCTP={0x34, 0x3, 0x0, 0x1, [@CTA_PROTOINFO_SCTP_STATE={0x5, 0x1, 0x5}, @CTA_PROTOINFO_SCTP_VTAG_ORIGINAL={0x8}, @CTA_PROTOINFO_SCTP_STATE={0x5, 0x1, 0x3}, @CTA_PROTOINFO_SCTP_STATE={0x5}, @CTA_PROTOINFO_SCTP_VTAG_REPLY={0x8, 0x3, 0x1, 0x0, 0xfffffffb}, @CTA_PROTOINFO_SCTP_VTAG_REPLY={0x8, 0x3, 0x1, 0x0, 0xfa2}]}}, @CTA_NAT_DST={0x94, 0xd, 0x0, 0x1, [@CTA_NAT_V6_MINIP={0x14, 0x4, @loopback}, @CTA_NAT_V6_MINIP={0x14, 0x4, @rand_addr="bb03a6b2115226ec0ae79e61ffedc774"}, @CTA_NAT_PROTO={0x4c, 0x3, 0x0, 0x1, [@CTA_PROTONAT_PORT_MAX={0x6, 0x2, 0x4e24}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e21}, @CTA_PROTONAT_PORT_MAX={0x6, 0x2, 0x4e21}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e24}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e20}, @CTA_PROTONAT_PORT_MAX={0x6, 0x2, 0x4e21}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e20}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e23}, @CTA_PROTONAT_PORT_MIN={0x6, 0x1, 0x4e24}]}, @CTA_NAT_V4_MINIP={0x8, 0x1, @remote}, @CTA_NAT_V6_MAXIP={0x14, 0x5, @empty}]}, @CTA_SEQ_ADJ_ORIG={0x24, 0xf, 0x0, 0x1, [@CTA_SEQADJ_CORRECTION_POS={0x8, 0x1, 0x1, 0x0, 0xffffffe0}, @CTA_SEQADJ_OFFSET_AFTER={0x8, 0x3, 0x1, 0x0, 0xae}, @CTA_SEQADJ_OFFSET_BEFORE={0x8, 0x2, 0x1, 0x0, 0xbba}, @CTA_SEQADJ_OFFSET_AFTER={0x8, 0x3, 0x1, 0x0, 0x1}]}]}, 0x104}, 0x1, 0x0, 0x0, 0x8000}, 0x8000)
+getsockopt$IP_SET_OP_GET_BYNAME(r1, 0x1, 0x53, &(0x7f0000000f80)={0x6, 0x7, 'syz1\x00'}, &(0x7f0000000fc0)=0x28)
+
+[   31.577894] audit: type=1400 audit(1586571465.807:12): avc:  denied  { map } for  pid=1605 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+02:17:45 executing program 0:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+sendmsg$NFT_MSG_GETCHAIN(r0, &(0x7f0000000140)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x2}, 0xc, &(0x7f0000000100)={&(0x7f0000000080)={0x60, 0x4, 0xa, 0x201, 0x0, 0x0, {0xc, 0x0, 0xa}, [@NFTA_CHAIN_TABLE={0x9, 0x1, 'syz1\x00'}, @NFTA_CHAIN_NAME={0x9, 0x3, 'syz0\x00'}, @NFTA_CHAIN_HANDLE={0xc, 0x2, 0x1, 0x0, 0x4}, @NFTA_CHAIN_TABLE={0x9, 0x1, 'syz1\x00'}, @NFTA_CHAIN_FLAGS={0x8}, @NFTA_CHAIN_FLAGS={0x8}, @NFTA_CHAIN_HANDLE={0xc, 0x2, 0x1, 0x0, 0x5}]}, 0x60}, 0x1, 0x0, 0x0, 0x4000080}, 0x4000)
+sendmsg$nl_netfilter(r1, &(0x7f0000000400)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x400000}, 0xc, &(0x7f00000003c0)={&(0x7f00000001c0)={0x1e8, 0x1, 0x4, 0x5, 0x70bd2a, 0x25dfdbfd, {0x1, 0x0, 0x6}, [@generic="04050537b90b1d15c58764d4e920b77e7820e589a548d8b19ac0650857d6e9696c89f5abf177657d1a9cda8387bac4e73d556477933498eba70984ddca7e9ed7ac8308c306c56a0c63939142bd77a03402bc1e7a42a78572da684d5179c1801ff5bee205f4e77a601ce532b6aaf9f7ade7871ca6a55deb95", @generic="1d39292276f7cb36bffb44b36629246b707be02626698939ebe8e124219834dd67d9ede3a435b364aeff002f837361be1d744ca0916b77c5cefbc7607c5b33b99c4c0a956ae4ef1a889e8f9f665512381d4f8f0d7ff7923c03", @generic="7f0c5e182d647edc12d62d773ab1d6a9c35dc7", @generic="5433570c4e294075c364f6981b8b908ded218a388b586de756443ab90af4c62fd98311d709e0d65cb933f7fc22ab8dbf161109afbd2b2416", @nested={0xc, 0x4a, 0x0, 0x1, [@typed={0x8, 0x19, 0x0, 0x0, @pid}]}, @generic="85b62cdcc3bd56c5847b6d04ee36f8caf986996144a7f4513cf5f9ef997f23ac0b75f6db12c35b2ba1cc616078af2ce6b592c639fd02d6081c6438bd6944b044022c4f656fde1c542a51265ffa1fdd80ef261e6a6c7cf987e17ab03a50df7e878e467093be17477deb33c9d153c328b99f7bd4abf784cc685d19f73cb8c09a596cdad7796150b2fd58b2f95914ce7d114a25f87f6702b904244bc7d5c3990bfdfa253d19a28fdb7b3f"]}, 0x1e8}, 0x1, 0x0, 0x0, 0x20000040}, 0x2e21e3df90382df3)
+socketpair(0x15, 0x80015, 0x3ff, &(0x7f0000000440)={<r2=>0xffffffffffffffff})
+sendmsg$IPCTNL_MSG_CT_GET_UNCONFIRMED(r2, &(0x7f0000000540)={&(0x7f0000000480)={0x10, 0x0, 0x0, 0x800000}, 0xc, &(0x7f0000000500)={&(0x7f00000004c0)={0x14, 0x7, 0x1, 0x101, 0x0, 0x0, {0xa, 0x0, 0x6}, ["", ""]}, 0x14}, 0x1, 0x0, 0x0, 0x4000}, 0x4)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$EXT4_IOC_SETFLAGS(r3, 0x40086602, &(0x7f0000000580)=0x20010000)
+r4 = socket$inet(0x2, 0x800, 0x5e5)
+ioctl$sock_inet_SIOCGARP(r4, 0x8954, &(0x7f00000005c0)={{0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x3f}}, {0x306, @multicast}, 0x4, {0x2, 0x4e24, @empty}, 'veth1_virt_wifi\x00'})
+r5 = socket$nl_sock_diag(0x10, 0x3, 0x4)
+setsockopt$netlink_NETLINK_NO_ENOBUFS(r5, 0x10e, 0x5, &(0x7f0000000640)=0x1, 0x4)
+r6 = socket$inet_udplite(0x2, 0x2, 0x88)
+ioctl$sock_inet_SIOCSIFPFLAGS(r6, 0x8934, &(0x7f0000000680)={'erspan0\x00', 0xd4})
+r7 = accept4(0xffffffffffffffff, &(0x7f00000006c0), &(0x7f0000000740)=0x80, 0x0)
+sendmsg$IPSET_CMD_TEST(r7, &(0x7f0000000900)={&(0x7f0000000780)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f00000008c0)={&(0x7f00000007c0)={0xd4, 0xb, 0x6, 0x101, 0x0, 0x0, {0xa, 0x0, 0x9}, [@IPSET_ATTR_ADT={0x68, 0x8, 0x0, 0x1, [{0xc, 0x7, 0x0, 0x1, @IPSET_ATTR_PORT={0x6, 0x4, 0x1, 0x0, 0x4e23}}, {0x10, 0x7, 0x0, 0x1, @IPSET_ATTR_IP={0xc, 0x1, 0x0, 0x1, @IPSET_ATTR_IPADDR_IPV4={0x8, 0x1, 0x1, 0x0, @local}}}, {0x10, 0x7, 0x0, 0x1, @IPSET_ATTR_BYTES={0xc, 0x18, 0x1, 0x0, 0x9}}, {0xc, 0x7, 0x0, 0x1, @IPSET_ATTR_CIDR2={0x5, 0x15, 0x40}}, {0xc, 0x7, 0x0, 0x1, @IPSET_ATTR_LINENO={0x8, 0x9, 0x1, 0x0, 0x80000001}}, {0x10, 0x7, 0x0, 0x1, @IPSET_ATTR_IP_TO={0xc, 0x2, 0x0, 0x1, @IPSET_ATTR_IPADDR_IPV4={0x8, 0x1, 0x1, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}}}, {0x10, 0x7, 0x0, 0x1, @IPSET_ATTR_IP2={0xc, 0x14, 0x0, 0x1, @IPSET_ATTR_IPADDR_IPV4={0x8, 0x1, 0x1, 0x0, @empty}}}]}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_DATA={0x2c, 0x7, 0x0, 0x1, [@IPSET_ATTR_CADT_FLAGS={0x8, 0x8, 0x1, 0x0, 0x4a}, @IPSET_ATTR_CADT_FLAGS={0x8, 0x8, 0x1, 0x0, 0x4}, @IPSET_ATTR_BYTES={0xc, 0x18, 0x1, 0x0, 0x10000}, @IPSET_ATTR_ETHER={0xa, 0x11, @broadcast}]}, @IPSET_ATTR_PROTOCOL={0x5}, @IPSET_ATTR_LINENO={0x8, 0x9, 0x1, 0x0, 0x3}, @IPSET_ATTR_SETNAME={0x9, 0x2, 'syz0\x00'}, @IPSET_ATTR_PROTOCOL={0x5}]}, 0xd4}, 0x1, 0x0, 0x0, 0x4800}, 0x80000)
+r8 = socket$inet_udp(0x2, 0x2, 0x0)
+ioctl$sock_SIOCSIFVLAN_DEL_VLAN_CMD(r8, 0x8983, &(0x7f0000000940)={0x1, 'geneve0\x00', {}, 0x8})
+r9 = socket$netlink(0x10, 0x3, 0x6)
+sendmsg$IPCTNL_MSG_EXP_NEW(r9, &(0x7f0000000a40)={&(0x7f0000000980)={0x10, 0x0, 0x0, 0x1000000}, 0xc, &(0x7f0000000a00)={&(0x7f00000009c0)={0x14, 0x0, 0x2, 0x500, 0x0, 0x0, {0x6, 0x0, 0xa}}, 0x14}, 0x1, 0x0, 0x0, 0x40010}, 0x80)
+ioctl$sock_inet_SIOCDELRT(r8, 0x890c, &(0x7f0000000a80)={0x0, {0x2, 0x4e21, @multicast2}, {0x2, 0x4e20, @dev={0xac, 0x14, 0x14, 0x1c}}, {0x2, 0x4e22, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x212, 0x0, 0x0, 0x0, 0x1, 0x0, 0xfff, 0x0, 0x7f})
+
+02:17:45 executing program 3:
+socketpair$unix(0x1, 0x2, 0x0, &(0x7f0000000000)={<r0=>0xffffffffffffffff})
+recvmsg(r0, &(0x7f00000003c0)={&(0x7f0000000040)=@ipx, 0x80, &(0x7f00000002c0)=[{&(0x7f00000000c0)=""/190, 0xbe}, {&(0x7f0000000180)=""/52, 0x34}, {&(0x7f00000001c0)=""/163, 0xa3}, {&(0x7f0000000280)=""/12, 0xc}], 0x4, &(0x7f0000000300)=""/157, 0x9d}, 0x40000061)
+ioctl$SIOCGSTAMPNS(0xffffffffffffffff, 0x8907, &(0x7f0000000400))
+r1 = socket$inet(0x2, 0xa, 0x5e9de659)
+setsockopt$IP_VS_SO_SET_STOPDAEMON(r1, 0x0, 0x48c, &(0x7f0000000440)={0x1, 'ip6gretap0\x00', 0x1}, 0x18)
+r2 = socket$inet6_udplite(0xa, 0x2, 0x88)
+setsockopt$inet6_MCAST_JOIN_GROUP(r2, 0x29, 0x2a, &(0x7f0000000540)={0x40, {{0xa, 0x4e22, 0x6a, @rand_addr="80360077a40796655aae71692ab13ecd", 0x7f}}}, 0x88)
+r3 = socket$inet_tcp(0x2, 0x1, 0x0)
+accept4$inet(r3, &(0x7f0000000600)={0x2, 0x0, @initdev}, &(0x7f0000000640)=0x10, 0x180800)
+r4 = accept4$inet(0xffffffffffffffff, 0x0, &(0x7f0000000680), 0x800)
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f0000000840)={{{@in=@broadcast, @in6=@dev, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r5=>0x0}}, {{@in6}, 0x0, @in6=@mcast2}}, &(0x7f0000000940)=0xe8)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r4, 0x8933, &(0x7f0000000980)={'vcan0\x00', r5})
+r6 = socket$inet_udplite(0x2, 0x2, 0x88)
+setsockopt$IP_VS_SO_SET_STARTDAEMON(r6, 0x0, 0x48b, &(0x7f00000009c0)={0x2, 'geneve0\x00', 0x2}, 0x18)
+getsockopt$IP_SET_OP_VERSION(0xffffffffffffffff, 0x1, 0x53, &(0x7f0000000a00), &(0x7f0000000a40)=0x8)
+setsockopt$inet6_tcp_TCP_FASTOPEN_KEY(0xffffffffffffffff, 0x6, 0x21, &(0x7f0000000a80)="71d622da002e8ed3c7ec4810ab2769dd", 0x10)
+r7 = accept(r6, &(0x7f0000000ac0)=@xdp, &(0x7f0000000b40)=0x80)
+setsockopt$inet6_tcp_TCP_ULP(r7, 0x6, 0x1f, &(0x7f0000000b80)='tls\x00', 0x4)
+socket$inet(0x2, 0x800, 0x100)
+getsockname$inet6(0xffffffffffffffff, &(0x7f0000000c00), &(0x7f0000000c40)=0x1c)
+
+02:17:45 executing program 2:
+r0 = accept4$packet(0xffffffffffffffff, &(0x7f0000000000)={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @link_local}, &(0x7f0000000040)=0x14, 0x80800)
+ioctl$sock_netdev_private(r0, 0x89fc, &(0x7f0000000080)="abaf8f429876ff2800c4610b6c7db396ed64550b2ef578bdc971cc5529df95b3e0d9fa5a5a40f01d4eecc1cc1bce31ec89c96ba47a12e4b7e9da0742e52bdab5a8c4")
+r1 = socket$inet(0x2, 0x800, 0x10001)
+ioctl$sock_SIOCGIFCONF(r1, 0x8912, &(0x7f0000000140)=@req={0x28, &(0x7f0000000100)={'nr0\x00', @ifru_mtu=0x401}})
+socket$inet_icmp(0x2, 0x2, 0x1)
+r2 = socket$inet(0x2, 0x2, 0x1)
+r3 = socket$inet6_icmp(0xa, 0x2, 0x3a)
+splice(r2, &(0x7f0000000180)=0x7ff, r3, &(0x7f00000001c0)=0x1, 0x42bd, 0x2)
+r4 = socket$inet6_udp(0xa, 0x2, 0x0)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r4, 0x29, 0x20, &(0x7f00000002c0)={@empty, 0x2, 0x2, 0x1ff, 0x2, 0x28, 0xffb4}, 0x20)
+r5 = socket$nl_netfilter(0x10, 0x3, 0xc)
+ioctl$FS_IOC_FSGETXATTR(r5, 0x801c581f, &(0x7f0000000300)={0x80000001, 0x4, 0xffffffff, 0x4, 0x7f})
+ioctl$EXT4_IOC_PRECACHE_EXTENTS(0xffffffffffffffff, 0x6612)
+r6 = socket$nl_route(0x10, 0x3, 0x0)
+r7 = socket$inet_icmp(0x2, 0x2, 0x1)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000700)={{{@in=@local, @in6=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r8=>0x0}}, {{@in=@empty}, 0x0, @in6=@initdev}}, &(0x7f0000000800)=0xe8)
+ioctl$sock_SIOCGPGRP(0xffffffffffffffff, 0x8904, &(0x7f0000000a40)=<r9=>0x0)
+r10 = socket$inet_tcp(0x2, 0x1, 0x0)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000a80)={<r11=>0x0}, &(0x7f0000000ac0)=0xc)
+sendmsg$netlink(r6, &(0x7f0000002240)={&(0x7f0000000340)=@kern={0x10, 0x0, 0x0, 0x4000000}, 0xc, &(0x7f00000018c0)=[{&(0x7f0000000380)={0x7c, 0x2a, 0x4, 0x70bd2a, 0x25dfdbfc, "", [@generic="cb2436c3dca6f5e238a844d5a62bc2d6b87f674277ff2e5439445cb568a2730385c5d1c92517ffb00310728ec14c2943b4e7ba3bbc747f57498db3005d92d0f3632a86743bd67e3c2f6cce1c29830d2bf68a5dde7ebfdae4f09a0073b8dbde93c3c5", @nested={0x8, 0x5, 0x0, 0x1, [@typed={0x4, 0x6a}]}]}, 0x7c}, {&(0x7f0000000400)={0xdc, 0x1b, 0x20, 0x70bd28, 0x25dfdbff, "", [@generic="032205ce7e43f18e1e018ebb104b941af103c83596fdba0d748b753f64904453e6290d21e62ebec538e7e2aa5878cedd2737566936c8c1953ede76f5b4c0973b4d3ef9ee941d46bba3ba0026c63deac4509fe71634ca8b935de18319c390cd3da47c956970c4ae988e4401c9c0e6f6bda87163f49f090e0230c6843be99e7b0b2915bfd67efb0663fb2a17d2ba98a55361442016740ef0b71cb2361e3145f528c1d9e45a177608d867c7943617cfc04767dca0c229ae9f2550b34fe0e0509120e755a9246c683905ab33225b"]}, 0xdc}, {&(0x7f0000000500)={0x164, 0x40, 0x10, 0x70bd29, 0x25dfdbfd, "", [@generic="c59f908dd4683357412f2d224f85be57f2052b836d714b06a413c4305c66c5f12f", @typed={0x14, 0x1b, 0x0, 0x0, @ipv6=@ipv4={[], [], @dev={0xac, 0x14, 0x14, 0x18}}}, @nested={0x103, 0x36, 0x0, 0x1, [@typed={0x8, 0x8c, 0x0, 0x0, @u32=0x1}, @generic="55c7c183b6640b9d47258f839ae5408c461574fbf37f3124b6864c2ad25ba6e6039529e6b569c42e7b8d16c10cda2630b202ce80a331f59636dab6257cf5f5953eebe53eb129c9951d9bf174706dbd1e0761ac2bf901c103cc8681bbc974e86f7b51b0cb0f520207b2b1389871bab7f024296cdd495ac53a8c7ac45c148ff6d5c2893965bcfcd4e64221b86deeaa228a1e618a72e4f563e70d6638c005cb37fd67b63f9264357d4947e33183d79169e993b5af79a0ed20a55c9781c8a369f8cdc1edc3", @typed={0xc, 0x60, 0x0, 0x0, @u64=0x6}, @typed={0x8, 0x2e, 0x0, 0x0, @fd=r7}, @generic="c927d005a3f935ff01e5aaee422605d7d59263886998204fd01b866f5773c955"]}, @typed={0xc, 0x39, 0x0, 0x0, @u64=0x8}, @nested={0xc, 0xd, 0x0, 0x1, [@typed={0x5, 0x35, 0x0, 0x0, @str='#'}]}]}, 0x164}, {&(0x7f0000000680)={0x48, 0x24, 0x820, 0x70bd2b, 0x25dfdbff, "", [@generic="8c8f60e3633ee238793db9f62c6178c3c7b54b3f7c9a3a7a9de6e1d1dd403ef9cf498eab8be050789551cdb24e25937ad0eca61ce3"]}, 0x48}, {&(0x7f0000000840)={0x1d4, 0x27, 0x100, 0x70bd28, 0x25dfdbfd, "", [@generic="4af9180da839a9db1c8b1a6217cf4482e83418844a495ee2d5196a46c16fb4", @typed={0xe8, 0x5a, 0x0, 0x0, @binary="19f11f21c5e28d6c8907bb46f25aad428f32e5d27db8dabb9e1c3a420f1bfa9f91727f56767d470702b4b20e27f01355fc9ff3e1a37a6d6986f5293d601a9c5b29ee1a8f4e6c56ac57fe13514210a143322c6bd6a0ca60b94856cd7221031d2a46fa12ff6c9df846c07b440dd0926abf1fd694883e2b087bf2870635ff7deffdef88433e040c6b5cd991b6237a117dc8a6cb4434ec13dc8bb5bee5c93c0f669fab9625a73f54cc0c4b57c06a2ca0b562740e36d430a9ffb32780d6e5b780370c6477ee28986cde1b8d5141df6c1cdc9dbcd054fe36f759804c5fdf9478cfa35b866b78c6"}, @generic="d0fdcc6215b966e5e09da34909defcc40e5a0dd2984891153f2d03906d10db6f45d72b7906d3c80f54072f2b1a4d72543fb8aea89a3fa6c4af2f1961e95e92308523d6c4ca743f7e9324b30dfe0fab6cad80cf15b4d47751a56e7ee40c6f5cc9e5608815a7cd0641d3892e7e4f3d69e63e3fe0ae2ba207007bd9e7c093878a4ef9c7a7210502d5343c390444728aa949e4dd2d1f6386458f2e075293edcd49c9212fa22248d386736b92cdda50fb6f30884344", @typed={0x8, 0x0, 0x0, 0x0, @uid=r8}]}, 0x1d4}, {&(0x7f0000000b00)={0x5a4, 0x3e, 0x20, 0x70bd27, 0x25dfdbfb, "", [@typed={0x8, 0x33, 0x0, 0x0, @pid=r9}, @nested={0x16b, 0x11, 0x0, 0x1, [@generic="4d3da3acda85e76d2490101aa9ad51949cd400079e3bd567c378c6dff3ae05439751bdab3e20b3b66611a38139ace276a0d8bfcdb1e1568ea296636835f633272fb6f7dfb2eacd3fbe12142221d1d093aad7fedce9fac0be2662986cbcebd845252d319a8df1bbd4edd3f992c17c32a3c49109e2a2c09675548bb2b74b4b753f5c570ccd41745f253970d182c0fd74c2730681493e7d72c1a003b9fe2486a8fa8282cb53e61f4a21f7a5813d746a570af83aa02011bed1b4a68253b58dc6", @typed={0x6, 0x90, 0x0, 0x0, @str='}\x00'}, @generic="2fa9", @typed={0x8, 0x95, 0x0, 0x0, @fd=r10}, @generic="22907ca4f8d36739d17266e2a76e9549562f5e14605a0e9910a70230780f58e6e41b159532f424e3e7e95f5c4d287cf8c43aa2d67b411de33bf7a6bcc2afbe3973fa64222bc98c4f9aa61f2f2c10480cf16795469da521e36a473b6e4039ac7213f3f73689c4ca77fa7c", @typed={0x8, 0x10, 0x0, 0x0, @ipv4=@dev={0xac, 0x14, 0x14, 0x24}}, @generic="5d2d84dddbda35cd98", @generic="ec5a7b1f0f6229e867cdad17001508793ec0b55bf6e2eddc27218115"]}, @typed={0xc, 0x3, 0x0, 0x0, @u64=0x1000}, @nested={0x176, 0x74, 0x0, 0x1, [@generic="88274b9dd18d42d1fbf5a604c0e2c125149406f1df8797281870242bd23c79555ac27ac0d55b470d02c17e3d83704d52d6b61c4e1a1014326b3eb5a48a8ddc665b8d44d46815a3031e4e58fac1ed67f3f265f54cfa3ceeb0150731e873ca17da564a287824a50c1a7b33b53f214626de3e2bee9431519a2883555f2714647a", @generic="c3ac9d504699f63229fb7bfefb531f57a64e6fa95b2d13455ec3b5815454d664ec1b1d266aa106d24034da359f4f5f67a0738f06bf52e0c54914da89a1b3b7248749d90d85728c4df47e41891afae883fe91289e25065d96af3be8b518af03a5a2ab6ce274b7e9832599e4bcd90c4f54abc3dfc910875fc30415a6b07892b2caaa162d96ee2327a715bd6b5df06b3b5d141e96634ebf049fba370da38582bc89e991a496d3e39e57cc7c38a07eeeb47ffceb92571b4581c43485bfcdafcac49856200819349bdb66c1386fde73fbb17c85ea55a5890e5b2947939be2ff25c4a60c779fb0c9b58b5bfc4042", @typed={0x8, 0x96, 0x0, 0x0, @pid=r11}]}, @nested={0x156, 0x6e, 0x0, 0x1, [@typed={0xc, 0x33, 0x0, 0x0, @u64=0x3f}, @typed={0x8, 0x50, 0x0, 0x0, @ipv4=@multicast1}, @generic="bec3ed9c0cff848c839cc456f76ddcab5de04af89847f96cf0702048ced8b4a108b22ba271aa176ef2dd4de1099883f73f14e2e5195487aae0", @typed={0x8, 0x45, 0x0, 0x0, @ipv4=@dev={0xac, 0x14, 0x14, 0x32}}, @generic="d8a8f21df880542cf3984592bd03bbe1300bf1df6ecf67c8a29edb509c82d29262d0644c2ed98044a9a35a2193db654aa3da48e54b9fbf6c081456beba4e782d80534067968c6ba0839ae95efc23fd19567798778503022e07755c0813bacb98ebff37d9e126b087ce7dbbbaf85740a9ec8c7451dc454dd30bf3b77d1f0ca46fcd41e2452da76343283503c92509a5d247d94296d9b7826d981036d62a33bad23489abb407b98e5acc89359e71af2451b90a37908882725b89b94fdd56b12752f53f373482daecabb028d0e379c76f0a7e9b3f313e2c96ebeb1f4322f7", @typed={0x14, 0x13, 0x0, 0x0, @ipv6=@empty}, @typed={0xc, 0x75, 0x0, 0x0, @u64=0x8}]}, @nested={0xd5, 0x58, 0x0, 0x1, [@generic="4a5addcbb7e62e64a94575d36d7db33f7b41024c09ce31f73c047ea2b058b78b5442247efe44441c35b1ff1929657c6671e886282a6deacf440ea3d413b88ce97185f98f5b1741638f3da1280be18b559959371cb0bac6577b24bd3a3baafbdfc59ca35d3c82d21a7739f22cbf6efbaa6f78532b3c44a8b9d2a079d393d9a28141b763c577e7757d2193689bb306a9ff7ba18e9028ed6350f203fe16097b0f5c9bd13f3272e453614063b5cf9c3128ca645ac6557dfde4bb5f1f0af5c6b402a665776558200801a1e1217794d213f24c45"]}, @generic="a85cb103b8bbce5611e77d45951326c7affb30b68bd356ea9a5a487c4886a8179e7876c15e3d92fc8238510017436f9d1d64bea3420b6e7d977da83b28c3502d28d099b5961b3c5567e183f42def7a7949662fe1cc84", @typed={0x14, 0x8f, 0x0, 0x0, @ipv6=@dev={0xfe, 0x80, [], 0x13}}]}, 0x5a4}, {&(0x7f00000010c0)={0xe8, 0x15, 0x100, 0x70bd2a, 0x25dfdbff, "", [@generic="e2ed60d917fa9761972f062ea0cf00f4f77e9ccf19908f85d5c3f705842af359910d82e7ea98", @nested={0xae, 0x1e, 0x0, 0x1, [@generic="33ec369d65a52278bbe508c064e954f431058b6683221666692b31a9bd3487f0eb834d58eb2121a404b3e1f24fc000adf315e97d3121b209e7339a024e2e4844659fcad6dc1856eb4aef0deca63060df1e9cc8f1a58044a150791fbedacf69898b821509f45c497e993553bd399f20ebd24a188d6f533460a3f5567aa31ff75069536adb52f75fecb3bac303", @typed={0x8, 0x74, 0x0, 0x0, @ipv4=@loopback}, @generic="ec19", @typed={0x14, 0x13, 0x0, 0x0, @ipv6=@rand_addr="b3d2f325b22bfe9272d82c8d184b1fbb"}]}]}, 0xe8}, {&(0x7f0000001480)={0x424, 0x26, 0x10, 0x70bd25, 0x25dfdbfb, "", [@nested={0x28f, 0x3b, 0x0, 0x1, [@generic="4a72bc05b2f311a7014c8001780bfded64f0536f01fc66213a74d309e3ca4940fa5a1bde4aabb53fcec1f3ffff5a", @generic="ce18e00d122e6cb0874549bfbac4a5ad03c4356d7a1daaf249025b9975d040f88aac22617a8186ef8cff73d915cf5f1a0f806fc1b1e019a673d657bae47b73dc703d99335ef52817d84d405183d4c35d72201a331e5928b43dd358b710d41733377999be2ae198ff1a33d4cb99b9c3fe571b85416fe53b665d28976e061f5cca1aacdd1d5820416f0b7046cbb8beed3cca9c14685cbeb9c9855373a89faf7532", @generic="6ae71068918ff5107d8d2f8e8f58b7eac0d6c4a48fb83f803f5945826be78f827834f0d31468dc71737e8990bfb0a2ff051a710958a9cb25e3318e7a45e33e831b1da287809a9d6fa63429", @typed={0xc, 0x17, 0x0, 0x0, @u64=0x4}, @typed={0x8, 0x65, 0x0, 0x0, @fd}, @typed={0x8, 0x1, 0x0, 0x0, @u32=0x86c}, @generic="d988305c6cd6c5227d05b46ffc697087e9d02dbef9e817691c8afbf59e16b70c19f8d076ca83334159918d6464818e9bfb64a7bbae056d1ba7a70b1ea2a680a05ff5fdbcc3b60983f87946b140ca15313ce6deb3cd53c64c8564caa60fb01243767e82b9f62c49714a0cbc3cf4e932148cb4e71c32ddac179a059ef3dfd3c2bee29d", @generic="02326bc873363d3229f600e32970208386083278af3b292a2e80e1af9e6df2130985ec53e3e9fed5a63273b6509a4d948b7dd9e84932eb8d0dc37209ee8bd1bb9f2d18d76435461c35fa58c72b87f154e49a232d4fdaedcd61fb561d5430bb6156e83f0d135a798b53eb1f3294a7f67ff916a6103be448982b9826faf92cf71d0a640382b6ac3d931739448451932e4ad0c619917e021a9037dd4390cc9a77fef44233476635b0346dd8aa0b185365e16a524c2167a4bcd11408d3e5bb1e6b605c093150152128c995f083fbf86acdfdbc40b6a5"]}, @generic="15a415fbae12e76346bb4716aac0b523e89b3063fe2cd39d860a7e6bb2640cc18055de38bcdf9050cc31cd24f71b941195179aadc6590839ab04869d17d5324429d5aec32ae481dd24b8b91e2065908ca9781ea58c4f", @nested={0x91, 0x6f, 0x0, 0x1, [@typed={0x8, 0x39, 0x0, 0x0, @fd=r3}, @typed={0x8, 0x90, 0x0, 0x0, @u32=0xa3}, @generic="44b8b77fe33d510ded259e925c193bd75cad753dcd3d78c185484b4ca0bbc791a61330863faab8a616565652f1d4644cdd2bba7263eea3879ed34ec514b2d7b42a85bd2ee6fce271e52b296ee3be14568d1337f98b24d733091a7627c4b0e2f65f531521efa4558be4", @typed={0x14, 0x80, 0x0, 0x0, @ipv6=@local}]}, @typed={0x8, 0x10, 0x0, 0x0, @uid}, @typed={0x8, 0x6, 0x0, 0x0, @str='nr0\x00'}, @typed={0x8, 0x3a, 0x0, 0x0, @fd}, @generic="0fb361907daacd638882602dd177d40328fbd79bb9994f6e3e87ac30f2715a3e57a19e3b36e8e8f01f8b4485c5671575b4d8f3623c7a598ff39a7f7e6fa5ada718da653b3d8816b60149174fcd123ec8d9444fc07ec3b9905cab841ef17f1371182bf4a8bc04189301d801e3631563dd52d7afe65aa07cc508bde4ef83bf6d79"]}, 0x424}], 0x8, &(0x7f0000002180)=[@rights={{0x18, 0x1, 0x1, [0xffffffffffffffff, 0xffffffffffffffff]}}, @rights={{0x18, 0x1, 0x1, [r1, 0xffffffffffffffff]}}, @cred={{0x1c}}, @cred={{0x1c}}, @cred={{0x1c}}, @rights={{0x24, 0x1, 0x1, [0xffffffffffffffff, r3, r1, 0xffffffffffffffff, 0xffffffffffffffff]}}], 0xb8, 0x20012}, 0x4080)
+
+[   31.790231] cgroup1: Unknown subsys name 'perf_event'
+[   31.835484] cgroup1: Unknown subsys name 'net_cls'
+[   31.888635] cgroup1: Unknown subsys name 'perf_event'
+[   31.917774] cgroup1: Unknown subsys name 'perf_event'
+[   31.921277] cgroup1: Unknown subsys name 'net_cls'
+[   31.934523] cgroup1: Unknown subsys name 'net_cls'
+[   31.960210] cgroup1: Unknown subsys name 'perf_event'
+[   31.961612] cgroup1: Unknown subsys name 'net_cls'
+[   33.083599] audit: type=1400 audit(1586571467.314:13): avc:  denied  { create } for  pid=1615 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   33.098612] audit: type=1400 audit(1586571467.314:14): avc:  denied  { write } for  pid=1615 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   33.111394] audit: type=1400 audit(1586571467.314:15): avc:  denied  { read } for  pid=1615 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   36.817511] audit: type=1400 audit(1586571471.054:16): avc:  denied  { associate } for  pid=1611 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   36.848798] syz-executor.3 uses obsolete (PF_INET,SOCK_PACKET)
+02:17:51 executing program 3:
+r0 = socket$nl_route(0x10, 0x3, 0x0)
+ioctl$sock_ifreq(r0, 0x89f3, &(0x7f0000000000)={'sit0\x00', @ifru_mtu})
+ioctl$FS_IOC_GETFSMAP(r0, 0xc0c0583b, &(0x7f0000000080)={0x0, 0x0, 0x5, 0x0, [], [{0x2, 0x759e8a11, 0x7, 0x8000, 0x4, 0x8}, {0x20, 0x7, 0x100, 0x1, 0x80000001, 0x5}], [[], [], [], [], []]})
+r1 = socket$inet_udp(0x2, 0x2, 0x0)
+sendmmsg$inet(r1, &(0x7f0000000000)=[{{&(0x7f0000000040)={0x2, 0x4e20, @remote}, 0x10, 0x0, 0x0, &(0x7f0000000480)=[@ip_retopts={{0x18, 0x0, 0x7, {[@end, @end, @ra={0x94, 0x4}]}}}], 0x18}}], 0x1, 0x4010)
+
+02:17:51 executing program 3:
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+setsockopt$inet_int(r0, 0x0, 0x12, &(0x7f0000000000)=0x8800000, 0x4)
+setsockopt$inet_udp_encap(r0, 0x11, 0x64, &(0x7f0000000040)=0x4, 0x4)
+r1 = socket$packet(0x11, 0x2, 0x300)
+ioctl$sock_TIOCINQ(r1, 0x541b, &(0x7f0000000000))
+
+02:17:51 executing program 3:
+r0 = socket$inet_udp(0x2, 0x2, 0x0)
+connect$inet(r0, &(0x7f0000000000)={0x2, 0x0, @dev={0xac, 0x14, 0x14, 0xc}}, 0x10)
+setsockopt$inet_MCAST_MSFILTER(r0, 0x0, 0x30, &(0x7f00000004c0)={0x20, {{0x2, 0x4e22, @broadcast}}, 0x0, 0x8, [{{0x2, 0x4e20, @broadcast}}, {{0x2, 0x4e22, @loopback}}, {{0x2, 0x4e24, @remote}}, {{0x2, 0x4e22, @empty}}, {{0x2, 0x4e20, @multicast2}}, {{0x2, 0x4e21, @rand_addr=0x2}}, {{0x2, 0x4e21, @multicast2}}, {{0x2, 0x4e24, @broadcast}}]}, 0x490)
+getpeername$inet(r0, &(0x7f0000000040), &(0x7f0000000080)=0x10)
+sendmsg(r0, &(0x7f0000000480)={0x0, 0x0, 0x0}, 0x40800)
+
+[   37.003920] ------------[ cut here ]------------
+[   37.005891] Found ip_msfilter's allocation
+[   37.016471] WARNING: CPU: 1 PID: 3332 at net/ipv4/ip_sockglue.c:1112 do_ip_setsockopt+0x332c/0x3a40
+[   37.021923] Modules linked in:
+[   37.023397] CPU: 1 PID: 3332 Comm: syz-executor.3 Not tainted 5.5.3 #13
+[   37.036729] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   37.041778] RIP: 0010:do_ip_setsockopt+0x332c/0x3a40
+[   37.043105] Code: 48 39 d8 76 0f e8 c4 61 1f fe bb ea ff ff ff e9 39 ee ff ff 42 8d 1c bd 10 00 00 00 48 c7 c7 93 5c 0b bc 31 c0 e8 44 d2 f8 fd <0f> 0b 48 63 db e8 9a 61 1f fe 48 89 df be c0 0c 00 00 e8 5d 80 44
+[   37.055497] RSP: 0018:ffff88806b057a60 EFLAGS: 00010246
+[   37.063309] RAX: cc6152b62c495d00 RBX: 0000000000000030 RCX: ffffc9000071c000
+[   37.069907] RDX: ffffffffb9000000 RSI: 0000000000000522 RDI: 0000000000000523
+[   37.072565] RBP: ffff88806b057e58 R08: dffffc0000000000 R09: 0000000000000003
+[   37.076695] R10: ffffed100d60aec5 R11: 0000000000000004 R12: ffff888067f2053c
+[   37.089945] R13: dffffc0000000000 R14: ffff8880699fb000 R15: 0000000000000008
+[   37.093138] FS:  00007f4a8bf0a700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   37.095489] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   37.096847] CR2: 0000000020000000 CR3: 000000006979e001 CR4: 00000000001606e0
+[   37.098588] Call Trace:
+[   37.099194]  ? ip_setsockopt+0xb0/0xb0
+[   37.100107]  ? avc_has_perm_noaudit+0x29c/0x380
+[   37.101140]  ? ip_route_output_key_hash_rcu+0xed0/0xed0
+[   37.102311]  ? avc_denied+0x180/0x180
+[   37.103183]  ? apic_timer_interrupt+0xa/0x20
+[   37.104189]  ? ip4_datagram_connect+0x40/0x40
+[   37.105223]  ? avc_has_perm+0xb8/0x250
+[   37.106142]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   37.109526]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   37.133282]  ? avc_has_perm_noaudit+0x380/0x380
+[   37.135801]  ? __switch_to_asm+0x40/0x70
+[   37.146072]  ? __switch_to_asm+0x34/0x70
+[   37.146960]  ? __switch_to_asm+0x40/0x70
+[   37.147889]  ? __switch_to_asm+0x40/0x70
+[   37.148853]  ? selinux_socket_setsockopt+0x23a/0x310
+[   37.149991]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   37.170991]  ? __fget+0x31f/0x360
+[   37.171942]  ? _copy_to_user+0x6f/0x90
+[   37.172887]  ? __schedule+0xb4a/0x10b0
+[   37.173831]  ip_setsockopt+0x43/0xb0
+[   37.174761]  __sys_setsockopt+0x1c2/0x210
+[   37.175794]  __x64_sys_setsockopt+0xb1/0xc0
+[   37.176860]  do_syscall_64+0xa5/0x130
+[   37.177814]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   37.179104] RIP: 0033:0x467519
+[   37.179912] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   37.186890] RSP: 002b:00007f4a8bf09c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   37.190132] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   37.200948] RDX: 0000000000000030 RSI: 0000000000000000 RDI: 0000000000000003
+[   37.212914] RBP: 00007f4a8bf0a6bc R08: 0000000000000490 R09: 0000000000000000
+[   37.216123] R10: 00000000200004c0 R11: 0000000000000246 R12: 00000000ffffffff
+[   37.219265] R13: 0000000000000aa9 R14: 00000000004d5078 R15: 0000000000701660
+[   37.222437] ---[ end trace 6f6072ec7c685c7b ]---
+[   37.235377] ------------[ cut here ]------------
+[   37.237046] Found ip_msfilter's allocation
+[   37.238665] WARNING: CPU: 0 PID: 3334 at net/ipv4/ip_sockglue.c:1112 do_ip_setsockopt+0x332c/0x3a40
+[   37.241666] Modules linked in:
+[   37.242581] CPU: 0 PID: 3334 Comm: syz-executor.3 Tainted: G        W         5.5.3 #13
+[   37.246865] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   37.250021] RIP: 0010:do_ip_setsockopt+0x332c/0x3a40
+[   37.251314] Code: 48 39 d8 76 0f e8 c4 61 1f fe bb ea ff ff ff e9 39 ee ff ff 42 8d 1c bd 10 00 00 00 48 c7 c7 93 5c 0b bc 31 c0 e8 44 d2 f8 fd <0f> 0b 48 63 db e8 9a 61 1f fe 48 89 df be c0 0c 00 00 e8 5d 80 44
+[   37.266229] RSP: 0018:ffff88806cf77a60 EFLAGS: 00010246
+[   37.267495] RAX: 8499215e46feab00 RBX: 0000000000000030 RCX: ffffc9000091d000
+[   37.270846] RDX: ffffffffb9000000 RSI: 0000000000000522 RDI: 0000000000000523
+[   37.290951] RBP: ffff88806cf77e58 R08: dffffc0000000000 R09: 0000000000000003
+[   37.292782] R10: ffffed100d9eeec5 R11: 0000000000000004 R12: ffff888067f2053c
+[   37.294380] R13: dffffc0000000000 R14: ffff88806c008000 R15: 0000000000000008
+[   37.295897] FS:  00007f4a8bee9700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   37.297665] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   37.299345] CR2: 0000001b30221000 CR3: 000000006979e002 CR4: 00000000001606f0
+[   37.301737] Call Trace:
+[   37.302571]  ? ip_setsockopt+0xb0/0xb0
+[   37.304310]  ? avc_has_perm_noaudit+0x29c/0x380
+[   37.306421]  ? inet_send_prepare+0x1f6/0x3d0
+[   37.308291]  ? avc_denied+0x180/0x180
+[   37.309935]  ? ____sys_sendmsg+0x7cc/0x8f0
+[   37.311809]  ? __sys_sendmsg_sock+0xb0/0xb0
+[   37.313850]  ? avc_has_perm+0xb8/0x250
+[   37.315627]  ? selinux_netlbl_socket_setsockopt+0x11d/0x440
+[   37.318345]  ? selinux_netlbl_sock_rcv_skb+0x5f0/0x5f0
+[   37.321057]  ? avc_has_perm_noaudit+0x380/0x380
+[   37.323403]  ? __switch_to_asm+0x40/0x70
+[   37.325400]  ? __switch_to_asm+0x34/0x70
+[   37.327349]  ? __switch_to_asm+0x40/0x70
+[   37.329386]  ? __switch_to_asm+0x40/0x70
+[   37.331360]  ? selinux_socket_setsockopt+0x23a/0x310
+[   37.333973]  ? selinux_socket_getsockopt+0x2e0/0x2e0
+[   37.343928]  ? __fget+0x31f/0x360
+[   37.345011]  ? _copy_to_user+0x6f/0x90
+[   37.346843]  ? __schedule+0xb4a/0x10b0
+[   37.347838]  ip_setsockopt+0x43/0xb0
+[   37.349089]  __sys_setsockopt+0x1c2/0x210
+[   37.350465]  __x64_sys_setsockopt+0xb1/0xc0
+[   37.351694]  do_syscall_64+0xa5/0x130
+[   37.352655]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   37.353892] RIP: 0033:0x467519
+[   37.354679] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   37.376496] RSP: 002b:00007f4a8bee8c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+[   37.379644] RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+[   37.383317] RDX: 0000000000000030 RSI: 0000000000000000 RDI: 0000000000000003
+[   37.387970] RBP: 00007f4a8bee96bc R08: 0000000000000490 R09: 0000000000000000
+[   37.402486] R10: 00000000200004c0 R11: 0000000000000246 R12: 00000000ffffffff
+[   37.405919] R13: 0000000000000aa9 R14: 00000000004d5078 R15: 0000000000701660
+[   37.409377] ---[ end trace 6f6072ec7c685c7c ]---

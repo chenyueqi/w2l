@@ -1,0 +1,414 @@
+Extracting prog: 1m10.249428157s
+Minimizing prog: 5m30.686709427s
+Simplifying prog options: 0s
+Extracting C: 13.13520628s
+Simplifying C: 1m10.187481258s
+
+
+610 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 610 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$sock_void-socket$inet6-accept4$inet6-getsockopt$inet6_mtu-setsockopt$SO_ATTACH_FILTER-getsockopt$inet6_int-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$sock_void(r0, 0x1, 0x1b, 0x0, 0x0)
+r1 = socket$inet6(0xa, 0x1, 0x0)
+r2 = accept4$inet6(r1, 0x0, &(0x7f0000000080), 0x80000)
+getsockopt$inet6_mtu(r2, 0x29, 0x17, &(0x7f00000000c0), &(0x7f0000000100)=0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x17}]}, 0x10)
+getsockopt$inet6_int(r1, 0x29, 0xc8, &(0x7f0000000140), &(0x7f0000000180)=0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1b, &(0x7f0000000040)={0x0, 0x0}, 0x10)
+socket$inet6(0xa, 0x1, 0x3f)
+socket$inet6(0xa, 0x0, 0x95)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmmsg$inet
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0x2, 0x3, 0x4)
+sendmmsg$inet(r0, &(0x7f0000003440)=[{{&(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10, 0x0}}, {{&(0x7f0000001e00)={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10, 0x0, 0x0, &(0x7f0000001c00)=ANY=[@ANYBLOB="1c000000000000000000ef8de00000002fcb3959252148000000000000000093efbd0551234b5d3a5d2d3be10a208588"], 0x30}}], 0x2, 0x0)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$inet6_IPV6_FLOWLABEL_MGR
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r0, 0x29, 0x20, &(0x7f0000000040)={@loopback, 0x200, 0x2}, 0x49)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_TIMESTAMPING-setsockopt$SO_ATTACH_FILTER-setsockopt$inet6_IPV6_FLOWLABEL_MGR-getsockopt$IP_VS_SO_GET_SERVICE
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+r4 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_TIMESTAMPING(r4, 0x1, 0x41, &(0x7f0000000280)=0x4000, 0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x6, &(0x7f0000000240)=[{0x4, 0x0, 0x6, 0x8}, {0x65, 0x81, 0x6, 0x2}, {0x9, 0x40, 0x4, 0x10000}, {0x35, 0x7f, 0x0, 0x7ff}, {0x4, 0x7c, 0x5, 0x80000000}, {0x0, 0x4, 0x46, 0x40}]}, 0x10)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r2, 0x29, 0x20, &(0x7f0000000200)={@private0={0xfc, 0x0, [], 0x1}, 0x7, 0x1, 0x2, 0xc, 0xb24, 0x5686}, 0x20)
+getsockopt$IP_VS_SO_GET_SERVICE(r1, 0x0, 0x483, &(0x7f0000000080), &(0x7f0000000100)=0x68)
+
+program crashed: WARNING in sk_get_filter
+single: successfully extracted reproducer
+found reproducer with 16 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_TIMESTAMPING-setsockopt$SO_ATTACH_FILTER-setsockopt$inet6_IPV6_FLOWLABEL_MGR
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+r4 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_TIMESTAMPING(r4, 0x1, 0x41, &(0x7f0000000280)=0x4000, 0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x6, &(0x7f0000000240)=[{0x4, 0x0, 0x6, 0x8}, {0x65, 0x81, 0x6, 0x2}, {0x9, 0x40, 0x4, 0x10000}, {0x35, 0x7f, 0x0, 0x7ff}, {0x4, 0x7c, 0x5, 0x80000000}, {0x0, 0x4, 0x46, 0x40}]}, 0x10)
+setsockopt$inet6_IPV6_FLOWLABEL_MGR(r2, 0x29, 0x20, &(0x7f0000000200)={@private0={0xfc, 0x0, [], 0x1}, 0x7, 0x1, 0x2, 0xc, 0xb24, 0x5686}, 0x20)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_TIMESTAMPING-setsockopt$SO_ATTACH_FILTER
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+r4 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_TIMESTAMPING(r4, 0x1, 0x41, &(0x7f0000000280)=0x4000, 0x4)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x6, &(0x7f0000000240)=[{0x4, 0x0, 0x6, 0x8}, {0x65, 0x81, 0x6, 0x2}, {0x9, 0x40, 0x4, 0x10000}, {0x35, 0x7f, 0x0, 0x7ff}, {0x4, 0x7c, 0x5, 0x80000000}, {0x0, 0x4, 0x46, 0x40}]}, 0x10)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_TIMESTAMPING
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+r4 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_TIMESTAMPING(r4, 0x1, 0x41, &(0x7f0000000280)=0x4000, 0x4)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6-setsockopt$SO_ATTACH_FILTER
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+r4 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO-socket$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+socket$inet6(0xa, 0x1, 0x0)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf-getsockopt$IP_VS_SO_GET_INFO
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r3 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r3, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+getsockopt$IP_VS_SO_GET_INFO(r2, 0x0, 0x481, &(0x7f0000000140), &(0x7f0000000180)=0xc)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r2, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+r2 = socket$inet6(0xa, 0x1, 0x0)
+getsockopt$sock_buf(r2, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0xffffffff)
+socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000001c0), 0x10)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(0xffffffffffffffff, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+socket$inet6(0xa, 0x1, 0xffffffff)
+socket$inet6(0xa, 0x1, 0x0)
+r1 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r1, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+socket$inet6(0xa, 0x1, 0xffffffff)
+r1 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r1, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r1, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+r1 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r1, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+socket$inet6(0xa, 0x1, 0x0)
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program crashed: WARNING in sk_get_filter
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, 0x0, 0x0)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x0, 0x0}, 0x10)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f00000002c0)=""/111, &(0x7f0000000340)=0x6f)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r0, 0x1, 0x1a, 0x0, &(0x7f0000000340))
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x1, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x1, &(0x7f0000000000)=[{0x16}]}, 0x10)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f00000002c0)=""/111, 0x0)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): socket$inet6-setsockopt$SO_ATTACH_FILTER-getsockopt$sock_buf
+program crashed: WARNING in sk_get_filter
+reproducing took 8m4.258837505s
+repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found leaking site of sock_fprog_kern
+WARNING: CPU: 1 PID: 376 at net/core/filter.c:8681 sk_get_filter+0x13f/0x250
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 376 Comm: syz-executor088 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:sk_get_filter+0x13f/0x250
+Code: 8b 1d d5 58 2a 01 bf 02 00 00 00 89 de e8 c9 e0 2b fe 83 fb 02 75 17 e8 af dc 2b fe 48 c7 c7 91 41 48 8e 31 c0 e8 c1 2b 05 fe <0f> 0b eb 05 e8 98 dc 2b fe 43 8a 04 2e 84 c0 0f 85 be 00 00 00 41
+RSP: 0018:ffff888064677d60 EFLAGS: 00010246
+RAX: 9e1267f976966200 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806c6e5700 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 000000000000006f R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806b488000
+R13: dffffc0000000000 R14: 1ffff1100cdcc994 R15: ffff888066e64ca0
+ sock_getsockopt+0x90e/0x2e60
+ __sys_getsockopt+0x150/0x230
+ __x64_sys_getsockopt+0xb1/0xc0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a3c9
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd0cc6f098 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a3c9
+RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000003
+RBP: 0000000000401c70 R08: 0000000020000340 R09: 0000000000400400
+R10: 00000000200002c0 R11: 0000000000000246 R12: 0000000000401d10
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xa400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found leaking site of sock_fprog_kern
+WARNING: CPU: 1 PID: 376 at net/core/filter.c:8681 sk_get_filter+0x13f/0x250
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 376 Comm: syz-executor088 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:sk_get_filter+0x13f/0x250
+Code: 8b 1d d5 58 2a 01 bf 02 00 00 00 89 de e8 c9 e0 2b fe 83 fb 02 75 17 e8 af dc 2b fe 48 c7 c7 91 41 48 8e 31 c0 e8 c1 2b 05 fe <0f> 0b eb 05 e8 98 dc 2b fe 43 8a 04 2e 84 c0 0f 85 be 00 00 00 41
+RSP: 0018:ffff888064677d60 EFLAGS: 00010246
+RAX: 9e1267f976966200 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806c6e5700 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 000000000000006f R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806b488000
+R13: dffffc0000000000 R14: 1ffff1100cdcc994 R15: ffff888066e64ca0
+ sock_getsockopt+0x90e/0x2e60
+ __sys_getsockopt+0x150/0x230
+ __x64_sys_getsockopt+0xb1/0xc0
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a3c9
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd0cc6f098 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a3c9
+RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000003
+RBP: 0000000000401c70 R08: 0000000020000340 R09: 0000000000400400
+R10: 00000000200002c0 R11: 0000000000000246 R12: 0000000000401d10
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xa400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

@@ -1,0 +1,32 @@
+sr 1:0:0:0: [sg1] tag#0 CDB[50]: 64 0d 8d 4b 12 8a ae 9c 3e 13 14 ff 4c be ec e6
+sr 1:0:0:0: [sg1] tag#0 CDB[60]: 58 2c ce 8b 47 4f e5 38 ea 1f ae 62 20 eb 47 a5
+sr 1:0:0:0: [sg1] tag#0 CDB[70]: 64 15 20 82 aa c7 da 03 b2 7c 88 eb 3f b2 e0 28
+Kernel panic - not syncing: Found leaking site of sg_header
+sr 1:0:0:0: [sg1] tag#0 CDB[80]: 50 8f b7 42 db ad ae 8a a6 9b d9 5e e8 bf 69 cd
+CPU: 0 PID: 2518 Comm: syz-executor.1 Not tainted 5.5.3 #21
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+sr 1:0:0:0: [sg1] tag#0 CDB[90]: 84 04 92 6a d4 da 56 03 56 ba 95 78 90 27 60 c5
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+sr 1:0:0:0: [sg1] tag#0 CDB[a0]: 51 1f 13 3f 01 c6 e4 2e ff 4c af 91 17 16 5c ca
+ panic+0x201/0x64d kernel/panic.c:221
+sr 1:0:0:0: [sg1] tag#0 CDB[b0]: 89 a0 25 fe 1f 7c 6b fa a2 8f 50 0e bf ea ca
+ sg_read+0x1a80/0x1a80 drivers/scsi/sg.c:527
+ __vfs_read+0xff/0x770 fs/read_write.c:425
+ vfs_read+0x102/0x300 fs/read_write.c:461
+ ksys_read+0x134/0x230 fs/read_write.c:587
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fbb781e9c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 00000000000000d7 RSI: 0000000020002880 RDI: 0000000000000003
+RBP: 00007fbb781ea6bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x9c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

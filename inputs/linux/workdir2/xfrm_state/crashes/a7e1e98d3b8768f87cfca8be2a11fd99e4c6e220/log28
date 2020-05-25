@@ -1,0 +1,768 @@
+Warning: Permanently added '[localhost]:61738' (ECDSA) to the list of known hosts.
+[   25.984605] audit: type=1400 audit(1586619574.687:11): avc:  denied  { map } for  pid=1587 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/11 15:39:34 fuzzer started
+2020/04/11 15:39:35 dialing manager at 10.0.2.10:40434
+2020/04/11 15:39:35 syscalls: 146
+2020/04/11 15:39:35 code coverage: enabled
+2020/04/11 15:39:35 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/11 15:39:35 extra coverage: enabled
+2020/04/11 15:39:35 setuid sandbox: enabled
+2020/04/11 15:39:35 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/11 15:39:35 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/11 15:39:35 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/11 15:39:35 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/11 15:39:35 net packet injection: /dev/net/tun does not exist
+2020/04/11 15:39:35 net device setup: enabled
+2020/04/11 15:39:35 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/11 15:39:35 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/11 15:39:35 USB emulation: /dev/raw-gadget does not exist
+15:39:39 executing program 1:
+r0 = accept(0xffffffffffffffff, &(0x7f0000000000)=@pppoe={0x18, 0x0, {0x0, @remote}}, &(0x7f0000000080)=0x80)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_INGRESS_PRIORITY_CMD(r0, 0x8982, &(0x7f00000000c0))
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_INGRESS_PRIORITY_CMD(r1, 0x8983, &(0x7f0000000100))
+r2 = accept(r1, &(0x7f0000000140)=@llc={0x1a, 0x0, 0x0, 0x0, 0x0, 0x0, @broadcast}, &(0x7f00000001c0)=0x80)
+ioctl$sock_SIOCGIFVLAN_DEL_VLAN_CMD(r2, 0x8982, &(0x7f0000000200)={0x1, 'virt_wifi0\x00', {}, 0x8000})
+r3 = accept(0xffffffffffffffff, &(0x7f0000000240)=@l2={0x1f, 0x0, @none}, &(0x7f00000002c0)=0x80)
+ioctl$sock_inet_SIOCSIFPFLAGS(r3, 0x8934, &(0x7f0000000300)={'bond0\x00', 0x6})
+r4 = accept(0xffffffffffffffff, 0x0, &(0x7f0000000340))
+r5 = accept(r4, &(0x7f0000000380)=@nfc_llcp, &(0x7f0000000400)=0x80)
+accept(r5, &(0x7f0000000440)=@xdp, &(0x7f00000004c0)=0x80)
+r6 = accept(0xffffffffffffffff, &(0x7f0000000500)=@vsock={0x28, 0x0, 0x0, @hyper}, &(0x7f0000000580)=0x80)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_EGRESS_PRIORITY_CMD(r6, 0x8983, &(0x7f00000005c0))
+getsockopt$IP_VS_SO_GET_TIMEOUT(r2, 0x0, 0x486, &(0x7f0000000600), &(0x7f0000000640)=0xc)
+r7 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_VID_CMD(r7, 0x8983, &(0x7f0000000680))
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_REALDEV_NAME_CMD(0xffffffffffffffff, 0x8983, &(0x7f00000006c0)={0x8, 'veth1_macvtap\x00', {'ip6erspan0\x00'}, 0x7ff})
+r8 = accept(r0, &(0x7f0000000700)=@un=@abs, &(0x7f0000000780)=0x80)
+ioctl(r8, 0x7, &(0x7f00000007c0)="53f6bf33fd98f1c76b16654597fe1f6bb061659b566bb2d951185d308191bb04391e081a525ecc674e982e7093369ba2b8bec516738fecc7335e271bc2274909c5a180186f30480bdb9e53bdaf2a77f028a5e79e4aaa2a92cdc8e495ff3f97caa95d640dc763144f38b7084dc1f2896d1d78b704104ad935ad5060ceb8b339b6776ab6910fb628ab06117fc44e4bfb19b95279d1996e9e15650c57ecd2c522f0c79374507d266a6c14c6d225fde1e6f4df518925d0f2a6e1ce4213e4050596724c231a27a9ef7344c3e5adfc5767f72701178ac07faed7f51a4ccbf156bfb238c2b44639ad201602ea")
+setsockopt$sock_int(0xffffffffffffffff, 0x1, 0x28, &(0x7f00000008c0)=0x8, 0x4)
+
+[   31.183747] audit: type=1400 audit(1586619579.886:12): avc:  denied  { map } for  pid=1608 comm="syz-executor.3" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8612 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+15:39:39 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$IP_SET_OP_GET_BYNAME(r0, 0x1, 0x53, &(0x7f0000000000)={0x6, 0x7, 'syz2\x00'}, &(0x7f0000000040)=0x28)
+ioctl$sock_SIOCADDDLCI(r0, 0x8980, &(0x7f0000000080)={'ip6erspan0\x00', 0x8})
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_NAME_TYPE_CMD(r1, 0x8983, &(0x7f00000000c0)={0x6, 'xfrm0\x00', {0x9}, 0x1})
+r2 = accept(0xffffffffffffffff, &(0x7f0000000100)=@pppol2tpv3in6={0x18, 0x1, {0x0, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0xa, 0x0, 0x0, @dev}}}, &(0x7f0000000180)=0x80)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r4 = accept(r2, &(0x7f00000001c0)=@rxrpc=@in6={0x21, 0x0, 0x2, 0x1c, {0xa, 0x0, 0x0, @remote}}, &(0x7f0000000240)=0x80)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_FLAG_CMD(r4, 0x8982, &(0x7f0000000280)={0x7, 'ip6tnl0\x00', {0xffff8000}, 0x2})
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f00000002c0)={<r5=>0x0}, &(0x7f0000000300)=0xc)
+ioctl$sock_SIOCSPGRP(0xffffffffffffffff, 0x8902, &(0x7f0000000340)=r5)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40086602, &(0x7f0000000380)=0xffff)
+r6 = accept(r1, &(0x7f00000003c0)=@nl, &(0x7f0000000440)=0x80)
+ioctl$sock_inet_SIOCSIFFLAGS(r6, 0x8914, &(0x7f0000000480)={'ip6gre0\x00', 0x200})
+r7 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSIFVLAN_ADD_VLAN_CMD(r7, 0x8983, &(0x7f00000004c0)={0x0, 'tunl0\x00', {0x2}, 0x3e9})
+ioctl$EXT4_IOC_MIGRATE(r3, 0x6609)
+r8 = accept(0xffffffffffffffff, &(0x7f0000000500)=@in={0x2, 0x0, @remote}, &(0x7f0000000580)=0x80)
+ioctl$sock_SIOCGIFINDEX(r6, 0x8933, &(0x7f0000000600)={'batadv_slave_0\x00', <r9=>0x0})
+sendmsg$nl_xfrm(r8, &(0x7f0000001940)={&(0x7f00000005c0)={0x10, 0x0, 0x0, 0x800000}, 0xc, &(0x7f0000001900)={&(0x7f00000006c0)=@expire={0x1238, 0x18, 0x200, 0x70bd2c, 0x25dfdbff, {{{@in=@multicast1, @in6=@rand_addr="00cb4e303783010e87aa519890231f47", 0x4e23, 0x3f, 0x4e21, 0x1, 0xa, 0x20, 0x20, 0x89, r9}, {@in=@multicast1, 0x4d4, 0x3c}, @in6=@mcast1, {0x10001, 0xa39, 0x1, 0x5, 0x1, 0x2, 0xc819, 0xbfbc}, {0x3f, 0x20000000000000, 0x80, 0x6}, {0x6, 0x80000001, 0x3}, 0x70bd2b, 0x0, 0xa, 0x0, 0xff}, 0x2}, [@algo_auth_trunc={0xdb, 0x14, {{'nhpoly1305-generic\x00'}, 0x478, 0x60, "2d796f4a4d6fa5c186bccf5c864ea6403661825cc301e81de3b7c8e65c8c5f14391f33ebff11d5648bc0707f56ded4e57c33176957c71a6a7e9633a849a7a82b6cbeeb9590795b612adfbf5affca777d8e721eb597d0412e12bf5908e08314f477ee90933a362bbd7c63b284482eda4d6f493df17e2e2abe8cf1395648c4a28174adb80469edec63ccd14be6ca3559"}}, @algo_comp={0x1048, 0x3, {{'lzjh\x00'}, 0x8000, "d3bd92f84f8b3ba2c51524e7b1f5fee780344b4f0cc322ec55e1df73ec53dd0b8e4c45032fa3859d02baca47629854163e74fcfa9c2afe52d599e5762fc5d5f04d38c813e9edcfc95acbd6bdaa60da735ce0e641e73e8af3f0c1f75284e8528d587ba1bc0a918af50660be4951ac67cafbe9f7a24c79c3b1b1076d6392c6a2adc7e1c454e7e46e2ce9eae0e3c7cc2c01157088acaaaba121064c2954c99c4014442fcddffbbfc0e4f353d13bbd654f100d4323bd1d96acf4ce9caa4a51d1918f1d89d0a25f58bb33fc4348acd4aee9b087ebd2119568775899a6c0191000e489432c89ca94e9074a3d62f8c1e2cd149e76632a457ac089c6b8b892ff27b25b72a3829f7c444f4472d80b016b614216d7f12b1f167489cb9b9750e74c75f116f0d9e2c5386bb793ac102ab1fac6a51869380e79c1c26f0b63f580c0da9231da9dd3348a7c82bffb8f8bea02c5128f7d1dbf76fefba7f9373910e804357f0d4b42d4610be96aa76f6f2eaefdd8d37068e0eb7379a55eb9cc8cf8d9a908344db44268a60fcd5684f909a6d42fcf5abcb9bdc453838db4f44a960e653f269558fcc9d054c3a36d77524ac73a25a95c674a40bdf1e4ff170c6b4442a9ca26b679a046dbae183e794fbc1284fb1619949f413650a4469fffe6a7617433a5cb0897afd2cd6aa29bf8f2f5d66cd2c5f4051011b9edcfecf949eac7dc30b995102b39952e08f4fa5deec36831f224767e94b72bb7d3ce615fd64319bcf0677d1f21f912580504ea791f540ddf8f0e3f77e0b02741ae564678bdb4e56efa7f74eeec45d44327c400b3170a34aee46a2e78dffb1fc6009f05d5624df5547ee22256f7147851da516e4d86e29bfc4f35d0b62a7ef4cc7620b118ac8c94c4510d21ea2bb07cf62d3177a948e456cf46c2210ba08864f2b664a1acf855d7cfa38b4b5e9530ad06f58c676c7a84bda461e523ea876fcb58aab795abe2f76a430cbe8daa91aff5a3bb5fadee90a10172a401f21bd31e439c30d35065b83c006e1af25fa8e0364c081815f82e846e12904c54166c973498c54255174d469a13fc2296278f90452456e9bbafe8b80acfbb2f02f452767b49a2722cb217f49ab837ce9c6ec85025464941a470c0b8917616ff381351ce0ba99a43d81580e196ada6864f275078c4396b6d3720da61c4ff22d0f34156bc00e44ba652097a74a0d1ec667769552b3a6ec249a01c4924a7bfcd5f804d84980eec697cfa68e2d7517e324d378145a7406fceaf3c591dcf4039a4ee0208e890441ab404a7f23a1853474c4f079db43c7a26372640e0236bf3e462b9a5515dee134e6c7df3870e65b1bece8d651aa3f7d2b1a0bab5a0ff52516699f10997601bfa90e01635040ca85d2dfa4c4d0927688760ab433fa1a7e9b246a7424ac1ba659af3115b9ba2ad22ce0421f58b7aabc493fd691905f884c499e5db36484083f6db85e148cdbac6f4244e1164fa28abcc17c125518a6a2b67b1ad3d33e4b60267915c97ed874370a75ff3ea49a4031ce97edd7604e6730e73d66c1a794c442c608a7e273b5a316ac529a030dc65036c90512fec40a0aff73ddcd2c310ddf5fe0d57f24290aafff28d3d63af35dca06f7dab66f16e67738737e4310d408caf62f5cf821d24f5b416d2b5ae332463f0f42e64874278045a09444c012cb67e807caf5c4126d72b15437061476344dcfb4872666429beeb410ef100ae0e035d1c4521ec9f28c16bcd4d8be615b7a613f3c21097f1bd128dde4cf1fe2c74bc6d59aaafcd7a1710e4eb9afdc081e9328da957ea13a0e99ec2081d32e07266061975021a90eca821aeb1da7b2fddf19ac3f2d133ec7e4140f6bb4b67f696f2125715fbc90fb3f1f9a2ef2268681fc82f928d9639b49a75ace6b6c7debaf03f3f60119a5082441fcb1b34baa986d28fb1a0dbd57285e167e2ea42ea7495e5d032d0b87ae7daf4a119f3b8a492f614a05f7fa6452454a133e6016bb884045463e7482e6e7a2745a9c984e8551de58bb75d68dd27262e3bef5545d016dbd1d87e2765b9acf512b02e94827fceaa163968a320d4abb71e1e8ac7f3753aea302fa6e3926094575ed0e12326ce185f6f33fb4585a2c38591ba4e651a889d8dc58b04baaffc83062b4bf66504c7f7a0394a7c7b59219625d505a058f008578de1233a8e83ea976a39801edd25d16ecef0aeffcb21bc6cd5cc31a65dc2ae042ce2c8cffb31230dccc3cd9577450264a995f1e2401c7e7e832abbf7309a49d9d4ae0f6212f14cf2302dc6f6104f93d896e3dbe5cbba0bd52d4eec5d25c4a0f8548e6109d7f124d2b0f86729359db1370ec2a649ca5a7c8591a8ff462c831e20564033478515820ed780eb8ebb2a71121778ef9e07ea6518ec589d4a903c925b2c8a000504a1943eb2a555774a86af96407b01b4e42bd249fe25fef1ce447abdab7dd94a46991ee103aa60af35c7e603774ee064838302de3fbe4f3e4897ae06fd917c7388f4e7989307aedf4419315a533bf8af68aaa42ae88e6dc4fbbf0e0c44a26501fafbd6d1f267fcdccc6e3479b8d54468178acc5dfecf623e0a1e33c36f7dffb25ce866de5874f5f2112b0f39eb429a6fe3eef334a4bd81df235691f462d509ad5099c72e4bfd42cbdc1c34479a569842f0bb483705d11664b9196cc5b80849e1ff40bc26661af60e0cd69f1c28317ffccdc9c358bf2f3aa81ff1e9182ea5b5b9a1e0564595459af9e81ca68788760862da12acbbc371f5987571f250cc07b82efe1885b69b31776966c4f73be2ff19b1a6e07607c4930d38618c71242b254c34859ca5b923f2c617e487e90db3bf1e39c9ecde4236a4dd47b0a07f6b08ccb1c7adb2f27d06856819c231ecccec8949d9db651c0ec7cff7042414300c2c2bba20152157993c99bc01467a8db9227d0a0921cea78eef10f1c4d042a81eaae87c27fb781e24bbcfb08665d8379332a2784438ffaceb6f13c25a0d99c99dff7647541edf72fa60efb3e6e3ea4d322dad518507722fec03509d9abce473c228bd9127c6da53b37086eff38a8b873bb667081502bbad91f397c054d0badacbfef0007a2df1d78f1b8cc4b1ed225592ae1f88f6d6205ed970503ccb9432f57b3598d81a542705dce8896806e808498834a8ed83e80aeeb204878e9d2d06bd4bc94408f1a2cab326ff2bbc42d612c47fe7d26e178e012136622338f39b02a73f4de707a34e4cfbb6c32133987122b397e3f76ab9b212cadfd5a3cff856558c1856ec8f4d7b70a4ceb31d46418ad4ab70882ee09e4be76b56be3b8a8b46c1373837fcc850a240b0aa3950bf268bb645206d8a4dffabfd565ee20b0ef91d14df3524af16013920983ff31ef207733ef41cd9f726afffc20a5b88cdb4aea5f2f792d492af4c81de442153002d6a08f05e2c976c25a8b193385282d2c4f911bd4ef7b8b51a65fd69990606e88ad280e0f4c60e9860e36921267b4c9c6be7077f16b768b8ccd98f9d4eaad6b21c18e7c8798fd2cddbc8d69c5e0aaeffee212054ce02907d89ecc4a43155ccfb969b73cc22e57d4940d5bb662272563ad4dc33bf2bf2259d8b10f8e547b67bfc1c210f428930b55649e1b6fb08be28b9baa80963727f9f9c2669d238c865104d0d35bc4d906f17709d352df1776861c056a8cdfbf9d795d562653bf0a18f4985536e122fceebf85535913d8183e64f169770c70b214eec1e52fbb19d7b5de34a24d12a0ae0cbbf6d89f166552e5f0eea22171ba34a204893183cd0575c46f445cffa2833ab1a10df9bd11b286d343245c4fdacb10f081513942020d0b7f42132582ad24951809931fa5265a9540819c943976b4a7ef33c55ed7fc3dc1c866b00834fd255b14465ba3dd44bbf8952fa744cd9fd5b8ba14d63f5a1a32950cf909df278aca890856999938ca7713624ed8d5066564e9821d67dc46dc792f53efe1aebc1fe8851da11ae93613056bfb707b7c7b05305bebfc98e709e08bbd7f14890c0a2b153eba7288c1f0e73c1eacded9fea3b3c79985ab3206140ffe01877941e032cba927be1a904edf1675d2703b28178ee71ba6e1cd2fff984de3837470883ae08927aa2054557d8050d7c7d5000b3427a26b62336b84ebb04620b24e27d552badecc714d34f283163233cad1b827fd015bc606ce216d8303e11ccd3a684f26c50b4f2d17c926213401e772f99ff302b763eb27e7630af323372fde947260cd0b7d5606757eb6304ec42cd37a5541fae2941cae785d61506beb28fe1dd5228de55c95b87230e730ba634db7cd2a255970436fa9f493b84ff91f541773d0d775fd1474b14a6ba36612e8fed0d42db6902f2411540ba92de8723ff7f00956924d0af79cc95908da457473a67c686f036b2e0f77f557c24b279e4b3a416b7c9833a5e085f5e15a4f4f61ca622526eb268fa36ebe684a17e3514e5d6ae14a3ffcfa28831fbeb24721ce1af7fe6f75f00c32bb86c05fa41a16cc0aa3dd6e28d9e0ee8fec8b7263ba75683e8f6da7385a3d3fdf9a8e69ea9a8b18e6d54c5cbf6a0d5eee2448a4b64384c6a6dbf95b223bc1b62335bd640be9be45dc5de99d412e3240156811e7e3de4baa19988a15df8314824ec5b2081afeb039fd5439e142cea231ad75cede4f76572e622e720c3132317258b07d9639c37a3942c77ebcf9d05fa806a4d877b397a35d6643a4a499106510ecb1cc53f51fca7b5250aab7379425eb8d448f259a674d0b3d2e288d1fb0ab6fdcd0a056ee2f38246fa718a365723e2ae5f888804bf15b83e2156eac903451aea91aca08035936862bdae9c6150899d2af8be3dc1964f1197453b95661b5bc780f68eefbbb5b2e3bae96b57d740f0c165dd0b57ac22cec17a336b28a4d02c884925786012d95c089683c80e5208a3a6ffb88b24c748ad95a2f5ca7bc87e7819c45f9db3a71e6431d048a6f6dcbba66b24f4aefddc861573ea6b415bead5c5269f280ca455368b9fbf03a4ac83da4d5df510b36ff3d0d71d67c311f0b996acba39d637c9d0fbd095b0f7eebbc648058f67da7ed856f6ff4ae3b2a4a685cfcd3171bf1cccfeace9ad6849622492709dd608e42b831d2bb40093f8f24250c899f088fa9e2f7830bb7a8f6662c3662424e90cc72892287d56ff297bd6ed5dd8adbbe7e45a28d13f4314493462cd27d77aa4ec32dcc1473a6bf596f1abbcde3cba8b906b0efef75375d63496c43c2bcf402b76fac3237f4959092af55131ddc876a3a15d5c60d4d1d447a52ed881df6e5467e65184d776b6ce52253da61b7c04709edceb9f10c6457dc27a79a4de1ec84e1ba2f55b89d7193a45e14f2f9e56dd7ed22390f9a83f7df2d61d274224e888e4ae2567df33dffc8c0f87b5de183226ad4b569ef752189c81668abb88dde75a6b9a9d7d61832e08473a03708da1de826468c3c2b0bf97f2db5c10c14c79b968f3cf87f2de9a0ae2668b47f1eabf1cc4b9c1c26305ac32082f54d6d796066f3aebb3c7e4e78327dda3a19c778626d7893b497413a18c2f5f20ea2ca167a68b62d32d25356cd6624c751a79847fac5f2d28896f08f81b1243e2211aa19c1f36209b7260d85e67a56b2428a9171f963836863df981ff310673cca0049b80878901ab25022ae5611fea891368fb19a18525893ef893f2040c0a1f3010d4d9076b05a29a979b2960a615571507b60f0afa7990ce1130e4163e89fdf42f4ca706de479ee4af2ee8a6cb0d3f6d0a894fe6f414112dd39dc7f20c3c05239250c33020d6ccad03e2c3be9bc632245b5437515b5f742ffa3a"}}, @encap={0x1c, 0x4, {0x1, 0x4e20, 0x4e21, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}}}]}, 0x1238}, 0x1, 0x0, 0x0, 0x8010}, 0x0)
+
+15:39:39 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_INGRESS_PRIORITY_CMD(r0, 0x8982, &(0x7f0000000000))
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$EXT4_IOC_SETFLAGS(r1, 0x40086602, &(0x7f0000000040)=0x10)
+getsockopt$IP_VS_SO_GET_TIMEOUT(r0, 0x0, 0x486, &(0x7f0000000080), &(0x7f00000000c0)=0xc)
+ioctl$SIOCGSTAMP(r0, 0x8906, &(0x7f0000000100))
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_INGRESS_PRIORITY_CMD(r0, 0x8983, &(0x7f0000000140)={0x2, 'veth1_to_bond\x00', {0x2b613c3e}, 0x100})
+getsockopt$IP_VS_SO_GET_DESTS(r1, 0x0, 0x484, &(0x7f0000000180)=""/187, &(0x7f0000000240)=0xbb)
+ioctl$sock_SIOCGIFCONF(0xffffffffffffffff, 0x8912, &(0x7f00000002c0)=@req={0x28, &(0x7f0000000280)={'ip_vti0\x00', @ifru_mtu}})
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$FICLONE(r1, 0x40049409, r2)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$bt_hci(r3, 0x0, 0x3, &(0x7f0000000300)=""/230, &(0x7f0000000400)=0xe6)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$IP_VS_SO_GET_INFO(r4, 0x0, 0x481, &(0x7f0000000440), &(0x7f0000000480)=0xc)
+r5 = accept(r0, &(0x7f00000004c0)=@l2tp6={0xa, 0x0, 0x0, @dev}, &(0x7f0000000540)=0x80)
+ioctl$sock_inet_SIOCGIFPFLAGS(r5, 0x8935, &(0x7f0000000580)={'gretap0\x00', 0x9})
+r6 = accept(0xffffffffffffffff, &(0x7f00000005c0)=@vsock={0x28, 0x0, 0x0, @host}, &(0x7f0000000640)=0x80)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(0xffffffffffffffff, 0x8933, &(0x7f00000006c0)={'wg1\x00', <r7=>0x0})
+sendmsg$nl_xfrm(r6, &(0x7f0000000a80)={&(0x7f0000000680)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000a40)={&(0x7f0000000700)=@newae={0x31c, 0x1e, 0x400, 0x70bd28, 0x25dfdbff, {{@in=@loopback, 0x4d2, 0xa, 0x46}, @in6=@local, 0x6d, 0x34ff}, [@algo_comp={0xeb, 0x3, {{'lzjh\x00'}, 0x518, "59e7b58253b8c485b14e2a75fc706f0c58d851f3e9a2c42fc66c9d9243ab883a5fa31c5f3248e415df9420262bfd0eac46a13f9e1c32e911cb89b00961f6291f566ba27ca485072e34e99cb77a5f0429dd9537d23ddfa0dbf7ad243e3af28f8b5c3149b5f18fcd471ac6d32684d2b319853a6827886ead424f781c7f4d5251e3ebbedd88a42d8f7eb55cedc3056abec0a1a84adccc418b2d4221146272d214230796a2"}}, @XFRMA_IF_ID={0x8, 0x1f, r7}, @XFRMA_SET_MARK={0x8, 0x1d, 0x800}, @tfcpad={0x8, 0x16, 0x3}, @coaddr={0x14, 0xe, @in6=@loopback}, @tmpl={0xc4, 0x5, [{{@in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}, 0x4d6, 0xff}, 0xa, @in=@dev={0xac, 0x14, 0x14, 0x15}, 0x3500, 0x3, 0x3, 0x3f, 0x1, 0x2, 0xfffffe00}, {{@in6=@dev={0xfe, 0x80, [], 0x2f}, 0x4d4, 0xff}, 0x2, @in=@remote, 0x3507, 0x4, 0x2, 0x80, 0x6, 0xfffffffd, 0x3}, {{@in6=@remote, 0x4d3, 0x2b}, 0x2, @in6=@loopback, 0x0, 0x4, 0x3, 0x5, 0x20000000, 0x5, 0x5}]}, @algo_comp={0xaf, 0x3, {{'deflate\x00'}, 0x338, "a35426779694a541a8c7cc2a58d14b61b6fe6559a8b38fda15a39968e29a2f04659276c6d4ac0a61251aa4fc916c60b4588272673814e63665d9beb1991ff382f8ebe9fe52da26eb640f52986f417e9b5fe4056b8973c0de294c1233c15f5e07e5a9c1dcfacab7"}}, @sec_ctx={0x4f, 0x8, {0x4b, 0x8, 0x0, 0x0, 0x43, "cfa665f8c7fc5f7da56b06babded4ce46ae4f0017495a8e7f7f75c446171f0b695fc34f8cf89830078d4cf3ee159b725541d9bedb16ec003fe680e944776c4e628fbff"}}]}, 0x31c}, 0x1, 0x0, 0x0, 0x40000}, 0x84)
+
+15:39:39 executing program 3:
+r0 = accept(0xffffffffffffffff, &(0x7f0000000000)=@l2tp6={0xa, 0x0, 0x0, @local}, &(0x7f0000000080)=0x80)
+getsockopt$IP_SET_OP_GET_FNAME(r0, 0x1, 0x53, &(0x7f00000000c0)={0x8, 0x7, 0x0, 'syz0\x00'}, &(0x7f0000000100)=0x2c)
+ioctl$sock_ifreq(0xffffffffffffffff, 0x8919, &(0x7f0000000140)={'geneve0\x00', @ifru_map={0x8, 0x7, 0x8, 0x4, 0x5, 0x1}})
+r1 = accept(0xffffffffffffffff, &(0x7f0000000180)=@ipx, &(0x7f0000000200)=0x80)
+accept(r0, &(0x7f0000000240)=@pppol2tpv3={0x18, 0x1, {0x0, <r2=>0xffffffffffffffff, {0x2, 0x0, @initdev}}}, &(0x7f00000002c0)=0x80)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_NAME_TYPE_CMD(r2, 0x8982, &(0x7f0000000300)={0x6, 'macvlan0\x00', {0x9}})
+r3 = accept(r1, &(0x7f0000000340)=@can, &(0x7f00000003c0)=0x80)
+getsockopt$SO_TIMESTAMP(r3, 0x1, 0x23, &(0x7f0000000400), &(0x7f0000000440)=0x4)
+r4 = accept(r0, &(0x7f0000000480)=@un=@abs, &(0x7f0000000500)=0x80)
+ioctl$ifreq_SIOCGIFINDEX_team(r4, 0x8933, &(0x7f0000000540)={'team0\x00'})
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$IP_VS_SO_GET_TIMEOUT(r5, 0x0, 0x486, &(0x7f0000000580), &(0x7f00000005c0)=0xc)
+r6 = accept(0xffffffffffffffff, &(0x7f0000000600)=@phonet, &(0x7f0000000680)=0x80)
+ioctl$sock_ifreq(r6, 0x8921, &(0x7f00000006c0)={'veth1_to_team\x00', @ifru_addrs=@l2={0x1f, 0xa6, @any, 0x5, 0x1}})
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_FLAG_CMD(0xffffffffffffffff, 0x8982, &(0x7f0000000700)={0x7, 'bond_slave_0\x00', {0xa3}, 0x7})
+r7 = accept(r5, 0x0, &(0x7f0000000740))
+ioctl$sock_SIOCOUTQ(r7, 0x5411, &(0x7f0000000780))
+ioctl$sock_FIOGETOWN(0xffffffffffffffff, 0x8903, &(0x7f00000007c0)=<r8=>0x0)
+getsockopt$sock_cred(r5, 0x1, 0x11, &(0x7f0000000800)={0x0, <r9=>0x0}, &(0x7f0000000840)=0xc)
+setsockopt$sock_cred(r4, 0x1, 0x11, &(0x7f0000000900)={r8, r9}, 0xc)
+
+[   31.350619] cgroup1: Unknown subsys name 'perf_event'
+[   31.360854] cgroup1: Unknown subsys name 'net_cls'
+[   31.372994] cgroup1: Unknown subsys name 'perf_event'
+[   31.378063] cgroup1: Unknown subsys name 'net_cls'
+[   31.429070] cgroup1: Unknown subsys name 'perf_event'
+[   31.446599] cgroup1: Unknown subsys name 'net_cls'
+[   31.471275] cgroup1: Unknown subsys name 'perf_event'
+[   31.486181] cgroup1: Unknown subsys name 'net_cls'
+[   32.645707] audit: type=1400 audit(1586619581.348:13): avc:  denied  { create } for  pid=1610 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   32.664506] audit: type=1400 audit(1586619581.348:14): avc:  denied  { write } for  pid=1610 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   32.719780] audit: type=1400 audit(1586619581.390:15): avc:  denied  { read } for  pid=1610 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   36.128143] audit: type=1400 audit(1586619584.828:16): avc:  denied  { associate } for  pid=1610 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+15:39:45 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000040)={'sit0\x00', &(0x7f0000000000)=@ethtool_cmd={0x48}})
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x0, &(0x7f00000000c0)}, 0x10)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$FS_IOC_GET_ENCRYPTION_KEY_STATUS(r3, 0xc080661a, &(0x7f0000000280)={{0x0, 0x0, @reserved="72acdad1d4fd9a99951beaeb677cd55256df6dcbed1d68469a8b8cc1a49ff021"}})
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r4, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local, 0x4e22, 0x0, 0x4e23, 0x0, 0x0, 0x0, 0x80}, 0xffffffff}}, 0x50}}, 0x0)
+ioctl(r4, 0x5, &(0x7f0000000100)="5a26cc2d49dc240d21409a7aa97cb297e41c5766cb2eac1c20484040b376853fb3ca4104d9273c3e7799014e4897f438e4c683ca1993a3453f296d5c15e579df28a00dbbf6202e4e72c382810330b5b9e37f39f62c55ce01b286ee639fc269c93edbb71136aceb4901e1c14c4ef285cfba791b6e3d7d0adacc885fd3683e4a94f3608f566c06d0dca55b989f36af0c68a1f5beb936c2")
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_NAME_TYPE_CMD(r1, 0x8982, &(0x7f0000000080)={0x6, 'batadv0\x00', {}, 0xfff})
+
+15:39:45 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000140)={&(0x7f0000000080), 0xc, &(0x7f0000000100)={&(0x7f0000000040)=ANY=[@ANYBLOB="e10000fd16bb67637b9703249d63af16cf5ac03e9fec8f2d6b48b6eb041e006c00"], 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(0xffffffffffffffff, 0x8933, &(0x7f00000011c0)={'batadv0\x00', <r1=>0x0})
+ioctl$sock_inet_SIOCGIFBRDADDR(r0, 0x8919, &(0x7f00000000c0)={'netdevsim0\x00', {0x2, 0x4e20, @rand_addr=0xffff}})
+sendmsg$nl_xfrm(r0, &(0x7f0000002380)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x8000}, 0xc, &(0x7f0000002340)={&(0x7f00000023c0)=@migrate={0x1110, 0x21, 0x400, 0x70bd2d, 0x25dfdbfc, {{@in=@broadcast, @in=@loopback, 0x4e20, 0x401, 0x4e23, 0x202, 0xa, 0x0, 0x80, 0x8, r1}, 0x6e6bb0, 0x1}, [@sec_ctx={0x1017, 0x8, {0x1013, 0x8, 0x1, 0xe, 0x100b, "caf36aa6c9c3a04e1e331df4a2524b8da0b8190c574d4f526062d4d75e4b89be4cb82ea1cbe38e82f87c8ebb84a1f069d496722e1be816021fff21de47806cd0a616c474f28e8fb15388090ad0e8f0e9215ecf9d0cf7b6e61bfe9793549d7d0f77520dcdd9c136a3c89abeee939fcc13ee15d201d1ceaf1ea9248447910f911157e5bc96bc2b7d1787f87c83ace416c8a069824a5ced58366ebaccf74409c4b964b186a05804278fc9dc7b88acdd89b260aee38c065af7c6de66144a0958aa7d8c1b24bf063527be8c3f8b977d56d270e17a46f34db59eb14d456300d15fe2fc6a3a7d577c2e805ff1c1c77eec124929baf94bd3e89e28cf09f450616d7f7f97b3cb88d7ae21ab64034d2c6b277562fa88f61daf764dd8e5ba2982905bd7bed06a40aa6b9b01f33cfccb7028c33f1e38d642f029ada2c900a2db4e08f7fc1b34d47c7f0ab6336f7ecee627099275665d98ab3f0ec568b20c172352b50d0a8f2976bcfddb335d4ad08e03e3bc1f4ecbfa2fe0e153676661820e138f0ada21670258e99768823386d2ee8ce6546936c7fd1d3cd6aea22ac89788750b06674a4beae9cf2e4fccd02ac07458e12d7fe63723cfe3e85cb4bfdfd0949ac057b2306bcdfd85f13af73f9c422e9384a87865217579417643be02cd070cef9e0dbdc55de8241658f2d5f33ad278af613ec7421ac6c8d76ffc0512d4fb6cf3147571ac8475516e9224d072e3fd6091c01e3c5c1495acc97a0b3bb31148a7f30affdcda6f68613cb8cad004617d05029243ee18cb27a8a32898262fb81bc906a21a04077e7e9e3958fa3d0005ba1c31579bea0b793f93df27c71bdea9b7ba3627dc53e57f3051025109d265b7d03f3418f40858972fe190c8552982b0aa3263db4107a90d18b35d81ad37f5e85afe9dce13abca8a3c98cb18b3519935a6d20f6a2ed5d5066d13e2b1c93c32dc1b1f927fdbef58346d48b96d3a4783b746be0cec35cafcf5af76dcb0c21deb63a76b528853f67f445ae3cf86c309a75e4566b3da15b70a77785b36d8336e3b1a54ff89734af1d38dfe52a760b4df2e2aa98c44a7a5478bfb7e774e78c8012ca29dd7e77cc153fa5ee42435fa997fc838c26475dcca76e7daa0b1d189814162719e87338a8855ae4a50e2a82f057f6eb6afc3690363a2d115356226faa5c6a78fa9dd90858f2d4d313978e90d419866d00faf6c92c51b6aa32d0b1bb6d5e9c643ad05e6a24e52b6e007276eb1c756aa4a71fac2c573cbc62802708bfb64571cbfad76a38c9f8126e1e35aa4872f5001f68a354da5c60fc7ff5fb818d6cee6c118038cf919fda43b339e1953f07631ef3ff33f72478de57e82ab294694a1989153464aa2c80c8495f7248f573017287f6d71bafb815d62745e829c437b3808f6907a4cd14d07434b7e0895b532e57b5e37d2a3ca0a8fda953cbd77ce81f62d850aee9f026d72268c7fafca6160aa2c87e0fd36389770f2d81c0a6756e81d552f975d54e2271447830e697d8d2641484db2976f673a9a05f9ba402e5f24a7caa6bd97dd0dd12200b79aa2fc9df205f63bb1c382a70b0edeb37c6330a16f8bce2130ff4ff68527f289fb0eeba010e57f29c11e4144df3982ccb82850748c06b48c96edd1a5992422940f3888b318bd90a600a57f1db39ec52f56bb12bc8ce990d28907923fe0e0f1ad8f79d23ab4d66ce3236c85a16a5cc3dbe9c07f2857664fe57dae633cf29cbd24483c86a925e4d0b591aeab821105670d10d96c0f890e082dff9a1b675c2e89a12c364c5c3c7cdc1951ec1c7766fb22ad3a53f2354ae57f33c9aa06303bbb3eb03c50adabeea33c23812e25a71222c718ea876889c1eb36ae3619ab2cf0d979993761711a30fed560a60fb88aba5b83839d6369070070321bdbb0ea16c8ef7a332363cc7306caef56a23c0f2c8599232c5a3879e419b359f09a95e8b8a1a48da6ec3ec8a67d3901b6fcd0b1207f076855fb99961e2b983a2d741201e974e4b9f08267ecb978f0a985a1cc4ff7a03eebc923b9151939a8eaded8391e682bf5372bff656a7f4e5105fb75b612adf6b6c9b8f03d7eb8dd032923c32b93f45332b36d265bba41edcb32160d7f1eef3856f4d9e3f6b32936c566f79775095009405568039b0ebab44f1ed02c5f53333d2a144bba2fc346753920184def057068dd2d11ec2e927708d7cbfdb575d34dc5dd53cf03829b5074fb27d21ba5be7cd72a4b46855c4263e623609430d25c2764f9d00a138433be21744953683bc5ea6f35b9bb55402d7496db056fd9537e6b0df5748521c3653ae52d566e056c9e70d7b22104299071112347a518b8f6fffe28947da9b15494b0c3d369981350b2d935c78b77bf7927bc5f73e6edc5e3793b8479dd7330b1c711614396671d7fd9211aa1f6856b2056071e2fe39ca25ae1297709a9b38e3006da0a1d7335fac5ac98d5e83fc5c6dcde8e9e5c2ceb41056f722dd5fe6c960205b2254914b68968818977cf4748a157c804df25b7135aeb04126caacce7c66c679c1692bceece70ab2416589ba34522a7d7be9f33142fd8a4c48c6a771ce21c4384d29170cc2bb816d16b56eacbcdbc48ab19b1c6ea82019c0c892cc03444b0b881c627cf823f385c20f26bcb72ef51602e4b3ab855ee9bfc4060e06f3afe8e9a4084b32be591e2f40e4876785a160fcf19e084ba264ba5b1d5cf6f54dd2251d89d2a14b0929fca0b8c921a32fc5af6db316423f0d8a12eb40b226ec5ae993310a8cbdb6c34b84a29da2880272d928fc19daffa422bfead01d7fd24cedc509938a32cab5ebb3dcd51bee50470bb78207e328a1283cd04af95f256d784140bd37005ace62ca03d3d3a5e5dfa0927d88aa0fd42efe357e7c581d382314738f227f99554d6c6f6fe230fbd2785e374d2a544a1ba7fbdb226f970108f96a6eca840985eea6c95eadee7c9e24244477a4605e06e17c6e4a28098df718cad44b5fde4cac7ca09e91dde5ce493bfb362869b3c472e8a16310fd7a73cf82eac201b90bf7dc0817f78e36a39552c03a656a95b16dc8a46f41b0813a3cf220000000000000003ed2e49977a1ba933701fe34f05f56c7e5ba7ebdadee65067cef600565dee26ae8e8c87e9a8ac41383fe1903af8ed9c4c6db64aa1ee739f6a089d1703330169141c1a0837a083cec53c370afc32be9ea5419c8311dc42f7e12ff728b86090d87531893b174aae61ea87079b577da4e7c0b8851bf42bb4fcb48519597d0dc65084777e735c355bf5329b93928acf5944786e75f067ed848f2f142fa412586e479f82e3f6c75bda88a01769a0c460de3b5e0b82417e2aa3aea5c0d1e2a4a63147e5de8af4b9a0ec2f5741d4f6e60cc6e8a9ed821c4308e26e503d8b9b29f202d85ec14705ff8083cb5250c950653e38973b5fb593a8bb0ffee1967bc339c69e9aae1bb6c146c12a753b788b78c10c6ebfdef6b318cc981727335f31532800be7633a62b292a123a0642d29a68f0a7bd1c72e947e27684a5eca219ae1c8fc8932d20ff999cdc84e282e8e180f72d12021b4998d74154dd51599d3491152c4d0a5cc9baf22f22dbe8ce89fc62f483ae3bc23d982162dc45ffba83584cb6348b8e4cb39b25b9d43e558f2534ad47eb0ccf64ff7fbaaa720a3732f357696fe22408fd7124cd312e343e43753484ea1c32d6a0d2b206b1fb76f1ccdf779b7dac98d0e4e74437237fbb64020c9fcaf9bb2f472f8ad4c1e2db7e22c0b188890ce80d055b3c7fb3781b6717a096d620006dce37a393de7ff92cf9f0945ae8f7b6f9a6d69682a7f49f718f84f14126def5093fa60db275005842dfa19c01e9bd4075a6d63689e7dfd0f7297daae7e7c1b8ee6448ec004ad73b01d24f3234eff2b5f9af247d9ef2622a4cb0d9d1f048705877a5a51e74151aa2af7f54042395d5d01d40d7470978e26ebb6f8684cabc17e11a21ba89b870a6cd0d082b509c7ffcb85171d5ea50ca200a0a898738f965e987ae2127dab969e6c7a848debf97c24bb07aed76e3811a87f14af6d8fc6f2b6165a2a1c2ad3e0ea7df0e702b20736c5d3c4aad0b4bd25ced1dfcaad8db53e712f3fb507f919c6d5f2b4e34b8198826f84706827fcba709481e173774555b451a14db42527ecab2701a66a0f646b4c67a3358dc16d72576d54654068190abc489bb16d7e234a104e972c9153e2ab21209839c3a868ceb3d6ab9f92e0ef8ddd6dfa44d3b8e80230b0423d8da98cee87282ebabf03ca6ad474fd6bb849ea182fe4058f4314760dc54860ae65caeba686b0ba91e1640533a2ad76164d9f48f7daf0d97dc8b00b53ebc91ae07d397bae4fc1040e1d897ed2fe39ad0e0470e6e2337e8ed600f8e47d397ac968fb0752951a8817850424f48d95305c34b8acac6a017ba78c37d09bf7c585bdbcf9c50763001408eb3adfd8c67313dc9baf63fb51cd560e0ea866f49e4f4beca63fb645b34a09d477f899d322dc227346aa4c3de4d356de454d5e67e4a61b3bb284f6968adc5b5fd38e33fc3a297e39e4ea5e36b7b38b096462f7de9892b28d1bd45d2600847413654e7bcc978d928682e2e174ac97c0bc5b2e46a1161ad1f46381cefc08066e2c8b25296cb00d684208af07a2ea40872f0bae394d0852c407ccfab18f88a79b439ffcac8c907d1f3f89a6b4eefe1476114e8c523f3c93a8319410575f6783bef823db3c1899d1e8d88d7847e7ea1a6b4ffa429c59838061e9ca32f7a435e16ece19c858d2d3a35c2f94668826672c100f81ef560c35df4f5b542a08eee5b76e7d7b99ac512385fc6174b55201a3348e25baf6d36b6fd0dfe4bd1e646dc34198eb251bf71bf1304ffc953eb335ec01d274c68a663579c1389cf7c48635ba198e6e7d2cab96799d253feb1014bd9930e2a589efb917ed14976f10f7ac557d8d875fb44717b4f467749247b952026471b3b3d87d3795937d805769ce7479f70c2c3124731af111aa9cb377dad714b069b7bbe0a04d0607d70f0ebc081362ef51e3bcbccd0bab9475b739582513cc4bc1435cb11e1ff6acef144bd0dd9950002eacafe4f6f510f3033f47d484ffe53cc58df3cbecc34e495a2416662705366f1239160f0e1d072df87ddd92041d1fc419e6ee113e4e56a81c040a855f523ead27d6b1e0e5f499aee3456598e372f0c9d690dc462b95003cfc90dcdebe21005174488c433475b659997dede93e05569131d06efc2e0074456bf9a8e79c91585064296788eb7ef3daaa1d6d559460e04725b10a965db8a36bff4ad229a01787cdad39dde069c87f9af0f1231e84e2fe22c39b85f82b3ba5f430442ad20e0f154c7e562bac62406a61b5e0c6f1b60c594d4dea718e82eb0fa72ce64f487e6151f10bc99b3a249c873f8600f3f90a4edb167a5b5a1fa49ba44e56f2c30da55b1440bfe4a89b3cdab7843f65972eb24235f7c0eb07ce2ba81b2bc50792c9a37107fbaaf20918f549734ba1ac2cc56dd9ff76f63144b4384b1569f2004ac85393a5b76f6d76dabdbaded3b74b8da14a3e50431349253e3325212d4714e975e042ea8478deb4b772342ed215c52e5526960b1abcc432ceef8df936cb733820d0d23b38000fea3744f0d417a19b8e1f6fc2f8747073ab56def7a4c329f571975e8356a7b5a32ca432bedc295860cf877bb1cacc4bc2e4d4b3c528407ae5ae4182e2b64fbbbec0a1ff372ce6342ce9698533fb172ef32cb612a7ba3b9a52e88b77ebb672dbbc679e2a19649ccc5cd16f5d2c0a82e3b1438af33c899bc6f521fba55fbc58adda1f913759900bc2f9400000000000000"}}, @extra_flags={0x8, 0x18, 0xfffffff7}, @replay_thresh={0x8, 0xb, 0x7f}, @lastused={0xc, 0xf, 0x3}, @algo_aead={0x81, 0x12, {{'gcm(camellia)\x00'}, 0x1a8, 0x180, "6d2b9660b514a5ab05834d8c0c9416aa2fe01cfd3ef8b112b686fdc1fdf76facc1e94fab467cde7f32c5b3aaa3e7effb32e2c33542"}}, @proto={0x5, 0x19, 0x3c}]}, 0x1110}, 0x1, 0x0, 0x0, 0x10000004}, 0x90)
+
+[   36.555151] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=47894 sclass=netlink_xfrm_socket pig=3396 comm=syz-executor.3
+[   36.587675] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=47894 sclass=netlink_xfrm_socket pig=3396 comm=syz-executor.3
+15:39:45 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000500)=@updsa={0x180, 0x1a, 0x1, 0x0, 0xfffffffd, {{@in=@empty, @in=@local, 0x0, 0x0, 0x0, 0x0, 0x2}, {@in6=@remote, 0x0, 0x6c}, @in6=@loopback, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff}, {}, {}, 0x0, 0x0, 0xa}, [@algo_comp={0x48, 0x3, {{'lzs\x00'}}}, @algo_crypt={0x48, 0x2, {{'ecb-serpent-avx\x00'}}}]}, 0x180}, 0x1, 0x0, 0x0, 0x2000800}, 0x0)
+
+15:39:45 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000040)={&(0x7f0000000080)=@newsa={0x13c, 0x10, 0x1, 0x0, 0x0, {{@in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}, @in=@initdev={0xac, 0x1e, 0x0, 0x0}}, {@in=@dev, 0x0, 0x33}, @in6=@ipv4={[], [], @multicast2}, {}, {}, {}, 0x0, 0x0, 0xa}, [@algo_auth_trunc={0x4c, 0x14, {{'cmac(aes)\x00'}, 0x0, 0x40}}]}, 0x13c}}, 0x0)
+ioctl$sock_inet_SIOCGIFNETMASK(r0, 0x891b, &(0x7f0000000000)={'veth0_to_bridge\x00', {0x2, 0x4e22, @dev={0xac, 0x14, 0x14, 0x40}}})
+
+15:39:45 executing program 1:
+socket$nl_xfrm(0x10, 0x3, 0x6)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000000)={0x0, &(0x7f0000000040)}, 0xffb4)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=ANY=[@ANYBLOB="5000000021000400000000000000000000000000000000000000000000000000fe8000000000000000000000000000aa00"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\n\x00\x00\x00'], 0x50}}, 0x0)
+r3 = accept(r0, &(0x7f0000000100)=@ll={0x11, 0x0, 0x0, 0x1, 0x0, 0x6, @random}, &(0x7f0000000180)=0x80)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r4, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$EXT4_IOC_MOVE_EXT(r3, 0xc028660f, &(0x7f00000001c0)={0x0, r4, 0x3, 0x100000000, 0x0, 0x7ff})
+ioctl$sock_SIOCBRADDBR(r2, 0x89a0, &(0x7f0000000040)='team_slave_1\x00')
+
+15:39:45 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000180)=@newpolicy={0x188, 0x13, 0x11, 0x0, 0x0, {{@in6=@local, @in=@multicast1, 0x0, 0x0, 0x0, 0x0, 0x2}, {}, {}, 0x0, 0x6e6bb8}, [@tmpl={0xc4, 0x5, [{{@in=@multicast1, 0x0, 0x3c}, 0x2, @in=@multicast2}, {{@in=@multicast1, 0x0, 0x33}, 0x0, @in6=@empty}, {{@in=@local, 0x0, 0x6c}, 0xa, @in6=@loopback, 0x0, 0x4}]}, @policy_type={0xa}]}, 0x188}}, 0x0)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f00000000c0)={0x0, &(0x7f00000000c0)}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040), 0x10)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f0000000100)=[{0x24}, {0x4}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=ANY=[@ANYBLOB="5000000021000400000000000000000000020000000000000000000000000000000000aa00000000000000000000002f0000000000000000000000c491000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00'], 0x50}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r4, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r5, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r5, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$FIDEDUPERANGE(0xffffffffffffffff, 0xc0189436, &(0x7f0000000140)={0xfff, 0x9, 0x6, 0x0, 0x0, [{{r1}, 0xc1}, {{r2}, 0x401}, {{r3}, 0x2}, {{r4}, 0x98}, {{}, 0x7}, {{r5}, 0x81}]})
+sendmsg$nl_xfrm(r0, &(0x7f0000000700)={0x0, 0x0, &(0x7f00000006c0)={&(0x7f0000000540)=@getsa={0x28, 0x12, 0x4, 0x0, 0x0, {@in=@dev}}, 0x28}}, 0x0)
+
+[   37.398528] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=3467 comm=syz-executor.3
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000005c0)=[{0x84}, {0x74}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_EGRESS_PRIORITY_CMD(r1, 0x8982, &(0x7f0000000040)={0x3, 'bridge_slave_0\x00', {0x200}, 0x7f76})
+sendmsg$nl_xfrm(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000900)=@report={0x4c, 0x20, 0x1, 0x0, 0x0, {0x0, {@in=@multicast2, @in6=@mcast1}}}, 0x4c}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGPGRP(r2, 0x8904, &(0x7f0000000000))
+
+15:39:46 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_EGRESS_PRIORITY_CMD(r1, 0x8983, &(0x7f0000000140))
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_cred(r3, 0x1, 0x11, &(0x7f0000000080)={0x0, <r4=>0x0}, &(0x7f00000000c0)=0xc)
+sendmsg$nl_xfrm(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=ANY=[@ANYBLOB="b8000000130011000000000000000000fe8000000000007a017024c06156ccaae000000100000000000000000000000000000000000000000200000000000000", @ANYRES32=0x0, @ANYRES32=r4, @ANYBLOB='\x00'/78], 0x4}}, 0x0)
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r5, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r5, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r5, 0x8933, &(0x7f0000000180)={'batadv_slave_0\x00', <r6=>0x0})
+r7 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r8 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_cred(r8, 0x1, 0x11, &(0x7f0000000080)={0x0, <r9=>0x0}, &(0x7f00000000c0)=0xc)
+sendmsg$nl_xfrm(r7, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=ANY=[@ANYBLOB="b8000000130011000000000000000000fe8000000000007a017024c06156ccaae000000100000000000000000000000000000000000000000200000000000000", @ANYRES32=0x0, @ANYRES32=r9, @ANYBLOB='\x00'/78], 0x4}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r0, 0x8933, &(0x7f0000000080)={'wg0\x00', <r10=>0x0})
+sendmsg$nl_xfrm(r1, &(0x7f0000000100)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x4000000}, 0xc, &(0x7f00000000c0)={&(0x7f0000000300)=@report={0x3d8, 0x20, 0x1, 0x70bd27, 0x25dfdbfd, {0x6c, {@in=@loopback, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}, 0x4e22, 0x8, 0x4e21, 0x59f, 0x2, 0x0, 0xa0, 0x2c, 0x0, r4}}, [@XFRMA_SET_MARK_MASK={0x8, 0x1e, 0xffffffe1}, @XFRMA_IF_ID={0x8, 0x1f, r6}, @migrate={0x134, 0x11, [{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@dev={0xfe, 0x80, [], 0x1e}, @in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@mcast1, 0xff, 0x4, 0x0, 0x3505, 0xa, 0xa}, {@in6=@local, @in6=@local, @in=@multicast1, @in6=@mcast2, 0xff, 0x3, 0x0, 0x3505, 0xa, 0x2}, {@in6=@dev={0xfe, 0x80, [], 0x1c}, @in6=@mcast2, @in6=@mcast2, @in6=@dev={0xfe, 0x80, [], 0x18}, 0x33, 0x2, 0x0, 0x3503, 0xa, 0x2}, {@in=@empty, @in6=@rand_addr="b57b7d01e1a66c869dcf3fd26fe90e18", @in6=@local, @in6=@remote, 0x3c, 0x2, 0x0, 0x3501, 0xa, 0x2}]}, @tmpl={0x44, 0x5, [{{@in6=@local, 0x4d4, 0x3c}, 0xa, @in=@remote, 0x3500, 0x3, 0x2, 0xc5, 0x6, 0x4, 0xc655}]}, @algo_auth={0x86, 0x1, {{'sha512\x00'}, 0x1f0, "0cbff1881b7026139950ce7af691bf8a82afca282d955b3bb48749afaf746523cc185b17e84b3ad6041da52329d90f81548cb1c0827e738fc78845fed5af"}}, @algo_comp={0xa3, 0x3, {{'lzs\x00'}, 0x2d8, "632aa12626dc846b0ff12128e5d155e29f7d834cf7977c87fa70133ef977dd7d33fa10ddf97b03f5bc370b99da4b97e07522c31361e326dec4868d23113c2581d437c89b0484283c4c9652f10b6a92283c687a19e6a5eb7970ff96"}}, @policy={0xac, 0x7, {{@in6=@ipv4={[], [], @rand_addr=0x10001}, @in6=@rand_addr="fee6c2c6c73be8efbcea6e159899743d", 0x4e21, 0x0, 0x4e24, 0x4c00, 0x2, 0x20, 0x80, 0x32, 0x0, r9}, {0xffffffffffffffff, 0x0, 0x3, 0x100000001, 0x1f, 0x9, 0x0, 0x7}, {0x6, 0x81, 0x674d, 0x9}, 0x200, 0x6e6bb9, 0x0, 0x1, 0x0, 0x1}}, @XFRMA_IF_ID={0x8, 0x1f, r10}, @lifetime_val={0x24, 0x9, {0x100000001, 0xff, 0x6, 0x4}}]}, 0x3d8}, 0x1, 0x0, 0x0, 0x80}, 0x20004800)
+sendmsg$nl_xfrm(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000012c0)=@newsa={0xf0, 0x10, 0x1, 0x0, 0x0, {{@in, @in6=@empty}, {@in6=@mcast2, 0x0, 0x32}, @in=@multicast1, {0x0, 0x0, 0x0, 0x0, 0x0, 0x4000000000000000}, {}, {}, 0x0, 0x0, 0xa}}, 0xf0}}, 0x0)
+
+15:39:46 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x15, 0x0, 0x1}, {0x15, 0x0, 0x0, 0x1ff}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000340)={0x3, &(0x7f00000000c0)=[{0x25}, {0x1, 0x9, 0x0, 0xfffffffc}, {0x6, 0x1}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000440)=ANY=[@ANYBLOB="5000000021000400000000000000000000000000000000000000000000000000fe8000000000000000000000000000aa00"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="000000000000000039748ebbf584cc71e0685c506d9eb71de433e3413d03606350ed00ec5b23084fad2a35eb5e7ba104c31ada5a7c5c8bc3658170c147c38d75737e19ee60d03ff253f7426c82e1e9dd8e6ab9448a243023dc106d6f41d01153391a29cfba3a52d14d681117b4791b44eb2c40c74a6d7dc87d356bec9d1f4a62c485ef7b214bb14b26cfff2bbe71c5b196dc09ef7b9c6d69ad7042e5f0db5529f7375f51022fb5c5e6dd80a16e3f395da7624b78bf571787dd6d3145892495c5f971260ee463bbda3158709fa6c372c36a0da8b4d22e890cbd8f7e5ef18203bed0155b7c8b7caece32fc97c8b0b7a7d3e912a10cb1a40884f6f8a74abc01000000264886f34f083572ddbd663269f7a02261e99b3b4c98f9e9711ea37890e24b548af3dbfc4704f6a9beff386fc7e9d5bc2fc368bd4418d6a5f7cd029805cdbcc105bdbd050bb3c22bfe474a2ab038fb68e59b8d074f28c228f0c5ef347816cddb77a2040cd0e7c03e8e7ca8c01c4088b883a0630900000000"], 0x50}}, 0x0)
+ioctl$sock_SIOCGIFINDEX(r2, 0x8933, &(0x7f0000000040)={'erspan0\x00', <r3=>0x0})
+ioctl$sock_SIOCGIFINDEX(r1, 0x8933, &(0x7f00000001c0)={'rose0\x00', <r4=>0x0})
+sendmsg$nl_xfrm(r1, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000280)=@delsa={0x8c, 0x11, 0x100, 0x70bd29, 0x25dfdbff, {@in=@broadcast, 0x4d2, 0x2, 0x32}, [@proto={0x5, 0x19, 0x2b}, @offload={0xc, 0x1c, {r3}}, @XFRMA_SET_MARK_MASK={0x8}, @user_kmaddress={0x2c, 0x13, {@in6=@rand_addr="30bb926f353e37d52a62e7291b8e6aee", @in=@empty, 0x0, 0x7f20f159365232}}, @lastused={0xc, 0xf, 0x3ce9a60f}, @XFRMA_IF_ID={0x8, 0x1f, r4}, @etimer_thresh={0x8, 0xc, 0x3}]}, 0x8c}}, 0x0)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x15, 0x0, 0x0, 0x2000000}, {0x15}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000100)=@getspdinfo={0x14, 0x25, 0x1}, 0x14}}, 0x0)
+accept(r0, &(0x7f0000000000)=@sco={0x1f, @none}, &(0x7f00000001c0)=0x80)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_inet_SIOCSIFBRDADDR(r1, 0x891a, &(0x7f0000000000)={'veth1_to_batadv\x00', {0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x34}}})
+sendmsg$nl_xfrm(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000140)=ANY=[@ANYBLOB="b800000019000100000000000000000000000000000000000000000000000001ff01000000000000000000000000000100000000000000000a00000087000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="0000000000000000000000000000000000000000000000e4ff00000000000000000000000000000000000000dfffffff00000000000000000000000000110100000000000000000000000000000010000000449958aade648ac3c955c3830000000000000000000000000000000000ffff2dafecf85ba0603a7db0d864ad58101ed83a17f6fbb2a65257f19fba8cd0d0ba3c75"], 0xb8}}, 0x0)
+
+15:39:46 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f0000000000)={&(0x7f00000001c0)=ANY=[@ANYBLOB="b80000001300110000000000c96b00e2000200000000000100000000000000000000000000000000cff00200002000000000000000000000000000000000945265dbe72b7c9cf49a88ce5ff34a1955701d619455ae2647333df5c54ccc182a39a87621a7770d84f1b8259ac1b25e92c608e630c6689e103981952a11ed55ca91d08b9e8433d39d232c5a328b6a8532b9b955ee23536c9afd43b390bc54e250ee41353bc5ceeed338d450db0160a40c222818880e3f6a7eac01c1283619be785ebcedd3dd0e06dfcb84ba38b3338bab6022a878e0d2753bf2f9e7d43bf8dbfc05e727d42990d3", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="000000000000000000000000000000000000000000000000000000f4ff00000000000000000000000000000000000000000000000000000000000000c12f00000000000000000000000000000000000000000000000000c58bbe8300"/112], 0xb8}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6, 0x4}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$sock_linger(r1, 0x1, 0xd, &(0x7f0000000040), &(0x7f0000000080)=0x8)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000300)={&(0x7f0000000000)=@getsa={0x1b8, 0x12, 0x113, 0x0, 0x0, {@in=@multicast2, 0x4d4}, [@sa={0xe4, 0x6, {{@in=@broadcast, @in=@multicast2, 0x0, 0x3}, {@in6=@loopback}, @in6=@rand_addr="8cf92d6ed146a84229e7d9ee4d33fa8a", {}, {}, {0x0, 0x3f}}}, @algo_auth={0xa9, 0x1, {{'nhpoly1305-neon\x00'}, 0x308, "3025a9520b22e6ce12ac9a590f4fb18efb934f475f366625274156336d0fc37b0285657d81a2716b6dfcde8d8e6ff6cf033ffab9b5f18810fff4727c75a3bbbb748cde68c38a4e95f42f9c2fd4469aa956b3b4971d4796e8e1440cdfb3bdac5cd2"}}]}, 0x1b8}}, 0x0)
+
+15:39:46 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_inet_SIOCSIFFLAGS(r0, 0x8914, &(0x7f0000000000)={'veth0_virt_wifi\x00'})
+ioctl$sock_inet_SIOCGIFPFLAGS(r0, 0x8935, &(0x7f0000000040)={'bridge_slave_0\x00', 0x1019})
+
+[   37.985717] netlink: 136 bytes leftover after parsing attributes in process `syz-executor.3'.
+15:39:46 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000180)={0x1, &(0x7f0000000000)=[{0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000040)=ANY=[@ANYBLOB="5000000015000100afbb5aaa904ee8910000000000000000e000000100000000ae689c0000006a45a0c29633cb7d98f09206dfb2a1d400"/72, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="0004000000000000d9ca221b8b6a7daa28f72d943872f20b549f35ea6fce63e999bde046c4141f1b64a1c24f001fc8c786eeffe5391384720599c4f73423c4aaa394825584671c0f600a3bd288ad5e4e2a5e5074a425785bbf9e733423ffc356a581ccd150a6ef5059aa530c3d7e046afaeef5cb563a887e64404d4e140cbabe320cbc6e855b7cfb3e28219ee17efde6d6c8ada2a9d0b0c2f9ef7d"], 0x50}}, 0x0)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$netlink_NETLINK_CAP_ACK(r0, 0x10e, 0xa, &(0x7f0000000000)=0x7, 0x4)
+sendmsg$nl_xfrm(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000040)=ANY=[@ANYBLOB="f0000000100001000000000000000000ac1e0001000000000000000000000000ff01000000000000000000000000000100"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="7d41b1db55b641e6c02f1253fad836890000000000000000fe8000000000000000000000000000bb0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000f99b59075beb411856fe2ba8a2ff65dab3f3a70e630b17389bdc94861cafe23fab4513c86e6c79ea939fbef834c6d6f3b150cd"], 0xf0}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$EXT4_IOC_ALLOC_DA_BLKS(r1, 0x660c)
+
+15:39:46 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCGIFCONF(r0, 0x8912, &(0x7f0000000000)=@buf)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_cred(r3, 0x1, 0x11, &(0x7f0000000080)={0x0, <r4=>0x0}, &(0x7f00000000c0)=0xc)
+sendmsg$nl_xfrm(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=ANY=[@ANYBLOB="b8000000130011000000000000000000fe8000000000007a017024c06156ccaae000000100000000000000000000000000000000000000000200000000000000", @ANYRES32=0x0, @ANYRES32=r4, @ANYBLOB='\x00'/78], 0x4}}, 0x0)
+ioctl$sock_SIOCADDRT(0xffffffffffffffff, 0x890b, &(0x7f00000000c0)={0x0, @generic={0x26, "f4dde8d4e60cd90ab14472991398"}, @xdp={0x2c, 0x1, <r5=>0x0, 0x17}, @nfc={0x27, 0x1, 0x2, 0x2}, 0x1f, 0x0, 0x0, 0x0, 0x8, &(0x7f0000000080)='team_slave_1\x00', 0x3, 0x2, 0x1000})
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f00000001c0)={'team0\x00', <r6=>0x0})
+sendmsg$nl_xfrm(r1, &(0x7f0000000440)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x100000}, 0xc, &(0x7f0000000400)={&(0x7f0000000200)=@polexpire={0x1dc, 0x1b, 0x300, 0x70bd27, 0x25dfdbfb, {{{@in, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}, 0x4e23, 0x7f, 0x4e21, 0x3, 0xa, 0x80, 0x0, 0x21, 0x0, r4}, {0x8001, 0x0, 0x2, 0x258f, 0x9, 0x5, 0x7, 0x20}, {0x6, 0x6, 0x9, 0x7}, 0x5, 0x0, 0x2, 0x1, 0x0, 0x2}, 0x80}, [@algo_comp={0x5c, 0x3, {{'lzs\x00'}, 0xa0, "28be20f65f40b4c01ef7f3d4df27707f923288de"}}, @mark={0xc, 0x15, {0x35075a, 0x20}}, @XFRMA_IF_ID={0x8, 0x1f, r5}, @policy={0xac, 0x7, {{@in6=@local, @in6=@remote, 0x4e24, 0x5, 0x4e22, 0xfff, 0x2, 0x0, 0x0, 0x11, r6, 0xffffffffffffffff}, {0x3, 0x100000001, 0x0, 0x7ff, 0x0, 0x19e4, 0x4, 0x5}, {0x0, 0xa05a, 0x6, 0x800}, 0x5, 0x6e6bb5, 0x1, 0x0, 0xd04e13e9b13cb35e, 0x2}}]}, 0x1dc}}, 0x4000040)
+
+15:39:46 executing program 0:
+getsockopt$IP_SET_OP_GET_BYINDEX(0xffffffffffffffff, 0x1, 0x53, &(0x7f0000000040), &(0x7f0000000080)=0x28)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000000c0)={0x4, &(0x7f0000000000)=[{}, {}, {0x0, 0x0, 0x80}, {}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_VID_CMD(r1, 0x8982, &(0x7f0000000100))
+ioctl$sock_inet_SIOCSIFADDR(r1, 0x8916, &(0x7f0000000140)={'veth1_to_hsr\x00', {0x2, 0x4e21, @initdev={0xac, 0x1e, 0x1, 0x0}}})
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$bt_hci(r1, 0x0, 0x1, &(0x7f0000000080)=""/79, &(0x7f0000000000)=0x4f)
+getsockopt$SO_TIMESTAMP(r0, 0x1, 0x40, 0x0, &(0x7f0000000040))
+
+15:39:46 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000100)=[{0x15, 0x0, 0x1}, {}, {0x16, 0x0, 0x0, 0x1}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@loopback, @in6=@mcast1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xa0}}}, 0x50}}, 0x20000000)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_EGRESS_PRIORITY_CMD(r1, 0x8982, &(0x7f0000000040)={0x3, 'bridge0\x00', {0x7fff}, 0xff})
+sendmsg$nl_xfrm(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000000c0)=@getsadinfo={0x14, 0x23, 0x4, 0x0, 0x10000}, 0x14}, 0x1, 0x0, 0x0, 0x2000c0c0}, 0xc0)
+
+15:39:46 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000340)={&(0x7f0000000140), 0xc, &(0x7f0000000300)={&(0x7f0000000680)=ANY=[@ANYPTR=&(0x7f0000000000)=ANY=[@ANYRES32=r0, @ANYRESDEC, @ANYRESHEX, @ANYRES16=r1, @ANYRESDEC, @ANYRESHEX=r3, @ANYRES32=r0, @ANYRESDEC, @ANYBLOB="00ba66016b015527efa0b1eec505fb5c8c28534f633b0b3b1b89702910c42054641441d39c510ee71bb4fef1df4d96f1c96810a547581aa9efc1426efa67c0e3b4343fe4df4f2d3e7c569a94b25418af468033f2c590d3901d5968bf9d594f03af95bbf3aa210e825520cf8e42a285a096c10353e4a12fe4f00c2aebc8496ab8620ceb0250dde5a4bf92844a5a519443"]], 0x1}, 0x1, 0x0, 0x0, 0x891}, 0x4000004)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x2, &(0x7f0000000040)=[{0x87}, {0x6}]}, 0x10)
+ioctl$FS_IOC_GETFSMAP(r0, 0xc0c0583b, &(0x7f0000000080)={0x0, 0x0, 0x1, 0x0, [], [{0x8, 0x4, 0x5, 0xc5d, 0x7, 0x8}, {0x81, 0x1, 0x1ff, 0x6, 0x3, 0x3e}], [[]]})
+
+15:39:46 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000000)=@updsa={0x104, 0x1a, 0x1, 0x0, 0x0, {{@in=@broadcast, @in6=@remote}, {@in=@multicast2, 0x0, 0x3c}, @in=@multicast1, {}, {}, {}, 0x0, 0x0, 0x2}, [@coaddr={0x14, 0xe, @in6=@mcast1}]}, 0x104}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGPGRP(r1, 0x8904, &(0x7f0000000140)=<r2=>0x0)
+ioctl$sock_SIOCSPGRP(r0, 0x8902, &(0x7f0000000180)=r2)
+
+15:39:46 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000640)={0x0, 0x0, &(0x7f0000000600)={&(0x7f0000000000)=ANY=[@ANYBLOB="44010000100001000000000000000000e0000001000000000000000000000000e000000200"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYRESOCT=0x0], 0x4}}, 0x20008004)
+
+15:39:46 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000000c0)={0x2, &(0x7f0000000000)=[{}, {0x5}]}, 0x10)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+
+15:39:46 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000340)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x1000}, 0xc, &(0x7f0000000300)={&(0x7f0000000180)=@getsa={0x150, 0x12, 0x113, 0x70bd25, 0x25dfdbfd, {@in6=@empty, 0x4d3, 0x2, 0x32}, [@replay_thresh={0x8, 0xb, 0x4}, @extra_flags={0x8, 0x18, 0x400}, @algo_auth={0xe7, 0x1, {{'nhpoly1305-neon\x00'}, 0x4f8, "8cd5e07983ae01ac4db19b1558d7b5adc4b4ee6e07abc507a0ca73b06c79bbd894a72a6100e120d86f94b988dc52adbd103ccfefe4e0e6603a519cffbc377c7419ad286652aa867f375f87b5efe397a61aea8045b610af4d539a13775dc08e883c277d2d154b33996d32bcaba4e7abedad0e4796da40216344efc814805684a675776d77893b79ef5fc5a73b09cecf844fe98bb8251ff1f0eac235fa2f6ff6"}}, @proto={0x5, 0x19, 0x6c}, @address_filter={0x28, 0x1a, {@in=@remote, @in=@remote, 0x0, 0x20, 0x96}}]}, 0x150}, 0x1, 0x0, 0x0, 0x44040}, 0x4000004)
+ioctl$sock_SIOCSPGRP(r1, 0x8902, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r2, 0x8902, 0x0)
+ioctl$sock_FIOGETOWN(r2, 0x8903, &(0x7f0000000000)=<r3=>0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r4, 0x8902, 0x0)
+getsockopt$sock_cred(r4, 0x1, 0x11, &(0x7f0000000080)={0x0, <r5=>0x0}, &(0x7f00000000c0)=0xc)
+setsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000000100)={r3, r5, 0xee01}, 0xc)
+ioctl$sock_FIOSETOWN(r0, 0x8901, &(0x7f0000000040)=r3)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_REALDEV_NAME_CMD(r0, 0x8982, &(0x7f0000000000)={0x8, 'bridge0\x00', {'sit0\x00'}, 0x5})
+r6 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r6, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=@newpolicy={0xb8, 0x13, 0x11, 0x0, 0x0, {{@in6=@local, @in=@multicast1, 0x0, 0x1000, 0x0, 0x0, 0x2, 0x20}, {0x0, 0x0, 0x2}, {}, 0x0, 0x0, 0x0, 0x1}}, 0xb8}}, 0x0)
+
+15:39:46 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x4, &(0x7f0000000000)=[{}, {0x1d}, {0x6}, {0x9, 0x40, 0x7}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$SO_TIMESTAMPING(r1, 0x1, 0x25, &(0x7f0000000040), &(0x7f00000000c0)=0x4)
+
+[   38.285436] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+15:39:47 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f0000000080)={0x0, <r3=>0x0}, &(0x7f00000000c0)=0xc)
+sendmsg$nl_xfrm(r1, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=ANY=[@ANYBLOB="b8000000130011000000000000000000fe8000000000007a017024c06156ccaae000000100000000000000000000000000000000000000000200000000000000", @ANYRES32=0x0, @ANYRES32=r3, @ANYBLOB='\x00'/78], 0x4}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000180)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000140)={&(0x7f0000000500)=@newpolicy={0x1cc, 0x13, 0x20, 0x70bd2b, 0x25dfdbfe, {{@in6=@mcast2, @in=@remote, 0x4e24, 0x20, 0x4e21, 0x0, 0x2, 0x0, 0x0, 0x5e, 0x0, r3}, {0xffffffffffffffff, 0x661, 0x4, 0x1, 0x7, 0x1, 0x8, 0x5}, {0x1f, 0xfffffffffffffffa, 0x5}, 0x6, 0x0, 0x2, 0x1, 0x1, 0x3}, [@sec_ctx={0xf3, 0x8, {0xef, 0x8, 0x0, 0x3f, 0xe7, "43ba6d7dc0c77ed8629c2b44b933470dfc36f98aba62aedd006b9f68c338cfc3875d01dc28cd6c3452162c83daa6760c4c61cf941be723102b0ca87561f99467b40456127920372b7229c310fc557afc80cb0f4beff6c96595bc285d7ba8334647fd00fcd754e1f57004a17ba495919791b35dd06ebfff485975ba645d3c408228f8d18d6e0074217ce986a6a8e5aaccc0f6db67ec96acec056a54ab213645ea3d3a5019b95ab6ee7bf9911afdc57e1fc1bd7d91d0d6b380626795bc8bf5144e4a3bab9ac2f95bbecd5edb700c9d036fefc6eac38cdabad36f2e67a3ed0e46d86d951a222f3342"}}, @lastused={0xc, 0xf, 0x401}, @srcaddr={0x14, 0xd, @in=@empty}]}, 0x1cc}, 0x1, 0x0, 0x0, 0x24048000}, 0x20000000)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r4, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x6, &(0x7f0000000000)=[{0x1, 0x8, 0x4, 0x8000}, {0x5, 0x8b, 0xda, 0x2}, {0x0, 0x7f, 0x0, 0x8fd}, {0x1, 0x3, 0x20, 0xfffffff8}, {0x5, 0x8, 0x5, 0x9}, {0x1000, 0xff, 0x7f, 0x8d6c}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000280)=@updsa={0xf0, 0x1a, 0x1, 0x0, 0x0, {{@in=@loopback, @in, 0x0, 0x0, 0x0, 0x0, 0x2}, {@in=@multicast2, 0x0, 0x3c}, @in=@multicast1, {}, {}, {}, 0x0, 0x0, 0x2}}, 0xf0}}, 0x0)
+
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f0000000040)=[{0x3d, 0x0, 0x0, 0x1}, {0x20}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCGIFVLAN_ADD_VLAN_CMD(r1, 0x8982, &(0x7f0000000000)={0x0, 'veth0_to_hsr\x00', {0x4}, 0x1})
+sendmsg$nl_xfrm(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000240)=ANY=[@ANYBLOB="140080f624000100000000000000000000000000297b345a7b483c1bb884781fbd86687c1c4da2ba6130819024c01b5ff34db4b7c7682b4d2c6a086441dc8ce27dbfa610e999b8978b7f4febf8b5b7b8dc7afdf3dd3798dc928606c403e063ae9ee6ddfcc7645255d2e2cdedd6d8fc2fb99d6b80584f1bc19bc8332345f7c945679f49655f5a5f1df004e93fff83c8d9a718790a2c85d74ba687de67f29f73dca97a165007e8982c99cce1685d65f0f5888de9b97c696581146123fa1b9c468ce5977a062caeb8565a58f259c15f8c874c53e513ceaea46a64c608a31b6bb25164a7ebabaf3a"], 0x14}}, 0x0)
+
+[   38.327785] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+15:39:47 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000200)=@delsa={0x34, 0x11, 0x1, 0x0, 0x0, {@in6=@loopback}, [@mark={0xc}]}, 0x34}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGPGRP(r1, 0x8904, &(0x7f0000000000))
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000240)=@newsa={0x138, 0x10, 0x1, 0x0, 0x0, {{@in=@multicast1, @in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}}, {@in6=@mcast2, 0x0, 0x32}, @in6=@empty, {}, {}, {}, 0x0, 0x0, 0x2, 0x2, 0x0, 0x22}, [@algo_crypt={0x48, 0x2, {{'ecb(cipher_null)\x00'}}}]}, 0x138}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=ANY=[@ANYBLOB="5000000021000400000000000000000000000000000000000000000000000000fe8000000000000000000000000011aa00"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00'], 0x50}}, 0x0)
+getsockopt$IP_VS_SO_GET_SERVICE(r1, 0x0, 0x483, &(0x7f0000000000), &(0x7f0000000080)=0x68)
+
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_TIOCOUTQ(r0, 0x5411, &(0x7f0000000000))
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f00000006c0)={0x0, 0x0, &(0x7f0000000680)={&(0x7f0000000700)=@acquire={0x128, 0x17, 0x1, 0x0, 0x0, {{@in=@broadcast}, @in6=@remote, {@in=@loopback, @in=@multicast1}, {{@in6=@ipv4={[], [], @local}, @in6=@mcast1, 0x0, 0x0, 0x0, 0x0, 0x2, 0xa0}}}}, 0x128}}, 0x0)
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000380)=@acquire={0x14c, 0x17, 0x0, 0x0, 0x0, {{@in6=@rand_addr="f8428bd456bce714d09d3aa772e9bff2"}, @in6=@remote, {@in=@broadcast, @in=@initdev={0xac, 0x1e, 0x0, 0x0}}, {{@in6=@mcast2, @in=@dev}}}, [@mark={0xc}, @tmpl={0x84, 0x5, [{{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, 0x0, 0x33}, 0x0, @in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}}, {{@in6=@rand_addr="bc270481c3326e4fc5335c53b2aa8869"}, 0x0, @in=@local}]}]}, 0x1b8}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@loopback, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000100)={0x6, &(0x7f0000000040)=[{0x2, 0x4, 0x8, 0xfffffffa}, {0x5f3, 0x3, 0x3, 0x2}, {0x8e, 0x1, 0x6, 0x7fff}, {0x7, 0x8, 0xa0, 0x7ff}, {0x7f, 0x7f, 0x0, 0x80}, {0x80, 0x1e, 0x0, 0x4}]}, 0x10)
+ioctl$FITRIM(r1, 0xc0185879, &(0x7f0000000000)={0x1ff, 0x8000, 0x3})
+
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000600)=[{0x40}, {0x3c}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000340)={0x0, 0x0, &(0x7f0000000300)={&(0x7f00000002c0)=@newae={0x40, 0x1e, 0x4, 0x0, 0x0, {{@in6=@rand_addr="ab7d5fdd6b1ed1b7c8764ae7840ec6af"}}}, 0x40}}, 0x0)
+getsockopt$IP_SET_OP_VERSION(r0, 0x1, 0x53, &(0x7f0000000000), &(0x7f0000000080)=0x8)
+
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$bt_hci(r1, 0x0, 0x2, &(0x7f0000000000)=""/40, &(0x7f0000000040)=0x28)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_FLAG_CMD(r2, 0x8983, &(0x7f0000000100)={0x7, 'caif0\x00', {0x46ed}, 0x9})
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x40}, {0x44}, {0x6}]}, 0x10)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f0000000180)=ANY=[@ANYBLOB="280002000000000000ac141400060000080000000000020000000000000000f1ff00000000ae90", @ANYRES16=r3], 0x2}}, 0x0)
+
+15:39:47 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$netlink(r0, 0x10e, 0xa, &(0x7f0000000440)=""/4096, &(0x7f0000000100)=0x1000)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_BINDTODEVICE(r2, 0x1, 0x19, &(0x7f0000000000)='netdevsim0\x00', 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000200)=@allocspi={0xf8, 0x16, 0x3, 0x0, 0x0, {{{@in6=@ipv4={[], [], @local}, @in6=@rand_addr="c381954b4b48e48e2fa3796163463011"}, {@in, 0x0, 0x32}, @in=@empty}, 0x5}}, 0xf8}}, 0x0)
+ioctl$sock_inet_SIOCSIFPFLAGS(r1, 0x8934, &(0x7f0000000040)={'ip6tnl0\x00', 0x9})
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGIFINDEX(r3, 0x8933, &(0x7f0000000140)={'bond_slave_1\x00', <r4=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r1, 0x8933, &(0x7f0000000300)={'batadv_slave_0\x00', r4})
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=ANY=[@ANYBLOB="5000000021000400000000000000000000000000000000000000000000000000fe8000000000000000000000000000aa00"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00'], 0x50}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000600)=ANY=[@ANYPTR64=&(0x7f0000000780)=ANY=[@ANYBLOB="583c14b00d9797acb3db5c6b78168a7c487a6802e7b12897795559e832b40796e662028ab573cf0b68b77aae571e6d03abe0c6b5b2391016dd75ca8c6449b494b21a9b905e51d3395ffe8ba55f85699d5f8811c94e4d9e767d2505d6335a1a22c07bbefdd131c9ee48935f35aa1408452181c13506a509228c29399c1e31580c1a44416eb37de07cd0672e3b8b6710c8bae0602b8aeab9ccf22dcb4cd25480908e12cc6bb3189dd8920c11b8ef3fa5aa1d8247d0519d97ced6a19ed496244a7bf1ec776e11827aa8c4530ca1cd71e47f0f68e308d40ef04f57db57f21e434703c57ff6d4f38e58cdc59684bb1acb3c65", @ANYRESOCT, @ANYRESDEC=r1, @ANYRESHEX, @ANYPTR64=&(0x7f00000008c0)=ANY=[@ANYPTR64, @ANYRESHEX, @ANYRES32=r0, @ANYBLOB="5d8643f7a5e9924171187b21e6d45324dad4de0126b50f17ecd08c2ebf2d4003716842ab6312f5e936faa2e71e417ac4bcfd53f35d3afb418b83e0dc2292913282b2b37a1c989511708c27628d68865a63789b858643be0690a28394826ea4e6cf385718b84ae954f0b547457d24ae8f5dce8538c91bc51b61b62675338ca70f4f3c92174ad4ac8215e90123705d1e03438e0fc075c4cbf42d688783ae5a2f52e5139f03c3f6b653363868229a506e9a4a30ac66a6ab3fe9fcad9e7a3693f8fd5fef5a48f217cbdfd92c2ef26123df29dc1512798457d7129c49b20fc0ecca0fd90507cb013e234eca20a5a8066653ae34c50870c0e5e7804786abf059158cf23ffec6197189a0e6580cf5dbae77966cbc6c157788efb79cdd27b7a24e32bd6f7e7808922cc8562290ef05c9f1286975d468abcedf45761c31d9da29b91c8a97f880889dbb286f40850950c91bc89a34e439e8f823e638d5df4c2f8386a83bfe91d0fbbb0c43c24dbd436ebf1a8fa21642efae1b8832298dfe9829a322dd0f2c89d3", @ANYRESDEC], @ANYRES32=0x0], @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="0000000000000000fcffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b16b6e0001000000000000000c0008000800080000000000"], 0x4}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$SO_COOKIE(r2, 0x1, 0x39, &(0x7f0000000040), &(0x7f0000000380)=0x8)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r3, &(0x7f0000000340)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000300)={&(0x7f0000000180)=@getsa={0x150, 0x12, 0x113, 0x70bd25, 0x25dfdbfd, {@in6=@empty, 0x4d3, 0x2, 0x32}, [@replay_thresh={0x8, 0xb, 0x4}, @extra_flags={0x8, 0x18, 0x400}, @algo_auth={0xe7, 0x1, {{'nhpoly1305-neon\x00'}, 0x4f8, "8cd5e07983ae01ac4db19b1558d7b5adc4b4ee6e07abc507a0ca73b06c79bbd894a72a6100e120d86f94b988dc52adbd103ccfefe4e0e6603a519cffbc377c7419ad286652aa867f375f87b5efe397a61aea8045b610af4d539a13775dc08e883c277d2d154b33996d32bcaba4e7abedad0e4796da40216377b12639805684a675776d77893b79ef5fc5a73b09cecf844fe98bb8251ff1f0eac235fa2f6ff6"}}, @proto={0x5, 0x19, 0x6c}, @address_filter={0x28, 0x1a, {@in=@remote, @in=@remote, 0x0, 0x20, 0x96}}]}, 0x150}, 0x1, 0x0, 0x0, 0x44040}, 0x4000004)
+ioctl$sock_SIOCSPGRP(r3, 0x8902, 0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r4, 0x8902, 0x0)
+ioctl$sock_FIOGETOWN(r4, 0x8903, &(0x7f0000000000)=<r5=>0x0)
+r6 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r6, 0x8902, 0x0)
+getsockopt$sock_cred(r6, 0x1, 0x11, &(0x7f0000000080)={0x0, <r7=>0x0}, &(0x7f00000000c0)=0xc)
+setsockopt$sock_cred(r3, 0x1, 0x11, &(0x7f0000000100)={r5, r7, 0xee01}, 0xc)
+ioctl$sock_SIOCSPGRP(r2, 0x8902, &(0x7f0000000000)=r5)
+
+[   38.737392] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+[   38.748254] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in6=@mcast2, @in6=@mcast2}}}, 0x50}}, 0x4c0d0)
+ioctl$sock_inet_SIOCGIFPFLAGS(r2, 0x8935, &(0x7f0000000140)={'gre0\x00', 0x7fffffff})
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000000)=ANY=[@ANYBLOB="c00000001b00010025bd700000000000fe800000000000000000000000000026fe800000000000000000000000000020000000000000000002000060000000005d6388c262c3ce8bd3bf15a78ed85abb860d4de52d6d0272c0fbf14d6336585f583a7daf171e41314896df4a9ed2e3cf4a730bb95be6f394779d76", @ANYRESOCT=r1, @ANYBLOB="1caa74ac43a60dadc5d6d596", @ANYBLOB="04000000000000000000000000000000000000867084f1ecaf5f892c0c240d960000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000c396b725000000000900000000005500000000000000000000000000000000000100"/133], 0x4}}, 0x0)
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000340)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000300)={&(0x7f0000000440)=ANY=[@ANYBLOB="500100001200130125bd7000fddbdf2500000000000000000000000000000000000000000000000008000b00040000000800180000040000e70001006e68706f6c79313330352d6e656f6edeffffffffffffff0000000000000007000000000000000000000000000000000000000000000000000000000000000000f80400008cd5e07983ae01ac5db19b1558d7b5adc4b4ee6e07abc507a0ca73b06c09bbd894a72a6100e120d86f94b988dc52adbd103ccfefe4e0e66004000000bc377c7419ad286652aa867f375f87b5efe397a61aea8045b610af4d539a13775dc08e883c277d2d154b33996d32bcaba4e7abedad0e4796da40216377b12639805684a675776d77893b79ef5fc5a73b09cecf844f8b8bb8251ff1f0eac235fa2f6ff600050019006c00000028001a00ac1481bb000000000000000000000000ac1414bb00000000000000000000000000002096b539ecdd8a3414964dbd6bec0ac067c33f9982160979b92d48a082e4d7f33b7035290f0ea498a7af0b637025acfce4f3552ef006f622f3ea12a1ce248616"], 0x150}, 0x1, 0x0, 0x0, 0x44040}, 0x4000004)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r0, 0x8902, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r1, 0x8902, 0x0)
+ioctl$sock_FIOGETOWN(r1, 0x8903, &(0x7f0000000000)=<r2=>0x0)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r3, 0x8902, 0x0)
+getsockopt$sock_cred(r3, 0x1, 0x11, &(0x7f0000000080)={0x0, <r4=>0x0}, &(0x7f00000000c0)=0xc)
+setsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000000100)={r2, r4, 0xee01}, 0xc)
+ioctl$FS_IOC_GET_ENCRYPTION_PWSALT(r3, 0x40106614, &(0x7f0000000380))
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r5, 0x1, 0x1a, &(0x7f0000000400)={0x3, &(0x7f00000003c0)=[{0x5d, 0x0, 0x81, 0x5}, {0xb8, 0x18, 0x6, 0x1}, {0x81, 0x7f, 0xde, 0x5}]}, 0x10)
+r6 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r6, 0x8902, 0x0)
+
+15:39:47 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f0000000040)=[{0x15, 0x0, 0x0, 0x3a1}, {0x25}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+setsockopt$SO_TIMESTAMP(r1, 0x1, 0x3f, &(0x7f0000000100)=0x6, 0x4)
+sendmsg$nl_xfrm(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)=@getspdinfo={0x14, 0x25, 0x1}, 0x14}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r2, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_VID_CMD(r2, 0x8983, &(0x7f0000000000))
+
+15:39:47 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCGSKNS(r0, 0x894c, &(0x7f0000000000)=0x400)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$IP_SET_OP_GET_BYINDEX(0xffffffffffffffff, 0x1, 0x53, &(0x7f00000000c0)={0x7, 0x7, 0x2}, &(0x7f0000000100)=0x28)
+sendmsg$nl_xfrm(r1, &(0x7f0000000480)={0x0, 0x0, &(0x7f0000000440)={&(0x7f0000000080)=ANY=[@ANYBLOB="140000002500010000000000000000000000d14d0000"], 0x14}}, 0x0)
+
+[   38.803984] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+[   38.827850] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.1'.
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x0, &(0x7f0000000040)}, 0x10)
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x35, 0x0, 0x0, 0x2}, {0x74}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f00000008c0)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000380)=@updpolicy={0xb8, 0x19, 0x4, 0x0, 0x0, {{@in=@remote, @in=@dev}}}, 0xb8}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$FS_IOC_SETFLAGS(r1, 0x40086602, &(0x7f0000000000))
+
+15:39:47 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x0, 0x0, 0x0, 0x2}, {0x15}, {0x6}]}, 0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$sock_SIOCBRDELBR(r1, 0x89a1, &(0x7f0000000000)='vcan0\x00')
+sendmsg$nl_xfrm(r0, &(0x7f00000007c0)={0x0, 0x0, &(0x7f0000000780)={&(0x7f00000003c0)=ANY=[@ANYBLOB="f0000000100001000000000000000000fe8000000000000000000000000000000000000000000000000000000000000000000000000000000000000024000020", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="ac1414aa0000000000000000000000000000000000000000e000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000fcffffff00"/168], 0xf0}}, 0x24000081)
+
+15:39:47 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000b00)=[{}, {0x6c}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f00000000c0)=@newae={0x40, 0x1e, 0x1, 0x0, 0x0, {{@in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}}}}, 0x40}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000000080)={0x0, <r2=>0x0}, &(0x7f0000000100)=0xc)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r3, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_vcan(r3, 0x8933, &(0x7f00000001c0)={'vcan0\x00', <r4=>0x0})
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r6 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$sock_cred(r6, 0x1, 0x11, &(0x7f0000000080)={0x0, <r7=>0x0}, &(0x7f00000000c0)=0xc)
+sendmsg$nl_xfrm(r5, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000003c0)={&(0x7f00000017c0)=ANY=[@ANYBLOB="b8000000130011000000000000000000fe8000000000007a017024c06156ccaae000000100000000000000000000000000000000000000000200000000000000", @ANYRES32=0x0, @ANYRES32=r7, @ANYBLOB='\x00'/78], 0x4}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f0000000240)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x200}, 0xc, &(0x7f0000000200)={&(0x7f0000000b40)=@updpolicy={0x1380, 0x19, 0x2, 0x70bd26, 0x25dfdbff, {{@in6=@dev={0xfe, 0x80, [], 0x21}, @in=@dev={0xac, 0x14, 0x14, 0xf}, 0x4e23, 0x4, 0x4e21, 0x0, 0x2, 0x20, 0x20, 0x1, 0x0, r2}, {0x7, 0x8000, 0x2, 0xff, 0xffffffff, 0x0, 0x5b4, 0x2}, {0x4, 0x8, 0x9, 0x7}, 0x800, 0x6e6bb2, 0x2, 0x0, 0x1, 0x1}, [@sa={0xe4, 0x6, {{@in=@rand_addr=0xfff, @in=@multicast2, 0x4e24, 0x5, 0x4e23, 0xfffe, 0x2, 0x0, 0x80, 0x6c, r4, r7}, {@in6=@empty, 0x4d2, 0xff}, @in=@multicast1, {0xaf6e, 0xfbe, 0x5, 0x9, 0x3ff, 0x0, 0x10000, 0x1}, {0x3, 0x2, 0xa9, 0x1ff}, {0x1, 0x4, 0x8}, 0x70bd28, 0x9b, 0xa, 0x2, 0x7f, 0x1}}, @XFRMA_SET_MARK_MASK={0x8, 0x1e, 0x1}, @algo_crypt={0x1048, 0x2, {{'cbc-camellia-asm\x00'}, 0x8000, "57eeb0cac8b15bbdcdf75729cf4ea60edd8cfb80f2b0cc9ce8d4c506d30253b0e75f99da1a77b6a1e8f1fff6740f0ed3f566d1c696d45a4230bcb576b0e3549f7b8b3bb96b58aac7a38d811a5e178d0a49d72d51c3b7158f05cc8a97daea583968bb67d3409545d599eb859436d14c59abf66d121abe5a747ad89f8440fc5c7fdd12c7caa4a96efb660e889e8ef625d60a3496c0b9ab8eb60e26a63ff2c00b311880f3c8a4e806fb1d24ac745a3c7b96f1960602ea0d3fb3a88d1674f5fd97971ff7074b3e8e700e07ad30a3ffed04ae322df04eb92cbcdcc77833b0dd0ea7a45e23380a030e4ece6b441c9d89f7e63a49c6a5848e445e785ed98da266fe48e8a41237b551e3edabbeaab35d04349c9ca3bd6edc5ecf0c342804b31cb66590dae6105e2c2b629dfaf76e31961d9f4e28bc30ceea296371ac1a9c07ab4bdc3f0ecc2bf43f4cd4a4ea4d684896b353b02b17d4efbf6e93dc08d87abeeadb8cef8166474b63c78d075697305ecb9113732b139d94ce251ef3374c4c131ab77ea7dc8dfbdd70eb2cecff8f86f737bc3c640b049c3d98c29c6ec42acc490234beaf6ac99dd2a2660987ac66fe500c8987249d79bca11789b1e07674fb2ad51deada151e65e8d56407cad8568189be842a11573e90528d63f2ccd13ca6505c535ae25372fd3286f44ae302f84201672c797bf3afe7f24beb15c93239bf8c2150658dadcfe4949de4cf4448ebc8a0d67dfc0d571de9aa849a9851fb92f58f7c14926c900678caad0b422eae66c475d852f1e1602353642ebd11bf5e9a70f1d61ad7ec0938c791a51d686972d39651084ffcdb7ae318e315945d0ba4234ae80c9e82270819c79fb770ca51a90030a38d39819acd0d61c83d14932aef2b5c3631cee4c35b8bad77ae45dbc0db294c43882ac5519d435ec17445456f1cbb44fca81a10dcdf963f55a8f06c641152ace6a719c1c9f841f7ee96597c988d78f0962af6e1c08d59e090e1acce867a62f99060a66a43860c8c770293be7c44b0f605c9bae1a9ef69055bf736d2ee32dfc544de537931ed8809bdeb328200f1299e81f42737ab9474a3b09633f111e657e534e75dccfc7f43d6e77eaa2382ecd6023c96d315932c4f2434e8120ba658a8c3988f6919419ebef6c684d9c71ff526997552e6fa9640835c5e683d0ce02aa2b70d7bce001136d0dd4b1fea7be1c74b6039b80797e47f8d1acd34f88208c94fd6a8ec413a1fcac588a3fe877dfe7aaeb34c5af3c95c81dd6b8df3a0b18d215e5df253d11c0c7f8b5a97a111b788da7830f78e6469d31ec9389e0d48e92fbc8504dbb0fbca3bf3b485ffc33ccd753d8c1197c13309422f408d5bb52461d32fbdd7bc283e6a0dd32aedaeb5009f06d3c7751447de4e46d181eafc622e7fbd0bcba72ec2061fecae8ba79e1d94a59619fe28c7799d02e3fa8a5bab24f4b92f67f079ab0a7b4cd4245116ba3a48146885e281bb52d138e11be42cab4b8574fcd96e5fc0c1c0e56cd2bda2b298dbdfdce3fff81fecea4c6cb39bf07cbacebdc917372800a1cc62ee452876a84a7d063e19ea2fd95de15bade11a647b30ee2ec4cc8feb37b7b414ef0169379e68cc4a7d9bbede53bc7fadcb25439036af41b62c653e248c9f4bd42a80d5429a4b055f0f28914f330c2bbe2645471dffb50a7b295c71ca38478b3fe3b736ad4d336b548e53076d10793222d355ba543d708d8d77756d309fd043cdd64f9108ca6f484e51fe8cf3088b0c01c59980a29bf491c07b2f200afd3e0d30ec8a30435e41a89d9c7950c74f48d2e2ff82eee0508e89f8b6e8c5e5cfe13a66fb25f278f105a08d46a85887a4a2ec3cd92e04e1f76609cf8ecb7f72e262bc15bfeda75c2e3e0902b9acd074297aa26ad4d6d81899e96ac911bca844d672651b39f4bd59dcae3dcfaff3b6b91d28d877f762e8d80ddb3c8fec96ff1f16362adddbf1b702e22554711b9bcecc810bcc48413f269e1fb17373a2255e576ebdd5c14c891b09140f7660ab53ffb376739ae115addc34aad757e58ab2df9eca010d3cf4f622923de930eb4274bdaa8240df6fbf70d103e146b5731edd29af5a52b451ed98de5e52c4ed8c082529ba8a929a9f4fb4bb1ffc6b20d670af5b7f47daa8198151f31844adab199af35f189862a8e14eb5c2cf51a72bd85a227d2b784b130ed6b308eda48c5cff3543fa5ca703ea7d953cb24d2e156773bd037f15afe20cfa0f041bb397f8060fa2554094b9c1b003e741d7a4bf5dbec70d8454fe36309a8e185f7d76352d8e00e210e570bd73754916c34f687ed0686c36a06d61c49874ad9c4878a31255f0a514ce18bb71e86f0bf8c01d624d689a504a89fa8e8d42f0381afee1d836fa905056a21d7d4458094275e87998c4e3cd3f78e37b005443d588273d24847e28dd96ff75e1b9fcab5dbb1e0f5a9dc22b18f5b7d260f4613654ce7129a7706bae90330fddbc7d6cdaff80773029140d937b1af2464ab55ad666c42024f6556a02ca30fe01ff8f8c7298ce5ec86ef2cd4e28d4760cbd985f23a28c9884621002bcfbb92b61908ea5aa6de6639008455d321ad375a373992debd1c1cc27447dbc7663b87249f788a0bce4d19390a7b6a728b8813fc25f3dd2c6f19d8d178436e667fb5a415e4ca346091399110640cd05bf2645e9a7f5b551f8da716e083c416e1e5eae158f271104b0d54ddba02a70091b247f709440fb1d2efd2ff9a01c4ca1576a53fc1afe240930adc50ef3177ac1a0c4a20dfee7f4f0a97343363241554602b27c332e9c99282dbbcdeb10153160bbb7c92dff94f8f0268939acd6113cc3169d3390869ee2002d7e960d97c7c721df2133586d342a3a419b4c09923a3d2383f4266df1fac028f4b87c72fc59a02cc2e755e2dea0c99199af8cc4815aabdcfe396b4934b63fd83e9361fd69874456b83019975510ebe05afc5b7f41ef5a0a4bbf22f99e5dfe2bc78b2075884641e8dc4dd367cdc83e6248d5652386a9eb64524253759fdaf89f7ba83f5250e6d6dd1140557dbe89c4ee5a17e94d19f4e55a61bf5c88e3049db83c756fad20556a56d5921bb294a4d7f410aae551f654c168102bc7d4b028fabcce31e470d044dbaa5f1f78d850183455a3bec6258c6a4ca750a1a6b2f26fa56765f38a06869bbf26af6ee91da09060329cdb571564b328875060cc9745ba06e05f3282f9ca385fa55e66e7bd8b142c24f0669994ee70fdc2b22f77d576eb788243831034832afe21f1c36c0ae9f14e04fe7ddfb99781d7c80958e7cac4989d75ef54cd9c1e1f1dd7f4f3f13da92817762d0c058ba5d9f3f2e6eb3ff653d27cc5e0da748ca855fcee8565b1694354b7d4928cab456bddb043b30d4bd5675d54b1fa17332d917977398c27b85f33373a1c410740c4b560e992d8cb6cb60d4d2f6f5c417b7a555f5117753434fffc7d318889fd4297f29d12e1ba8e0464a91c4493d9e23e76f8adfce921926a8a34eefbc1ae6bbffcf5072a43a5ba60d624f45f3e683dd0cd66596f0cce958a4ea8a7c09d41d7629343c709de855d847844b1941107eab6f83fd4bd43acd0d060d841d734de8e2b221517dab60fb26302bbb01e5cd2b6748dab69329d86543c76bd6adc22f686ba4376d97100d36ef69ba7821a7cbfcb68f0cfc9e29280d285e65fbc88c4ff2801a3ae5be23374288477dc8b2945f4c31a9c526cfbd2141a44ad2b7e0cbe612ce406c6e67980e3acd3a363047cac8c0effa89e0c09722b08f02a7631eeee6087dbb4883d567573f770ec16731078b0a305a94bf9b7a1c2f263c1c7f92d8a6cb8c1bc6ab06a9dd6972ed25cfba8f913a972cadd3386ef2e8ef6d22de87e8d683e05c41fe4124e2c75070a652d8e7669eebd0fe3cbe43c83fb371f60e8e3ba55528ae9c14bb4d1cb2a1e6e534560fd13b18482e8ae1edf70a00f181d1ba6a5bcec3cad4c003dcd6f73a58189d2fda665c3fffc67f1c139d6878ab31bef05c11b98dc00f7f811823f2d072fe562d24216808d41de3600206fbd8b962c08b4b65716e1cca3f75032f34c6acba1659de7f68122cbdc0e01419a5ce50f8c09b01aab8e58090d4f2fad028cefbb98a400504272616831c5076a444fb7bd94b2087b296cc8962975d513cb12d3b5c214a6dd422e24fad3a5144a69643519152ee93d85b52faa833fec9e8c01e9b69444be0d65e0446912669eef038801712714cf3b85beefdea88e7739fc7a645d2f819979a59b6c973e971d9e76e5d43a429f49d07ea9b27370cc5ebd08efb2456c8f5740fbd1cddf491362290600291bec84cde9fa55497620fb90d86d7505b93562af8088fa62355b48ea5f60dafdd96f8493ab1124bff503923467f3365eaea87b2e6efeec65425a6705df17ca7cafd6a60014197813d109e714857ef336d048c11abca10e0e20a1613bfc03c4ad430c79997b7622a438e2b7c510f3fd5ea0bfab6682d0201b03723fedb5023e03ad2675c7f7d7fdb5d741a3c6dbd93beb5e3fae2ec746925c975f0b0855e651f932714ad8a60643d2d256b6d98973eddc11a53e73de019f5281177e1101b8d1ae1535a002203a49e60b508ce7819cd62b6475a3c15c4a84668deab201a241eca5da8e1e6ffa008150f5d5940c9196e6d2eaae5217fa748453fe6d276d20af6bb07a3e9a1ac3f8bc8e378fb3b039c134d38616957de1936d2026aaa7eabe66634732a1b4f017bf8dbf82196d9717d467e46207fefbfd99cf34a2c0e7cfb7622b56be978b3584c089d6278d0e38d0093638cff537a313c69dfbfc7f27c785268e0c54ecef67d6a8debc5b21df2faa70a84536150a1fff3e761f0c29a4f09b987db17990c46c821bac2012fc84c12ce30a6ee90ff8b7dd77653e930d42c4369964d11867f46586de285f008eaf3efca1511c9a970f32cf28280fafe057f773e658fc691b55581f6c59a95fd1462c138da88c47b936f144929bb118d058f72bd15494c0167e1feac9121a9003bfc5ccb514a268ee35fcb228247c249beadf76f6cb00e81897909cafa32ed73d5ac6fa22992245befda87fa33d26a19e2ea3b3c1c2a6fa9be6d003a0824bc8b421e0e739cac076b43b2d95b32b25fd19370c0dfca8a2260150ce7aa74c42a46e1ea5d7a71570c24eeecb31558d681f3aef383fd133512553c3209e690f141cf70f0034fa2b4741b69b6fefd00b1318a40c3e8f846e81b5baa9b63024fe6b239e5e0be4d2f62c59f5be336b6e81ef7b7a0163d9f65fb9458f0f0dd0558b37487b22c7422ad0341ad981b10795ed490162c9ac41c04f942913308aa9f2cc60f266a668ea7144f9bc1481d8293f875d1c9fbffb2f529155b2bc802dc9424873f3bc9734d066bdb3d46e4546667d25a97a9c0c14ac1dae4614b3c7db02f6faf7d2db74735263d2dda5278c75913c022445564e5b7ecbd1ae57e6c11de2c98a48772d85b03f8aec271c9e5c421a880710357ab5c421d4dfa54e9424352d160321fa9126c8a2f4ce935079194b42fefa4ab0ccdb3f5442588faf5d68b2c4eee3c5f8d2eb29fa74a4b968bad1a4b40b8936bec3e2ce6698425ee9f5a6b22e7d8f8d2d863b2313f769d189b3b6a74fff58a12c0b6e156e1028b5c3e42a42f3f544a87c8ab3d26d102f2eaf7c3323d46e5088b76f42a8eed13624200a405759e551486ae091741de90585aa333230c92011d98a975741016822be89818103f4d6609a59a060ecdf39c07a64ab735da52e80dc813580cdcd3438d51ac8d4cb248edc26372ada08b6fd3a49de23e696032b06aad82a"}}, @proto={0x5, 0x19, 0xff}, @replay_esn_val={0x3c, 0x17, {0x8, 0x70bd2d, 0x70bd2d, 0x70bd2d, 0x70bd27, 0x4000000, [0x6, 0x40, 0x2, 0x400, 0x4, 0x48, 0x4, 0x100]}}, @mark={0xc, 0x15, {0x350759}}, @replay_thresh={0x8}, @tmpl={0x84, 0x5, [{{@in=@dev={0xac, 0x14, 0x14, 0x22}, 0x4d6, 0x3c}, 0x2, @in=@broadcast, 0x3506, 0x3, 0x0, 0x2, 0x8, 0x100, 0x7fffffff}, {{@in=@broadcast, 0x4d3, 0x2b}, 0x2, @in6=@ipv4={[], [], @multicast1}, 0x3506, 0x2, 0x0, 0x40, 0x3, 0x6, 0x8c4}]}, @algo_aead={0xb5, 0x12, {{'morus1280-generic\x00'}, 0x348, 0xc0, "53af9c79dc6011d7dd8801d71cc80591645d0fae8f88d08cf8107e93bd599ea41c517ad4a9eb69480201b587b2b47a7c0bd5e8bba148f8f16e5fb103f5183f46f31b83e023c431d61d332009eca0287d8afa5b5f93cd584965033058c2ff914b9ade385d9bf1fd0a72"}}]}, 0x1380}, 0x1, 0x0, 0x0, 0x84841}, 0x4045)
+
+15:39:47 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000003c0)={&(0x7f0000000280)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f00000002c0)={&(0x7f0000000440)=@getsadinfo={0x1c8, 0x23, 0x100, 0x70bd29, 0x25dfdbfb, 0x0, [@encap={0x1c, 0x4, {0xfffffffffffffffe, 0x4e21, 0x4e20, @in6=@loopback}}, @etimer_thresh={0x8, 0xc, 0x8}, @XFRMA_SET_MARK={0x8, 0x1d, 0xf68}, @lastused={0xc, 0xf, 0x1000}, @algo_comp={0xd4, 0x3, {{'lzjh\x00'}, 0x460, "5aecc57eeb5fe79812a71d045d401ce809fb95b9e48bce2624b133673256c044b4a64e7a9fd1d54ed859b46d81d20aa5f5373d03d5645c7fe71ff09a01c5609f62d9036dc968db6229db16351763daefe6f4254a99eb6be14cdbdd62dab9975a0ff3284e2ef90fdb596d0f598f94d3454e0b797d8d9e5f1998290350aa9c8e816237a7c6a42807b21d10ee58"}}, @algo_crypt={0x5f, 0x2, {{'ecb-twofish-3way\x00'}, 0xb8, "9465aeb8abe1c1c18122b6f6668133acfb80a36d6091e4"}}, @address_filter={0x28, 0x1a, {@in=@empty, @in6=@mcast1, 0xa, 0x3, 0x3}}, @offload={0xc, 0x1c, {0x0, 0x3}}, @srcaddr={0x14, 0xd, @in=@remote}]}, 0x1c8}, 0x1, 0x0, 0x0, 0x8}, 0x85)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+ioctl$FS_IOC_ENABLE_VERITY(r0, 0x40806685, &(0x7f0000000040)={0x1, 0x1, 0x1000, 0x11, &(0x7f0000000000)="c187bd61b6e6100e78b56f080907d48d98", 0xd6, 0x0, &(0x7f0000000140)="273f37327d139415ddbb244be77f1ca72fae32d041d6b7aa011b8078cb1ee03e7f1ef672f64a8ca4f94150357e0a076e97bac858485136d1d6ae07a09dd9728c9c42ebdaf9579a6a37732e8e195648a54758cdc37f2225d9f29bddd1e3b0c80623be470ca07565b554c079cfea60e1bee663781cbca6c55c39c77e3ace23c1e54b9b4dddc996640beecd60281b4608b93bdebb66b49cbaf2d59ebb0320b13ed46fd7b69d04f4fa11cc1bf4acfc31f4a75cefe03801f4fde6c6b617d87a2bf493c5437504b5110e111f161dbfa248110ddd3fdffb7463"})
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000300)=@updpolicy={0xb8, 0x19, 0x400, 0x0, 0x0, {{@in6=@empty, @in6=@remote, 0x0, 0x0, 0x0, 0x0, 0xa}, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4}}}, 0xb8}}, 0x0)
+
+15:39:47 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000003c0)={0x3, &(0x7f0000000000)=[{0x3d}, {0x44}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000040)=ANY=[@ANYBLOB="b800000013000400000000000000000000000000000000000000ffffac1e0001ff02000000000000000000000000000100"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="06000000002bc9ecde0000dfffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000006fc6d122d448f6ec23d10000000000000000000000000000002d353eef4feb09ec25c42f49e5f2c9000000"], 0xb8}}, 0x0)
+
+15:39:48 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f00000002c0)=@updpolicy={0x13c, 0x19, 0x1, 0x0, 0x0, {{@in6=@empty, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0xa}}, [@tmpl={0x84, 0x5, [{{@in6=@mcast2, 0x0, 0x33}, 0x0, @in=@broadcast}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, 0x0, 0xd4}, 0x0, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}]}]}, 0x13c}}, 0x0)
+
+15:39:48 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f00000002c0), &(0x7f0000000300)=0xc)
+getsockopt$SO_COOKIE(r0, 0x1, 0x39, &(0x7f0000000000), &(0x7f0000000040)=0x8)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r2, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000100)=@acquire={0x134, 0x17, 0xe13, 0x0, 0x0, {{@in=@loopback}, @in6=@ipv4={[], [], @empty}, {@in6=@ipv4={[], [], @empty}, @in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}}, {{@in6=@ipv4={[], [], @multicast1}, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0xa0}}}, [@mark={0xc}]}, 0x134}}, 0x0)
+ioctl$FS_IOC_ADD_ENCRYPTION_KEY(r2, 0xc0506617, &(0x7f0000001400)=ANY=[@ANYBLOB="0200000000000000fe104b3cad5860de8ba7e2b71d4165c82d724a126ca3823e978db303b91d389a001000000000000000000000000000000000000000000000000000000000000000000000000000002ec2895df0f3d3c1b25a42be1976f406ce8a3c97903f78b09aa9169067bf94267c5d2e9dd27ec87f4b04a2a261a166ec75f4e0b7494560cfc8d572a4df7ed129511561bbf04e04b2a1580e470e28bfe9db715bade1f262bed303228fd518b26e5fce44965ee43f86d75f00fdab385037fa4b034a5b147b652b84645cd79b5949488322d1faf89dd200e35c800d231efb132f6a2bde0eb8a3e49137828e69eca433a6fcd312a120aa5b1b6dfd5bc1ecf2ecb360dc4d54bb755e01aa7dac6c7f7982e5af1799285b8934680422d32c9e07689e8b2790bcd4025045998c8372bceeb2f22fcef0274ad5a5a97902f02bbb94cc27b10b103a2429401b00ae28bbd112ac67ef151f10247136703ae4a812f005aea69c45d7201c38bb1c47badd3b6f7f7189cb9081f393403bcf21ff32a3d38dbaf7107751c0f03e452719fda79c84a4e07bff55708df89236912c16a1a3766f92a4c5fd35ccaf16897ee00f1e2af1c57b3fce6a5b717b334acc13a023937250127c1fbe6a07d0a9ced960b5855dedcab30521eb05fc5c74579ae31560ccb499903b9fa5b11dbdcfa81d177c89f9c346799d2ac68a71db11ec499468db51687ef0ce843531ae931db4cd4343636c631f8ea9366ea635059cbfebb394556296565eb92260a93f86a7d1c035a5c798c985de10ebc382e00e3d7eed6366bab9b1ab3e9dfb1bf4b45693bb9772648df5b3d1a6fc701d708484a0709652cd43e522186d7676422c71ee3a8a789f9d797e22d57eb0131db37fced52be20c6f551053d2db66f7c18cbb5640a9f30f07fd43ef103a1357ef03f9a2a75b878de22b19e7961183fd3dedfd40fc4b53c9c7638d37a4311c02b6f1098d6170cc3dfa861330bf50b7d75eaad32115dc615c7b60b8b9eead411af23c33871bae707cc256eb4a62bf94bc6a3166cc2549c93ec29331f505aff1f78ff4b6d05e27b76525a549e39eb8d54a0bb8ed2faf140fd96a818dc0c84c3464e21971346b7cb4cbee7bb3a35e6b92f39283229b312023478a2fafacdfda808a1c594611868b2d4143c8e594ddb5493bc9d13a84f2cfb570f2cfa65de4513a710ebd145eb2af2894ce267ae8a08506d9be712bf9e3a11b14ff3ac35fa4fe1c8e106b87fa23a38f9b73c918858b7309d8a3da87821e1ac56e90e211ff06c40b35e7e9d690fbe922f60033b9d7bc38ec1e67292723e2c35c35b69dfc2c93fe00981c4d116e776c863771d95393e54acd61d9d70e42487eb7861b35f592a2481b4858523e145ce4fd608f1e344574e6beb86bb22d71cc43c86d235eda902addbee92df72af802b675e0e06609a088aa75ef2d5ba3cd5add07c7844f960e5fde8740a67c33207a7b28affcfef3ded2456cf3cfeae91b0245dd69504c687e56648c7ef98edf96f2cb0339a756e3493c1b79253c3a1615baa3a2aacb3d8c2b0d7adf0fc63aac4c713b631e4b4438244eb2d66fa2bc51311380f36bf73a8a9a764abc7580f377c8b9ce55af6961d01abd5d217d374ff12fcce3d835620b939d649b5fcc5b84e8c5000b7e2b284993bd3da4bf26299c3f6a4b925c8784f5e68b7db8a80a8eebadc793791529799bbf1599097543c58d3c4cf9ef0c23b1f0fc2811965deb1558a5e36e2b8a27db2b89c76e0840ddd413a87ebd50f4055ed20e4480873dadbb6555d4cd54d1aa993d4571a1aedafcd72a38264455803d436e9eaed1a4ac2be037e9053e261a024d9780565e17b5e5ea7a9d49fddcd8a30fb4b7e28c145f5e30037105c973c19fc03c96ca3dea21f6af5f5a05dfbb0ac6ccd94ce9f82e120819f30a753c7109c74f14202be4e2c5eac7b46a5b608014ce9fd90401718317b98913f0bdaec74be2e7abdde905093d4ef8a28ea8e8dd16dfdf190eb0f43de83dd77d6178bafa251cfe479f7052add7289e9608da94b67c71fbcfa7780e7815cee43efbf11974272aaefedd87108492667cbae59069ae8e14643cfb6414b69786af4c885fef898a7fecc976879c1b6f01c59ddac3fe33991a0aed2a8f8c7a3e28c6aba4a368e046f43818a9ca7c6ca6a5d6e3883798298987479569d970a247f74ae899af93ca8cf217960184f89f068503ee793283f5ac3537432a229f7a5f0d38288efa2efb3d67c243f92cc84acccb105d753e4992e1e5fe9accc1a8fcd44eeeda575cbc559ceb2cd679d4936e1d4063bcc0645244398d17e623800a6b226c67fbd5e5d7892f11cc93b7d747dd76e6a3732ff3028b319c2e4f29344d928736dcd8388073ec16bd36c2624acb6d632577ee921b1b5da4f0598b73adeb32bc9d634ae27916f8d4c8b534f4f52ae5e8b88a356f0e710ce01f65399854d1ccf9125af3839f5ebe5ef7763557b9c23534ced5a17c5443c8beec8b7f67da22fbe7cb86ae63dbcf7c5ec2649eaa68334ca068c40515ef36c467caea1fa327832576359184ab1bb1ad53022307aa03e2e5e50c848634939ea0ed3de213bf131a568b1cdea8d1e75d0e1d8861c00a982bdf573421e0a64c4a22009c39d08879b306f88830653242921a3c7a22440c6e6f83f9ab7926019bb23c92df59ca844b794099fd774cc2fe8b6d468624973c8297bf510de70444d2c1af2c3fc5847544eba63ca6ea1578f866c42bf1d9c51a671f6e89379637dd173c7eb3e39682ab5b79de767c188263ce8d2524f3057ab75790b11c8452cda643f92bc774a1ba366578419e71cc7bf21ed6bdefc7ca43229e5d0f1af2b4e89b6c7c749e3d1184e54bf6ab720c4c3719374e69e4bd342bf0ba87f92485618e89f7914bee5a910b16b9e0491a85a6c0f72f645def16c9c8a6b4ac158cf3f0761414ca3fc2b73f1e6bbfba7a6c95590ce6231c291fd907589a5c2e8a5851bab96bd01af72928768b50961269081de0c5830e2c911739b4e39b04e65aaccf6bb89dca6c1ca1840f8c1d7c11b77a439412d694663e2ea9765a4e7dea80c59decf17e45f437a37dc94eb9dcfcf7cd893575ff72cefe16ef82bfb03e8eb8714d035f54c18a47a92a8ba587c364f4bd7811ee93996cd869dfb910563fc9961fd939d9e7b612c6b23cd928fac1c3b21d838027b27ecc293c930759917d43ee2842e5fb6ef5a9075a1e17f4786f31e545f7caec680f589332d40073cfb1b959d0eafade533594f2593d48a8d9dbec449787d043089ff06613a38f8500419ec802a5bb16cf693c447c554f611c7780a527e6e6731673d3293739ed96d72ef4ef494236d5612aecdb16ab596e32bd581655deff1d953b4d79b98dc621f383e3b3d2cc23f6b5bad3945c0158580b1e2a5d8f3d5317d44e77c01fc48bba8f0062f6c3fec9c9a57535537c11bd366e69d4769ca445bed9dc5412c0043ed4e7e5bc532cee69dcc24a95cf9a50bf0b3964458740a1b336a2e7dcc7c1cc6e9814f7465da0369f138946d6feb8c2aa3e5bcf7f62949726fbd77224594dd6d416ab918014c00488c5fa742df86802187d9d7c237f9512585df4d5b9d5f833e3325b97deba1cdc2ea803a58d0b76c956acce488f2fd6e86d5dade05ab9e65eb8ff00698c08c9e955778602cbb7dab45ec5eb78833d3ace20ae34a5272b0c479871007a869b98dbce82df92e8726748bdd2e2ced967fb95794f0cb093d0984bd64a28bab77c9cb66d881527863bd44a98dddad4cdfd38788d1b251917c3aa25c9fe0cb733b6507fb4672c9f8e3a785fe3f7794a7bce8b1c0bb0edc29e542d836957929cf42cc7565eb18ef4d37d3a37908e6bfa4ec4710cb3edebeedbac084f345b0f1fbef156ac5a50000e037d4bd1588c1425aec0a0344975a7ef8505a82e1df9bc464f45ff8088a541ccaac7d717258df2a7884d9ef57a8738c87344e7ebc1c8bb2c3495cc9972ac1f7f1c63ff84d96bf6c08b9b322ecac241707df6eb30daadeb97dfae090fc15414c0a70cf5bf87b2c0c31caa8c491108f5522b074be10eef422e67ab7f1fca8fa3dead8149243b10e03160cc9262c7379138261a4667bc8d839b28a952f574cc85a1a3ec0ee1f3af2514fe4e046cfa7628058d9adf63d0981e799dcfa2f38e5c85625e9318f987e6768d5d5a9c36f3cadaffc8c57365f6ba256e39c410c2f26ddbd99eb50087f29c15ebb24a0bc673f3ecdb6e8c0a015884124ead2090940269a7be8337ad60a73f793a7c4e2ea9c32e9f77ce2342d68ce88d761c71bf6afdefeadc43011665648b6291bdecea453f628195de6bcb15eb0c72aefbb43b08d23cd2cd970e95a7f6fa2d00b375377fcf1493fb46de2f6e1ded623c1d2bd2d1415308186f35b8956f367c6afa7345300b99c63819f5e3c9d6324340d8dcaf150e0b7c234b9409635fab6c66aefcbed77dbe645cb3a6b52d5697a8bfec7ca8c10acbdd1e439de49c138ad613cafe91bf5321addf5a894bc6e0f319b21dc83859e48178f3bd684f3d28bb11a2b7d89ec3a2c302ac8d6bdbb06b8760fd28f5366bb9d25dc3722f0e3138d889fed5345a8912ff1d6ea93600d7d11a56cc674e01784f891a731742d7a2df3358e04be6991eaf2882bf812d5c775fb4f7acf0cdcde311efcd2db2468225ce06330845a88ecb1beab1893170857fbdf72757bd844348f7cd56541219a25ba45606c1726cc1eff5bd2bad7aa05dc902061aecf10a2291d0cf22977992b088fa311310fdbe601b47e9438d1d1764d68e2c7dccb0faf4ced54d6570fff00c0857c8d9cc8e76d2299d47d4f068337fcb2c1ad7a0fb7a9630849d3d81bfb32b8e984c58345a1fab72834c3c5b152fcdbe4aff22b5c2d40e531368e155ec5049d278a1b7355da9114961dad4a4fb084a5d2c6bea794d37f8685245a1af2ed78f16c14bb8c0cabb58fea34a0b83deb897cabebc73b1a7272ace5697a0c15bb818f387f62e551a6cbbfbee778ea80df6a6a73bfeacf6afeeda287b348ae1539927e35dd64154078d04c1adecef96f325ac78e0f3746ccd566a8138f6c34f3f32f7771bd2e2daa1c94ab73ce3a9c5e11d1bfadfb6a4b4e20301c3589d7baee5280105087c40973a20b4e5c06f47f1babb693c7088a82f82bc295d0a32c6878f337dc861f1bd3ab99a40333057e343dbcb06f815ca76d581ca7ea4666f146cfefddb76c5591b8b1633fa65441899845fef21487bfb8975602cf1ecc68c64ab91cec43df5c66a1d2808041aeddaa0fb4acf1a1f04bce28f110cbf2054defd1f38046ba90998d198760c0f7526b6a25555e305e6ae690ba53d727c63c980684e20c255ab5494cf3eb039e77eef0376fb4aa77ff9e7a0a94b1d52c5a07c676b4b105c34cf634da063ce4eb17ceb7de1174c2e4a926bbed46a4a3df9bd930aaf61c60156e45169f14aa127df7c8056646d863f09c892729e4929a2419a405757c008b8c0fa2d3896f09a7c21b1ebdb5cfddc419f61b9002831640803c5d58e9df9383de03742a491edd810874448bcbcf8f715b23abf89487abefce3370187acf65d7d27aa4e1b8ce94142b97461911c8f0c5cc6de7ce0450c9538c4ca3567af12160f771c798f0b8634c04838d60a1981c3f5a4536972931a171dd6d967524ba0eb57d872e8de887006e4365c6729ce6653b7d098c3e139cd120c3d93136438620881719e33069d66c4e9e500af06db7e7dee819faa77499112bf8dfbe6d159634b9479f79a9ed506f52f9c277a500b66545aba603a4dc6ee9ac6b603c18c2c0fefdc450bde247f9e25a23b9d079e8e8d1a5dcb14a0c51b9971ccf536142117c0269e3390bfc0c8b9b6e59e3011ceff64b7ae5ffbf8da2e46de75a49ce675bcb0960325fc37fb5530bf4ca19e708a65e8c82fbbec009737199d5c0bc8db83af787923a375e5e14a163438ddcb084e359dc2e9796a95c2f0ec61e98d23a5930d8d1ab6a29ea9da2878268de5276315d91e9ff0ef3637dd9ce623757a11c01f0eeebca68842c6d742b98b260febae5a5621accd376324ccc6fa6311b2bb51eb30e1d24c2511e48c79f311d1602d084b1f486f41f012e66d2c47efa96fd2b9dabbb7768beaba1df0940c0e1cdc9ddb2e5009432ffc71ab15b28ad6b077a37faef0c28c46d8452665bd43d291ac386f"])
+
+15:39:48 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000340)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000300)={&(0x7f0000000180)=ANY=[@ANYBLOB="500100001200130125bd7000fddbdf2500000000000000000000000000000000000004d30200320008000b00040000000800180000040000e70001006e68706f6c79313330352d6e656f6e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f80400008cd5e07983ae01ac4db19b1558d7b5adc4b4ee6e07abc507a0ca73b06c79bbd894a72a6100e120d86f94b988dc52adbd103ccfefe4e0e6603a519cffbc377c7419ad286652aa867f375f87b5efe397a61aea8045b610af4d539a13775dc08e883c277d2d154b33996d32bcaba4e7abedad0e2c6c68c99e6e073e4796da40216377b12639805684a675776d77893b79ef5fc5a73b09cecf844fe98bb8251ff1f0eac235fa2f6ff600050019006c00000028001a00ac1414bb000000000000000000000000ac1414bb0000000000000000"], 0x150}, 0x1, 0x0, 0x0, 0x44040}, 0x4000004)
+ioctl$sock_SIOCSPGRP(r1, 0x8902, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r2, 0x8902, 0x0)
+ioctl$sock_FIOGETOWN(r2, 0x8903, &(0x7f0000000000)=<r3=>0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$sock_SIOCSPGRP(r4, 0x8902, 0x0)
+getsockopt$sock_cred(r4, 0x1, 0x11, &(0x7f0000000080)={0x0, <r5=>0x0}, &(0x7f00000000c0)=0xc)
+setsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000000100)={r3, r5, 0xee01}, 0xc)
+ioctl$sock_SIOCSPGRP(r0, 0x8902, &(0x7f0000000000)=r3)
+r6 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_INGRESS_PRIORITY_CMD(r4, 0x8983, &(0x7f0000000380))
+sendmsg$nl_xfrm(r6, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in=@multicast1, 0x0, 0x0, 0x4e23}, 0xffffffff}}, 0x50}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r6, 0x8933, &(0x7f0000000040)={'batadv0\x00'})
+sendmsg$nl_xfrm(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000680)=@newae={0x140, 0x1e, 0x100, 0x70bd25, 0x25dfdbfb, {{@in6=@remote, 0x4d2, 0xa, 0xff}, @in6=@empty, 0x86, 0x3505}, [@replay_esn_val={0x34, 0x17, {0x6, 0x70bd27, 0x70bd2d, 0x70bd2d, 0x70bd28, 0x3, [0xfffe, 0x3, 0x80000001, 0x20, 0x9, 0x40]}}, @mark={0xc, 0x15, {0x35075d, 0x1}}, @coaddr={0x14, 0xe, @in6=@local}, @XFRMA_SET_MARK={0x8, 0x1d, 0x1f}, @tfcpad={0x8, 0x16, 0x1ff}, @algo_auth_trunc={0x90, 0x14, {{'sha384-ce\x00'}, 0x220, 0x40, "3d0be3fa416e87fdc3f4065b00e9b4e40ecc36d6ef07d0149dd4b1a94a05f4a30ab724c6001f2f77f64cc0ee345f15f4e218f124d056ce90331c48241d1b43fa52c86294"}}, @lastused={0xc, 0xf, 0x8}]}, 0x140}}, 0x0)
+
+[   39.470509] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.2'.
+15:39:48 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+ioctl$FS_IOC_GETFSMAP(r0, 0xc0c0583b, &(0x7f0000000000)={0x0, 0x0, 0x6, 0x0, [], [{0x5, 0x5, 0x404, 0x1, 0x8, 0xffffffffffffff06}, {0x0, 0x20, 0x1ff, 0xfc7, 0x3, 0x5}], [[], [], [], [], [], []]})
+sendmsg$nl_xfrm(r0, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000500)=@updsa={0x180, 0x1a, 0x1, 0x0, 0x0, {{@in=@empty, @in=@local, 0x0, 0x0, 0x0, 0x0, 0xa}, {@in6=@remote, 0x0, 0x6c}, @in6=@loopback, {}, {}, {}, 0x0, 0x0, 0xa}, [@algo_comp={0x48, 0x3, {{'lzs\x00'}}}, @algo_crypt={0x48, 0x2, {{'ecb-cipher_null\x00'}}}]}, 0x180}}, 0x0)
+
+[   39.563204] netlink: 320 bytes leftover after parsing attributes in process `syz-executor.2'.
+15:39:48 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=@migrate={0x50, 0x21, 0x4, 0x0, 0x0, {{@in=@empty, @in6=@local}}}, 0x50}}, 0x0)
+getsockopt$sock_buf(r0, 0x1, 0x1a, &(0x7f0000000040)=""/33, &(0x7f0000000080)=0x21)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000180)={0x2, &(0x7f0000000000)=[{0x34, 0x0, 0x0, 0x100800}, {0x6}]}, 0x10)
+
+15:39:48 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000440)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000480)=@newsa={0xfc, 0x10, 0x1, 0x0, 0x0, {{@in=@multicast1, @in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}}, {@in, 0x0, 0x2b}, @in6=@empty, {}, {}, {}, 0x0, 0x0, 0x2}, [@sec_ctx={0xc, 0x8, {0x8}}]}, 0xfc}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f00000000c0)=[{0x25}, {0x2}, {0x6}]}, 0x10)
+sendmsg$nl_xfrm(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000400)={&(0x7f0000000200)=ANY=[@ANYBLOB="50000000000000000000000289cd07af1779fea8be8508cf50ae00000000000000000000000000000000fe80e2ffffff000000000000000000aa", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB='\x00\x00\x00\x00\x00\x00\x00\x00'], 0x50}}, 0x0)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_FLAG_CMD(r1, 0x8983, &(0x7f0000000000)={0x7, 'syzkaller1\x00', {0x3ff}, 0x3f})
+
+[   39.709025] ------------[ cut here ]------------
+[   39.713493] Found leaking site of sock_fprog_kern
+[   39.715612] WARNING: CPU: 0 PID: 3673 at net/core/filter.c:8677 sk_get_filter+0xf5/0x1d0
+[   39.717433] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=3674 comm=syz-executor.2
+[   39.731499] Modules linked in:
+[   39.731535] CPU: 0 PID: 3673 Comm: syz-executor.3 Not tainted 5.5.3 #18
+[   39.731540] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   39.731555] RIP: 0010:sk_get_filter+0xf5/0x1d0
+[   39.731562] Code: 36 fe 31 ed e9 83 00 00 00 e8 17 28 36 fe bd f3 ff ff ff eb 77 e8 0b 28 36 fe eb 70 48 c7 c7 59 f5 4a b3 31 c0 e8 9b 98 0f fe <0f> 0b 43 8a 04 2e 84 c0 0f 85 8b 00 00 00 45 0f b7 27 49 c1 e4 03
+[   39.731566] RSP: 0018:ffff88806889fc40 EFLAGS: 00010246
+[   39.731572] RAX: d4afc6c73cfe2e00 RBX: ffff888068d5e000 RCX: ffffc9000075c000
+[   39.731576] RDX: ffffffffb0400000 RSI: 0000000000000539 RDI: 000000000000053a
+[   39.731579] RBP: 0000000000000003 R08: dffffc0000000000 R09: 0000000000000003
+[   39.731584] R10: ffffed100d113f01 R11: 0000000000000004 R12: 0000000000000021
+[   39.731587] R13: dffffc0000000000 R14: 1ffff1100d9d73b4 R15: ffff88806ceb9da0
+[   39.731593] FS:  00007fb1ed2f6700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   39.731597] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   39.731602] CR2: 00007fffd3052be0 CR3: 0000000069c60001 CR4: 00000000001606f0
+[   39.731608] Call Trace:
+[   39.731634]  sock_getsockopt+0x986/0x2ef0
+[   39.731648]  ? __switch_to_asm+0x40/0x70
+[   39.731655]  ? release_sock+0x190/0x190
+[   39.731672]  ? selinux_socket_getsockopt+0x20f/0x2e0
+[   39.731679]  ? __switch_to_asm+0x34/0x70
+[   39.731685]  ? __switch_to_asm+0x40/0x70
+[   39.731692]  ? selinux_socket_getpeername+0x2e0/0x2e0
+[   39.731708]  ? __fget+0x31f/0x360
+[   39.731720]  ? _copy_to_user+0x6f/0x90
+[   39.731727]  ? __schedule+0xb4a/0x10b0
+[   39.731736]  ? security_socket_getsockopt+0x9a/0xb0
+[   39.731744]  __sys_getsockopt+0x140/0x1f0
+[   39.731751]  __x64_sys_getsockopt+0xb1/0xc0
+[   39.731758]  do_syscall_64+0xa5/0x130
+[   39.731766]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   39.731772] RIP: 0033:0x467519
+[   39.731780] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   39.731783] RSP: 002b:00007fb1ed2f5c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+[   39.731790] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   39.731794] RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000003
+[   39.731798] RBP: 00007fb1ed2f66bc R08: 0000000020000080 R09: 0000000000000000
+[   39.731802] R10: 0000000020000040 R11: 0000000000000246 R12: 00000000ffffffff
+[   39.731806] R13: 00000000000001e7 R14: 00000000004c27af R15: 0000000000701660
+[   39.731811] ---[ end trace ca53de852cf566ce ]---
+[   39.835316] ------------[ cut here ]------------
+[   39.925259] Found leaking site of sock_fprog_kern
+[   39.929497] WARNING: CPU: 0 PID: 3673 at net/core/filter.c:8677 sk_get_filter+0xf5/0x1d0
+[   39.937845] Modules linked in:
+[   39.940690] CPU: 0 PID: 3673 Comm: syz-executor.3 Tainted: G        W         5.5.3 #18
+[   39.957627] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   39.963812] RIP: 0010:sk_get_filter+0xf5/0x1d0
+[   39.966108] Code: 36 fe 31 ed e9 83 00 00 00 e8 17 28 36 fe bd f3 ff ff ff eb 77 e8 0b 28 36 fe eb 70 48 c7 c7 59 f5 4a b3 31 c0 e8 9b 98 0f fe <0f> 0b 43 8a 04 2e 84 c0 0f 85 8b 00 00 00 45 0f b7 27 49 c1 e4 03
+[   39.976945] RSP: 0018:ffff88806889fc40 EFLAGS: 00010246
+[   39.979558] RAX: d4afc6c73cfe2e00 RBX: ffff888067e1d000 RCX: ffffc9000075c000
+[   39.983683] RDX: ffffffffb0400000 RSI: 000000000000885f RDI: 0000000000008860
+[   39.986473] RBP: 0000000000000003 R08: dffffc0000000000 R09: 0000000000000003
+[   39.990491] R10: ffffed100d113f01 R11: 0000000000000004 R12: 0000000000000021
+[   39.994990] R13: dffffc0000000000 R14: 1ffff1100d82fd14 R15: ffff88806c17e8a0
+[   40.000995] FS:  00007fb1ed2f6700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   40.019764] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   40.022074] CR2: 00007f0218b87190 CR3: 0000000069c60006 CR4: 00000000001606f0
+[   40.026140] Call Trace:
+[   40.029105]  sock_getsockopt+0x986/0x2ef0
+[   40.032995]  ? _raw_spin_lock_bh+0xa4/0x170
+[   40.037990]  ? release_sock+0x190/0x190
+[   40.043089]  ? selinux_socket_getsockopt+0x20f/0x2e0
+[   40.047030]  ? selinux_socket_getpeername+0x2e0/0x2e0
+[   40.051330]  ? __fget+0x31f/0x360
+[   40.067962]  ? _copy_to_user+0x6f/0x90
+[   40.072736]  ? security_socket_getsockopt+0x9a/0xb0
+[   40.077963]  __sys_getsockopt+0x140/0x1f0
+[   40.081881]  __x64_sys_getsockopt+0xb1/0xc0
+[   40.086275]  do_syscall_64+0xa5/0x130
+[   40.104761]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   40.107486] RIP: 0033:0x467519
+[   40.108726] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   40.116754] RSP: 002b:00007fb1ed2f5c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+[   40.126776] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   40.141782] RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000003
+[   40.145999] RBP: 00007fb1ed2f66bc R08: 0000000020000080 R09: 0000000000000000
+[   40.153388] R10: 0000000020000040 R11: 0000000000000246 R12: 00000000ffffffff
+[   40.161337] R13: 00000000000001e7 R14: 00000000004c27af R15: 0000000000701660
+[   40.165784] ---[ end trace ca53de852cf566cf ]---
+[   40.172147] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=3678 comm=syz-executor.2

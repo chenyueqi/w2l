@@ -1,0 +1,87 @@
+------------[ cut here ]------------
+Found allocation of xfrm_policy
+WARNING: CPU: 0 PID: 3310 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Modules linked in:
+CPU: 0 PID: 3310 Comm: syz-executor.3 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae 6b 91 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+RSP: 0018:ffff88806c05f3c8 EFLAGS: 00010246
+RAX: c84cc438e10aea00 RBX: ffff8880681b8f40 RCX: ffffc90000f98000
+RDX: ffffffff8e600000 RSI: 0000000000000611 RDI: 0000000000000612
+RBP: 0000000000000cc0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100d80bdf1 R11: 0000000000000004 R12: dffffc0000000000
+R13: ffff888068184010 R14: ffff8880681b8f40 R15: ffff888068184010
+FS:  00007f863e5e9700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020000300 CR3: 000000006ab78004 CR4: 00000000001606f0
+Call Trace:
+ xfrm_policy_construct+0x36/0xec0 net/xfrm/xfrm_user.c:1621
+ xfrm_add_policy+0x4c5/0x970 net/xfrm/xfrm_user.c:1670
+ xfrm_user_rcv_msg+0x595/0x640 net/xfrm/xfrm_user.c:2688
+ netlink_rcv_skb+0x1f6/0x3b0 net/netlink/af_netlink.c:2477
+ xfrm_netlink_rcv+0x6e/0x80 net/xfrm/xfrm_user.c:2696
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0xad1/0xba0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x8e1/0xd40 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x8c0/0x8f0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmsg+0x21c/0x300 net/socket.c:2417
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f863e5e8c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000004000 RSI: 0000000020001300 RDI: 0000000000000003
+RBP: 00007f863e5e96bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+---[ end trace 7aa953af659ae670 ]---
+------------[ cut here ]------------
+Found allocation of xfrm_policy
+WARNING: CPU: 0 PID: 3353 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Modules linked in:
+CPU: 0 PID: 3353 Comm: syz-executor.3 Tainted: G        W         5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae 6b 91 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+RSP: 0018:ffff888067a173c8 EFLAGS: 00010246
+RAX: 7a640d3fb7bce800 RBX: ffff8880681b8f40 RCX: ffffc90001b9e000
+RDX: ffffffff8e600000 RSI: 000000000000060d RDI: 000000000000060e
+RBP: 0000000000000cc0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100cf42df1 R11: 0000000000000004 R12: dffffc0000000000
+R13: ffff888068a44010 R14: ffff8880681b8f40 R15: ffff888068a44010
+FS:  00007f863e5c8700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b30521000 CR3: 000000006ab78004 CR4: 00000000001606f0
+Call Trace:
+ xfrm_policy_construct+0x36/0xec0 net/xfrm/xfrm_user.c:1621
+ xfrm_add_policy+0x4c5/0x970 net/xfrm/xfrm_user.c:1670
+ xfrm_user_rcv_msg+0x595/0x640 net/xfrm/xfrm_user.c:2688
+ netlink_rcv_skb+0x1f6/0x3b0 net/netlink/af_netlink.c:2477
+ xfrm_netlink_rcv+0x6e/0x80 net/xfrm/xfrm_user.c:2696
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0xad1/0xba0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x8e1/0xd40 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x8c0/0x8f0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmsg+0x21c/0x300 net/socket.c:2417
+audit: type=1400 audit(1586566948.345:17): avc:  denied  { create } for  pid=3379 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_fib_lookup_socket permissive=1
+audit: type=1400 audit(1586566948.353:18): avc:  denied  { setopt } for  pid=3379 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_fib_lookup_socket permissive=1
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f863e5c7c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+audit: type=1400 audit(1586566948.355:19): avc:  denied  { setopt } for  pid=3379 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000000004000 RSI: 0000000020001300 RDI: 0000000000000003
+RBP: 00007f863e5c86bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+---[ end trace 7aa953af659ae671 ]---

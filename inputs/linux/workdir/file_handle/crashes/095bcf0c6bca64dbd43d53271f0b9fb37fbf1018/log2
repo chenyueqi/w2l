@@ -1,0 +1,92 @@
+Warning: Permanently added '[localhost]:27405' (ECDSA) to the list of known hosts.
+2020/04/20 01:24:52 fuzzer started
+2020/04/20 01:24:52 dialing manager at 10.0.2.10:36519
+2020/04/20 01:24:52 syscalls: 8
+2020/04/20 01:24:52 code coverage: enabled
+2020/04/20 01:24:52 comparison tracing: enabled
+2020/04/20 01:24:52 extra coverage: enabled
+2020/04/20 01:24:52 setuid sandbox: enabled
+2020/04/20 01:24:52 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:24:52 Android sandbox: enabled
+2020/04/20 01:24:52 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:24:52 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:24:52 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:24:52 net device setup: enabled
+2020/04/20 01:24:52 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:24:52 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:24:52 USB emulation: /dev/raw-gadget does not exist
+01:24:53 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)='net/icmp\x00')
+read(r0, 0x0, 0x0)
+
+01:24:53 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/if_inet6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+read(r0, &(0x7f0000000280)=""/4096, 0x1000)
+
+01:24:53 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000140)='net/packet\x00')
+read(r0, &(0x7f0000000180)=""/49, 0x31)
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+
+01:24:53 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x42840, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9958"}, 0x0)
+
+syzkaller login: [   81.864490] audit: type=1400 audit(1587345893.299:8): avc:  denied  { execmem } for  pid=423 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   81.999724] cgroup1: Unknown subsys name 'perf_event'
+[   82.002100] cgroup1: Unknown subsys name 'net_cls'
+[   82.005662] cgroup1: Unknown subsys name 'perf_event'
+[   82.006803] cgroup1: Unknown subsys name 'perf_event'
+[   82.011156] cgroup1: Unknown subsys name 'net_cls'
+[   82.016706] cgroup1: Unknown subsys name 'net_cls'
+[   82.025769] cgroup1: Unknown subsys name 'perf_event'
+[   82.032114] cgroup1: Unknown subsys name 'net_cls'
+[   82.941211] ------------[ cut here ]------------
+[   82.943006] Found leaking site of seq_file 2/2
+[   82.945756] WARNING: CPU: 0 PID: 1990 at fs/seq_file.c:286 seq_read+0xc4c/0xe90
+[   82.949211] Kernel panic - not syncing: panic_on_warn set ...
+[   82.952093] CPU: 0 PID: 1990 Comm: syz-executor.3 Not tainted 5.5.3 #46
+[   82.955250] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   82.961321] Call Trace:
+[   82.962665]  dump_stack+0x15e/0x1ae
+[   82.964559]  panic+0x228/0x700
+[   82.966121]  ? 0xffffffffaa200000
+[   82.967643]  ? seq_read+0xc4c/0xe90
+[   82.969259]  __warn+0x1fe/0x200
+[   82.971082]  ? seq_read+0xc4c/0xe90
+[   82.972732]  report_bug+0x359/0x480
+[   82.974558]  ? seq_read+0xc4c/0xe90
+[   82.976311]  do_invalid_op+0x6e/0x110
+[   82.978163]  invalid_op+0x1e/0x30
+[   82.979962] RIP: 0010:seq_read+0xc4c/0xe90
+[   82.981997] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 1e ad e8 3c d6 2e 02 48 85 c0 74 62 e8 82 67 ce ff 48 c7 c7 97 59 1e ad 31 c0 e8 94 b6 a7 ff <0f> 0b eb 50 e8 6b 67 ce ff eb 49 48 8b 33 4c 89 f7 e8 2e 02 00 00
+[   82.991587] RSP: 0018:ffff88804e8cfc48 EFLAGS: 00010246
+[   82.994230] RAX: 5483d2ebc4552d00 RBX: 0000000000000002 RCX: ffffc900001b7000
+[   82.997692] RDX: ffffffffaa200000 RSI: 00000000000008b5 RDI: 00000000000008b6
+[   83.001433] RBP: 0000000000000066 R08: dffffc0000000000 R09: ffffed100da46092
+[   83.004982] R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88806a7974c0
+[   83.008517] R13: dffffc0000000000 R14: ffff88806a797480 R15: ffff888064c03ab8
+[   83.011889]  ? 0xffffffffaa200000
+[   83.013605]  ? seq_read+0xc4c/0xe90
+[   83.015334]  ? seq_open+0x160/0x160
+[   83.017032]  proc_reg_read+0x1d4/0x2d0
+[   83.018794]  ? proc_reg_llseek+0x2b0/0x2b0
+[   83.020680]  __vfs_read+0xae/0x6d0
+[   83.022755]  ? fsnotify+0x119e/0x1240
+[   83.024652]  vfs_read+0x167/0x380
+[   83.026546]  ksys_read+0x112/0x210
+[   83.028098]  do_syscall_64+0xd1/0x160
+[   83.030053]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   83.032635] RIP: 0033:0x467519
+[   83.034063] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   83.042978] RSP: 002b:00007f2d7957dc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   83.046617] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   83.049945] RDX: 0000000000000066 RSI: 0000000020000080 RDI: 0000000000000003
+[   83.053531] RBP: 00007f2d7957e6bc R08: 0000000000000000 R09: 0000000000000000
+[   83.057247] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   83.060656] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   83.068850] Dumping ftrace buffer:
+[   83.070544]    (ftrace buffer empty)
+[   83.072158] Kernel Offset: 0x29200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   83.077281] Rebooting in 1 seconds..

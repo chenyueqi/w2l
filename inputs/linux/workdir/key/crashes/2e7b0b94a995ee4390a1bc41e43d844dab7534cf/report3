@@ -1,0 +1,43 @@
+------------[ cut here ]------------
+Found allocation of request_key_auth
+WARNING: CPU: 1 PID: 2243 at security/keys/request_key_auth.c:179 request_key_auth_new+0xce/0x850 security/keys/request_key_auth.c:179
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 2243 Comm: syz-executor.3 Not tainted 5.5.3 #51
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:request_key_auth_new+0xce/0x850 security/keys/request_key_auth.c:179
+Code: 8d bf 48 06 00 00 48 c7 c6 a2 4f 3e 86 e8 ba 85 dc 01 48 85 c0 74 1e e8 00 17 7c ff 48 c7 c7 09 94 3f 86 31 c0 e8 12 66 55 ff <0f> 0b eb 0c e8 e9 16 7c ff eb 05 e8 e2 16 7c ff 48 c7 c0 38 ae 49
+RSP: 0018:ffff88806b287ce0 EFLAGS: 00010246
+RAX: 30c9d2f05fe54700 RBX: 0000000000000002 RCX: ffffc90000b36000
+RDX: ffffffff83400000 RSI: 00000000000006f1 RDI: 00000000000006f2
+RBP: ffff88806b287d68 R08: dffffc0000000000 R09: fffffbfff0e28bc4
+R10: fffffbfff0e28bc4 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888066a1a680 R14: 0000000000000012 R15: ffff888067649d00
+ construct_key security/keys/request_key.c:234 [inline]
+ construct_key_and_link security/keys/request_key.c:503 [inline]
+ request_key_and_link+0xd21/0x1450 security/keys/request_key.c:637
+ __do_sys_request_key security/keys/keyctl.c:223 [inline]
+ __se_sys_request_key+0x1f8/0x310 security/keys/keyctl.c:168
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f2e23e5cc48 EFLAGS: 00000246 ORIG_RAX: 00000000000000f9
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000380 RSI: 0000000020000340 RDI: 0000000020000300
+RBP: 00007f2e23e5d6bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000013d7d324 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000008a8 R14: 00000000004c9bda R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x2400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

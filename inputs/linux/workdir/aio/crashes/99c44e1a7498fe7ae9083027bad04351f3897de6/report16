@@ -1,0 +1,74 @@
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found allocation of kioctx
+WARNING: CPU: 1 PID: 2172 at fs/aio.c:735 ioctx_alloc+0x145/0x2500 fs/aio.c:735
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 2172 Comm: syz-executor.1 Not tainted 5.5.3 #34
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+------------[ cut here ]------------
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+Found allocation of kioctx
+WARNING: CPU: 0 PID: 2184 at fs/aio.c:735 ioctx_alloc+0x145/0x2500 fs/aio.c:735
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+Modules linked in:
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+CPU: 0 PID: 2184 Comm: syz-executor.0 Not tainted 5.5.3 #34
+RIP: 0010:ioctx_alloc+0x145/0x2500 fs/aio.c:735
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Code: 8b 1d 3f 4e c4 02 bf 02 00 00 00 89 de e8 33 d6 c5 ff 83 fb 02 75 17 e8 19 d2 c5 ff 48 c7 c7 60 6f 3e a8 31 c0 e8 2b 21 9f ff <0f> 0b eb 05 e8 02 d2 c5 ff 48 8b 3d 33 9e 60 03 be c0 0d 00 00 e8
+RIP: 0010:ioctx_alloc+0x145/0x2500 fs/aio.c:735
+RSP: 0018:ffff888067b47e00 EFLAGS: 00010246
+Code: 8b 1d 3f 4e c4 02 bf 02 00 00 00 89 de e8 33 d6 c5 ff 83 fb 02 75 17 e8 19 d2 c5 ff 48 c7 c7 60 6f 3e a8 31 c0 e8 2b 21 9f ff <0f> 0b eb 05 e8 02 d2 c5 ff 48 8b 3d 33 9e 60 03 be c0 0d 00 00 e8
+RAX: 0fa4c7f83cd84800 RBX: 0000000000000002 RCX: ffffc90000971000
+RSP: 0018:ffff8880671a7e00 EFLAGS: 00010246
+RDX: ffffffffa5400000 RSI: 000000000000030f RDI: 0000000000000310
+RAX: a9f92695d4e7d600 RBX: 0000000000000002 RCX: ffffc9000016d000
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff5228bc3
+RDX: ffffffffa5400000 RSI: 000000000000c3c2 RDI: 000000000000c3c3
+R10: fffffbfff5228bc3 R11: 0000000000000000 R12: 0000000000000004
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff5228bc3
+R13: 1ffff1100d4125ec R14: 0000000000000010 R15: ffff88806a092f60
+R10: fffffbfff5228bc3 R11: 0000000000000000 R12: 0000000000000cf5
+R13: 1ffff1100ce2e07c R14: 00000000000019ea R15: ffff8880671703e0
+FS:  00007f6063748700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+ __do_sys_io_setup fs/aio.c:1335 [inline]
+ __se_sys_io_setup+0x6a/0x1d0 fs/aio.c:1318
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+CR2: 0000000020000000 CR3: 0000000068c36003 CR4: 00000000003606f0
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+Call Trace:
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+ __do_sys_io_setup fs/aio.c:1335 [inline]
+ __se_sys_io_setup+0x6a/0x1d0 fs/aio.c:1318
+RSP: 002b:00007f9cf2985c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000ce
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RDX: 0000000000000000 RSI: 0000000020000000 RDI: 0000000000000004
+RIP: 0033:0x467519
+RBP: 00007f9cf29866bc R08: 0000000000000000 R09: 0000000000000000
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+RSP: 002b:00007f6063747c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000ce
+R13: 00000000000001fa R14: 00000000004c28bf R15: 0000000000701640
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000020000000 RDI: 0000000000000cf5
+RBP: 00007f60637486bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000001fa R14: 00000000004c28bf R15: 0000000000701640
+---[ end trace e3b6320cb61b8e9b ]---
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x24400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

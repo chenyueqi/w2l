@@ -1,0 +1,559 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:5668' (ECDSA) to the list of known hosts.
+2020/04/20 05:39:21 fuzzer started
+2020/04/20 05:39:22 dialing manager at 10.0.2.10:33137
+2020/04/20 05:39:22 syscalls: 43
+2020/04/20 05:39:22 code coverage: enabled
+2020/04/20 05:39:22 comparison tracing: enabled
+2020/04/20 05:39:22 extra coverage: enabled
+2020/04/20 05:39:22 setuid sandbox: enabled
+2020/04/20 05:39:22 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 05:39:22 Android sandbox: enabled
+2020/04/20 05:39:22 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 05:39:22 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 05:39:22 net packet injection: /dev/net/tun does not exist
+2020/04/20 05:39:22 net device setup: enabled
+2020/04/20 05:39:22 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 05:39:22 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 05:39:22 USB emulation: /dev/raw-gadget does not exist
+05:39:22 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x0, 0x0)
+r1 = openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000040)='/proc/thread-self/attr/keycreate\x00', 0x2, 0x0)
+io_setup(0x40, &(0x7f0000000080)=<r2=>0x0)
+r3 = openat$rtc(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/rtc0\x00', 0x8000, 0x0)
+r4 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000380)='/dev/ttyS3\x00', 0x1c1201, 0x0)
+r5 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000480)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r2, 0x3, &(0x7f0000000500)=[&(0x7f0000000200)={0x0, 0x0, 0x0, 0x2, 0xbc, r3, &(0x7f0000000100)="04276b8adacfa4990f442613fef31948c27ace90a356b990498d0f02abc2ab85348b32585bc5304b7d077e5b75d5415fd6344aea1258f9247d375ba78444714c6d9375d41514be4520a9b80f1e1d3ab6448acc310c8c22c188a04767217b99bc5af5377611ea97f21c3ac7b5082a9f5f6610f7f41bef2cfe133dee955211cb948e0379063a6d947473df780377f67d04a40b8642e74c99cf9d695a707fc9dfbe57a717d0ce077fa13569420391efe3710439e496e57aa8ef66c1e034bedb9d6ea7e84ac3e41fc78ade81cf32f23adcb00b57f69b4e40c6e84f63", 0xda, 0x9, 0x0, 0x1}, &(0x7f0000000340)={0x0, 0x0, 0x0, 0x1, 0x0, r0, &(0x7f0000000240)="961770d8975205ec9b52d0af688cec36177d380e012fc634c2e3bfa5952add7575d4dab51f47fd7e3a08f605c0d519968b4168e9032d3a7085f353c5d309a835cd8afd22b6ac7f4239f7942d509d95cf4046472fd7faf31830a1f9dfee704bdc07521cb189703a7e1db2d3c61dd2e221c11153e69b11a16575011e7fec79e31422536aa85f181b97fb0ba0a1a0f247e4d882e5ca8b22759fe6505c6f60e94712a13fe7b4f24543e2e7c07f9512342c57b0903a7e361b8c6e94ad1af14982a2a2257b6591b57a225da5347158b625fc88", 0xd0, 0xffffffffffff8001, 0x0, 0x2, r1}, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x2, 0x8001, r4, &(0x7f00000003c0)="f84f99e316a0db4496dd1be80c308f5d74b1f404c7f3e0cfccfb5d1fda68700ba58735370574d4525bfd6def94db628a6f3b4a0e03f1817b770450a0f7d1af06cfc6624a1139dae04ffc49d5bafbf0a7a690744a537cfd075afb26abaceb2bf6af83387236fb9640ec6286787ba29c74ab144d282187530b1fd13ed9529fe7afdd73906d3d6a77d5ebdc593dd1a66302e7c9f9e4579cca02d6bd5d275f84085eab5462ff2176c320df6539e4d352c31f7d83aee92d6975e681f8", 0xba, 0x80000000, 0x0, 0x0, r5}])
+openat$vcs(0xffffffffffffff9c, &(0x7f0000000540)='/dev/vcs\x00', 0x410000, 0x0)
+io_setup(0x8, &(0x7f0000000580)=<r6=>0x0)
+r7 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f00000005c0)='./cgroup.net/syz0\x00', 0x200002, 0x0)
+io_submit(r6, 0x2, &(0x7f0000000740)=[&(0x7f0000000640)={0x0, 0x0, 0x0, 0x6, 0x1, r7, &(0x7f0000000600)="65d37fb136bc6f72fcbd975bd19fc3cc109b2c0e75818547c4", 0x19, 0x63cd, 0x0, 0x3}, &(0x7f0000000700)={0x0, 0x0, 0x0, 0x6, 0x3ff, r4, &(0x7f0000000680)="3dc2ec489b6711d069020bbc61b51bc0a166cc8513c60dc9fd1f6edb52580af91228e4cf71fb85610b72f32ebe41683bbc6b5983eec8e064a6c9ae1b9a417ce75a5cb3", 0x43, 0x1, 0x0, 0x2, r5}])
+openat$null(0xffffffffffffff9c, &(0x7f0000000780)='/dev/null\x00', 0x0, 0x0)
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f00000007c0)='/proc/self/attr/exec\x00', 0x2, 0x0)
+r8 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000800)='/dev/ptmx\x00', 0x2, 0x0)
+r9 = openat$bsg(0xffffffffffffff9c, &(0x7f0000000900)='/dev/bsg\x00', 0x80, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000000980)=[&(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x0, r8, &(0x7f0000000840)="56eeca961a07f665cd9ae7142b3628e635c9b092f19a5dad00e4a9a5a00d96281ae76b0a537860841bebb7d344254f7334cbb25f459b688f4f69d16a4f25a1dab759b5982138d5011194883025e6a7152597f9454dd18095dbf17bc31a33e4a204f2c39a94756d420f68fe0606c1215bf7505aa6de944ec16403cd4913396b2983b8260fbed7364b22b58c93a9ab0fba1d3e38433f6fce608b6151a5a07856f7053743e86d20f69d2771d163e0", 0xad, 0xffffffffffff8000, 0x0, 0x2, r9}])
+io_getevents(r2, 0x7, 0x6, &(0x7f00000009c0)=[{}, {}, {}, {}, {}, {}], 0x0)
+io_setup(0x7, &(0x7f0000000a80)=<r10=>0x0)
+io_destroy(r10)
+io_cancel(r10, &(0x7f0000000bc0)={0x0, 0x0, 0x0, 0x6, 0x3, 0xffffffffffffffff, &(0x7f0000000b00)="6da6de15ab0d778268a19fbc20a50acfc340c0afe7aea389f8aa602bf0a5c931b2fd68e2c63f19d3669c12931430ec4318ed2bafccec7f547c8f16c039516925dea657cd8ec3b2b86b7a7f7ed3b012bd304642c9e2aa39fcd3ece1c6fca4fc13649e13b5ffc564d6e3e3b8e1fee565", 0x6f, 0xd1, 0x0, 0x3}, &(0x7f0000000c00))
+
+05:39:22 executing program 3:
+openat$autofs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/autofs\x00', 0x400000, 0x0)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x147200, 0x0)
+r0 = openat$bsg(0xffffffffffffff9c, &(0x7f0000000080)='/dev/bsg\x00', 0x82, 0x0)
+openat$cgroup_ro(r0, &(0x7f00000000c0)='pids.events\x00', 0x0, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000100)='/dev/snapshot\x00', 0x589a80, 0x0)
+r1 = openat$autofs(0xffffffffffffff9c, &(0x7f0000000140)='/dev/autofs\x00', 0x400002, 0x0)
+openat$cgroup_type(r1, &(0x7f0000000180)='cgroup.type\x00', 0x2, 0x0)
+openat$full(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/full\x00', 0x30400, 0x0)
+r2 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000200)='/dev/vcsa\x00', 0x220001, 0x0)
+openat$cgroup(r2, &(0x7f0000000240)='syz1\x00', 0x200002, 0x0)
+openat$vcsa(0xffffffffffffff9c, &(0x7f0000000280)='/dev/vcsa\x00', 0x8000, 0x0)
+r3 = openat$hwrng(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/hwrng\x00', 0x34000, 0x0)
+r4 = openat$full(0xffffffffffffff9c, &(0x7f0000000300)='/dev/full\x00', 0x0, 0x0)
+openat$cgroup(r4, &(0x7f0000000340)='syz0\x00', 0x200002, 0x0)
+openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000380)='/dev/ttyS3\x00', 0x20c0, 0x0)
+openat$rtc(0xffffffffffffff9c, &(0x7f00000003c0)='/dev/rtc0\x00', 0x0, 0x0)
+openat$rtc(0xffffffffffffff9c, &(0x7f0000000400)='/dev/rtc0\x00', 0x202001, 0x0)
+openat$cgroup_type(r3, &(0x7f0000000440)='cgroup.type\x00', 0x2, 0x0)
+openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000480)='./cgroup.cpu/syz1\x00', 0x200002, 0x0)
+openat$hpet(0xffffffffffffff9c, &(0x7f00000004c0)='/dev/hpet\x00', 0x0, 0x0)
+
+05:39:22 executing program 1:
+openat$hpet(0xffffffffffffff9c, &(0x7f0000000000)='/dev/hpet\x00', 0x140, 0x0)
+r0 = openat$full(0xffffffffffffff9c, &(0x7f0000000040)='/dev/full\x00', 0x10000, 0x0)
+openat$vcs(0xffffffffffffff9c, &(0x7f0000000080)='/dev/vcs\x00', 0x12109ee9f0da4ce1, 0x0)
+io_setup(0x6, &(0x7f00000000c0)=<r1=>0x0)
+r2 = openat$hpet(0xffffffffffffff9c, &(0x7f0000000180)='/dev/hpet\x00', 0x8000, 0x0)
+r3 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000240)='/dev/vcsu\x00', 0x26c080, 0x0)
+r4 = openat$pidfd(0xffffffffffffff9c, &(0x7f00000002c0)='/proc/self\x00', 0x480800, 0x0)
+r5 = openat$cgroup_ro(0xffffffffffffffff, &(0x7f00000004c0)='cpuacct.usage_sys\x00', 0x0, 0x0)
+r6 = openat$bsg(0xffffffffffffff9c, &(0x7f0000000600)='/dev/bsg\x00', 0x210280, 0x0)
+io_submit(r1, 0x5, &(0x7f0000000680)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x2, 0x40, r0, &(0x7f0000000100)="3a77c2a3697eb4e9898d4ecad36741c62ff58a2e1de6975a01d147afcc7ee1b45dc5fc4b9c2ed3d26f6b1659a2c3e117b5e6c480a108f2", 0x37, 0x5}, &(0x7f0000000280)={0x0, 0x0, 0x0, 0x6, 0x3, r2, &(0x7f00000001c0)="7babd8106abcc7109ead165e26d367ec176427fff8632b54e2e307bca3b8de2343a5b474976126a82ce4269dda7e6a594de9ac66b4e2f9684bdaff13aa9b799fae3fbdc630ed76b0fa1cf091051f241c2820924758e5e971ed", 0x59, 0x3, 0x0, 0x2, r3}, &(0x7f0000000380)={0x0, 0x0, 0x0, 0x7, 0x83ea, r4, &(0x7f0000000300)="a74ec853a77a55c1a93f63fb16827b0b69ead204ed050a9991ac573607410d52a621c61393c2f08513a227773e9896711c86f671bb1753647433f47ffdac4c4af6443a7f77d9db4e5c64888fc5614df48ab8bbd0c255cfc7a0332f", 0x5b, 0x73c, 0x0, 0x1}, &(0x7f0000000480)={0x0, 0x0, 0x0, 0x5, 0xfff8, r0, &(0x7f00000003c0)="bca09ffccabe9ae9dba458f1bf5e1456df5359474f41d3e8799e500c4466d0db05c8f0468d5756027a6eb8b9a0297a57b972837be39616baa9c0cc5664c351d2197dd437106c4117533523a6cbd3f8d9a2c849a7b17be243fe05b7e297564860559ade2ffad0a0ebae3e21b5befba918a3353e7717d97fcfa81d8d27e500ca72d36816b75958031be185a7c2b16da18e292067bc410404a3fb2d5f63180cf75dc9", 0xa1, 0x5, 0x0, 0x2}, &(0x7f0000000640)={0x0, 0x0, 0x0, 0x3, 0xf3, r5, &(0x7f0000000500)="7a12379dcc67dd18bebce7e4dcb9fda2b844f0ce6ea37c26501552210d0a348123fc0fa180e5825fecff0a9f48f16a99949f6f72714abcbb1c36f59aa8bc7fc18a080cd354057df263efc3ad7a6eba2a7a661ce4f40c5e5e76153c5a06dabb6f1e582e7c0def35f8b65753a16ab92bc3bae9059f341ed2d9b673e420512a2101c435a55848506551e7a0fe5416f8c17ef597079e30e8850a18c3757c31ebb200e349ae410ce0d39d974743d0fa0e8abbbbf75fb89e8088991a57f42b1a4aa8016c6655d7a36b471af81b07e56937f88e08e56badc961a981e4b863daf50983fc0c9e328a", 0xe4, 0x10001, 0x0, 0x0, r6}])
+r7 = openat$hwrng(0xffffffffffffff9c, &(0x7f00000006c0)='/dev/hwrng\x00', 0xa8080, 0x0)
+r8 = openat$cgroup_ro(0xffffffffffffffff, &(0x7f0000000800)='pids.events\x00', 0x0, 0x0)
+io_submit(0x0, 0x2, &(0x7f0000000980)=[&(0x7f00000007c0)={0x0, 0x0, 0x0, 0x0, 0x5, r7, &(0x7f0000000700)="304546d05377b8c56f0a46396035d29fb7040d10885c3b8ac4de6912177277aeb422270b05755c1295c2843a39311fd99c9abc6abe0c9408d3cbeb9b8a344bd449aeacd597b322123c5395d01caba863b38bfe2533fec225f43aa3c051d17a0c2824552e412d2e55aa18733036af38311987a2f78e94a60c93ec9572cd39ae7292defa5172cf58b0111262c0df61c233b0782351e2c1096f", 0x98, 0xbe, 0x0, 0x3}, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x6, 0x1f, r8, &(0x7f0000000840)="af621cdea4343275bb801b2b7b8889d3ee57fb343731418d409601715006388ae063cacc602c493f727476a47aa146a7688241fe0fdbff4f3b3b403a71132d13ff9882af129bfcebfa0e8d976f6f699c35c486c5ee49edf642f035c2e4244e104315923be5c8ed5a39cc93653d7f29008e7d18c00d80102da112074c0e9899d5cbbacb0d98d5a2526a03a6ed296f8b1e19ae6f461b5c28996ae273fb2ec95da5ce11a616b91d05dba8c46542ed9753932d3d78e5180dcbefade64f5cb3cbfbb5bb61c7d7b1a9c571c26a3dd61ca9e400f7518251dac5c6e25b9a2f5f0de45ea746fc8655a881f77d", 0xe8, 0x6, 0x0, 0x1}])
+io_setup(0x1c4a, &(0x7f00000009c0))
+io_setup(0xff, &(0x7f0000000a00)=<r9=>0x0)
+io_destroy(r9)
+openat$rtc(0xffffffffffffff9c, &(0x7f0000000a40)='/dev/rtc0\x00', 0x201040, 0x0)
+openat$vcsa(0xffffffffffffff9c, &(0x7f0000000a80)='/dev/vcsa\x00', 0x404081, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000ac0)='/dev/snapshot\x00', 0x2c000, 0x0)
+io_pgetevents(0x0, 0xe88a, 0x4, &(0x7f0000000b40)=[{}, {}, {}, {}], 0x0, &(0x7f0000000c00)={&(0x7f0000000bc0)={[0x6]}, 0x8})
+
+05:39:22 executing program 2:
+io_setup(0x0, &(0x7f0000000000)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x7, &(0x7f0000000040))
+io_setup(0x8001, &(0x7f0000000080)=<r1=>0x0)
+io_destroy(r1)
+io_destroy(r0)
+io_setup(0x0, &(0x7f00000000c0)=<r2=>0x0)
+io_destroy(r2)
+io_setup(0x7, &(0x7f0000000100)=<r3=>0x0)
+io_getevents(r3, 0x8, 0x7, &(0x7f0000000140)=[{}, {}, {}, {}, {}, {}, {}], &(0x7f0000000240))
+io_setup(0xcbe8, &(0x7f0000000280))
+r4 = openat$ptmx(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/ptmx\x00', 0x80, 0x0)
+r5 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000400)='/proc/meminfo\x00', 0x0, 0x0)
+io_cancel(0x0, &(0x7f0000000440)={0x0, 0x0, 0x0, 0x5, 0xffff, r4, &(0x7f0000000300)="ea496bc0e3a40d2764d54957516de77e81cd4303971e66d2340f3755a35c3011f5d56e5f8c9177a9f933b28d04e6b210f40b7fe283830ebe3c798cfe1febb1818d5617ace5d5a41d6837a66566e2ed09efe3eda5453288a6a91998bc416e94daf199408169b97e49fc933f2e6bfd64e3f2395d6d9bb9f866046c3d1776c82b753b3fd44d19b2544c63474eba4f9a887beee230ffba0900c03b564fafeadbdacd1db5ba0aece3bba7c0464c352b9f1c41eb13433d8355cf35a6412ec2d34ea3893a25c2eb80e8e1546a59853743cfa61995c560", 0xd3, 0xfffffffffffffff9, 0x0, 0x3, r5}, &(0x7f0000000480))
+io_setup(0x5, &(0x7f00000004c0)=<r6=>0x0)
+r7 = openat$vcsa(0xffffffffffffff9c, &(0x7f0000000640)='/dev/vcsa\x00', 0x80, 0x0)
+r8 = openat$autofs(0xffffffffffffff9c, &(0x7f0000000700)='/dev/autofs\x00', 0x800, 0x0)
+r9 = openat$full(0xffffffffffffff9c, &(0x7f0000000880)='/dev/full\x00', 0xa0000, 0x0)
+io_submit(r6, 0x4, &(0x7f0000000a00)=[&(0x7f0000000600)={0x0, 0x0, 0x0, 0x1, 0x5, r4, &(0x7f0000000500)="03a49a0cf9120916b6571945da1cb5923b8f86d7c8a28eea5de24d622647b7848a359ba995115a2203741931396fe564d61b8dd35c05cf727401461cbdda151ee1fee25d2d51c7a3c84a01103eaeef4a188e222aa92ef6682ebfa8258d084ba0d46cb406f75f966775c709689f3e0d6ca2fdf41c697a0338b129003cc316e271c0a2e983c65b3f88e58bc19632cc3aac421653bd0ae4881045f74f5c632b7bfdb552305d5c8151b4e2c2b93fd36813923fca1ba8dc36e4dbe5fe61cba81300498ec1277daa548bc6b9bd4fc9a74cd4a9", 0xd0, 0x7, 0x0, 0x2}, &(0x7f0000000740)={0x0, 0x0, 0x0, 0x5, 0xffff, r7, &(0x7f0000000680)="140c0465ed43bec16baeff36cb2be484fbc8738a60c02f8cfa293c0f659caaf261603d859f2918457a524f10d5bce761a1c29152badd779378d1691fbe87015762209d0f5a85c7b9b10ef07448012cd11a28d53066289bf9c2ef26473277a81810b0c983dd82b187697e605739e1849ac45fd19efbfc68d8", 0x78, 0x0, 0x0, 0x2, r8}, &(0x7f00000008c0)={0x0, 0x0, 0x0, 0x3, 0xfffd, 0xffffffffffffffff, &(0x7f0000000780)="95b0791f727fdfcbbcfdd7a2a0c97edad141f5a3ace5b6349b2cf19bafbdb147a6ab7831d5ae4b37301f151a4e5ba310749c0b7c601afbe20d8bc4f80fda6142393dabd84c8fb2eabbe02f692a8136910f9f0ae17f4b90288081efbf15d5f207c798c3ef2c0eace4446ed010906bc6b7953f8aaf2e3eaa4c03698f51622753a2e10850c00326ec3a3efa3ce78cd93f3c4ae116915be56e9f79a7bc7c15129324fef8459030d574b0081618a377411a9891afae02435d7e167cc9f937bce8b2168b05275df99e9d5dfc1f593c8d5f6f29f6a49f", 0xd3, 0x9, 0x0, 0x2, r9}, &(0x7f00000009c0)={0x0, 0x0, 0x0, 0x6, 0x7f, r5, &(0x7f0000000900)="0d01f6652ccd0acf8927ff5e49414480526b3a938b87022484bbaf45e9869e78ab3f54999918520084a34d38b3eded21bce466d3e60480f56622d86b0ae5858fa506a8c6c5b7796f7886ed72ca86de359ec186dc024073f798ac469b00d7816cd8c78d21a4b5eb756a28833e528bf8bcffd1caadbe1b171ce5a26b89552469ee2190135775d443421bc1", 0x8a, 0xbd8, 0x0, 0x2, r5}])
+openat$vcsu(0xffffffffffffff9c, &(0x7f0000000a40)='/dev/vcsu\x00', 0x0, 0x0)
+
+syzkaller login: [   10.977940] audit: type=1400 audit(1587361162.987:8): avc:  denied  { execmem } for  pid=419 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   11.039678] cgroup1: Unknown subsys name 'perf_event'
+[   11.041971] cgroup1: Unknown subsys name 'net_cls'
+[   11.094125] cgroup1: Unknown subsys name 'perf_event'
+[   11.101753] cgroup1: Unknown subsys name 'net_cls'
+[   11.107691] cgroup1: Unknown subsys name 'perf_event'
+[   11.110176] cgroup1: Unknown subsys name 'net_cls'
+[   11.125021] cgroup1: Unknown subsys name 'perf_event'
+[   11.129189] cgroup1: Unknown subsys name 'net_cls'
+05:39:24 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/consoles\x00', 0x0, 0x0)
+r1 = openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000040)='/proc/thread-self/attr/keycreate\x00', 0x2, 0x0)
+io_setup(0x40, &(0x7f0000000080)=<r2=>0x0)
+r3 = openat$rtc(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/rtc0\x00', 0x8000, 0x0)
+r4 = openat$ttyS3(0xffffffffffffff9c, &(0x7f0000000380)='/dev/ttyS3\x00', 0x1c1201, 0x0)
+r5 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000480)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r2, 0x3, &(0x7f0000000500)=[&(0x7f0000000200)={0x0, 0x0, 0x0, 0x2, 0xbc, r3, &(0x7f0000000100)="04276b8adacfa4990f442613fef31948c27ace90a356b990498d0f02abc2ab85348b32585bc5304b7d077e5b75d5415fd6344aea1258f9247d375ba78444714c6d9375d41514be4520a9b80f1e1d3ab6448acc310c8c22c188a04767217b99bc5af5377611ea97f21c3ac7b5082a9f5f6610f7f41bef2cfe133dee955211cb948e0379063a6d947473df780377f67d04a40b8642e74c99cf9d695a707fc9dfbe57a717d0ce077fa13569420391efe3710439e496e57aa8ef66c1e034bedb9d6ea7e84ac3e41fc78ade81cf32f23adcb00b57f69b4e40c6e84f63", 0xda, 0x9, 0x0, 0x1}, &(0x7f0000000340)={0x0, 0x0, 0x0, 0x1, 0x0, r0, &(0x7f0000000240)="961770d8975205ec9b52d0af688cec36177d380e012fc634c2e3bfa5952add7575d4dab51f47fd7e3a08f605c0d519968b4168e9032d3a7085f353c5d309a835cd8afd22b6ac7f4239f7942d509d95cf4046472fd7faf31830a1f9dfee704bdc07521cb189703a7e1db2d3c61dd2e221c11153e69b11a16575011e7fec79e31422536aa85f181b97fb0ba0a1a0f247e4d882e5ca8b22759fe6505c6f60e94712a13fe7b4f24543e2e7c07f9512342c57b0903a7e361b8c6e94ad1af14982a2a2257b6591b57a225da5347158b625fc88", 0xd0, 0xffffffffffff8001, 0x0, 0x2, r1}, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x2, 0x8001, r4, &(0x7f00000003c0)="f84f99e316a0db4496dd1be80c308f5d74b1f404c7f3e0cfccfb5d1fda68700ba58735370574d4525bfd6def94db628a6f3b4a0e03f1817b770450a0f7d1af06cfc6624a1139dae04ffc49d5bafbf0a7a690744a537cfd075afb26abaceb2bf6af83387236fb9640ec6286787ba29c74ab144d282187530b1fd13ed9529fe7afdd73906d3d6a77d5ebdc593dd1a66302e7c9f9e4579cca02d6bd5d275f84085eab5462ff2176c320df6539e4d352c31f7d83aee92d6975e681f8", 0xba, 0x80000000, 0x0, 0x0, r5}])
+openat$vcs(0xffffffffffffff9c, &(0x7f0000000540)='/dev/vcs\x00', 0x410000, 0x0)
+io_setup(0x8, &(0x7f0000000580)=<r6=>0x0)
+r7 = openat$cgroup_root(0xffffffffffffff9c, &(0x7f00000005c0)='./cgroup.net/syz0\x00', 0x200002, 0x0)
+io_submit(r6, 0x2, &(0x7f0000000740)=[&(0x7f0000000640)={0x0, 0x0, 0x0, 0x6, 0x1, r7, &(0x7f0000000600)="65d37fb136bc6f72fcbd975bd19fc3cc109b2c0e75818547c4", 0x19, 0x63cd, 0x0, 0x3}, &(0x7f0000000700)={0x0, 0x0, 0x0, 0x6, 0x3ff, r4, &(0x7f0000000680)="3dc2ec489b6711d069020bbc61b51bc0a166cc8513c60dc9fd1f6edb52580af91228e4cf71fb85610b72f32ebe41683bbc6b5983eec8e064a6c9ae1b9a417ce75a5cb3", 0x43, 0x1, 0x0, 0x2, r5}])
+openat$null(0xffffffffffffff9c, &(0x7f0000000780)='/dev/null\x00', 0x0, 0x0)
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f00000007c0)='/proc/self/attr/exec\x00', 0x2, 0x0)
+r8 = openat$ptmx(0xffffffffffffff9c, &(0x7f0000000800)='/dev/ptmx\x00', 0x2, 0x0)
+r9 = openat$bsg(0xffffffffffffff9c, &(0x7f0000000900)='/dev/bsg\x00', 0x80, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000000980)=[&(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x0, r8, &(0x7f0000000840)="56eeca961a07f665cd9ae7142b3628e635c9b092f19a5dad00e4a9a5a00d96281ae76b0a537860841bebb7d344254f7334cbb25f459b688f4f69d16a4f25a1dab759b5982138d5011194883025e6a7152597f9454dd18095dbf17bc31a33e4a204f2c39a94756d420f68fe0606c1215bf7505aa6de944ec16403cd4913396b2983b8260fbed7364b22b58c93a9ab0fba1d3e38433f6fce608b6151a5a07856f7053743e86d20f69d2771d163e0", 0xad, 0xffffffffffff8000, 0x0, 0x2, r9}])
+io_getevents(r2, 0x7, 0x6, &(0x7f00000009c0)=[{}, {}, {}, {}, {}, {}], 0x0)
+io_setup(0x7, &(0x7f0000000a80)=<r10=>0x0)
+io_destroy(r10)
+io_cancel(r10, &(0x7f0000000bc0)={0x0, 0x0, 0x0, 0x6, 0x3, 0xffffffffffffffff, &(0x7f0000000b00)="6da6de15ab0d778268a19fbc20a50acfc340c0afe7aea389f8aa602bf0a5c931b2fd68e2c63f19d3669c12931430ec4318ed2bafccec7f547c8f16c039516925dea657cd8ec3b2b86b7a7f7ed3b012bd304642c9e2aa39fcd3ece1c6fca4fc13649e13b5ffc564d6e3e3b8e1fee565", 0x6f, 0xd1, 0x0, 0x3}, &(0x7f0000000c00))
+
+05:39:24 executing program 3:
+openat$cgroup_int(0xffffffffffffffff, &(0x7f0000000040)='cgroup.max.depth\x00', 0x2, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file1\x00', 0x71b681, 0x0)
+
+05:39:24 executing program 0:
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r0, 0x0}])
+openat$cgroup_type(r0, &(0x7f0000000000)='cgroup.type\x00', 0x2, 0x0)
+
+05:39:24 executing program 3:
+r0 = openat$vcs(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vcs\x00', 0x121040, 0x0)
+openat(r0, &(0x7f0000000040)='./file0\x00', 0x202000, 0x60)
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000200)='/dev/ptmx\x00', 0x107000, 0x0)
+
+05:39:24 executing program 1:
+openat$bsg(0xffffffffffffff9c, &(0x7f0000000540)='/dev/bsg\x00', 0xe2ea02c3d4d7c92, 0x0)
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000200)='/dev/zero\x00', 0x0, 0x0)
+openat(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0x14903, 0x8c)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000100)='./file0\x00', 0x20006, 0x1a)
+io_setup(0x8a, &(0x7f0000000040))
+openat$md(0xffffffffffffff9c, &(0x7f0000000380)='/dev/md0\x00', 0x84001, 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r1=>0x0)
+io_destroy(r1)
+openat$thread_pidfd(0xffffffffffffff9c, &(0x7f0000000140)='/proc/thread-self\x00', 0x474000, 0x0)
+r2 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r3=>0x0)
+r4 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r3, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r4, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r2, 0x0}])
+r5 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x7, &(0x7f0000000340)=<r6=>0x0)
+r7 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r6, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r7, 0x0, 0x0, 0xfffffffffffffffd}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x8, 0x0, r5, 0x0, 0x0, 0x0, 0x0, 0x2}])
+io_setup(0x8a, &(0x7f0000000040))
+io_submit(r1, 0x1, &(0x7f00000001c0)=[&(0x7f0000000180)={0x0, 0x0, 0x0, 0x0, 0x1, 0xffffffffffffffff, &(0x7f0000000240)="1d78e016f37db1ac3e37dd90c7f66a694a3a95e6049d87655cf1f56b27a8608907a6b99fe77c898ef799b6f33b2bf537913776c121c94643dc2bd6bb16caccea13012ac9bacadcb24eaecf873d24c680cf5d8fc03fa6bb42ea26cd2351b47ed07bf0c416594bff9837978c9ea8d17f445bf405a27088217580e2176775e9f4abd730436169751f5021d086f83581f5b389d6dfbeae355e03f36d4a18d538b8e6905a1b792b831dd8f577e4c68abd13b0b09e777806e63b9e037dfb409744b8ae69a5c9f622ac1d37744904f23162dcce7d6be35cbf8015b9927e08b59fc35a0d254a5e75dd69fb7bcd2c", 0xea, 0x26f7, 0x0, 0x0, r5}])
+openat(r0, &(0x7f0000000000)='./file0\x00', 0xa01c0, 0x2)
+
+05:39:24 executing program 3:
+io_setup(0x6, &(0x7f0000000080)=<r0=>0x0)
+io_setup(0x8001, &(0x7f0000000280))
+io_submit(r0, 0x0, 0x0)
+io_setup(0xef15, &(0x7f0000000040))
+
+05:39:24 executing program 2:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x515701, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x111000, 0x204)
+
+05:39:24 executing program 0:
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+io_submit(r1, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x3, 0x8, 0xffffffffffffffff, 0x0, 0x0, 0x20000000000000}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x4, r0, 0x0, 0x0, 0x4000000000000000, 0x0, 0x0, r0}])
+r2 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r3=>0x0)
+r4 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r3, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r4, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r2, 0x0}])
+io_setup(0x8a, &(0x7f0000000040))
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x1, &(0x7f0000001840)=[&(0x7f0000000600)={0x0, 0x0, 0x0, 0x8, 0x0, r5, 0x0, 0x0, 0x40}])
+r6 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r7=>0x0)
+r8 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r7, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r8, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r6, 0x0}])
+io_setup(0x8a, &(0x7f0000000040)=<r9=>0x0)
+r10 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r9, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r10, 0x0, 0x0, 0xeffdffffffffffff}])
+r11 = openat$vga_arbiter(0xffffffffffffff9c, &(0x7f0000000380)='/dev/vga_arbiter\x00', 0x101101, 0x0)
+r12 = openat$hpet(0xffffffffffffff9c, &(0x7f0000000400)='/dev/hpet\x00', 0xc2100, 0x0)
+io_submit(0x0, 0x7, &(0x7f00000005c0)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x8, 0x7db, r0, &(0x7f0000000080), 0x0, 0x9, 0x0, 0x0, r2}, &(0x7f0000000180)={0x0, 0x0, 0x0, 0x1, 0x9, r5, &(0x7f0000000100)="c04d98baf7dd309d", 0x8, 0x8, 0x0, 0x1, r0}, &(0x7f0000000200)={0x0, 0x0, 0x0, 0x6, 0x3ff, r0, &(0x7f00000001c0)="de1bc87a5717aed4d5bd3b1029618cef771a3701f492fbbc6c6e81431b405053f9ed", 0x22, 0xa70b, 0x0, 0x1, r6}, &(0x7f0000000300)={0x0, 0x0, 0x0, 0x7, 0x3, r10, &(0x7f0000000240)="9164122479f4600825f09c46ae37d9cd9849b180a2090d25820a173c46fd8fb9cbf902cf9452d4e89abb48f3b2a749b449848663e91a8eea63e791918fae66d4f7a455b1ccfca32ec32491cb6310e411e41ae2f027972a2293f3a3bfb989c4a9e6a5b0fe8f47b5e66b05ae8af63e31ba4837205c7cd52d262da99829cc0d381da8c90069a80687448eac254b58ac3194ace3b4a55bc362985aeee760d2eedfc66d94574f9bacc2260f17cebecb8293a7", 0xb0, 0x1, 0x0, 0x3, r0}, &(0x7f00000003c0)={0x0, 0x0, 0x0, 0x8, 0xffff, r0, &(0x7f0000000340)="175d36fcd622e47214e4146f4d3289092d3eb162e7ddf114638a46c09473631818480e35e389", 0x26, 0x6, 0x0, 0x3, r11}, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x1, 0x101, r12, &(0x7f0000000440)="5673f3bb46a2f3f61f3f4c6ac9e2eaf7d79dc3000d9dbe82c9b4830b7330a07f84da7b9ca1d27db958d952c56becc1bfd94e3f7a8303617658d6a8dfc7c020cda1deaba1ee3ac3e03d309e9cdfa16cc857fe33a01825b27c59e43de57044bdc76640093cd80deef403324167bcae0580bca04c157ec4f0ac53345ddc31", 0x7d, 0x1, 0x0, 0x2}, &(0x7f0000000580)={0x0, 0x0, 0x0, 0x0, 0x1, r0, &(0x7f0000000500)="89cbda8938c733d28917e9d95d8ea154b214ef14a90bce1ba933e2e72e7c71f8bf6f0052a8677dff44cbe2af63f0835be0f3e18385531b1896f537d278513634b246eaa5a4bf041fb0964664936a20e6dd8f395b7fd10597844eb6eef0314f90665a04d6d99f094de6a1442608a192b6661a58a1446d4622fdf97d01e0", 0x7d, 0x8, 0x0, 0x3}])
+
+05:39:24 executing program 1:
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000200)='/dev/ptmx\x00', 0x107000, 0x0)
+openat$sndtimer(0xffffffffffffff9c, &(0x7f0000000040)='/dev/snd/timer\x00', 0x200000)
+clock_gettime(0x0, &(0x7f0000000000))
+
+05:39:24 executing program 2:
+io_setup(0x6, &(0x7f0000000000))
+io_setup(0xfff, &(0x7f00000000c0)=<r0=>0x0)
+io_destroy(r0)
+io_submit(r0, 0x0, 0x0)
+io_setup(0x6, &(0x7f0000000040))
+io_destroy(0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r1=>0x0)
+io_destroy(r1)
+io_getevents(r1, 0x2, 0x3, &(0x7f0000000100)=[{}, {}, {}], &(0x7f0000000180)={0x77359400})
+io_setup(0x6, &(0x7f0000000080))
+
+05:39:24 executing program 3:
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/attr/sockcreate\x00', 0x2, 0x0)
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000040)='/proc/self/attr/exec\x00', 0x2, 0x0)
+openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000080)='./cgroup.cpu/syz0\x00', 0x200002, 0x0)
+
+05:39:24 executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000540)='/dev/snd/seq\x00', 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r1=>0x0)
+io_destroy(r1)
+r2 = openat$loop_ctrl(0xffffffffffffff9c, 0xfffffffffffffffe, 0x400, 0x0)
+r3 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r4=>0x0)
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+openat$md(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/md0\x00', 0x2280, 0x0)
+io_submit(r4, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r5, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r3, 0x0}])
+io_submit(r1, 0x2, &(0x7f0000000180)=[&(0x7f0000000080)={0x0, 0x0, 0x0, 0x0, 0x401, r2, &(0x7f0000000000)="9ff7010ae0dde08a2ed2af4c302c955bcb64a5c836ad44f22c6e66e9eafb8b81097b4272684bdc20575d9197e930b253031c1b849ce619b8baedbb5e52491a5c1a6cd390ab6c6ef67428a63d98ae221215be27e7da1f0b099c6ac0b3a3c90a", 0x5f, 0x1, 0x0, 0x2}, &(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x4, r0, &(0x7f00000000c0)="187accae6cac772ad084272af3b3668725c2abb2e4c88618211d858baa22d1f9e04b7c7170581b5354671c6fada807bcc3ee0af6e928300ef65c95f69f0c8971ffaec685d32d7d5429956a7023a7ddfcaa7a84df0fef78e78af3a454817420ff49135a86b1e7da782f", 0x69, 0x7, 0x0, 0x0, r3}])
+
+05:39:24 executing program 1:
+r0 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsu\x00', 0x0, 0x0)
+openat$snapshot(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snapshot\x00', 0x4a02, 0x0)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/crypto\x00', 0x0, 0x0)
+io_setup(0x6, &(0x7f0000000000)=<r1=>0x0)
+r2 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r1, 0x2, &(0x7f0000000280)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x5, 0x0, r2, 0x0}, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x2, 0x0, r0, 0x0, 0xfe5a}, &(0x7f0000000240)={0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff, &(0x7f00000001c0)="7f82839743891a06beb42e2cdcf86e3919d97334218c98a76b0512c80981c117cb4cd0232bd544d88f167fe80e3c96fc0590e72657d42646d3d758ba25c577674c9bce2da80e88ca3b1653b9a7537fe70a7658c5728a84dde2691ee9628cf44017ee5cd744db170a", 0x0, 0x9, 0x0, 0x1}])
+io_setup(0x9, &(0x7f0000000100))
+
+05:39:24 executing program 3:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x101001)
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000040)='/dev/snd/seq\x00', 0x80000)
+io_destroy(0x0)
+r2 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r3=>0x0)
+io_submit(r3, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, 0xffffffffffffffff, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r2, 0x0}])
+io_setup(0x8a, &(0x7f0000000040)=<r4=>0x0)
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r4, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r5, 0x0, 0x0, 0xeffdffffffffffff}])
+r6 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r7=>0x0)
+r8 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r7, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r8, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r6, 0x0}])
+r9 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r10=>0x0)
+r11 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r10, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r11, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r9, 0x0}])
+r12 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000340)='/dev/snd/seq\x00', 0x202000)
+io_submit(0x0, 0x5, &(0x7f0000000600)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x8, 0x4, r1, &(0x7f0000000080)="b7a7a47fbffa6fee02e21b0760dc94ef7dbb6231da71796747e8c925b466317235edd0ea6882fe2b56399274ccd001781d146045c2fbf2849a3334542d5eb301b554b82680ccb96690ae477295c184e66d8568bf3afb0d282320b1551e2477b7630a1b6baed0f4bb9a088d2c58dcd995fc2d264bc07c1d5b1fd6ebc5b423e94f3be4560486cd2c1d54de11cad16b3dc3ec748275cefd79e08949dd4e9466270af9df9dee05ae2794540f89ca1ec603e6391ae124c9e70591e016", 0xba, 0x43a, 0x0, 0x3, r2}, &(0x7f00000001c0)={0x0, 0x0, 0x0, 0x1, 0x2, r5, &(0x7f0000000180)="6e6d95c28faac92e93aec225220705a5d1ed3e09d66cb1333f2b70902092b519b582b4bc3b3f910355c65224fa2281daabdad6ae03391dcc1a3255ef31e4a4", 0x3f, 0xb462, 0x0, 0x2, r6}, &(0x7f0000000300)={0x0, 0x0, 0x0, 0x6, 0x7f, r0, &(0x7f0000000200)="f7d1ff2bf9c8030aac7f759e0a00c719c0488e56e94cd4ac98637a8cbf8d6874805c0591c4d63186d23eb53c91ef714ddcd37dd6876fd147d68e5fa222ae3fc13793ea5bb0e825a137da1fa13d3e7ae7c526762cb53e7e29264a197038f322313c558935c5acadaa416683e6cf0ecbdc492816219a6d6eb3e1a2152f6be31fb83792223dd5760a5aa67e9e3d2186cdf2101594c1d04bcf3da1c7d61e5621a16a062af7cdeb22b6a2ad20e6a0f97ca2f4c0774b57c7c0e0704e954ad28a6167501b6c2a9f7f1dcfe2a5392366189e5939ef8043c575f03a70229e8784ca4e083412d0d67cc37f77977f35c4aac6dae29641da0a30d9ca192ca162018f", 0xfc, 0x1, 0x0, 0x3, r9}, &(0x7f0000000480)={0x0, 0x0, 0x0, 0x0, 0x6, r12, &(0x7f0000000380)="45a207d469b01dfc5c9b9ca1fccca0f48d8f2c43fefe862bc020dd8b2864a24f6835106d7dc9c3624e8ab34b5106a6d298cc6e530e9265b97a783ada6fa9de2d12434aab2d277809c228b58ee0fbd24236bad0e65d70660282b3d02c105ab227c66fc18a6cb69328f1cdb92faad6adadc1c9d953892d95419f29f8dd3ee85cf3d552fc39f98546d1a53170ed64972edadf278bd395fe2153bc59ded362005d9b596fb49e8fdb3c8b20490a051d1e0c67896f35a61ea06466ab9c1f203fead98c8b065e36", 0xc4, 0x1000, 0x0, 0x3}, &(0x7f00000005c0)={0x0, 0x0, 0x0, 0x6, 0x8, r1, &(0x7f00000004c0)="3b5340d5f07b666c007c4bdb29307974e0b3e3144359d776e7ddbab2704fec13c373dbbce90cd361d9d38ef0c89083d1ccc0498682faacdcd3c37ddb4fca920c26d835ece7f1756286ba4b2ad6cdec29205d03d101be7a70184faf136e468c9894a158875005584e189027a32a6fca6782471ed5484a73aed9c196fd126aac91c7a2f477f84aa9c730fbf2ed8d51480ab3ec493d431887a74ef2933e19a0cb3339a3a9eae9559d0c607af7e5e1e60a2c9db56cb1d61748b450c3023c5ccdf496453c523fde4bf2fa9306", 0xca, 0x3, 0x0, 0x3}])
+
+05:39:24 executing program 2:
+r0 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsu\x00', 0x0, 0x0)
+io_setup(0x6, &(0x7f0000000000)=<r1=>0x0)
+r2 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r1, 0x2, &(0x7f0000000280)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x5, 0x0, r2, 0x0}, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x2, 0x0, r0, 0x0, 0xfe5a}, &(0x7f0000000240)={0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff, &(0x7f00000001c0)="7f82839743891a06beb42e2cdcf86e3919d97334218c98a76b0512c80981c117cb4cd0232bd544d88f167fe80e3c96fc0590e72657d42646d3d758ba25c577674c9bce2da80e88ca3b1653b9a7537fe70a7658c5728a84dde2691ee9628cf44017ee5cd744db170a", 0x0, 0x9, 0x0, 0x1}])
+io_destroy(r1)
+
+05:39:24 executing program 1:
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000040)='/dev/ptmx\x00', 0x111b00, 0x0)
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/attr/exec\x00', 0x2, 0x0)
+r0 = openat$hpet(0xffffffffffffff9c, &(0x7f0000000080)='/dev/hpet\x00', 0x208200, 0x0)
+openat$cgroup_procs(r0, &(0x7f00000000c0)='cgroup.procs\x00', 0x2, 0x0)
+io_setup(0x796f, &(0x7f0000000100)=<r1=>0x0)
+io_destroy(r1)
+
+05:39:24 executing program 0:
+openat$bsg(0xffffffffffffff9c, &(0x7f0000000540)='/dev/bsg\x00', 0xe2ea02c3d457692, 0x0)
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r0, 0x0}])
+openat(r0, &(0x7f0000000000)='./file0\x00', 0x40000, 0x129)
+
+05:39:24 executing program 3:
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000000)='/proc/self/attr/current\x00', 0x2, 0x0)
+openat$selinux_attr(0xffffffffffffff9c, &(0x7f0000000040)='/proc/self/attr/keycreate\x00', 0x2, 0x0)
+openat$vcsa(0xffffffffffffff9c, &(0x7f0000000080)='/dev/vcsa\x00', 0x0, 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r0=>0x0)
+io_destroy(r0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+openat$null(0xffffffffffffff9c, &(0x7f0000000180)='/dev/null\x00', 0x901, 0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0, 0x0, 0xeffdffffffffffff}])
+r3 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r4=>0x0)
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r4, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r5, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r3, 0x0}])
+io_setup(0x2, &(0x7f00000001c0))
+io_cancel(r0, &(0x7f0000000100)={0x0, 0x0, 0x0, 0x0, 0x40, r2, &(0x7f00000000c0)="87a4e7391b1f4956223766948db3197fd661e34e62565b724ea669e91b63fa82", 0x20, 0x80000001, 0x0, 0x1, r3}, &(0x7f0000000140))
+
+05:39:24 executing program 1:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/slabinfo\x00', 0x0, 0x0)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/crypto\x00', 0x0, 0x0)
+
+05:39:24 executing program 2:
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000240)='/dev/snapshot\x00', 0x246101, 0x0)
+openat$random(0xffffffffffffff9c, &(0x7f0000000000)='/dev/urandom\x00', 0x444200, 0x0)
+
+05:39:24 executing program 0:
+io_setup(0x81, &(0x7f0000000040)=<r0=>0x0)
+io_setup(0x6, &(0x7f0000000000)=<r1=>0x0)
+io_setup(0x8, &(0x7f0000000280))
+io_destroy(r0)
+io_setup(0x8, &(0x7f0000000080))
+io_destroy(r1)
+io_setup(0x1, &(0x7f00000000c0))
+
+05:39:24 executing program 2:
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000007c0)='/dev/ptmx\x00', 0x103, 0x0)
+openat$md(0xffffffffffffff9c, &(0x7f0000000040)='/dev/md0\x00', 0x4000, 0x0)
+clock_gettime(0x3, &(0x7f0000000000))
+
+05:39:24 executing program 1:
+io_setup(0x7fffffff, &(0x7f0000000000)=<r0=>0x0)
+io_getevents(r0, 0x2, 0x0, &(0x7f00000001c0), &(0x7f0000000140)={0x0, 0x1c9c380})
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+r2 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r3=>0x0)
+io_submit(0x0, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0xeffdffffffffffff}])
+io_setup(0x8a, &(0x7f0000000040)=<r4=>0x0)
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r4, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r5, 0x0, 0x0, 0xeffdffffffffffff}])
+r6 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r7=>0x0)
+r8 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r7, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r8, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0xfffe, r6, 0x0}])
+io_submit(0x0, 0x9, &(0x7f0000000980)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x6, 0x0, 0xffffffffffffffff, &(0x7f00000001c0)="43aa3cf2a363b26bec044e5a2a8f50f1e33c676bd94bf6fdd70f60100c68a1c431200f3527e261aadba2b7ecaf5bbc4dc2b9e65c602d13613c0955036d8a133a7ab856d12af4ce9a5cef8c981c150a89ed42ec5941df65a3cce6bc9c58ceeca06024d171e349eb6e4f399c053f55d87bc36c503759ff9445c2c25ea746267352108efae330afa79fdaa5b94219af8e76ca4981ab6b3714fae787808b0429d9ab7f6c1612461ffd5d42805593f29cb1d06af61be9865e62deaa71f02d215fa8d23af66b96ca700ae27bf8df14e8d52500050a7dc9c64f489fdad6051bfbcfb83fa22b1c23ddead0ff25f43e23d8cc4aafd837c021b4d95ac493", 0xf9, 0x80000001, 0x0, 0x1}, &(0x7f0000000400)={0x0, 0x0, 0x0, 0x6, 0x5, 0xffffffffffffffff, &(0x7f0000000300)="7f66ae484f0f0e9e20da82c9fa6eef7fbdd541e795a4172c31ec240d168fb419f3da4f7b87adfb5be9b6e58327b1424a33ca10db3e2c0fab4a16cef4fc33ca63bdaa06b046c0234c10e33b443cb2afa0abdc9af82420a63ef4f3ae95e0d0ad018761f435a56957a0bc7d5dafa8020e7d29b7b5e5f4cc297a3acca959509c3adaed5e1bb28a9bb2b740c80d5774c20758e0736082634dfe88771240815b4227940bf1badb6fbdf6f48843b5e601001185ce2fc2f145c0ffc4c8818788608600f7f759e55d3602957b78d568229d57ed2413", 0xd1, 0x4}, &(0x7f0000000500)={0x0, 0x0, 0x0, 0x8, 0x54, r1, &(0x7f0000000440)="4400267baae0d31f7459391b6a2486a5a108400a84b8a26b6ca8b461f396029b07575b1223dab9ba203ff5271ef03f924ee34b051a2879e2b8cd1050c7505430b546e18bf3f60e5ae7732b6b6dc3f685a32fb3cc628d1d0120abf2e1b36163b99bb44ef851a9a872e83c6a56ceefb150519700be299cd241a175fd5c5674790f8308471cbc59fbb22b736986b3b4eecd00b4c3be67e42080076dc9c0856bf893f778c6", 0xa3, 0x2, 0x0, 0x1}, &(0x7f0000000540)={0x0, 0x0, 0x0, 0x1, 0x20, 0xffffffffffffffff, &(0x7f0000001880)="e4276bc37e838886b0aeb95372806a96d047e989c702d2a00f9e411f41292afb262b65c612759ad5f0cc796349558a80841bcb007e5110d694800e9820b7533489a671f9ad5c2bcce49e3a32eb6964c143b3af2e8cfb6a51bf4af85f49bfc8bc348635987b135d3bef1d857a38af93d32bb58486298a20ebe6e5c043a5d054bd2ea69eb160ed286d1ef51ddf0a56fb5d958b6e26aa27131b2f47c3ac004fc03948323d66d9743aeb94dded686e77f46e94de9b74d45954507fb6e78feb3379c75284b3c6dcb3f15eec40c39b343d16f72e97fd69d73cf926ef88d5253a94d4e4a1179c3fc63477cb041cc3666d15356140ebfee133f56b92d2ba885f9a32dbbf1c0c1ee8ce98687144f0fa331987540a65a1877db8f5dcdff378f85e1f262b7389433e0c1521a0190a2bbe47fc7e11ab8770897bdb933751353f563f01ddb9dc28344e8b53f48745399628e4eb7bc8f1b83d29cf076b6cf95f89c5053b94c99715a8e31291db4af7beedd96cf5a95fd0e0e311a119be77e1d09d61839db1423836f5c17501c7489d87fe33589d16237e50389e7bc0dc5f2ee5e64032b3bc36a5250ca8ee23031108bb6454691239ddfb0ee3238daced5ec9d3df340cf2e531f915c24521d24467e19f87daa34c653b748d0f91a9ca8ad7acb5bfeb8d1d7fa266714cde48e13aaa5eaea3128c304371c79e256a45eceb29f07c9675e50fd130fc6fa8f9f21a1ea96814751b652dec5f543b09d780607727fcc7b34f4b091ba1ebd8127052c482a44483c15e9f0c4af8b22683c99e8c38002c7a4da0b04948cfb676887c1a5c47f30fdc65e89a5e5d694cb2c99160b5bf936f105d0272073db9ac182401a75390f21da818dd3885a52a99dffe31aa14647c5a95ff0c1a9520a585fb46aa2416b49467ae4900aad92831c65402f63fc6119edc1d9596530ff14bad25c1314bd7eca844cd20192c9c177d7a58d53b35ea8d55d053b4c49d28dbf61181447b9ea009294de6585a6dbb86b85dae99486fabf3304dc65fca8074a0236a1b2bc0f197f2f8f6a1d29ff5e319dd38f1e0728970f456daa5725012dcf07db9fadb8c44b927d7bdce6affe45c043fc4db0a1dce4c6e6e281ffc050799a7b3b2d9eecfb33452d6133d8a4e84892012cf83d57b488ebea993cd58e69934e02f99c9c3c390d2040404483eb40ec67eaa10a27469b00fc7d9c6c965c482cc3a1d8658d1b260f91e30d8600a911cf95c481f4ea0a2b99d3070e696a177fc5eb119b4dc1d0b47ccb57d878553470999a7cb2cf685c186b74d05c9a70489018792045afaa38d4a344e57d872467a81cfd8e203eb4f9038b743e608ce922554c065af92223be7cd11358414be2c21ba4687abd6f593e5955d18ebf9ea48dcf71efdbfef526f0e4a36f390b74bfab86896981f73a2b9a681cef620dddce20552b219bf03459acf968c82fd113efadb634cb9ec8c9d1d69383118f0aa9d0277f2c98efd5487212cf012b34f0daffa9f516dd51c41c16a98993e0cfe8bd328186c032c86841b611e5c82391d5836e0e517dda6a8cdbf3408af7cfcf5809bbe23c4dff67a19b89b6784ceb830ee3be4caf26f2c8e588f305212d8201bf88baf569a379b482031bef2673c4274f3a7f440844757633f37a6bc977fcce2f8d526049151695d41b4729f1dcdab5ce22f8f9fe75ff1deb7238c034309c7be673575b982bf8984fb27ecf7e3c9a9608e20abcaabf9ebff8e9154e6fc328d8f1a13cb47b6daeb0da71d9fb7fb49f1809943ebf2b6204fc314f149afd55cd5d0ae4de14ec859e1454434d3057d6e773aeefef50ea16a2f9318d881cfb923e25350c60398043e42ca6dd018bc09415b65d703f770327982ebabeecf90d7e34200166d7a7a14f1903f376d825b2f8b3602a05e721efc85e16578648eea8e51d813c3ca87f3c1085a60a2a94b79c2d653b9c3eb9ba280c81fbb5624d66ab3f23ce150ea40ec649a22df68475fe48665ae345882da34e0bb4a6bcbf5ad068125e5d5424c8e8d756477f12d03fb368f9c83d02b368a34ca0ffb79ffb61e23afe5a7712647f4126c217d773788d6edfc623a9f1f72c792b3de07a8d29bc9a69414398ff62f98a8295c12a0dbac9d9bb2b1af15156d5bd4e05ea518042cdf266f494fbb279eccec7a4824aabeb77f93e324b3ad43f5c8631da03ce53093c50cbcc1547f08802349cf071ac2b653bf4ee0eea8f6117de7bdde8ce919c001b5ad19222c54501fe0ef8e2f38713d1bfd1ac7cb74fa4c1125e311ac1004e1f114032926ac14de8263c5d01544e4aa12332477114fea51bda5ea3f7af4e7fdc01283abdac7fd56c5628d6c0ec674427750c67c66424a914a8a925939b664a0d2dff92292633a08819b46380c42cf872c140a88ba423d0c2231a56b1c0d45b0620cabb28b91046be95a4f14c18a15329b1da2f1681695ad0b12e68199b0d50767dae8c51d7d322bcfc962c94e2628da908e31e2d7882d37eb701cf080bf52d78268341b7e93a8eb3b71ec2549bce7cc77ccfcf31aa631eab63db44c6b27dcce4bbac39cabe21ae3b9ae4a22a724370d1d8aa9d56622e2a0b44bcf42bb06a9530a3abb806e7ec209dcc59d97ca9a90375fb8b1f70ba2c6983b119610def34c6387cbd2769c9c23472d5fed3df3f15539b5f69272a1609b12d390053000a95cbd2be2ed4859649fb05555aa28824562b7167c1cc506409e014e359506eff97162120728a9bf6759b70bc59e84ea78edd1222e0f85599403987ba097cc1971ba341517a35b61cd06079315f3adc67cb0eefbdbce81064454f0068cdb18337ce0390805d0952e496680eef77680a378181d674b614d7452d6b50503a91d14b9f11e87970f56c7accb79c579e5816772ed55d3b9f7d09f4fbedf75703cfc21c3bc9deb9a7ce29b8bcc79dec8aad6c9e35e65a439b725d74a028daa4b61282950f7d2d7c31fbd0ef61811385d742b555be255f0a6ed6d3084932f65b1a5fc3de39ebd168627fa46c6c96565288bdf3488b204e21aaef6294adf1810917d8d79d822e8fec1b353c620691b361d600d4ac260b07d7ac2dcf04f761d97123436129c05636cc3963ef25b91bde13ec4c43f60378d5f2ccff41eb9b36addefd74a94ef5adfe5265835326d7386fc4070ad11fe1ccd673a8eb4aa4b1fc3ad7d556da1ad7970017f86a949049b1a5394f8e9dea8bf588acf8237d878dab10a8051af370719ebfc606ef3b1ae5a57504c3bb65fe3401d329220c99905b8eeaa6ae4028eac224f617e6b8361a4bba83ac584fd8636f557bb8d8be4f83039d78bc54943869febc6408cfed5a20976d1560c15b04e512a886108a6f6463b2d0481554df5eaa73364be25c16c00d96fcfa152d7efb824b0158a137942a078b180a21a75f7061156febfa5b759d9432e99c75ab325b2b0e54073a8971a75a8c01d6705601b13f3156aeb38fb315ab35953e235aaffd0a2d3651c1ebba2e0b9f4cccf774ea2b88cc4be5832a26b904101e1cacb2dca3cea280fd67798f995cd804717027070576ebb48af5583e8184afc741957a6d7b304648fed1d458ceae705e950e89be7e3500ad15fb279429f3130e677a8043b2825d93b190be5c788b547d5f7e818542719175635d5ed81969f0c4c039e18aa7e3f9b1e2a300071c7b694c13415ddb8796770fd5d8b22b92d5fb027cf0246edbb9fbc5212a1da732778bf7bd4002a2a693f6fb21f705e6da312b5f37d67d6b567d8fc061db6f661bbbfb8e53fdd4ef8b274c29baf06f514cd6cf18f494cf03eda6576fa3777cb8ea4dbd1d8e42882dd75aa83bd039265a5108ebaf97bdc30b576f5490610d8a62cb5eee3bf048832e7e26f60e9eb43180168aa1e59f55b56832b6b90a6d90729cbb6705911734858a6a25ed227d18aca5e19ffe9b764770fba32b71f38c2723174388e6894874d8eb874b967d153835c37e77ba5e62814adda481add6afe2ea697fc539b0ed54ef2992a8204be6271411835fb3b441668952a5343e77f91c48998cdb663baca590bba58f7af9c9eb0da497662d0e7562cfebb6039bffacde0c3fa320711bba820b27df5d48ab9b280958c2281d010c810b6890daa5da244403af8725b00605e626965628a275e84893958057668f2aac4dbd52fa8cc7d283beaee4507447d55938f77dec52cb687364c6d981aad27e5fad8d12f9f33e4c5aa89ace13e923c4ec9d21b5ca95a082cd244a70525be8411db78ea0c9384eafc6585b879192bc0736a525d9482694f4c9060030fe409206c266d0b57889e46cf68a44007da1d50bcc49323ae48210a71bea38c2791e14bc9314d5f5b471e83f00e253df0db48755e77b765660cd9369da09a36d8fe3466d902182f835392da35fa6ad6e5b543534686d9ec980e8c96d514aca2e3c92a7c127031bfbebd879cbae33dc4317b4c21cff114e20c6b0a1fac4622622c63ed8863ac5cdaa2ce10a3c598481d416957c8f8e165dda32500937732c1d1977fa804fe760de8a4fea9518f84fb010e99389c07887d553d9fa62a094bf5174df62e137f9b814b169a173e5762a973e6579682270f2442119f51535524172cbe973110a4247f3af359b077be23330066bd0afe6260d42b5fcf2e34f1f27a53256aa9740d64a92dc20a7ca1c7171f05dfe1bdee49ee03e2b6db45a2d9350eb4cfc2d3982ced7a0919f74f32e317ea597b0a51e6d3fb1930cebb310ac708108ee70e353dd0b5fae2d1f7b3b23dc76c51a73110a8ae32a9bb8d567a6464005984d5ce6ca7ca56410ca4b8474f080788e5304b5eb1caa029a578268fdb20161b253fd66275357dcb5cfce9d6094e53dd1eb5c871c3d75646875da78d721506b07d197dad6d308e0bb8218aa5925701ca8f87fb3a725d0a3065e0539a470269cd7164df818ec90643dd8efc9a730acc46271f5eb1d63432187620a154cabfeceecbf5b6675f92dd9932ec6e4196938f1c8a88bef78f730e89e1c41bb83401f87b3876cfb0b5c23d3603d32c4c576fdbe0c05a6ae8fe079ddb88f2eec004d71385b7208c08a3e821bf3282e9bf0a4c62e2f0f362ff2161fe09d6b373ff7c0528bfef7e3a8f63c24ce625c353a62e704dc189a813cfa9a823128f643a47ff439eca7c36b0527cce1b3d00442c9c4acd0941615ef21e296c5d79f055c6c3b90dac93b077129627e317ff84ed97a97fea46530b01874bc0ecede23269d62074aae98ab61dea2e4ac5f085cadaf082c36d80dd95325dd0f4f4097aa4c7ad217aa704a3ad59b1774ce38ec9ef2367f0542a3f2dfeecb000517fdde85049981c46b92d2f728b0de71583900cbb4530451963070a30354d7f6040f7bb3d58ed02b8c85460b40a30c2f50680f62edf6d6d47b9fcf98ad2af6bb83d3f9273a3795656a264f32db6897e689a88e9f1220a2d186780866b0fb70e30b30d64d0d1d43c152f648ea0872572a346e038fd3063ebbe9f382826ad8938f2c4967745f4f1879720eaa1e7f45287dd0d5250d59ae1dc0e1662a4a95df39e9b6ad2fef4db89ce7680dbbe1024318b4b17e66792e7a4f8a6d1f7050fbbc8f96a23fc47ce401ea17187fad53b1a36c41c76e6d0b4291c885e3b163a31e82d92dc7c6fab13205454e7c3c704b3649f049b4a36161f5c0ffd2a812fe9d4f9b76341ed0c344115b242106b45656cd54f2636ce4b3ae53920a26a99974ce43afcd0be6cc9176a62d2a35a1f148424ade3baafee4bb0ddc8fd7f5aba92e4e8af44a220ff37e6d6827ab56fb0866d5e6a533d34bf811d21703dec61", 0x1000, 0x9, 0x0, 0x0, r2}, &(0x7f0000000580)={0x0, 0x0, 0x0, 0x5, 0x3, 0xffffffffffffffff, &(0x7f0000002880)="9421fbd7541ab1c37f670354d6e5c69acd821eee7ef1a6c036f7b6940d813cf0512e5016fca87e6dfc5f3079d0d6c7edbf905e1016cb7e322ea0aff16480d61433f6ae4b790e331ffdae154e9431cde15760560d10ddc69a02dc259b29e0fb0242a0bbd0407a30b9272cfb6c9db93e86f9f365a7c044b8cf628d5535966245c4055a05b446aecb59d9deb00e57861922e5cf884c868814fa5648323af4fd687e92e30a3bbc81833b25144b5ba935a173094c8d0b875cf71e3ddb379514f032eaad5b11d017dd32b04c783533658451c5a249a65296bd9c86c508edaf3eea4274f24d7e811d20f5e1d8560f10968c95d5fe57e4df7bb22abad3e979bacae583df9e166d6d7421dd78a381252a9f92e6a596d4723beabee9550f6e7d62d48bcb786a8f8037d617de5ddba796acf24b7c6deaec79c25744a0f16ea75b8256216542d699d2226bfd7ea0cf4765e557fa08943e38768ce70e290c81ca608871e81e1702157b5cf531db952be9606fe6559bb10c64abdcb78d8cef02acaa4a567d267e0f6f285418dc10b5d5f6fe367040c33d7e754a4472e5d0bb5e0341569120f712e60b3a6d6c4f92eb1036a919cad244c16b2204e3fbeeaedafa777a3f7db947c52487f049661ca84a428b4506fd5c86e1dc414d6bb5acef0dadf630b7b13c330a2e92c0323c0ee4fae4054587d6cf70f23d1856bdf3ec00a4bf5eb11e7b3b4aa77dd0bf9d6c0058b90c2e009a2e48c9c6860c5ba745055ad1892a03eecc77e97f6e216db07db6f10e5b0f68c585494632216932ebbd0768c70e81eae50c08c8b62f592a3e8aef2ffc589c09e1529b0d7ca6b0971f13de4bb349d770e22aee449cb53a0fcba698d2a973841e366e3882eb9a2003fa4e9bf2118ce27d6df12346ede05d7ba78535fa894e33257a201e6ae60e6d7f3f20960f3e5584e762b74654f6342dc1c453a505cd6a7451d6875f014f723c194b4b33e995c835d2d3f9c5d5866226f3445e2ba7d507f5e418f8bb4040b9892eb08e1eeb0bd897c1dc6843208c3ce1f6941a8006c8ec5e05873dca5e19dab6df47ba51083a43164039843f4e02d54854133e772725b90ab95b531cae53f40adc46f9631f969543c3158a6132762298dd728477b5a64abe5d68731e3c8bc91573036d193cb61649bfa6afc8bd387fa0ea4f0bb2e8401e1e918171a2dec70e1339a5f0b4a903e5d257d3c6d57bab93131e0b41f057ef346e0210741193db712775fa8a90eee218f1e7f2c23ab1ec7b1b58d9112cf9ceb8238e70b96d9030d95a1fd3ec25276831aab57b9c85604180e090ea3d9e37de86bb6a3f5dbfda932fabbaa8d27cb18697cafdc3bea5770364ed990f7c26c8157e29a4b8299477e2eb0d03aad2eb1aaa82b13f3a951f394fb0e1de468c9fd3c101d7ce311c2b819f018626687aea3c64cb2db496a735dc442515244b964d3d1971ed2f0b0cc900b925da2c4f01ec52229d344a36159be2d3dae4544363a2ae6121db4ac17111430eb86f04921e7384639d7a750fa4a7286a1d8947b011521420bc5cd096761fbafb50d65dde3c0c57a79ecf3d0dbdbb495b98ceb1a5a6496eb632e66c861b8f9c01b8eeba63109bc2e019375dce875e9102fcded8f2b07b9e4af180b66d3c086cd255ad0715e179f4084fa3089b788224c08a0399a9c21c2280053a8c0817a90206f21700a3c9885280b5f79d952ea25c90cd3f766141a525240bb6016bfb4090112467e7e7aa6e3855f7fc9695db6f81583f66b488e0cc7569dea72c6058000547bd2f21fedd9cde2945e93986787122b5ccc24a790e7fb8a7d91d043bf5a9844f813e606f7f80e2054e44c128d1e24f62e0181f8b7ba9c25917814c43f155dc9b5c0995e3614ead87f9e2b7b204919d7fefae041e13243c70c1a201b3da03c00221fdd102021a8c5737fc9555d5c4228f44a5e99b55633210b2582b902a6c0f3e667414ab09c5e003faf6fcf7e74d06be9a96613fdbc6420c9e779fd0ecc3e95a1870e1450ced32b593b1276535f940ec7240fd13c7c9ba1226e124793d564933d4c3a98a5e6c2008535c0d53de9255961a10234194207886eeb70712a6c17dcdb8433901f130873e15f3a9c3a5ac2d0c2d7d41f814a43cf178856c50036ba05bb25e39a1ae0735a6149423c9e6b94186284d1a5e9d157a64e5b028974553045161876b1df6c0064f71d7e0c2e16cade93c1a4edd964795612ef3fceabd48c43b70e3c2f1769554440b57bce1622ba58c7d3b5022823510ae5ec814d4de85319f0515177e095089089e7639a9e8b748e5184548674f3f33fe456607a21ed67d476970f5eb88a785cf44fc8e402c0c3fea23bab7774eb82702de44b76e082a5cbf2e9e287fb36029df8614864477152e07e46021f397200eee1163479e85eff591c3cf1e391f1e7059e263eee23587b2e10186694fd3cc2252efc0e229e37b940e85d47433dd560191bd4b868e7038c47aac9036ea7c907a79becc60e5cc127f83ba3492227209ac8c958020e5d2282c2b5e4b08fcbdd0873ae0a09c3a73e9bf339d28f1e3e7ef952f5b83455639a2e3d291d8e8adc31be511067342dc03727ed2512402f94bce9d8d5dc589d85a3fa104a2256ba2bdebff32ec38b815e2687263bb9e392dbe605f5597984e8c46003bfe61508f25fdc1f76325a2b12e526d06c92478b5c8e832458242068fd8846e395e5f88fb70944a019d51913f809608a79bf3b89e19c6fb3f20e596f6bc00a6aa4b6d32bc3ca4f0d1eb8288c7604737185004b562230d247845eba7b91d62a77f3937ac6b739d512f23b10ef4184e44c5185616317215b3d01d48ebb7ca77e93a2ea4e61450f91f63a0085d1c73525a93ddea8ed642d8ae450e2be63195df0dfff1c3b7475aeb2c1bd36eb9fa5e3b1b5b00ef07d56768ddd9db96eef37bcdc87fd944c06a85045f7684e76395ec18b7709c16cad9d9dd4a59fb04af36e889317eab4f921d179d88c01512c9158d44fa9a5363dbc61aaaf39113c60f029ece23ef9bb1d6fdd74238c54506c03094df4b529c85cd6d85e60411683a0665929aff5743e472554b107e9374763ff14d2149a9aa4122797205e88f0df50d72a2ac3b9424d743db204fd6a99ee8f96ad4423145af6185b1c68c2ef87061bb31b018901c30954d1db2624123bdacf349d7f4e0eee9a92c98f31b2320731f404e20258d2ee8d30e8e7f2b3cb6ae61ff59c0f4d3a868cccd65c7b123ffe9b48fa193898161773d0b816e62e79d56727284b785d49ec2c1e2f066795c85fe375d9c2fe5edfd5d865857a9338b30c89b7917d6f662d704aeb8f448dc05f134d06df20624dd311c2d4cb5556958c418c7649403fb08b538dfe1b590204915559633aee8b57026f99f6cd883eb322d72b3634a75888e578dc4a2b9e5c7d86821c84b176936c31de3746d7a30a1cb1517db7de2690419d1a868e76ba11aad0bf13900184c8cc34d4bcfadc4375d041b7b46ae22550b1f9f50c310719981ae2c41373786b0d57d2fa7fff0abaf8883921e1313ea831e1e5941a94a1505e5a8c466c43bcccd462e3e4d72a59c2c3d1dc072045fc1e428cc2922a07127557b6a5d9b4457bc59669f1f169b89090ab8820f82717cf0e9cba1d1662da02e8f92da2d88fd2b90e65e040dd56e2c568db7a87f370c2b76ea73aa065373b8cb6c5d03a878b353438ec030907beac209ee683fa5fa91ece14460b8ba1cab038e8e04af67effef9fa7310fafa79ef273ca1bc3c1d830f9091ea031070150074d34061c40dc460a7de183e07679b4e2f28bd453d5d50845d373021a66033ae4d47587bfbc71ac712666b9b83c4203b85fe082adac31eba4f8d5c462716b12795c76f2aef18e18b484df178faba5026c1e8b4d246f3330268cb65fb281ab4746d7691b399ebcd2579a6848375623eb3fe962584781c3aa6b688ee16f0d87f6feb17a115cc2ab67f77026d20bcf100667c92772c24094594af2cfe8aac4e809b4d509539b0f3713da32c0879e8d267b34a5391d1b698d97b470385c74dedb702071f71b0d81c9f775b4c9b78a292d9610138f6a813b209780d13386269995d48508aba126829598933806ac6c12ff7282c71f075a106d96282b07f48afbcbb5be08db5fd423a54e0abc076d8016ef66d571e07cc918ca93e787ed47a150c1654427704c336712dbe76645c0d52c28d7f64a3b1b13f138e7e5b15627351bba402f0151f523f305952693742cc6d20b51dff19b3a15862cb44d5bdd57fd0877ef2e0a6af8d3b67bc7e19d20129190b8f22ef9e175dc9b1c74a07e3ab9e541eca251e9fb0d38f69563abe0215b1643ca72d342375a630487164a2cc0e8cbf0db411d71513265966417d1a60027cb9534e7146fcd819cbcf068427264a27d3297bb2c94f3839951c5c1447144ab3069b5f5d9e335d8f714a21fe393f7567a1c4334a8957b36105aef76134667ad7817f34e7525b423d21ea9ad5791c4b0c97275c9857bc04cba22a0405f2690f8456852be7b16e455d7c7a478057963421de55e1ae38c37b0b750a40fc81073e040b90f7d95e31df436830021a9fbbc414c86f6e900ef2a860182f128878cf265c6ecaabcb3e91d25c6fc33feae3543b533d82212af1407b77af1dc37322edfbdde76cd5ad1b9eebecea8beb1ab649f3a7894dbadd6a47191224e378dab1737e2e6275594f2426ca8b96ae24a5c81a483dc816643df4a44e65be12d3b9b1944508460f3375f98ce8591a8c68a948805b2a966ec8bce7d8af720498f47f2bacaac08911dc7a48efd4b156d0c2139d352b3a8c860b4b7540492ab928ca9901a6603158a22aafdc0083d76a4b43a68e33f12725021a8137e895f33093283e02819533deffdba6ebe88dba647ba54b0878315d720e873207231f1d7a1cf2a2ccf20ed6b3b8b6e3e62f6c8ebe7f824d10b969a79e68d947631843486cc1b9359a09818644c0979a02ff674967f1919539f818d51929268c59f38e1596c4a4ebaa5a2d3cc134ef7848f80d0d04585b3bf2f76811e9fdc118251f61225d1849627e1357466a16cd1e801bf85926b361d4f013e7cfea0778496544790abbf0008edd0ae7b65d7d336357a845a7c78a56a87786131690c502141ca91924c1d60a817b49aa75362591b75afe357823cce3fc62d64afede5337fa1af9c2631bac0b8015b2e6907634b3406feae679722b8c6d660f321f3f0cb302c5f027dc3eabc85d0691afab7b7473617e100161c2361750644da8695c5ab1a5f6232223d7c190ed60522c37f8d26b256664b290689b1b2be24159af9be702403a9a90723db5e0b7b48b90ea27d2502ca3a655653207973352e61519aea158ee5606ca0a736bf684ff497c6e5a4511d7fa9e510b8fde44fb81de7c0b91a3e3283cc40482174555dc4230fc73a2e0d61f490562c9526033e91d42281fb5d8a7db11287c1189383cdaa3166f559a96d3b6db38a0e9cdfbdae4e3185e25387fa824a4d21ff5c48afe79967363fa8266731db2089504b0adf0c1cb6ef133c2f102fbff74115a5c9ba7946fe104ad7437a35b21e48459124051d39b5df0aea6da72a8e4bd4fa58c45e43e01ac18792f7282ad8fae494168a65511de62bb451a43305b392e8206fab7b643fc0e0d327a38d4fa94cad578f499d42e238c8db9be031de066b08e6cb932351cd14273b251c697df41bd72fabe805c6feaa6b2b6ed42548714389a85f85a459ab5e819f418894843d7e4c12f8619b6fffd30a6ee7ce17718fb1abccc27818010ed90b52fc44886", 0x1000, 0x80, 0x0, 0x1}, &(0x7f0000000680)={0x0, 0x0, 0x0, 0x3, 0x6f0, 0xffffffffffffffff, &(0x7f00000005c0)="0dab6fa531adf0c1b9fa53ffa4b1395b1fe59d1d296a52b032229834d849b50aedbdc2ace00900dd25c1767ecdf3469eaf4a176ce6174ca8c0ee70c88c6cefc6e1157de212b91b382d96fb4cae2633bfe3d098e66b93bab80bb2a9f6388b830677b896e00b763319868961ee3653d740d209e5e5944cd19cd8cffb85c7a55321444b9b3095e30bb709c520051c4bc56704fd8f2f242441e3ac30e00cf954a3386a02a7b80b6a90f9985a19e3", 0xac, 0xffffffff, 0x0, 0x1}, &(0x7f0000000780)={0x0, 0x0, 0x0, 0x3, 0x7, r2, &(0x7f00000006c0)="f9e16fbba4c6804a3d6c8c239d8b0ef1e0821e3ec6f97c3dca71fd1046713f3af77ba4d5ec56e82c2b4d32185ff52807595fdef995159c52fa23132158c4c13227f89333130272ed747ef51f4ab2ebede2a8ecbb9c00c4da71d9d450f4baa872c44ffc6f11e687f5ad60ddc8ac710c40023992b8be67e68316ab0168e3ec878be549053e8b38e533cc795d0cce02f5f8ec83c130b20eb6afac6e512e2e9780cf01979dfa49381690dd1ddd85faabfd10b6ac4465a1c39567ed", 0xb9, 0x2}, &(0x7f00000008c0)={0x0, 0x0, 0x0, 0x3, 0x3, r5, &(0x7f00000007c0)="2f38db8779e1b443bbd81c799dbc91df686a73af00d11d7c1be53d12947333b7c1691bc8b0f33fe321a0ee08134593e9d60afadfc6cdbf900ca75e5e7c8d3d430da9036aac066df0c94ba4d873550a6722e3aafff761b06cef6aaeaefc35788da1c5e1a3ca5ea6078f3c9b67bde161c803f99c46cf53d73a0ec5773b2f8e2c2cc4ccade2259c26e2e618109c6c1ef9038ebddf1df8d240b61efc40b0ea12d9b92e6b306248e65393673fcd5f2ef4d452b98318323b27e9294383a3554602908238f70e674dda52aa207d8a2f845003d0a8d99afd9a03db8c3c1f91869b113c2e50aa99d25594c1a4822f4262cfae1fb30757e5", 0xf3, 0x100000001, 0x0, 0x7, r2}, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x7, 0x101, r1, &(0x7f0000000900)="91b7edfef073a5c6ab870670af2d446fedf0", 0x12, 0xffffffffffffff8e, 0x0, 0x1, r6}])
+r9 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r3, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r9, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r2, 0x0}])
+openat(r2, &(0x7f00000000c0)='./file0\x00', 0x400000, 0x38)
+openat(r1, &(0x7f0000000080)='./file0\x00', 0x20002, 0x4)
+io_setup(0x7ff, &(0x7f0000000100)=<r10=>0x0)
+io_destroy(r10)
+
+05:39:24 executing program 2:
+io_setup(0x81, &(0x7f0000000040))
+io_setup(0xfff, &(0x7f00000000c0))
+io_setup(0xfff, &(0x7f00000000c0)=<r0=>0x0)
+io_destroy(r0)
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/ptmx\x00', 0x80c0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_setup(0x6, &(0x7f0000000280))
+io_submit(r1, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0, 0x0, 0xeffdffffffffffff}])
+io_cancel(r0, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x2, 0x9, r2, &(0x7f0000000100)="15222e252d5a20f0e873d5700347089a30aec0e4cf003c91988479b9c7f01ea9c9ecac4533f3b49f70a073739e82494e58129f7ed3e0265c27ad75c3a9852c329cead775fea514271037fce5b48ca96d563d75a45d25d3980aa124f04f6486594c23d7002b7312575a7ec9ab596fa2bab5e421d0774e582e4c4c8565bb58d27945d9366264d41f970b476ca87b3afe583c3d8cc8e16a92155acf0ea39ae1f3d29e2357ec83146e2eba9d1dbcc08bd0c7d721ed0c6d6bb57018da3d469b6356c86e8fd3244031dd6797215ecc680cd54951c7cf40a53df234bd7ae7ac72", 0xdd, 0x4, 0x0, 0x1}, &(0x7f0000000200))
+io_setup(0x0, &(0x7f0000000000))
+
+05:39:24 executing program 3:
+openat$ptmx(0xffffffffffffff9c, &(0x7f0000000100)='/dev/ptmx\x00', 0x40edc1, 0x0)
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r0, 0x0}])
+openat$cgroup_subtree(r0, &(0x7f0000000000)='cgroup.subtree_control\x00', 0x2, 0x0)
+
+05:39:24 executing program 2:
+io_setup(0xfff, &(0x7f00000000c0)=<r0=>0x0)
+io_setup(0xc2, &(0x7f0000000200)=<r1=>0x0)
+io_destroy(0x0)
+io_destroy(0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r2=>0x0)
+r3 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r2, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r3, 0x0, 0x0, 0xeffdffffffffffff}])
+r4 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r5=>0x0)
+r6 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r5, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r6, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r4, 0x0}])
+io_cancel(r1, &(0x7f0000000280)={0x0, 0x0, 0x0, 0x3, 0x9, r3, &(0x7f0000000240)="22fc2e2f5d72c0ecbc1bf9c7f6c530d5fc05daeb58e55a38a18d3a4925e8bb6e977b8f546aa6be2f156f9350464b21425e1b4849", 0x34, 0x1, 0x0, 0x3, r4}, &(0x7f00000002c0))
+io_destroy(r0)
+io_setup(0x8a, &(0x7f0000000040)=<r7=>0x0)
+r8 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r7, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r8, 0x0, 0x0, 0xeffdffffffffffff}])
+io_setup(0x4, &(0x7f0000000300))
+io_submit(r0, 0x1, &(0x7f0000000180)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x8, 0x4, r8, &(0x7f0000000040)="d6e1a31d979a672faea57169eaf0f442132e84b8c5f0366ead6231b54fa144a4c28783b576533bac0b60fed725af3d896f11e9b76fc4628746f412c9f05ceeff9e39b085325974d404f2ece66173f6b4ee71e2203e3036c3c6e15ddbf48b8d9c8072b68b5c6c3e0ea3425adfd071b86d48d12b8921515fedbefce4aecd0e5467f11681e70fb25e942740bc8cb7bc12d66c7ac6bab563ccd3e8d21dc8563fb4c04083619b92dfe3724f72c3a8d1765e34a2a74dd86dab992fc9f232dced41bce05813d2f0473e6763739232d5a220451444e0857b045de1b441889c56e1f177dc440f6b4f", 0xe4, 0xd32f, 0x0, 0x2}])
+clock_gettime(0x7, &(0x7f0000000000))
+openat$hpet(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/hpet\x00', 0x3c7143, 0x0)
+
+05:39:24 executing program 1:
+io_setup(0xffff, &(0x7f0000000040)=<r0=>0x0)
+io_setup(0xfff, &(0x7f00000000c0))
+io_setup(0x8a, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r1, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0, 0x0, 0xeffdffffffffffff}])
+io_setup(0x8a, &(0x7f0000000040)=<r3=>0x0)
+r4 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r3, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r4, 0x0, 0x0, 0xeffdffffffffffff}])
+r5 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r6=>0x0)
+r7 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r6, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r7, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r5, 0x0}])
+io_setup(0x8a, &(0x7f0000000040)=<r8=>0x0)
+r9 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r8, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r9, 0x0, 0x0, 0xeffdffffffffffff}])
+r10 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r11=>0x0)
+r12 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r11, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r12, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r10, 0x0}])
+io_submit(r0, 0x5, &(0x7f0000001540)=[&(0x7f0000000000)={0x0, 0x0, 0x0, 0x6, 0x6, 0xffffffffffffffff, &(0x7f0000000100)="4ad8418b239565270bbacc69ee6aaf31df10a49790fc5dadcdb7d046f48ff4a14fd995b4daf95b0f51063ef6b0778a02b99262d022aeba5433cb0c91e1e5de6cba5ec827d471a45be73829636dba5cb3837b63076010ed552713c347e3006652bceb6423a21a5378ffd24a57825ea31327902c5fe9491fad54190eb4b9e5c137d3c7504b9df7e9d6881b9c9bbce3e1e1fa8c03dcecf9028ac6ccee48b35c752c4c50cec8312cb9de219b13581950b19efc9dbd6346ad1a8d721032a49f35391bb858dec1edc13eee6dbb8b45c235ba86cbff5a8066d2b5f9c9bf7c12a1dd6c93853c1360aaf566f968c4de1e1dd1c15a2329b8c2df79c03c0b8bb5d3c7dd892a1fd7caba5888c5b64e157d75e2cfad8602b7ac503e5a5847293d307639b2274c55fb639e4729b36905e2935c9cc8c5122a88f1041dbe73fbc133955ee57e1bbef398e656521499cc5336749bd79aff7d074f2bfd74fd4485c54fb5afb08a4490999902d6867994777e3dd04300e330361574ffdde18f47a9b5ff875d65b234223260d3cac26ee6728ee7272e87f24a1f2add68c46149fabcacda93b7eccdd57927c9d520c253026735a18b108863ddd8473556bf961506711205f07608495d90b49513a75e6319bf4fa92475ad652da35cbdf8f28bf44fc9d29b2c6db9acdcf6174b7bfef7db0ed9c9aa52e326c2ecf01af7a566f022ba8238c8814ca9b8304de81e8d804b3c6caa2b98d8966a4e174a65c7ea43dd51b8819f4cda32791e858eceb597dd681fef937ac443f221a2d1507568a0c130fba39bdc0b26e7cb7cdfcf2b635a8f963ca50450838c9bdb3cfd23e57236baf7a7e336233c4381e53ab0495548da4f93d9254f4092b8a31a5fbc23a13d3093d3e426612e4e84c5d2f5857f0fab28d9d63c9f99b0f4f538d4f0b5edb59531f6797cc21a3d9b780814665f047df3043c3606a5e1f5d63d0071488159f58ad13631afa82a7af9e86f10eeb59ac4ac58f9d9e98e05435c5c73d4ab5d8520e1f5fdf17d116ed85d5edd5a6e9c016bad0995e974cad7e56e36e8509a8dd7821a2868f8f965d4a6b8f306409bee3941e9bfd693aa00dc1d4b209b9c5a562deaa682d32e65cadebb5d3d77cca369d0a34389d7051c40263c2a919d6733a5508d2836feaf1e19b852f7d6e5cf8e35578d88c84ab697f40c60bb2a44b88dd702f8e42639095779b1900557537864671cfab02c8e42bd5d324ca1b1255093c0b301029819a9eb214f8d7008f25641ab111f04dc78bd864d2c44c2aa208d9707b00701af4698493860cc4553dbb6efaea9869cec830b12491650b23650a214e36753a8f0783a7a8c6a31aa85ed8ab5d91bf2f86057afc52627674b3ce9534025ca0ec3893a8821934404cbbac12608ce90e5f4abb76bd8ef9f56ff8ce5d0a48dc7ded3716bdee33077b2782523b62614b4a1583beabbfa619b7531c87b691e74366e98a856ec991c12e10ec229e5faeb0bc2fe4de03748251988dfd2eaddfa47c68e9b3515cc54e512c168984b49442abc9c09272dd9bdf8e363a5dbfda8bc7e504e32efb96c71192dd4e207d3fce9dac021856471767502a44a689cc1a290aecde4e5f30ae0fb3efd7f26d32a43d6218f6999df0139987f9c13d0632a942891207abfc50c73602229376aaa769d6c663314619045823e4e89e459e12e18b313941bbc56e42bee496c5293331c8a535d39b02ef783525fcacdfcea4e9f4d47d97b58238b333bd6275575ec100fded8c03475379d5f7728ba4339fa038eb1dbf6842517eb25332ef22d3bcf08a14b30a80abae20fa77283c5264def78976c387f0a3f728e6d9a6424db945ea0d96a1eb838e2c791823f7a9e5f6f3e8296d4427f0cecb7fb3e5e48b6fd77e7bc2d5879fbb27398301f89972cca81f851e9e6d61bacd7c4721f273e929e9b56ab1b9896f5bf390e0982646c4d3779f47da42d5316c466a45992d74054be0287df69650c6051106ebdf92621217b2710c43b5ee827afb89f988e1f5251d293eab632b8c97f1ea942097ca3686d82e561ae6203746f5f173a9b9a9dfcefde8f3bad599380d00e44484b98a18921950e03b884af4b075f3b4948a16e74ae573d05dca5e1f859f97f359c48ba88026c18200d9da6e688c836247d36a9af8987888cd5b97e60857d20119bf6387d4442e0711fabb52f97fcb3aa5b4a22ffeef7d0d3dd034d455372029fca3e33c08b8c26d147f41a8fe9c6fc6b011aa4d2bfa32a2a00a89fa3d26501976e66164ee80dfd04cc8dd2e640d985e4040e03ba0ede42a71b080ffb8bbd0513af2e1988da07d063d215390dcd6458e264f61c807f2f463b1d629f185ed8c2b38591dafc5add9dd571bc63acd2efed4683894d0c33e3e4c05c0d7f88a5c4b8dfcc714c1735b4776ee75eef3619ce5199fc75eebd964264ed34ab4bdd3491e57cab110fa0a039472bfd4fe9424db5f438522c94e086a0bce12efc5bd1da70f91a4a813aed10c128a02f71cd7218d3b8454110a9dcb23ad7c297aa0a0d1a9c2ac66a0074f8396de16abbed6d92f4a03a76f6c6e581ea97d5148eaafe1368472aab2eaea9edccebe21f732a4a27c1ac958ed305145b16017836e025ccdac45efd9acb79425e16f89d2eb8b2849627f87decbda294087b23dc05a518bd7bf1fbbc958c7692c8e05cceba3e87408e06ca2f938049923e636f65703d3d33f145af2be965a471bbdfee6dc8d1f2a51f254a90bef2e3d991fad2c45a02ca365e5f45871d650c217ad6b4dc35a943e49b357c892bfef3afdeb6d00b238a80f5e5f653dc5b1b60e23cf40f36e19162fe62a29b353e0f8252645ea2c02695625b4a945d23b131794db55baeb1801c8ce58380931091a86ad48bbfa4acdfd3e83b4d91c216c2c2e578165f989b86259a1f796d31d7c56008fc63d7c8a98ec34e6e3ea039e9850f97500617f89b8e983df50673a390734d9d23574509f0bfc45423a32040e131d68d8e16c72e2285d4870c55a3fa837bd07429cce69f8573e837120913480a18e3f520d94b5b95fcb05b475577a5a518dfaf7681c0b130acbe8ccd9400096af9d2b30a1ecb8a40ad6457cc1db8421b2d040977305e0a186e707096778426e2fe240932c29ef7d691e7d5b07738e5298b2c68c73059195bf73db83e6f583a903859187c8ae68634de38c38dc2494e35415138e1616c3b4a5444307b5d3a654ebad0e97fac42fc7832e3f80f2d3981a3a73b7f8580993f6e0d8e9c158a473972dc02f58209403713933dc31f541ce35b1237b1a30e58c485d0317178540a52ad82d770a99d9d1ef4a6dead91bbf395723bb2a378d6a7d3d9c98af40fcf766cbedbf4878b34196eaa203092c63c76d88623417f6a41509ef1b930de9526f2cdc1ee7b446c6239c709416155c907a94dbf00dfc9770a70216f23a6af6eaf9da250d4c6899d426ca2d0a3d708b48e4096973dffe60e202044c121d33131907cb6dce6a647688d29fc39d120f506bd7002129fa1b912ade67bfd7ca9a550a272f47bb602bf31a78c27d49a7f7e47453988ce1081ec57dff94bf7711b6cb5d37275389be6c2f3c150da031b47e950a0a7ca23419ea97b797f07567afc1a566e72c09e09b45cfa5c357575175172384a07d16471d0b2d338da4c5a9d1333a815a8f93e777319ed981e8fa5173330d31bef4091bd0529d508405d44890839f825191746a4b5ff59d4845854f65670788f6286fe6645c8124bd8c54d7e086be058fe8c9a4909ba96c9d9ec25165450570258c99322f777a8432ae256cc8fcf936a4192d3ce982fd08e020baf08619bb5e1532e159d71eae0e24c5d6295f7faabd4cf22c86ecb8dfdd64f42ca95a9df87d58bff31ad5acf134e2caf6f210832fe1a057a1bf695c1935d097b78add7f1fbc847180c5b667840f259bcd392274d12484ea382a0c48c0b226a3af95cc8e8896d158da23ca45df352cc6948748cdd61d4c68ac9484ad06c197055983e4fad928f549c4ccb717b8d5375916db3d090e291859809be8a4c3db9be0f2a9360a1f6f264de3a90af547b59d368e4ea48af8d0e813efa61a684d61804b8902881186731a6bcbe82233a80f313f366e3926bfabfc9d563015cc7d25282eb588b4127c0fc3b599fd2faacc9ef8d5ebd5687cda46255064c6a92a01545611e89347a218a87ffb3ce857210067762dbd53afd706b2c4e11090a24fc1efa50f77e9227be3622ad56450aed35ce4e7440fcfa733f067aa34ceeadf1c7324c1636f0d176d23aa867c47bfabf0ccb037e799f1e5d46a1986a98edd3e403baac942960ab9adbdc53dfe5e18187d3ac2b662b5bcc8dfa790524f27449830deb1c4f053a6869939bd1d7d9296b025c7e52956dd242e4a04f0583cf534e8aa323197a492cec3217d51c1953a88baae12c3605b68146ff167469679d792052a315cb33d7832cd3984f35d9a47f990b21fd551f5a328c43d887daf245c672df1d97b668890ab756cab602902e4733b42f00ad9edd896cbeea3d68f57ad113ece845e77e3375f0875ae894a2e6c3519468a855a3a6a7926d7246a39e46578385cce48acfb7d12baa7500ceb24d784ed23747f6bf9d7586fd071734af48a04fc484ffa83b9956504acb415e44366ee525990b5c2f6c0380a00a3c7b3b3a9313298f9ace0f2e8201ba1228f4c680355ebec5e5060af6be57a546afab75a753ac0f84a9fb6e30c005ab15d0040556a0cf19965b18cbbf26439b67ada14cf2cfbf2d95ba88ce0d1baa34df68971d902ab9c6ca957cd64edc533a446023bf9cf46d17b5039670fe12492e88838af70ada1e7e46f6e1347c4b100a356d16bfa3edca6a773b6eabb899823ad567db763e1138ee6c700d47d63cdb47385c3c9a9aecd180f1e9bebcc970e90eb5dca247300b806767421850631ebd9f15696ad29d486ad66a80ac0d33cf29aad5a4ed605dc87bbe06bff87d369a6497a535c9a3164ed416a58ac9e21829b6aebe04538e4f1a9afb8e738d07f8f0de1eef2d976590a101863ade6d7ab8a07da12b923c2f09c006233006fca9e5697f72263e7706cf8a5a5adcbf36fd8889e616db695d02bab141e2ded31e3c6a2b3344b28f7351f30391964be3724ebc909d16d5101466c7ec8ecbf99939016d2c79f1d577d32f0b640ebc80772aa637f9772f16983f09a11d7b40c4e16ac1cccba044a78ea87d6b545e2b696245e76fe4b5a3a50644f0e90ef026e8c9d1db7efb7d2389daebaaca8c9bdb1186eb5774c26ef31c54768f432697b2ad27ef743d0f6fff821e4440c1515e247d3376efd48ff256ef4a420e5137538cd3c0a00740bf120131af963227d0a89956bc278188eef02f4ea8c6f7ea4a0204165229a76b85e7a1ec27facd5f6207834176f2c17ce978390783d07e28e2366a2e8f8214224a0ef0e7cf3082878d46d208bad6b47b1013f572f4f1c47f1e5d92a1d37ed3730f87ee2d1018a5a20a76c6e1860eb893bb76fe8610d3aac0d9282ba2a812de513c30a852514b4ff9da161e65c7a968836fe78b19ca3e53656922d3a2878221658e9fbedfc20de65d4d2d00eabf4f9b82d176b515ac93fe1d3a6ef487812e040db37f1d50465236bfa83c86e17097dff7282f5d8b21f87bd5835366708d5d3a33c7fdb35340141284b03d4cb64398ee87873ef8830c154f1adfd0a41a5f68f23be49927c30609e5fc1ba1cac8416b59a1c3fae7690d26d5445fbe140a6304fdbe6335298b8a4360e4bccaf4eed50ff31755939d7e8f6e2ad9e0ca6fc559c655df3a898da271556dc6", 0x1000, 0xfffffffffffffffb, 0x0, 0x7}, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x5, 0x6, 0xffffffffffffffff, &(0x7f0000001100)="c84f90129a211245336ad3e5bd37833e4a59226a8fa12c568ccc458b8b1ff9ff53ac3a3d339a61040f65923f6b3285862c8951d1f5bdb071b5892446908b659837d12c3ddc48449e29c6f646c01884f8a2260505ac53b7621986e27fede2047506bd265b75d4bd6906cf7980ecb63aa487f39f0aeba9622bf1eba29cc086786e7c83e79c9d2bd994ae9426246bb33cb0ccc53e0c090a945fe4dcd9c2eadd66e2d6f38631d1e50f7c4f8c84a44c6eb7fcde30037ea2b3574fa8d2ab1d8bfc03a4dc3f0114c51e167ffdad95b5e4a9c48eed82e31aa12a7269651f90cbb22bdb8caa2f8bdd", 0xe4, 0x8000, 0x0, 0x1}, &(0x7f00000012c0)={0x0, 0x0, 0x0, 0x8, 0x76, r2, &(0x7f0000001200)="9a961637cd38de41c007be1c7641fb3080536f6935d87e88f54772cb8e178be9d3a195e4da263247ff077b65f3c3f4d98d65521b10f375352ba335aa9464d65634671d8470c7f5e562a20186e83cb9b8af24dab74809c375971a799f5066e11a5c5ff9ec993f4d3b9eb8f5135fd240710dc7b06939ae2bbfed395043c5c9c728efe37aaeaaafb4a4474ac12952b05733cf51a86903816caa3a065882075d4a67e6b269fa8db9995c037fd9", 0xab, 0x2, 0x0, 0x1}, &(0x7f0000001400)={0x0, 0x0, 0x0, 0x5, 0x0, r4, &(0x7f0000001300)="54ac4e1de3eca5638698f31b782e551aca7f784ad7f2c4d152b3a58d857f41f17d72577a9a5b65599cf487c24b0a51124bf4d92ef0a7e73e90a3e87e3373a6e0d938019da31735940c363d17766e47f3f558275d5cea1b432dfb044322582fd3c8c9085d41eb05b2589b21dd83b9ed8f068a072bc333b775c34321fc287dceab624b253db6c5380f17108078d62693fe6e3c81f8a565de5909d06ebdf504b54b28aefe6ebb7ae311241eb72224631c9679875f8da052d24f28593d40644a061912770264607a62812ad619a5554716e1021d9d18fe6a51dddf94e8a8cbfb", 0xde, 0x6, 0x0, 0x2, r5}, &(0x7f0000001500)={0x0, 0x0, 0x0, 0x3, 0x5f, r9, &(0x7f0000001440)="f10aecd6846e35a5eb09f8c122120e0575f128792bd1e6e2d631c3959a1fc4f2bc6cc8c41ee932fc1c9bfbc2d29423d5846431b35345569da22527221c04613cf5a1aafaf061d85f6ed41c779df9bcd4710d0e85393da1e7b18ccf0f77be88cd6f4dd43c39dc972743c01506e0eb5f20aa6b22ad885ca32e29d557c346fb9922c7ef8dcfc68ee84d1ecfd9d5bf19f887a40e851bc8864a0a4984cc61c902a39acdf1986858be197649453d1ac0b5a9af262a3b52abdfc0950292f94e8a", 0xbd, 0x0, 0x0, 0x0, r10}])
+
+05:39:24 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000040)='.\x00', 0x515701, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x2c441, 0x8)
+
+05:39:24 executing program 0:
+io_setup(0x6, &(0x7f0000000140)=<r0=>0x0)
+clock_gettime(0x0, &(0x7f0000000180))
+io_pgetevents(r0, 0x6, 0x6, &(0x7f0000000000)=[{}, {}, {}, {}, {}, {}], 0x0, 0x0)
+io_destroy(r0)
+io_destroy(r0)
+openat$vcsu(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/vcsu\x00', 0x2, 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r1=>0x0)
+io_destroy(r1)
+io_pgetevents(r1, 0xa6, 0x9, &(0x7f00000001c0)=[{}, {}, {}, {}, {}, {}, {}, {}, {}], 0x0, 0x0)
+
+05:39:24 executing program 2:
+r0 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsu\x00', 0x0, 0x0)
+io_setup(0xbcd, &(0x7f0000000040)=<r1=>0x0)
+r2 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r2, 0x0, 0x0, 0xeffdffffffffffff}])
+r3 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r4=>0x0)
+r5 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r4, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r5, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r3, 0x0}])
+r6 = openat$nvram(0xffffffffffffff9c, &(0x7f00000005c0)='/dev/nvram\x00', 0x121800, 0x0)
+r7 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r8=>0x0)
+r9 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r8, 0x2, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r9, 0x0}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r7, 0x0}])
+io_setup(0x8a, &(0x7f0000000040)=<r10=>0x0)
+r11 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r10, 0x1, &(0x7f0000000980)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r11, 0x0, 0x0, 0xeffdffffffffffff, 0x0, 0x1}])
+r12 = openat$vcsa(0xffffffffffffff9c, &(0x7f00000008c0)='/dev/vcsa\x00', 0x202100, 0x0)
+io_submit(0x0, 0x7, &(0x7f00000009c0)=[&(0x7f0000000100)={0x0, 0x0, 0x0, 0x2, 0xfff, 0xffffffffffffffff, &(0x7f00000002c0)="63d85ecb2621e71bea043c8971a9aa32d3f2ecfa2c44f764b6ca0bc47a203aa5513ffd396e31186930329d7aade2de0e81caeecbd114f8632ea633f1f0262dafc38375b2b4b6f2fd0289f697e352e91c33bd98fe7271d0a2eadafc67afa09c42def9429c6d02a66196b40c9277a6f87d6f38881972d7e154a293bb682f561e2be813bcae3463b7aa5832946b0520d99f63c718276f16924bc0ef6723b55876e72df8221a74be8c0fb4475ab5266fca695249fd4951b763a559d6a9b50253e022f15e32934350e00b586b3fd6e48525cec8", 0xd1, 0x800, 0x0, 0x1}, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x8, 0x2, r2, &(0x7f00000003c0)="5a6e7fb4ea0012d72e66190a3902eecc1f8dc9d29ea2ba9d69691aab62ccfb32ea9ea21114de5927b85b28be6f09464af79f4cdc7af26886874252368b436dd7c1c4800fbb7d5e26cc72b987595392beca80c7889a640bf25387b7a116fb9eec17b7df990ed5ba2749e2212707255311f016902f96e78f9f993760acc59ad49b2de67eabe368339639ccb19981da19b7a62f193333353cb6a92ef29a12e21ab44714712ccde60a3b0dc96a3d28b27505f9886da0681399e9c86cbb485400216577a980f9aa1e17944745b9b9825de52a4a59f323df581aed3424ed03b5b3b6e843785b33002a29f7f7639ad9c3ad70", 0xef, 0x3}, &(0x7f0000000580)={0x0, 0x0, 0x0, 0x5, 0xfff7, r0, &(0x7f0000000500)="26a2cb535fcdfee345c85b91aea9aa753364b2b98865d05c38d87b41339613ad0d31b77b87fb948bc80d9eb1d0b6f3220c06a2993e416437548b4c81156c164b18936a5392a93a04f8aa88603a76c1bf034d3913cbf39e2d9aa2f2254cd417ab013a706362a2", 0x66, 0x400, 0x0, 0x0, r3}, &(0x7f0000000640)={0x0, 0x0, 0x0, 0x0, 0x0, r6, &(0x7f0000000600)="424d1352457c448952480900eb86", 0xe, 0x1ff, 0x0, 0x1, r7}, &(0x7f0000000740)={0x0, 0x0, 0x0, 0x5, 0xfffa, r0, &(0x7f0000000680)="f0cc8c27cafa0ebb189a7e861409b6495be06dae0cb711c9e8ad1c14bba80cfbba8eb99211afcb77c29c09e7791b74d129efc4eb8d99818495fc438ac347693634d8a9752367d891682fc6a6f308580293fdf8cb81e2a18fd13463d5e8226e755c52a4393c374f62bce153e09b0c38093b9211b4bd432259d46f225e2aeb868a1d49bad10b2d30", 0x87, 0x6, 0x0, 0x2, r0}, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x8, 0x6, r11, &(0x7f0000000780)="b1a7e619c1e85a", 0x7, 0x80000001, 0x0, 0x7}, &(0x7f0000000940)={0x0, 0x0, 0x0, 0x0, 0x4, r0, &(0x7f0000000800)="f2cdd00400608e4f4cad9cf57761a596aa3401a5fb576e39c8548d5b54fc1e2021fb7de92604cdd70b8d987a16163ae0b2e2f4cb89d347926fd4cf89f759e28a50df109c4e01ad9f67e92d09b4fa19feef9f7e84c63a35dd9a12e301da00187d49e9a880f4b6180406c2bc2799173befc076604f73e1acfd53a24223972cfc65e9cd93c11b071f4eb7316af3fba08d00a740030c52fdc83c21e4a52f7f543fc553d35415fbe47c35352ca4ee74a5db7808bba30e9df181025630530e45", 0xbd, 0x9, 0x0, 0x1, r12}])
+r13 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vcsu\x00', 0x0, 0x0)
+io_submit(r1, 0x2, &(0x7f0000000280)=[&(0x7f00000000c0)={0x0, 0x0, 0x0, 0x5, 0x0, r13, 0x0}, &(0x7f0000000080)={0x0, 0x0, 0x0, 0x3, 0x0, r0, 0x0, 0xfe5a}, &(0x7f0000000240)={0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff, &(0x7f00000001c0)="7f82839743891a06beb42e2cdcf86e3919d97334218c98a76b0512c80981c117cb4cd0232bd544d88f167fe80e3c96fc0590e72657d42646d3d758ba25c577674c9bce2da80e88ca3b1653b9a7537fe70a7658c5728a84dde2691ee9628cf44017ee5cd744db170a", 0x0, 0x9, 0x0, 0x1}])
+
+05:39:24 executing program 3:
+r0 = openat$vcsu(0xffffffffffffff9c, &(0x7f0000000140)='/dev/vcsu\x00', 0x0, 0x0)
+openat$cgroup_root(0xffffffffffffff9c, &(0x7f0000000700)='./cgroup/syz0\x00', 0x200002, 0x0)
+io_setup(0x6, &(0x7f0000000000)=<r1=>0x0)
+openat$vcsu(0xffffffffffffff9c, &(0x7f0000000180)='/dev/vcsu\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r2=>0x0)
+r3 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r2, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r3, 0x0, 0x0, 0xeffdffffffffffff}])
+r4 = openat$zero(0xffffffffffffff9c, &(0x7f0000000000)='/dev/zero\x00', 0x0, 0x0)
+io_setup(0x8a, &(0x7f0000000040)=<r5=>0x0)
+r6 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r5, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r6, 0x0, 0x0, 0x400000000}, &(0x7f0000001180)={0x0, 0x0, 0x0, 0x0, 0x0, r4, 0x0, 0x0, 0x1}])
+r7 = openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x4a0501, 0x0)
+io_submit(0x0, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, r7, 0x0, 0x0, 0xeffdffffffffffff}])
+io_setup(0x8a, &(0x7f0000000040)=<r8=>0x0)
+openat$md(0xffffffffffffff9c, &(0x7f0000000080)='/dev/md0\x00', 0x8c001, 0x0)
+io_submit(r8, 0x1, &(0x7f0000001840)=[&(0x7f0000000140)={0x0, 0x0, 0x0, 0x1, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0xeffdffffffffffff}])
+io_submit(0x0, 0x7, &(0x7f0000000840)=[&(0x7f0000000100)={0x0, 0x0, 0x0, 0x3, 0x13a, 0xffffffffffffffff, &(0x7f0000000340)="9ffbc8fe7db23f2593a2fd9dc1e2ab2b499f887355b653e1ce0be3c9b189378131ee1eb5371e4326cf4c6b78277e9e630bf49955d71471f1c458f0e07da08923661ee9ff2780be5cd0ab05bbea33a69b4631cf1a539e6f03a61122", 0x5b, 0x8, 0x0, 0x1}, &(0x7f00000004c0)={0x0, 0x0, 0x0, 0x7, 0x20, r0, &(0x7f00000003c0)="e4f4a1a8acdb4fe9f5b4d08cf09ccaa008fe0cd973ba12f7b63264a59d72c94b16d2f739a87261da0919ebd97d72131e1f0024cceb7973987386c3bffa4176eb06b0b06a80e2f2c1388c76579e24f76eca9260095987d97b646c00fdeccf1f54b75a13c22573064ac58594d84a3f335da56c708abdd21b58e69859c00083ac65bc113bf1157fe4b3d3cab2366642962f3a2ff579ec2e2060b31faa04210a35a4adfe97aa7348a77506e4171c3a1f9fd39c83eab7baf3da590e5d4c5b4275435aad9b183722b6fc8341468ce142c982de63f93be89914f5895dd0116c824a7eaa773edfbaae1c", 0xe6, 0x2, 0x0, 0x1, r4}, &(0x7f0000000540)={0x0, 0x0, 0x0, 0x2, 0x6, r3, &(0x7f0000000500)="e75354a3df7511d522e153d2ef00896b87d09ce545d155f9726aacc429248e", 0x1f, 0x5, 0x0, 0x1}, &(0x7f00000005c0)={0x0, 0x0, 0x0, 0x8, 0x0, r6, &(0x7f0000000580)="dfe1e3131a", 0x5, 0x9, 0x0, 0x0, r4}, &(0x7f0000000740)={0x0, 0x0, 0x0, 0x7, 0x641, 0xffffffffffffffff, &(0x7f0000000600)="fd7b93ac17c90e394b12e48b45b9fbad5cddb64ec60634231c1f39cdae2f5b4b7c071477fff84217a0f65f73f2dc2956f88009cf290c01e7fa5c85711fcb756408728ba0a387dbc3f39b0f824bf97e2f13000000f07028b2d94ef3d0314400dfdf7adc7b0714f4e657bbee9d07bf4912e34fd822cec1a9b14346238109f2091722024a24faa5e339610882e44b6e9124e24c5f7d9903f163e061f5f7c48c69833d4f4eeabdb523a6332135ca07c6b8b7d8b5efd97f596f8b9f410000000000000000", 0xc2, 0x7fffffff, 0x0, 0x2}, &(0x7f00000007c0)={0x0, 0x0, 0x0, 0x1, 0x0, 0xffffffffffffffff, &(0x7f0000001880)="79cc2747ef97ed504ed729860f97bb0a30dba40443c29c53114584926ecbd9e7ec83d0673dcbec68d8497db3f0a680bde8418ce95eeba2e5512e347a7f7b31316aa45826ecde3ac451aa8c575bf0248e6bf9e680e2e188f225620067f0603f3537739ebcc75b386cabd0562222dfafb9c31858be89e6f15ace81aff3ec9ba0d5142c1f4d19f0e1d4be5cac40299de45e0043f775a0fc66823a42791d297c770add4486c20ee4e5ee08425aa8b2e1975ef271a5f0fa9c73f0e89b5f45a78ac0cc3f90acea1af86da7775b76699db55dbf8cc34baa971704ce196ff32a87f800b8bc4abe83f02071ec52deb68bffa5c5f1d5210e4486a316905d5f300ad82c38e6e07df5df455cc54e700f31467cb36e4faf3ddfad5f5a5ae130e81bfb87061e07c32734bae042be1994ab2b49df29bbadca7eceb953a11fcbfde02632a0b38e1a7243394e36f50b53bb4847bc169f565890de3f754a3eb17e40c1f115d81b0e1aa72a84ad6fd9151829f2cb981dbb2d8a39f1810e5db32b6dbf48d840c925862ed2ba9a1a0a75b717be1ff4293c23a9bebc1c4d8723d5d000c17131c1a1c46ecfc1352c59ce7fd4e8c1022a29c5cb3ef2f5961b71d1c8b567525b32f6568dc534db34f276ed6e13117e731726ae47e132fdefa3dd82dcd37b7b95b653a44a725a937f5a5408032f44fd139ecabe59743cbc9a0d34d7b94667e77df79431fbb6d5a1ce571e4ef34e61a2ece314988336fe8b04df367437e44745803d5b04fa12da76113b6600784a8c11ff92298b6f0690043307961d3b2fb80fc88b6483e1842bd08e0a6c870f928762c3c3e49dd1397b44b2ffbfeb3a3aa58522db45a9d11acf25b8262f0c378fff55694801ac94253ff54c2fc76f0c2d265eae853a64f7a2190e0a58bfda4a1c04b63dfcc8e64ae36f705fa4f806ad5a0945f29973a56e541363154239655e9922ab4dc98db2c553dac8a7b60f3b5671fa4ac2691a8a050176669452e2cc09346138a87d54d50646884c33f37c5cdfc9e1932d6604c14e1df65f1c3cbccd64b191d827d6dff089a8729e8af5fa506f8669877631c74735635181425c1b18bda84fa94226aa75c85aa94647bf51bac2e337fc01318a9f5950768f37eff92ee1de5ba2bce9da1161b99e9ec1bcd37e044663fb052a1a228b27c2dbc3b6f8b68f288297c6538a0948d3594cdfd291109da0efe792cd9b10d5b719f93a91441cb189aab5b66858f81820c90c046585896718bfe77165cf07ca9be86629070f0a2e26c1d289f7656320a46d98ddc3ac60f91519e5dc709c7c746555b2a9addbee110016518dafb013fbc7e4f2a28b8d7817dcdae39d62a2a8c0dffb054d5526e9506f9bed165b87d6b78f3a67e7a2b096f876f4aa10e9477a5c341943e64efdf214f688008757a3276a0dda12aca35f929d65720309e978a45f5869a8cbe4c3792557476cb2a0f693852859e79db42ee3ce25faaadb387d373afd35dd39bdadc0cdd361aa1427e0d1808b4d65321472d5015c59f1590f8d2483bc4d1ef816c4d6ad49447799d0e87396c8e45de8f78db2fdf60fff8f5a8486c01e7428a4fd21845fff42dccaa7661f47d4431dd870067b00f8ce2af2126d530bf297db486b65fed3f42abf7a9bf13f0d5b9f1c6ebf244b3ae735895ded7a47e74b75fca3494bbbf38177dda9c00d6db5f0a908b168991629b785392cd258812dcbec9c18d298c4081732442b9e0e36cd00d5473514c5321677cd497250bf7e78d19e44bfa77dfab3fc2d31a6d9d0925dcca478e8df54aa4d1d3c7b9afafc127b7e70ef55e609bd2cc011bfcc969b3ef83921115eda1f1aeb20a20ad6cd2bfb94fb8eed3a808138182f5da228300e837dc34968d0b51a8c89af668f1118e82eee76ea69a1efe2d787923581c8380016cdf65ad713f367345c16d1bba861171ed7e84a26b904104b5a4c9f522639d04de06965bbe8f5b7e36896fb430e5546bf6fbd637a0dd29ee8595c9b8a14cd23ce0daa9059981be96a4437ef30e994be7c67d03663d26676b373bc7efcdde8f7c31a409854ce3559e85ce2680aab45d1e325cfeae499f6844b9fd36c3ca285cb71a2f7d8f1029e5cffdcc7fea4a9fba5d9d2b666fe4f451ff359d8495640d8b3df23e6697b086c077610cce209a1435645f7b37e4e25c3ce65ab636ec92a4a0ef8d96070137ae25f219a06a3ae226f3e5c1df33f6e6785c47089860db8655da3e28bcf637690eb1679ae0dda6e8c70aa6bb7970630b6cea82e8311b0eee6b53f533bc989970d0182803cf9963e6a41dd5f6f369e25bbd76c8c8ba482835c9ff59d4631d0e8dbe8e8de7054f77b8ba3710a4a15479e7995b585b7ca41106bee27c74bbc23968f7fa8a045b34ef49aa1f2a78a5ac8896f5cf196b489af8900d20854454b2d1f5a601873a983bc0d57626eb8e18e693c51efbab8e89ebe33b2116419b868edc354a07185436efe5f4f0fd9d76439d3205c689c30f30787783f9a3ab33471d2d5be739059da8e62a744bb1f9a2a98e20dc45327faf888aa8bcaafb00c35a1bb30b7bfdaf71d309d9b9c83cc3bc3c6fc88e512a66738cc4bcf4c30a50b5cf33b74832cb8dbe757d0800825dc1cb32914231d0ee5c976dc3e80485c0208375c0fee100b79f54cbf8c4ae9e3c7bbd1abb8de7e17bfae404eb963d4067fd5999048fd00dbf158ac2daf5850879a8a99d41f0a685c20010ecef720ac9a26eecd947e185494223f341e5a5328531c163e3625c58672572f327a34172d9ab8bf9de531dc7cd6904eac854457eb18f0e03c9072e7236bab73c049d6e24727af4f22464a513208d3224ee4e2cc88f8d0d3d61be3fa95f288cbe2dff9122c73dee681f5926b3c45d2e067e337710dfe17a1846bd5a43c34270415588b3f8f3b7e39dbc3ecb1421d3c84dd609355d09c93d6db1f8555273c0a79cb8a6d3f2167f46e339cb7ff274112832f3771f4caf20977c2c3f18ab9a21f11b331ad1058bb04ff021da41c8f2585f69659e5e0c39ea1fabbb6aa35b2df702459ba89b794f7dba11b41bf33c0dd3859b5e4fcdbd213629dc9d8ffaf82c44b7bdfbae515b6f4692659fc4aaff57fd6cf0ee83c83905605de86d4c535e7fcc3a651e40c410868a658dfc7cd33c608f29329c9b89f580bfa28f63b0aedb3e9631cf32f09a0f6e0b536110c784dcf0b491cc7b8c56185b832f96569e5c4e7e88d8aec90f44dbbb0c01c90fab2737a3e92cd7e30d493b41f1a6841497e02c82edb866a176c384315525dedb28a2f0554a8d188d166e2a1fef360c844ff3da1fdd624229c94456635b54b3fc8e2d9f598c14ee7caeabc4efa3e58a806bd1367c371058bb6b0b08f05a53ee99498affe4afbfaa016d8f1cc77562f97e52a6970b7207d7e40e4b09074abd79b77e761f48cd78e55f656253a61339e6718caa4456744702600b3490b781fbf90044d82dc3aa032d2af3aee3a92111c4f6d1f68bddb494dab4c6984df935f3d3a95c3d54060f10f66dd2ef524d023780497a54c4a86b733e2e22c8da5d7e194b83e380bc8a5411049a3885927916b4e0b3017e1aaef0c58eabed871fbaca7008ee3823a580927c2a846e31ca1d7c6fe52b6bf38e5d16dc547b247022e6ddeb74e7326fad8597c880cae6e585133f68fed5f99ad9bb1c8691a5fb4ad0a514d15a613963146741f250805691d3e37088c6722c278cc7d63a32de0dd162f2ce1c04d3a71f9583aa4d9e8c227bdafa7a72aa9bf39d4e4254f11532b55682d4ab131f284966d87ac3bfdde1195b54d244a86f721cc0e9eff06a318c235778d2fcf663b1e17f1e657eb74a897f57e3b15f0e182818f0624fb4c546380c092a93e92143af48aaf8d42d1e0a6912d2c23818e1bf4e5ca76b5b1844acaef95c3ecff713eb9c3cb662983df6c17debeffa00874aa6db8eebbcf132120ca2fb83e4e91b8c44b56e00d6080be1a41264169c7018b2dd4531869361baf78a6b488eb85482fa5c520e98641d865978f00529f0d2895d4f25861d9e33c7570b7154e6538066a079c65ac69b8e5ce8f21dfc03a653c4bb27f8cd77d19d4fe0cb5fd5324cdfe5398861a963db65f4be1d4027492354995230acc3c392733c10ef055fb6bd3010494dc33ef3f298df6d8e2b90ef76620aa7976f1c1376a5dd15e9a7257fcea036f894ed9fbc2a75f4dee6d027f8472cc88786cf8317eb4585d762a58488583e154da761a318d5120f5ec6a3c728c0a006d29f9645dfa66adc050218a41bda0ce582992dc47bf038c3fd9412114cf25209ed957846811cd6ef4056dcb27c977bfc705aeba3acaf67046f3d0051df2d15fae08326abe9de9aacd6a67aaab21fd273fc5c2982959ca282b1556d5aaacbca8c0333d6b6c340cf80b477abc8df877eebd4e122b63297f254cbf133f6f76f7a3557638b4465659c53db84dfa51bce60d3cd99602c630874196a6539819f4fb93fca54f45527b0e242593941b04a2ff1401e39630c61592a4bbcdbc5fad4c9fc991f1f376e08af0f1f6113797671848b436518c0c2308ab8a83d964038f9533f38fd7ac1152c73f0a037bce4a19aeb0548cd6b2ddf289b8593145395215f72c2b0bfd99afee16b2a0314917bfa59fd6bb3160ae8fd2e4a6a2ab9e62b7408fe1eb544f4b5eeae5be0930589b7699a2fff586d9f76e764e68b8e29c9c634962df68a14a863ec15fc642c4aa749097c7306373e8fcbc194ce0bb8a73fb94d7cfa38b4233ab8d0ede0a4e73f605eb9997ab2ee77af608d196b7eb65232538bb2e01eb982a0601e6333da04617eecb7ebd07af68a0cd18c2a7d718e07fdf8f6419be713a112caf6cfc4b36b93d5bdb849f3c2b39c2c538cc945473bbb593e7bb11cb95e8f33cf70aaa52081573e20bc4e6530ad12e57a0df996fbe8018f0f8d1cd549367b6dd648a3ddcaa9638d6b7285d93868c15f1424e08278becd77d42dd4ff8467796a2ef1719bd7a67229a34bee9f930bfe83188ef17a3a878140226b60bc08135a8516fc73d4278004510b9b32a925175a329462092440cf79d5b1bfa0b6e876df2d129ed2ba6c62e0df4e5e8cd4433421764b8cb127fbc2e2ee6e61ca2c79e8d6d4d59b780f9a00babfe3d52779efbb5d40ff24c126b4a27b41719bbbeb749073ffe5f199e04abf1d2ee4d0232edc8f047e541ccdda38394161c0cbe501db5b79b0b8cb6ab51a48247298bb16140fd37fca955083625774c0f1306874147fc5e772d326cd88c60ba357121df320088e4fb1fa02189d09ec728b35281bc8aa98009e29ef7395fac77ce1342b5b7da916cfeb8a394117e7351ead1f0ab24f1902cdb5b44be5c2c4d1e81f381e5dc63fa2a0dc76905aabe7947238148805db38a22b35e1212df099abaafab693efec0f6d2c2b5757873c7c5516449a04fe61d212921b57b0e609d4887c6e875caab60fa5d20d0c4b2a684d80c675f0adc14f84f31dbc753ce7eb2b00546ee8b86f35ef9ff3bfd1f3e5e22a53f6e633ecc3463f24b0033fad70b1c9ba2c32bb0bcbab33d22fead75ae8257e6478e3538b0e19b8e137785a6a0931f682d08a7b4d3efb3919db45825d89766dc187ddc005a54ed8230e28ab8341284996d52fbad9d336f2f765580fec823c3f183e06d2c4fe01d99b3ebfc06d35e2916b6b6f43210886cf2494d22a445ce513f2c565e775b732914a299ad24a0e04837b0acc6568fe84f2a53f21327d812d0e802b268ae93b0724bed6605d11457b2d3ec2a2e462ed46884b979533eab819e89b2aaa87c37929228acaf263fb2", 0x1000, 0xd2, 0x0, 0x2}, &(0x7f0000000800)={0x0, 0x0, 0x0, 0x6, 0x13, 0xffffffffffffffff, &(0x7f0000002880)="9485a076b7b5948d7dfb0a4c6dc87677e0eb558763dbeb9ba3893aace2e73bff70793428711f929e741cea631cf4b41743f9aade51facbbc86663ecc5c02df0fc6d48796a236bfdcd8e57bb26fb6738b5163563c63c61da1449b0523c8df5fc5e74371508006075b04227feda4c456f66b8ba02228fe2deb414313da8484fbac2ff1d18d396faac736b0405c18c94a5b6cb63d47d05e25c697d489f39a9968781b0f25a9afe419c68b99bb3635309985bc74c21a9e1474aa82ea297e6c446fd5923ec21df1e32c19e0bed520f834febf8b83eca93d3681eaf67c95787855824351a4a5ed5a6b30b8c95e4f758aa0b385a3e4e7376bc2f3b6a051e8964a621027fc89723a2577b67ca81d233671f696945e002a38bc2c4935de28c067cc43ec61c70802bee6eab38210eaddc7c8f9fb74fd4f9ff052b341c2939cb78ab8657aa853b617b0d366d77134b7b8f7ebac507624b698de313077bdc6e6f52184a728fba20c92cf35b46974e11973d0c3258bad4953fadca5fd7c76d1b9bc1dba737919689afaff5fd20d0e846e0cf7526642287ef2a453bb7793381c108990f48b9dd1b04ec517e341c037128789e4b8f12eb03cce5dbd819493bb47b019bb9ba8bbb7f990bca2aed76bbbb88910846262bd6c740feec4d56eccbbb5f7084d2b274a568578e121ba6135a74f4936e6a840c4cb126a6b3adbcd04b54b2880af260eabbe992ad2896029ded80e0a667a3334ca1fa3eba6ede285df21131d94b9aa7ed77204d0aace90f973a08ca44cf88b116b7495b780ff456799adcd013f92f02d98d69670f8700c775482c34c77f9afe5bb68fc9a0649ae18ad91deffb68762bb03e4fcc42c5093c5bdf4b9d13262eafb1f09e7f794f5aa214f0cfe1cc555b7fe25fc267e7b6bfc379cf192bb1cd9126e8abd1313794cf92a8e9474c23a69fa327609fc0588478a7a536b1e98c3f8476717ef34078b29de00e204d318aa52c318b615f3ad1fdec488f097dec79dbd7ff19f274299b2e5a1dbc3adffcc6495085d0fed5d469c27338036036bf65421167582b60cc3c0b280e028cd7cd93dd17f11b8dfda38141b1ff594904f075eb6dfbf9468335b45719ed5d361c33889d2bea3095c5d650898d10e9fbfdfe83d8deda83d63f5f17ae80511e46a1c211cc44d0d54bc183aa4da6a751f630b1c76ca33a4b23cba7da86432002df5d3abe3c25bbf0db7f16ed52bc1649556ae0135287ef95061e427fce97cddfa9c1d7938fea6d65ce611e9b67be05ea35ff6dbe38d4fb373234bc56fcd1f3dfa2f8e4a46d43f8d17de732ac34cb2d19cc24b2db926164aa99abf95e4b97701371a5113b947a06f63b9fcc6d6c1dd4774c41d46e86e784fc50068ed8ac4db41ffc1519ae55831f90b08c13d9911b7aee9471b0cc3b6fb4a868ddf0299579ec7b95314f58748adb4473305d2daa3f340173b5406bdf5c2adc1f5ae37f695b0b3b0dc4168c3fa5f9b768df8effef4480a908cead3bcec357c0f7e6b4b2ade069ec955b7e83568b437fec3dcd613344a3ab933b45308c50512d96727847580a86f2b6b8b8ccc9cd8df624c678c07098d11d93b00392616f625dfb0a2985cb7b1a085a87342bae0a6566b54328ff68de3f07e87406a71c310114bf29d91e8fbe2790b7161366ed3bae889099443357c4474c0bd7c0543f5bafaf513797a74716560627ac201b51ce2192fa55fece5777f35f6f0eb8476a342bf794ab191bc81e22d5472e0e39b9f6d9d4bec7fe35987fc7732927d6d74f7c7bbb61e1b3b89923c45425e0a5675bee871548393684924d2f232d8ebd7edceb0c4a47b3b91fcb8a4d644ea53fe58810e79c3b4a3cd16ba1ea14a8ea3df2542ebfec3b827aad4a0cf0cb890584e68c449446a6dc408735e5f3da1354b0c0a4cde37ee0b869d8993157207360df12488d6bef2b4a03b9f95753c007a72ea43ac5b6c4795a7acfda6de61739c73890ce4b9ff813c16ab302dc651606591b1cfa888e4b96146ac78fb9fc75b9aa95d2fbfd164ce632c416c537001dd178ed700a2776d2443863da7687c716994695fc79eb5c7b1e6814fa636d6fab6117cf7293316327b13cc5bd561557ad2146a24821c7a9fa58a33670c9cdf858d4b4ec370eb52e0c196b2eeb178c5f6a7c1dcc342b384de9a2a49df873c64d9088d8cc47d8c08910c13187721c126090d84eba41e8e3e137ea0411252da00199b62303b6dd1d0d37a2ba22d92f1fb1d629b298837563cf60685f5c0bc8b4eb953d39c1c05640fd0d249705e6012251890b62ad355b700256bf4dd61417cd32cad5b3ccae7e73697b3a0ec96d15048251841e335e4a247d2fa3f85a6a046b06fed5e6f30754261c97eed88408937cc8fa6184ec61984e087a7963859e1c23558fb10edb12234d1aaccf5e7a2c214c29c6d68a35a73d881dab98bcf8e46347a55ad69cd8f75bdc49477547fdd0657d75ba32a5337d8d0898187ada3c2e9b852d301127edbe7932ec591431c1c62ee16ebf7ee81bd972bd3dce955d9e76af5ec85b423c620b9fcae79f114a4be51ed9cc754cb8f41e060a538376bfffdefa0f71cfaf8096148614eb75e2f31fe933407558c7b45ccdbda6e1cc0f90ffbb58e682eafe0099d80fe12f21522c07f53f9d191185e2a11dbedd6635366b2b982320458f07b8d18a1067ca4a1a785d919e5531817005a944cf561f94c566e0250eff193b4bc200878cfa00a8a21ea5946705268ff46add8f5bf86cb3643f6fb9ee8746dc5f1255812f8bcce922e33c1edf6343d8f08011239f8f2c35f6c3187383750c316e053e706ce45c8706138cd342595edf221f3da742ebd46d18dffaf0bcca838c134db23e060b443e2ce5a1bbe887fad6eaa6fad9ab8f7fc29be85896fd3f0f30285c5825f0f99f81f70928150e76756191e828dbf6ec3606073634bf427e753d8d1c3b974f693214b04c7d55f451ac931641d8c7ec300f44291973d9a72ba95a0da3eb6b72eba2fb372e7c0747a8510ef8ca34c5104ddad1d5e0148bbb7d2d91fa522a89ee37fe2776bded37ba83b11dcdc20aca7e019fa45e3b9d8b41affee7a473cc7651dc9db25ee8400f34c0c542fde44585fb5c6a78f80e2a7e5952aa63c9b63b23d058f5914a6a1560dc3010423efc47a10131e28c3708f743ec023e199cbd3e9f97090a6644b0202d8805d6904fa1637894ea03f08f608d813e594834b6251681dd5f83b3359cd89e6d75c4f500ffaf5a8c0e75cd91b283bddf4e17abd5c5b92e26c63c4f21060479d326f5e5ba6e0385ae1ea5284efffd8b6ca3d15bfe7aef84b83033bb4e0516aa3cb838a7d2b089b89fe781bceefc6b08db1191cdcb040041fac8991375fadf92cb05db1832298d6e28b0aa4858d5a52b661003a33b5ac5c48007ecec2c11c5335587e27a4aee60309441bb64e7769ce7472c5360ae53e690df598782a76e14c0cbb6f8b69c01317a2d43989d434e9398f5c7abc34397cc45772a7dbca4fff35a0b626430467ad3e9f1368e3bfc7602488121bf17fb10766808cb8bfcf4849a95a91d93ae2f4601fdf5a69dcfcd24d53f1c914122525028f072a582b61f2504e48664d94caf83a4628a4a02e7e29556c715a45214076670ded658f7a8a0ddc153212317083bf6e958bd42fc2302398987eeef5863eaf8de6079fa95ab4bcbc33fe4bb72f36b3c2222708c9d4c8b38f5d364c0444bf594fe8fb3d425bea280b84380d5f87c64b5edbbd17a8b24fbce81dcd1ca4603749a4f8e57b842915170eaa391db71a58b6436bcb0b60df42250d117a1dab57f867675bf99c6567ba154cc8138f3cf79b2872bc2c0de9db09c1b47cbfc7501065a877cb465c04ecfcbcf55eb4146d6948d885cec93420c43acc98bbed739046e827104b221ff6e04f9e9bdbcdc424f8cd9f5daf479a86fda28820fdc3598053811ebcc63ca9368fca81d3419ffe1e43f06a7e6244cdd2e8ac439935e4730d8a2f2daa774cb8fdb5d52080632f725e691005f078210c8d52ea19811ad655f3cb3b56a868051b7a940e33267019dc57fa8054e61734a8dfb251bc95d01992cf0391881bdff71f44fd2e963c7534939b5453b94ef8a9e3991b761264e9781a881ce421de404720db9bc3b00486503c7a00061782ffd9cfce091914f0c4757732770206af8eeece4614bf938fb0ddfda829820002f15a72b8335781c6da7a2cab18a7db2c9168b59f213ab7bbe02c1d79d432fe7f5a5750018979560fabbfb54ea11ff534cdce4803e286571fcd146c9a35f5ce2a19903ed64458b86c0f4e93fa2fde0b096aa4df13b17484d52db933e4ea1495365e9a76330bc4b4bb639e1abb537c6c2ed5d5eca89c38ac783aec0bb611f1dd6c4a8bb49bbd7c354508754b64de1b186c7104d9cc5c9a34c3dcacaf8fd6bf9b7588c26ff877675b86183a2dee7c2083e4ed418dd440a4a10bde37662699fbcccf4383984dc3278302aed07ab4dccabbc73c5d385d2428532896fbaa8a0bdc52b7691577e30bbe5b49827446c3b9af94fe899f832a82c6d548ee102da6692ac429d697b8a20fc84ff0c6fce1426783d2e9fe2e9ccda25c6206ffe7d9b4716405b6e9a81168eede23d588fdd17db01dd7f664d5dc7a16a1880149c977cfa757626000d92e284507936899eac0c3929d5d2924b5f5a6905aa4817f9f8b8a965750c735788eba1c72280094f40a434a938c617cbb9f632fc7b9126f770b84042b013bf80af5b1e369d06766ad7c519e3801298e6a8195ea5b171113cc9a44327e78c8b30c8bd66ee5bb3186352d0311f57c61b231f8fec3f93b9d26175971dfe69ee628ba147680833ed6ef5144f156c6a6431bfc814d23e4a7e632212fe4c5e1bb33e848eb8a473eaa6dfeecef75c66185babd848f0bf13fe5cc625fcb40430e95ab33327e357b3f5ba66181df3038f146a420f5dbb6d1a505c5255997369521d1ca93e1c8b844b4c04c7f196ff698934245fe0a83ac2b9fe2aa25c478d184c8a0d6cf34a4e5932b914d76c0fceed1ad06f14fce2043e8d99744459793e94693a04e83966d28fe12217efcac4ba4317283e230eb17b0f5d42d092db16edf764812e6b9cdbc29dd86d765d224c6aca3f960cf09410ed7373a889e7bd348b2466c631bb9cd40c6eda3c72760a6c6c9233e87e36c921f3c4af3bae8ebb91a1718a72bdafc286403c277b49e3c41d2aced4c1574bb1463b0ae2cfc78c3fa0756e33333f1cfd0973eca5929af5c7e860dffde4d2d38c11547257b01871aae7bc53561d60d7d2d7c07724dc6fd07904d4860c7f283edc006beda1c4a3addc8a7792c04c18a28b9439fdd54a8b495a00d730151e80e28cb3fede197dd57472aa47ad2eb4bab5a75ed8f6b87e8651e6b88318018c62a76525e27ab6973805da467651996d6dd8808712f0c37c95d4027d9fa6c197d9e7c2064108560192066d661bd0837286d8a4154068e19a9b507fe2f1ffd4d3e77bb9547d3ca6687212e49f46e04065a60a8386a54dfcba222893b96da4fa49687d1ae73d120922447c7ec305d207306bd5bfb4d3cae73f34eddf5fd65aaa408a8959b8c94cb7c8a241547c5d6d7ef870e7fb0c6461a7f9463263f4ba68fe55cc15b50658299e16a3c7cf6c2b88b78a6013ac398832ce1ad88bd47b28dbab1c3893f762b4001adeaed1460012d2effad1a3e0137864218f3398b22b9fd40d248dc86a9076683853bdbd6c584d355bd85d1571356872b8b05dc43369f6adc57a60830ea80dece50534bc4eaaccb4016c4fa5cf488da66070f", 0x1000, 0x8000, 0x0, 0x1, r4}])
+io_submit(r1, 0x3, &(0x7f0000000280)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x5, 0x0, r7, 0x0, 0x0, 0x2000000}, &(0x7f00000000c0)={0x0, 0x0, 0x0, 0x6, 0x0, 0xffffffffffffffff, 0x0, 0x0, 0x3, 0x0, 0x1}, &(0x7f0000000300)={0x0, 0x0, 0x0, 0x6, 0x2, r3, &(0x7f0000000200)="04120546695bd92775d8b764ac8424fcaf6be8c15ee7013bc0256b72ec6a9e63427d383c8257e0ed4351959759f703e4d955ef5c8d41a06eb9013e8e05a70aaf6c370316fe6d28bec5a92e419330c3f4ddf7aedf3d7a712e54406d3f9c498615", 0x60, 0xcce8, 0x0, 0x2, r4}])
+io_setup(0x7fff, &(0x7f00000001c0)=<r9=>0x0)
+io_destroy(r9)
+
+05:39:24 executing program 1:
+r0 = openat$zero(0xffffffffffffff9c, &(0x7f0000000040)='/dev/zero\x00', 0x0, 0x0)
+openat$vga_arbiter(0xffffffffffffff9c, &(0x7f0000000000)='/dev/vga_arbiter\x00', 0x2900, 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r1=>0x0)
+io_submit(r1, 0x1, &(0x7f0000000180)=[&(0x7f0000000080)={0x0, 0x0, 0x0, 0x7, 0x0, r0, 0x0, 0xf0ff7f}])
+
+05:39:24 executing program 1:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', 0x8880, 0x180)
+io_setup(0xfff, &(0x7f0000000040)=<r0=>0x0)
+r1 = openat$zero(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/zero\x00', 0x0, 0x0)
+io_submit(r0, 0x1, &(0x7f0000000400)=[&(0x7f00000002c0)={0x0, 0x0, 0x0, 0x7, 0x0, r1, &(0x7f0000000000)="3e2853af1fbf0000f9b7", 0xa}])
+
+05:39:24 executing program 2:
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000007c0)='/dev/ptmx\x00', 0x3, 0x0)
+openat$hwrng(0xffffffffffffff9c, &(0x7f0000000000)='/dev/hwrng\x00', 0x4400, 0x0)
+openat$thread_pidfd(0xffffffffffffff9c, &(0x7f0000000040)='/proc/thread-self\x00', 0x204402, 0x0)
+
+05:39:24 executing program 3:
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000007c0)='/dev/ptmx\x00', 0x2e800, 0x0)
+io_setup(0xfff, &(0x7f00000000c0)=<r0=>0x0)
+io_destroy(r0)
+io_pgetevents(r0, 0x0, 0xa, &(0x7f0000000040)=[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}], &(0x7f0000000180)={0x77359400}, &(0x7f0000000200)={&(0x7f00000001c0), 0x8})
+openat$snapshot(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snapshot\x00', 0x80000, 0x0)
+
+05:39:24 executing program 2:
+openat$ptmx(0xffffffffffffff9c, &(0x7f00000007c0)='/dev/ptmx\x00', 0x3, 0x0)
+openat$hwrng(0xffffffffffffff9c, &(0x7f0000000000)='/dev/hwrng\x00', 0x4400, 0x0)
+openat$thread_pidfd(0xffffffffffffff9c, &(0x7f0000000040)='/proc/thread-self\x00', 0x204402, 0x0)
+
+[   12.411926] ------------[ cut here ]------------
+[   12.413643] Found allocation of iovec
+[   12.415613] WARNING: CPU: 0 PID: 2361 at fs/read_write.c:793 rw_copy_check_uvector+0xe4/0x380
+[   12.419351] Kernel panic - not syncing: panic_on_warn set ...
+[   12.421745] CPU: 0 PID: 2361 Comm: syz-executor.1 Not tainted 5.5.3 #50
+[   12.424797] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.430036] Call Trace:
+[   12.431327]  dump_stack+0x15e/0x1ae
+[   12.432958]  panic+0x228/0x700
+[   12.434433]  ? 0xffffffff8d600000
+[   12.436014]  ? rw_copy_check_uvector+0xe4/0x380
+[   12.438109]  __warn+0x1fe/0x200
+[   12.439683]  ? rw_copy_check_uvector+0xe4/0x380
+[   12.441770]  report_bug+0x359/0x480
+[   12.443433]  ? rw_copy_check_uvector+0xe4/0x380
+[   12.445464]  do_invalid_op+0x6e/0x110
+[   12.446864]  invalid_op+0x1e/0x30
+[   12.448317] RIP: 0010:rw_copy_check_uvector+0xe4/0x380
+[   12.450777] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 5e 90 e8 04 01 38 02 48 85 c0 74 25 e8 4a a2 d7 ff 48 c7 c7 af 4f 5e 90 31 c0 e8 5c f1 b0 ff <0f> 0b eb 13 e8 33 a2 d7 ff eb 25 e8 2c a2 d7 ff eb 05 e8 25 a2 d7
+[   12.459357] RSP: 0018:ffff88804f73fb28 EFLAGS: 00010246
+[   12.459370] RAX: 93dd6643d9626600 RBX: 000000000000000a RCX: ffffc90001386000
+[   12.459372] RDX: ffffffff8d600000 RSI: 0000000000000639 RDI: 000000000000063a
+[   12.459373] RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da46092
+[   12.459374] R10: ffffed100da46092 R11: 0000000000000000 R12: ffff88804f73fba8
+[   12.459376] R13: ffff88804f73fc40 R14: 0000000020000000 R15: dffffc0000000000
+[   12.459379]  ? 0xffffffff8d600000
+[   12.459382]  ? rw_copy_check_uvector+0xe4/0x380
+[   12.459421]  import_iovec+0x8a/0x2c0
+[   12.459433]  aio_read+0x22d/0x440
+[   12.459457]  ? __handle_mm_fault+0x1db7/0x2f10
+[   12.459472]  ? __fget+0x31a/0x350
+[   12.459477]  io_submit_one+0xe1a/0x2540
+[   12.490427]  ? lookup_ioctx+0x190/0x370
+[   12.492315]  __se_sys_io_submit+0x116/0x2b0
+[   12.494232]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   12.496682]  do_syscall_64+0xd1/0x160
+[   12.498457]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.500871] RIP: 0033:0x467519
+[   12.502386] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.510880] RSP: 002b:00007fc0bee0cc48 EFLAGS: 00000246 ORIG_RAX: 00000000000000d1
+[   12.514355] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.517612] RDX: 0000000020000400 RSI: 0000000000000001 RDI: 00007fc0bedac000
+[   12.520912] RBP: 00007fc0bee0d6bc R08: 0000000000000000 R09: 0000000000000000
+[   12.524049] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.527020] R13: 00000000000001fb R14: 00000000004c28c8 R15: 0000000000701640
+[   12.530985] Dumping ftrace buffer:
+[   12.532522]    (ftrace buffer empty)
+[   12.533767] Kernel Offset: 0xc600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.538559] Rebooting in 1 seconds..

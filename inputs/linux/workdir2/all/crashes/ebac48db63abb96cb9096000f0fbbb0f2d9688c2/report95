@@ -1,0 +1,34 @@
+------------[ cut here ]------------
+Found allocation of tcp_fastopen_context
+WARNING: CPU: 0 PID: 4309 at net/ipv4/tcp_fastopen.c:76 tcp_fastopen_reset_cipher+0x2a/0x2b0 net/ipv4/tcp_fastopen.c:76
+Modules linked in:
+CPU: 0 PID: 4309 Comm: syz-executor.2 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:tcp_fastopen_reset_cipher+0x2a/0x2b0 net/ipv4/tcp_fastopen.c:76
+Code: 55 41 57 41 56 41 55 41 54 53 50 49 89 cd 48 89 d3 49 89 f6 48 89 fd e8 d4 2e 14 fe 48 c7 c7 1f 6e ab 9e 31 c0 e8 66 9f ed fd <0f> 0b 48 c7 c0 60 1e ad 9e 48 c1 e8 03 49 bf 00 00 00 00 00 fc ff
+RSP: 0018:ffff88804cb3fcc0 EFLAGS: 00010246
+RAX: 1c93818bf2a62600 RBX: ffff88804cb3fe00 RCX: ffffc9000098d000
+RDX: ffffffff9ba00000 RSI: 000000000000055c RDI: 000000000000055d
+RBP: ffff888068368f40 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed1009967f11 R11: 0000000000000004 R12: 00000000200003c0
+R13: 0000000000000000 R14: ffff8880678ceb40 R15: ffff88804cb3fe00
+FS:  00007f098ffed700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000047dde0 CR3: 0000000067df0002 CR4: 00000000001606f0
+Call Trace:
+ do_tcp_setsockopt+0x34d/0x2620 net/ipv4/tcp.c:2860
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f098ffecc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000021 RSI: 0000000000000006 RDI: 0000000000000004
+RBP: 00007f098ffed6bc R08: 0000000000000010 R09: 0000000000000000
+R10: 00000000200003c0 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000a97 R14: 00000000004d4ee0 R15: 0000000000701660
+---[ end trace 6df85659349df503 ]---

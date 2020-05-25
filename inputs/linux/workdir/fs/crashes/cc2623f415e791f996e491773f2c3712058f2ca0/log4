@@ -1,0 +1,111 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:16539' (ECDSA) to the list of known hosts.
+2020/04/21 20:38:53 fuzzer started
+2020/04/21 20:38:54 dialing manager at 10.0.2.10:46589
+2020/04/21 20:38:54 syscalls: 49
+2020/04/21 20:38:54 code coverage: enabled
+2020/04/21 20:38:54 comparison tracing: enabled
+2020/04/21 20:38:54 extra coverage: enabled
+2020/04/21 20:38:54 setuid sandbox: enabled
+2020/04/21 20:38:54 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 20:38:54 Android sandbox: enabled
+2020/04/21 20:38:54 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 20:38:54 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 20:38:54 net packet injection: /dev/net/tun does not exist
+2020/04/21 20:38:54 net device setup: enabled
+2020/04/21 20:38:54 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 20:38:54 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 20:38:54 USB emulation: /dev/raw-gadget does not exist
+20:38:54 executing program 0:
+pipe2$9p(&(0x7f0000000000)={<r0=>0xffffffffffffffff}, 0x0)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+splice(r0, 0x0, r1, &(0x7f0000000100), 0x49, 0x0)
+
+20:38:54 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000540)='/proc/asound/timers\x00', 0x0, 0x0)
+vmsplice(r0, &(0x7f0000000800)=[{&(0x7f0000000580)="e7", 0x1}], 0x1, 0x0)
+
+20:38:54 executing program 1:
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+splice(r0, 0x0, r1, 0x0, 0xd1e, 0x0)
+
+20:38:54 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/bus/input/handlers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/110, 0x6e)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+syzkaller login: [   10.666460] audit: type=1400 audit(1587501534.674:8): avc:  denied  { execmem } for  pid=405 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.732814] cgroup1: Unknown subsys name 'perf_event'
+[   10.735615] cgroup1: Unknown subsys name 'net_cls'
+[   10.784193] cgroup1: Unknown subsys name 'perf_event'
+[   10.786666] cgroup1: Unknown subsys name 'net_cls'
+[   10.803918] cgroup1: Unknown subsys name 'perf_event'
+[   10.805867] cgroup1: Unknown subsys name 'perf_event'
+[   10.806583] cgroup1: Unknown subsys name 'net_cls'
+[   10.809731] cgroup1: Unknown subsys name 'net_cls'
+20:38:55 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/bus/input/handlers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/110, 0x6e)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+20:38:55 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/bus/input/handlers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/110, 0x6e)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+20:38:55 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000540)='/proc/asound/timers\x00', 0x0, 0x0)
+vmsplice(r0, &(0x7f0000000800)=[{&(0x7f0000000580)="e7", 0x1}], 0x1, 0x0)
+
+20:38:55 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000540)='/proc/asound/timers\x00', 0x0, 0x0)
+vmsplice(r0, &(0x7f0000000800)=[{&(0x7f0000000580)="e7", 0x1}], 0x1, 0x0)
+
+[   11.861714] ------------[ cut here ]------------
+[   11.863669] Found leaking site of fname
+[   11.863831] WARNING: CPU: 0 PID: 427 at fs/ext4/dir.c:532 call_filldir+0x27d/0x5c0
+[   11.869285] Kernel panic - not syncing: panic_on_warn set ...
+[   11.871873] CPU: 0 PID: 427 Comm: syz-executor.1 Not tainted 5.5.3 #72
+[   11.874579] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.879418] Call Trace:
+[   11.880573]  dump_stack+0x15e/0x1ae
+[   11.882224]  panic+0x228/0x700
+[   11.883650]  ? call_filldir+0x27d/0x5c0
+[   11.885369]  __warn+0x1fe/0x200
+[   11.886670]  ? call_filldir+0x27d/0x5c0
+[   11.888208]  report_bug+0x359/0x480
+[   11.889906]  ? call_filldir+0x27d/0x5c0
+[   11.891590]  do_invalid_op+0x6e/0x110
+[   11.893581]  invalid_op+0x1e/0x30
+[   11.895321] RIP: 0010:call_filldir+0x27d/0x5c0
+[   11.897366] Code: 81 c7 48 06 00 00 48 c7 c6 12 a2 fe 95 e8 bb 39 13 02 48 85 c0 74 2d e8 21 dc b2 ff 48 c7 c7 2b 55 fe 95 31 c0 e8 33 2b 8c ff <0f> 0b eb 1f 0f 1f 44 00 00 66 2e 0f 1f 84 00 00 00 00 00 e8 fb db
+[   11.906206] RSP: 0018:ffff88804b197c40 EFLAGS: 00010246
+[   11.908595] RAX: c2e46264e0924c00 RBX: 0000000000000002 RCX: 0000000000000000
+[   11.912299] RDX: ffff888067915700 RSI: 0000000000000222 RDI: 0000000000000222
+[   11.916044] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff2da8bc3
+[   11.919404] R10: fffffbfff2da8bc3 R11: 0000000000000000 R12: ffff888069fd73a0
+[   11.922840] R13: dffffc0000000000 R14: ffff888069127f80 R15: ffff88804b197ec0
+[   11.926566]  ? kmem_cache_alloc_trace+0x188/0x200
+[   11.928204]  ext4_readdir+0x2492/0x2a40
+[   11.929399]  ? memset+0x1f/0x40
+[   11.930482]  ? down_read_killable+0xcd/0x1c0
+[   11.931911]  iterate_dir+0x2a6/0x510
+[   11.933440]  __se_sys_getdents+0x191/0x3f0
+[   11.935363]  ? fillonedir+0x250/0x250
+[   11.937052]  do_syscall_64+0xd1/0x160
+[   11.938883]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.941255] RIP: 0033:0x4656a8
+[   11.942923] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   11.951874] RSP: 002b:00007ffce244e5c0 EFLAGS: 00000206 ORIG_RAX: 000000000000004e
+[   11.955615] RAX: ffffffffffffffda RBX: 0000000000d98c10 RCX: 00000000004656a8
+[   11.958875] RDX: 0000000000008000 RSI: 0000000000d98c10 RDI: 0000000000000003
+[   11.962067] RBP: 0000000000d98c10 R08: 0000000000000076 R09: 0000000000000000
+[   11.965756] R10: 0000000000000804 R11: 0000000000000206 R12: ffffffffffffffbc
+[   11.968878] R13: 0000000000000016 R14: 0000000000000003 R15: 00000000ffffffff
+[   11.975879] Dumping ftrace buffer:
+[   11.977501]    (ftrace buffer empty)
+[   11.979230] Kernel Offset: 0x12000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   11.983608] Rebooting in 1 seconds..

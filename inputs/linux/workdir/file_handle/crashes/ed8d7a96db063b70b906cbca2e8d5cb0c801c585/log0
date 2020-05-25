@@ -1,0 +1,129 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/20 01:18:52 fuzzer started
+2020/04/20 01:18:53 dialing manager at 10.0.2.10:41351
+2020/04/20 01:18:53 checking machine...
+2020/04/20 01:18:53 checking revisions...
+2020/04/20 01:18:53 testing simple program...
+syzkaller login: [   10.136792] audit: type=1400 audit(1587345533.144:8): avc:  denied  { execmem } for  pid=428 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+2020/04/20 01:18:53 building call list...
+[   10.657659] audit: type=1400 audit(1587345533.665:9): avc:  denied  { create } for  pid=406 comm="syz-fuzzer" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=dccp_socket permissive=1
+2020/04/20 01:18:53 syscalls: 8
+2020/04/20 01:18:53 code coverage: enabled
+2020/04/20 01:18:53 comparison tracing: enabled
+2020/04/20 01:18:53 extra coverage: enabled
+2020/04/20 01:18:53 setuid sandbox: enabled
+2020/04/20 01:18:53 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:18:53 Android sandbox: enabled
+2020/04/20 01:18:53 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:18:53 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:18:53 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:18:53 net device setup: enabled
+2020/04/20 01:18:53 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:18:53 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:18:53 USB emulation: /dev/raw-gadget does not exist
+01:18:54 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a000000020000001c"], 0x0)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='fdinfo/4\x00')
+read(r1, 0x0, 0x0)
+
+01:18:54 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x6, 0x0, "81ec2e2044b8eed229866f474aa81e3e9c9114f80d1673db94c35c584804cafb8c990d2bb9e15fa33c"}, 0x44edc0)
+
+01:18:54 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)=ANY=[@ANYBLOB="0a00000002000000400c"], 0x2f00)
+
+01:18:54 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/dev\x00')
+read(r0, 0x0, 0x0)
+
+[   11.429211] ------------[ cut here ]------------
+[   11.431678] Found allocation of seq_file
+[   11.433908] WARNING: CPU: 1 PID: 533 at fs/seq_file.c:58 seq_open+0xaf/0x1f0
+[   11.437265] Kernel panic - not syncing: panic_on_warn set ...
+[   11.440093] CPU: 1 PID: 533 Comm: syz-executor.1 Not tainted 5.5.3 #45
+[   11.443129] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.448560] Call Trace:
+[   11.449797]  dump_stack+0x15e/0x1ae
+[   11.451379]  panic+0x228/0x700
+[   11.452878]  ? seq_open+0xaf/0x1f0
+[   11.454492]  __warn+0x1fe/0x200
+[   11.455950]  ? seq_open+0xaf/0x1f0
+[   11.457365]  report_bug+0x359/0x480
+[   11.459092]  ? seq_open+0xaf/0x1f0
+[   11.460829]  do_invalid_op+0x6e/0x110
+[   11.462568]  invalid_op+0x1e/0x30
+[   11.464127] RIP: 0010:seq_open+0xaf/0x1f0
+[   11.465962] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f fe a0 e8 39 e3 2e 02 48 85 c0 74 1e e8 7f 74 ce ff 48 c7 c7 6e 59 fe a0 31 c0 e8 91 c3 a7 ff <0f> 0b eb 0c e8 68 74 ce ff eb 05 e8 61 74 ce ff 48 8b 3d 0a 6b 9d
+[   11.474548] RSP: 0018:ffff88804f297a48 EFLAGS: 00010246
+[   11.477005] RAX: 17c85d29aa2dd000 RBX: 0000000000000002 RCX: 0000000000000000
+[   11.479808] ------------[ cut here ]------------
+[   11.480598] RDX: ffff888061f12b80 RSI: 0000000000000000 RDI: 0000000000000000
+[   11.480601] RBP: 1ffff1100c481019 R08: dffffc0000000000 R09: ffffed100d1a6092
+[   11.482864] Found allocation of seq_file
+[   11.486048] R10: ffffed100d1a6092 R11: 0000000000000000 R12: ffff8880624080c8
+[   11.486049] R13: dffffc0000000000 R14: ffffffffa0e21978 R15: ffff888062408000
+[   11.486080]  ? seq_open+0xaf/0x1f0
+[   11.486103]  kernfs_fop_open+0x554/0xb10
+[   11.486107]  ? kernfs_fop_mmap+0x3c0/0x3c0
+[   11.486121]  do_dentry_open+0x810/0xf50
+[   11.486130]  path_openat+0x13e9/0x3d30
+[   11.486150]  do_filp_open+0x191/0x3a0
+[   11.489484] WARNING: CPU: 0 PID: 534 at fs/seq_file.c:58 seq_open+0xaf/0x1f0
+[   11.491208]  ? __alloc_fd+0x4df/0x5a0
+[   11.494620] Modules linked in:
+[   11.497968]  do_sys_open+0x2b6/0x530
+[   11.499636] CPU: 0 PID: 534 Comm: syz-executor.3 Not tainted 5.5.3 #45
+[   11.501444]  do_syscall_64+0xd1/0x160
+[   11.503258] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.504936]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.506673] RIP: 0010:seq_open+0xaf/0x1f0
+[   11.508499] RIP: 0033:0x4169eb
+[   11.511927] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f fe a0 e8 39 e3 2e 02 48 85 c0 74 1e e8 7f 74 ce ff 48 c7 c7 6e 59 fe a0 31 c0 e8 91 c3 a7 ff <0f> 0b eb 0c e8 68 74 ce ff eb 05 e8 61 74 ce ff 48 8b 3d 0a 6b 9d
+[   11.513795] Code: 4e 89 f0 25 00 00 41 00 3d 00 00 41 00 74 40 8b 05 8e 19 87 00 85 c0 75 61 89 f2 b8 01 01 00 00 48 89 fe bf 9c ff ff ff 0f 05 <48> 3d 00 f0 ff ff 0f 87 99 00 00 00 48 8b 4c 24 28 64 48 33 0c 25
+[   11.515425] RSP: 0018:ffff88804c65fa48 EFLAGS: 00010246
+[   11.517318] RSP: 002b:00007ffd2e5941e0 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+[   11.520565] RAX: 33d128125d15e100 RBX: 0000000000000002 RCX: 0000000000000000
+[   11.520586] RDX: ffff888062bac880 RSI: 0000000000000000 RDI: 0000000000000000
+[   11.522443] RAX: ffffffffffffffda RBX: 00007ffd2e59428c RCX: 00000000004169eb
+[   11.528009] RBP: 1ffff1100c4e77a9 R08: dffffc0000000000 R09: ffffed100d186092
+[   11.530685] RDX: 0000000000080001 RSI: 00000000004cdd40 RDI: 00000000ffffff9c
+[   11.532645] R10: ffffed100d186092 R11: 0000000000000000 R12: ffff88806273bd48
+[   11.534224] RBP: 00007ffd2e594270 R08: 0000000000000000 R09: 000000000000001c
+[   11.542763] R13: dffffc0000000000 R14: ffffffffa0e21978 R15: ffff88806273bc80
+[   11.551502] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000004cdd40
+[   11.554147] FS:  000000000292f940(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+[   11.557768] R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+[   11.560900] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   11.596565] CR2: 0000000000458d40 CR3: 000000004c660001 CR4: 00000000003606f0
+[   11.599878] Call Trace:
+[   11.601051]  kernfs_fop_open+0x554/0xb10
+[   11.602880]  ? kernfs_fop_mmap+0x3c0/0x3c0
+[   11.604890]  do_dentry_open+0x810/0xf50
+[   11.606797]  path_openat+0x13e9/0x3d30
+[   11.608513]  ? do_sys_open+0x274/0x530
+[   11.610313]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.612772]  ? filemap_map_pages+0xf67/0xfc0
+[   11.614802]  do_filp_open+0x191/0x3a0
+[   11.616446]  ? __alloc_fd+0x4df/0x5a0
+[   11.618085]  do_sys_open+0x2b6/0x530
+[   11.619772]  do_syscall_64+0xd1/0x160
+[   11.621586]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.624076] RIP: 0033:0x4169eb
+[   11.625600] Code: 4e 89 f0 25 00 00 41 00 3d 00 00 41 00 74 40 8b 05 8e 19 87 00 85 c0 75 61 89 f2 b8 01 01 00 00 48 89 fe bf 9c ff ff ff 0f 05 <48> 3d 00 f0 ff ff 0f 87 99 00 00 00 48 8b 4c 24 28 64 48 33 0c 25
+[   11.634667] RSP: 002b:00007fff41afef30 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+[   11.638382] RAX: ffffffffffffffda RBX: 00007fff41afefdc RCX: 00000000004169eb
+[   11.641818] RDX: 0000000000080001 RSI: 00000000004cdd40 RDI: 00000000ffffff9c
+[   11.645243] RBP: 00007fff41afefc0 R08: 0000000000000000 R09: 000000000000001c
+[   11.648634] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000004cdd40
+[   11.652118] R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+[   11.655595] ---[ end trace 247d306e3bd9b822 ]---
+[   11.661498] Dumping ftrace buffer:
+[   11.663108]    (ftrace buffer empty)
+[   11.664889] Kernel Offset: 0x1d000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   11.669711] Rebooting in 1 seconds..

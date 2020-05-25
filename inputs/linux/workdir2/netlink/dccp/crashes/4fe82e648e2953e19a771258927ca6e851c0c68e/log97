@@ -1,0 +1,339 @@
+Warning: Permanently added '[localhost]:8594' (ECDSA) to the list of known hosts.
+[   25.494659] audit: type=1400 audit(1586571933.033:11): avc:  denied  { map } for  pid=1588 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/11 02:25:33 fuzzer started
+2020/04/11 02:25:33 dialing manager at 10.0.2.10:37242
+2020/04/11 02:25:33 syscalls: 30
+2020/04/11 02:25:33 code coverage: enabled
+2020/04/11 02:25:33 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/11 02:25:33 extra coverage: enabled
+2020/04/11 02:25:33 setuid sandbox: enabled
+2020/04/11 02:25:33 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/11 02:25:33 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/11 02:25:33 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/11 02:25:33 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/11 02:25:33 net packet injection: /dev/net/tun does not exist
+2020/04/11 02:25:33 net device setup: enabled
+2020/04/11 02:25:33 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/11 02:25:33 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/11 02:25:33 USB emulation: /dev/raw-gadget does not exist
+[   28.329711] audit: type=1400 audit(1586571935.868:12): avc:  denied  { map } for  pid=1607 comm="syz-executor.3" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   28.342141] audit: type=1400 audit(1586571935.868:13): avc:  denied  { map } for  pid=1606 comm="syz-executor.1" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+02:25:35 executing program 1:
+socket$inet(0x2, 0xa, 0x101)
+socket$inet(0x2, 0xa, 0x5)
+r0 = socket$inet_icmp(0x2, 0x2, 0x1)
+accept4$inet(r0, &(0x7f0000000000)={0x2, 0x0, @remote}, &(0x7f0000000040)=0x10, 0x800)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+getsockopt$inet6_IPV6_IPSEC_POLICY(0xffffffffffffffff, 0x29, 0x22, &(0x7f00000000c0)={{{@in, @in=@multicast1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r2=>0x0}}, {{@in6=@dev}, 0x0, @in=@dev}}, &(0x7f00000001c0)=0xe8)
+r3 = getuid()
+getsockopt$inet6_IPV6_IPSEC_POLICY(0xffffffffffffffff, 0x29, 0x22, &(0x7f0000000200)={{{@in6=@dev, @in=@initdev, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r4=>0x0}}, {{@in6=@ipv4={[], [], @multicast2}}, 0x0, @in=@multicast2}}, &(0x7f0000000300)=0xe8)
+sendmsg$nl_xfrm(r1, &(0x7f0000001500)={&(0x7f0000000080)={0x10, 0x0, 0x0, 0x80}, 0xc, &(0x7f00000014c0)={&(0x7f0000000340)=@expire={0x1148, 0x18, 0x8, 0x70bd2a, 0x25dfdbfd, {{{@in6=@dev={0xfe, 0x80, [], 0x27}, @in6=@mcast1, 0x4e22, 0x3ff, 0x4e23, 0x0, 0x2, 0x0, 0xa0, 0x16, r2, r3}, {@in6=@ipv4={[], [], @multicast1}, 0x4d3}, @in6=@empty, {0x7, 0x20, 0x2, 0x0, 0x7ff, 0x400, 0x5, 0x8}, {0x9, 0x7fffffff, 0x1, 0x400}, {0x7, 0x3ff, 0x1}, 0x70bd2d, 0x34ff, 0xa, 0x1, 0xcd, 0x18}, 0x7}, [@sec_ctx={0x100c, 0x8, {0x1008, 0x8, 0x0, 0xfd, 0x1000, "ad58aca821b68aa1a63fc367005bf4f84d6b9211c3053e45bb9ffcb6a3450ce3100214eb84f0cba16cebae670c8a4db31b03b9e70bfb59662f6012300c0ad341641c9b1b885a9b0363b5944a914de23211602ac462e6e53737755b0666c9d7e35805867a11da828c0cfad2aedfcb98eff081623fdf0ce1cf8921bf07eac04fcc863c7ffe69b54fefcbf3d3293947c74d8bedafdd427a4839d1930a984c1bbc6cf58cb58339ed35e1048a4e64fc9f9bfc5dd8302d99ec27f43e4ba952b0ec5949b3db678ff08b2d78c89f25bb7636b918bee5c005d29609b343931f17ef003e54ce61da7048de1a0ac2cc8d16f3d694380ce457800aea390ff78a1ae5ea45fdb0605b39df68b5ea4b76db228af3f88f386c56e0bc11e01775c1065bd9e6b51c3121a6ac08ca7aaf231f52c36a27babf86b0fa63249d6f213a2e909ab63efe91cb7cf7abaa4eb474db2b83126fad10a34dc8b1800fe42a270ab54848e6f3f3b42234f87ba69f9a49664d08d415895665c0f91f85ffb2126b2fd1791ffe657843c627a98155c5e6811821555a84c624b53b8f14bf648eeaa5852ba8140e5569ba8880d7e363a8f3af011ac10cd42370240edd1681799e001c63f926f2bb8f2f981a102470a8af76d275c1539515dd4fcc2020b00bd56d3ce4e01a321410aa1836f01141e3e29ccbf757c284a9f8a2a20f516314406423342bfa4411b6cc9441bbcd269ceb64fea2e5d1315c0b544c3e2e1e68d934c86d5c50764134921bd600056a2b8a83c27952b513141c8042a571649862fb6de54a6e02ebc009918ddec8118560b8cd56c47982dcd35a2558fdc3ea6e3a8167e1ff155e7b8026ae0809abbc50a6755aa2c56ecccd4a79af4941e8ec028dc6093facdedf05064abe775b963976c20e0a09ef7db3d71a7fe02c88b22b5fcae1908c511f4db0793385678f996519572a3048be2aed093bc0f3a55b379ccce9ab9c464a8e2be67675c8729dfa547c1363919354208c295dccd5d186271f889b736350b491465c96805b7fd52c1b535da0ae758abd2bb0d3ed5c4d587166c1ddc11f265de505c9ebcc1cf6135e0f05dd1998795159162f849376b26b303d18a656c984512597241ddbafbb41a687e1facf6924539bd5191667f009519019c44fec9056598205f9a633336f43e4c632fa3c6cb5c36579c4b74d20846372011e69b738d840fe887a66ee40109dfb734ac97360d096e961d556a3b0a20199e329a786326b82dde38dd3a55296ff5e190ea83acfd4b95b02fe58cab5e6321a1cea702633a87911b8e167b5361f2a197ea856758cdf41c5fb79348ba3327832e72ecbd73a1472e535a35184a7e699105ad0c464513ce094f478ef4a8b51c802ba4d9c986244a6bf505ea27dcb3a49caee46321cc9293636aa67b1f10522a38b68ab671d043d6030425759e8fcb1b713f9e699c025c7190ce61f8af8a14066386dec1b5f93367a6ebd1055764f05e2044a4e3d16ff79fa239b5878b2f08c0a0dc7a79106a5d661387cef4c2a789a2188802b0633cf2c2151dac77d4f2cd61252352a473aa190eaee5fbed56e1ab5c51e4027ba541c377b26d0bad772438d4ecb1adc23fd3cce2ce760a309e8be87a306030fb32b49abbe37f0f8aa54e8f80863f67c0a151f1943bc47c208e95793ae44a07ca23d7cf721fced8c3c8d0d34e31488b82abe578bf5a0407b9fe394adde35838da42679ff823fb37f1c01cde8ce8512e797cea3fe1ac09afbc3aec2e6e802787d5ba7a252c159966ade83aa53ed7529b828c3a91a4984e6249b375895bb09a4bfd59865c2684d397d184c8d58e953dfe39135076f5545f35c95526a3e3bbab58150acf3e75706971bdc2b48d52d018ce5c1a167b40a418031d9d332c6b9266124483f7c2f938ce94fdda878d10b884a5dec25592c11261ac5949a463f3521571244dfb4f3e9001de3514b2086e50237e67e84d96e5c124aed95862d8433d5ad15ac8d228f690101760bf9f21017bccb53fc4381a22dc330972cdec42bdcce96f1b976cbe27fbd80fe10286ebb06b0620a34db15bdf6aa76547b7d9dab30565e512c8b8eee745775971e50859546c25e2a13d691fcdd66cc87246f97cd46e893bb2166a25d591dbff2c57894f40104ede8a38e4f1b637a3bfe2015a3d46d6b1e802eb4a2eae045fd1bb03e6ad1c7a338709710acd8a79df08b01bf3327684323a447e371e8034abee2a620a43340f608511ab3f099a7a7643a98a76691a01c48be018acb9debb4a83123dff5d65121d2c8414c7ddc60d6e44237d95a2fe4056fe31e11ec7339f846a5be35daac78a20e7372d7162e61a710735aa150038a2f5174fd7efdd492f86bc29f86123892fa7d3e1c516483c7e5f14da08394149897e7d186cb70a3f3078baee658b4d67e12f9dd2b5a06b5d1de7b556c2add33d946d81d5f511290e3c6644dc6be0aeb764a33824f6859bbd6d4fa7f7fddd7289b49d211565c815034cd5e76db0d679f313d659dd04080e519a1dfc7dc1d0c4338a1818f26208670175107788b2d4986e9f524493e863f988a21c09cfe44eb48064b30dd9711102f175a1c0d8ccfa701ac7a2bbb72ebe28ca89e45819169078d36b97364f8bc06b2f33d1243bd42fb5307c9d57082aba51522d1d843697c74b1e0f6e1a860a60ee52a9953fc8ec5314483c4e80119258141b82c54dbf8287416672d235e2065bf6e35f9c2ed9ea2767e041715131664330715122a4496d14ccc5ff31ec67e9881f810b035cef61954a09ce2f5d4f6e0f882c90ecd1f482d98e9f7d6243dbde04df0b5efc2cda08db0c336112c56a138bf6fa32db3f9d4f4423ec12360df0f71f7c3bdd74a057972edefe5679cce54d7ffaf1365658b55a038436ec72e1e139b23ffa2999feff04ad812f39babb66b3cdd7c1b8ea582f529d879dd484750d4cd74b4ef00b8dfec84d9310b647644b3280ded95e3e2417c249ceeea3f354c2114493caa67900bfa255d089123a217f347d8692d2e3c3258601769bf264a03252495865a1fed8881d34d3c54186778b80d7fb6831a2455bbc1ed9988a66830e58a0d858c760ffbfc9d5bb50c707f3d1211fe66159a335a950433179a4dd5179ee1021ebcbd444d248ba79eed31bc6012fb74e1cef4f36da7514939a60bc613e5e253317a10b38b5523d9118c054a9715d40fae97c6631c6ef1903af3878629d59f0c51670ef0527fe72dd4393f627c3073f5bfa9ae25eb890d868687cd38239ac57af2b79e134ce30976b75567a55a781a51f5de1eef0c1ace7eb258cbb80a087dcdc0437fdc6c4000154fc410ca97b82e884b88e97f38bcc4ad757bdd76cca1357842bbf45abd4ee3c4cd2c4fdd068da2fa62dd8a2f6d28066896a913b2c83779b8f0ba35a6c760a1e7005ee46f888a64bd20a71bbbeccc6d1c548785f5fe8ac83c9611a028b12463c39914b362da1bc717b623d2f8a064042a926e7fd478fa18c4f1a428ddf19d90583be06fbe58c243f624f09501adc9993d8895cfda1d0721e19e7b21f18233d996ccfe8e0cdf3966240c5ecfecacb4c939413eb0646afcd54244a85ab402bee56f9551089b9c8e09a7226391538624ccb38dc75805e015b16b0570de7c1c04dead22687ca12e049247440084be5b797cf36e8d7aa5633bc50a06e5a0ec909aca92b4c384225a43c7ed70eef679b061833ed77325efda08b0f14523d3eff8aaa9b392dc18accba3a0e48ca7207faf5d872732955a6df0a2b1a19dfc7d7a1fb801195c3155ca1e0415f6d47e60b79cf1381bc448a6344355ff19ac205ffaa770a69e27b9fdc9a92797b5d27af3e1a4d5c051aed94a0083ef6403c11db4ddf3c6c20cbcb51097c7c0d382f220e05a3552b4f918612a73e37c57ca5143de1d838117d592a0fc47922a86d764b9a076ac4420721e7366bff26a47ebb1836dcae94a107e45b1beee767cfb3c58dedcb54907f2fc0ae32720397e912763dfa8df7712cc6ba1bf84b818dc8a933afa634c236d4d17532e2f90871157c3c154b410137f528d7f73d712bb374b74a2cd48bc5b812b05853c4aaef8f95019547ede49f9978e587717d5a2204efe709bf348be790630303a60153b46901e929b2bba6c63b9d43e7d9a3ab5e60bf3a780bbec8994ee36b37128ea60d29bd1d639535bcdf89c0688e0d4133ded72de4aa196a098b76b1d1b1a052fc96adea0da71c6d4b13088998e7dfdb6508d26e9c7e04b4c2106fa2f59b6d068d8ce4179c33d27c7a8bbd739b558fcd1b3fd483978716cffcaeaf09d6c5c1796fbd25a671ce905e2519b0f07b987d2d541dbb982fd0f837c0e2fed74a2ecc58636e88f40ede080bccd52da5f2ddd79a17fe27c75b518f9e155a9104f54007099a1bf39be290e5cebe57ffd031916e23b0fcaee366421904160c5dcb894cc30d8420e90798f1dfc814a7a40f1c1568ed7e63d01a1727de6d2646ec64b1b20cf1cb6b7d2ba03e07a7064c357b35398b701443fd8d7629320e916e5dfad42ccf83f9df1ab15fa8c20a87c245e80eb76f64a45a39a8841c430cd0b2e7bdbddfb05c3ed469e63246d75869942611fb0f832b1fa6d0bc22c819146840fb8afcc23d86ba6f33fc887c45dc56cd907138b8a0c9a86dde4374d429ede639af3f3fdfdff311409fc61e698d167a73b918fc5255ae140226a103996dde686275b61b692d1d2593140bc431bc3616fd5f2fa3157fd5c4ef7bb11330dc1dbf22007d4788f08ec85fc3a46c6f9f61764d7c0e6e1f5fdb82bcb461123e3aed3982a9f6f228c7da12d7912dae7e78f5b2aabd55afd468a1e4fbf0accd16ef9b1cb516c3dfca47eae1065ce29055225c549763a31ecdaa48835934165f4fe44c694d2116f0681c8488955979c99b74830fd95386d2db6a40afad43c20b8c7d4dc03fe4f630628c0a5433ef3b3ddc0a379c6a3bcd352f4d1a7e43c440eff17b634ff9f72915a100d6ef78b8b9e5d583cfda93ee3f72d665e8e51b1e6e64842b0e7595b10ba85b4756c6d21aeba71a19d6bd7ffa07cd3d1103c1f86e747037c39691e1359ada9cb54244c1ec34481006b8e170ec1e9dfb34822607f1a079d8f68e46869044bb001bfd52b8f707f4e5ad46a96c959bd2c7560bceace36b2b833f8c00254752c43f98cf98a853363fa28c5006ea83159f7f462be7de6fb0fe96b639e8b171f7847c3cdc106de00f7ad512bc604a5b19a1b7546fe908dda8441fe337b6e5ac68f325c7345486e516b7450ea2a4691d62b85e9bdd713778cfcbe29f8a9f6da4ecd395d8ee7198b4ecc3db4491f5744f010ba9400a7e244e06530c39208e78ceed8f32211875fb6f648ef79881af85653c52a121251aed062ed327e4253e389eb26c325a6fc7ffcc7e17368eb2d0cb8dcfc317cffba0f07aaf07fa16ea99a53db7e77d895fe83bdea0cb57902d2ab7f3209a5dc7c4f9157e1f0c51246f09ecfbe8d0db71eef169f47a2ccfb55d5be707d90d6bc9c45b30fc7bdc2ec3938048abc57ba2ca675c5e72f1d4b899aa0fb93e43a529ddacc1cf4966cf9d80f4b27c909e8ecc9c6bbf0bda33f2baccdd3737d1151cf441f1bb9c2f033056e2c1de70c792a292362ccfacad4a17d371598522f41a88430149e118e80744e22238254e601f8b8028bea51255174e44e852254cb344c13c47bdea624571f3a36661471c381ecb53842110db16de5b75589dc7f22bedab298aa471aa01beb46333f1ced09c55a47f25a9ba7466dfba57aaf3fe91bf618dc6830a0d1bc1d7fa84745ee2b5b1ce224f22142f903"}}, @replay_thresh={0x8, 0xb, 0xe2}, @XFRMA_IF_ID={0x8, 0x1f, r4}, @replay_esn_val={0x24, 0x17, {0x2, 0x70bd27, 0x70bd27, 0x70bd2c, 0x70bd2d, 0x9, [0x401, 0x81]}}, @replay_val={0x10, 0xa, {0x70bd29, 0x70bd2c, 0xb431}}]}, 0x1148}, 0x1, 0x0, 0x0, 0x10}, 0x81)
+socket$inet_icmp(0x2, 0x2, 0x1)
+socket$inet(0x2, 0xa, 0x7fffffff)
+socket$inet(0x2, 0x6, 0x0)
+r5 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r5, &(0x7f0000001600)={&(0x7f0000001540)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f00000015c0)={&(0x7f0000001580)=@getsa={0x34, 0x12, 0x4, 0x70bd26, 0x25dfdbfb, {@in6=@empty, 0x4d5, 0xa, 0xff}, [@policy_type={0xa, 0x10, {0x1}}]}, 0x34}, 0x1, 0x0, 0x0, 0x2000c005}, 0x0)
+socket$inet(0x2, 0x3, 0xfff)
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+r6 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+getsockopt$inet_IP_IPSEC_POLICY(r6, 0x0, 0x10, &(0x7f0000001640)={{{@in6=@dev, @in=@local}}, {{@in6=@local}, 0x0, @in6=@mcast1}}, &(0x7f0000001740)=0xe8)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000001b40)={&(0x7f0000001780)={0x10, 0x0, 0x0, 0x10000}, 0xc, &(0x7f0000001b00)={&(0x7f0000001900)=@newae={0x1d4, 0x1e, 0x400, 0x70bd2a, 0x25dfdbfe, {{@in6=@ipv4={[], [], @broadcast}, 0x4d2, 0x2, 0x33}, @in6=@dev={0xfe, 0x80, [], 0x1a}, 0x9, 0x3504}, [@policy={0xac, 0x7, {{@in=@loopback, @in6=@empty, 0x4e21, 0x0, 0x4e21, 0x5, 0x2, 0x80, 0x20, 0x4, 0x0, r3}, {0x1, 0x0, 0xbba1, 0xe8, 0x8, 0x80000001, 0x10000, 0x8}, {0x7, 0x2, 0x3f, 0x1f}, 0x2, 0x6, 0x0, 0x0, 0x0, 0x3}}, @migrate={0xe8, 0x11, [{@in=@empty, @in=@rand_addr=0x8001, @in=@dev={0xac, 0x14, 0x14, 0x11}, @in=@loopback, 0x3c, 0x4, 0x0, 0x3501, 0x0, 0x2}, {@in6=@ipv4={[], [], @broadcast}, @in6=@local, @in6=@remote, @in=@broadcast, 0x32, 0x4, 0x0, 0x3504, 0xa, 0x2}, {@in6=@dev={0xfe, 0x80, [], 0x15}, @in=@loopback, @in6=@mcast2, @in=@multicast2, 0x2b, 0x2, 0x0, 0x3500, 0xa, 0x2}]}]}, 0x1d4}, 0x1, 0x0, 0x0, 0x44801}, 0x20000090)
+
+02:25:35 executing program 0:
+socket$inet_udplite(0x2, 0x2, 0x88)
+socket$inet_tcp(0x2, 0x1, 0x0)
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f0000000000)={{{@in=@dev, @in6=@loopback}}, {{@in6=@ipv4={[], [], @dev}}, 0x0, @in6=@dev}}, &(0x7f0000000100)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000140)={{{@in6=@dev, @in=@remote}}, {{@in=@initdev}, 0x0, @in6=@local}}, &(0x7f0000000240)=0xe8)
+r0 = socket$inet(0x2, 0x2, 0x35934038)
+socket$inet(0x2, 0x6, 0x4)
+fstat(r0, &(0x7f0000000280))
+socket$inet(0x2, 0x3, 0x1ff)
+socket$inet_icmp(0x2, 0x2, 0x1)
+r1 = socket$inet6_tcp(0xa, 0x1, 0x0)
+fstat(r1, &(0x7f0000000300))
+socket$inet_udp(0x2, 0x2, 0x0)
+socket$inet(0x2, 0x800, 0x4)
+getsockopt$inet_IP_IPSEC_POLICY(r0, 0x0, 0x10, &(0x7f0000000380)={{{@in=@empty, @in=@dev}}, {{@in=@remote}, 0x0, @in6=@empty}}, &(0x7f0000000480)=0xe8)
+r2 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+getsockopt$inet_IP_XFRM_POLICY(r2, 0x0, 0x11, &(0x7f00000004c0)={{{@in=@remote, @in6=@dev}}, {{@in6=@loopback}, 0x0, @in6=@mcast1}}, &(0x7f00000005c0)=0xe8)
+r3 = socket$inet(0x2, 0x5, 0x4697d98f)
+accept4$inet(r3, &(0x7f0000000600)={0x2, 0x0, @dev}, &(0x7f0000000640)=0x10, 0x80000)
+r4 = accept$inet6(0xffffffffffffffff, &(0x7f0000000680)={0xa, 0x0, 0x0, @empty}, &(0x7f00000006c0)=0x1c)
+getsockopt$inet6_IPV6_IPSEC_POLICY(r4, 0x29, 0x22, &(0x7f0000000700)={{{@in6=@empty, @in=@remote}}, {{@in6}}}, &(0x7f0000000800)=0xe8)
+
+02:25:35 executing program 3:
+socket$inet_udplite(0x2, 0x2, 0x88)
+r0 = socket$inet6_udp(0xa, 0x2, 0x0)
+fstat(r0, &(0x7f0000000000))
+newfstatat(0xffffffffffffff9c, &(0x7f0000000080)='./file0\x00', &(0x7f00000000c0), 0x1000)
+lstat(&(0x7f0000000140)='./file0\x00', &(0x7f0000000180))
+r1 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+accept4$inet(r1, &(0x7f0000000200)={0x2, 0x0, @loopback}, &(0x7f0000000240)=0x10, 0x40000)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000000440)={&(0x7f0000000280)={0x10, 0x0, 0x0, 0x8000}, 0xc, &(0x7f0000000400)={&(0x7f00000002c0)=@flushpolicy={0x120, 0x1d, 0x300, 0x70bd2c, 0x25dfdbfb, "", [@tmpl={0x104, 0x5, [{{@in=@dev={0xac, 0x14, 0x14, 0x22}, 0x4d2, 0xff}, 0x2, @in=@rand_addr=0x2, 0x3500, 0x3, 0x0, 0x0, 0x7, 0x1, 0x10001}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, 0x4d2, 0x32}, 0xa, @in=@dev={0xac, 0x14, 0x14, 0x1d}, 0x34ff, 0x2, 0x0, 0x1, 0x68, 0x40, 0x5}, {{@in=@broadcast, 0x4d6, 0xff}, 0x2, @in=@loopback, 0x3503, 0x3, 0x2, 0xf9, 0x5, 0x2, 0x9}, {{@in=@remote, 0x4d5, 0x3c}, 0x2, @in=@multicast2, 0x34ff, 0x4, 0x3, 0x1, 0x99, 0x4, 0x3ff}]}, @lastused={0xc, 0xf, 0x96}]}, 0x120}, 0x1, 0x0, 0x0, 0x4008000}, 0x4000801)
+socket$inet_icmp_raw(0x2, 0x3, 0x1)
+lstat(&(0x7f0000000480)='./file0\x00', &(0x7f00000004c0))
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r2, &(0x7f0000000600)={&(0x7f0000000540)={0x10, 0x0, 0x0, 0x80}, 0xc, &(0x7f00000005c0)={&(0x7f0000000580)=@getspdinfo={0x14, 0x25, 0x100, 0x70bd2d, 0x25dfdbfb, 0x7f, ["", ""]}, 0x14}, 0x1, 0x0, 0x0, 0x4}, 0x4000000)
+newfstatat(0xffffffffffffff9c, &(0x7f0000000640)='./file0\x00', &(0x7f0000000680), 0x4000)
+r3 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+getsockopt$inet_IP_XFRM_POLICY(r3, 0x0, 0x11, &(0x7f0000000700)={{{@in6=@loopback, @in=@multicast1}}, {{@in6}, 0x0, @in=@empty}}, &(0x7f0000000800)=0xe8)
+newfstatat(0xffffffffffffff9c, &(0x7f0000000840)='./file0\x00', &(0x7f0000000880), 0x1000)
+r4 = socket$inet6_tcp(0xa, 0x1, 0x0)
+getsockopt$sock_cred(r4, 0x1, 0x11, &(0x7f0000000900), &(0x7f0000000940)=0xc)
+lstat(&(0x7f0000000980)='./file0\x00', &(0x7f00000009c0))
+lstat(&(0x7f0000000a40)='./file0/file0\x00', &(0x7f0000000a80))
+
+02:25:35 executing program 2:
+r0 = socket$inet_icmp(0x2, 0x2, 0x1)
+r1 = socket$inet6_icmp(0xa, 0x2, 0x3a)
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f0000000000)={{{@in=@local, @in6=@ipv4={[], [], @dev}}}, {{@in6=@remote}, 0x0, @in=@multicast2}}, &(0x7f0000000100)=0xe8)
+r2 = accept4$inet6(0xffffffffffffffff, &(0x7f0000000140)={0xa, 0x0, 0x0, @local}, &(0x7f0000000180)=0x1c, 0x80800)
+getsockopt$sock_cred(r2, 0x1, 0x11, &(0x7f00000001c0), &(0x7f0000000200)=0xc)
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f0000000240)={{{@in6=@empty, @in=@initdev}}, {{@in6=@loopback}, 0x0, @in=@initdev}}, &(0x7f0000000340)=0xe8)
+accept$inet6(r2, &(0x7f0000000380)={0xa, 0x0, 0x0, @mcast1}, &(0x7f00000003c0)=0x1c)
+socket$inet_tcp(0x2, 0x1, 0x0)
+r3 = socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+accept$inet6(r3, &(0x7f0000000400)={0xa, 0x0, 0x0, @remote}, &(0x7f0000000440)=0x1c)
+newfstatat(0xffffffffffffff9c, &(0x7f0000000480)='./file0\x00', &(0x7f00000004c0), 0x800)
+r4 = accept4$inet6(0xffffffffffffffff, &(0x7f0000000540)={0xa, 0x0, 0x0, @ipv4}, &(0x7f0000000580)=0x1c, 0x80000)
+getsockopt$inet6_IPV6_XFRM_POLICY(r4, 0x29, 0x23, &(0x7f00000005c0)={{{@in6=@mcast2, @in=@local}}, {{@in=@local}, 0x0, @in=@local}}, &(0x7f00000006c0)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(r0, 0x0, 0x10, &(0x7f0000000700)={{{@in6=@ipv4={[], [], @empty}, @in=@broadcast}}, {{@in6=@dev}, 0x0, @in6=@empty}}, &(0x7f0000000800)=0xe8)
+socket$inet_icmp(0x2, 0x2, 0x1)
+socket$inet6(0xa, 0x2, 0x7)
+r5 = accept$inet6(0xffffffffffffffff, &(0x7f0000000840)={0xa, 0x0, 0x0, @ipv4={[], [], @initdev}}, &(0x7f0000000880)=0x1c)
+accept$inet6(r5, &(0x7f00000008c0)={0xa, 0x0, 0x0, @dev}, &(0x7f0000000900)=0x1c)
+stat(&(0x7f0000000940)='./file0\x00', &(0x7f0000000980))
+socket$inet6_icmp_raw(0xa, 0x3, 0x3a)
+
+[   28.415995] cgroup1: Unknown subsys name 'perf_event'
+[   28.419487] cgroup1: Unknown subsys name 'net_cls'
+[   28.556364] cgroup1: Unknown subsys name 'perf_event'
+[   28.558671] cgroup1: Unknown subsys name 'net_cls'
+[   28.573884] cgroup1: Unknown subsys name 'perf_event'
+[   28.576663] cgroup1: Unknown subsys name 'net_cls'
+[   28.587111] cgroup1: Unknown subsys name 'perf_event'
+[   28.590632] cgroup1: Unknown subsys name 'net_cls'
+[   29.232124] audit: type=1400 audit(1586571936.770:14): avc:  denied  { create } for  pid=1610 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   29.242808] audit: type=1400 audit(1586571936.770:15): avc:  denied  { write } for  pid=1610 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   29.253124] audit: type=1400 audit(1586571936.782:16): avc:  denied  { read } for  pid=1610 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   31.610638] audit: type=1400 audit(1586571939.149:17): avc:  denied  { associate } for  pid=1610 comm="syz-executor.1" name="syz1" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   31.669571] syz-executor.1 uses obsolete (PF_INET,SOCK_PACKET)
+02:25:39 executing program 1:
+socket$inet6_tcp(0xa, 0x1, 0x0)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000600)={0x0, 0x0, &(0x7f00000005c0)={&(0x7f0000000240)=@updsa={0x13c, 0x1a, 0x1, 0x0, 0x0, {{@in=@broadcast, @in6=@remote}, {@in6=@empty, 0x0, 0x33}, @in6=@dev, {}, {}, {}, 0x0, 0x0, 0x2}, [@algo_auth_trunc={0x4c, 0x14, {{'digest_null\x00'}}}]}, 0x13c}}, 0x0)
+
+02:25:39 executing program 1:
+lstat(&(0x7f00000000c0)='./file0/file0\x00', 0x0)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+fstat(r0, &(0x7f0000000000))
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000000c0)=@allocspi={0xf8, 0x16, 0x1, 0x0, 0x0, {{{@in6=@mcast1, @in=@initdev={0xac, 0x1e, 0x0, 0x0}}, {@in=@broadcast, 0x0, 0x6c}, @in6=@ipv4}}}, 0xf8}}, 0x0)
+r1 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(r1, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(r1, 0x29, 0x23, &(0x7f0000000a00)={{{@in6, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r2=>0x0}}, {{@in6=@mcast1}, 0x0, @in6=@ipv4={[], [], @empty}}}, &(0x7f0000000040)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@empty, @in=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in6=@ipv4}, 0x0, @in=@remote}}, &(0x7f0000000500)=0x92)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=@polexpire={0xc0, 0x1b, 0x0, 0x0, 0x0, {{{@in=@local, @in6=@empty, 0x0, 0x0, 0x4e21, 0x0, 0xa, 0xa0, 0xa0, 0x2d, 0x0, r3}, {0x28, 0x1, 0xfffffffffffffc00, 0x20, 0x200, 0x80, 0x61a}, {0x9, 0x81, 0x9, 0x5}, 0x8, 0x0, 0x1, 0x1, 0x2}, 0x6}}, 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x1)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000009c0)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f00000008c0)=@expire={0x100, 0x18, 0x200, 0x70bd2a, 0x25dfdbfb, {{{@in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@local, 0x4e20, 0x8001, 0x4e22, 0xa1, 0x2, 0x0, 0x10, 0x6, r2, r3}, {@in6=@empty, 0x4d6, 0x33}, @in=@broadcast, {0x5, 0x5, 0x81, 0x4, 0x4, 0x7, 0x9d, 0xfffffffffffffff9}, {0x0, 0x80000000, 0x9}, {0x400, 0xecf, 0x10000}, 0x70bd2b, 0x0, 0x2, 0x1, 0x11, 0x1}, 0x9}, [@replay_thresh={0x8, 0xb, 0x8}]}, 0x100}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000080)={&(0x7f0000000700)=ANY=[@ANYBLOB, @ANYRES32=r2, @ANYRES32=0xee00, @ANYBLOB="0700000000000000b9090000000000000500000000000000010000000000000007000000000000000300000000000000e0635130000000000516119e7cc5d596d27af209000000000000000900000000ade1366dbbfb7800000004000000000000000400000000000000620000000000000001000000bc6b82000100000100000001ce0000000000000010000a002abd70002cbd7000040000000c000f000080000000000000080018000100000008001d00ffffff7f9c0011007f00000100000000000000000000000000000000000000000000900544956b000000000001fe8000000000000000000000000000aaff0100000000000000000000000000013303001c4f735372d022d9ab7f2f7512cd836d000035000008000200ac1e0101000000000000000000000000fe80000000000000000000000000001f00000000000000000000000000000001000000000000000000000000000000006c000000053500000200020003855bd6cbf8dcea5a524f641cfbc592c6df69d4503fe95662586da239499b6d6bf1de482c3883674a2bf797caf594e067a33beb13bb"], 0x4}}, 0x0)
+r4 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r4, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000000c0)=@allocspi={0xf8, 0x16, 0x1, 0x0, 0x0, {{{@in6=@mcast1, @in=@initdev={0xac, 0x1e, 0x0, 0x0}}, {@in=@broadcast, 0x0, 0x6c}, @in6=@ipv4}}}, 0xf8}}, 0x0)
+r5 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(r5, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(r5, 0x29, 0x23, &(0x7f0000000a00)={{{@in6, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r6=>0x0}}, {{@in6=@mcast1}, 0x0, @in6=@ipv4={[], [], @empty}}}, &(0x7f0000000040)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@empty, @in=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r7=>0x0}}, {{@in6=@ipv4}, 0x0, @in=@remote}}, &(0x7f0000000280)=0xe8)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=@polexpire={0xc0, 0x1b, 0x0, 0x0, 0x0, {{{@in=@local, @in6=@empty, 0x0, 0x0, 0x4e21, 0x0, 0xa, 0xa0, 0xa0, 0x2d, 0x0, r7}, {0x28, 0x1, 0xfffffffffffffc00, 0x20, 0x200, 0x80, 0x61a}, {0x9, 0x81, 0x9, 0x5}, 0x8, 0x0, 0x1, 0x1, 0x2}, 0x6}}, 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x1)
+sendmsg$nl_xfrm(r4, &(0x7f00000009c0)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f00000008c0)=@expire={0x100, 0x18, 0x200, 0x70bd2a, 0x25dfdbfb, {{{@in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@local, 0x4e20, 0x8001, 0x4e22, 0xa1, 0x2, 0x0, 0x10, 0x6, r6, r7}, {@in6=@empty, 0x4d6, 0x33}, @in=@broadcast, {0x5, 0x5, 0x81, 0x4, 0x4, 0x7, 0x9d, 0xfffffffffffffff9}, {0x0, 0x80000000, 0x9}, {0x400, 0xecf, 0x10000}, 0x70bd2b, 0x0, 0x2, 0x1, 0x11, 0x1}, 0x9}, [@replay_thresh={0x8, 0xb, 0x8}]}, 0x100}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000004c0)={&(0x7f0000000080)={0x10, 0x0, 0x0, 0x8000000}, 0xc, &(0x7f0000000480)={&(0x7f0000000100)=@newpolicy={0x36c, 0x13, 0x1, 0x70bd26, 0x25dfdbfe, {{@in=@broadcast, @in=@initdev={0xac, 0x1e, 0x1, 0x0}, 0x4e23, 0x5, 0x4e21, 0x5, 0xa, 0xa0, 0xa0, 0x3b, r2, r7}, {0xffffffffffffffbd, 0x40, 0xd827, 0xffffffff00000000, 0x4, 0x65a2, 0x8, 0x20000000000}, {0x7, 0xc53, 0x0, 0x6}, 0xffffffff, 0x0, 0x1, 0x0, 0x1}, [@replay_thresh={0x8, 0xb, 0x3ff}, @encap={0x1c, 0x4, {0x2, 0x4e23, 0x4e20, @in=@initdev={0xac, 0x1e, 0x1, 0x0}}}, @policy_type={0xa, 0x10, {0x1}}, @replay_esn_val={0x28, 0x17, {0x3, 0x70bd2a, 0x70bd26, 0x70bd2c, 0x70bd25, 0x1, [0x1, 0x5, 0xffffffff]}}, @algo_aead={0x88, 0x12, {{'aegis128l-aesni\x00'}, 0x1e0, 0xa0, "b9611b54fd2d93dadc5380ee373d309781b80e6527456f5b8f3b82e56bfa6bdd90e2ad0b5c2be36813e9d9ed307454fc64b36cfdb89bed222a86dd5c"}}, @migrate={0x1cc, 0x11, [{@in=@remote, @in6=@empty, @in=@loopback, @in6=@local, 0x6c, 0x4, 0x0, 0x3500, 0xa, 0xa}, {@in6=@empty, @in6=@loopback, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}, @in=@multicast1, 0xff, 0x0, 0x0, 0x3500, 0x2, 0xa}, {@in=@loopback, @in6=@local, @in6=@mcast2, @in6=@rand_addr="7b72c8e02a3fbd5b223fc747911cc254", 0x2b, 0x0, 0x0, 0x3503, 0xa, 0x2}, {@in=@remote, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}, @in=@dev={0xac, 0x14, 0x14, 0x26}, @in=@rand_addr=0x46e42704, 0x32, 0x2, 0x0, 0x3507, 0x2, 0xa}, {@in6=@dev={0xfe, 0x80, [], 0x18}, @in6=@initdev={0xfe, 0x88, [], 0x1, 0x0}, @in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@rand_addr="02a6f3b4fe45e5598a4f7e675a4e312d", 0x3c, 0x2, 0x0, 0x3504, 0x2, 0xa}, {@in=@broadcast, @in=@local, @in=@loopback, @in=@multicast2, 0x75, 0x0, 0x0, 0x0, 0x2, 0x2}]}, @XFRMA_SET_MARK={0x8, 0x1d, 0x9}]}, 0x36c}, 0x1, 0x0, 0x0, 0x4c001}, 0x45)
+
+02:25:39 executing program 1:
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={0x0}}, 0x2000c883)
+accept$inet(r0, &(0x7f0000000000)={0x2, 0x0, @multicast2}, &(0x7f0000000040)=0x10)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000600)={0x0, 0x0, &(0x7f00000005c0)={&(0x7f00000003c0)=ANY=[@ANYBLOB="500100001a0001000000efffffff0000ff010000000000000020000000000001fe8000000000000000000000000000bb000000b3000000000000001b00000000c46a65031db6a38989757e", @ANYRES32=0x0, @ANYRES32=0xee01, @ANYBLOB="fe8800000000000000000000000000010000000032000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000100000000000000000060001200726663343130362867636d2861657329290000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a000000040000000fd745d18fb27b77b0a4593b9d879384c5f9d2648"], 0x150}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r2, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x2, 0x1, 0x0, {{@in6=@ipv4={[], [], @broadcast}}, @in6=@ipv4={[], [], @rand_addr=0x9}, {@in=@broadcast, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in=@rand_addr=0x2, 0x0, 0x0, 0x0, 0xffff, 0x0, 0x0, 0xa0}, {}, {}, 0x0, 0x0, 0x0, 0x0, 0x6}, 0x0, 0x0, 0x400}}, 0x128}}, 0x891)
+sendmsg$nl_xfrm(r2, &(0x7f0000000100)={&(0x7f0000000080)={0x10, 0x0, 0x0, 0x4}, 0xc, &(0x7f00000000c0)={&(0x7f0000000640)=ANY=[@ANYBLOB="e40000001d0000012cbd70736572c0887270656e742d617678000000000000000000000000000000000000000000000000000000000000009e770f98525414e8c4803be9000000000000000000000000000800000040100400001cedbcab985cefd79f1298033b56d8ccd5153e1939f066938801ab9d90de2cc5d019cc0cb168d23e0daa5f018401152a457302d525fd450b7115208faa6ad318d04b7eb2d6c03125b2f0252d8243220e3216c2d62661fa8aee261ab66515a6346e837970e72f9a7097a6435c6050b9d745510591a5bdf79a5efc357b64ee51515fe0000008000b0000000000fdb81bfac31cd6d279e676649883c2fb2423e87f4a0873ff72c63fac5354b1763c708af90cc51187641543c1232dbaa5fc1c4563cfa1f65d1fef8f6c4668bef169ff8383b80c2cba4f80e16ffb3cd1548f8799bc14b12d279d5246410c17cf65b4734ce58a35b24d996dfa6f62447702585b7cb11da03bf4ebb6fff721e960a0ac0e00e9fe4d8d11aa92ae3582f5206f"], 0xe4}}, 0x1000)
+socket$nl_xfrm(0x10, 0x3, 0x6)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r3, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x201, 0x0, 0x0, {{}, @in6=@ipv4, {@in6=@dev, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@ipv4={[], [], @remote}, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0xa0}}}}, 0x128}}, 0x0)
+getresuid(&(0x7f0000000180), &(0x7f00000001c0)=<r4=>0x0, &(0x7f0000000200))
+sendmsg$nl_xfrm(r3, &(0x7f0000000280)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x301700}, 0xc, &(0x7f0000000240)={&(0x7f0000000ac0)=@report={0x1f4, 0x20, 0x300, 0x70bd2d, 0x25dfdbff, {0x3c, {@in=@remote, @in=@rand_addr=0x3, 0x4e21, 0x0, 0x4e24, 0x2, 0xa, 0x20, 0x80, 0x88, 0x0, r4}}, [@XFRMA_SET_MARK={0x8}, @XFRMA_SET_MARK_MASK={0x8, 0x1e, 0x3}, @XFRMA_SET_MARK_MASK={0x8, 0x1e, 0x1}, @migrate={0x50, 0x11, [{@in=@multicast2, @in=@local, @in6=@empty, @in=@multicast1, 0x3c, 0x1, 0x0, 0x3500, 0x2, 0xa}]}, @migrate={0x50, 0x11, [{@in=@local, @in6=@local, @in6=@dev={0xfe, 0x80, [], 0x1a}, @in6=@remote, 0x3c, 0x7, 0x0, 0x3501, 0x0, 0xa}]}, @algo_comp={0xde, 0x3, {{'deflate\x00'}, 0x4b0, "3fe8335473b114e2ae6e9a43eb9ded5442f118a17c4acc7ac0104c81824f83be3d02b749e701b5e9f0064a71fedc9970a280c1ea8960bbacbcea031f4987225a86afd768dc2283c219b0ed8b4f0da5c5dfc5cc445278dec9a123dc19183800d615f98617dc4f1910222fb0cf67e247fea9685e9aea6503046aed390c2e3afb9027b3a338a4335ca87cc37f8bdbe0b112deebc7104bf3"}}, @replay_val={0x10, 0xa, {0x70bd2b, 0x70bd27, 0x1ff}}]}, 0x1f4}, 0x1, 0x0, 0x0, 0x800}, 0x24000010)
+
+[   31.842570] netlink: 96 bytes leftover after parsing attributes in process `syz-executor.1'.
+[   31.852361] netlink: 96 bytes leftover after parsing attributes in process `syz-executor.1'.
+02:25:39 executing program 1:
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000000), &(0x7f0000000040)=0xc)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000007c0)=@updsa={0xf0, 0x1a, 0x1, 0x0, 0x0, {{@in=@multicast2, @in6=@rand_addr="1b2804c1455f242d54291b476033a479", 0x0, 0x0, 0x0, 0x0, 0x2}, {@in6=@mcast1}, @in6=@ipv4={[], [], @loopback}, {}, {}, {}, 0x0, 0x0, 0x2}}, 0xf0}}, 0x0)
+
+02:25:39 executing program 0:
+socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(0xffffffffffffffff, 0x0, 0x0)
+socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, 0x0, 0x0)
+sendmsg$nl_xfrm(0xffffffffffffffff, 0x0, 0x0)
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(0xffffffffffffffff, 0x0, 0x0)
+socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, 0x0, 0x0)
+sendmsg$nl_xfrm(0xffffffffffffffff, 0x0, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@empty, @in=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r1=>0x0}}, {{@in6=@ipv4}, 0x0, @in=@remote}}, &(0x7f0000000280)=0xe8)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=@polexpire={0xc0, 0x1b, 0x0, 0x0, 0x0, {{{@in=@local, @in6=@empty, 0x0, 0x0, 0x4e21, 0x0, 0xa, 0xa0, 0x20, 0x2d}, {0x28, 0x1, 0xfffffffffffffc00, 0x20, 0x200, 0x80000000000080, 0x61a}, {0x9, 0x81, 0x9, 0x5}, 0x8, 0xfffffffe, 0x1, 0x1, 0x2}, 0x6}}, 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x2000c001)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000009c0)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f00000008c0)=@expire={0x100, 0x18, 0x200, 0x70bd2a, 0x25dfdbfb, {{{@in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@local, 0x4e20, 0x8001, 0x4e22, 0xa1, 0x2, 0x0, 0x10, 0x6, 0x0, r1}, {@in6=@empty, 0x4d6, 0x33}, @in=@broadcast, {0x5, 0x5, 0x81, 0x4, 0x4, 0x7, 0x9d, 0xfffffffffffffff9}, {0x0, 0x80000000, 0x9}, {0x400, 0xecf, 0x10000}, 0x70bd2b, 0x0, 0x2, 0x1, 0x11, 0x1}, 0x9}, [@replay_thresh={0x8, 0xb, 0x8}]}, 0x100}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000080)={&(0x7f0000000700)=ANY=[@ANYBLOB, @ANYRES32, @ANYRES32=0xee00, @ANYBLOB="0700000000000000b9090000000000000500000000000000010000000000000007000000000000000300000000000000e0635130000000000516119e7cc5d596d27af209000000000000000900000000ade1366dbbfb7800000004000000000000000400000000000000620000000000000001000000bc6b82000100000100000001ce0000000000000010000a002abd70002cbd7000040000000c000f000080000000000000080018000100000008001d00ffffff7f9c0011007f00000100000000000000000000000000000000000000000000900544956b000000000001fe8000000000000000000000000000aaff0100000000000000000000000000013303001c4f735372d022d9ab7f2f7512cd836d000035000008000200ac1e0101000000000000000000000000fe80000000000000000000000000001f00000000000000000000000000000001000000000000000000000000000000006c000000053500000200020003855bd6cbf8dcea5a524f641cfbc592c6df69d4503fe95662586da239499b6d6bf1de482c3883674a2bf797caf594e067a33beb13bb"], 0x4}}, 0x0)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x1}, 0xc, &(0x7f0000000040)={&(0x7f0000000300)=@delpolicy={0x274, 0x14, 0x108, 0x70bd2a, 0x25dfdbfc, {{@in6=@empty, @in=@initdev={0xac, 0x1e, 0x1, 0x0}, 0x4e20, 0x1, 0x4e20, 0x6, 0xa, 0x0, 0xc0, 0x33}, 0x6e6bbb, 0x1}, [@XFRMA_IF_ID={0x8}, @tmpl={0x184, 0x5, [{{@in=@local, 0x4d5, 0x32}, 0xa, @in6=@dev={0xfe, 0x80, [], 0x11}, 0x3502, 0x6, 0x3, 0x0, 0x7, 0x1f, 0x3}, {{@in6=@loopback, 0x4d6, 0x32}, 0xa, @in6=@local, 0x3501, 0x3, 0x3, 0x7c, 0xffffffff, 0x10000, 0xbb}, {{@in6=@mcast2, 0x4d6, 0x6c}, 0x2, @in=@multicast2, 0x0, 0x1, 0x1, 0x0, 0xad76, 0xffffff00, 0x5}, {{@in=@loopback, 0x4d2, 0x32}, 0x2, @in6=@rand_addr="fc14fb10c12fc4a915b3699ec75314de", 0x3505, 0x0, 0x2, 0x0, 0x80000001, 0x8001, 0x20}, {{@in=@dev={0xac, 0x14, 0x14, 0x31}, 0x4d5, 0x3c}, 0xa, @in6=@mcast2, 0x3501, 0x6, 0x1, 0x0, 0x2, 0x8, 0x3f}, {{@in6=@rand_addr="91b160f5fb7ee73d548a515154a547fb", 0x0, 0x2b}, 0xa, @in=@multicast2, 0x3502, 0x6, 0x0, 0x4, 0x1, 0x1, 0x1}]}, @algo_auth_trunc={0x98, 0x14, {{'sha224-ni\x00'}, 0x260, 0x180, "d0c074fe041dc97196e7aa6e78d4e27dc5786e5eca3dab65ee690ae53f8a717b8382bfcd27d2f4be7d747d31ef261d6fdd9985ea8df5f9583d7bf62b853ac54394b749359d36903dba8df0ab"}}]}, 0x274}, 0x1, 0x0, 0x0, 0x4000}, 0x4)
+getsockopt$inet6_IPV6_XFRM_POLICY(0xffffffffffffffff, 0x29, 0x23, 0x0, 0x0)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, 0x0, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000940)=@allocspi={0xf8, 0x16, 0x1, 0x0, 0x0, {{{@in6=@loopback, @in6=@rand_addr="816495e5244f60c0bbc2908c7326d62b", 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffff}, {@in=@multicast2, 0x0, 0x33}, @in, {}, {}, {}, 0x0, 0x3501, 0xa}}}, 0xf8}}, 0x0)
+
+02:25:39 executing program 0:
+r0 = socket$inet6_udplite(0xa, 0x2, 0x88)
+getsockopt$inet6_IPV6_XFRM_POLICY(r0, 0x29, 0x23, &(0x7f0000000000)={{{@in6=@empty, @in=@initdev}}, {{@in6=@initdev}, 0x0, @in=@empty}}, &(0x7f0000000100)=0xe8)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000540)={0x0, 0x0, &(0x7f0000000500)={&(0x7f0000000280)=ANY=[@ANYBLOB="f00000001a0001000000f40049c0c5b800328000000000000000000400000000aaac1414bb000000000000000000000000010000000000000002000000000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="00000000000000000000000000000000000000006c000000e0000001000000000000000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00"/168], 0x4}, 0x1, 0x0, 0x0, 0x8858}, 0x0)
+
+02:25:39 executing program 2:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000600)={0x0, 0x0, &(0x7f00000005c0)={&(0x7f0000000000)=ANY=[@ANYBLOB="580100001a000100ac0e000000000000ffffffff000000000000000000000000fe8000000000000000000000000000bb000000000000000000000000000000000980b493f6599607a7d889f7be884e8576cbf0d5480efc48f5968046a6c3dbd4115a440bf0ef5cc82b042e74bf9a573192d7ce09e31a5189ba7c76371d3f778596cd08468dfa37a69f5825acabb8a3624724958ebb784f770ca3ace4ce1e83", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="000000000000000000000000000000010000000033000000fe80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00020000000000000000004c001400626c616b6532732d323234000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001c001700"/272], 0x158}}, 0x0)
+socket$inet_udp(0x2, 0x2, 0x0)
+
+02:25:39 executing program 0:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x201, 0x0, 0x0, {{}, @in6=@ipv4, {@in6=@dev, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@ipv4={[], [], @remote}, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0xa0}}}}, 0x128}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+r3 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r3, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x201, 0x0, 0x0, {{}, @in6=@ipv4, {@in6=@dev, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@ipv4={[], [], @remote}, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0xa0}}}}, 0x128}}, 0x0)
+sendmsg$nl_xfrm(r3, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x201, 0x0, 0x0, {{}, @in6=@ipv4, {@in6=@dev, @in6=@mcast2, 0x0, 0x10, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@ipv4={[], [], @remote}, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x20}, {0x0, 0xfffffffffffffffe}}}}, 0x128}}, 0x0)
+sendmsg$nl_xfrm(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000040)=ANY=[@ANYBLOB="f00000001a0001000000000000000000ac1414aa000000000000000000000000fe8000000000000000000000000000bb00"/64, @ANYPTR=&(0x7f0000000000)=ANY=[@ANYRES32=r2], @ANYRES32=0x0, @ANYBLOB="ff0100000000000000000000000000010000000000000000ac1414bb00000000000000000000000000000000000000000000000000000000000000000000000000000200"/168], 0x4}, 0x1, 0x0, 0x0, 0x4000810}, 0x0)
+
+[   31.993294] netlink: 104 bytes leftover after parsing attributes in process `syz-executor.2'.
+02:25:39 executing program 1:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000500)=@allocspi={0xf8, 0x16, 0x1, 0x0, 0x0, {{{@in6=@remote, @in=@multicast1}, {@in=@multicast1, 0x0, 0x32}, @in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}, {0x0, 0x5}}}}, 0xf8}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000000c0)=ANY=[@ANYBLOB="f800000016000100b46a59f400000000ff0100000000000000000500000000000000000100"/64, @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="ffffffff000000000000000000000000000000006c00000000000000000000000000ffff00"/176], 0xf8}}, 0x0)
+r2 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(r2, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(r2, 0x29, 0x23, &(0x7f0000000a00)={{{@in6, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r3=>0x0}}, {{@in6=@mcast1}, 0x0, @in6=@ipv4={[], [], @empty}}}, &(0x7f0000000040)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@empty, @in=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r4=>0x0, <r5=>0x0}}, {{@in6=@ipv4}, 0x0, @in=@remote}}, &(0x7f0000000280)=0xe8)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=@polexpire={0xc0, 0x1b, 0x0, 0x0, 0x0, {{{@in=@local, @in=@rand_addr=0x10000, 0x0, 0x0, 0x4e21, 0x0, 0xa, 0xa0, 0xa0, 0x2d, 0x0, r5}, {0x28, 0x1, 0xfffffffffffffc00, 0x20, 0x200, 0x80, 0x61a}, {0x9, 0x81, 0x9, 0x5}, 0x8, 0x0, 0x1, 0x1, 0x2}, 0x6}}, 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x1)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=@polexpire={0xc0, 0x1b, 0x0, 0x0, 0x0, {{{@in=@local, @in6=@empty, 0x0, 0x0, 0x4e21, 0x0, 0xa, 0xa0, 0xa0, 0x2d}, {0x28, 0x1, 0xfffffffffffffc00, 0x20, 0x200, 0x80, 0x61a}, {0x9, 0x81, 0x9, 0x5}, 0x8, 0x0, 0x1, 0x1, 0x2}, 0x6}}, 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x1)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000009c0)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f00000008c0)=@expire={0x100, 0x18, 0x200, 0x70bd2a, 0x25dfdbfb, {{{@in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@local, 0x4e20, 0x8001, 0x4e22, 0xa1, 0x2, 0x0, 0x10, 0x6}, {@in6=@empty, 0x4d6, 0x33}, @in=@broadcast, {0x5, 0x5, 0x81, 0x4, 0x4, 0x7, 0x9d, 0xfffffffffffffff9}, {0x0, 0x80000000, 0x9}, {0x400, 0xecf, 0x10000}, 0x70bd2b, 0x0, 0x2, 0x1, 0x11, 0x1}, 0x9}, [@replay_thresh={0x8, 0xb, 0x8}]}, 0x100}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f0000001040)={&(0x7f0000000380)={0x10, 0x0, 0x0, 0x2000000}, 0xc, &(0x7f0000001000)={&(0x7f0000000e00)=ANY=[@ANYBLOB="ec0100001f00040027bd7000fddbdf25ac1414aa000000000000000000000000000004d502006c00ff020000000000000000000000000001090000000235000014000e00ac1414bb000000000000000000000000ac000700fe8000000000000000000000000000bbac14142b0000000000000000000000004e2001ff4e2200f10200a00004000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="0400000000000000020000000000000007000000000000003f0000000000000006000000000000000800000000000000fd00000000000000000800000000000004000000000000000200000000000000bf050000000000000100000000000000ff030000b66b6e000001020000000000e4000600e0000001000000000000000000000000ac14140a0000000000000000000000004e22fbab4e2100020200202067000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="7f000001000000000000000000000000000004d4ff000000fe8000000000000000000000000000aad2030000000000000100008000000000030000000000000003000051f4000000050000000000000000000000000000003f000000000000003f000000000000000300000000000000000200000000000000000000000000000080ffffffffffff0800000000000080030000002abd7000023500000a00043f200000000000000008000b0036070000"], 0x1ec}, 0x1, 0x0, 0x0, 0x4c085}, 0x4040000)
+sendmsg$nl_xfrm(r1, &(0x7f00000009c0)={&(0x7f00000012c0)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f0000001380)=ANY=[@ANYBLOB="14020000180000042abd7000fbdbdf25ac1e0001000000000000000000000000fe8000000000000000000000000000aa4e2080014e2200a102000010060000008ddaef2067c8b3d2e469e2fe70f2dbc9d1befe534999abd03c292a4264c7069ae34b7e72e0501a8c2773f3984921a67eb5878d47dbbac54bc265b99cb4b1f9e48a0e2f8d3e462e5ad951afed59f5de26fd00797c33396ffdf57d450339b8d92506fe1948e29867fced746793b654cde75a1d9a44053dde97b65d491168b967fe64ed9536ca6580287f279ae5227f7f763a7e633504d40ce13c42ee51cecc63938b58fab9a2106d4a81521c594234de1eb082013d00d27190b3c9644787e73dbd64fe078a089b620edf9b21ec9743384a8e5382", @ANYRES32=r3, @ANYRES32=r5, @ANYBLOB="00000000000000000000000000000000000004d633000000ffffffff0000000000000000000000000500000000000000050000000000000081000000000000000400000000000000040008000000000007000000000000009d00000000000000f9ffffffffffffff000000000000000000000080000000000900000000000000000000000000000000040000cf0e0000000001002bbd70000000000002000111010000000000000009000000000000001a0103006465666c6174650000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009006000078ea2e931cdb43d493394455105e0e8f77123be645d02fc5c3fb24098fdad27f062302780b8bf7e7143bc16b9698af77b16ef15f310bb701ad9749b9304cea93d7860e0dc3a65ed81922db3321e3efb35e7afac49d65b4d4246d938d6a2194e6552ecaf12f6343c677beedc8781268aba413cd8746a9e4d388f5c525b0dcbb890961917477ad786258d92a3108498ff5fd8c0dae7782594a275b06729adca8433bc1199874bd10c32d975486349a9703df121a4783e89a7b865a6fc340d556653c7bfa89cc1d4b785d7748ec8eb6984447a90000"], 0x214}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000080)={&(0x7f0000000700)=ANY=[@ANYBLOB, @ANYRES32=r3, @ANYRES32=0xee00, @ANYBLOB="0700000000000000b9090000000000000500000000000000010000000000000007000000000000000300000000000000e0635130000000000516119e7cc5d596d27af209000000000000000900000000ade1366dbbfb7800000004000000000000000400000000000000620000000000000001000000bc6b82000100000100000001ce0000000000000010000a002abd70002cbd7000040000000c000f000080000000000000080018000100000008001d00ffffff7f9c0011007f00000100000000000000000000000000000000000000000000900544956b000000000001fe8000000000000000000000000000aaff0100000000000000000000000000013303001c4f735372d022d9ab7f2f7512cd836d000035000008000200ac1e0101000000000000000000000000fe80000000000000000000000000001f00000000000000000000000000000001000000000000000000000000000000006c000000053500000200020003855bd6cbf8dcea5a524f641cfbc592c6df69d4503fe95662586da239499b6d6bf1de482c3883674a2bf797caf594e067a33beb13bb"], 0x4}}, 0x0)
+r6 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+sendmsg$nl_xfrm(r0, &(0x7f0000000dc0)={&(0x7f0000000bc0)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000d80)={&(0x7f0000000c00)=@updsa={0x180, 0x1a, 0x200, 0x70bd2a, 0x25dfdbfd, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@empty, 0x4e23, 0x1f, 0x4e24, 0x6, 0x2, 0x10, 0x20, 0xff, r4}, {@in6=@local, 0x4d2, 0x2b}, @in=@broadcast, {0x81, 0xf92, 0x3f, 0x7f, 0x736, 0x10001, 0x7fffffff, 0x10001}, {0x100000001, 0x8, 0x3, 0x80000001}, {0x588, 0x5, 0xffffd854}, 0x70bd2d, 0x3507, 0xa, 0x4, 0x3, 0x60}, [@algo_aead={0x8d, 0x12, {{'gcm_base(ctr(aes-aesni),ghash-generic)\x00'}, 0x208, 0xa0, "f809311bb894f77378a3f00391287306d453d059890496e4bd860f89955ccaf0f47e406497746eee18cc54b3cf36ca63213553d3af902e123271c200e8e53e99ef"}}]}, 0x180}, 0x1, 0x0, 0x0, 0x4000000}, 0x20000049)
+sendmsg$nl_xfrm(r6, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={0x0}}, 0x2000c883)
+getsockopt$inet_IP_IPSEC_POLICY(r6, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@mcast2, @in6=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r7=>0x0}}, {{@in6=@dev}, 0x0, @in=@empty}}, &(0x7f0000000040)=0xe8)
+sendmsg$nl_xfrm(r0, &(0x7f0000000b80)={&(0x7f00000003c0)={0x10, 0x0, 0x0, 0x200}, 0xc, &(0x7f0000000b40)={&(0x7f0000000b00)=@flushpolicy={0x34, 0x1d, 0x2, 0x70bd2c, 0x25dfdbfe, "", [@replay_esn_val={0x24, 0x17, {0x2, 0x70bd27, 0x70bd28, 0x70bd2c, 0x70bd27, 0x401, [0x0, 0x6]}}]}, 0x34}, 0x1, 0x0, 0x0, 0x20000840}, 0x8000)
+sendmsg$nl_xfrm(r0, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x100}, 0xc, &(0x7f0000000080)={&(0x7f0000000280)=ANY=[@ANYBLOB="0c0100001a0020002cbd7000ffdbdf25ac141439000000000000000000000000000000000000000000000000000000004e2100044e2100020a0000202f000000", @ANYRES32=r3, @ANYRES32=r7, @ANYBLOB="fe800000000000000000000000000021000004d2ff000000ff01000000000000000000000000000105000000000000005e1d00000000000004000000000400009d000000000000000500000000000000970e0000000000007d29000000000000feffffffffffffff00000000000000000700000000000000000000001cffff010000000300000027bd700000000000020000401d0000000000000008000b000001000014000e00ac1414aa00"/183], 0x10c}, 0x1, 0x0, 0x0, 0x4000080}, 0x15)
+
+[   32.001590] netlink: 104 bytes leftover after parsing attributes in process `syz-executor.2'.
+02:25:39 executing program 2:
+r0 = socket$inet_icmp_raw(0x2, 0x3, 0x1)
+sendmsg$nl_xfrm(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000040)={0x0}}, 0x2000c883)
+getsockopt$inet_IP_IPSEC_POLICY(r0, 0x0, 0x10, &(0x7f0000000180)={{{@in6, @in=@remote}}, {{@in6}, 0x0, @in6=@loopback}}, &(0x7f0000000280)=0xe8)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000600)={0x0, 0x0, &(0x7f00000005c0)={&(0x7f0000000000)=@updsa={0x144, 0x1a, 0x1, 0x0, 0x0, {{@in=@broadcast, @in6=@remote}, {@in=@empty, 0x0, 0x32}, @in=@broadcast, {}, {}, {}, 0x0, 0x0, 0x2}, [@tfcpad={0x8}, @algo_aead={0x4c, 0x12, {{'ccm(des3_ede-asm)\x00'}}}]}, 0x144}}, 0x0)
+
+02:25:39 executing program 3:
+r0 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r0, &(0x7f0000000680)={0x0, 0x0, &(0x7f0000000640)={&(0x7f0000000040)=ANY=[@ANYBLOB="28008100000000000000000000000000e00000010000000078aaa365f0fe6e086d8a"], 0x28}}, 0x0)
+r1 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r1, &(0x7f0000000a80)={0x0, 0x0, &(0x7f0000000a40)={&(0x7f0000000800)=@acquire={0x128, 0x17, 0x201, 0x0, 0x0, {{}, @in6=@ipv4, {@in6=@dev, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xee01}, {{@in=@initdev={0xac, 0x1e, 0x0, 0x0}, @in6=@ipv4={[], [], @remote}, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0xa0}}}}, 0x128}}, 0x0)
+r2 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r2, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f00000000c0)=@allocspi={0xf8, 0x16, 0x1, 0x0, 0x0, {{{@in6=@mcast1, @in=@initdev={0xac, 0x1e, 0x0, 0x0}}, {@in=@broadcast, 0x0, 0x6c}, @in6=@ipv4}}}, 0xf8}}, 0x0)
+r3 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(r3, 0x0, 0x0)
+getsockopt$inet6_IPV6_XFRM_POLICY(r3, 0x29, 0x23, &(0x7f0000000a00)={{{@in6, @in=@multicast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r4=>0x0}}, {{@in6=@mcast1}, 0x0, @in6=@ipv4={[], [], @empty}}}, &(0x7f0000000040)=0xe8)
+getsockopt$inet_IP_IPSEC_POLICY(0xffffffffffffffff, 0x0, 0x10, &(0x7f0000000180)={{{@in6=@empty, @in=@empty, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r5=>0x0}}, {{@in6=@ipv4}, 0x0, @in=@remote}}, &(0x7f0000000280)=0xe8)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000006c0)={&(0x7f0000000580)={0x10, 0x0, 0x0, 0x40000}, 0xc, &(0x7f0000000680)={&(0x7f00000005c0)=ANY=[@ANYBLOB="c00000001b0000000000000000000000ac1414aa000000000000000000000000000000000000000000000000a0a02d000000", @ANYRES32=0x0, @ANYRES32=r5, @ANYBLOB="2800000000000000010000000000000000fcffffffffffff2000000000000000000200000000000080000000000000001a0600000000000000000000000000000900000000009da251a3fda18f09000009000000000000000500000000000000080000000000000001010200000000000600000000000000"], 0xc0}, 0x1, 0x0, 0x0, 0x40000}, 0x1)
+sendmsg$nl_xfrm(r2, &(0x7f00000009c0)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000440)={&(0x7f00000008c0)=@expire={0x100, 0x18, 0x200, 0x70bd2a, 0x25dfdbfb, {{{@in=@initdev={0xac, 0x1e, 0x1, 0x0}, @in6=@local, 0x4e20, 0x8001, 0x4e22, 0xa1, 0x2, 0x0, 0x10, 0x6, r4, r5}, {@in6=@empty, 0x4d6, 0x33}, @in=@broadcast, {0x5, 0x5, 0x81, 0x4, 0x4, 0x7, 0x9d, 0xfffffffffffffff9}, {0x0, 0x80000000, 0x9}, {0x400, 0xecf, 0x10000}, 0x70bd2b, 0x0, 0x2, 0x1, 0x11, 0x1}, 0x9}, [@replay_thresh={0x8, 0xb, 0x8}]}, 0x100}, 0x1, 0x0, 0x0, 0x2000014}, 0x4800)
+sendmsg$nl_xfrm(0xffffffffffffffff, &(0x7f00000000c0)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000080)={&(0x7f0000000700)=ANY=[@ANYBLOB, @ANYRES32=r4, @ANYRES32=0xee00, @ANYBLOB="0700000000000000b9090000000000000500000000000000010000000000000007000000000000000300000000000000e0635130000000000516119e7cc5d596d27af209000000000000000900000000ade1366dbbfb7800000004000000000000000400000000000000620000000000000001000000bc6b82000100000100000001ce0000000000000010000a002abd70002cbd7000040000000c000f000080000000000000080018000100000008001d00ffffff7f9c0011007f00000100000000000000000000000000000000000000000000900544956b000000000001fe8000000000000000000000000000aaff0100000000000000000000000000013303001c4f735372d022d9ab7f2f7512cd836d000035000008000200ac1e0101000000000000000000000000fe80000000000000000000000000001f00000000000000000000000000000001000000000000000000000000000000006c000000053500000200020003855bd6cbf8dcea5a524f641cfbc592c6df69d4503fe95662586da239499b6d6bf1de482c3883674a2bf797caf594e067a33beb13bb"], 0x4}}, 0x0)
+getsockopt$inet6_IPV6_IPSEC_POLICY(0xffffffffffffffff, 0x29, 0x22, &(0x7f00000001c0)={{{@in6=@initdev, @in=@loopback}}, {{@in=@broadcast}, 0x0, @in6=@loopback}}, &(0x7f00000000c0)=0xe8)
+getsockopt$inet_IP_XFRM_POLICY(0xffffffffffffffff, 0x0, 0x11, &(0x7f0000000b00)={{{@in6=@ipv4={[], [], @loopback}, @in6=@mcast2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, <r6=>0x0}}, {{}, 0x0, @in6=@local}}, &(0x7f00000003c0)=0xe8)
+r7 = socket$nl_xfrm(0x10, 0x3, 0x6)
+sendmsg$nl_xfrm(r7, &(0x7f00000004c0)={0x0, 0x0, &(0x7f0000000480)={&(0x7f0000000c00)=ANY=[@ANYBLOB="f800000016000100000000000000ff01ff0100000000000000f6ffff3a9a499366175a5968311bd2cc3eebcc3d00000001ac1e0001060000000000000000000000000000de000000f36200000000000000", @ANYRES32=0x0, @ANYRES32=0x0, @ANYBLOB="ffffffff000000000000000000000000000000006c00000000000000000000000000ffff00"/176], 0xf8}}, 0x0)
+r8 = socket$inet6_udp(0xa, 0x2, 0x0)
+accept$inet6(r8, 0x0, 0x0)
+sendmsg$nl_xfrm(r1, &(0x7f0000000180)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x10000000}, 0xc, &(0x7f0000000140)={&(0x7f00000002c0)=@getpolicy={0x5c, 0x15, 0x8, 0x70bd29, 0x25dfdbff, {{@in6=@initdev={0xfe, 0x88, [], 0x0, 0x0}, @in=@multicast1, 0x4e24, 0x8, 0x4e21, 0x0, 0xa, 0x20, 0x80, 0x87, r6}, 0xffffffff, 0x2}, [@policy_type={0xa}]}, 0x5c}}, 0x90)
+
+[   32.018526] ------------[ cut here ]------------
+[   32.018586] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=3470 comm=syz-executor.3
+[   32.022107] Found allocation of xfrm_policy
+[   32.027717] WARNING: CPU: 0 PID: 3467 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270
+[   32.028728] SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=3470 comm=syz-executor.3
+[   32.031073] Modules linked in:
+[   32.035343] CPU: 0 PID: 3467 Comm: syz-executor.0 Not tainted 5.5.3 #13
+[   32.038090] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   32.041783] RIP: 0010:xfrm_policy_alloc+0x20/0x270
+[   32.043502] Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae 2b 92 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+[   32.050248] RSP: 0018:ffff888062f873c8 EFLAGS: 00010246
+[   32.051617] RAX: fcaad7150dcbc500 RBX: ffff888051cb0f40 RCX: ffffc90001774000
+[   32.053655] RDX: ffffffff8f200000 RSI: 000000000000ff89 RDI: 000000000000ff8a
+[   32.055538] RBP: 0000000000000cc0 R08: dffffc0000000000 R09: 0000000000000003
+[   32.057351] R10: ffffed100c5f0df1 R11: 0000000000000004 R12: dffffc0000000000
+[   32.059130] R13: ffff88806522c070 R14: ffff888051cb0f40 R15: ffff888062f875e0
+[   32.060969] FS:  00007f27475bb700(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+[   32.063038] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   32.064578] CR2: 00000000004e9c4c CR3: 0000000064f50001 CR4: 00000000001606f0
+[   32.066314] Call Trace:
+[   32.066992]  xfrm_policy_construct+0x36/0xec0
+[   32.068092]  ? memset+0x1f/0x40
+[   32.068906]  xfrm_add_acquire+0x608/0xd30
+[   32.069942]  ? cap_capable+0x1f0/0x260
+[   32.070866]  ? xfrm_alloc_userspi+0xaa0/0xaa0
+[   32.072041]  ? __nla_parse+0x3a/0x50
+[   32.073658]  xfrm_user_rcv_msg+0x595/0x640
+[   32.075706]  ? xfrm_netlink_rcv+0x80/0x80
+[   32.077800]  ? deferred_put_nlk_sk+0x230/0x230
+[   32.080090]  ? netlink_sendmsg+0x691/0xd40
+[   32.082147]  ? jhash+0x7b0/0x7b0
+[   32.083676]  ? netlink_hash+0xd0/0xd0
+[   32.085461]  ? avc_has_perm+0xb8/0x250
+[   32.087380]  ? avc_has_perm+0x10d/0x250
+[   32.089337]  netlink_rcv_skb+0x1f6/0x3b0
+[   32.091303]  ? xfrm_netlink_rcv+0x80/0x80
+[   32.093346]  ? netlink_ack+0xa30/0xa30
+[   32.095063]  ? mutex_lock+0xb6/0x130
+[   32.096796]  ? mutex_trylock+0xb0/0xb0
+[   32.098651]  ? selinux_vm_enough_memory+0x160/0x160
+[   32.100839]  xfrm_netlink_rcv+0x6e/0x80
+[   32.102573]  netlink_unicast+0xad1/0xba0
+[   32.103810]  ? netlink_detachskb+0x80/0x80
+[   32.105850]  ? __alloc_skb+0x360/0x4d0
+[   32.107741]  netlink_sendmsg+0x8e1/0xd40
+[   32.109684]  ? selinux_socket_accept+0x580/0x580
+[   32.111958]  ? netlink_getsockopt+0x770/0x770
+[   32.114175]  ? security_socket_sendmsg+0x9a/0xb0
+[   32.116492]  ? netlink_getsockopt+0x770/0x770
+[   32.118651]  ____sys_sendmsg+0x8c0/0x8f0
+[   32.119722]  ? __sys_sendmsg_sock+0xb0/0xb0
+[   32.120946]  ? __sys_sendmsg+0x23f/0x300
+[   32.122134]  ? __mutex_init+0x9d/0xf0
+[   32.123455]  __sys_sendmsg+0x21c/0x300
+[   32.125213]  ? ____sys_sendmsg+0x8f0/0x8f0
+[   32.127257]  ? reschedule_interrupt+0xa/0x20
+[   32.129438]  ? __set_cyc2ns_scale+0x340/0x340
+[   32.131629]  ? _copy_to_user+0x6f/0x90
+[   32.134445]  ? put_timespec64+0xf6/0x140
+[   32.135494]  ? ktime_get_raw+0x110/0x110
+[   32.136910]  ? get_timespec64+0x1a0/0x1a0
+[   32.138882]  ? fpregs_assert_state_consistent+0x8a/0xb0
+[   32.141360]  do_syscall_64+0xa5/0x130
+[   32.143193]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   32.145599] RIP: 0033:0x467519
+[   32.147069] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   32.155993] RSP: 002b:00007f27475bac48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+[   32.161458] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   32.166408] RDX: 0000000000000000 RSI: 0000000020000a80 RDI: 0000000000000006
+[   32.168716] RBP: 00007f27475bb6bc R08: 0000000000000000 R09: 0000000000000000
+[   32.172101] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   32.175477] R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+[   32.178931] ---[ end trace e363cfd5430eb47a ]---

@@ -1,0 +1,44 @@
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found leaking site of vm_area_struct
+WARNING: CPU: 0 PID: 2093 at mm/mincore.c:297 __do_sys_mincore mm/mincore.c:297 [inline]
+WARNING: CPU: 0 PID: 2093 at mm/mincore.c:297 __se_sys_mincore+0x4b3/0x650 mm/mincore.c:252
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 0 PID: 2093 Comm: syz-executor.1 Not tainted 5.5.3 #57
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:__do_sys_mincore mm/mincore.c:297 [inline]
+RIP: 0010:__se_sys_mincore+0x4b3/0x650 mm/mincore.c:252
+Code: 36 48 8b 7c 24 20 48 c7 c6 6f 20 de af e8 a5 b1 43 02 48 85 c0 74 2f e8 6b 43 e3 ff 48 c7 c7 7c 20 de af 31 c0 e8 7d 92 bc ff <0f> 0b 4d 29 fd 75 26 e9 33 01 00 00 90 e8 4b 43 e3 ff 4d 29 fd 75
+RSP: 0018:ffff8880670c7eb0 EFLAGS: 00010246
+RAX: 20557dfdff943e00 RBX: ffff888065f14c60 RCX: ffffc9000268c000
+RDX: fffffffface00000 RSI: 0000000000000398 RDI: 0000000000000399
+RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff6168bc4
+R10: fffffbfff6168bc4 R11: 0000000000000000 R12: 0000000020000000
+R13: 0000000000000003 R14: 0000000020ffb000 R15: 0000000000000001
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1081408c48 EFLAGS: 00000246 ORIG_RAX: 000000000000001b
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000000 RSI: 0000000000003000 RDI: 0000000020ffb000
+RBP: 00007f10814096bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 000000000000072d R14: 00000000004c85a0 R15: 0000000000701640
+------------[ cut here ]------------
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x2be00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

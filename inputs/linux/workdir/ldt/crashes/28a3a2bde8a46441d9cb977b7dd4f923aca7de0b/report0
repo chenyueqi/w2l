@@ -1,0 +1,45 @@
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found leaking site of ldt_struct
+WARNING: CPU: 1 PID: 2133 at arch/x86/kernel/ldt.c:434 read_ldt arch/x86/kernel/ldt.c:434 [inline]
+WARNING: CPU: 1 PID: 2133 at arch/x86/kernel/ldt.c:434 __do_sys_modify_ldt arch/x86/kernel/ldt.c:567 [inline]
+WARNING: CPU: 1 PID: 2133 at arch/x86/kernel/ldt.c:434 __se_sys_modify_ldt+0x13d/0x270 arch/x86/kernel/ldt.c:560
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 2133 Comm: syz-executor.1 Not tainted 5.5.3 #58
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:read_ldt arch/x86/kernel/ldt.c:434 [inline]
+RIP: 0010:__do_sys_modify_ldt arch/x86/kernel/ldt.c:567 [inline]
+RIP: 0010:__se_sys_modify_ldt+0x13d/0x270 arch/x86/kernel/ldt.c:560
+Code: b6 48 c1 e8 03 48 89 f5 8a 04 30 84 c0 0f 85 16 01 00 00 83 3d b3 73 32 03 02 75 10 48 c7 c7 10 17 fc b5 31 c0 e8 b3 46 0d 00 <0f> 0b 49 f7 c6 00 00 00 80 0f 85 bb 00 00 00 80 3c 2b 00 74 08 4c
+RSP: 0018:ffff888050f2fed8 EFLAGS: 00010246
+RAX: a5c7b3a4ff379400 RBX: 1ffff1100cb8ab35 RCX: ffffc90002694000
+RDX: ffffffffb3000000 RSI: 00000000000002d1 RDI: 00000000000002d2
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff6da8bc3
+R10: fffffbfff6da8bc3 R11: 0000000000000000 R12: 0000000000000338
+R13: ffff888065c559a8 R14: 00000000000000e8 R15: 0000000020000240
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f9c1f42dc48 EFLAGS: 00000246 ORIG_RAX: 000000000000009a
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 00000000000000e8 RSI: 0000000020000240 RDI: 0000000000000000
+RBP: 00007f9c1f42e6bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000747 R14: 00000000004c86d7 R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x32000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

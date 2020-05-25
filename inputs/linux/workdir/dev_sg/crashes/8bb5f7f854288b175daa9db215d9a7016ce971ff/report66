@@ -1,0 +1,30 @@
+sr 1:0:0:0: [sg1] tag#0 CDB[10]: 7e a6 da f1 5a dd b8 5b 93 61 60 89 23 99 90 ce
+sr 1:0:0:0: [sg1] tag#0 CDB[20]: 90 87 cb cb fd c1 3d 41 a2 ec 0c 7f 9e bb d7 6d
+sr 1:0:0:0: [sg1] tag#0 CDB[30]: 8a c2 f1 82 26 70 58 9c f2 a9 0d 87 9e 00 00 00
+Kernel panic - not syncing: Found leaking site of sg_header
+sr 1:0:0:0: [sg1] tag#0 CDB[40]: 00 00 00 00 4d 84 be ff ea 82 62 36 3c 61 6e 6e
+CPU: 1 PID: 2452 Comm: syz-executor.0 Not tainted 5.5.3 #22
+sr 1:0:0:0: [sg1] tag#0 CDB[50]: 91 ca e7 d9 34
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+ panic+0x201/0x64d kernel/panic.c:221
+ sg_read+0x1a80/0x1a80 drivers/scsi/sg.c:527
+ __vfs_read+0xff/0x770 fs/read_write.c:425
+ vfs_read+0x102/0x300 fs/read_write.c:461
+ ksys_read+0x134/0x230 fs/read_write.c:587
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007efe42d4fc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 00000000000000b3 RSI: 0000000020000040 RDI: 0000000000000003
+RBP: 00007efe42d506bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x38800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

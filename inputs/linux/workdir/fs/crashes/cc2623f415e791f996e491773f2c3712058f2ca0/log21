@@ -1,0 +1,114 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:25244' (ECDSA) to the list of known hosts.
+2020/04/21 21:11:07 fuzzer started
+2020/04/21 21:11:08 dialing manager at 10.0.2.10:39009
+2020/04/21 21:11:08 syscalls: 49
+2020/04/21 21:11:08 code coverage: enabled
+2020/04/21 21:11:08 comparison tracing: enabled
+2020/04/21 21:11:08 extra coverage: enabled
+2020/04/21 21:11:08 setuid sandbox: enabled
+2020/04/21 21:11:08 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 21:11:08 Android sandbox: enabled
+2020/04/21 21:11:08 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 21:11:08 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 21:11:08 net packet injection: /dev/net/tun does not exist
+2020/04/21 21:11:08 net device setup: enabled
+2020/04/21 21:11:08 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 21:11:08 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 21:11:08 USB emulation: /dev/raw-gadget does not exist
+21:11:08 executing program 0:
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+splice(r0, 0x0, r1, 0x0, 0xd1e, 0x0)
+
+21:11:08 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000000c0)=""/190, 0xbe)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+splice(r0, 0x0, r1, 0x0, 0x4000000000000080, 0x0)
+
+21:11:08 executing program 1:
+fsopen(0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/consoles\x00', 0x302, 0x0)
+write$P9_RMKNOD(r0, &(0x7f0000000000)={0x14}, 0x14)
+close(r0)
+
+21:11:08 executing program 2:
+pipe2(&(0x7f0000000140)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(r1, &(0x7f00000021c0)={{}, "fe6b7097effec72b00481b4273448bc725fa4e53f435cc06e7af0b13b6191b59027102c7badd5e351010e552c69c1424fb8461d90c2a19193c4c916ed26dc97c554912184f244a7f741d5a6470c0788120d72e71e3e41c3b9a1996bcd253305ec20bac3e20d4bc48514310f8f053179b3b5e340a1bad66a8e22e704df57365a9c6020d66157f0ff1c0524651b0be3b2676eef923116a601b31c96c69da7fe6505648cab686f526d9900e2a57f6f90f8bc3b37ea0a7e4d6354ccb36766cb90391c689e386d883fc9903c3ca1081066810b62c058ca39a87e7e6c46ce86ea8c6f2e9c867411a3b0f3e65de01f1e09edbc884ffb00c89e6b24bf8e8bdb50cbf51ada245c0c078489d768facd45542610d94357a6cd1bef50a9807280cb8c7011525184d280fbf8468ceb3e1b8a1fcded1d0605d9530bb7d7f6a55f4cfcf2e243b57a55f712e69ddae4b14f95efd5a071fcb04eec46a3c2874ff741bd97c7004bdc9f43f001fa30f3c1a582c409d00f682a0d65539b317a3711f95cf714d48789ac63d8d02feb64ce4eed3d42813231804599f6792f6b2a9c337bdbd4279aa80a1911297df1a66dbddb6f73b7d354560fc17c688962566504d84b5f07c5d1376ed7199e9fda70e38a0b7cad0abce5a9588b589e4f6bd8fcb2d82ec4f6a51191ce18885ffd259e0e0012f5c79f4716a4b573795a67acc6f81b3ef79df19036f9d656cff493b0dc8e98f4b31e98c4b3468a8aa89bd993de889c542003afebd74e154c85f49a70eba7b155dbcf68b47f4fdde22ac1138331455128518665604bd4aedd0ee4a6f03912d83725f9a145ffecb2d85587c471d7445cd57f1ad2936aedf911d377586b468035474478f5d4cc0fccbe3c44292f554701624ca6340f6b71c4f8512d91df49176d8822f7b2237ea5c9d964b9e660e28d066213a6543fb80ed9459a3b17fe21bfd2837551722b3392201c1684009c2fe831777d08ef74f8875bfbe2272c6b7f923989ec8c5e96cb12b1128d0cef4195475e183e63b1da141bf3f4fb7974a0c3d9ebdedd433a11b10554358767f22e3c441fc32f8c9e3cff0509bae7f5f5c00c1955b43fea43610fc7e2928207ee9e3f19e1edb16685ff90537f96f336d4372c0e522c906ca4a80c3ddf10af564d54aa84262fb2229dff9f0bbefc8ea1353536e249378631a5837a2991271cf9e57f8e943787b5a1c50211f5078d0cb193cbf6511bb5c03c5036c97bb73c697a44644a9739c5c9d5348254ed621e430ec51517abc3fca0582053cd489ecb0e2a70ad87110e02e76ff4a515c26b342f5bccdd0ecd61b7a1a98639d039fb99848681bbb0b90fc9d522e9492b8f6ebf6006960add23b9d70a4102cf7460b1696145b26de5b6b432e6e391331e54bf24eb6d3ccab653963b4570f4e41b94619dfb64a8dfdb500d67aab17ac4b9bb1e656f0569988bea1f7f46d76fe282fec6761361684c3500f1a10347a014a86eaefc2121d25f81b9256e9abc236b98f8ded83532a2bd33eed670e18711c649da5657709c7beb52ba972bf75169a494548f2846e64e0c2d422130c587d1dc7d4080611ba0bab1fe1788eaa64e6688489c7fa028d645625482b54bc960183784deb84d20f3eb201bfbfd05952299b3c222df9cef5681f66a68c4258305c86c386c259dbfa51aa9b05f5833fc98b5f491c89ab0cbe3cd94215b92d0c2844cf117d95bdf00ece1c83bf6005432db07b558f83d9af38935eb51de95f67d3e407e31495902870314fb75434ee73a99071fe8d82e13ded1ce1f57bcb5a9d1a9b0ace2e4ea0bc90352da9fade372b92cecbe66d9d734f97f919980cd619c88265c6879eefab8ad4fdcd7ee6e9aee3d51de7b3769712c09106367a6dfc153c24c9637879cedca41a9d366872fcdb3c41b98c2db9e0fedc04b0d21ee067b3ef8858e68b99e0f671e3cb65a2582f6511b18f8e1a45fe302690a4ee9dbe0054a512c4df6dbc83362e70d1d7170a6af45b86e18246553ff67a36e5895b4321bbf28231238cf712f5e4e149bc8e8a3a05a5728893295c98332979514a93df7e71de5c1aad7e9994597625fafb3f54d11631d22bb066ccf05b55955413c5f75bbca29775d5ca2bb167099c8ae4d8725db365ead921dc6c004673cf7a0ac1c834636572f4e1ce2440c4d7f9baedcecb964675367d390e6ee7e6e824abf1393af67c8a5a266183dc599374b9f8a6ebd3a946bdd9ae5d0c92b485bfe6fadb29ea2a171d1de94fccfe68e6c9935db29cb4d1b16d4b720a1cbe92ae92efa89aec6948768754ed0428dfa037ee338fb46923ee1b4ae18780157701412d87688fb5b2733f9a8cb3da150435c14344b69c0a2f14e90067487e6efaa90789599ba5150572790dcca3451fecbbb60041f59bb404b5e130091d7a68d4ea966449c20b90b09e475d23904f683162aaee3425712c0c6e28d5c4c49e37459497e7db7c1f436ba88dad3355a4fd5251c26b934755d285c7b40fcc32b2f8f7257f5d72bbf08b65b4b5e4c1709ca79ec6db40c5791610b74c742cf0d13dfd58cf4d8313d3fd0387f9a36eb9058eb6a32cd8f4b7402fb0993f39a93ad57bf006b608cc0718adc4d533111aa1e09171a223dcf5f135b2305dd89dc1ad8ee7dc4fe0a6d3e575522d670e6fcc085641386a5e4f3ec81d5294cba07409551fd372c552f0cfe84c27c1403db79dafa70f1f05228b152b55e7769f605615b8736650ac17f5524a7a310a0644500dc9cbc1f73dd74e222790041711e1afbac658d0ff00ea98ad2cec7791dce1206989efa81448cb5b7a30ae6464bf16b0f8ecb1aa956762893b9222c32f2c60143b9aa4315bba7bc307b9b2942aae6003148eb59bfa3d49cbf9501da399f440ba3741efbeaa0aed0961a62e4a7bc66a59276c559af940d1ef55920f0df58e282ad1469d4fd792b246727e0f1251d49e2a759a696b5ba6fe816d49ca06260c56e2d11e0f9fa7a16ec0a556ecf11f218898fbf3c2bcfe71e896ac6ffbf77a65c03e0fb68f5d0c1d14b79f8ed3431ec3ae84a5494164b01f514674eab9568c8b472bce2fb6a2b0cb59c6a9c78e38fb6a86fa904c0db3a2d38ae27210067ed2a0b77e73ff073f64b993e089b0fc16e5dcb8b19c80d3e77f8aeb6a3ecac27c6d60886803a8cb80afa037d8cb3de1569b80f82b01f10a051f169e9fbceeb541", [[], [], [], [], [], [], []]}, 0xff3)
+r2 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/consoles\x00', 0x302, 0x0)
+splice(r0, 0x0, r2, 0x0, 0xff3, 0x0)
+
+syzkaller login: [   10.898562] audit: type=1400 audit(1587503468.905:8): avc:  denied  { execmem } for  pid=417 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.924133] audit: type=1400 audit(1587503468.905:9): avc:  denied  { execmem } for  pid=416 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.995228] cgroup1: Unknown subsys name 'perf_event'
+[   11.008751] cgroup1: Unknown subsys name 'net_cls'
+[   11.017354] cgroup1: Unknown subsys name 'perf_event'
+[   11.019734] cgroup1: Unknown subsys name 'net_cls'
+[   11.026275] cgroup1: Unknown subsys name 'perf_event'
+[   11.027349] cgroup1: Unknown subsys name 'perf_event'
+[   11.028957] cgroup1: Unknown subsys name 'net_cls'
+[   11.038699] cgroup1: Unknown subsys name 'net_cls'
+21:11:10 executing program 0:
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+splice(r0, 0x0, r1, 0x0, 0xd1e, 0x0)
+
+21:11:10 executing program 0:
+r0 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+r1 = fsopen(&(0x7f0000000000)='tmpfs\x00', 0x0)
+splice(r0, 0x0, r1, 0x0, 0xd1e, 0x0)
+
+21:11:10 executing program 1:
+fsopen(0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/consoles\x00', 0x302, 0x0)
+write$P9_RMKNOD(r0, &(0x7f0000000000)={0x14}, 0x14)
+close(r0)
+
+[   12.202713] ------------[ cut here ]------------
+[   12.205244] Found leaking site of fname
+[   12.205471] WARNING: CPU: 1 PID: 426 at fs/ext4/dir.c:532 call_filldir+0x27d/0x5c0
+[   12.211025] Kernel panic - not syncing: panic_on_warn set ...
+[   12.213852] CPU: 1 PID: 426 Comm: syz-executor.1 Not tainted 5.5.3 #74
+[   12.217211] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.223009] Call Trace:
+[   12.224469]  dump_stack+0x15e/0x1ae
+[   12.226352]  panic+0x228/0x700
+[   12.227866]  ? call_filldir+0x27d/0x5c0
+[   12.229619]  __warn+0x1fe/0x200
+[   12.231311]  ? call_filldir+0x27d/0x5c0
+[   12.233340]  report_bug+0x359/0x480
+[   12.235205]  ? call_filldir+0x27d/0x5c0
+[   12.237155]  do_invalid_op+0x6e/0x110
+[   12.238768]  invalid_op+0x1e/0x30
+[   12.240312] RIP: 0010:call_filldir+0x27d/0x5c0
+[   12.242694] Code: 81 c7 48 06 00 00 48 c7 c6 12 a2 3e 86 e8 bb 39 13 02 48 85 c0 74 2d e8 21 dc b2 ff 48 c7 c7 2b 55 3e 86 31 c0 e8 33 2b 8c ff <0f> 0b eb 1f 0f 1f 44 00 00 66 2e 0f 1f 84 00 00 00 00 00 e8 fb db
+[   12.251790] RSP: 0018:ffff88804f4f7c40 EFLAGS: 00010246
+[   12.254234] RAX: 342b0a0e1a6fad00 RBX: 0000000000000002 RCX: 0000000000000000
+[   12.257668] RDX: ffff888067a4c880 RSI: 0000000000000224 RDI: 0000000000000224
+[   12.261210] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff0e28bc3
+[   12.264650] R10: fffffbfff0e28bc3 R11: 0000000000000000 R12: ffff8880699db3a0
+[   12.268004] R13: dffffc0000000000 R14: ffff88806a74c680 R15: ffff88804f4f7ec0
+[   12.271274]  ? kmem_cache_alloc_trace+0x188/0x200
+[   12.273556]  ext4_readdir+0x2492/0x2a40
+[   12.275396]  ? memset+0x1f/0x40
+[   12.276911]  ? down_read_killable+0xcd/0x1c0
+[   12.279165]  iterate_dir+0x2a6/0x510
+[   12.281033]  __se_sys_getdents+0x191/0x3f0
+[   12.283004]  ? fillonedir+0x250/0x250
+[   12.284833]  do_syscall_64+0xd1/0x160
+[   12.286602]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.289181] RIP: 0033:0x4656a8
+[   12.290479] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   12.298416] RSP: 002b:00007ffd65114c00 EFLAGS: 00000206 ORIG_RAX: 000000000000004e
+[   12.301913] RAX: ffffffffffffffda RBX: 0000000000cc7c10 RCX: 00000000004656a8
+[   12.304750] RDX: 0000000000008000 RSI: 0000000000cc7c10 RDI: 0000000000000003
+[   12.308355] RBP: 0000000000cc7c10 R08: 0000000000000076 R09: 0000000000000000
+[   12.311826] R10: 0000000000000804 R11: 0000000000000206 R12: ffffffffffffffbc
+[   12.315279] R13: 0000000000000016 R14: 0000000000000004 R15: 00000000ffffffff
+[   12.319487] Dumping ftrace buffer:
+[   12.320977]    (ftrace buffer empty)
+[   12.322549] Kernel Offset: 0x2400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.327607] Rebooting in 1 seconds..

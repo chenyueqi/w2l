@@ -1,0 +1,159 @@
+Warning: Permanently added '[localhost]:45243' (ECDSA) to the list of known hosts.
+2020/04/20 21:30:42 fuzzer started
+2020/04/20 21:30:43 dialing manager at 10.0.2.10:41511
+2020/04/20 21:30:43 syscalls: 52
+2020/04/20 21:30:43 code coverage: enabled
+2020/04/20 21:30:43 comparison tracing: enabled
+2020/04/20 21:30:43 extra coverage: enabled
+2020/04/20 21:30:43 setuid sandbox: enabled
+2020/04/20 21:30:43 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:30:43 Android sandbox: enabled
+2020/04/20 21:30:43 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:30:43 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:30:43 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:30:43 net device setup: enabled
+2020/04/20 21:30:43 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:30:43 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:30:43 USB emulation: /dev/raw-gadget does not exist
+21:30:44 executing program 0:
+pipe(&(0x7f0000000000)={<r0=>0xffffffffffffffff, <r1=>0xffffffffffffffff})
+write$binfmt_elf32(r0, &(0x7f0000000040)={{0x7f, 0x45, 0x4c, 0x46, 0x8f, 0x6, 0x2, 0x1, 0xcb, 0x2, 0x3, 0x0, 0x27f, 0x38, 0x371, 0x9, 0xfaea, 0x20, 0x1, 0x7, 0xb00b, 0x9b0c}, [{0x6, 0x1ff, 0x80000001, 0xf761, 0x1ad1, 0x6, 0x2, 0x28e8}], "3c7c01d78fe675eceb822be8aab823364f94ee850dadd09d148f4427edace49033b7452b1233890b4d3523a06d11ebedbea8b56514583cd027e870edcfe358e49de7bc9234542e503bff58fe3540a9c40a847fdcf099d00559e92ee2ed28c4d8bfea82a9bc14b75d9b8facbfb5e6200f3a58ed1a7e6b3ab6f019e3cd2a039ddc977df9ee2aa38b301483302f9e13aee9c2579b8d50d225ce6e4c2a50ce0649a9803ca2d5a2a98ff0e6e512505b0108954d3a3b39caa09ef9dfc9dc4b34297ddfbe291fee8aa747114ae513d4690cf2deca23ed2a085d7771b7937b8c5fad4eb2bb5b90e7346b6cf4a6e419c6c3059b1aa8e2718788dd", [[], [], []]}, 0x44e)
+write$P9_RFLUSH(r1, &(0x7f00000004c0)={0x7, 0x6d, 0x2}, 0x7)
+write$P9_RXATTRWALK(r0, &(0x7f0000000500)={0xf, 0x1f, 0x1, 0x1}, 0xf)
+r2 = fsopen(&(0x7f0000000540)='virtiofs\x00', 0x1)
+write(r2, &(0x7f0000000580)="261507ca67479f22cc3ae25edd7051e4ec41cc03df6c6f742670af8a9b4476862a1f8411e05570b8104cdbb828f17f7ff0bb70064f10073daf", 0x39)
+write$9p(r1, &(0x7f00000005c0)="c6fcd55721e215266985714e2cd5ae2060c718671bf2b3376c2d086beb3878a482e0e37fb1273f6da016cad5ff7f36501cab1669dfa651aec8b76dc0c77b36e0926106fa320418166294f15096b86fb6c15db691f8e96185a55e21df5d71ce20581b80f4eb80df590d186b3dce9da50d17780d254edcb9e21b0259a7b9bf980a2dbf9c1b8759992b9fe826e7e8a5db970707de0c9a7391556f007f985ec2c3d2a1ff540184c0b161aa923f42a70445add65ad1fdc805bd0df26eafef3987ecf05fea55e5fd0365d51a26348b1f7d269f59921048", 0xd4)
+r3 = openat$procfs(0xffffffffffffff9c, &(0x7f00000006c0)='/proc/cgroups\x00', 0x0, 0x0)
+write$P9_RLERROR(r3, &(0x7f0000000700)={0x12, 0x7, 0x2, {0x9, 'virtiofs\x00'}}, 0x12)
+write$P9_RFLUSH(r3, &(0x7f0000000740)={0x7, 0x6d, 0x2}, 0x7)
+pipe2$9p(&(0x7f0000000780)={0xffffffffffffffff, <r4=>0xffffffffffffffff}, 0x800)
+write$binfmt_misc(r4, &(0x7f00000007c0)={'syz1', "dfcffa804b656f630a24c204067348deafb18381b5e1fb558467867806df71e022921dc42809a08cf3cdb2630a0cdc545ca8ff292ecf724f74a94baa886b5b3247935d"}, 0x47)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000840)={{0xcc, 0x1f, 0x89, 0x36e, 0xbc, 0x20, 0x188, 0x2}, "39fdc67c39b78faa7ade8d0757570f6a22d1031a6741bec8907895c17d1958390da308de8faa394a39fdbca39b7e4a892a029f6f8bca81c9eaef169092ea2f3b0abbe48731df98b84db1f8a383da76b5934cb62030aa0e68f78b72cc837258d44e9c6fe6d9b7f9bea67fba58e3b68ca89787a6a8a4971caa9975779174adcee6bd1cdc9e14d20e13ebf4149847c4a41055e58d30d75fcd602dba727a772e726b6226d2ad2b3c8c21d565a2", [[]]}, 0x1cb)
+r5 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000a40)='/proc/cgroups\x00', 0x0, 0x0)
+write$P9_RXATTRWALK(r5, &(0x7f0000000a80)={0xf, 0x1f, 0x2, 0x3}, 0xf)
+write$P9_RXATTRWALK(r3, &(0x7f0000000ac0)={0xf, 0x1f, 0x1, 0x3}, 0xf)
+pipe(&(0x7f0000000b00)={0xffffffffffffffff, <r6=>0xffffffffffffffff})
+write$P9_RREADDIR(r6, &(0x7f0000000b40)={0xe4, 0x29, 0x1, {0x0, [{{0x20, 0x4, 0x4}, 0x0, 0x1f, 0x7, './file0'}, {{0x1, 0x1, 0x1}, 0x1, 0x9, 0x7, './file0'}, {{0x8, 0x1, 0x8}, 0x4, 0x0, 0x7, './file0'}, {{0x40, 0x4, 0x7}, 0x9761, 0x40, 0x7, './file0'}, {{0x0, 0x1, 0x4}, 0x0, 0x3, 0x7, './file0'}, {{0x80, 0x2, 0x1}, 0x10000, 0x8, 0x7, './file0'}, {{0x1, 0x1, 0x3}, 0x9, 0x3f, 0x7, './file0'}]}}, 0xe4)
+pipe(&(0x7f0000000c40)={<r7=>0xffffffffffffffff})
+write$P9_RREMOVE(r7, &(0x7f0000000c80)={0x7, 0x7b, 0x2}, 0x7)
+
+syzkaller login: [   17.641210] audit: type=1400 audit(1587418244.646:8): avc:  denied  { execmem } for  pid=331 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+21:30:44 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/cgroups\x00', 0x0, 0x0)
+write$binfmt_elf32(0xffffffffffffffff, &(0x7f0000000040)={{0x7f, 0x45, 0x4c, 0x46, 0x4, 0x8, 0x2, 0x20, 0x1, 0x2, 0x3, 0x2, 0x156, 0x38, 0x302, 0x1ff, 0x1, 0x20, 0x2, 0x100, 0x2, 0x9}, [{0x60000000, 0x20, 0xa5c, 0x0, 0x2, 0x7, 0x1000, 0x3ff}, {0x60000005, 0x5, 0xffffa8b1, 0xffffffff, 0x7fffffff, 0xfffffffe, 0xa8a, 0x9}], "df2dfb90817912d8938665b00bf8d50f07d153fe2fc9cd7721ba57288f808e0d6ddf7983327c9b967118ed6f0f0e2e9ae30f37640af8c6bc6e26690229acb37d112f322a3143f2c8174430f1aff859c4d7f7b056dec73fa96c9646d610ea379e95a0f3234aeee50bc701a41a9989a318d127127097dad793945c5d24664075da76ccd25e4d9eced45b9e37de28157f81", [[]]}, 0x208)
+pipe2$9p(&(0x7f0000000280)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+write$P9_RLOCK(r1, &(0x7f00000002c0)={0x8, 0x35, 0x40}, 0x8)
+pipe2$9p(&(0x7f0000000300)={0xffffffffffffffff, <r2=>0xffffffffffffffff}, 0x80000)
+write$P9_RRENAMEAT(r2, &(0x7f0000000340)={0x7, 0x4b, 0x1}, 0x7)
+pipe2(&(0x7f0000000380)={0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x80000)
+write$P9_RSTATFS(r3, &(0x7f00000003c0)={0x43, 0x9, 0x2, {0x4916, 0xffffffff, 0x800, 0x8, 0x6, 0x9, 0x4, 0x6, 0x9}}, 0x43)
+write$P9_RMKNOD(0xffffffffffffffff, &(0x7f0000000440)={0x14, 0x13, 0x2, {0x10, 0x1}}, 0x14)
+write$P9_RLOCK(r1, &(0x7f0000000480)={0x8, 0x35, 0x1, 0x3}, 0x8)
+r4 = fspick(0xffffffffffffff9c, &(0x7f00000004c0)='./file0\x00', 0x1)
+read(r4, &(0x7f0000000500)=""/182, 0xb6)
+r5 = fsopen(&(0x7f00000005c0)='omfs\x00', 0x0)
+write$binfmt_aout(r5, &(0x7f0000000600)={{0x10b, 0xff, 0x6, 0x17, 0xdb, 0x3, 0xde, 0x40}, "e3b70d35c3214cc17d583f7cb82b4dff9e118b583359905dd5990e9abb3da9ca31de4539ab63c4f0d896e285f51eb651b3bc2ec7340fa20763cfdceee4eeaba0e7dc0b80a6a3f6928d6a911afb646f5144a92f612114f29b5334c873f0970a82a1546654e59295149d3a8101fcea0e36126e1714c36c04ee725ac165d5042d", [[], [], [], [], [], [], [], [], [], []]}, 0xa9f)
+read(r2, &(0x7f00000010c0)=""/47, 0x2f)
+write$P9_RUNLINKAT(r0, &(0x7f0000001100)={0x7, 0x4d, 0x1}, 0x7)
+pipe2$9p(&(0x7f0000001140)={0xffffffffffffffff, <r6=>0xffffffffffffffff}, 0x800)
+write$P9_RMKNOD(r6, &(0x7f0000001180)={0x14, 0x13, 0x2, {0x20, 0x2, 0x1}}, 0x14)
+pipe2(&(0x7f00000011c0)={<r7=>0xffffffffffffffff}, 0x82800)
+write$P9_RSTAT(r7, &(0x7f0000001200)={0x41, 0x7d, 0x2, {0x0, 0x3a, 0x81, 0x3, {0x1, 0x2, 0x1}, 0x140000, 0x0, 0x3, 0x7, 0x5, 'omfs\x00', 0x0, '', 0x1, 'L', 0x1, '^'}}, 0x41)
+
+21:30:44 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/asound/seq/clients\x00', 0x0, 0x0)
+write$P9_RSETATTR(r0, &(0x7f0000000040)={0x7, 0x1b, 0x2}, 0x7)
+pipe(&(0x7f0000000080)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+write$P9_RLOPEN(r2, &(0x7f00000000c0)={0x18, 0xd, 0x2, {{0x1, 0x0, 0x3}, 0x3}}, 0x18)
+write$P9_RXATTRWALK(r2, &(0x7f0000000100)={0xf, 0x1f, 0x1, 0x6}, 0xf)
+read(0xffffffffffffffff, &(0x7f0000000140)=""/13, 0xd)
+pipe2(&(0x7f0000000180)={<r3=>0xffffffffffffffff}, 0x84000)
+write$P9_RCLUNK(r3, &(0x7f00000001c0)={0x7, 0x79, 0x1}, 0x7)
+pipe2$9p(&(0x7f0000000200)={0xffffffffffffffff, <r4=>0xffffffffffffffff}, 0x80000)
+write$P9_RWRITE(r4, &(0x7f0000000240)={0xb, 0x77, 0x2, 0x7}, 0xb)
+write$P9_RWRITE(0xffffffffffffffff, &(0x7f0000000280)={0xb, 0x77, 0x1, 0xe04e}, 0xb)
+pipe2$9p(&(0x7f00000002c0)={0xffffffffffffffff, <r5=>0xffffffffffffffff}, 0x0)
+write$P9_RLINK(r5, &(0x7f0000000300)={0x7, 0x47, 0x1}, 0x7)
+pipe2$9p(&(0x7f0000000340)={0xffffffffffffffff, <r6=>0xffffffffffffffff}, 0x84800)
+write$P9_RREMOVE(r6, &(0x7f0000000380)={0x7, 0x7b, 0x1}, 0x7)
+write$P9_RREAD(r4, &(0x7f00000003c0)={0xfb, 0x75, 0x1, {0xf0, "43d05d4ce5c6cbf179c2c2ef25c15815d7ae230846b34132ddb8c3152112783b604f7f9bb574e0dec3793829299f8a80bfd6ef780b717af30d20058785b7a78618a6ee8f70e5c3142f2df361b33aa4abd5a7adf28f8314c14a4843b51ba8ceb7108e314865c3d21e541540d178f8670abf18a0d48caa63d18ada9924c773442024f503c7a45d7b55a06a38140edffe7bc2ffd0490dad6449bfa524282d5e8cca172e10588f7982182b50091641ef46cff9ca4751aaf61479aa5576ac99c769e713c38b411d9227f65ac560608bb5660e577ac8581c9b3d1b6d41ef36b1d3f999af52f13b88a833f892b30b9ddb13dae8"}}, 0xfb)
+pipe2$9p(&(0x7f00000004c0)={0xffffffffffffffff, <r7=>0xffffffffffffffff}, 0x4800)
+write$P9_RCREATE(r7, &(0x7f0000000500)={0x18, 0x73, 0x1, {{0xa0, 0x4, 0x2}, 0x4}}, 0x18)
+write$P9_RCLUNK(r1, &(0x7f0000000540)={0x7, 0x79, 0x2}, 0x7)
+write$P9_RLCREATE(r7, &(0x7f0000000580)={0x18, 0xf, 0x2, {{0x2, 0x3, 0x2}, 0x2}}, 0x18)
+
+21:30:44 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/partitions\x00', 0x0, 0x0)
+pipe(&(0x7f0000000040)={<r1=>0xffffffffffffffff, <r2=>0xffffffffffffffff})
+write$P9_ROPEN(r1, &(0x7f0000000080)={0x18, 0x71, 0x2, {{0x4, 0x0, 0x6}, 0x3ff}}, 0x18)
+write$P9_RSETATTR(0xffffffffffffffff, &(0x7f00000000c0)={0x7, 0x1b, 0x1}, 0x7)
+write$P9_RREAD(r2, &(0x7f0000000100)={0x75, 0x75, 0x2, {0x6a, "af50989cf41183631839cfa032257a07dc65832aa76e852ff0ed9fd7018e1f794f31a832918b07fdd455fef770edfdc9be7c7a5646dfeb6cbe1a5adb4dd72f8a4e9c0e2247162191b765b4956524ed5d39b42f0ba6af02f35ab4b5f0bfcf08c6bb6283bf5da3a956a9f9"}}, 0x75)
+pipe2(&(0x7f0000000180)={<r3=>0xffffffffffffffff, <r4=>0xffffffffffffffff}, 0x4000)
+write$P9_RSYMLINK(r3, &(0x7f00000001c0)={0x14, 0x11, 0x2, {0x4, 0x4, 0x5}}, 0x14)
+write$P9_RWSTAT(r4, &(0x7f0000000200)={0x7, 0x7f, 0x2}, 0x7)
+write$P9_RRENAMEAT(r0, &(0x7f0000000240)={0x7, 0x4b, 0x2}, 0x7)
+pipe2(&(0x7f0000000280)={0xffffffffffffffff, <r5=>0xffffffffffffffff}, 0x0)
+write$P9_RWSTAT(r5, &(0x7f00000002c0)={0x7, 0x7f, 0x1}, 0x7)
+pipe(&(0x7f0000000300)={0xffffffffffffffff, <r6=>0xffffffffffffffff})
+write$P9_RWALK(r6, &(0x7f0000000340)={0x64, 0x6f, 0x1, {0x7, [{0x2, 0x3, 0x2}, {0x8, 0x1, 0x1}, {0x0, 0x1, 0x3}, {0x1, 0x3, 0x7}, {0x1, 0x3, 0x4}, {0x80, 0x3, 0x1}, {0x2, 0x1, 0x1}]}}, 0x64)
+pipe2$9p(&(0x7f00000003c0)={0xffffffffffffffff, <r7=>0xffffffffffffffff}, 0x80000)
+write$P9_RLCREATE(r7, &(0x7f0000000400)={0x18, 0xf, 0x2, {{0x80, 0x1, 0x7}, 0x1}}, 0x18)
+pipe2$9p(&(0x7f0000000440), 0x44800)
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000480)='/proc/stat\x00', 0x0, 0x0)
+pipe2$9p(&(0x7f00000004c0)={0xffffffffffffffff, <r8=>0xffffffffffffffff}, 0x4000)
+write$P9_RLINK(r8, &(0x7f0000000500)={0x7, 0x47, 0x2}, 0x7)
+write$P9_RWRITE(0xffffffffffffffff, &(0x7f0000000580)={0xb, 0x77, 0x1, 0x8885}, 0xb)
+
+[   17.845082] cgroup1: Unknown subsys name 'perf_event'
+[   17.855097] cgroup1: Unknown subsys name 'net_cls'
+[   17.894407] cgroup1: Unknown subsys name 'perf_event'
+[   17.899949] cgroup1: Unknown subsys name 'net_cls'
+[   17.920463] cgroup1: Unknown subsys name 'perf_event'
+[   17.923985] cgroup1: Unknown subsys name 'net_cls'
+[   17.928649] cgroup1: Unknown subsys name 'perf_event'
+[   17.934112] cgroup1: Unknown subsys name 'net_cls'
+[   19.479613] ------------[ cut here ]------------
+[   19.482622] Found allocation of pipe_buffer
+[   19.485846] WARNING: CPU: 1 PID: 2065 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.490636] Kernel panic - not syncing: panic_on_warn set ...
+[   19.494740] CPU: 1 PID: 2065 Comm: syz-executor.0 Not tainted 5.5.3 #59
+[   19.499430] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.507352] Call Trace:
+[   19.509257]  dump_stack+0x15e/0x1ae
+[   19.511817]  panic+0x228/0x700
+[   19.514033]  ? 0xffffffffac000000
+[   19.516381]  ? alloc_pipe_info+0x259/0x4f0
+[   19.518811]  __warn+0x1fe/0x200
+[   19.520703]  ? alloc_pipe_info+0x259/0x4f0
+[   19.522525]  report_bug+0x359/0x480
+[   19.524058]  ? alloc_pipe_info+0x259/0x4f0
+[   19.526089]  do_invalid_op+0x6e/0x110
+[   19.527768]  invalid_op+0x1e/0x30
+[   19.529696] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.532302] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 fe ae e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 fe ae 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.543361] RSP: 0018:ffff888060117dd0 EFLAGS: 00010246
+[   19.546558] RAX: 64b73f395111ae00 RBX: 0000000000000002 RCX: ffffc900001ab000
+[   19.550561] RDX: ffffffffac000000 RSI: 0000000000000571 RDI: 0000000000000572
+[   19.554406] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100d1a6092
+[   19.558300] R10: ffffed100d1a6092 R11: 0000000000000000 R12: ffff88806564ca00
+[   19.562597] R13: dffffc0000000000 R14: ffffffffaf247fb0 R15: 0000000000000010
+[   19.566478]  ? 0xffffffffac000000
+[   19.568341]  create_pipe_files+0x85/0x6e0
+[   19.570702]  ? do_vfs_ioctl+0x6f0/0x1920
+[   19.573111]  __do_pipe_flags+0x46/0x200
+[   19.575320]  do_pipe2+0x41/0x230
+[   19.577103]  __x64_sys_pipe+0x36/0x40
+[   19.579256]  do_syscall_64+0xd1/0x160
+[   19.581405]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.584503] RIP: 0033:0x467519
+[   19.586398] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.599632] RSP: 002b:00007ffad5d3ac48 EFLAGS: 00000246 ORIG_RAX: 0000000000000016
+[   19.604987] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.609963] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.614978] RBP: 00007ffad5d3b6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.620345] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.624571] R13: 000000000000081e R14: 00000000004ea167 R15: 0000000000701640
+[   19.629755] Dumping ftrace buffer:
+[   19.631865]    (ftrace buffer empty)
+[   19.633707] Kernel Offset: 0x2b000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   19.640016] Rebooting in 1 seconds..

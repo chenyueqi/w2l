@@ -1,0 +1,58 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/20 01:14:39 fuzzer started
+2020/04/20 01:14:40 dialing manager at 10.0.2.10:41581
+2020/04/20 01:14:40 checking machine...
+2020/04/20 01:14:40 checking revisions...
+2020/04/20 01:14:40 testing simple program...
+syzkaller login: [   10.145724] audit: type=1400 audit(1587345280.154:8): avc:  denied  { execmem } for  pid=420 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.220486] ------------[ cut here ]------------
+[   10.222509] Found allocation of fname
+[   10.222912] WARNING: CPU: 1 PID: 421 at fs/ext4/dir.c:456 ext4_htree_store_dirent+0xb6/0x680
+[   10.227932] Kernel panic - not syncing: panic_on_warn set ...
+[   10.230530] CPU: 1 PID: 421 Comm: syz-executor.0 Not tainted 5.5.3 #44
+[   10.234441] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   10.240480] Call Trace:
+[   10.242056]  dump_stack+0x15e/0x1ae
+[   10.244106]  panic+0x228/0x700
+[   10.245495]  ? ext4_htree_store_dirent+0xb6/0x680
+[   10.247102]  __warn+0x1fe/0x200
+[   10.248285]  ? ext4_htree_store_dirent+0xb6/0x680
+[   10.250865]  report_bug+0x359/0x480
+[   10.252664]  ? ext4_htree_store_dirent+0xb6/0x680
+[   10.255322]  do_invalid_op+0x6e/0x110
+[   10.257427]  invalid_op+0x1e/0x30
+[   10.259118] RIP: 0010:ext4_htree_store_dirent+0xb6/0x680
+[   10.261553] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f de 8a e8 b2 85 13 02 48 85 c0 74 1e e8 f8 16 b3 ff 48 c7 c7 e1 a1 de 8a 31 c0 e8 0a 66 8c ff <0f> 0b eb 0c e8 e1 16 b3 ff eb 05 e8 da 16 b3 ff 4d 8d 74 24 08 4c
+[   10.269768] RSP: 0018:ffff88805acbfa20 EFLAGS: 00010246
+[   10.272515] RAX: 155cee6043d36400 RBX: 0000000000000002 RCX: 0000000000000000
+[   10.276706] RDX: ffff888067f70e80 RSI: 000000000000021a RDI: 000000000000021a
+[   10.280764] RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff1768bc3
+[   10.284629] R10: fffffbfff1768bc3 R11: 0000000000000000 R12: ffff88805acbfb20
+[   10.288255] R13: 0000000040df084e R14: ffff88806c89c608 R15: dffffc0000000000
+[   10.292176]  htree_dirblock_to_tree+0x448/0x690
+[   10.294440]  ext4_htree_fill_tree+0x53f/0x11a0
+[   10.296903]  ? get_page_from_freelist+0x998/0x1030
+[   10.299789]  ? ext4_readdir+0x40f/0x34d0
+[   10.302015]  ? kmem_cache_alloc_trace+0x188/0x200
+[   10.304649]  ext4_readdir+0x28a9/0x34d0
+[   10.306338]  ? down_read_killable+0xcd/0x1c0
+[   10.308540]  iterate_dir+0x2a6/0x510
+[   10.310172]  __se_sys_getdents+0x191/0x3f0
+[   10.311756]  ? fillonedir+0x250/0x250
+[   10.313595]  do_syscall_64+0xd1/0x160
+[   10.315196]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   10.317623] RIP: 0033:0x4656a8
+[   10.319615] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   10.328410] RSP: 002b:00007fff1ef3cb60 EFLAGS: 00000206 ORIG_RAX: 000000000000004e
+[   10.332270] RAX: ffffffffffffffda RBX: 0000000000f2cc10 RCX: 00000000004656a8
+[   10.336241] RDX: 0000000000008000 RSI: 0000000000f2cc10 RDI: 0000000000000003
+[   10.340048] RBP: 0000000000f2cc10 R08: 0000000000000076 R09: 0000000000000000
+[   10.343906] R10: 0000000000000804 R11: 0000000000000206 R12: ffffffffffffffbc
+[   10.347064] R13: 0000000000000016 R14: 0000000000000001 R15: 00000000ffffffff
+[   10.351066] Dumping ftrace buffer:
+[   10.352935]    (ftrace buffer empty)
+[   10.354317] Kernel Offset: 0x6e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   10.358816] Rebooting in 1 seconds..

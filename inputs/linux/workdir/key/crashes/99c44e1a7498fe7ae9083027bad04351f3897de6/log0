@@ -1,0 +1,590 @@
+[[0;32m  OK  [0m] Started Daily apt upgrade and clean activities.
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:8112' (ECDSA) to the list of known hosts.
+2020/04/20 05:47:06 fuzzer started
+2020/04/20 05:47:07 dialing manager at 10.0.2.10:40077
+2020/04/20 05:47:07 syscalls: 35
+2020/04/20 05:47:07 code coverage: enabled
+2020/04/20 05:47:07 comparison tracing: enabled
+2020/04/20 05:47:07 extra coverage: enabled
+2020/04/20 05:47:07 setuid sandbox: enabled
+2020/04/20 05:47:07 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 05:47:07 Android sandbox: enabled
+2020/04/20 05:47:07 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 05:47:07 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 05:47:07 net packet injection: /dev/net/tun does not exist
+2020/04/20 05:47:07 net device setup: enabled
+2020/04/20 05:47:07 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 05:47:07 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 05:47:07 USB emulation: /dev/raw-gadget does not exist
+05:47:08 executing program 0:
+keyctl$negate(0xd, 0x0, 0x0, 0x0)
+
+05:47:08 executing program 3:
+request_key(&(0x7f0000001840)='ceph\x00', &(0x7f0000001880)={'syz', 0x3}, 0x0, 0xfffffffffffffff8)
+keyctl$KEYCTL_CAPABILITIES(0x1f, &(0x7f00000000c0)=""/179, 0xb3)
+
+05:47:08 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$restrict_keyring(0x1d, r0, 0x0, &(0x7f00000000c0)='user\x00')
+
+05:47:08 executing program 2:
+keyctl$search(0x14, 0x0, &(0x7f00000004c0)='logon\x00', &(0x7f0000000500)={'syz', 0x3}, 0x0)
+
+syzkaller login: [   11.292233] audit: type=1400 audit(1587361628.300:8): avc:  denied  { execmem } for  pid=417 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   11.393810] cgroup1: Unknown subsys name 'perf_event'
+[   11.397726] cgroup1: Unknown subsys name 'net_cls'
+[   11.452065] cgroup1: Unknown subsys name 'perf_event'
+[   11.455927] cgroup1: Unknown subsys name 'net_cls'
+[   11.481045] cgroup1: Unknown subsys name 'perf_event'
+[   11.483127] cgroup1: Unknown subsys name 'perf_event'
+[   11.483972] cgroup1: Unknown subsys name 'net_cls'
+[   11.487737] cgroup1: Unknown subsys name 'net_cls'
+05:47:09 executing program 3:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$join(0x1, &(0x7f0000000100)={'syz', 0x2})
+
+05:47:09 executing program 2:
+r0 = add_key$user(&(0x7f00000005c0)='user\x00', &(0x7f0000000600)={'syz', 0x0}, &(0x7f0000000640)='O', 0x1, 0xfffffffffffffffd)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$search(0xa, r0, &(0x7f0000000000)='rxrpc_s\x00', &(0x7f0000000040)={'syz', 0x3}, r1)
+
+05:47:09 executing program 3:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$join(0x1, &(0x7f0000000100)={'syz', 0x2})
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$search(0xa, r0, &(0x7f0000000440)='asymmetric\x00', &(0x7f0000000480)={'syz', 0x2}, 0x0)
+
+05:47:09 executing program 0:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', 0x0, 0x0, 0x4000, 0xffffffffffffffff)
+
+05:47:09 executing program 1:
+keyctl$reject(0x13, 0x0, 0x0, 0xede8, 0x0)
+
+05:47:09 executing program 3:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$join(0x1, &(0x7f0000000100)={'syz', 0x2})
+
+05:47:09 executing program 2:
+request_key(&(0x7f0000000000)='pkcs7_test\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0xffffffffffffffff)
+r0 = add_key$keyring(&(0x7f0000000580)='keyring\x00', &(0x7f00000005c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffe)
+add_key(&(0x7f0000000500)='keyring\x00', &(0x7f0000000540)={'syz', 0x3}, 0x0, 0x0, r0)
+
+05:47:09 executing program 3:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$join(0x1, &(0x7f0000000100)={'syz', 0x2})
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$KEYCTL_MOVE(0x1e, r0, r1, 0x0, 0x0)
+
+05:47:09 executing program 2:
+keyctl$KEYCTL_MOVE(0x1e, 0x0, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 0:
+keyctl$set_reqkey_keyring(0xe, 0x0)
+keyctl$assume_authority(0x10, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$update(0x2, r0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$user(&(0x7f00000005c0)='user\x00', &(0x7f0000000600)={'syz', 0x3}, &(0x7f0000000640)='O', 0x1, 0xfffffffffffffffd)
+keyctl$setperm(0x5, r0, 0x8000014)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$clear(0x7, r0)
+
+05:47:09 executing program 3:
+keyctl$search(0xa, 0x0, &(0x7f0000001b40)='big_key\x00', &(0x7f0000001b80)={'syz', 0x3}, 0x0)
+
+05:47:09 executing program 0:
+request_key(&(0x7f0000000300)='.request_key_auth\x00', 0x0, 0x0, 0xfffffffffffffffe)
+
+05:47:09 executing program 1:
+keyctl$search(0xc, 0x0, &(0x7f00000004c0)='logon\x00', &(0x7f0000000500)={'syz', 0x3}, 0x0)
+
+05:47:09 executing program 3:
+r0 = request_key(&(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0)
+add_key$keyring(&(0x7f0000000140)='keyring\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$clear(0x7, r0)
+
+05:47:09 executing program 1:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$restrict_keyring(0x1d, r0, 0x0, 0x0)
+
+05:47:09 executing program 0:
+request_key(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, &(0x7f0000000080)='ceph\x00', 0x0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$clear(0x7, r0)
+
+05:47:09 executing program 1:
+keyctl$join(0x1, 0x0)
+keyctl$session_to_parent(0x12)
+
+05:47:09 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000001c0)=@builtin='builtin_trusted\x00')
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$restrict_keyring(0x1d, r0, 0x0, 0x0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$clear(0x7, r0)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r0, 0x0, &(0x7f00000000c0)='\x00', 0x0)
+
+05:47:09 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000001c0)=@builtin='builtin_trusted\x00')
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$restrict_keyring(0x1d, r0, 0x0, 0x0)
+
+05:47:09 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000001c0)=@builtin='builtin_trusted\x00')
+
+05:47:09 executing program 2:
+request_key(0xfffffffffffffffe, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$restrict_keyring(0x1d, r0, 0x0, 0x0)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$describe(0x6, r0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000840), &(0x7f0000000880)={'enc=', 'raw', ' hash=', {'sha1\x00'}}, 0x0, 0x0)
+
+05:47:09 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000001c0)=@builtin='builtin_trusted\x00')
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$describe(0x6, r0, 0x0, 0x0)
+
+05:47:09 executing program 2:
+request_key(0xfffffffffffffffe, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f00000000c0)=' ', 0x0)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$describe(0x6, r0, 0x0, 0x0)
+
+05:47:09 executing program 0:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 2:
+request_key(0xfffffffffffffffe, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 2:
+request_key(0xfffffffffffffffe, 0x0, 0x0, 0x0)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$describe(0x6, r0, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000001c0)=@builtin='builtin_trusted\x00')
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x1}, 0x0, 0x0, r0)
+
+05:47:09 executing program 0:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 1:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 0:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 3:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$setperm(0x5, r0, 0x0)
+add_key(&(0x7f0000000b80)='user\x00', 0x0, 0x0, 0x0, r0)
+
+05:47:09 executing program 1:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 0:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f00000001c0)='asymmetric\x00', &(0x7f0000000240)=@chain={'key_or_keyring:', 0x0, ':chain\x00'})
+
+05:47:09 executing program 3:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 1:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 3:
+keyctl$KEYCTL_PKEY_QUERY(0x18, 0x0, 0x0, &(0x7f0000000000)='cgroup\x00', &(0x7f0000000040))
+add_key(&(0x7f0000000080)='logon\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+add_key(&(0x7f0000000100)='blacklist\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$unlink(0x9, 0x0, 0x0)
+add_key(&(0x7f0000000240)='trusted\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e77dd0bba98bdd78c22026847733156f46fa05c18d056a61d1d5bc8b56e60aa4a60c2f45b5e1a3059a3012f1d005f221c6ab1e627e2eda81eaa01b102e69cbf52f24792f8258e75edee00f0e882012b2b991", 0x53, 0xffffffffffffffff)
+request_key(&(0x7f00000004c0)='rxrpc\x00', &(0x7f0000000500)={'syz', 0x2}, &(0x7f0000000540)='\x00', 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffb)
+request_key(&(0x7f00000009c0)='blacklist\x00', &(0x7f0000000a00)={'syz', 0x0}, &(0x7f0000000a40)=':chain\x00', r0)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$link(0x8, 0x0, r0)
+
+05:47:09 executing program 0:
+add_key$keyring(0xfffffffffffffffd, 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+
+05:47:09 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:09 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r2 = add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x0}, 0x0, 0x0, r1)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r2, &(0x7f00000001c0)='asymmetric\x00', &(0x7f0000000200)=@keyring={'key_or_keyring:', r0})
+
+05:47:09 executing program 0:
+add_key$keyring(0xfffffffffffffffd, 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+
+05:47:09 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+
+05:47:09 executing program 0:
+add_key$keyring(0xfffffffffffffffd, 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+
+05:47:10 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+
+05:47:10 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+request_key(&(0x7f0000000300)='user\x00', &(0x7f0000000340)={'syz', 0x3}, 0x0, r0)
+
+05:47:10 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 0:
+add_key$keyring(0xfffffffffffffffd, 0x0, 0x0, 0x0, 0xfffffffffffffffb)
+
+05:47:10 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+
+05:47:10 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 0:
+add_key(&(0x7f0000000080)='pkcs7_test\x00', 0x0, 0x0, 0x0, 0xfffffffffffffffe)
+keyctl$join(0x1, &(0x7f0000001640)={'syz', 0x2})
+
+05:47:10 executing program 2:
+add_key$keyring(0x0, &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+
+05:47:10 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 0:
+keyctl$set_reqkey_keyring(0xe, 0x0)
+request_key(&(0x7f00000003c0)='ceph\x00', &(0x7f0000000400)={'syz', 0x3}, 0x0, 0xffffffffffffffff)
+
+05:47:10 executing program 2:
+keyctl$set_reqkey_keyring(0xe, 0x7)
+
+05:47:10 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$clear(0x7, r0)
+
+05:47:10 executing program 0:
+request_key(&(0x7f0000000180)='pkcs7_test\x00', 0x0, 0x0, 0x0)
+
+05:47:10 executing program 2:
+keyctl$set_reqkey_keyring(0xe, 0x7)
+
+05:47:10 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$reject(0x13, r0, 0x0, 0xede8, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0xb, r1, &(0x7f0000000280)=""/93, 0x5d)
+keyctl$get_keyring_id(0x0, r1, 0x501)
+keyctl$get_security(0x11, r0, &(0x7f0000000100)=""/99, 0x63)
+
+05:47:10 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, r0)
+keyctl$set_timeout(0xf, r1, 0x0)
+
+05:47:10 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$search(0xa, r0, &(0x7f00000000c0)='dns_resolver\x00', &(0x7f0000000100)={'syz', 0x2}, 0x0)
+
+05:47:10 executing program 2:
+keyctl$set_reqkey_keyring(0xe, 0x7)
+
+05:47:10 executing program 1:
+keyctl$KEYCTL_PKEY_DECRYPT(0x1a, &(0x7f0000001a40), &(0x7f0000001a80)=ANY=[@ANYBLOB='enc=s'], 0x0, 0x0)
+
+05:47:10 executing program 0:
+keyctl$assume_authority(0x10, 0x0)
+keyctl$invalidate(0x15, 0x0)
+request_key(0x0, 0x0, 0x0, 0x0)
+r0 = add_key$keyring(0x0, &(0x7f0000000700)={'syz', 0x3}, 0x0, 0x0, 0x0)
+keyctl$search(0xa, 0x0, &(0x7f0000000780)='blacklist\x00', 0x0, r0)
+request_key(&(0x7f00000008c0)='id_resolver\x00', &(0x7f0000000900)={'syz', 0x2}, &(0x7f0000000940)='-\x00', 0xfffffffffffffffe)
+
+[   13.085149] ------------[ cut here ]------------
+[   13.087896] Found allocation of request_key_auth
+[   13.088210] WARNING: CPU: 0 PID: 2463 at security/keys/request_key_auth.c:179 request_key_auth_new+0xce/0x850
+[   13.096151] Kernel panic - not syncing: panic_on_warn set ...
+[   13.099268] CPU: 0 PID: 2463 Comm: syz-executor.0 Not tainted 5.5.3 #51
+[   13.102937] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   13.109092] Call Trace:
+[   13.110513]  dump_stack+0x15e/0x1ae
+[   13.112295]  panic+0x228/0x700
+[   13.113689]  ? 0xffffffff89600000
+[   13.113786] ------------[ cut here ]------------
+[   13.115299]  ? request_key_auth_new+0xce/0x850
+[   13.115304]  __warn+0x1fe/0x200
+[   13.115307]  ? request_key_auth_new+0xce/0x850
+[   13.115335]  report_bug+0x359/0x480
+[   13.115340]  ? request_key_auth_new+0xce/0x850
+[   13.116921] Found allocation of request_key_auth
+[   13.116951] WARNING: CPU: 1 PID: 2472 at security/keys/request_key_auth.c:179 request_key_auth_new+0xce/0x850
+[   13.118603]  do_invalid_op+0x6e/0x110
+[   13.118624]  invalid_op+0x1e/0x30
+[   13.119682] Modules linked in:
+[   13.121261] RIP: 0010:request_key_auth_new+0xce/0x850
+[   13.122545] CPU: 1 PID: 2472 Comm: syz-executor.3 Not tainted 5.5.3 #51
+[   13.124167] Code: 8d bf 48 06 00 00 48 c7 c6 a2 4f 5e 8c e8 ba 85 dc 01 48 85 c0 74 1e e8 00 17 7c ff 48 c7 c7 09 94 5f 8c 31 c0 e8 12 66 55 ff <0f> 0b eb 0c e8 e9 16 7c ff eb 05 e8 e2 16 7c ff 48 c7 c0 38 ae 69
+[   13.125804] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   13.129418] RSP: 0018:ffff888064947ce0 EFLAGS: 00010246
+[   13.130893] RIP: 0010:request_key_auth_new+0xce/0x850
+[   13.132381] RAX: 955b918cf9f59400 RBX: 0000000000000002 RCX: ffffc90000127000
+[   13.133519] Code: 8d bf 48 06 00 00 48 c7 c6 a2 4f 5e 8c e8 ba 85 dc 01 48 85 c0 74 1e e8 00 17 7c ff 48 c7 c7 09 94 5f 8c 31 c0 e8 12 66 55 ff <0f> 0b eb 0c e8 e9 16 7c ff eb 05 e8 e2 16 7c ff 48 c7 c0 38 ae 69
+[   13.135757] RDX: ffffffff89600000 RSI: 000000000000098a RDI: 000000000000098b
+[   13.138223] RSP: 0018:ffff88804a82fce0 EFLAGS: 00010246
+[   13.145681] RBP: ffff888064947d68 R08: dffffc0000000000 R09: fffffbfff1a68bc4
+[   13.149543] RAX: ece6379550584400 RBX: 0000000000000002 RCX: ffffc90000b2c000
+[   13.151489] R10: fffffbfff1a68bc4 R11: 0000000000000000 R12: dffffc0000000000
+[   13.153245] RDX: ffffffff89600000 RSI: 000000000000f4cc RDI: 000000000000f4cd
+[   13.156540] R13: ffff888069a81ba0 R14: 0000000000000001 R15: ffff88804a58c880
+[   13.165343] RBP: ffff88804a82fd68 R08: dffffc0000000000 R09: fffffbfff1a68bc4
+[   13.168769]  ? 0xffffffff89600000
+[   13.171257] R10: fffffbfff1a68bc4 R11: 0000000000000000 R12: dffffc0000000000
+[   13.174774]  ? refcount_dec_and_lock+0x22/0x120
+[   13.178116] R13: ffff888068381580 R14: 000000000000000b R15: ffff88804a4bd700
+[   13.181637]  request_key_and_link+0xd21/0x1450
+[   13.185061] FS:  00007f8161579700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   13.188507]  ? restrict_link_reject+0x10/0x10
+[   13.191939] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   13.193608]  ? keyring_search_rcu+0x290/0x290
+[   13.197070] CR2: 00000000200008c3 CR3: 000000006cf90004 CR4: 00000000003606e0
+[   13.199313]  __se_sys_request_key+0x1f8/0x310
+[   13.202751] Call Trace:
+[   13.204889]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   13.208752]  ? refcount_dec_and_lock+0x22/0x120
+[   13.210981]  do_syscall_64+0xd1/0x160
+[   13.213733]  request_key_and_link+0xd21/0x1450
+[   13.215860]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   13.219245]  ? restrict_link_reject+0x10/0x10
+[   13.221382] RIP: 0033:0x467519
+[   13.222590]  ? keyring_search_rcu+0x290/0x290
+[   13.225124] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   13.227374]  __se_sys_request_key+0x1f8/0x310
+[   13.229191] RSP: 002b:00007ff5050a6c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000f9
+[   13.231342]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   13.233822] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   13.235882]  do_syscall_64+0xd1/0x160
+[   13.237388] RDX: 0000000020000940 RSI: 0000000020000900 RDI: 00000000200008c0
+[   13.239466]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   13.248482] RBP: 00007ff5050a76bc R08: 0000000000000000 R09: 0000000000000000
+[   13.250539] RIP: 0033:0x467519
+[   13.254284] R10: fffffffffffffffe R11: 0000000000000246 R12: 00000000ffffffff
+[   13.256742] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   13.260236] R13: 00000000000008a8 R14: 00000000004c9bda R15: 0000000000701640
+[   13.261981] RSP: 002b:00007f8161578c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000f9
+[   13.291679] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   13.295112] RDX: 0000000020000940 RSI: 0000000020000900 RDI: 00000000200008c0
+[   13.298484] RBP: 00007f81615796bc R08: 0000000000000000 R09: 0000000000000000
+[   13.301852] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   13.305203] R13: 00000000000008a8 R14: 00000000004c9bda R15: 0000000000701640
+[   13.308548] ---[ end trace cebdc248fb5686ae ]---
+[   13.311238] Dumping ftrace buffer:
+[   13.312965]    (ftrace buffer empty)
+[   13.314699] Kernel Offset: 0x8600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   13.320078] Rebooting in 1 seconds..

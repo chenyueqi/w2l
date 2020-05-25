@@ -1,0 +1,269 @@
+syzkaller login: [   69.131429] ------------[ cut here ]------------
+[   69.133242] Found allocation of ip_options
+[   69.134964] WARNING: CPU: 0 PID: 0 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   69.137979] Modules linked in:
+[   69.139191] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G        W         5.5.3 #36
+[   69.141909] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   69.145929] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   69.147499] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   69.153787] RSP: 0018:ffff88806d2092c0 EFLAGS: 00010246
+[   69.155455] RAX: 1f57cf26e70eb600 RBX: 0000000000000002 RCX: dffffc0000000000
+[   69.158279] RDX: 0000000000000000 RSI: 0000000000000008 RDI: 0000000000000300
+[   69.160877] RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: fffffbfff48329db
+[   69.163476] R10: fffffbfff48329db R11: ffffffffa0ef0a40 R12: dffffc0000000000
+[   69.165969] R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806d209558
+[   69.168401] FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   69.171159] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   69.173169] CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+[   69.175570] Call Trace:
+[   69.176366]  <IRQ>
+[   69.177057]  ip_append_data+0x155/0x1a0
+[   69.178284]  ? icmp_err+0x280/0x280
+[   69.179378]  icmp_push_reply+0x100/0x420
+[   69.180919]  __icmp_send+0x1129/0x2210
+[   69.182070]  ? udp4_lib_lookup2+0x606/0x640
+[   69.183310]  ? __skb_checksum+0x8d4/0x9c0
+[   69.184532]  ? __udp4_lib_lookup+0x24e/0x340
+[   69.185797]  __udp4_lib_rcv+0x19fd/0x2d00
+[   69.186998]  ? udp_v4_early_demux+0x1260/0x1260
+[   69.188341]  ip_protocol_deliver_rcu+0x36c/0x670
+[   69.189719]  ip_local_deliver+0x399/0x4f0
+[   69.190911]  ? ip_local_deliver+0x4f0/0x4f0
+[   69.192148]  ip_sublist_rcv+0x72c/0x7b0
+[   69.193387]  ? ip_rcv_core+0xa50/0xa50
+[   69.194578]  ip_list_rcv+0x3ef/0x420
+[   69.195672]  ? ip_rcv_finish+0xd0/0xd0
+[   69.196732]  __netif_receive_skb_list_core+0x7bb/0x7e0
+[   69.198193]  __netif_receive_skb_list+0x49b/0x540
+[   69.199554]  netif_receive_skb_list_internal+0x3eb/0x670
+[   69.201029]  napi_complete_done+0x19c/0x530
+[   69.202198]  e1000_clean+0x118c/0x41b0
+[   69.203253]  ? timerqueue_add+0x26d/0x290
+[   69.204373]  napi_poll+0x24d/0x6b0
+[   69.205341]  net_rx_action+0x2bd/0x870
+[   69.206403]  __do_softirq+0x242/0x5be
+[   69.207429]  irq_exit+0x16d/0x180
+[   69.208316]  do_IRQ+0x92/0x150
+[   69.209146]  common_interrupt+0xf/0xf
+[   69.210135]  </IRQ>
+[   69.210719] RIP: 0010:default_idle+0x1f/0x30
+[   69.211853] Code: cc cc cc cc cc cc cc cc cc cc cc 65 8b 35 a9 61 82 5c bf 01 00 00 00 e8 ef 8a 68 fd e9 07 00 00 00 0f 00 2d 2b 0b 41 00 fb f4 <65> 8b 35 8a 61 82 5c bf ff ff ff ff e9 d0 8a 68 fd 41 57 41 56 53
+[   69.216662] RSP: 0018:ffffffffa4007e88 EFLAGS: 00000246 ORIG_RAX: ffffffffffffffdb
+[   69.218513] RAX: 000000000001ee01 RBX: ffffffffa4016940 RCX: ffffffffa0fe87bf
+[   69.220252] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000001
+[   69.222018] RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff4802d29
+[   69.223795] R10: fffffbfff4802d29 R11: ffffffffa37f5190 R12: 0000000000000000
+[   69.225825] R13: 1ffffffff4802d28 R14: ffffffffa41966a0 R15: 0000000000000000
+[   69.227590]  ? __cpuidle_text_start+0x8/0x8
+[   69.228589]  ? do_idle+0x18f/0x510
+[   69.229398]  ? default_idle+0x11/0x30
+[   69.230273]  do_idle+0x1b3/0x510
+[   69.231053]  cpu_startup_entry+0x15/0x20
+[   69.231997]  start_kernel+0x6d2/0x77a
+[   69.232890]  secondary_startup_64+0xb6/0xc0
+[   69.233909] ---[ end trace ad8fe6c5a6f644c1 ]---
+[   69.235471] ------------[ cut here ]------------
+[   69.236620] Found allocation of ip_options
+[   69.237702] WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   69.239551] Modules linked in:
+[   69.240251] CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+[   69.241939] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   69.244526] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   69.245576] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   69.249706] RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+[   69.250859] RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+[   69.252391] RDX: ffff88806cd88000 RSI: 00000000000033fa RDI: 00000000000033fa
+[   69.253934] RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+[   69.255470] R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+[   69.257002] R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+[   69.258556] FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   69.260273] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   69.261440] CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+[   69.262944] Call Trace:
+[   69.263474]  ip_append_data+0x155/0x1a0
+[   69.264290]  ? icmp_err+0x280/0x280
+[   69.265034]  icmp_push_reply+0x100/0x420
+[   69.265864]  __icmp_send+0x1129/0x2210
+[   69.266659]  ? udp4_lib_lookup2+0x606/0x640
+[   69.267543]  ? __skb_checksum+0x8d4/0x9c0
+[   69.268385]  ? __udp4_lib_lookup+0x24e/0x340
+[   69.269289]  __udp4_lib_rcv+0x19fd/0x2d00
+[   69.270134]  ? udp_v4_early_demux+0x1260/0x1260
+[   69.271073]  ip_protocol_deliver_rcu+0x36c/0x670
+[   69.272015]  ip_local_deliver+0x399/0x4f0
+[   69.272833]  ? ip_local_deliver+0x4f0/0x4f0
+[   69.273680]  ip_sublist_rcv+0x72c/0x7b0
+[   69.274454]  ? ip_rcv_core+0xa50/0xa50
+[   69.275220]  ip_list_rcv+0x3ef/0x420
+[   69.275953]  ? ip_rcv_finish+0xd0/0xd0
+[   69.276734]  __netif_receive_skb_list_core+0x7bb/0x7e0
+[   69.277760]  __netif_receive_skb_list+0x49b/0x540
+[   69.278706]  netif_receive_skb_list_internal+0x3eb/0x670
+[   69.279768]  napi_complete_done+0x19c/0x530
+[   69.280619]  e1000_clean+0x118c/0x41b0
+[   69.281345]  napi_poll+0x24d/0x6b0
+[   69.282010]  ? __switch_to_asm+0x34/0x70
+[   69.282769]  net_rx_action+0x2bd/0x870
+[   69.283500]  __do_softirq+0x242/0x5be
+[   69.284206]  ? ksoftirqd_should_run+0x10/0x10
+[   69.285054]  run_ksoftirqd+0x13/0x20
+[   69.285756]  smpboot_thread_fn+0x40c/0x760
+[   69.286558]  ? cpu_report_death+0x110/0x110
+[   69.287367]  kthread+0x2ec/0x310
+[   69.288001]  ? cpu_report_death+0x110/0x110
+[   69.288808]  ? kthread_destroy_worker+0x1e0/0x1e0
+[   69.289712]  ret_from_fork+0x35/0x40
+[   69.290394] ---[ end trace ad8fe6c5a6f644c2 ]---
+[   69.291452] ------------[ cut here ]------------
+[   69.292400] Found allocation of ip_options
+[   69.293280] WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   69.294840] Modules linked in:
+[   69.295434] CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+[   69.296858] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   69.299036] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   69.299919] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   69.303434] RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+[   69.304438] RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+[   69.305795] RDX: ffff88806cd88000 RSI: 000000000000342e RDI: 000000000000342e
+[   69.307153] RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+[   69.308526] R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+[   69.309882] R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+[   69.311239] FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   69.312789] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   69.313891] CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+[   69.315236] Call Trace:
+[   69.315728]  ip_append_data+0x155/0x1a0
+[   69.316472]  ? icmp_err+0x280/0x280
+[   69.317148]  icmp_push_reply+0x100/0x420
+[   69.317923]  __icmp_send+0x1129/0x2210
+[   69.318658]  ? __skb_checksum+0x8d4/0x9c0
+[   69.319450]  ? __udp4_lib_lookup+0x24e/0x340
+[   69.320276]  __udp4_lib_rcv+0x19fd/0x2d00
+[   69.321049]  ? udp_v4_early_demux+0x1260/0x1260
+[   69.321919]  ip_protocol_deliver_rcu+0x36c/0x670
+[   69.322808]  ip_local_deliver+0x399/0x4f0
+[   69.323579]  ? ip_local_deliver+0x4f0/0x4f0
+[   69.324377]  ip_sublist_rcv+0x72c/0x7b0
+[   69.325110]  ? ip_rcv_core+0xa50/0xa50
+[   69.325846]  ip_list_rcv+0x3ef/0x420
+[   69.326527]  ? ip_rcv_finish+0xd0/0xd0
+[   69.327254]  __netif_receive_skb_list_core+0x7bb/0x7e0
+[   69.328243]  __netif_receive_skb_list+0x49b/0x540
+[   69.329157]  netif_receive_skb_list_internal+0x3eb/0x670
+[   69.330180]  napi_complete_done+0x19c/0x530
+[   69.330993]  e1000_clean+0x118c/0x41b0
+[   69.331721]  napi_poll+0x24d/0x6b0
+[   69.332374]  ? __switch_to_asm+0x34/0x70
+[   69.333129]  net_rx_action+0x2bd/0x870
+[   69.333858]  __do_softirq+0x242/0x5be
+[   69.334567]  ? ksoftirqd_should_run+0x10/0x10
+[   69.335397]  run_ksoftirqd+0x13/0x20
+[   69.336089]  smpboot_thread_fn+0x40c/0x760
+[   69.336874]  ? cpu_report_death+0x110/0x110
+[   69.337680]  kthread+0x2ec/0x310
+[   69.338299]  ? cpu_report_death+0x110/0x110
+[   69.339097]  ? kthread_destroy_worker+0x1e0/0x1e0
+[   69.340015]  ret_from_fork+0x35/0x40
+[   69.340713] ---[ end trace ad8fe6c5a6f644c3 ]---
+[   69.341750] ------------[ cut here ]------------
+[   69.342670] Found allocation of ip_options
+[   69.343550] WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   69.345110] Modules linked in:
+[   69.345708] CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+[   69.347120] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   69.349333] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   69.350201] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   69.353693] RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+[   69.354695] RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+[   69.356075] RDX: ffff88806cd88000 RSI: 0000000000003461 RDI: 0000000000003461
+[   69.357414] RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+[   69.358759] R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+[   69.360099] R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+[   69.361446] FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   69.362978] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   69.364082] CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+[   69.365453] Call Trace:
+[   69.365949]  ip_append_data+0x155/0x1a0
+[   69.366701]  ? icmp_err+0x280/0x280
+[   69.367381]  icmp_push_reply+0x100/0x420
+[   69.368142]  __icmp_send+0x1129/0x2210
+[   69.368876]  ? __skb_checksum+0x8d4/0x9c0
+[   69.369656]  ? __udp4_lib_lookup+0x24e/0x340
+[   69.370493]  __udp4_lib_rcv+0x19fd/0x2d00
+[   69.371289]  ? udp_v4_early_demux+0x1260/0x1260
+[   69.372175]  ip_protocol_deliver_rcu+0x36c/0x670
+[   69.373062]  ip_local_deliver+0x399/0x4f0
+[   69.373850]  ? ip_local_deliver+0x4f0/0x4f0
+[   69.374665]  ip_sublist_rcv+0x72c/0x7b0
+[   69.375412]  ? ip_rcv_core+0xa50/0xa50
+[   69.376148]  ip_list_rcv+0x3ef/0x420
+[   69.376852]  ? ip_rcv_finish+0xd0/0xd0
+[   69.377592]  __netif_receive_skb_list_core+0x7bb/0x7e0
+[   69.378588]  __netif_receive_skb_list+0x49b/0x540
+[   69.379504]  netif_receive_skb_list_internal+0x3eb/0x670
+[   69.380539]  napi_complete_done+0x19c/0x530
+[   69.381522]  e1000_clean+0x118c/0x41b0
+[   69.382265]  napi_poll+0x24d/0x6b0
+[   69.382925]  ? __switch_to_asm+0x34/0x70
+[   69.383684]  net_rx_action+0x2bd/0x870
+[   69.384403]  __do_softirq+0x242/0x5be
+[   69.385121]  ? ksoftirqd_should_run+0x10/0x10
+[   69.385957]  run_ksoftirqd+0x13/0x20
+[   69.386650]  smpboot_thread_fn+0x40c/0x760
+[   69.387461]  ? cpu_report_death+0x110/0x110
+[   69.388260]  kthread+0x2ec/0x310
+[   69.388895]  ? cpu_report_death+0x110/0x110
+[   69.389703]  ? kthread_destroy_worker+0x1e0/0x1e0
+[   69.390605]  ret_from_fork+0x35/0x40
+[   69.391286] ---[ end trace ad8fe6c5a6f644c4 ]---
+[   69.392319] ------------[ cut here ]------------
+[   69.393236] Found allocation of ip_options
+[   69.394127] WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   69.395699] Modules linked in:
+[   69.396306] CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+[   69.397748] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   69.399938] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   69.400809] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   69.404332] RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+[   69.405333] RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+[   69.406700] RDX: ffff88806cd88000 RSI: 0000000000003494 RDI: 0000000000003494
+[   69.408056] RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+[   69.409425] R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+[   69.410800] R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+[   69.412147] FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   69.413697] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   69.414788] CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+[   69.416128] Call Trace:
+[   69.416615]  ip_append_data+0x155/0x1a0
+[   69.417353]  ? icmp_err+0x280/0x280
+[   69.418031]  icmp_push_reply+0x100/0x420
+[   69.418798]  __icmp_send+0x1129/0x2210
+[   69.419529]  ? __skb_checksum+0x8d4/0x9c0
+[   69.420306]  ? __udp4_lib_lookup+0x24e/0x340
+[   69.421131]  __udp4_lib_rcv+0x19fd/0x2d00
+[   69.421906]  ? udp_v4_early_demux+0x1260/0x1260
+[   69.422775]  ip_protocol_deliver_rcu+0x36c/0x670
+[   69.423655]  ip_local_deliver+0x399/0x4f0
+[   69.424419]  ? ip_local_deliver+0x4f0/0x4f0
+[   69.425220]  ip_sublist_rcv+0x72c/0x7b0
+[   69.425957]  ? ip_rcv_core+0xa50/0xa50
+[   69.426679]  ip_list_rcv+0x3ef/0x420
+[   69.427365]  ? ip_rcv_finish+0xd0/0xd0
+[   69.428093]  __netif_receive_skb_list_core+0x7bb/0x7e0
+[   69.429077]  __netif_receive_skb_list+0x49b/0x540
+[   69.429981]  netif_receive_skb_list_internal+0x3eb/0x670
+[   69.430993]  napi_complete_done+0x19c/0x530
+[   69.431798]  e1000_clean+0x118c/0x41b0
+[   69.432534]  napi_poll+0x24d/0x6b0
+[   69.433202]  ? __switch_to_asm+0x34/0x70
+[   69.433968]  net_rx_action+0x2bd/0x870
+[   69.434713]  __do_softirq+0x242/0x5be
+[   69.435426]  ? ksoftirqd_should_run+0x10/0x10
+[   69.436293]  run_ksoftirqd+0x13/0x20
+[   69.436991]  smpboot_thread_fn+0x40c/0x760
+[   69.437777]  ? cpu_report_death+0x110/0x110
+[   69.438580]  kthread+0x2ec/0x310
+[   69.439202]  ? cpu_report_death+0x110/0x110
+[   69.440005]  ? kthread_destroy_worker+0x1e0/0x1e0
+[   69.440917]  ret_from_fork+0x35/0x40
+[   69.441607] ---[ end trace ad8fe6c5a6f644c5 ]---

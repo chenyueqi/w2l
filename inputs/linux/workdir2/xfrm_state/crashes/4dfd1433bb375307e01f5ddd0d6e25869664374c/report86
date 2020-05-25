@@ -1,0 +1,91 @@
+Found leaking site of xfrm_algo
+WARNING: CPU: 0 PID: 4246 at net/xfrm/xfrm_user.c:928 copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Modules linked in:
+CPU: 0 PID: 4246 Comm: syz-executor.3 Not tainted 5.5.3 #18
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Code: 89 e3 48 c1 eb 03 42 80 3c 33 00 74 08 4c 89 e7 e8 7e 0d 24 fe 49 83 3c 24 00 74 66 48 c7 c7 57 b5 8b 94 31 c0 e8 69 cc d7 fd <0f> 0b 42 80 3c 33 00 74 08 4c 89 e7 e8 58 0d 24 fe 49 8b 1c 24 48
+RSP: 0000:ffff8880622171a0 EFLAGS: 00010246
+RAX: 1f735074a6dabf00 RBX: 1ffff1100cca7160 RCX: ffffc90001583000
+RDX: ffffffff91800000 RSI: 0000000000001176 RDI: 0000000000001177
+RBP: ffff8880622172d0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100c442dad R11: 0000000000000004 R12: ffff888066538b00
+R13: ffff888065ceadc0 R14: dffffc0000000000 R15: ffff8880665389c0
+FS:  00007f3b1cad8700(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000065b10006 CR4: 00000000001606f0
+Call Trace:
+ xfrm_notify_sa net/xfrm/xfrm_user.c:2883 [inline]
+ xfrm_send_state_notify+0xc7f/0x1cf0 net/xfrm/xfrm_user.c:2907
+ km_state_notify+0x77/0xd0 net/xfrm/xfrm_state.c:2137
+ xfrm_add_sa+0x373b/0x3870 net/xfrm/xfrm_user.c:712
+ xfrm_user_rcv_msg+0x595/0x640 net/xfrm/xfrm_user.c:2688
+ netlink_rcv_skb+0x1f6/0x3b0 net/netlink/af_netlink.c:2477
+ xfrm_netlink_rcv+0x6e/0x80 net/xfrm/xfrm_user.c:2696
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0xad1/0xba0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x8e1/0xd40 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x8c0/0x8f0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmsg+0x21c/0x300 net/socket.c:2417
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f3b1cad7c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000020000440 RDI: 0000000000000003
+RBP: 00007f3b1cad86bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+---[ end trace fdba5822caf83f1c ]---
+SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=4262 comm=syz-executor.1
+SELinux: unrecognized netlink message: protocol=6 nlmsg_type=0 sclass=netlink_xfrm_socket pig=4261 comm=syz-executor.1
+------------[ cut here ]------------
+Found leaking site of xfrm_algo
+WARNING: CPU: 0 PID: 4266 at net/xfrm/xfrm_user.c:928 copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Modules linked in:
+CPU: 0 PID: 4266 Comm: syz-executor.3 Tainted: G        W         5.5.3 #18
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:copy_to_user_state_extra+0x557/0x1280 net/xfrm/xfrm_user.c:928
+Code: 89 e3 48 c1 eb 03 42 80 3c 33 00 74 08 4c 89 e7 e8 7e 0d 24 fe 49 83 3c 24 00 74 66 48 c7 c7 57 b5 8b 94 31 c0 e8 69 cc d7 fd <0f> 0b 42 80 3c 33 00 74 08 4c 89 e7 e8 58 0d 24 fe 49 8b 1c 24 48
+RSP: 0018:ffff888066c0ef20 EFLAGS: 00010246
+RAX: 1561d8924568b600 RBX: 1ffff1100cca7160 RCX: ffffc90001985000
+RDX: ffffffff91800000 RSI: 000000000000064c RDI: 000000000000064d
+RBP: ffff888066c0f048 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100cd81d5d R11: 0000000000000004 R12: ffff888066538b00
+R13: ffff888063f61c80 R14: dffffc0000000000 R15: ffff8880665389c0
+FS:  00007f3b1cab7700(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000074c000 CR3: 0000000065b10002 CR4: 00000000001606f0
+Call Trace:
+ dump_one_state+0x1c6/0x330 net/xfrm/xfrm_user.c:997
+ xfrm_state_walk+0x296/0x970 net/xfrm/xfrm_state.c:2060
+ xfrm_dump_sa+0x1f7/0x4c0 net/xfrm/xfrm_user.c:1057
+ netlink_dump+0x673/0x1690 net/netlink/af_netlink.c:2244
+ __netlink_dump_start+0x5c3/0x790 net/netlink/af_netlink.c:2352
+ netlink_dump_start include/linux/netlink.h:233 [inline]
+ xfrm_user_rcv_msg+0x334/0x640 net/xfrm/xfrm_user.c:2675
+ netlink_rcv_skb+0x1f6/0x3b0 net/netlink/af_netlink.c:2477
+ xfrm_netlink_rcv+0x6e/0x80 net/xfrm/xfrm_user.c:2696
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0xad1/0xba0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x8e1/0xd40 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x8c0/0x8f0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmsg+0x21c/0x300 net/socket.c:2417
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f3b1cab6c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000004000004 RSI: 0000000020000340 RDI: 0000000000000004
+RBP: 00007f3b1cab76bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000009fe R14: 00000000004cb1d9 R15: 0000000000701660
+---[ end trace fdba5822caf83f1d ]---

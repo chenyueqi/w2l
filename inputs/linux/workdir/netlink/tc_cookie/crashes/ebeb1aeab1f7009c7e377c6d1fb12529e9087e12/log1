@@ -1,0 +1,63 @@
+Warning: Permanently added '[localhost]:45243' (ECDSA) to the list of known hosts.
+2020/04/17 04:54:01 fuzzer started
+syzkaller login: [   95.076886] clocksource: timekeeping watchdog on CPU0: Marking clocksource 'tsc' as unstable because the skew is too large:
+[   95.089449] clocksource:                       'hpet' wd_now: 392f0e54 wd_last: 44610d5c mask: ffffffff
+[   95.094202] clocksource:                       'tsc' cs_now: 4f1d134b5d cs_last: 3182078716 mask: ffffffffffffffff
+[   95.099738] tsc: Marking TSC unstable due to clocksource watchdog
+[   95.105846] TSC found unstable after boot, most likely due to broken BIOS. Use 'tsc=unstable'.
+[   95.110550] sched_clock: Marking unstable (95116678418, -10832674)<-(95426746048, -320900924)
+[   95.120785] clocksource: Switched to clocksource hpet
+2020/04/17 04:54:57 dialing manager at 10.0.2.10:44841
+[  109.407057] gcc (315) used greatest stack depth: 26488 bytes left
+2020/04/17 04:54:57 checking machine...
+2020/04/17 04:54:57 checking revisions...
+[  109.499572] ------------[ cut here ]------------
+[  109.502334] Found allocation of policy_load_memory
+[  109.506063] WARNING: CPU: 0 PID: 310 at security/selinux/selinuxfs.c:396 sel_open_policy+0x213/0x460
+[  109.506063] Kernel panic - not syncing: panic_on_warn set ...
+[  109.511498] CPU: 0 PID: 310 Comm: syz-fuzzer Not tainted 5.5.3 #32
+[  109.514408] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[  109.514408] Call Trace:
+[  109.514408]  dump_stack+0x15e/0x1ae
+[  109.514408]  panic+0x228/0x700
+[  109.514408]  ? sel_open_policy+0x213/0x460
+[  109.514408]  __warn+0x1fe/0x200
+[  109.514408]  ? sel_open_policy+0x213/0x460
+[  109.514408]  report_bug+0x359/0x480
+[  109.514408]  ? sel_open_policy+0x213/0x460
+[  109.514408]  do_invalid_op+0x6e/0x110
+[  109.514408]  invalid_op+0x1e/0x30
+[  109.514408] RIP: 0010:sel_open_policy+0x213/0x460
+[  109.514408] Code: 8b 2d 11 df 75 02 bf 02 00 00 00 89 ee e8 05 67 77 ff 83 fd 02 75 17 e8 eb 62 77 ff 48 c7 c7 a9 ad 3f a4 31 c0 e8 fd b1 50 ff <0f> 0b eb 05 e8 d4 62 77 ff 48 c7 c0 50 ae 49 a4 48 c1 e8 03 42 80
+[  109.514408] RSP: 0018:ffff888065567a88 EFLAGS: 00010246
+[  109.514408] RAX: 08956f91593e7400 RBX: 1ffff1100d7be886 RCX: 0000000000000000
+[  109.514408] RDX: ffff888069988000 RSI: 0000000000000000 RDI: 0000000000000000
+[  109.514408] RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da46092
+[  109.514408] R10: ffffed100da46092 R11: 0000000000000000 R12: dffffc0000000000
+[  109.514408] R13: 0000000000000000 R14: ffff88806c7a20c8 R15: ffff88806bdf4430
+[  109.514408]  ? sel_open_policy+0x213/0x460
+[  109.514408]  ? sel_mmap_policy+0xf0/0xf0
+[  109.514408]  do_dentry_open+0x810/0xf50
+[  109.514408]  path_openat+0x13e9/0x3d30
+[  109.514408]  ? do_sys_open+0x274/0x530
+[  109.514408]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[  109.514408]  ? selinux_inode_getattr+0x268/0x360
+[  109.514408]  ? mntput_no_expire+0xa2/0xc70
+[  109.514408]  ? dput+0x78a/0x940
+[  109.514408]  do_filp_open+0x191/0x3a0
+[  109.514408]  ? __alloc_fd+0x4df/0x5a0
+[  109.514408]  do_sys_open+0x2b6/0x530
+[  109.514408]  do_syscall_64+0xd1/0x160
+[  109.514408]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[  109.514408] RIP: 0033:0x47c5aa
+[  109.514408] Code: e8 7b 6b fb ff 48 8b 7c 24 10 48 8b 74 24 18 48 8b 54 24 20 4c 8b 54 24 28 4c 8b 44 24 30 4c 8b 4c 24 38 48 8b 44 24 08 0f 05 <48> 3d 01 f0 ff ff 76 20 48 c7 44 24 40 ff ff ff ff 48 c7 44 24 48
+[  109.514408] RSP: 002b:000000c4201637e8 EFLAGS: 00000212 ORIG_RAX: 0000000000000101
+[  109.514408] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 000000000047c5aa
+[  109.514408] RDX: 0000000000080000 RSI: 000000c420024960 RDI: ffffffffffffff9c
+[  109.514408] RBP: 000000c420163868 R08: 0000000000000000 R09: 0000000000000000
+[  109.514408] R10: 0000000000000000 R11: 0000000000000212 R12: ffffffffffffffff
+[  109.514408] R13: 000000000000004c R14: 000000000000004b R15: 0000000000000100
+[  109.514408] Dumping ftrace buffer:
+[  109.514408]    (ftrace buffer empty)
+[  109.514408] Kernel Offset: 0x20400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  109.514408] Rebooting in 1 seconds..

@@ -1,0 +1,276 @@
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900713 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 00000000000032d2 RDI: 00000000000032d2
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806b715b00
+R13: dffffc0000000000 R14: ffff88806b715b04 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900714 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 00000000000032f3 RDI: 00000000000032f3
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806be0e000
+R13: dffffc0000000000 R14: ffff88806be0e004 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900715 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 0000000000003314 RDI: 0000000000003314
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806be02d00
+R13: dffffc0000000000 R14: ffff88806be02d04 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900716 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 0000000000003335 RDI: 0000000000003335
+RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806be0e700
+R13: dffffc0000000000 R14: ffff88806be0e704 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900717 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 0000000000003356 RDI: 0000000000003356
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806be0e500
+R13: dffffc0000000000 R14: ffff88806be0e504 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900718 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 0000000000003377 RDI: 0000000000003377
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806ccc8e00
+R13: dffffc0000000000 R14: ffff88806ccc8e04 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a900719 ]---
+------------[ cut here ]------------
+Found leaking site of proc_dir_entry
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 dir_emit include/linux/fs.h:3549 [inline]
+WARNING: CPU: 1 PID: 1674 at fs/proc/generic.c:311 proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Modules linked in:
+CPU: 1 PID: 1674 Comm: start-stop-daem Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:dir_emit include/linux/fs.h:3549 [inline]
+RIP: 0010:proc_readdir_de+0x3c4/0x660 fs/proc/generic.c:310
+Code: 8b 1d 30 49 b6 02 bf 02 00 00 00 89 de e8 24 d1 b7 ff 83 fb 02 75 1f e8 0a cd b7 ff 48 c7 c7 70 8c be b8 31 c0 e8 1c 1c 91 ff <0f> 0b eb 0d 0f 1f 84 00 00 00 00 00 e8 eb cc b7 ff 49 8d bc 24 a0
+RSP: 0018:ffff888066f07d80 EFLAGS: 00010246
+RAX: 7448591b2d735400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806a36ab80 RSI: 0000000000003398 RDI: 0000000000003398
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff7328bc4
+R10: fffffbfff7328bc4 R11: 0000000000000000 R12: ffff88806b7ad500
+R13: dffffc0000000000 R14: ffff88806b7ad504 R15: dffffc0000000000
+FS:  00007fdf82fc0700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000139e048 CR3: 0000000067ea0006 CR4: 00000000001606e0
+Call Trace:
+ proc_root_readdir+0x5e/0xc0 fs/proc/root.c:260
+ file_inode include/linux/fs.h:1318 [inline]
+ fsnotify_access include/linux/fsnotify.h:233 [inline]
+ iterate_dir+0x2a6/0x510 fs/readdir.c:69
+ __do_sys_getdents fs/readdir.c:271 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x7fdf82ac6575
+Code: 83 c7 13 e9 ed 53 fd ff 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 49 89 f0 48 63 ff b8 4e 00 00 00 41 55 41 54 55 53 0f 05 <48> 3d 00 f0 ff ff 77 58 4d 8d 24 00 49 89 c5 4d 39 e0 73 40 4c 89
+RSP: 002b:00007ffc8e02f2c0 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000001396010 RCX: 00007fdf82ac6575
+RDX: 0000000000008000 RSI: 0000000001396040 RDI: 0000000000000003
+RBP: ffffffffffffffa8 R08: 0000000001396040 R09: 00007fdf82a1fc60
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000001396040 R14: 0000000000000000 R15: 0000000000000000
+---[ end trace 85d444750a90071a ]---

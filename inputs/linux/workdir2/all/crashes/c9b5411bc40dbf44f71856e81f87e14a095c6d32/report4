@@ -1,0 +1,36 @@
+------------[ cut here ]------------
+Found allocation of tcp_fastopen_context
+WARNING: CPU: 0 PID: 4878 at net/ipv4/tcp_fastopen.c:76 tcp_fastopen_reset_cipher net/ipv4/tcp_fastopen.c:76 [inline]
+WARNING: CPU: 0 PID: 4878 at net/ipv4/tcp_fastopen.c:76 tcp_fastopen_init_key_once+0xee/0x2c0 net/ipv4/tcp_fastopen.c:33
+Modules linked in:
+CPU: 0 PID: 4878 Comm: syz-executor.2 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:tcp_fastopen_reset_cipher net/ipv4/tcp_fastopen.c:76 [inline]
+RIP: 0010:tcp_fastopen_init_key_once+0xee/0x2c0 net/ipv4/tcp_fastopen.c:33
+Code: 5e 41 5f 5d c3 48 89 5c 24 18 48 8d 5c 24 40 48 89 df be 10 00 00 00 e8 00 0a eb fe 48 c7 c7 1f 6e 2b ba 31 c0 e8 62 a1 ed fd <0f> 0b 48 c7 c0 60 1e 2d ba 48 c1 e8 03 42 80 3c 20 00 74 0c 48 c7
+RSP: 0018:ffff88806a76fc40 EFLAGS: 00010246
+RAX: 993024bdd965b800 RBX: ffff88806a76fc80 RCX: ffffc90000e47000
+RDX: ffffffffb7200000 RSI: 0000000000000577 RDI: 0000000000000578
+RBP: ffff88806a76fcf0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100d4edf01 R11: 0000000000000004 R12: dffffc0000000000
+R13: 1ffff1100a47c0a2 R14: 1ffff1100d4edf8c R15: ffff8880523e0510
+FS:  00007fdb90426700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffc2e2afb6c CR3: 0000000067fe0002 CR4: 00000000001606f0
+Call Trace:
+ do_tcp_setsockopt+0x946/0x2620 net/ipv4/tcp.c:3098
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fdb90425c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000017 RSI: 0000000000000006 RDI: 0000000000000006
+RBP: 00007fdb904266bc R08: 0000000000000004 R09: 0000000000000000
+R10: 0000000020000080 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000b19 R14: 00000000004cbc6e R15: 0000000000701660
+---[ end trace 08e6328cb7192a95 ]---

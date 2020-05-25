@@ -1,0 +1,53 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:43242' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   30.156954] ------------[ cut here ]------------
+[   30.159494] Found allocation of iovec
+[   30.161438] WARNING: CPU: 1 PID: 412 at fs/read_write.c:793 rw_copy_check_uvector+0xe4/0x380
+[   30.165059] Kernel panic - not syncing: panic_on_warn set ...
+[   30.168139] CPU: 1 PID: 412 Comm: syz-executor110 Not tainted 5.5.3 #50
+[   30.171290] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   30.176559] Call Trace:
+[   30.177883]  dump_stack+0x15e/0x1ae
+[   30.179470]  panic+0x228/0x700
+[   30.180865]  ? rw_copy_check_uvector+0xe4/0x380
+[   30.182947]  __warn+0x1fe/0x200
+[   30.184460]  ? rw_copy_check_uvector+0xe4/0x380
+[   30.186740]  report_bug+0x359/0x480
+[   30.188341]  ? rw_copy_check_uvector+0xe4/0x380
+[   30.190441]  do_invalid_op+0x6e/0x110
+[   30.192139]  invalid_op+0x1e/0x30
+[   30.193672] RIP: 0010:rw_copy_check_uvector+0xe4/0x380
+[   30.195852] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 1e 8e e8 04 01 38 02 48 85 c0 74 25 e8 4a a2 d7 ff 48 c7 c7 af 4f 1e 8e 31 c0 e8 5c f1 b0 ff <0f> 0b eb 13 e8 33 a2 d7 ff eb 25 e8 2c a2 d7 ff eb 05 e8 25 a2 d7
+[   30.204409] RSP: 0018:ffff88806570fb28 EFLAGS: 00010246
+[   30.206715] RAX: a1b93cf6f468ce00 RBX: 000000000000000f RCX: 0000000000000000
+[   30.210010] RDX: ffff8880657b8000 RSI: 0000000000000000 RDI: 0000000000000000
+[   30.213529] RBP: 0000000000000002 R08: dffffc0000000000 R09: ffffed100da66092
+[   30.216561] R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806570fba8
+[   30.219940] R13: ffff88806570fc40 R14: 0000000020000200 R15: dffffc0000000000
+[   30.223534]  ? rw_copy_check_uvector+0xe4/0x380
+[   30.225794]  import_iovec+0x8a/0x2c0
+[   30.227465]  aio_read+0x22d/0x440
+[   30.229015]  ? new_slab+0x1ff/0x310
+[   30.230834]  ? __fget+0x31a/0x350
+[   30.232430]  io_submit_one+0xe1a/0x2540
+[   30.234315]  ? lookup_ioctx+0x190/0x370
+[   30.236057]  ? fd_install+0xe6/0x230
+[   30.237900]  __se_sys_io_submit+0x116/0x2b0
+[   30.239916]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   30.242384]  do_syscall_64+0xd1/0x160
+[   30.244133]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   30.246628] RIP: 0033:0x44a439
+[   30.248125] Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   30.256937] RSP: 002b:00007ffc9f45a028 EFLAGS: 00000246 ORIG_RAX: 00000000000000d1
+[   30.260720] RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a439
+[   30.264200] RDX: 0000000020000400 RSI: 0000000000000001 RDI: 00007fab77a37000
+[   30.267469] RBP: 0000000000401ce0 R08: 0000000000400400 R09: 0000000000400400
+[   30.270678] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d80
+[   30.274003] R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+[   30.277791] Dumping ftrace buffer:
+[   30.279508]    (ftrace buffer empty)
+[   30.281253] Kernel Offset: 0xa200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   30.286046] Rebooting in 1 seconds..

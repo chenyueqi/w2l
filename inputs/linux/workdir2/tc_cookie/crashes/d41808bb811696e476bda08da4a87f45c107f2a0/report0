@@ -1,0 +1,325 @@
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 0 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2428 [inline]
+WARNING: CPU: 0 PID: 0 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 0 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 0 Comm: swapper/0 Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2428 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806d2092c0 EFLAGS: 00010246
+RAX: 1f57cf26e70eb600 RBX: 0000000000000002 RCX: dffffc0000000000
+RDX: 0000000000000000 RSI: 0000000000000008 RDI: 0000000000000300
+RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: fffffbfff48329db
+R10: fffffbfff48329db R11: ffffffffa0ef0a40 R12: dffffc0000000000
+R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806d209558
+FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+Call Trace:
+ <IRQ>
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ __list_del_entry include/linux/list.h:134 [inline]
+ skb_list_del_init include/linux/skbuff.h:1483 [inline]
+ ip_sublist_rcv_finish net/ipv4/ip_input.c:548 [inline]
+ ip_list_rcv_finish net/ipv4/ip_input.c:599 [inline]
+ ip_sublist_rcv+0x72c/0x7b0 net/ipv4/ip_input.c:607
+ __write_once_size include/linux/compiler.h:226 [inline]
+ __list_add include/linux/list.h:66 [inline]
+ list_add_tail include/linux/list.h:93 [inline]
+ ip_list_rcv+0x3ef/0x420 net/ipv4/ip_input.c:638
+ __netif_receive_skb_list_ptype net/core/dev.c:5196 [inline]
+ __netif_receive_skb_list_core+0x7bb/0x7e0 net/core/dev.c:5241
+ __netif_receive_skb_list+0x49b/0x540 net/core/dev.c:5296
+ netif_receive_skb_list_internal+0x3eb/0x670 net/core/dev.c:5383
+ gro_normal_list net/core/dev.c:5497 [inline]
+ napi_complete_done+0x19c/0x530 net/core/dev.c:6220
+ e1000_clean_tx_irq drivers/net/ethernet/intel/e1000/e1000_main.c:3898 [inline]
+ e1000_clean+0x118c/0x41b0 drivers/net/ethernet/intel/e1000/e1000_main.c:3796
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ invoke_softirq kernel/softirq.c:373 [inline]
+ irq_exit+0x16d/0x180 kernel/softirq.c:413
+ exiting_irq arch/x86/include/asm/apic.h:546 [inline]
+ do_IRQ+0x92/0x150 arch/x86/kernel/irq.c:263
+ common_interrupt+0xf/0xf arch/x86/entry/entry_64.S:607
+ </IRQ>
+RIP: 0010:default_idle+0x1f/0x30 arch/x86/kernel/process.c:700
+Code: cc cc cc cc cc cc cc cc cc cc cc 65 8b 35 a9 61 82 5c bf 01 00 00 00 e8 ef 8a 68 fd e9 07 00 00 00 0f 00 2d 2b 0b 41 00 fb f4 <65> 8b 35 8a 61 82 5c bf ff ff ff ff e9 d0 8a 68 fd 41 57 41 56 53
+RSP: 0018:ffffffffa4007e88 EFLAGS: 00000246 ORIG_RAX: ffffffffffffffdb
+RAX: 000000000001ee01 RBX: ffffffffa4016940 RCX: ffffffffa0fe87bf
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000001
+RBP: dffffc0000000000 R08: dffffc0000000000 R09: fffffbfff4802d29
+R10: fffffbfff4802d29 R11: ffffffffa37f5190 R12: 0000000000000000
+R13: 1ffffffff4802d28 R14: ffffffffa41966a0 R15: 0000000000000000
+ constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+ test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+ test_ti_thread_flag include/linux/thread_info.h:84 [inline]
+ need_resched include/linux/sched.h:1820 [inline]
+ cpuidle_idle_call kernel/sched/idle.c:139 [inline]
+ do_idle+0x1b3/0x510 kernel/sched/idle.c:269
+ cpu_startup_entry+0x15/0x20 kernel/sched/idle.c:361
+ start_kernel+0x6d2/0x77a init/main.c:778
+ secondary_startup_64+0xb6/0xc0 arch/x86/kernel/head_64.S:242
+---[ end trace ad8fe6c5a6f644c1 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2428 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2428 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+RDX: ffff88806cd88000 RSI: 00000000000033fa RDI: 00000000000033fa
+RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+Call Trace:
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ __list_del_entry include/linux/list.h:134 [inline]
+ skb_list_del_init include/linux/skbuff.h:1483 [inline]
+ ip_sublist_rcv_finish net/ipv4/ip_input.c:548 [inline]
+ ip_list_rcv_finish net/ipv4/ip_input.c:599 [inline]
+ ip_sublist_rcv+0x72c/0x7b0 net/ipv4/ip_input.c:607
+ __write_once_size include/linux/compiler.h:226 [inline]
+ __list_add include/linux/list.h:66 [inline]
+ list_add_tail include/linux/list.h:93 [inline]
+ ip_list_rcv+0x3ef/0x420 net/ipv4/ip_input.c:638
+ __netif_receive_skb_list_ptype net/core/dev.c:5196 [inline]
+ __netif_receive_skb_list_core+0x7bb/0x7e0 net/core/dev.c:5241
+ __netif_receive_skb_list+0x49b/0x540 net/core/dev.c:5296
+ netif_receive_skb_list_internal+0x3eb/0x670 net/core/dev.c:5383
+ gro_normal_list net/core/dev.c:5497 [inline]
+ napi_complete_done+0x19c/0x530 net/core/dev.c:6220
+ e1000_clean_tx_irq drivers/net/ethernet/intel/e1000/e1000_main.c:3898 [inline]
+ e1000_clean+0x118c/0x41b0 drivers/net/ethernet/intel/e1000/e1000_main.c:3796
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ run_ksoftirqd+0x13/0x20 kernel/softirq.c:603
+ smpboot_thread_fn+0x40c/0x760 kernel/smpboot.c:165
+ kthread+0x2ec/0x310 kernel/kthread.c:257
+ ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+---[ end trace ad8fe6c5a6f644c2 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2428 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2428 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+RDX: ffff88806cd88000 RSI: 000000000000342e RDI: 000000000000342e
+RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+Call Trace:
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ __list_del_entry include/linux/list.h:134 [inline]
+ skb_list_del_init include/linux/skbuff.h:1483 [inline]
+ ip_sublist_rcv_finish net/ipv4/ip_input.c:548 [inline]
+ ip_list_rcv_finish net/ipv4/ip_input.c:599 [inline]
+ ip_sublist_rcv+0x72c/0x7b0 net/ipv4/ip_input.c:607
+ __write_once_size include/linux/compiler.h:226 [inline]
+ __list_add include/linux/list.h:66 [inline]
+ list_add_tail include/linux/list.h:93 [inline]
+ ip_list_rcv+0x3ef/0x420 net/ipv4/ip_input.c:638
+ __netif_receive_skb_list_ptype net/core/dev.c:5196 [inline]
+ __netif_receive_skb_list_core+0x7bb/0x7e0 net/core/dev.c:5241
+ __netif_receive_skb_list+0x49b/0x540 net/core/dev.c:5296
+ netif_receive_skb_list_internal+0x3eb/0x670 net/core/dev.c:5383
+ gro_normal_list net/core/dev.c:5497 [inline]
+ napi_complete_done+0x19c/0x530 net/core/dev.c:6220
+ e1000_clean_tx_irq drivers/net/ethernet/intel/e1000/e1000_main.c:3898 [inline]
+ e1000_clean+0x118c/0x41b0 drivers/net/ethernet/intel/e1000/e1000_main.c:3796
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ run_ksoftirqd+0x13/0x20 kernel/softirq.c:603
+ smpboot_thread_fn+0x40c/0x760 kernel/smpboot.c:165
+ kthread+0x2ec/0x310 kernel/kthread.c:257
+ ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+---[ end trace ad8fe6c5a6f644c3 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2428 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2428 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+RDX: ffff88806cd88000 RSI: 0000000000003461 RDI: 0000000000003461
+RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+Call Trace:
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ __list_del_entry include/linux/list.h:134 [inline]
+ skb_list_del_init include/linux/skbuff.h:1483 [inline]
+ ip_sublist_rcv_finish net/ipv4/ip_input.c:548 [inline]
+ ip_list_rcv_finish net/ipv4/ip_input.c:599 [inline]
+ ip_sublist_rcv+0x72c/0x7b0 net/ipv4/ip_input.c:607
+ __write_once_size include/linux/compiler.h:226 [inline]
+ __list_add include/linux/list.h:66 [inline]
+ list_add_tail include/linux/list.h:93 [inline]
+ ip_list_rcv+0x3ef/0x420 net/ipv4/ip_input.c:638
+ __netif_receive_skb_list_ptype net/core/dev.c:5196 [inline]
+ __netif_receive_skb_list_core+0x7bb/0x7e0 net/core/dev.c:5241
+ __netif_receive_skb_list+0x49b/0x540 net/core/dev.c:5296
+ netif_receive_skb_list_internal+0x3eb/0x670 net/core/dev.c:5383
+ gro_normal_list net/core/dev.c:5497 [inline]
+ napi_complete_done+0x19c/0x530 net/core/dev.c:6220
+ e1000_clean_tx_irq drivers/net/ethernet/intel/e1000/e1000_main.c:3898 [inline]
+ e1000_clean+0x118c/0x41b0 drivers/net/ethernet/intel/e1000/e1000_main.c:3796
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ run_ksoftirqd+0x13/0x20 kernel/softirq.c:603
+ smpboot_thread_fn+0x40c/0x760 kernel/smpboot.c:165
+ kthread+0x2ec/0x310 kernel/kthread.c:257
+ ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+---[ end trace ad8fe6c5a6f644c4 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2428 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 9 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 9 Comm: ksoftirqd/0 Tainted: G        W         5.5.3 #36
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2428 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1281
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 e8 a3 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806cd97180 EFLAGS: 00010246
+RAX: 7c93c201b458d800 RBX: 0000000000000002 RCX: 0000000080000300
+RDX: ffff88806cd88000 RSI: 0000000000003494 RDI: 0000000000003494
+RBP: 1ffff1100d7e3975 R08: dffffc0000000000 R09: ffffed100d9b2ded
+R10: ffffed100d9b2ded R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf1cba0 R14: ffff88806bf1cba8 R15: ffff88806cd97418
+FS:  0000000000000000(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000056087ed9d108 CR3: 0000000067638003 CR4: 00000000001606f0
+Call Trace:
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ __list_del_entry include/linux/list.h:134 [inline]
+ skb_list_del_init include/linux/skbuff.h:1483 [inline]
+ ip_sublist_rcv_finish net/ipv4/ip_input.c:548 [inline]
+ ip_list_rcv_finish net/ipv4/ip_input.c:599 [inline]
+ ip_sublist_rcv+0x72c/0x7b0 net/ipv4/ip_input.c:607
+ __write_once_size include/linux/compiler.h:226 [inline]
+ __list_add include/linux/list.h:66 [inline]
+ list_add_tail include/linux/list.h:93 [inline]
+ ip_list_rcv+0x3ef/0x420 net/ipv4/ip_input.c:638
+ __netif_receive_skb_list_ptype net/core/dev.c:5196 [inline]
+ __netif_receive_skb_list_core+0x7bb/0x7e0 net/core/dev.c:5241
+ __netif_receive_skb_list+0x49b/0x540 net/core/dev.c:5296
+ netif_receive_skb_list_internal+0x3eb/0x670 net/core/dev.c:5383
+ gro_normal_list net/core/dev.c:5497 [inline]
+ napi_complete_done+0x19c/0x530 net/core/dev.c:6220
+ e1000_clean_tx_irq drivers/net/ethernet/intel/e1000/e1000_main.c:3898 [inline]
+ e1000_clean+0x118c/0x41b0 drivers/net/ethernet/intel/e1000/e1000_main.c:3796
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ run_ksoftirqd+0x13/0x20 kernel/softirq.c:603
+ smpboot_thread_fn+0x40c/0x760 kernel/smpboot.c:165
+ kthread+0x2ec/0x310 kernel/kthread.c:257
+ ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:352
+---[ end trace ad8fe6c5a6f644c5 ]---

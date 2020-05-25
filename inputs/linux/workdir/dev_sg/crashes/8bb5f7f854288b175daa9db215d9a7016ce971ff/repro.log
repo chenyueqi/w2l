@@ -1,0 +1,43 @@
+Warning: Permanently added '[localhost]:50633' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   31.034926] sg_write: data in/out 682/132 bytes for SCSI command 0xeb-- guessing data in;
+[   31.034926]    program syz-executor794 not setting count and/or reply_len properly
+[   31.043723] Kernel panic - not syncing: Found leaking site of sg_header
+[   31.047324] CPU: 0 PID: 328 Comm: syz-executor794 Not tainted 5.5.3 #20
+[   31.050810] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   31.056835] Call Trace:
+[   31.058235]  dump_stack+0x195/0x1fe
+[   31.059946]  ? log_buf_vmcoreinfo_setup+0x12c/0x12c
+[   31.062442]  ? show_regs_print_info+0x12/0x12
+[   31.064941]  panic+0x201/0x64d
+[   31.066571]  ? nmi_panic+0x73/0x73
+[   31.068377]  ? sg_read+0x90e/0x1a80
+[   31.070210]  ? kmem_cache_alloc_trace+0x188/0x200
+[   31.072628]  sg_read+0x1a80/0x1a80
+[   31.074737]  ? sg_remove_device+0x2e0/0x2e0
+[   31.077380]  ? wait_rcu_exp_gp+0x40/0x40
+[   31.079696]  ? _raw_spin_lock+0x99/0x170
+[   31.081896]  ? wait_rcu_exp_gp+0x40/0x40
+[   31.083970]  ? sg_remove_device+0x2e0/0x2e0
+[   31.086191]  __vfs_read+0xff/0x770
+[   31.088087]  ? rw_verify_area+0x290/0x290
+[   31.090414]  ? __fsnotify_parent+0xcc/0x290
+[   31.092610]  ? __fsnotify_parent+0x290/0x290
+[   31.095032]  ? security_file_permission+0x193/0x2b0
+[   31.097729]  vfs_read+0x102/0x300
+[   31.099606]  ksys_read+0x134/0x230
+[   31.101377]  ? vfs_write+0x440/0x440
+[   31.103416]  do_syscall_64+0xa5/0x130
+[   31.105466]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   31.108145] RIP: 0033:0x44e149
+[   31.109770] Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   31.119633] RSP: 002b:00007ffd420d62e8 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   31.123754] RAX: ffffffffffffffda RBX: 0000000000400418 RCX: 000000000044e149
+[   31.127374] RDX: 00000000000000fa RSI: 0000000020000000 RDI: 0000000000000003
+[   31.130791] RBP: 0000000000401fd0 R08: 0000000000400418 R09: 0000000000400418
+[   31.133991] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000402070
+[   31.137164] R13: 0000000000000000 R14: 00000000006bd018 R15: 0000000000000000
+[   31.141159] Dumping ftrace buffer:
+[   31.142734]    (ftrace buffer empty)
+[   31.144413] Kernel Offset: 0x31400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   31.149427] Rebooting in 1 seconds..

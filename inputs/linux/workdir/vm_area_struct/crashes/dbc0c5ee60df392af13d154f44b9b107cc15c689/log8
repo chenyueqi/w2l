@@ -1,0 +1,56 @@
+Warning: Permanently added '[localhost]:61256' (ECDSA) to the list of known hosts.
+2020/04/20 19:49:58 fuzzer started
+2020/04/20 19:49:59 dialing manager at 10.0.2.10:38273
+2020/04/20 19:49:59 checking machine...
+2020/04/20 19:49:59 checking revisions...
+syzkaller login: [   10.374666] ------------[ cut here ]------------
+[   10.376896] Found allocation of vm_area_struct
+[   10.377014] WARNING: CPU: 1 PID: 331 at kernel/fork.c:352 vm_area_alloc+0x7b/0x180
+[   10.381885] Kernel panic - not syncing: panic_on_warn set ...
+[   10.385162] CPU: 1 PID: 331 Comm: syz-executor Not tainted 5.5.3 #54
+[   10.388208] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   10.392792] Call Trace:
+[   10.393704]  dump_stack+0x15e/0x1ae
+[   10.395362]  panic+0x228/0x700
+[   10.396859]  ? vm_area_alloc+0x7b/0x180
+[   10.398451]  __warn+0x1fe/0x200
+[   10.399493]  ? vm_area_alloc+0x7b/0x180
+[   10.401195]  report_bug+0x359/0x480
+[   10.403041]  ? vm_area_alloc+0x7b/0x180
+[   10.405054]  do_invalid_op+0x6e/0x110
+[   10.406967]  invalid_op+0x1e/0x30
+[   10.408636] RIP: 0010:vm_area_alloc+0x7b/0x180
+[   10.410245] Code: 81 c7 48 06 00 00 48 c7 c6 f8 e8 bc 90 e8 bd eb 87 02 48 85 c0 74 1e e8 a3 7e 27 00 48 c7 c7 05 e9 bc 90 31 c0 e8 b5 cd 00 00 <0f> 0b eb 0c e8 8c 7e 27 00 eb 05 e8 85 7e 27 00 48 8b 3d f6 ba bc
+[   10.418394] RSP: 0018:ffff888065c4f920 EFLAGS: 00010246
+[   10.420750] RAX: 1097931890cff700 RBX: 0000000000000002 RCX: 0000000000000000
+[   10.423764] RDX: ffff888065af3a00 RSI: 000000000000021c RDI: 000000000000021c
+[   10.426482] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff2328bc4
+[   10.429746] R10: fffffbfff2328bc4 R11: 0000000000000000 R12: dffffc0000000000
+[   10.432112] R13: ffff88806217b120 R14: ffff888068514d80 R15: dffffc0000000000
+[   10.434606]  mmap_region+0xae1/0x1af0
+[   10.435878]  ? security_mmap_addr+0x9d/0xb0
+[   10.437331]  ? get_unmapped_area+0x331/0x390
+[   10.438997]  do_mmap+0xad1/0x1140
+[   10.440572]  vm_mmap_pgoff+0x145/0x1d0
+[   10.442261]  elf_map+0x1a7/0x310
+[   10.443728]  load_elf_binary+0xf71/0x29c0
+[   10.445199]  ? load_script+0x241/0x890
+[   10.446555]  ? _copy_from_user+0xa4/0xe0
+[   10.448155]  search_binary_handler+0x185/0x650
+[   10.449774]  exec_binprm+0x8e/0x350
+[   10.450953]  __do_execve_file+0xeae/0x1810
+[   10.452400]  __x64_sys_execve+0x90/0xa0
+[   10.453757]  do_syscall_64+0xd1/0x160
+[   10.454909]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   10.457085] RIP: 0033:0x47c61b
+[   10.458594] Code: Bad RIP value.
+[   10.459916] RSP: 002b:000000c42041d2d0 EFLAGS: 00000202 ORIG_RAX: 000000000000003b
+[   10.463239] RAX: ffffffffffffffda RBX: 000000000000000c RCX: 000000000047c61b
+[   10.466138] RDX: 000000c42016e070 RSI: 000000c42012c560 RDI: 000000c420140430
+[   10.468840] RBP: 000000c42041d3d8 R08: 0000000000000000 R09: 0000000000000000
+[   10.471390] R10: 0000000000000000 R11: 0000000000000202 R12: 00000000004727f6
+[   10.474111] R13: 0000000000000024 R14: 0000000000000023 R15: 0000000000000100
+[   10.477252] Dumping ftrace buffer:
+[   10.478540]    (ftrace buffer empty)
+[   10.480069] Kernel Offset: 0xcc00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   10.484887] Rebooting in 1 seconds..

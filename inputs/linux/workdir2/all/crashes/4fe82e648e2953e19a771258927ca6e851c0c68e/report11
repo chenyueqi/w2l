@@ -1,0 +1,37 @@
+------------[ cut here ]------------
+Found allocation of xfrm_policy
+WARNING: CPU: 1 PID: 5853 at net/xfrm/xfrm_policy.c:388 xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Modules linked in:
+CPU: 1 PID: 5853 Comm: syz-executor.1 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:xfrm_policy_alloc+0x20/0x270 net/xfrm/xfrm_policy.c:388
+Code: d5 66 0f 1f 84 00 00 00 00 00 55 41 57 41 56 41 54 53 89 f5 49 89 fe e8 2e 4f 03 fe 48 c7 c7 a2 ae eb 85 31 c0 e8 c0 bf dc fd <0f> 0b 40 f6 c5 11 0f 85 d5 01 00 00 e8 0f 4f 03 fe 31 c0 81 cd 00
+RSP: 0018:ffff8880651677c0 EFLAGS: 00010246
+RAX: 76b56cf04a04b000 RBX: ffff8880652aaea0 RCX: ffffc90000c2e000
+RDX: ffffffff82e00000 RSI: 000000000000054a RDI: 000000000000054b
+RBP: 0000000000000a20 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100ca2ce71 R11: 0000000000000004 R12: ffff8880651678e0
+R13: ffff888063058000 R14: ffff888063058000 R15: 0000000000000000
+FS:  00007fc001736700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020000040 CR3: 0000000063fb2003 CR4: 00000000001606e0
+Call Trace:
+ xfrm_compile_policy+0x95b/0x1290 net/xfrm/xfrm_user.c:3032
+ xfrm_user_policy+0x242/0x580 net/xfrm/xfrm_state.c:2291
+ do_ipv6_setsockopt+0xd34/0x32c0 net/ipv6/ipv6_sockglue.c:832
+ ipv6_setsockopt+0x3b/0x130 net/ipv6/ipv6_sockglue.c:944
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fc001735c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000023 RSI: 0000000000000029 RDI: 0000000000000005
+RBP: 00007fc0017366bc R08: 00000000000000e8 R09: 0000000000000000
+R10: 0000000020000100 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000a84 R14: 00000000004d4d80 R15: 0000000000701660
+---[ end trace cd2951539771c35e ]---

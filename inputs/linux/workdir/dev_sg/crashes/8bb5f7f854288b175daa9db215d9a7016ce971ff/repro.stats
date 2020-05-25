@@ -1,0 +1,154 @@
+Extracting prog: 39.819414808s
+Minimizing prog: 2m39.974539591s
+Simplifying prog options: 0s
+Extracting C: 11.989595069s
+Simplifying C: 1m7.490497714s
+
+
+490 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 490 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_elf32
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000e40)='/dev/sg#\x00', 0x7fffffff, 0x103002)
+write$binfmt_elf32(r0, &(0x7f0000000300)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x38}, [{}], "", [[], [], [], [], []]}, 0x558)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+write$binfmt_aout(r0, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}, "7a22091aeb21ec73a291f495f1efdfc1f2bae097c29b4e9192ccdfba98b34e502fa437eba67a0124655e0af3eebddf18b53cfbbf0880e99b3127821d3f7565de521b6d2399f04c3bbd2f5b6b29f1b41510964c75571c66dbd884a6cf30cc9c767e374fe9bdeebc7e4e459a6076861346a19e31d6744ab211e85ed70887ebe3bf4cdefee965fc4dd666e1887a1340f039220c"}, 0xb2)
+read(r0, &(0x7f0000000000)=""/250, 0xfa)
+
+program crashed: kernel panic: Found leaking site of sg_header
+single: successfully extracted reproducer
+found reproducer with 3 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+write$binfmt_aout(r0, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}, "7a22091aeb21ec73a291f495f1efdfc1f2bae097c29b4e9192ccdfba98b34e502fa437eba67a0124655e0af3eebddf18b53cfbbf0880e99b3127821d3f7565de521b6d2399f04c3bbd2f5b6b29f1b41510964c75571c66dbd884a6cf30cc9c767e374fe9bdeebc7e4e459a6076861346a19e31d6744ab211e85ed70887ebe3bf4cdefee965fc4dd666e1887a1340f039220c"}, 0xb2)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+read(r0, &(0x7f0000000000)=""/250, 0xfa)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): write$binfmt_aout-read
+detailed listing:
+executing program 0:
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}, "7a22091aeb21ec73a291f495f1efdfc1f2bae097c29b4e9192ccdfba98b34e502fa437eba67a0124655e0af3eebddf18b53cfbbf0880e99b3127821d3f7565de521b6d2399f04c3bbd2f5b6b29f1b41510964c75571c66dbd884a6cf30cc9c767e374fe9bdeebc7e4e459a6076861346a19e31d6744ab211e85ed70887ebe3bf4cdefee965fc4dd666e1887a1340f039220c"}, 0xb2)
+read(0xffffffffffffffff, &(0x7f0000000000)=""/250, 0xfa)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(0x0, 0x0, 0x2)
+write$binfmt_aout(r0, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}, "7a22091aeb21ec73a291f495f1efdfc1f2bae097c29b4e9192ccdfba98b34e502fa437eba67a0124655e0af3eebddf18b53cfbbf0880e99b3127821d3f7565de521b6d2399f04c3bbd2f5b6b29f1b41510964c75571c66dbd884a6cf30cc9c767e374fe9bdeebc7e4e459a6076861346a19e31d6744ab211e85ed70887ebe3bf4cdefee965fc4dd666e1887a1340f039220c"}, 0xb2)
+read(r0, &(0x7f0000000000)=""/250, 0xfa)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+write$binfmt_aout(r0, 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/250, 0xfa)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+write$binfmt_aout(r0, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}}, 0x20)
+read(r0, &(0x7f0000000000)=""/250, 0xfa)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000880)='/dev/sg#\x00', 0x0, 0x2)
+write$binfmt_aout(r0, &(0x7f0000002980)={{0xcc, 0x3f, 0x0, 0x2ce, 0x3b, 0x283, 0xc0, 0x7fff}, "7a22091aeb21ec73a291f495f1efdfc1f2bae097c29b4e9192ccdfba98b34e502fa437eba67a0124655e0af3eebddf18b53cfbbf0880e99b3127821d3f7565de521b6d2399f04c3bbd2f5b6b29f1b41510964c75571c66dbd884a6cf30cc9c767e374fe9bdeebc7e4e459a6076861346a19e31d6744ab211e85ed70887ebe3bf4cdefee965fc4dd666e1887a1340f039220c"}, 0xb2)
+read(r0, 0x0, 0x0)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): syz_open_dev$sg-write$binfmt_aout-read
+program crashed: kernel panic: Found leaking site of sg_header
+reproducing took 4m39.274058529s
+repro crashed as (corrupted=false):
+sg_write: data in/out 682/132 bytes for SCSI command 0xeb-- guessing data in;
+   program syz-executor794 not setting count and/or reply_len properly
+Kernel panic - not syncing: Found leaking site of sg_header
+CPU: 0 PID: 328 Comm: syz-executor794 Not tainted 5.5.3 #20
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x195/0x1fe
+ panic+0x201/0x64d
+ sg_read+0x1a80/0x1a80
+ __vfs_read+0xff/0x770
+ vfs_read+0x102/0x300
+ ksys_read+0x134/0x230
+ do_syscall_64+0xa5/0x130
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44e149
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd420d62e8 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 0000000000400418 RCX: 000000000044e149
+RDX: 00000000000000fa RSI: 0000000020000000 RDI: 0000000000000003
+RBP: 0000000000401fd0 R08: 0000000000400418 R09: 0000000000400418
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000402070
+R13: 0000000000000000 R14: 00000000006bd018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x31400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+sg_write: data in/out 682/132 bytes for SCSI command 0xeb-- guessing data in;
+   program syz-executor794 not setting count and/or reply_len properly
+Kernel panic - not syncing: Found leaking site of sg_header
+CPU: 0 PID: 328 Comm: syz-executor794 Not tainted 5.5.3 #20
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x195/0x1fe
+ panic+0x201/0x64d
+ sg_read+0x1a80/0x1a80
+ __vfs_read+0xff/0x770
+ vfs_read+0x102/0x300
+ ksys_read+0x134/0x230
+ do_syscall_64+0xa5/0x130
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44e149
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd420d62e8 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 0000000000400418 RCX: 000000000044e149
+RDX: 00000000000000fa RSI: 0000000020000000 RDI: 0000000000000003
+RBP: 0000000000401fd0 R08: 0000000000400418 R09: 0000000000400418
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000402070
+R13: 0000000000000000 R14: 00000000006bd018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x31400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

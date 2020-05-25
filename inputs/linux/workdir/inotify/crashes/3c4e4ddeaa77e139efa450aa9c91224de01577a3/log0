@@ -1,0 +1,869 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/20 01:42:00 fuzzer started
+2020/04/20 01:42:00 dialing manager at 10.0.2.10:44599
+2020/04/20 01:42:00 checking machine...
+2020/04/20 01:42:00 checking revisions...
+2020/04/20 01:42:00 testing simple program...
+syzkaller login: [    9.926551] audit: type=1400 audit(1587346920.935:8): avc:  denied  { execmem } for  pid=427 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+2020/04/20 01:42:00 building call list...
+[   10.445270] audit: type=1400 audit(1587346921.454:9): avc:  denied  { create } for  pid=406 comm="syz-fuzzer" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=dccp_socket permissive=1
+2020/04/20 01:42:01 syscalls: 12
+2020/04/20 01:42:01 code coverage: enabled
+2020/04/20 01:42:01 comparison tracing: enabled
+2020/04/20 01:42:01 extra coverage: enabled
+2020/04/20 01:42:01 setuid sandbox: enabled
+2020/04/20 01:42:01 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:42:01 Android sandbox: enabled
+2020/04/20 01:42:01 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:42:01 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:42:01 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:42:01 net device setup: enabled
+2020/04/20 01:42:01 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:42:01 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:42:01 USB emulation: /dev/raw-gadget does not exist
+01:42:02 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:02 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:02 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, 0x0, 0x30000460)
+
+01:42:02 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+[   11.091239] cgroup1: Unknown subsys name 'perf_event'
+[   11.094298] cgroup1: Unknown subsys name 'net_cls'
+[   11.111294] cgroup1: Unknown subsys name 'perf_event'
+[   11.113785] cgroup1: Unknown subsys name 'net_cls'
+[   11.127851] cgroup1: Unknown subsys name 'perf_event'
+[   11.130357] cgroup1: Unknown subsys name 'net_cls'
+[   11.134753] cgroup1: Unknown subsys name 'perf_event'
+[   11.137751] cgroup1: Unknown subsys name 'net_cls'
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, 0x0, 0x30000460)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, 0x0, 0x30000460)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, 0x0, 0x30000460)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r1)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0x720ffd)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb50000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb50000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5451, 0x0)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb50000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x20500fff)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5451, 0x0)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb50000)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5451, 0x0)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b49, 0x0)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b49, 0x0)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5451, 0x0)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b49, 0x0)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b49, 0x0)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x501000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+r1 = inotify_init1(0x0)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x541b, 0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x83000000)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x83000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x683b70d6)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x60ffffffffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x683b70d6)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x60ffffffffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x83000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x683b70d6)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x60ffffffffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x83000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x683b70d6)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x60ffffffffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0x74fffd)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x7fff00000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x7fff00000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x7fff00000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x100000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5452, 0xb4fffc)
+r2 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r2, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x20500fff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x7fff00000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x20500fff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x20500fff)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x20500fff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, 0x0)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x400000)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x400000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x400000)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0xc0189436, 0x400000)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000000)='./file0\x00', 0x6000000)
+inotify_add_watch(r0, &(0x7f0000000080)='./file1\x00', 0x92000410)
+r1 = inotify_init1(0x0)
+inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5421, 0x400000)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x80ffff)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x74fffd)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0xc0189436, 0x400000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 3:
+r0 = inotify_init1(0x0)
+read(r0, &(0x7f0000001080)=""/167, 0xa7)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0xc0000000)
+r1 = inotify_init1(0x0)
+r2 = inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r2)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x80ffff)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x74fffd)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0xc0189436, 0x400000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x80ffff)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x74fffd)
+
+01:42:03 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0xc0189436, 0x400000)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+01:42:03 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0x80ffff)
+
+[   12.731766] ------------[ cut here ]------------
+[   12.733529] Found leaking site of inotify_event_info
+[   12.733631] WARNING: CPU: 1 PID: 2665 at fs/notify/inotify/inotify_user.c:187 inotify_read+0x4f6/0x800
+[   12.740293] Kernel panic - not syncing: panic_on_warn set ...
+[   12.742940] CPU: 1 PID: 2665 Comm: syz-executor.3 Not tainted 5.5.3 #49
+[   12.745847] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.751215] Call Trace:
+[   12.752323]  dump_stack+0x15e/0x1ae
+[   12.753872]  panic+0x228/0x700
+[   12.755299]  ? 0xffffffffb1a00000
+[   12.756971]  ? inotify_read+0x4f6/0x800
+[   12.758789]  __warn+0x1fe/0x200
+[   12.760197]  ? inotify_read+0x4f6/0x800
+[   12.762008]  report_bug+0x359/0x480
+[   12.763642]  ? inotify_read+0x4f6/0x800
+[   12.765510]  do_invalid_op+0x6e/0x110
+[   12.767169]  invalid_op+0x1e/0x30
+[   12.768708] RIP: 0010:inotify_read+0x4f6/0x800
+[   12.770789] Code: 2d 48 8b 7c 24 48 48 c7 c6 a2 4f 9e b4 e8 62 59 27 02 48 85 c0 74 1e e8 a8 fa c6 ff 48 c7 c7 7c 6d 9e b4 31 c0 e8 ba 49 a0 ff <0f> 0b eb 16 e8 91 fa c6 ff eb 0f e8 8a fa c6 ff 66 2e 0f 1f 84 00
+[   12.779172] RSP: 0018:ffff888063507cc0 EFLAGS: 00010246
+[   12.781610] RAX: 3875365ef04c9b00 RBX: ffff888065465700 RCX: ffffc90002698000
+[   12.784772] RDX: ffffffffb1a00000 RSI: 000000000000030c RDI: 000000000000030d
+[   12.787940] RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff6ae8bc4
+[   12.791324] R10: fffffbfff6ae8bc4 R11: 0000000000000000 R12: 0000000020001080
+[   12.794664] R13: 0000000020001080 R14: ffff888065ed1540 R15: dffffc0000000000
+[   12.797935]  ? 0xffffffffb1a00000
+[   12.799425]  ? wait_woken+0x1b0/0x1b0
+[   12.801071]  ? __ia32_sys_inotify_rm_watch+0x60/0x60
+[   12.803355]  __vfs_read+0xae/0x6d0
+[   12.804891]  ? fsnotify+0x119e/0x1240
+[   12.806592]  vfs_read+0x167/0x380
+[   12.808095]  ksys_read+0x112/0x210
+[   12.809661]  do_syscall_64+0xd1/0x160
+[   12.811309]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.813599] RIP: 0033:0x467519
+[   12.814997] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.823490] RSP: 002b:00007fe9c446bc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   12.826918] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.830131] RDX: 00000000000000a7 RSI: 0000000020001080 RDI: 0000000000000003
+[   12.833310] RBP: 00007fe9c446c6bc R08: 0000000000000000 R09: 0000000000000000
+[   12.836497] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.839654] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   12.847746] Dumping ftrace buffer:
+[   12.849402]    (ftrace buffer empty)
+[   12.851178] Kernel Offset: 0x30a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.856179] Rebooting in 1 seconds..

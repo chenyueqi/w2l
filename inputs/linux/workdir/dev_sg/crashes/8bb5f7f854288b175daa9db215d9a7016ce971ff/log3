@@ -1,0 +1,294 @@
+Warning: Permanently added '[localhost]:53879' (ECDSA) to the list of known hosts.
+2020/04/16 00:24:29 fuzzer started
+2020/04/16 00:24:30 dialing manager at 10.0.2.10:45605
+2020/04/16 00:24:30 syscalls: 84
+2020/04/16 00:24:30 code coverage: enabled
+2020/04/16 00:24:30 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/16 00:24:30 extra coverage: enabled
+2020/04/16 00:24:30 setuid sandbox: enabled
+2020/04/16 00:24:30 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/16 00:24:30 Android sandbox: enabled
+2020/04/16 00:24:30 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/16 00:24:30 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/16 00:24:30 net packet injection: /dev/net/tun does not exist
+2020/04/16 00:24:30 net device setup: enabled
+2020/04/16 00:24:30 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/16 00:24:30 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/16 00:24:30 USB emulation: /dev/raw-gadget does not exist
+00:24:31 executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0xee92, 0x101200)
+ioctl$SG_GET_REQUEST_TABLE(r0, 0x2286, &(0x7f0000000040))
+ioctl$BLKTRACESTART(r0, 0x1274, 0x0)
+r1 = syz_open_dev$sg(&(0x7f00000001c0)='/dev/sg#\x00', 0x7fff, 0x101800)
+ioctl$SG_GET_SG_TABLESIZE(r1, 0x227f, &(0x7f0000000200))
+r2 = syz_open_dev$sg(&(0x7f0000000240)='/dev/sg#\x00', 0x1, 0x0)
+ioctl$SG_SET_KEEP_ORPHAN(r2, 0x2287, &(0x7f0000000280)=0x7ff)
+ioctl$SG_SET_COMMAND_Q(0xffffffffffffffff, 0x2271, &(0x7f00000002c0)=0x1)
+r3 = syz_open_dev$sg(&(0x7f0000000300)='/dev/sg#\x00', 0x8, 0x202285)
+ioctl$SG_GET_LOW_DMA(r3, 0x227a, &(0x7f0000000340))
+r4 = syz_open_dev$sg(&(0x7f0000000380)='/dev/sg#\x00', 0xfff, 0x0)
+ioctl$FS_IOC_GETFSLABEL(r4, 0x81009431, &(0x7f00000003c0))
+r5 = syz_open_dev$sg(&(0x7f00000004c0)='/dev/sg#\x00', 0x1000, 0x20000)
+ioctl$FS_IOC_GET_ENCRYPTION_POLICY_EX(r5, 0xc0096616, &(0x7f0000000500)={0x1, [0x0]})
+ioctl$SG_SET_TIMEOUT(r2, 0x2201, &(0x7f0000000540)=0x9)
+syz_open_dev$sg(&(0x7f0000000580)='/dev/sg#\x00', 0xe04, 0x64043)
+r6 = syz_open_dev$sg(&(0x7f00000005c0)='/dev/sg#\x00', 0x9, 0x80)
+ioctl$SCSI_IOCTL_STOP_UNIT(r6, 0x6)
+r7 = syz_open_dev$sg(&(0x7f0000000600)='/dev/sg#\x00', 0x401, 0x4)
+ioctl$SG_GET_ACCESS_COUNT(r7, 0x2289, &(0x7f0000000640))
+
+00:24:31 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x4, 0x103100)
+ioctl$EXT4_IOC_ALLOC_DA_BLKS(r0, 0x660c)
+ioctl$EXT4_IOC_SETFLAGS(0xffffffffffffffff, 0x40086602, &(0x7f0000000040)=0x4a)
+r1 = syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0x6, 0xa0000)
+write$binfmt_elf32(r1, &(0x7f00000000c0)={{0x7f, 0x45, 0x4c, 0x46, 0x7b, 0x9, 0x3f, 0xff, 0x9667, 0x2, 0x3, 0x2, 0x208, 0x38, 0x33d, 0x9, 0x5862, 0x20, 0x2, 0x2, 0x9, 0x9}, [{0x2, 0x8001, 0xffff, 0x3, 0x0, 0x7, 0x10000, 0x1}, {0x7, 0x3, 0xbe34, 0x8, 0x200, 0xffffffff, 0x9, 0x6f1}], "", [[], [], [], [], [], []]}, 0x678)
+r2 = syz_open_dev$sg(&(0x7f0000000740)='/dev/sg#\x00', 0xfffffffffffffff8, 0x40)
+read(r2, &(0x7f0000000780)=""/86, 0x56)
+r3 = syz_open_dev$sg(&(0x7f0000000800)='/dev/sg#\x00', 0x6, 0x2880)
+ioctl$SCSI_IOCTL_GET_BUS_NUMBER(r3, 0x5386, &(0x7f0000000840))
+read(r3, &(0x7f0000000880)=""/28, 0x1c)
+ioctl(0xffffffffffffffff, 0x80000000, &(0x7f00000008c0)="55a4fa72f08efc590143f73869be0ebf820105d3e1b22bac60442bd1c05e5e14b63cd88fa7829fd6d7c064eab5f1ce3cf088807fd16dbde133531827a876885688bde11abcdc26346b0e784bc43b8fabae70044e363b65f46dcb4b5242fb2fee0a1b84068de6cd39119160544b05f7a3e713c7b3d2d5cf0fda9678f643d8710c4a3d0e29fbc6c6419042de96543920d08393aa2865e42130b2f6fa39f8d41cf172f727763059008e903db069f1a3a087fc11fd4e2f3ea3ab66520f45b9da")
+r4 = syz_open_dev$sg(&(0x7f0000000980)='/dev/sg#\x00', 0x6c, 0x2000)
+ioctl$SG_SET_RESERVED_SIZE(r4, 0x2275, &(0x7f00000009c0)=0x4)
+r5 = syz_open_dev$sg(&(0x7f0000000a00)='/dev/sg#\x00', 0xa626, 0x20000)
+ioctl$FS_IOC_REMOVE_ENCRYPTION_KEY(r5, 0xc0406618, &(0x7f0000000a40)={{0x1, 0x0, @identifier="ef979c04ff8744ecf70016d87c45c494"}})
+r6 = syz_open_dev$sg(&(0x7f0000000a80)='/dev/sg#\x00', 0x8, 0x2c0001)
+ioctl$SG_GET_LOW_DMA(r6, 0x227a, &(0x7f0000000ac0))
+ioctl$void(r1, 0x5450)
+ioctl$EXT4_IOC_SWAP_BOOT(r0, 0x6611)
+ioctl$EXT4_IOC_MIGRATE(0xffffffffffffffff, 0x6609)
+
+00:24:31 executing program 1:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x9, 0x40c000)
+ioctl$FS_IOC_FSSETXATTR(r0, 0x401c5820, &(0x7f0000000040)={0x7, 0x0, 0x2, 0x7ff, 0x1})
+write$binfmt_aout(r0, &(0x7f0000000080)={{0x10b, 0x40, 0x3, 0x196, 0x105, 0x3, 0x1d4, 0x4}, "1634e026e4b97373b97b2debf956746096aca62d1a2eec7f218e3ffcda2682b3f73e49069f550cb4d0dc9fb85e63c8a179bfb8d0e8941c84c144478b7e6398bc56", [[], [], [], [], []]}, 0x561)
+r1 = syz_open_dev$sg(&(0x7f0000000600)='/dev/sg#\x00', 0x10001, 0x80)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r1, 0x1, &(0x7f0000000640)={0x58, 0x3, 0x6, "f5b4bf33e38cc6abe1d689b9541728229c06b21b5258246a2e0c162e26d293b496449b7b3099b5ed28d6839ac59a4d485aed2693c8c4136cdd606856331d503176e55e614e4302e27f32f27c00942a4808edd8e04004ea7f"})
+r2 = syz_open_dev$sg(&(0x7f00000006c0)='/dev/sg#\x00', 0x6, 0x400000)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r2, 0x1, &(0x7f0000000700)={0xed, 0x4, 0x1, "b5fdce0c08a2e838abb8c846c30fd6b23bde3051731e04aacc153d2ec91f261772b9c74cfa5e37e66e416988c87c66e061af49e7593853eae2bcded677485e6c6ea6b1d650345e2f6bc4c9cdbd9a6d4aec11c892e9bbf261ec20d55ccfe562f1f207cc8303d6b0af4dcc1dc0cbb2e01ac614f4c8f2ee425f26d7f8d6d6a5264860891f7c7bc250a6c259047e7843313ed1f501b1127ab1988c6183a3693c1a5a85c84812565ad1ad40460b936a32c3d62c5e1305140fae233b95deaba52ebb46f0660ba8f587f65e3d69fb86f8e0dbf391b9038195368764626446d5761cf887716830a76a0d8022ae680696c4"})
+ioctl$SG_NEXT_CMD_LEN(r0, 0x2283, &(0x7f0000000800)=0xe0)
+r3 = syz_open_dev$sg(&(0x7f0000000840)='/dev/sg#\x00', 0x3ff, 0x28c40)
+ioctl$SCSI_IOCTL_GET_PCI(r3, 0x5387, &(0x7f0000000880))
+r4 = syz_open_dev$sg(&(0x7f00000008c0)='/dev/sg#\x00', 0xf0, 0x200)
+ioctl$EXT4_IOC_GROUP_EXTEND(r4, 0x40086607, &(0x7f0000000900)=0x7)
+r5 = syz_open_dev$sg(&(0x7f0000000940)='/dev/sg#\x00', 0x6, 0x1)
+ioctl$SG_SET_FORCE_PACK_ID(r5, 0x227b, &(0x7f0000000980))
+r6 = syz_open_dev$sg(&(0x7f00000009c0)='/dev/sg#\x00', 0x100000000, 0x100002)
+ioctl$FS_IOC_GET_ENCRYPTION_POLICY(r6, 0x400c6615, &(0x7f0000000a00)={0x0, @adiantum})
+r7 = syz_open_dev$sg(&(0x7f0000000a40)='/dev/sg#\x00', 0x7, 0x50200)
+ioctl$FIBMAP(r7, 0x1, &(0x7f0000000a80)=0x2800)
+ioctl$SCSI_IOCTL_SEND_COMMAND(0xffffffffffffffff, 0x1, &(0x7f0000000ac0)={0x1e, 0x9, 0x6, "2e82742b1ae10632de94193e9831a673df93f188d189f702ef1962d5bd8b"})
+ioctl$FS_IOC_GET_ENCRYPTION_POLICY_EX(0xffffffffffffffff, 0xc0096616, &(0x7f0000000b40)={0x5, [0x0, 0x0, 0x0, 0x0, 0x0]})
+
+syzkaller login: [   11.314258] audit: type=1400 audit(1586996671.322:8): avc:  denied  { execmem } for  pid=335 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+00:24:31 executing program 2:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x7fffffff, 0x101040)
+r1 = syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0x7, 0x0)
+ioctl$FICLONERANGE(r0, 0x4020940d, &(0x7f0000000080)={{r1}, 0x6, 0x8, 0x6})
+r2 = syz_open_dev$sg(&(0x7f00000000c0)='/dev/sg#\x00', 0x3ff, 0x80)
+ioctl$SCSI_IOCTL_START_UNIT(r2, 0x5)
+r3 = syz_open_dev$sg(&(0x7f0000000100)='/dev/sg#\x00', 0x4, 0xa000)
+ioctl$SCSI_IOCTL_DOORLOCK(r3, 0x5380)
+r4 = syz_open_dev$sg(&(0x7f0000000140)='/dev/sg#\x00', 0x484, 0x800)
+ioctl$SG_SET_FORCE_PACK_ID(r4, 0x227b, &(0x7f0000000180)=0x1)
+r5 = syz_open_dev$sg(&(0x7f00000001c0)='/dev/sg#\x00', 0x10000, 0x88400)
+ioctl$SCSI_IOCTL_STOP_UNIT(r5, 0x6)
+write$binfmt_elf32(0xffffffffffffffff, &(0x7f0000000200)={{0x7f, 0x45, 0x4c, 0x46, 0x4, 0xff, 0x2, 0x8e, 0x6, 0x1, 0x3, 0x80, 0x29a, 0x38, 0x5f, 0x0, 0x8, 0x20, 0x2, 0x9, 0x1, 0x8}, [{0x4, 0xfff, 0x0, 0x9, 0x5, 0x40, 0x8, 0xfffffff8}, {0x4, 0x7f, 0x5, 0x4, 0x8, 0x800, 0x2bffcb31, 0x8}], "bb8c5ed62965ef9c2e07d8efac9a92d77d7f86a1f928e6481d73c2a6a37ebe4517308dbd30be95c37a209b0b745c727f31092bc61f38c0abd15c6dc112b917dc7f66d08bd5c0fa748dc3aa1f3436ac675ab27a68738b70e16757519f0be5800253ea26f81f30182f3c94c6fefc58927a95ce46d8d29e7ad85671787de00135a7a50896fe01d8266c39e36387d62541099b", [[], [], [], [], [], [], []]}, 0x809)
+r6 = syz_open_dev$sg(&(0x7f0000000a40)='/dev/sg#\x00', 0x101, 0x400)
+ioctl$SG_EMULATED_HOST(r6, 0x2203, &(0x7f0000000a80))
+r7 = syz_open_dev$sg(&(0x7f0000000ac0)='/dev/sg#\x00', 0x0, 0x100)
+ioctl$SG_SET_DEBUG(r7, 0x227e, &(0x7f0000000b00))
+r8 = syz_open_dev$sg(&(0x7f0000000b40)='/dev/sg#\x00', 0x31, 0x89c4f13e8ce56826)
+ioctl$FS_IOC_REMOVE_ENCRYPTION_KEY_ALL_USERS(r8, 0xc0406619, &(0x7f0000000b80)={{0x1, 0x0, @descriptor="0fee7721a96d610c"}})
+r9 = syz_open_dev$sg(&(0x7f0000000bc0)='/dev/sg#\x00', 0x10001, 0x2)
+ioctl$SG_SET_KEEP_ORPHAN(r9, 0x2287, &(0x7f0000000c00)=0x7)
+
+[   11.388190] cgroup1: Unknown subsys name 'perf_event'
+[   11.391653] cgroup1: Unknown subsys name 'net_cls'
+[   11.419255] cgroup1: Unknown subsys name 'perf_event'
+[   11.422254] cgroup1: Unknown subsys name 'net_cls'
+[   11.431031] cgroup1: Unknown subsys name 'perf_event'
+[   11.433483] cgroup1: Unknown subsys name 'net_cls'
+[   11.436564] cgroup1: Unknown subsys name 'perf_event'
+[   11.439465] cgroup1: Unknown subsys name 'net_cls'
+00:24:32 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x0)
+r1 = syz_open_dev$sg(0x0, 0x0, 0x40901)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f0000000100)=ANY=[@ANYRES64=r1, @ANYBLOB="1a", @ANYPTR64=&(0x7f00000001c0)=ANY=[]])
+
+00:24:32 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000a80)='/dev/sg#\x00', 0x0, 0x202)
+write$binfmt_elf64(r0, &(0x7f0000000ac0)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x3f, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x40}, [{}], "759a6f58ce11f42f192cde07c0b47cdedf01d46b820cfc2c6cb11868a6ebf0810bbb35b04b8c6092f3591bb932d14ddc08282a71ef8f2b15a35460f4118dc1c4a2d2019b4cafb3f9bdfcf62199fddc2bc8a452417bc9143561d8ad1d64ad5cce560d04b7e39bc30b0110bf9d69049b71835316f53ddd8c218df6abb78fa0f1599e65d899fff191639bd3102a0f9624757261", [[], [], [], [], []]}, 0x60a)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_SET_COMMAND_Q(r1, 0x2271, &(0x7f0000000000))
+ioctl$SG_GET_KEEP_ORPHAN(r1, 0x2288, &(0x7f0000000080))
+
+[   12.352076] sg_write: data in/out 4128732/1504 bytes for SCSI command 0x0-- guessing data in;
+[   12.352076]    program syz-executor.3 not setting count and/or reply_len properly
+[   12.369413] sg_write: data in/out 4128732/1504 bytes for SCSI command 0x0-- guessing data in;
+[   12.369413]    program syz-executor.3 not setting count and/or reply_len properly
+00:24:32 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0x1, 0x402)
+ioctl$SG_IO(r0, 0x2285, &(0x7f00000027c0)={0x53, 0x0, 0x21, 0x3, @scatter={0x0, 0x0, 0x0}, &(0x7f0000002680)="0f3da67c302a8140a3f783b81463fb028f8820e4bf4111ae413b3061d5ce66c455", &(0x7f0000002700)=""/65, 0x0, 0x0, 0x0, 0x0})
+ioctl$SCSI_IOCTL_START_UNIT(0xffffffffffffffff, 0x5)
+r1 = syz_open_dev$sg(&(0x7f0000001180)='/dev/sg#\x00', 0x5, 0x80)
+ioctl$SCSI_IOCTL_DOORUNLOCK(r1, 0x5381)
+r2 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0xfffffffffffffffe, 0x201400)
+write$binfmt_aout(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_IO(r2, 0x2285, &(0x7f0000001100)={0x0, 0xfffffffffffffffd, 0x26, 0x32, @buffer={0x0, 0x3c, &(0x7f0000000000)=""/60}, &(0x7f0000000040)="7d7ca3f314891c16d903e98b808c04fdb95d4ceb932257f1cce7f3680b9ce3f1bd11cefa5a4c", &(0x7f00000000c0)=""/4096, 0x5, 0x0, 0x3, &(0x7f00000010c0)})
+
+[   12.387288] sr 1:0:0:0: [sg1] tag#0 FAILED Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK cmd_age=0s
+[   12.392187] sr 1:0:0:0: [sg1] tag#0 CDB: Read Reverse
+[   12.394449] sr 1:0:0:0: [sg1] tag#0 CDB[00]: 0f 3d a6 7c 30 2a 81 40 a3 f7 83 b8 14 63 fb 02
+[   12.398909] sr 1:0:0:0: [sg1] tag#0 CDB[10]: 8f 88 20 e4 bf 41 11 ae 41 3b 30 61 d5 ce 66 c4
+[   12.403197] sr 1:0:0:0: [sg1] tag#0 CDB[20]: 55
+[   12.407456] sr 1:0:0:0: [sg1] tag#0 FAILED Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK cmd_age=0s
+[   12.412284] sr 1:0:0:0: [sg1] tag#0 CDB: Read Reverse
+[   12.414895] sr 1:0:0:0: [sg1] tag#0 CDB[00]: 0f 3d a6 7c 30 2a 81 40 a3 f7 83 b8 14 63 fb 02
+[   12.419444] sr 1:0:0:0: [sg1] tag#0 CDB[10]: 8f 88 20 e4 bf 41 11 ae 41 3b 30 61 d5 ce 66 c4
+[   12.423463] sr 1:0:0:0: [sg1] tag#0 CDB[20]: 55
+00:24:32 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_GET_VERSION_NUM(r0, 0x2282, &(0x7f0000000080))
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x0)
+r2 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r1, 0x1, &(0x7f00000000c0)=ANY=[])
+
+00:24:32 executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x0)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_SET_RESERVED_SIZE(r1, 0x2275, &(0x7f0000000040)=0x80)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f0000000400)=ANY=[@ANYPTR64, @ANYBLOB="a1350300ab332089cc60"])
+
+00:24:32 executing program 1:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x1, 0x0)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r1, 0x1, &(0x7f00000000c0)={0x9a, 0x9d, 0xfffffff9, "6d58a027c2ea62a4807845decbd93c59a0904b20d5bbf427d6e01d1ac951be44867406eafc43f56721f0cc3c341bd8e9b642014d057e6a368e1f7820f59927b973865e8c1841bf7f0b5379f9458429e265035d69a0eb59dd50bf3048569118a5f9f5ad38327cbcce0e5353019a7c42abe4f8cca07507cd555046be5879bfac9a60c0e94fbf291c35f72e5f428551c263a7e293a4f8a223a4fef3"})
+ioctl$SG_IO(r0, 0x2285, &(0x7f0000000300)={0x53, 0x0, 0x6, 0x0, @buffer={0x0, 0x19000, &(0x7f0000000380)=""/102400}, &(0x7f0000000080)="a1ab28925bcb", 0x0, 0x0, 0x0, 0x0, 0x0})
+
+00:24:32 executing program 3:
+syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0x0, 0x2200)
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r0, &(0x7f0000000400)=ANY=[@ANYBLOB="00fbcff8cfe4000000000200000000000000000000000000000000e96a4886ee5eab0af925bc9b0c09979f01b2630097c1c084e9f5ceaff892397a9dfa3fef8a50b2586bf25913269e571b4044597bd7fb892c17fbf1547239af5590d94d2ce5906ac48182344e430cd792b844ff99bdf8988a0ffeac08701081a72c9264952d844fbafcbcfdb5ac8c69022686cde3fff1d912c8a9aeb48d1a9ab63d601ac74957416bf044187cb8ee9c381924f9f2376f6e64ee88ae3c28ae646f32630cec9be1fed6ec2703a5b6f4142d4bafe04a3be3be8b629765e16890ce3d7300000000000000000000006578cda68834b86e39062e3ebfe21bbadfef5e5f2bdd76359d65190a4e19c0c628ec29457bcd8f17ba352edf2e850892efd18b858e6a2ae9dc53b7ba77b393a1a1cd0c08febf787cbe24158c3db8ff8b35311f6e8e13dd2fc0b8a90c0d9f52d89cf566a721fa61ab3b011edf9f04c32b915b82a7df00ce667b615fca14895850190ae8998cc5824a2d0e84f25887d33ba6906a168278db27dea89b1e165043826275c8ac497c1b9317469ac1f56e3ab14210e3701adef6711e875e422df79503418d80f970f04abb0eef0bd8e9040000002c61a4bae740b2da8288022e74b69407ad151b1ea03fe5d428578e4c436cbe02c25b84c8d5e895331f8057c4d32d09518281e8508d7a5d50be5c15ad2663ffc1"], 0x2e)
+ioctl$SCSI_IOCTL_GET_PCI(r0, 0x5387, &(0x7f0000000000))
+ioctl$SG_IO(r0, 0x2285, &(0x7f00000000c0)={0x0, 0x0, 0x3c, 0x0, @buffer={0x0, 0x0, 0x0}, &(0x7f0000000140)="2f00000000a805626e3f6bfe57393d420d0b52eda992c4b0ce19aebd84532de3119bbe4aa082409d7d9e2ee198249c6520175476b169744ef7ea38b1", 0x0, 0x0, 0x20, 0x0, 0x0})
+ioctl$SG_SET_RESERVED_SIZE(0xffffffffffffffff, 0x2275, &(0x7f0000000080)=0x3ff)
+
+00:24:32 executing program 2:
+r0 = syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0xa79, 0x0)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_SET_FORCE_PACK_ID(r1, 0x227b, &(0x7f0000000100))
+r2 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+r3 = syz_open_dev$sg(&(0x7f00000001c0)='/dev/sg#\x00', 0xb0f, 0x10000)
+write$binfmt_elf32(r3, &(0x7f0000000200)={{0x7f, 0x45, 0x4c, 0x46, 0x7, 0xc1, 0x3f, 0x0, 0x5, 0x3, 0x6, 0x200, 0x121, 0x38, 0x279, 0x7fff, 0xffff, 0x20, 0x1, 0x0, 0x6, 0x5}, [{0x3, 0x8001, 0x3, 0x2, 0xc1f6813, 0x7e0, 0x40, 0x9}, {0x7, 0x2, 0x722, 0x340, 0x0, 0x1, 0x400, 0x8}], "e75d0ecfb8e3ffc87d80955fe035acc5fd0d21d92cc6a2956e936b39dd76b82f721a4b56d62fb0e7a25c964eb136cdcd197f37ca80cbb1652460787d52b0faa89219d351ee23dc934e047ca6d73135784aa5c77e1ee426bb7c93d45a3789a207d7f0f0fb09b90f329d2f3fcf79ae503622591373c7d378acb034350375de6d1c2082b3caebf05f311c24f9a6db", [[], [], []]}, 0x405)
+ioctl$FS_IOC_SET_ENCRYPTION_POLICY(r2, 0x800c6613, &(0x7f0000000180)=@v2={0x2, @adiantum, 0x2, [], "7cc764fc106c466cfc31d61de68299eb"})
+ioctl$FIBMAP(r1, 0x1, &(0x7f0000000080)=0x8)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f00000000c0)=ANY=[@ANYBLOB="1500000001000000df0000006094539b5a336fc92330626222b7fadf545541cbdb"])
+r4 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r4, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_GET_NUM_WAITING(r4, 0x227d, &(0x7f0000000140))
+
+00:24:32 executing program 1:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$EXT4_IOC_GROUP_EXTEND(r0, 0x40086607, &(0x7f00000000c0)=0x4)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x40902)
+r2 = syz_open_dev$sg(&(0x7f0000000140)='/dev/sg#\x00', 0x9, 0x464400)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r2, 0x1, &(0x7f0000000100)={0x28, 0x40000, 0x7fffffff, "a10c086d89cefa885e00e3745742adbc7437ba4480cbb18903f2a5b2c45dba036441092382856819"})
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000000000000000000000000000000000004fae470798e8ae4baad6bd31f58bd2890000000000000000000000000000c5469f2193b8de44649484bfb93da8841d0cafd8"], 0x34)
+
+00:24:32 executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x202)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0x4, 0x430000)
+r2 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_SET_RESERVED_SIZE(r2, 0x2275, &(0x7f0000000040)=0x43e73519)
+write$binfmt_aout(r0, &(0x7f0000000800)=ANY=[@ANYBLOB="040000000000110000000200"/23, @ANYRESOCT], 0x2e)
+
+00:24:32 executing program 3:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x0)
+r1 = syz_open_dev$sg(0x0, 0x0, 0x268d80)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f0000000600)=ANY=[@ANYRES64=r1, @ANYBLOB="5a58b6ec"])
+r2 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r2, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r2, 0x1, &(0x7f0000000040)={0xd0, 0xf2e8, 0x0, "3395d7ae2da0d7965a08cfc1da504abbd3cab399a190fcf73702e2eb36b1819f85997acc6d3d0731f66cc9badadff1ef1f9c3dd200439af24e40878af7783bb582acb229df086a94373fed5645d197d439d7933144293a6d02c582679630a11d24a0c12146645bad88b68bb5e361f91f786b7706e8322aa193c2dfd9fa2ccfcb119a3789e6fea5ed29a8fdb576ecf56eec36aa7a98d42123397033ea142a2766bd1b1db5c9b4315e4eb7e8cf107f9dfb59e7c9ad4d5907949cbcb330a5cdcc6433ebb2501836f67b33c2d24fa3023407"})
+
+00:24:32 executing program 3:
+syz_open_dev$sg(&(0x7f0000000080)='/dev/sg#\x00', 0x2, 0x400c00)
+r0 = syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0x0, 0x0)
+ioctl$SG_IO(r0, 0x2285, &(0x7f0000000100)={0x53, 0x0, 0x9, 0x0, @scatter={0x0, 0x0, 0x0}, &(0x7f0000000000)="55ee958ce25541a96d", 0x0, 0x0, 0x0, 0x0, 0x0})
+
+00:24:32 executing program 0:
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x0)
+ioctl$SCSI_IOCTL_SEND_COMMAND(r0, 0x1, &(0x7f0000000000)=ANY=[@ANYBLOB="0000000000040000854af479050500000029710dc60a29"])
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r1, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+read(r1, &(0x7f0000000380)=""/177, 0xb1)
+ioctl$SG_IO(r0, 0x2285, &(0x7f0000000300)={0x53, 0xfffffffffffffffb, 0xee, 0x3f, @scatter={0x3, 0x0, &(0x7f00000000c0)=[{&(0x7f0000000440)=""/4096, 0x1000}, {&(0x7f0000000040)=""/87, 0x57}, {&(0x7f0000001440)=""/227, 0xe3}]}, &(0x7f0000000100)="6403f9126bac721b282c6d00adad7cafa8efcdfdcd9e4fd10b6f1a54c5184887384603cc3e01ef90052efc4e9cee3239263cdb18aa8fff3b06618152092e8327f502bdef9019063a7094a26ea3b19ebb68532000f32f018f7cc275797bdefe136a5673231d3b99b8c3658d0e5d895057ca03799ca78befada76fb81657fe3f75cbb62dbd571c760639380aa23af7861866d084ef141896de4a31492ed785682e97cc38037cbe7f1b72d7e6c64676b6949de7f6011519814da16994bd594226a34f3aac21fd376755f6beed1f10465358953a2988550d0d03413639cb570f6d8c837be4fd92f29c3e20a0441fe7d6", &(0x7f0000000200)=""/139, 0x5, 0x2, 0x2, &(0x7f00000002c0)})
+
+00:24:32 executing program 1:
+syz_open_dev$sg(&(0x7f00000000c0)='/dev/sg#\x00', 0x7fffffff, 0x0)
+r0 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0x0, 0x48902)
+write$binfmt_aout(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0000cff8cfe4000000000000ffffff7f0000000000000000000000e96a4886ee5eab0af925bc9b0c09"], 0x2e)
+ioctl$SG_NEXT_CMD_LEN(r0, 0x2283, &(0x7f0000000140)=0x94)
+r1 = syz_open_dev$sg(&(0x7f0000000000)='/dev/sg#\x00', 0xc848, 0x200)
+ioctl$SG_GET_COMMAND_Q(r1, 0x2270, &(0x7f0000000080))
+syz_open_dev$sg(&(0x7f0000000040)='/dev/sg#\x00', 0xa79, 0x0)
+
+[   12.505245] ata1.00: invalid multi_count 4 ignored
+[   12.528125] Kernel panic - not syncing: Found leaking site of sg_header
+[   12.530996] CPU: 0 PID: 2205 Comm: syz-executor.0 Not tainted 5.5.3 #21
+[   12.534101] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.540206] Call Trace:
+[   12.541576]  dump_stack+0x195/0x1fe
+[   12.543593]  ? log_buf_vmcoreinfo_setup+0x12c/0x12c
+[   12.546246]  ? show_regs_print_info+0x12/0x12
+[   12.548484]  ? do_futex+0x3ec/0x3bd0
+[   12.550403]  panic+0x201/0x64d
+[   12.552104]  ? 0xffffffffa4800000
+[   12.553866]  ? nmi_panic+0x73/0x73
+[   12.555685]  ? sg_read+0x90e/0x1a80
+[   12.557618]  ? kmem_cache_alloc_trace+0x188/0x200
+[   12.559747]  sg_read+0x1a80/0x1a80
+[   12.561439]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.564172]  ? sg_remove_device+0x2e0/0x2e0
+[   12.566224]  ? kcov_ioctl+0x21d/0xc50
+[   12.568211]  ? wait_rcu_exp_gp+0x40/0x40
+[   12.570128]  ? wait_rcu_exp_gp+0x40/0x40
+[   12.572213]  ? do_vfs_ioctl+0x6b9/0x18b0
+[   12.574626]  ? sg_remove_device+0x2e0/0x2e0
+[   12.576687]  __vfs_read+0xff/0x770
+[   12.578465]  ? rw_verify_area+0x290/0x290
+[   12.580564]  ? __fsnotify_parent+0xcc/0x290
+[   12.582589]  ? __fsnotify_parent+0x290/0x290
+[   12.584929]  ? fget_many+0x20/0x20
+[   12.586710]  ? put_timespec64+0xf6/0x140
+[   12.588677]  ? security_file_permission+0x193/0x2b0
+[   12.591247]  vfs_read+0x102/0x300
+[   12.592899]  ksys_read+0x134/0x230
+[   12.594782]  ? vfs_write+0x440/0x440
+[   12.596543]  ? fpregs_assert_state_consistent+0x8a/0xb0
+[   12.599198]  do_syscall_64+0xa5/0x130
+[   12.601098]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.603681] RIP: 0033:0x467519
+[   12.605355] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.614338] RSP: 002b:00007fdb7e860c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   12.617897] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.621247] RDX: 00000000000000b1 RSI: 0000000020000380 RDI: 0000000000000004
+[   12.624844] RBP: 00007fdb7e8616bc R08: 0000000000000000 R09: 0000000000000000
+[   12.628113] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.631536] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   12.638429] Dumping ftrace buffer:
+[   12.640185]    (ftrace buffer empty)
+[   12.641888] Kernel Offset: 0x23800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.647110] Rebooting in 1 seconds..

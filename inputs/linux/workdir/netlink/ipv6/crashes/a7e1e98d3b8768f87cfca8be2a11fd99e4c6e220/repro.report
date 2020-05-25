@@ -1,0 +1,43 @@
+------------[ cut here ]------------
+Found leaking site of sock_fprog_kern
+WARNING: CPU: 1 PID: 376 at net/core/filter.c:8681 sk_get_filter+0x13f/0x250 net/core/filter.c:8681
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 376 Comm: syz-executor088 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:sk_get_filter+0x13f/0x250 net/core/filter.c:8681
+Code: 8b 1d d5 58 2a 01 bf 02 00 00 00 89 de e8 c9 e0 2b fe 83 fb 02 75 17 e8 af dc 2b fe 48 c7 c7 91 41 48 8e 31 c0 e8 c1 2b 05 fe <0f> 0b eb 05 e8 98 dc 2b fe 43 8a 04 2e 84 c0 0f 85 be 00 00 00 41
+RSP: 0018:ffff888064677d60 EFLAGS: 00010246
+RAX: 9e1267f976966200 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff88806c6e5700 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 000000000000006f R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806b488000
+R13: dffffc0000000000 R14: 1ffff1100cdcc994 R15: ffff888066e64ca0
+ sock_getsockopt+0x90e/0x2e60 net/core/sock.c:1442
+ __sys_getsockopt+0x150/0x230 net/socket.c:2158
+ __do_sys_getsockopt net/socket.c:2177 [inline]
+ __se_sys_getsockopt net/socket.c:2174 [inline]
+ __x64_sys_getsockopt+0xb1/0xc0 net/socket.c:2174
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a3c9
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd0cc6f098 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a3c9
+RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000003
+RBP: 0000000000401c70 R08: 0000000020000340 R09: 0000000000400400
+R10: 00000000200002c0 R11: 0000000000000246 R12: 0000000000401d10
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xa400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

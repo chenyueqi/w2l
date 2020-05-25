@@ -1,0 +1,99 @@
+Warning: Permanently added '[localhost]:11687' (ECDSA) to the list of known hosts.
+[   16.679935] audit: type=1400 audit(1587417995.709:11): avc:  denied  { map } for  pid=1580 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:26:35 fuzzer started
+2020/04/20 21:26:36 dialing manager at 10.0.2.10:42445
+2020/04/20 21:26:36 syscalls: 52
+2020/04/20 21:26:36 code coverage: enabled
+2020/04/20 21:26:36 comparison tracing: enabled
+2020/04/20 21:26:36 extra coverage: enabled
+2020/04/20 21:26:36 setuid sandbox: enabled
+2020/04/20 21:26:36 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:26:36 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:26:36 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:26:36 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:26:36 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:26:36 net device setup: enabled
+2020/04/20 21:26:36 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:26:36 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:26:36 USB emulation: /dev/raw-gadget does not exist
+21:26:36 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000100)='n\x01devvboxnet0mime_t\xaa\xddOPtf&ype,2%tedposix_acl_acce\t\x00\x00\x00mnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\xbe\xf6/\x94v\xdd\xf3\xd3\xcd\xc5\vG\"\x9ec\xec\xda;\x03')
+
+21:26:36 executing program 3:
+fspick(0xffffffffffffff9c, &(0x7f0000000000)='./file0/file0/file0\x00', 0x0)
+
+21:26:36 executing program 2:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000140)='=\x9e\xba1br+\x19\xce\xa1\x8a9\x15 \x9d[\x05\xb6\x93\xdeQ\xdeh\x14+}\xd1\xe6\xf7\x99+CE^(\xd2Z\x05\xa1S\x97C\x9b\xe3`\xe8|\xa2\x16{\xac\x13\xa8\xea\xa9\xb6\xb7)\xff\xa9\xd1-a\x9f\a\"xS\x14\xe8Q\x1eY\x9b\xdd1\x88hZ\xbaob\xfc\x044\xab\xdf\x01)\x17v\x1c\xd2u\xe8\xe2R\x89\x17\xaf&%\x01e0A*|\x04\xcc&on\xc7\xe3\x92\v\xec\xd5\xfb19\xcf\xd5\x8b\xaf\xdf\x00\x00c\'`\t\x8a\xd0\xb4\n\xd2\fm\x04\b\xb8e\x91\x81\xa9\xb0\x06\x9eJp,el\x85F%\xb7\xe5\xff\xecH9 9\x04o\x0e~\xdf\xec!\xe6\xa2\xd7A\x8e\x16\x12;w\x88\x16\xbb.e:\x8e[\xb7\xff\xc5G|)\x8b_M\xeagb\xed\xe1-\"\x1akb\xae\x95y\rK\x1c\xc7\x9b\x14\xa9\xaf\xf6\xb0u\x90\xd6\x80L\xbcZ:Q\x9c\\\x06\xd1\x1d\xca\xca-T\v\x8c\xd2\xd1P\xfd\x1b\xf4\xab@J\xa9\xc0\xce\xecW\x92\xc3\xbf\f\x1c\x90\xb3d\xc9i\x83_\xd4\xc4\x90\x87\xf1\x15#\xe8-)\x9b\xf4\xe4\v\xef\xca\xf1\xa8v\x97\a\xcbxq\x99\xbd\xd7\xd6\xd2\xffvU\xe1el\xae\xf0\xf9\xffDy\xee\xac\x95\xc4\xa82V\x9dm\xd7O\x12g1\x88+\x17\x94@\xa1\xd0\xa6\xd5\xb9\xa8\xb5\xcf\xc3\xd2\x9f\xeb\xc28\x0f,g\xea\xab\xe0\"B\x03(6R7HJ@\x84\x1f\x9b\x9b\x9fF\xf1rod\xc0:\x12\'gIW\x95c\a\x1e\xdfa')
+
+[   17.706951] audit: type=1400 audit(1587417996.736:12): avc:  denied  { map } for  pid=1596 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8630 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+21:26:36 executing program 1:
+mount(&(0x7f0000000240)=ANY=[@ANYBLOB='/'], &(0x7f0000000000)='.\x00', 0x0, 0x10d009, 0x0)
+umount2(&(0x7f0000000040)='.\x00', 0x3)
+
+[   17.736247] cgroup1: Unknown subsys name 'perf_event'
+[   17.737643] cgroup1: Unknown subsys name 'net_cls'
+[   17.757189] cgroup1: Unknown subsys name 'perf_event'
+[   17.758495] cgroup1: Unknown subsys name 'net_cls'
+[   17.766279] cgroup1: Unknown subsys name 'perf_event'
+[   17.767516] cgroup1: Unknown subsys name 'net_cls'
+[   17.778784] cgroup1: Unknown subsys name 'perf_event'
+[   17.780403] cgroup1: Unknown subsys name 'net_cls'
+[   18.188010] audit: type=1400 audit(1587417997.217:13): avc:  denied  { create } for  pid=1600 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   18.192711] audit: type=1400 audit(1587417997.217:14): avc:  denied  { write } for  pid=1600 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   18.201616] audit: type=1400 audit(1587417997.227:15): avc:  denied  { read } for  pid=1600 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.668952] audit: type=1400 audit(1587417998.697:16): avc:  denied  { associate } for  pid=1600 comm="syz-executor.0" name="syz0" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   19.697762] cgroup1: Unknown subsys name 'ndevvboxnet0mime_tªÝOPtf&ype'
+[   19.699292] cgroup1: Unknown subsys name 'ndevvboxnet0mime_tªÝOPtf&ype'
+21:26:38 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000100)='n\x01devvboxnet0mime_t\xaa\xddOPtf&ype,2%tedposix_acl_acce\t\x00\x00\x00mnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\xbe\xf6/\x94v\xdd\xf3\xd3\xcd\xc5\vG\"\x9ec\xec\xda;\x03')
+
+[   19.711411] cgroup1: Unknown subsys name 'ndevvboxnet0mime_tªÝOPtf&ype'
+21:26:38 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000100)='n\x01devvboxnet0mime_t\xaa\xddOPtf&ype,2%tedposix_acl_acce\t\x00\x00\x00mnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\xbe\xf6/\x94v\xdd\xf3\xd3\xcd\xc5\vG\"\x9ec\xec\xda;\x03')
+
+[   19.727241] cgroup1: Unknown subsys name 'ndevvboxnet0mime_tªÝOPtf&ype'
+21:26:38 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000100)='n\x01devvboxnet0mime_t\xaa\xddOPtf&ype,2%tedposix_acl_acce\t\x00\x00\x00mnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\xbe\xf6/\x94v\xdd\xf3\xd3\xcd\xc5\vG\"\x9ec\xec\xda;\x03')
+
+[   19.738187] cgroup1: Unknown subsys name 'ndevvboxnet0mime_tªÝOPtf&ype'
+21:26:38 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000100)='/proc/mdstat\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x80000)
+write$P9_RMKDIR(r1, &(0x7f0000000080)={0x14}, 0xfffffdc3)
+read(r0, &(0x7f0000000340)=""/258, 0xffffff54)
+
+[   19.755113] ------------[ cut here ]------------
+[   19.755855] Found allocation of pipe_buffer
+[   19.756565] WARNING: CPU: 1 PID: 3384 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.757733] Modules linked in:
+[   19.758302] CPU: 1 PID: 3384 Comm: syz-executor.0 Not tainted 5.5.3 #59
+[   19.759513] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.761335] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.762064] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 1e be e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 1e be 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.764925] RSP: 0018:ffff88806b74fdc0 EFLAGS: 00010246
+[   19.765729] RAX: a7c7bb428f858d00 RBX: 0000000000000002 RCX: ffffc900005bb000
+[   19.766850] RDX: ffffffffbb200000 RSI: 0000000000000569 RDI: 000000000000056a
+[   19.767946] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100d6e9f75
+[   19.769041] R10: ffffed100d6e9f75 R11: 0000000000000000 R12: ffff88806c47e300
+[   19.770117] R13: dffffc0000000000 R14: ffffffffbe447fb0 R15: 0000000000000010
+[   19.771201] FS:  00007f2b34d71700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   19.772425] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.773290] CR2: 00000000004f13f0 CR3: 00000000620b6004 CR4: 00000000001606e0
+[   19.774392] Call Trace:
+[   19.774771]  create_pipe_files+0x85/0x6e0
+[   19.775425]  __do_pipe_flags+0x46/0x200
+[   19.776022]  do_pipe2+0x41/0x230
+[   19.776564]  ? put_timespec64+0xbe/0xf0
+[   19.777159]  __x64_sys_pipe2+0x56/0x60
+[   19.777789]  do_syscall_64+0xd1/0x160
+[   19.778369]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.779179] RIP: 0033:0x467519
+[   19.779680] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.782495] RSP: 002b:00007f2b34d70c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.783672] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.784863] RDX: 0000000000000000 RSI: 0000000000080000 RDI: 0000000020000000
+[   19.785977] RBP: 00007f2b34d716bc R08: 0000000000000000 R09: 0000000000000000
+[   19.787081] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.788190] R13: 000000000000081e R14: 00000000004c93b8 R15: 0000000000701660
+[   19.789258] ---[ end trace c01b73e37dccdca3 ]---

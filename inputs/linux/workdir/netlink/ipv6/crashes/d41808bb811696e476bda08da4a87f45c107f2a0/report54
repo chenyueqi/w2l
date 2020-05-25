@@ -1,0 +1,49 @@
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 1 PID: 2736 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1252
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 2736 Comm: syz-executor.0 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0 net/ipv4/ip_output.c:1252
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 c8 9b 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff888067c77670 EFLAGS: 00010246
+RAX: 392ccf77ac89d500 RBX: 0000000000000002 RCX: ffffc90000da3000
+RDX: ffffffff98c00000 RSI: 0000000000000606 RDI: 0000000000000607
+RBP: 1ffff1100cf8ef0b R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888067c77850 R14: ffff888067c77858 R15: ffff888068349680
+ ip_make_skb+0x115/0x3f0 net/ipv4/ip_output.c:1626
+ udp_sendmsg+0x1c25/0x2ac0 net/ipv4/udp.c:1173
+ udpv6_sendmsg+0x7e6/0x2ef0 net/ipv6/udp.c:1289
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ ____sys_sendmsg+0x4f9/0x8c0 net/socket.c:2330
+ ___sys_sendmsg net/socket.c:2384 [inline]
+ __sys_sendmmsg+0x2a9/0x590 net/socket.c:2474
+ __do_sys_sendmmsg net/socket.c:2503 [inline]
+ __se_sys_sendmmsg net/socket.c:2500 [inline]
+ __x64_sys_sendmmsg+0x9c/0xb0 net/socket.c:2500
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1fe4492c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000133
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000001 RSI: 0000000020006140 RDI: 0000000000000003
+RBP: 00007f1fe44936bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000008d9 R14: 00000000004c9e42 R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x17c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

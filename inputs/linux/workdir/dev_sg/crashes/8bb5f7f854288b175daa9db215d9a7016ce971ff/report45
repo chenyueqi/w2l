@@ -1,0 +1,39 @@
+sd 0:0:0:0: [sg0] tag#0 CDB[c0]: 20 3d b4 fb dd 74 17 3a e3 20 38 eb 3e 40 cc a2
+sd 0:0:0:0: [sg0] tag#0 CDB[d0]: 94 b6 48 db 30 2f 9c 88 d7 ef 99 2b ca 44 98 40
+sd 0:0:0:0: [sg0] tag#0 CDB[e0]: a7 d3 1a 4e 4e 33 f1 30 f8 94 97 6e a5 98 7c 12
+sd 0:0:0:0: [sg0] tag#0 CDB[f0]: 3b 08
+Kernel panic - not syncing: Found leaking site of sg_header
+sd 0:0:0:0: [sg0] tag#0 FAILED Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK cmd_age=0s
+CPU: 1 PID: 28918 Comm: syz-executor.2 Not tainted 5.5.3 #22
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+sd 0:0:0:0: [sg0] tag#0 CDB: Volume set (in), Read cd
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+sd 0:0:0:0: [sg0] tag#0 CDB[00]: be 32 fd bf f1 3c 8e 2f 7e 2e 73 cc 9b 36 3b 02
+ panic+0x201/0x64d kernel/panic.c:221
+sd 0:0:0:0: [sg0] tag#0 CDB[10]: 52 86 f6 3b 16 9d 41 ab c9 c7 44 b6 c2 a4 3e d9
+sd 0:0:0:0: [sg0] tag#0 CDB[20]: 3e 7a a7 81 cb d5 e7 ae 1c 5f 90 db 5a 18 85 ed
+ sg_read+0x1a80/0x1a80 drivers/scsi/sg.c:527
+sd 0:0:0:0: [sg0] tag#0 CDB[30]: e3 44 13 12 3f b5 db 1f 99 73 2f 27 da 42 56 bd
+sd 0:0:0:0: [sg0] tag#0 CDB[40]: b9 ec f7 a4 7b bc 5c f7 0e b0 c4 e7 f1 92 a2 d4
+ __vfs_read+0xff/0x770 fs/read_write.c:425
+sd 0:0:0:0: [sg0] tag#0 CDB[50]: 0b 93 4c 86 35 71 ac 70 6b 19 e4 6d f2 37 1c fc
+ vfs_read+0x102/0x300 fs/read_write.c:461
+ ksys_read+0x134/0x230 fs/read_write.c:587
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+sd 0:0:0:0: [sg0] tag#0 CDB[60]: ba ba d9 f0 2a d7 a1 0b 95 fd 45 6c 7b c7 12 5c
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f1da8528c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+sd 0:0:0:0: [sg0] tag#0 CDB[70]: fc dd 64 ba cd d4 e4 6c d8 cb 77 70 41 df 3a 4a
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000000000055 RSI: 0000000020000000 RDI: 0000000000000003
+RBP: 00007f1da85296bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x1ce00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

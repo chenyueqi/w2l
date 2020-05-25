@@ -1,0 +1,52 @@
+Warning: Permanently added '[localhost]:1569' (ECDSA) to the list of known hosts.
+2020/04/17 05:29:56 fuzzer started
+2020/04/17 05:30:05 dialing manager at 10.0.2.10:34743
+2020/04/17 05:30:06 checking machine...
+2020/04/17 05:30:06 checking revisions...
+2020/04/17 05:30:06 testing simple program...
+syzkaller login: [   34.028932] audit: type=1400 audit(1587101406.036:8): avc:  denied  { execmem } for  pid=323 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   36.916214] ------------[ cut here ]------------
+[   36.918947] Found allocation of proc_dir_entry
+[   36.919092] WARNING: CPU: 1 PID: 325 at fs/proc/proc_net.c:340 proc_net_ns_init+0x5c/0x2e0
+[   36.925473] Kernel panic - not syncing: panic_on_warn set ...
+[   36.928011] CPU: 1 PID: 325 Comm: syz-executor.0 Not tainted 5.5.3 #33
+[   36.929735] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   36.933463] Call Trace:
+[   36.935231]  dump_stack+0x15e/0x1ae
+[   36.937189]  panic+0x228/0x700
+[   36.938709]  ? proc_net_ns_init+0x5c/0x2e0
+[   36.941185]  __warn+0x1fe/0x200
+[   36.943021]  ? proc_net_ns_init+0x5c/0x2e0
+[   36.945216]  report_bug+0x359/0x480
+[   36.947214]  ? proc_net_ns_init+0x5c/0x2e0
+[   36.949591]  do_invalid_op+0x6e/0x110
+[   36.951545]  invalid_op+0x1e/0x30
+[   36.953225] RIP: 0010:proc_net_ns_init+0x5c/0x2e0
+[   36.955590] Code: 8b 1d a8 c7 b4 02 bf 02 00 00 00 89 de e8 9c 4f b6 ff 83 fb 02 75 17 e8 82 4b b6 ff 48 c7 c7 6c 96 3e a2 31 c0 e8 94 9a 8f ff <0f> 0b eb 05 e8 6b 4b b6 ff 48 c7 c0 c0 b0 49 a2 48 c1 e8 03 42 80
+[   36.964107] RSP: 0018:ffff88805cbdfc50 EFLAGS: 00010246
+[   36.966405] RAX: 87557f6db0681d00 RBX: 0000000000000002 RCX: 0000000000000000
+[   36.969543] RDX: ffff88806c6fba00 RSI: 0000000000000214 RDI: 0000000000000214
+[   36.972595] RBP: 1ffffffff44cf2e0 R08: dffffc0000000000 R09: fffffbfff4628bc4
+[   36.975852] R10: fffffbfff4628bc4 R11: 0000000000000000 R12: 0000000000000000
+[   36.979074] R13: dffffc0000000000 R14: ffff88805c438000 R15: dffffc0000000000
+[   36.982481]  ops_init+0x277/0x350
+[   36.984006]  setup_net+0x1cb/0x960
+[   36.985685]  copy_net_ns+0x29e/0x4b0
+[   36.987169]  create_new_namespaces+0x456/0x6c0
+[   36.989412]  unshare_nsproxy_namespaces+0xf5/0x160
+[   36.991625]  ksys_unshare+0x408/0x880
+[   36.993362]  __x64_sys_unshare+0x34/0x40
+[   36.995168]  do_syscall_64+0xd1/0x160
+[   36.996717]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   36.998932] RIP: 0033:0x468ed7
+[   37.000385] Code: 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 b8 10 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   37.010132] RSP: 002b:00007ffcb2d33258 EFLAGS: 00000246 ORIG_RAX: 0000000000000110
+[   37.013406] RAX: ffffffffffffffda RBX: 000000000074c988 RCX: 0000000000468ed7
+[   37.016708] RDX: 0000000000467519 RSI: 00007ffcb2d33220 RDI: 0000000040000000
+[   37.019732] RBP: 00000000000000f8 R08: 0000000000718018 R09: 0000000000718018
+[   37.023162] R10: 0000000000000015 R11: 0000000000000246 R12: 000000000074c988
+[   37.026205] R13: 0000000000000000 R14: 0000000000718018 R15: 0000000000000000
+[   37.029669] Dumping ftrace buffer:
+[   37.031094]    (ftrace buffer empty)
+[   37.032845] Kernel Offset: 0x1e400000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   37.037809] Rebooting in 1 seconds..

@@ -1,0 +1,88 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+2020/04/21 20:38:33 fuzzer started
+2020/04/21 20:38:34 dialing manager at 10.0.2.10:46589
+2020/04/21 20:38:34 syscalls: 49
+2020/04/21 20:38:34 code coverage: enabled
+2020/04/21 20:38:34 comparison tracing: enabled
+2020/04/21 20:38:34 extra coverage: enabled
+2020/04/21 20:38:34 setuid sandbox: enabled
+2020/04/21 20:38:34 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 20:38:34 Android sandbox: enabled
+2020/04/21 20:38:34 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 20:38:34 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 20:38:34 net packet injection: /dev/net/tun does not exist
+2020/04/21 20:38:34 net device setup: enabled
+2020/04/21 20:38:34 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 20:38:34 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 20:38:34 USB emulation: /dev/raw-gadget does not exist
+20:38:35 executing program 0:
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x6, 0x98abf6f021056371)
+
+20:38:35 executing program 3:
+openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/bus/input/handlers\x00', 0x3e8, 0x0)
+
+20:38:35 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000280)='/proc/consoles\x00', 0x22a0000, 0x0)
+vmsplice(r0, 0x0, 0x0, 0x0)
+
+20:38:35 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/zoneinfo\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+
+syzkaller login: [   11.268241] audit: type=1400 audit(1587501515.275:8): avc:  denied  { execmem } for  pid=415 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   11.389402] cgroup1: Unknown subsys name 'perf_event'
+[   11.392386] cgroup1: Unknown subsys name 'net_cls'
+[   11.395423] cgroup1: Unknown subsys name 'perf_event'
+[   11.398153] cgroup1: Unknown subsys name 'net_cls'
+[   11.399625] cgroup1: Unknown subsys name 'perf_event'
+[   11.403155] cgroup1: Unknown subsys name 'net_cls'
+[   11.403410] cgroup1: Unknown subsys name 'perf_event'
+[   11.408563] cgroup1: Unknown subsys name 'net_cls'
+[   12.332975] ------------[ cut here ]------------
+[   12.335366] Found leaking site of fname
+[   12.335539] WARNING: CPU: 0 PID: 423 at fs/ext4/dir.c:532 call_filldir+0x27d/0x5c0
+[   12.340212] Kernel panic - not syncing: panic_on_warn set ...
+[   12.342773] CPU: 0 PID: 423 Comm: syz-executor.1 Not tainted 5.5.3 #72
+[   12.345379] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.350203] Call Trace:
+[   12.351147]  dump_stack+0x15e/0x1ae
+[   12.352441]  panic+0x228/0x700
+[   12.353927]  ? call_filldir+0x27d/0x5c0
+[   12.355783]  __warn+0x1fe/0x200
+[   12.356945]  ? call_filldir+0x27d/0x5c0
+[   12.358634]  report_bug+0x359/0x480
+[   12.360004]  ? call_filldir+0x27d/0x5c0
+[   12.361454]  do_invalid_op+0x6e/0x110
+[   12.362759]  invalid_op+0x1e/0x30
+[   12.363937] RIP: 0010:call_filldir+0x27d/0x5c0
+[   12.366105] Code: 81 c7 48 06 00 00 48 c7 c6 12 a2 5e 95 e8 bb 39 13 02 48 85 c0 74 2d e8 21 dc b2 ff 48 c7 c7 2b 55 5e 95 31 c0 e8 33 2b 8c ff <0f> 0b eb 1f 0f 1f 44 00 00 66 2e 0f 1f 84 00 00 00 00 00 e8 fb db
+[   12.373471] RSP: 0018:ffff88804f077c40 EFLAGS: 00010246
+[   12.375601] RAX: 159f9c8ce01efd00 RBX: 0000000000000002 RCX: 0000000000000000
+[   12.378160] RDX: ffff888069ff8000 RSI: 0000000000000223 RDI: 0000000000000223
+[   12.381596] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff2c68bc3
+[   12.385010] R10: fffffbfff2c68bc3 R11: 0000000000000000 R12: ffff8880699cd3a0
+[   12.388273] R13: dffffc0000000000 R14: ffff888067faa400 R15: ffff88804f077ec0
+[   12.391826]  ? kmem_cache_alloc_trace+0x188/0x200
+[   12.393966]  ext4_readdir+0x2492/0x2a40
+[   12.395767]  ? memset+0x1f/0x40
+[   12.397224]  ? down_read_killable+0xcd/0x1c0
+[   12.399240]  iterate_dir+0x2a6/0x510
+[   12.400887]  __se_sys_getdents+0x191/0x3f0
+[   12.402954]  ? fillonedir+0x250/0x250
+[   12.404655]  do_syscall_64+0xd1/0x160
+[   12.406382]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.408835] RIP: 0033:0x4656a8
+[   12.410269] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   12.419156] RSP: 002b:00007fff2bda46b0 EFLAGS: 00000202 ORIG_RAX: 000000000000004e
+[   12.422602] RAX: ffffffffffffffda RBX: 0000000002191c10 RCX: 00000000004656a8
+[   12.425917] RDX: 0000000000008000 RSI: 0000000002191c10 RDI: 0000000000000003
+[   12.429251] RBP: 0000000002191c10 R08: 0000000000000076 R09: 0000000000000000
+[   12.432574] R10: 0000000000000804 R11: 0000000000000202 R12: ffffffffffffffbc
+[   12.435837] R13: 0000000000000016 R14: 0000000000000002 R15: 00000000ffffffff
+[   12.444158] Dumping ftrace buffer:
+[   12.445761]    (ftrace buffer empty)
+[   12.447437] Kernel Offset: 0x11600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.452339] Rebooting in 1 seconds..

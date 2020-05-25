@@ -1,0 +1,131 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:56818' (ECDSA) to the list of known hosts.
+2020/04/20 01:25:17 fuzzer started
+2020/04/20 01:25:18 dialing manager at 10.0.2.10:36519
+2020/04/20 01:25:18 syscalls: 8
+2020/04/20 01:25:18 code coverage: enabled
+2020/04/20 01:25:18 comparison tracing: enabled
+2020/04/20 01:25:18 extra coverage: enabled
+2020/04/20 01:25:18 setuid sandbox: enabled
+2020/04/20 01:25:18 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:25:18 Android sandbox: enabled
+2020/04/20 01:25:18 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:25:18 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:25:18 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:25:18 net device setup: enabled
+2020/04/20 01:25:18 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:25:18 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:25:18 USB emulation: /dev/raw-gadget does not exist
+01:25:18 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='ns\x00')
+name_to_handle_at(r0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:25:18 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce50"], 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:25:18 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/arp\x00')
+read(r0, &(0x7f00000000c0)=""/13, 0xd)
+read(r0, &(0x7f0000000100)=""/86, 0x56)
+
+01:25:18 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000000c0)=""/194, 0xc2)
+
+syzkaller login: [   10.681488] audit: type=1400 audit(1587345918.691:8): avc:  denied  { execmem } for  pid=426 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.839919] cgroup1: Unknown subsys name 'perf_event'
+[   10.842538] cgroup1: Unknown subsys name 'net_cls'
+[   10.842602] cgroup1: Unknown subsys name 'perf_event'
+[   10.850459] cgroup1: Unknown subsys name 'net_cls'
+[   10.851394] cgroup1: Unknown subsys name 'perf_event'
+[   10.855706] cgroup1: Unknown subsys name 'net_cls'
+[   10.862131] cgroup1: Unknown subsys name 'perf_event'
+[   10.864865] cgroup1: Unknown subsys name 'net_cls'
+[   11.975739] ------------[ cut here ]------------
+[   11.977673] ------------[ cut here ]------------
+[   11.977867] Found leaking site of seq_file 2/2
+[   11.980116] Found leaking site of seq_file 2/2
+[   11.980404] WARNING: CPU: 0 PID: 2214 at fs/seq_file.c:286 seq_read+0xc4c/0xe90
+[   11.982533] WARNING: CPU: 1 PID: 2215 at fs/seq_file.c:286 seq_read+0xc4c/0xe90
+[   11.984727] Kernel panic - not syncing: panic_on_warn set ...
+[   11.988424] Modules linked in:
+[   11.992280] CPU: 0 PID: 2214 Comm: syz-executor.2 Not tainted 5.5.3 #46
+[   11.994836] CPU: 1 PID: 2215 Comm: syz-executor.1 Not tainted 5.5.3 #46
+[   11.996526] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.999768] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.003184] Call Trace:
+[   12.008939] RIP: 0010:seq_read+0xc4c/0xe90
+[   12.014739]  dump_stack+0x15e/0x1ae
+[   12.015811] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f be a4 e8 3c d6 2e 02 48 85 c0 74 62 e8 82 67 ce ff 48 c7 c7 97 59 be a4 31 c0 e8 94 b6 a7 ff <0f> 0b eb 50 e8 6b 67 ce ff eb 49 48 8b 33 4c 89 f7 e8 2e 02 00 00
+[   12.017911]  panic+0x228/0x700
+[   12.019512] RSP: 0018:ffff888065ecfc48 EFLAGS: 00010246
+[   12.028469]  ? 0xffffffffa1c00000
+[   12.029895] RAX: e79bb73d46b81a00 RBX: 0000000000000002 RCX: ffffc9000138e000
+[   12.032269]  ? seq_read+0xc4c/0xe90
+[   12.033808] RDX: ffffffffa1c00000 RSI: 0000000000019023 RDI: 0000000000019024
+[   12.037469]  __warn+0x1fe/0x200
+[   12.039183] RBP: 00000000000000c2 R08: dffffc0000000000 R09: ffffed100da66092
+[   12.042341]  ? seq_read+0xc4c/0xe90
+[   12.043740] R10: ffffed100da66092 R11: 0000000000000000 R12: ffff88806a489e80
+[   12.047306]  report_bug+0x359/0x480
+[   12.048859] R13: dffffc0000000000 R14: ffff88806a489e40 R15: ffff8880678840b8
+[   12.052055]  ? seq_read+0xc4c/0xe90
+[   12.053638] FS:  00007fc737842700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   12.056809]  do_invalid_op+0x6e/0x110
+[   12.058356] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   12.061938]  invalid_op+0x1e/0x30
+[   12.063534] CR2: 00007f7a5adf23e0 CR3: 000000006a276006 CR4: 00000000003606e0
+[   12.066108] RIP: 0010:seq_read+0xc4c/0xe90
+[   12.067617] Call Trace:
+[   12.070752] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f be a4 e8 3c d6 2e 02 48 85 c0 74 62 e8 82 67 ce ff 48 c7 c7 97 59 be a4 31 c0 e8 94 b6 a7 ff <0f> 0b eb 50 e8 6b 67 ce ff eb 49 48 8b 33 4c 89 f7 e8 2e 02 00 00
+[   12.072584]  ? seq_open+0x160/0x160
+[   12.073734] RSP: 0018:ffff8880670b7c48 EFLAGS: 00010246
+[   12.081953]  proc_reg_read+0x1d4/0x2d0
+[   12.083495] RAX: 612d21d3ce3c8400 RBX: 0000000000000002 RCX: ffffc90000b8a000
+[   12.085819]  ? proc_reg_llseek+0x2b0/0x2b0
+[   12.087437] RDX: ffffffffa1c00000 RSI: 0000000000000e18 RDI: 0000000000000e19
+[   12.090602]  __vfs_read+0xae/0x6d0
+[   12.092503] RBP: 000000000000000d R08: dffffc0000000000 R09: ffffed100da442d4
+[   12.095741]  ? fsnotify+0x119e/0x1240
+[   12.097285] R10: ffffed100da442d4 R11: 0000000000000000 R12: ffff888069b05dc0
+[   12.100082]  vfs_read+0x167/0x380
+[   12.101724] R13: dffffc0000000000 R14: ffff888069b05d80 R15: ffff888068d6e338
+[   12.104486]  ksys_read+0x112/0x210
+[   12.105994]  ? 0xffffffffa1c00000
+[   12.109020]  do_syscall_64+0xd1/0x160
+[   12.110537]  ? seq_read+0xc4c/0xe90
+[   12.112022]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.113665]  ? seq_open+0x160/0x160
+[   12.115233] RIP: 0033:0x467519
+[   12.117383]  proc_reg_read+0x1d4/0x2d0
+[   12.118938] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.120038]  ? proc_reg_llseek+0x2b0/0x2b0
+[   12.121326] RSP: 002b:00007fc737841c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   12.129364]  __vfs_read+0xae/0x6d0
+[   12.131219] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.134651]  ? fsnotify+0x119e/0x1240
+[   12.136174] RDX: 00000000000000c2 RSI: 00000000200000c0 RDI: 0000000000000003
+[   12.139338]  vfs_read+0x167/0x380
+[   12.140961] RBP: 00007fc7378426bc R08: 0000000000000000 R09: 0000000000000000
+[   12.144066]  ksys_read+0x112/0x210
+[   12.145558] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.148545]  do_syscall_64+0xd1/0x160
+[   12.150043] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   12.153472]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.155257] ---[ end trace 209ec222def4eb92 ]---
+[   12.158639] RIP: 0033:0x467519
+[   12.164567] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   12.173864] RSP: 002b:00007f8ed7cddc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   12.177376] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   12.180541] RDX: 000000000000000d RSI: 00000000200000c0 RDI: 0000000000000003
+[   12.183745] RBP: 00007f8ed7cde6bc R08: 0000000000000000 R09: 0000000000000000
+[   12.186892] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   12.190047] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   12.193997] Dumping ftrace buffer:
+[   12.195563]    (ftrace buffer empty)
+[   12.197205] Kernel Offset: 0x20c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.202128] Rebooting in 1 seconds..

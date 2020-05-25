@@ -1,0 +1,268 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+2020/04/20 01:42:11 fuzzer started
+2020/04/20 01:42:12 dialing manager at 10.0.2.10:44599
+2020/04/20 01:42:12 syscalls: 12
+2020/04/20 01:42:12 code coverage: enabled
+2020/04/20 01:42:12 comparison tracing: enabled
+2020/04/20 01:42:12 extra coverage: enabled
+2020/04/20 01:42:12 setuid sandbox: enabled
+2020/04/20 01:42:12 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:42:12 Android sandbox: enabled
+2020/04/20 01:42:12 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:42:12 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:42:12 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:42:12 net device setup: enabled
+2020/04/20 01:42:12 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:42:12 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:42:12 USB emulation: /dev/raw-gadget does not exist
+01:42:12 executing program 0:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:12 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:12 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x80087601, 0x0)
+
+01:42:12 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0xa0ffff)
+
+syzkaller login: [   10.496221] audit: type=1400 audit(1587346932.503:8): avc:  denied  { execmem } for  pid=423 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.604256] cgroup1: Unknown subsys name 'perf_event'
+[   10.606829] cgroup1: Unknown subsys name 'net_cls'
+[   10.612128] cgroup1: Unknown subsys name 'perf_event'
+[   10.615067] cgroup1: Unknown subsys name 'net_cls'
+[   10.623810] cgroup1: Unknown subsys name 'perf_event'
+[   10.626783] cgroup1: Unknown subsys name 'net_cls'
+[   10.629665] cgroup1: Unknown subsys name 'perf_event'
+[   10.632146] cgroup1: Unknown subsys name 'net_cls'
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5452, 0xb4fffc)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x80087601, 0x0)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0xa0ffff)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x80087601, 0x0)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0xa0ffff)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x80087601, 0x0)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x7ffffffe)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x5421, 0xa0ffff)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x4000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b47, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x80800)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x5450, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x4000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b47, 0x0)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0xb50000)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x4000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0xb50000)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b47, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4020940d, 0x721000)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x541b, 0x4000000000)
+r1 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r1, 0x541b, 0x701000)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4b47, 0x0)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4020940d, 0x721000)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0xb50000)
+
+01:42:13 executing program 1:
+r0 = inotify_init1(0x800)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+r1 = inotify_init1(0x0)
+r2 = inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r2)
+read(r0, &(0x7f0000000180)=""/220, 0xdc)
+
+01:42:13 executing program 2:
+r0 = inotify_init1(0x0)
+inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x83000000)
+r1 = inotify_init1(0x0)
+r2 = inotify_add_watch(r1, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r2)
+r3 = inotify_add_watch(r0, &(0x7f0000000040)='.\x00', 0x82000000)
+inotify_rm_watch(r0, r3)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4020940d, 0x721000)
+
+01:42:13 executing program 3:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x2, 0xb50000)
+
+01:42:13 executing program 0:
+r0 = inotify_init1(0x0)
+ioctl$INOTIFY_IOC_SETNEXTWD(r0, 0x4020940d, 0x721000)
+
+[   11.884472] ------------[ cut here ]------------
+[   11.886348] Found leaking site of inotify_event_info
+[   11.886554] WARNING: CPU: 0 PID: 2323 at fs/notify/inotify/inotify_user.c:187 inotify_read+0x4f6/0x800
+[   11.892946] Kernel panic - not syncing: panic_on_warn set ...
+[   11.896054] CPU: 0 PID: 2323 Comm: syz-executor.1 Not tainted 5.5.3 #49
+[   11.899005] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.904344] Call Trace:
+[   11.905586]  dump_stack+0x15e/0x1ae
+[   11.907283]  panic+0x228/0x700
+[   11.908761]  ? 0xffffffff86200000
+[   11.910251]  ? inotify_read+0x4f6/0x800
+[   11.911904]  __warn+0x1fe/0x200
+[   11.913391]  ? inotify_read+0x4f6/0x800
+[   11.915372]  report_bug+0x359/0x480
+[   11.916999]  ? inotify_read+0x4f6/0x800
+[   11.918814]  do_invalid_op+0x6e/0x110
+[   11.920893]  invalid_op+0x1e/0x30
+[   11.922523] RIP: 0010:inotify_read+0x4f6/0x800
+[   11.924617] Code: 2d 48 8b 7c 24 48 48 c7 c6 a2 4f 1e 89 e8 62 59 27 02 48 85 c0 74 1e e8 a8 fa c6 ff 48 c7 c7 7c 6d 1e 89 31 c0 e8 ba 49 a0 ff <0f> 0b eb 16 e8 91 fa c6 ff eb 0f e8 8a fa c6 ff 66 2e 0f 1f 84 00
+[   11.933475] RSP: 0018:ffff888066be7cc0 EFLAGS: 00010246
+[   11.935967] RAX: 7e1124bb3986fa00 RBX: ffff888067010000 RCX: ffffc90000979000
+[   11.939371] RDX: ffffffff86200000 RSI: 0000000000000304 RDI: 0000000000000305
+[   11.942760] RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff13e8bc4
+[   11.946050] R10: fffffbfff13e8bc4 R11: 0000000000000000 R12: 0000000020000180
+[   11.949300] R13: 0000000020000180 R14: ffff888067ee32c0 R15: dffffc0000000000
+[   11.952660]  ? 0xffffffff86200000
+[   11.954228]  ? wait_woken+0x1b0/0x1b0
+[   11.956159]  ? __ia32_sys_inotify_rm_watch+0x60/0x60
+[   11.958418]  __vfs_read+0xae/0x6d0
+[   11.959975]  ? fsnotify+0x119e/0x1240
+[   11.961605]  vfs_read+0x167/0x380
+[   11.963186]  ksys_read+0x112/0x210
+[   11.964694]  do_syscall_64+0xd1/0x160
+[   11.966362]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.968680] RIP: 0033:0x467519
+[   11.970049] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   11.978309] RSP: 002b:00007fda499e6c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+[   11.981727] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   11.984957] RDX: 00000000000000dc RSI: 0000000020000180 RDI: 0000000000000003
+[   11.988082] RBP: 00007fda499e76bc R08: 0000000000000000 R09: 0000000000000000
+[   11.991347] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   11.994549] R13: 0000000000000875 R14: 00000000004c83c1 R15: 0000000000701640
+[   12.002694] Dumping ftrace buffer:
+[   12.004523]    (ftrace buffer empty)
+[   12.006400] Kernel Offset: 0x5200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.011286] Rebooting in 1 seconds..

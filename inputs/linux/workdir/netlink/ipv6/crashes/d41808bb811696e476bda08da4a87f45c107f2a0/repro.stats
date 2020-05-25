@@ -1,0 +1,201 @@
+Extracting prog: 55.278536999s
+Minimizing prog: 1m31.613981487s
+Simplifying prog options: 0s
+Extracting C: 12.166799108s
+Simplifying C: 1m7.532895802s
+
+
+497 programs, 4 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 497 programs
+single: executing 4 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendmsg$inet6(r0, &(0x7f0000001680)={&(0x7f0000000240)={0xa, 0x4e22, 0x0, @private1}, 0x1c, 0x0, 0x0, &(0x7f0000001640)=ANY=[@ANYBLOB]}, 0x0)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendmsg$inet6(r0, &(0x7f0000001680)={&(0x7f0000000240)={0xa, 0x4e22, 0x0, @private1, 0x4}, 0x1c, 0x0, 0x0, &(0x7f0000001640)=ANY=[@ANYBLOB="140091459eee77740000000000002900"], 0x10}, 0x0)
+
+program did not crash
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendmsg$inet6(r0, &(0x7f0000001680)={&(0x7f0000000240)={0x2, 0x4e22, 0x0, @private1}, 0x1c, 0x0}, 0x0)
+
+program crashed: WARNING in ip_setup_cork
+single: successfully extracted reproducer
+found reproducer with 2 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6
+detailed listing:
+executing program 0:
+socket$inet6(0xa, 0x2, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): sendmsg$inet6
+detailed listing:
+executing program 0:
+sendmsg$inet6(0xffffffffffffffff, &(0x7f0000001680)={&(0x7f0000000240)={0x2, 0x4e22, 0x0, @private1}, 0x1c, 0x0}, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendmsg$inet6(r0, 0x0, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+detailed listing:
+executing program 0:
+r0 = socket$inet6(0xa, 0x2, 0x0)
+sendmsg$inet6(r0, &(0x7f0000001680)={0x0, 0x0, 0x0}, 0x0)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in corrupted
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:4 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:true USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): socket$inet6-sendmsg$inet6
+program crashed: WARNING in ip_setup_cork
+reproducing took 3m46.592222054s
+repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 1 PID: 363 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 363 Comm: syz-executor632 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ <IRQ>
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 28 85 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806d309720 EFLAGS: 00010246
+RAX: 2fb2f9e20a568500 RBX: 0000000000000002 RCX: 0000000000000301
+RDX: ffff888069d46580 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 1ffff1100d7e31fd R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf18fe0 R14: ffff88806bf18fe8 R15: ffff88806d3099b8
+ ip_append_data+0x155/0x1a0
+ icmp_push_reply+0x100/0x420
+ __icmp_send+0x1129/0x2210
+ __udp4_lib_rcv+0x19fd/0x2d00
+ ip_protocol_deliver_rcu+0x36c/0x670
+ ip_local_deliver+0x399/0x4f0
+ ip_rcv+0x22b/0x280
+ __netif_receive_skb+0x353/0x490
+ process_backlog+0x32b/0x6a0
+ napi_poll+0x24d/0x6b0
+ net_rx_action+0x2bd/0x870
+ __do_softirq+0x242/0x5be
+ do_softirq_own_stack+0x2a/0x40
+ </IRQ>
+ __local_bh_enable_ip+0xfa/0x110
+ ip_finish_output2+0xae0/0x1610
+ ip_output+0x31c/0x400
+ ip_local_out+0x351/0x480
+ ip_send_skb+0x41/0xd0
+ udp_send_skb+0x8e9/0x1120
+ udp_sendmsg+0x1c53/0x2ac0
+ udpv6_sendmsg+0x7e6/0x2ef0
+ ____sys_sendmsg+0x4f9/0x8c0
+ __sys_sendmsg+0x1ed/0x290
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a449
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffde6d67fd8 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a449
+RDX: 0000000000000000 RSI: 0000000020001680 RDI: 0000000000000003
+RBP: 0000000000401cf0 R08: 0000000000000000 R09: 0000000000400400
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d90
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x1200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+
+final repro crashed as (corrupted=false):
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 1 PID: 363 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 363 Comm: syz-executor632 Not tainted 5.5.3 #38
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ <IRQ>
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 28 85 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+RSP: 0018:ffff88806d309720 EFLAGS: 00010246
+RAX: 2fb2f9e20a568500 RBX: 0000000000000002 RCX: 0000000000000301
+RDX: ffff888069d46580 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 1ffff1100d7e31fd R08: dffffc0000000000 R09: ffffed100da66092
+R10: ffffed100da66092 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff88806bf18fe0 R14: ffff88806bf18fe8 R15: ffff88806d3099b8
+ ip_append_data+0x155/0x1a0
+ icmp_push_reply+0x100/0x420
+ __icmp_send+0x1129/0x2210
+ __udp4_lib_rcv+0x19fd/0x2d00
+ ip_protocol_deliver_rcu+0x36c/0x670
+ ip_local_deliver+0x399/0x4f0
+ ip_rcv+0x22b/0x280
+ __netif_receive_skb+0x353/0x490
+ process_backlog+0x32b/0x6a0
+ napi_poll+0x24d/0x6b0
+ net_rx_action+0x2bd/0x870
+ __do_softirq+0x242/0x5be
+ do_softirq_own_stack+0x2a/0x40
+ </IRQ>
+ __local_bh_enable_ip+0xfa/0x110
+ ip_finish_output2+0xae0/0x1610
+ ip_output+0x31c/0x400
+ ip_local_out+0x351/0x480
+ ip_send_skb+0x41/0xd0
+ udp_send_skb+0x8e9/0x1120
+ udp_sendmsg+0x1c53/0x2ac0
+ udpv6_sendmsg+0x7e6/0x2ef0
+ ____sys_sendmsg+0x4f9/0x8c0
+ __sys_sendmsg+0x1ed/0x290
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x44a449
+Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffde6d67fd8 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a449
+RDX: 0000000000000000 RSI: 0000000020001680 RDI: 0000000000000003
+RBP: 0000000000401cf0 R08: 0000000000000000 R09: 0000000000400400
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d90
+R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x1200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
+

@@ -1,0 +1,68 @@
+------------[ cut here ]------------
+Found ip_msfilter's allocation
+WARNING: CPU: 1 PID: 4091 at net/ipv4/ip_sockglue.c:1112 do_ip_setsockopt+0x332c/0x3a40 net/ipv4/ip_sockglue.c:1112
+Modules linked in:
+CPU: 1 PID: 4091 Comm: syz-executor.0 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:do_ip_setsockopt+0x332c/0x3a40 net/ipv4/ip_sockglue.c:1112
+Code: 48 39 d8 76 0f e8 c4 61 1f fe bb ea ff ff ff e9 39 ee ff ff 42 8d 1c bd 10 00 00 00 48 c7 c7 93 5c 8b b8 31 c0 e8 44 d2 f8 fd <0f> 0b 48 63 db e8 9a 61 1f fe 48 89 df be c0 0c 00 00 e8 5d 80 44
+RSP: 0018:ffff8880522bfa60 EFLAGS: 00010246
+RAX: a53b0bb4a63ef000 RBX: 0000000000000024 RCX: ffffc900005b3000
+RDX: ffffffffb5800000 RSI: 0000000000000522 RDI: 0000000000000523
+RBP: ffff8880522bfe58 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100a457ec5 R11: 0000000000000004 R12: ffff88805388853c
+R13: dffffc0000000000 R14: ffff88806500e800 R15: 0000000000000005
+FS:  00007f44ea525700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffed7eb6b08 CR3: 0000000068bae002 CR4: 00000000001606e0
+Call Trace:
+ ip_setsockopt+0x43/0xb0 net/ipv4/ip_sockglue.c:1252
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f44ea524c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000030 RSI: 0000000000000000 RDI: 0000000000000004
+RBP: 00007f44ea5256bc R08: 0000000000000310 R09: 0000000000000000
+R10: 0000000020000380 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000aa9 R14: 00000000004d5078 R15: 0000000000701660
+---[ end trace 7a6eef17c3bae280 ]---
+------------[ cut here ]------------
+Found ip_msfilter's allocation
+WARNING: CPU: 0 PID: 4102 at net/ipv4/ip_sockglue.c:1112 do_ip_setsockopt+0x332c/0x3a40 net/ipv4/ip_sockglue.c:1112
+Modules linked in:
+CPU: 0 PID: 4102 Comm: syz-executor.0 Tainted: G        W         5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:do_ip_setsockopt+0x332c/0x3a40 net/ipv4/ip_sockglue.c:1112
+Code: 48 39 d8 76 0f e8 c4 61 1f fe bb ea ff ff ff e9 39 ee ff ff 42 8d 1c bd 10 00 00 00 48 c7 c7 93 5c 8b b8 31 c0 e8 44 d2 f8 fd <0f> 0b 48 63 db e8 9a 61 1f fe 48 89 df be c0 0c 00 00 e8 5d 80 44
+RSP: 0018:ffff888052307a60 EFLAGS: 00010246
+RAX: ef2b932108919800 RBX: 0000000000000024 RCX: ffffc900007b4000
+RDX: ffffffffb5800000 RSI: 0000000000000524 RDI: 0000000000000525
+RBP: ffff888052307e58 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100a460ec5 R11: 0000000000000004 R12: ffff88805388853c
+R13: dffffc0000000000 R14: ffff88806b729800 R15: 0000000000000005
+FS:  00007f44ea504700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffd0d1be020 CR3: 0000000068bae005 CR4: 00000000001606f0
+Call Trace:
+ ip_setsockopt+0x43/0xb0 net/ipv4/ip_sockglue.c:1252
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f44ea503c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000000000030 RSI: 0000000000000000 RDI: 0000000000000004
+RBP: 00007f44ea5046bc R08: 0000000000000310 R09: 0000000000000000
+R10: 0000000020000380 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000aa9 R14: 00000000004d5078 R15: 0000000000701660
+---[ end trace 7a6eef17c3bae281 ]---

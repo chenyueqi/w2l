@@ -1,0 +1,89 @@
+Warning: Permanently added '[localhost]:9331' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   30.958171] ------------[ cut here ]------------
+[   30.960572] Found allocation of ip_options
+[   30.963275] WARNING: CPU: 1 PID: 363 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4d0/0x8a0
+[   30.967559] Kernel panic - not syncing: panic_on_warn set ...
+[   30.970829] CPU: 1 PID: 363 Comm: syz-executor632 Not tainted 5.5.3 #38
+[   30.974129] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   30.979985] Call Trace:
+[   30.981332]  <IRQ>
+[   30.982511]  dump_stack+0x15e/0x1ae
+[   30.984434]  panic+0x228/0x700
+[   30.986052]  ? ip_setup_cork+0x4d0/0x8a0
+[   30.987980]  __warn+0x1fe/0x200
+[   30.989593]  ? ip_setup_cork+0x4d0/0x8a0
+[   30.991712]  report_bug+0x359/0x480
+[   30.993600]  ? ip_setup_cork+0x4d0/0x8a0
+[   30.995601]  do_invalid_op+0x6e/0x110
+[   30.997599]  invalid_op+0x1e/0x30
+[   30.999200] RIP: 0010:ip_setup_cork+0x4d0/0x8a0
+[   31.001371] Code: 8b 1d 64 64 14 01 bf 02 00 00 00 89 de e8 58 ec 15 fe 83 fb 02 75 17 e8 3e e8 15 fe 48 c7 c7 11 81 28 85 31 c0 e8 50 37 ef fd <0f> 0b eb 05 e8 27 e8 15 fe 48 8b 04 24 48 8d 98 08 02 00 00 48 89
+[   31.010714] RSP: 0018:ffff88806d309720 EFLAGS: 00010246
+[   31.013393] RAX: 2fb2f9e20a568500 RBX: 0000000000000002 RCX: 0000000000000301
+[   31.016987] RDX: ffff888069d46580 RSI: 0000000000000000 RDI: 0000000000000000
+[   31.020446] RBP: 1ffff1100d7e31fd R08: dffffc0000000000 R09: ffffed100da66092
+[   31.024075] R10: ffffed100da66092 R11: 0000000000000000 R12: dffffc0000000000
+[   31.027418] R13: ffff88806bf18fe0 R14: ffff88806bf18fe8 R15: ffff88806d3099b8
+[   31.030983]  ip_append_data+0x155/0x1a0
+[   31.032919]  ? icmp_err+0x280/0x280
+[   31.034391]  icmp_push_reply+0x100/0x420
+[   31.036285]  __icmp_send+0x1129/0x2210
+[   31.038254]  ? __is_insn_slot_addr+0xb0/0xd0
+[   31.040389]  ? udp4_lib_lookup2+0x606/0x640
+[   31.042542]  ? stack_trace_save+0x150/0x150
+[   31.044610]  ? kernel_text_address+0xa9/0xf0
+[   31.046810]  ? __udp4_lib_lookup+0x24e/0x340
+[   31.049112]  __udp4_lib_rcv+0x19fd/0x2d00
+[   31.050939]  ? udp_v4_early_demux+0x1260/0x1260
+[   31.052932]  ip_protocol_deliver_rcu+0x36c/0x670
+[   31.055149]  ip_local_deliver+0x399/0x4f0
+[   31.057166]  ? ip_local_deliver+0x4f0/0x4f0
+[   31.059168]  ip_rcv+0x22b/0x280
+[   31.060662]  ? ip_rcv_core+0xa50/0xa50
+[   31.062665]  ? ip_local_deliver_finish+0x210/0x210
+[   31.065013]  __netif_receive_skb+0x353/0x490
+[   31.067021]  process_backlog+0x32b/0x6a0
+[   31.068302]  napi_poll+0x24d/0x6b0
+[   31.069425]  net_rx_action+0x2bd/0x870
+[   31.070637]  __do_softirq+0x242/0x5be
+[   31.071842]  do_softirq_own_stack+0x2a/0x40
+[   31.073249]  </IRQ>
+[   31.074038]  __local_bh_enable_ip+0xfa/0x110
+[   31.075671]  ip_finish_output2+0xae0/0x1610
+[   31.077068]  ? ip_finish_output+0x4f1/0x6e0
+[   31.078510]  ip_output+0x31c/0x400
+[   31.079737]  ? ip_mc_finish_output+0x190/0x190
+[   31.081376]  ip_local_out+0x351/0x480
+[   31.082782]  ? __ip_local_out+0x410/0x410
+[   31.084230]  ip_send_skb+0x41/0xd0
+[   31.085495]  udp_send_skb+0x8e9/0x1120
+[   31.086852]  udp_sendmsg+0x1c53/0x2ac0
+[   31.088314]  ? unwind_get_return_address+0x48/0x90
+[   31.090019]  ? ip_do_fragment+0x2170/0x2170
+[   31.091392]  udpv6_sendmsg+0x7e6/0x2ef0
+[   31.092758]  ? udp_lib_lport_inuse+0x4f7/0x530
+[   31.094640]  ? _raw_spin_lock_bh+0x68/0x110
+[   31.096312]  ? ip6_datagram_release_cb+0x175/0x250
+[   31.098145]  ? ip6_datagram_dst_update+0xac0/0xac0
+[   31.099826]  ? release_sock+0x14e/0x1a0
+[   31.101468]  ? inet_send_prepare+0x262/0x470
+[   31.103044]  ? inet6_ioctl+0x170/0x170
+[   31.104340]  ____sys_sendmsg+0x4f9/0x8c0
+[   31.106008]  __sys_sendmsg+0x1ed/0x290
+[   31.107605]  ? __handle_mm_fault+0xbaf/0x2f10
+[   31.109539]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   31.111598]  do_syscall_64+0xd1/0x160
+[   31.113248]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   31.115060] RIP: 0033:0x44a449
+[   31.116055] Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   31.122054] RSP: 002b:00007ffde6d67fd8 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+[   31.124550] RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a449
+[   31.127272] RDX: 0000000000000000 RSI: 0000000020001680 RDI: 0000000000000003
+[   31.129934] RBP: 0000000000401cf0 R08: 0000000000000000 R09: 0000000000400400
+[   31.132432] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000401d90
+[   31.135599] R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+[   31.139026] Dumping ftrace buffer:
+[   31.140326]    (ftrace buffer empty)
+[   31.141642] Kernel Offset: 0x1200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   31.146829] Rebooting in 1 seconds..

@@ -1,0 +1,33 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:43949' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   30.194120] Kernel panic - not syncing: Found leaking of user_key_payload
+[   30.197134] CPU: 0 PID: 404 Comm: syz-executor213 Not tainted 5.5.3 #53
+[   30.200121] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   30.205936] Call Trace:
+[   30.207356]  dump_stack+0x15e/0x1ae
+[   30.208909]  panic+0x228/0x700
+[   30.210464]  user_read+0xa0/0xa0
+[   30.212149]  keyctl_read_key+0x1f1/0x240
+[   30.214094]  __se_sys_keyctl+0x4e2/0xcd0
+[   30.216098]  ? __se_sys_request_key+0x292/0x310
+[   30.218314]  ? __up_read+0x28/0x150
+[   30.220045]  ? __se_sys_request_key+0x292/0x310
+[   30.222111]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   30.224531]  ? __x64_sys_keyctl+0x1c/0xc0
+[   30.226291]  do_syscall_64+0xd1/0x160
+[   30.228208]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   30.230656] RIP: 0033:0x44a3f9
+[   30.232097] Code: 00 b8 00 01 00 00 eb e1 e8 e4 19 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   30.240810] RSP: 002b:00007ffd6a82f668 EFLAGS: 00000246 ORIG_RAX: 00000000000000fa
+[   30.244552] RAX: ffffffffffffffda RBX: 0000000000400400 RCX: 000000000044a3f9
+[   30.248282] RDX: 0000000020000280 RSI: 00000000165af30f RDI: 000000000000000b
+[   30.251889] RBP: 0000000000401ca0 R08: 0000000000000000 R09: 0000000000400400
+[   30.255309] R10: 0000000000000074 R11: 0000000000000246 R12: 0000000000401d40
+[   30.258849] R13: 0000000000000000 R14: 00000000006b9018 R15: 0000000000000000
+[   30.262645] Dumping ftrace buffer:
+[   30.264315]    (ftrace buffer empty)
+[   30.265976] Kernel Offset: 0x37000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   30.271050] Rebooting in 1 seconds..

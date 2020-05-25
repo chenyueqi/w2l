@@ -1,0 +1,95 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:42390' (ECDSA) to the list of known hosts.
+2020/04/21 20:34:02 fuzzer started
+2020/04/21 20:34:03 dialing manager at 10.0.2.10:41625
+2020/04/21 20:34:03 syscalls: 49
+2020/04/21 20:34:03 code coverage: enabled
+2020/04/21 20:34:03 comparison tracing: enabled
+2020/04/21 20:34:03 extra coverage: enabled
+2020/04/21 20:34:03 setuid sandbox: enabled
+2020/04/21 20:34:03 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 20:34:03 Android sandbox: enabled
+2020/04/21 20:34:03 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 20:34:03 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 20:34:03 net packet injection: /dev/net/tun does not exist
+2020/04/21 20:34:03 net device setup: enabled
+2020/04/21 20:34:03 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 20:34:03 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 20:34:03 USB emulation: /dev/raw-gadget does not exist
+20:34:04 executing program 0:
+pipe(&(0x7f0000000040)={<r0=>0xffffffffffffffff})
+vmsplice(r0, &(0x7f0000000000)=[{0x0, 0x7ffff000}, {&(0x7f00000000c0)=' ', 0xfffffffffffffe39}], 0x20a, 0x0)
+
+20:34:04 executing program 3:
+r0 = fsopen(&(0x7f0000000080)='hugetlbfs\x00', 0x0)
+close(r0)
+
+20:34:04 executing program 2:
+fsopen(0x0, 0x0)
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/consoles\x00', 0x302, 0x0)
+write$P9_RMKNOD(r0, &(0x7f0000000000)={0x14}, 0x14)
+close(r0)
+
+20:34:04 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000002000)=""/201, 0xc9)
+read(r0, &(0x7f0000002100)=""/240, 0xf0)
+read(r0, &(0x7f0000000080)=""/83, 0x53)
+
+syzkaller login: [   11.362780] audit: type=1400 audit(1587501244.373:8): avc:  denied  { execmem } for  pid=426 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   11.480528] cgroup1: Unknown subsys name 'perf_event'
+[   11.483077] cgroup1: Unknown subsys name 'net_cls'
+[   11.510983] ------------[ cut here ]------------
+[   11.513195] Found leaking site of iovec, kvec and others 2/2
+[   11.516296] WARNING: CPU: 1 PID: 430 at lib/iov_iter.c:631 _copy_to_iter+0xcd/0xf80
+[   11.518388] cgroup1: Unknown subsys name 'perf_event'
+[   11.519908] Kernel panic - not syncing: panic_on_warn set ...
+[   11.519958] CPU: 1 PID: 430 Comm: syz-executor.3 Not tainted 5.5.3 #71
+[   11.519960] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   11.519961] Call Trace:
+[   11.520000]  dump_stack+0x15e/0x1ae
+[   11.520036]  panic+0x228/0x700
+[   11.523428] cgroup1: Unknown subsys name 'net_cls'
+[   11.525601]  ? _copy_to_iter+0xcd/0xf80
+[   11.525604]  __warn+0x1fe/0x200
+[   11.525607]  ? _copy_to_iter+0xcd/0xf80
+[   11.525622]  report_bug+0x359/0x480
+[   11.525625]  ? _copy_to_iter+0xcd/0xf80
+[   11.525638]  do_invalid_op+0x6e/0x110
+[   11.525652]  invalid_op+0x1e/0x30
+[   11.531204] cgroup1: Unknown subsys name 'perf_event'
+[   11.533753] RIP: 0010:_copy_to_iter+0xcd/0xf80
+[   11.533779] Code: 81 c7 48 06 00 00 48 c7 c6 1c 9a bd 90 e8 4b ed c1 01 48 85 c0 74 1e e8 b1 8f 61 ff 48 c7 c7 af f4 bf 90 31 c0 e8 c3 de 3a ff <0f> 0b eb 0c e8 9a 8f 61 ff eb 05 e8 93 8f 61 ff 49 8d 5f 10 48 89
+[   11.533782] RSP: 0018:ffff88804c89fb20 EFLAGS: 00010246
+[   11.533784] RAX: 1b51912e6d120900 RBX: 0000000000000002 RCX: 0000000000000000
+[   11.533786] RDX: ffff888062c4c880 RSI: 0000000000000000 RDI: 0000000000000000
+[   11.533789] RBP: 1ffff11009913fb9 R08: dffffc0000000000 R09: ffffed100d1a6092
+[   11.535245] cgroup1: Unknown subsys name 'net_cls'
+[   11.536662] R10: ffffed100d1a6092 R11: 0000000000000000 R12: 0000000000000000
+[   11.536664] R13: dffffc0000000000 R14: 000000000000003c R15: ffff88804c89fdc8
+[   11.536681]  ? memset+0x1f/0x40
+[   11.536695]  __skb_datagram_iter+0xf1/0x800
+[   11.536698]  ? skb_copy_datagram_iter+0x170/0x170
+[   11.536702]  skb_copy_datagram_iter+0x158/0x170
+[   11.595106]  netlink_recvmsg+0x249/0xf80
+[   11.596998]  ? security_socket_recvmsg+0xb7/0xd0
+[   11.599222]  ? netlink_sendmsg+0xd10/0xd10
+[   11.601264]  __sys_recvfrom+0x4dc/0x4f0
+[   11.603141]  ? _raw_spin_lock_irq+0x5e/0x110
+[   11.605100]  __x64_sys_recvfrom+0xda/0xf0
+[   11.606858]  do_syscall_64+0xd1/0x160
+[   11.608508]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   11.610836] RIP: 0033:0x41680a
+[   11.612256] Code: d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 8b 05 6e 1b 87 00 41 89 ca 85 c0 75 1b 45 31 c9 45 31 c0 b8 2d 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 66 f3 c3 0f 1f 40 00 41 56 41 55 41 89 ce 41
+[   11.620351] RSP: 002b:00007ffe87eca8e8 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   11.623592] RAX: ffffffffffffffda RBX: 0000000000c82200 RCX: 000000000041680a
+[   11.626632] RDX: 0000000000000400 RSI: 0000000000c82250 RDI: 0000000000000003
+[   11.629825] RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+[   11.632993] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[   11.636124] R13: 0000000000000000 R14: 0000000000c82250 R15: 0000000000000003
+[   11.643813] Dumping ftrace buffer:
+[   11.645377]    (ftrace buffer empty)
+[   11.647056] Kernel Offset: 0xcc00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   11.651775] Rebooting in 1 seconds..

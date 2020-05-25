@@ -1,0 +1,40 @@
+------------[ cut here ]------------
+Found allocation of ip_sf_socklist
+WARNING: CPU: 1 PID: 3692 at net/ipv4/igmp.c:2387 ip_mc_source+0x6cd/0xff0 net/ipv4/igmp.c:2387
+Modules linked in:
+CPU: 1 PID: 3692 Comm: syz-executor.3 Not tainted 5.5.3 #13
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:ip_mc_source+0x6cd/0xff0 net/ipv4/igmp.c:2387
+Code: 72 d3 e8 36 0d 0e fe b8 9d ff ff ff e9 d9 fd ff ff e8 27 0d 0e fe 41 be 0a 00 00 00 48 c7 c7 f2 7d 4b b3 31 c0 e8 b3 7d e7 fd <0f> 0b 42 8d 34 b5 18 00 00 00 4c 89 ef ba c0 0c 00 00 e8 cc 95 c6
+RSP: 0018:ffff88806911f900 EFLAGS: 00010246
+RAX: 517f4e8f1083ef00 RBX: ffff88806a3cc918 RCX: ffffc900005a3000
+RDX: ffffffffb0400000 RSI: 000000000000060d RDI: 000000000000060e
+RBP: ffff88806911fa50 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100d223e99 R11: 0000000000000004 R12: 0000000000000000
+R13: ffff888069dd2200 R14: 000000000000000a R15: dffffc0000000000
+FS:  00007f7dae166700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000000047dde0 CR3: 00000000680f6004 CR4: 00000000001606e0
+Call Trace:
+ do_ip_setsockopt+0x25a9/0x3a40 net/ipv4/ip_sockglue.c:1077
+ ip_setsockopt+0x43/0xb0 net/ipv4/ip_sockglue.c:1252
+ __sys_setsockopt+0x1c2/0x210 net/socket.c:2117
+ __do_sys_setsockopt net/socket.c:2133 [inline]
+ __se_sys_setsockopt net/socket.c:2130 [inline]
+ __x64_sys_setsockopt+0xb1/0xc0 net/socket.c:2130
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f7dae165c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000036
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000027 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007f7dae1666bc R08: 000000000000000c R09: 0000000000000000
+R10: 0000000020000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000ab2 R14: 00000000004cbb92 R15: 0000000000701660
+---[ end trace 67ce388146f755a5 ]---
+kauditd_printk_skb: 5 callbacks suppressed
+audit: type=1400 audit(1586567790.013:27): avc:  denied  { setattr } for  pid=3693 comm="syz-executor.1" path="socket:[11142]" dev="sockfs" ino=11142 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+SELinux: unrecognized netlink message: protocol=0 nlmsg_type=53719 sclass=netlink_route_socket pig=3694 comm=syz-executor.1
+audit: type=1400 audit(1586567790.033:28): avc:  denied  { connect } for  pid=3690 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_netfilter_socket permissive=1
+SELinux: unrecognized netlink message: protocol=0 nlmsg_type=53719 sclass=netlink_route_socket pig=3701 comm=syz-executor.1

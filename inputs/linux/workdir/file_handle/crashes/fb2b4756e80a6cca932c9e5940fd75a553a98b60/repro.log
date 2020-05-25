@@ -1,0 +1,32 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:52954' (ECDSA) to the list of known hosts.
+executing program
+Connection to localhost closed by remote host.
+syzkaller login: [   30.358307] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[   30.362152] CPU: 0 PID: 1 Comm: systemd Not tainted 5.5.3 #39
+[   30.365241] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   30.370968] Call Trace:
+[   30.372349]  dump_stack+0x15e/0x1ae
+[   30.374106]  panic+0x228/0x700
+[   30.375662]  ? __acct_update_integrals+0xa3/0x280
+[   30.377906]  do_exit+0x212c/0x2130
+[   30.379792]  do_group_exit+0x155/0x2d0
+[   30.381600]  ? free_uid+0xfd/0x160
+[   30.383124]  get_signal+0x133b/0x1f40
+[   30.385057]  do_signal+0x29/0x5e0
+[   30.386488]  prepare_exit_to_usermode+0x269/0x390
+[   30.388633]  ret_from_intr+0x20/0x20
+[   30.390439] RIP: 0033:0x7f2203ffcf10
+[   30.392113] Code: Bad RIP value.
+[   30.393860] RSP: 002b:00007ffe4be45578 EFLAGS: 00010246
+[   30.396316] RAX: 0000000000000000 RBX: 000055de7ac63d10 RCX: 00007f220402d2e3
+[   30.399711] RDX: 00007ffe4be45700 RSI: 00007ffe4be45830 RDI: 0000000000000007
+[   30.403033] RBP: 0000000000000007 R08: 1fe84e0fec0e57a4 R09: 0000000000000630
+[   30.406326] R10: 00000000ffffffff R11: 0000000000000246 R12: 00007ffe4c643310
+[   30.409647] R13: 0000000000000001 R14: ffffffffffffffff R15: 0000000000000002
+[   30.413691] Dumping ftrace buffer:
+[   30.415496]    (ftrace buffer empty)
+[   30.417153] Kernel Offset: 0x22a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   30.422564] Rebooting in 1 seconds..

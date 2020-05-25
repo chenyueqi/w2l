@@ -1,0 +1,56 @@
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found leaking site of nlattr
+WARNING: CPU: 1 PID: 448 at lib/nlattr.c:522 nla_strlcpy+0xa0/0x1e0 lib/nlattr.c:522
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 448 Comm: syz-executor.3 Not tainted 5.5.3 #56
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+cgroup1: Unknown subsys name 'perf_event'
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:nla_strlcpy+0xa0/0x1e0 lib/nlattr.c:522
+Code: 81 c7 48 06 00 00 48 c7 c6 6f 20 1e a5 e8 d8 24 b8 01 48 85 c0 74 1e e8 9e b6 57 ff 48 c7 c7 05 03 20 a5 31 c0 e8 b0 05 31 ff <0f> 0b eb 0c e8 87 b6 57 ff eb 05 e8 80 b6 57 ff 49 83 c7 04 31 ff
+RSP: 0018:ffff8880558574f0 EFLAGS: 00010246
+RAX: da8d7c694d6da500 RBX: 000000000000000a RCX: 0000000000000000
+RDX: ffff8880674e0000 RSI: 0000000000000224 RDI: 0000000000000224
+RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff4be8bc3
+R10: fffffbfff4be8bc3 R11: 0000000000000000 R12: 0000000000000010
+R13: dffffc0000000000 R14: ffff8880558575d0 R15: ffff88806a460820
+ __rtnl_newlink net/core/rtnetlink.c:3140 [inline]
+ rtnl_newlink+0x2e0/0x1c00 net/core/rtnetlink.c:3372
+cgroup1: Unknown subsys name 'net_cls'
+ rtnetlink_rcv_msg+0xa1d/0xb90 net/core/rtnetlink.c:5433
+ netlink_rcv_skb+0x196/0x3c0 net/netlink/af_netlink.c:2477
+ netlink_unicast_kernel net/netlink/af_netlink.c:1302 [inline]
+ netlink_unicast+0x872/0xbe0 net/netlink/af_netlink.c:1328
+ netlink_sendmsg+0x9ed/0xd10 net/netlink/af_netlink.c:1917
+ sock_sendmsg_nosec net/socket.c:639 [inline]
+ sock_sendmsg net/socket.c:659 [inline]
+ __sys_sendto+0x608/0x620 net/socket.c:1985
+ __do_sys_sendto net/socket.c:1997 [inline]
+ __se_sys_sendto net/socket.c:1993 [inline]
+ __x64_sys_sendto+0xda/0xf0 net/socket.c:1993
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x4168c4
+Code: c0 ff ff ff ff eb b5 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 8b 05 ae 1a 87 00 41 89 ca 85 c0 75 13 b8 2c 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 74 f3 c3 66 90 41 57 41 56 4d 89 c7 41 55 41
+RSP: 002b:00007ffc96451ca8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+RAX: ffffffffffffffda RBX: 0000000000c82200 RCX: 00000000004168c4
+RDX: 0000000000000044 RSI: 0000000000c82250 RDI: 0000000000000003
+RBP: 0000000000000000 R08: 00007ffc96451cbc R09: 000000000000000c
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000c82250 R15: 0000000000000003
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x21200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

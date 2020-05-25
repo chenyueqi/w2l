@@ -1,0 +1,40 @@
+cgroup1: Unknown subsys name 'perf_event'
+cgroup1: Unknown subsys name 'net_cls'
+cgroup1: Unknown subsys name 'net_cls'
+------------[ cut here ]------------
+Found allocation of request_key_auth
+WARNING: CPU: 1 PID: 2204 at security/keys/request_key_auth.c:179 request_key_auth_new+0xce/0x850
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 2204 Comm: syz-executor.0 Not tainted 5.5.3 #51
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ dump_stack+0x15e/0x1ae
+ panic+0x228/0x700
+ __warn+0x1fe/0x200
+ report_bug+0x359/0x480
+ do_invalid_op+0x6e/0x110
+ invalid_op+0x1e/0x30
+RIP: 0010:request_key_auth_new+0xce/0x850
+Code: 8d bf 48 06 00 00 48 c7 c6 a2 4f 1e 91 e8 ba 85 dc 01 48 85 c0 74 1e e8 00 17 7c ff 48 c7 c7 09 94 1f 91 31 c0 e8 12 66 55 ff <0f> 0b eb 0c e8 e9 16 7c ff eb 05 e8 e2 16 7c ff 48 c7 c0 38 ae 29
+RSP: 0018:ffff88806cf77ce0 EFLAGS: 00010246
+RAX: 4ee8130487855300 RBX: 0000000000000002 RCX: ffffc90000137000
+RDX: ffffffff8e200000 RSI: 0000000000000782 RDI: 0000000000000783
+RBP: ffff88806cf77d68 R08: dffffc0000000000 R09: fffffbfff23e8bc4
+R10: fffffbfff23e8bc4 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff8880625e39c0 R14: 0000000000000012 R15: ffff8880653f4880
+ request_key_and_link+0xd21/0x1450
+ __se_sys_request_key+0x1f8/0x310
+ do_syscall_64+0xd1/0x160
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f5377178c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000f9
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000380 RSI: 0000000020000340 RDI: 0000000020000300
+RBP: 00007f53771796bc R08: 0000000000000000 R09: 0000000000000000
+R10: 000000001f11ab60 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 00000000000008a8 R14: 00000000004c9bda R15: 0000000000701640
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0xd200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

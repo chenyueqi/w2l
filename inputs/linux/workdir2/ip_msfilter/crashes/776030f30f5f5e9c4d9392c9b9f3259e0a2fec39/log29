@@ -1,0 +1,379 @@
+Debian GNU/Linux 7 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:41364' (ECDSA) to the list of known hosts.
+syzkaller login: [   16.122745] audit: type=1400 audit(1586929288.642:11): avc:  denied  { map } for  pid=1585 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/15 05:41:28 fuzzer started
+2020/04/15 05:41:29 dialing manager at 10.0.2.10:37146
+2020/04/15 05:41:29 syscalls: 11
+2020/04/15 05:41:29 code coverage: enabled
+2020/04/15 05:41:29 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/15 05:41:29 extra coverage: enabled
+2020/04/15 05:41:29 setuid sandbox: enabled
+2020/04/15 05:41:29 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/15 05:41:29 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/15 05:41:29 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/15 05:41:29 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/15 05:41:29 net packet injection: /dev/net/tun does not exist
+2020/04/15 05:41:29 net device setup: enabled
+2020/04/15 05:41:29 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/15 05:41:29 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/15 05:41:29 USB emulation: /dev/raw-gadget does not exist
+05:41:30 executing program 3:
+r0 = accept4$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @broadcast}, &(0x7f0000000040)=0x10, 0x80000)
+getpeername$inet(r0, &(0x7f0000000080)={0x2, 0x0, @loopback}, &(0x7f00000000c0)=0x10)
+getsockopt$inet_buf(r0, 0x0, 0x2b, &(0x7f0000000100)=""/63, &(0x7f0000000140)=0x3f)
+getsockopt$inet_buf(r0, 0x0, 0x2b, &(0x7f0000000180)=""/164, &(0x7f0000000240)=0xa4)
+r1 = accept$inet(0xffffffffffffffff, &(0x7f0000000280)={0x2, 0x0, @multicast1}, &(0x7f00000002c0)=0x10)
+setsockopt$inet_buf(r1, 0x0, 0x2b, &(0x7f0000000300)="1c90d9f4042e98a3507c555ae9f0c39c9735109978d6e0aecd2b33d69c146cb153c62c63c231f4696f4eb56469f144dcdc629adf9e39f183609dbdf265eff53649e7744fbe84dcb52c55b06a8343fb50bacf61fc01f3a4b0a9e0c91267f99ac892405ea3c045073ee33a003a338d18215edb9cce7b5d3d2f988fff451433de8a20c44e", 0x83)
+r2 = accept$inet(0xffffffffffffffff, &(0x7f00000003c0)={0x2, 0x0, @local}, &(0x7f0000000400)=0x10)
+r3 = accept4$inet(r2, 0x0, &(0x7f0000000440), 0x80000)
+accept$inet(r2, 0x0, &(0x7f0000000480))
+setsockopt$inet_buf(r3, 0x0, 0x2f, &(0x7f00000004c0)="db6527faa9bf89cb7647877ca05fa3969974737bb7f62700f3f7ee21a96ec1071cab53270662bfe8dbded3c71650fd8eeeff6c4e77e72d54620238994c56f3633d5cfddc11d1f90c9c9abc56599f4a7508fb6bd7da0ab61f25cea14693b27d7a8aeaf891c02687edd0a3e8be96d4babe0294529d70f9", 0x76)
+r4 = socket$inet(0x2, 0x2, 0x8)
+r5 = socket$inet(0x2, 0x1, 0x6)
+socket$inet(0x2, 0x6, 0x1)
+socket$inet(0x2, 0x5, 0x8)
+r6 = socket$inet(0x2, 0x1, 0xfffffff7)
+bind$inet(r6, &(0x7f0000000540)={0x2, 0x4e21, @multicast1}, 0x10)
+setsockopt$inet_buf(r5, 0x0, 0x11, &(0x7f0000000580)="11314d6e5d803aea2ec4271332cca9ee42a1420fc485feb23591b5dfc8529775303a3b4aa73b34f4726aeaf9d3e5826c7a2bd83448c2ccaea39035f12beb55f811063b313bbd6098678385b0636e3230e651b8c0355b61f4321b88cc82fa3726542b5702b7a6b7b08505453e4b091ad3549aa72bf11fe8e0f523304ab88dc3dbc1fa329fa67951ae0e1482d7f2547857a5eb241cd77d139fbfa45201dcbd85ebaf9ae538e6c7e8c6fc350ac5d43b65115614ae260744afe88f3314b28e0e3d1b4f6508bcfeece1df601f015e2126a8375d0c12020af82043991e2fe2aad014fc11867844c46d", 0xe6)
+r7 = accept4$inet(r4, &(0x7f0000000680)={0x2, 0x0, @empty}, &(0x7f00000006c0)=0x10, 0x800)
+setsockopt$inet_buf(r7, 0x0, 0x26, &(0x7f0000000700)="0c21c786db52d6ea2f48ac10eba84e049a88ebb78d032702f2d5b6f10193a13b2b08e5fc3822c3a2514492363d3d4cebddd53b7c51", 0x35)
+getsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x28, &(0x7f00000007c0)=""/248, &(0x7f00000008c0)=0xf8)
+
+05:41:30 executing program 0:
+accept$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @multicast1}, &(0x7f0000000040)=0x10)
+r0 = accept$inet(0xffffffffffffffff, 0x0, &(0x7f0000000080))
+accept$inet(r0, 0x0, &(0x7f00000000c0))
+r1 = socket$inet(0x2, 0x80000, 0x2)
+bind$inet(r1, &(0x7f0000000100)={0x2, 0x4e21, @remote}, 0x10)
+socket$inet(0x2, 0x2, 0x2)
+accept$inet(r1, &(0x7f0000000140), &(0x7f0000000180)=0x10)
+connect$inet(0xffffffffffffffff, &(0x7f00000001c0)={0x2, 0x4e20, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+r2 = socket$inet(0x2, 0x1, 0x80000001)
+connect$inet(r2, &(0x7f0000000200)={0x2, 0x4e23, @loopback}, 0x10)
+r3 = accept$inet(0xffffffffffffffff, &(0x7f0000000240), &(0x7f0000000280)=0x10)
+connect$inet(r3, &(0x7f00000002c0)={0x2, 0x4e20, @remote}, 0x10)
+recvfrom$inet(r1, &(0x7f0000000300)=""/21, 0x15, 0x40000060, &(0x7f0000000340)={0x2, 0x4e20, @rand_addr=0x10001}, 0x10)
+r4 = accept4$inet(0xffffffffffffffff, &(0x7f0000000380)={0x2, 0x0, @remote}, &(0x7f00000003c0)=0x10, 0x80000)
+connect$inet(r4, &(0x7f0000000400)={0x2, 0x4e20, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+r5 = accept4$inet(0xffffffffffffffff, &(0x7f0000000440)={0x2, 0x0, @remote}, &(0x7f0000000480)=0x10, 0x80000)
+setsockopt$inet_buf(r5, 0x0, 0x24, &(0x7f00000004c0)="8ba3f670c54adc49ef2993a30b5beaf60cc01b93bda0f29e3eb749aaf1e9f3efd857bdb3a151ae644455522e475543dc94cf5d357afcdd7e7b9f7c5c331b7a5ef8e9fbcd51479d9f8fa2a8289f4965765432b4c0afd64bec49e88e0e37eec1387be2e59300fe21252f855c2420f75b36811c7942afb391a75f07485e76875a190074d621dcad44e1f1b0e0a78cc77ca7d8d50855", 0x94)
+r6 = socket$inet(0x2, 0x6, 0x8)
+recvfrom$inet(r6, &(0x7f0000000580)=""/5, 0x5, 0x12020, &(0x7f00000005c0)={0x2, 0x4e24, @broadcast}, 0x10)
+socket$inet(0x2, 0x80000, 0x20)
+
+05:41:30 executing program 1:
+r0 = accept4$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @local}, &(0x7f0000000040)=0x10, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x9, &(0x7f0000000080)="8ade323d51cb063cd54e840523f9a03e6a0d04f0ef55", 0x16)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x9, @remote}, 0x10)
+r1 = accept4$inet(0xffffffffffffffff, &(0x7f0000000100), &(0x7f0000000140)=0x10, 0x800)
+setsockopt$inet_buf(r1, 0x0, 0x2c, &(0x7f0000000180)="038c7cb25dbe8147d15684d024ae323c7e3fda7d4d25f20afcd9a353d706d4dc555fa20b0e627c9e1a861eb8a7a945778d33e3dc281a32e86a77de3a7f71a5764845cc19cb5017a57d6fc77330d2d76b49802203fcae5cede71a81134e0076cc942eafb4cd10714509b86334ba05be45ae78ff93277af4119d40e88443db954fccc8a8b955e6db47fc57066493825f7975ebe06ca4a5734cf9caa6a8", 0x9c)
+r2 = accept$inet(r1, &(0x7f0000000240)={0x2, 0x0, @multicast1}, &(0x7f0000000280)=0x10)
+bind$inet(r2, &(0x7f00000002c0)={0x2, 0x4e22, @multicast1}, 0x10)
+r3 = socket$inet(0x2, 0x2, 0x1)
+setsockopt$inet_MCAST_MSFILTER(r3, 0x0, 0x30, &(0x7f0000000300)={0x17, {{0x2, 0x4e22, @broadcast}}, 0x1, 0x1, [{{0x2, 0x4e23, @local}}]}, 0x110)
+r4 = accept$inet(0xffffffffffffffff, &(0x7f0000000440)={0x2, 0x0, @multicast1}, &(0x7f0000000480)=0x10)
+setsockopt$inet_buf(r4, 0x0, 0x20, &(0x7f00000004c0)="b6a73f758df425b29b575996570e5ac48fabc0cc05d6bfca12e33fc1b2dd06d4d406b96a54fb915c1737fed69abbdcb85b489910ce57043d6df3c4afd90a59863e7918c19370f47bc8cf565aa1e7acb1dbe46328dad343c48fbda90b01ea109949f8f04a1f4c9dc8e774d2ac6a3a80f5117f110ce4453a8f1e37df289bd97c95a98c8ce66c", 0x85)
+r5 = socket$inet(0x2, 0x3, 0x100)
+getsockopt$inet_buf(r5, 0x0, 0x10, &(0x7f0000000580)=""/4096, &(0x7f0000001580)=0x1000)
+connect$inet(r0, &(0x7f00000015c0)={0x2, 0x4e22, @empty}, 0x10)
+socket$inet(0x2, 0x4, 0x2)
+r6 = accept4$inet(0xffffffffffffffff, &(0x7f0000001600)={0x2, 0x0, @broadcast}, &(0x7f0000001640)=0x10, 0x80800)
+bind$inet(r6, &(0x7f0000001680)={0x2, 0x4e23, @multicast2}, 0x10)
+r7 = socket$inet(0x2, 0xa, 0xe7)
+recvfrom$inet(r7, &(0x7f00000016c0)=""/4096, 0x1000, 0x2060, &(0x7f00000026c0)={0x2, 0x4e23, @empty}, 0x10)
+getpeername$inet(0xffffffffffffffff, &(0x7f0000002780)={0x2, 0x0, @dev}, &(0x7f00000027c0)=0x10)
+
+05:41:30 executing program 2:
+r0 = socket$inet(0x2, 0xa, 0x1)
+getsockopt$inet_buf(r0, 0x0, 0x0, &(0x7f0000000000)=""/164, &(0x7f00000000c0)=0xa4)
+recvfrom$inet(r0, &(0x7f0000000100)=""/213, 0xd5, 0x2100, &(0x7f0000000200)={0x2, 0x4e22, @broadcast}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000240)="79e9e5cba600bc00db598955524f818d9d1f4970c6e62f8fc66c6c3a9185a4215abb0aa91ebea9ba5306c58bc8c89f8bdd46752b85e92efbf832c10f918faebac733ba10916f18332b7474267221d91faa2c92d83874f0a8ec6527402225dc24e4871a38f72502e19e9e08913a30ac85f0ad066ca17cca05471b2f", 0x7b)
+r1 = accept$inet(r0, &(0x7f00000002c0)={0x2, 0x0, @multicast2}, &(0x7f0000000300)=0x10)
+r2 = accept$inet(0xffffffffffffffff, &(0x7f0000000340)={0x2, 0x0, @local}, &(0x7f0000000380)=0x10)
+bind$inet(r2, &(0x7f00000003c0)={0x2, 0x8001, @loopback}, 0x10)
+r3 = accept$inet(r0, 0x0, &(0x7f0000000400))
+getpeername$inet(r3, &(0x7f0000000440)={0x2, 0x0, @multicast2}, &(0x7f0000000480)=0x10)
+setsockopt$inet_buf(r0, 0x0, 0x20, &(0x7f00000004c0)="40d60c09f1eebfc28980fbf6d3078cc62aa03421e32ec8a7acf59903dfdaa53fb02e7d48f9238e320644b732ec1776de263bed288f2ffe87641d1c8ac2f79baf26cb41883af7f0b95ae7e95321ea341ff3dee17bde5179b0c338e5e2b8628eb27920d87b74a2041f7ec8d281743c85f964a76d0e644bdf6db4d38a8e7141ad6dc8826213ef", 0x85)
+connect$inet(0xffffffffffffffff, &(0x7f0000000580)={0x2, 0x4e23, @local}, 0x10)
+r4 = accept$inet(r3, &(0x7f00000005c0)={0x2, 0x0, @dev}, &(0x7f0000000600)=0x10)
+connect$inet(r4, &(0x7f0000000640)={0x2, 0x4e22, @broadcast}, 0x10)
+r5 = accept$inet(r1, &(0x7f0000000680)={0x2, 0x0, @loopback}, &(0x7f00000006c0)=0x10)
+setsockopt$inet_buf(r3, 0x0, 0x24, &(0x7f0000000700)="4df7f859d2d7446e8fe5ba799c7abea6e94887d0a162f941482f6dc923aeafb619cb4bfc34adb0e9bee9fd8796e1b1091c7b9a12af9c92b8196a011e95e48d740a051cd9ab185f9ea997b0b5d07c8c886e07bbd0dbb64c3f9aaa4409b2e945fe9a02e8a792bfd50bf030d750f2bc7b6b22b8be1ada66b07db48fb1f32380315c4e94366e7159979886076187a3c77cc6d2a5561efa7e69606dffb154e2be673f571119be2d73733beb9513930f82d2f99af1cc2add7f2ecf8f116c1d3484863fa39d7c9ada245a122144b837d906ef6cfa2441ce016a7eda93c330250f46a2eb7925bd90143b9efff5d21e", 0xeb)
+getsockname$inet(r0, &(0x7f0000000800)={0x2, 0x0, @remote}, &(0x7f0000000840)=0x10)
+r6 = socket$inet(0x2, 0xa, 0x4)
+getsockopt$inet_buf(r6, 0x0, 0x25, &(0x7f0000000880)=""/54, &(0x7f00000008c0)=0x36)
+bind$inet(r5, &(0x7f0000000900)={0x2, 0x4e21, @dev={0xac, 0x14, 0x14, 0x14}}, 0x10)
+getpeername$inet(r0, &(0x7f0000000940)={0x2, 0x0, @empty}, &(0x7f0000000980)=0x10)
+
+[   18.354111] audit: type=1400 audit(1586929290.875:12): avc:  denied  { map } for  pid=1602 comm="syz-executor.3" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8618 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   18.398462] cgroup1: Unknown subsys name 'perf_event'
+[   18.401291] cgroup1: Unknown subsys name 'net_cls'
+[   18.418584] cgroup1: Unknown subsys name 'perf_event'
+[   18.422371] cgroup1: Unknown subsys name 'net_cls'
+[   18.445023] cgroup1: Unknown subsys name 'perf_event'
+[   18.450223] cgroup1: Unknown subsys name 'net_cls'
+[   18.454095] cgroup1: Unknown subsys name 'perf_event'
+[   18.457507] cgroup1: Unknown subsys name 'net_cls'
+[   19.071137] audit: type=1400 audit(1586929291.592:13): avc:  denied  { create } for  pid=1608 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.084504] audit: type=1400 audit(1586929291.593:14): avc:  denied  { write } for  pid=1608 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.096979] audit: type=1400 audit(1586929291.593:15): avc:  denied  { read } for  pid=1608 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   21.181164] audit: type=1400 audit(1586929293.702:16): avc:  denied  { associate } for  pid=1608 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+05:41:33 executing program 3:
+r0 = socket$inet(0x2, 0x3, 0x1fb)
+getsockopt$inet_buf(r0, 0x0, 0x12, 0x0, &(0x7f0000000580))
+
+05:41:33 executing program 3:
+r0 = socket$inet(0x2, 0x3, 0x8)
+setsockopt$inet_buf(r0, 0x0, 0x27, &(0x7f0000000200)="ebca579e7f7fdb316f97167d", 0xc)
+socket$inet(0x2, 0x3, 0x5)
+r1 = socket$inet(0x2, 0x3, 0x8)
+setsockopt$inet_buf(r1, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fff358079167d", 0xc)
+setsockopt$inet_buf(r1, 0x0, 0x23, &(0x7f0000000000)="ebca579e7f01ff35", 0x8)
+r2 = socket$inet(0x2, 0x80000, 0x1)
+getsockname$inet(r0, &(0x7f0000000040), &(0x7f00000000c0)=0x10)
+setsockopt$inet_buf(r2, 0x0, 0x27, &(0x7f0000000100)="ebca579e7f7fff358079167d", 0xc)
+setsockopt$inet_buf(r2, 0x0, 0x4, &(0x7f0000001280)="4c7fffba6fc47d810ae7976d45c10849a41c3e5b89f051fe3dec8e7d1c2b68fc68ec6248412588ac8f9c73d4223d15fafbf2a3778ab6b68480cb0f38ac1bf0f96da6f1de3133fb4d9c207b865a2d140b4078b10743cc5265d3632712", 0x5c)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x27, &(0x7f0000000140)="ebca579e7f7fff350379167d373752f1aae4aaa46330cdf6e804092b97a65266fc7b73dbbd4710a20bbf5fe9d7f2c617375587bdf0c164a238e866fc385c8f899768d7ceff97abaceab01baeaeaf5212cc6556cd4654906b598f06034c6702011e86fc2f605b847f4edea8caf306f26ab69a0bf33d47a7de357167df18bf5d9641fadf76d16a60903a547074c0", 0x8d)
+recvfrom$inet(r0, &(0x7f0000000280)=""/22, 0x16, 0x10101, 0x0, 0x0)
+r3 = socket$inet(0x2, 0x3, 0x5)
+bind$inet(r0, &(0x7f0000000080)={0x2, 0x4e22, @multicast1}, 0x10)
+setsockopt$inet_buf(r3, 0x0, 0x23, &(0x7f0000000000)="ebca579e7f01ff35", 0x8)
+setsockopt$inet_buf(0xffffffffffffffff, 0x0, 0x24, &(0x7f0000001340)="860d212bd0ec1e2f9a5ddcfbfeb53b4787fd7f2704b5f3e8092a16d2305679d31da7ee3f371c2617592682287600cc119802b4f9bcc1a673585b07557a1e63678f912793098ce897149bd4a6f2980231b11cc4315532336b5e2974df39d0989179dd1e6fe44aab75e411799f1f4072cf53e65183ef17c728d9cfc764ab453f54f5662210734d288e633fc72ae6c2124bcabed051b6c9defcdccfe8c10c08ce582e8786a3eaf2b7ebabae5b1a85f3d3ebeebbce51e1fb7affbb68a169669403eff95c2197bd194a49f86fa8b38f6949be28ed2666d91a5867352412ba7c651417d04a6b6296d69632bce5362a0e5883e8761faff673bd86cb5a8b78e0d5a2201f4ab8c7f84f69d9acf3b6a526db25664aef877e93b707b6164a7f31901247855756a0e628ab3eb454142ea973c4e6e8036135348576baae8106ccdf26bc4bf9fc3f8e78df2b4445df55cba22d27791ea969932befb4ae59067a5664f3e678332c56d2c804216afaea7130f2ebd8b3e214c9f89f72a3cd884c530f6976f585bf14cd05f8465868550aea83c5d78b125a40bb48c4f1e38489e2974df6ad56b76d74c195751d45a53ed25db3d55e35d60a05c7458b962f004fb343a2a3445ded3080cde0b39ec7329d24aa5d59ba48b3c00a2e0ef26d538ed3f34395bc583352081094f701b728e96e223f8a0270d70b7add409571556befd0905e4132a7307abbc26847d764da4b6820d34ae3dac98f2812c7aa5c53888c0f549342bc3d1d6644358945877d5ef2257d7047ce5c8ec0d00430fbb6eb8ec588cf0a2dcba04ea2fbcfa723069191d523825597443b57492028698fec163a2dccac1e702f3ad0ac1ca5b78bbffbdbd3ddf464565262a922bfba29d6f9cdb914520415870323415186ffbcb738d68fcae4e273d537e077c197581781feb408fedcae66f1d840f6ef79ead2e2dccd7dcc1b9e7e6cf3e84658e91e9085c6cb5078119dfbd1920f2fcd6783e3e6b470e1da7634c4bd42c385d0bc83671f63a3b58e5b77f471c105ff8708b571501e65bb7b1d37320abfa31b459dd2ce6548b78007e64bf1274c0f78a663a864c6385c4723db7b3fba5bb79b0465a97e3698b960544a248875b4496ecc7f216ee8411a6cd2d507c43bf54ba766256c23afab6097b65a5ba283024bc2a2d8a04e9c5e4dc225f845b54058d9f9d28a72ee5619794e18a17d0ece7819de77686be131883c7f14dabf62c4970a6036f70b2c351e760391ea287395e765aa2e7a165a0ffea40c6e686632befac7092a55e834f03daf913d4ceaaf52fcf42b71bed6e78f612af84dde3179081f00b91498e37efdd2917cd7d396f5e260da61798440f15989e8354a6382cdeebd6bc211e2317c8258583d6a27c9442e33374845e489895f66bb0b0b9945fab9494d175ac8c3fe354201e9455db58529b7165a88ba5e6844828e5dbfd943fec78681e582ab2aedf05d685d97d61e1ee2ffb9a5cb85338a31d45fecfd79f481e22ffcfc2ed7ad30615695a840c6189d8194289daf77ba642467d44a05d899e6a5f3da563c801835c0f2ca3d92b65786e7e88953b494f2b9c6bbf3c4b73875c8f1a841a8078930153d8410c88f686d011e02b471a46c8051b4b37d69290f5b6f42f276257a32ab1211fa8d6a953d7394fd5f496905f9fd0b3b82ce84b5c0a282f38e533d4b992765d4a69c58c5f9fda2a943efacd6b94f6f3df9ae6559cb37ed474409fd2133ae16ea2643fc884e780ad011febd49109ee9b459e723224d9b9f7c0eabf9df9dfb0b87146ebae7b9ff37d3f93f3c91459ba6da03bfcd05e3db217911fd6f44a74ae42f10d3066e5dd51591d7b54e4d068e10a2603f42d3cc9bdc60a68589614fec52edd58aee48756e6643e82f8404e448fe4ec71110c677f8235d24b06e3b82451facdce8db3050cac132b46c80b9e4e4de6e1c3aed180ef511e29f838db95e132952801b470fdbc0eb7d3b170e2728f8195758f1e29e962ca8f76aa91b96119030fd144a34c384b1de728db419fd1a8147715ebdb362daf2b3edd7591bf477e85324b4d0e62633ce70fa0c6dcaa6b67b58ee1025b032855cc239b4a326a4e1e6858eb3fc404f813ecdd5acee3777378ebe158f32b165ef803705981a281231458f2663ea25700cfced9b70391cb7b6848b6cb20dbc9819330856d4b354d575c398796c7f96a09cd8bd81547277f48599a36e18461d69f12ac3d2fc99c6317f821169fb9ea96a9d11c91098eeca6debd84bb8a9e095878d7027af91008a4cc8e27d4050b1576e7bfd21db747f38289aeb8aa13b3aa7b5734f9247b39aee2ce4d2d43cd779d2c4372cd8119b444e12ece845feb26c18c0045da31a793845e5d5585a70ec0031a8b734ae3d200859925075b598d15f500d5c6b57d14de3f199165041393b9b4f69b960d99b762b0db0e630ae0e1779881e9bfcc0193cb57454d6ccb9dcfed9b4199f867bc4ed25489325329a380b1c254fabf181bf4bd2696a224a9fb8a2f9c7efd8847e974e0220220f3c8011f5e8a0e6128fef7cefae85b5df1c5831090ad2b596bbdc4c4581890e25e4009227d1d862d88920028b5193aba29c83c9b115ce6ce2fbfbd4d1b9e2d7cf68376b511fc0f6053d8dd7bb92ce6769f660602663c84e86c54421efcd91d0e76fbd81ff1db63a499c7633d9e3c3e0737e1b9a7541a8048a89e169fd02e7f5bbf575357b194d9f5f138d7e9625a59eff3fd61a88a0b48e2e6aa18b4afd3c2a2ed3a72182fdc6a9a1da91d2ed8e43dbd76f229280ac8fa1d81d9d0b3ece9dd57df4bf5e7429b35d5fcb43781f04e56bc30f832e295f8864df8679fc304bdd9d4df02311cee1774b46487ee56e09bc5923562faf823fe0aa0189640e7464d084ec6abcfd75555ca2e18c7156f06af6970a636135e2db0ed3b5828afce9ba553b31380a6956ba3c571258f590ef6c256bf5aa72b48f67215aa1a55fccf1c3c9cb3960b113fc637abded190093eff9cc141c5e8e9b56768fcdf2f3d9fe10d74a84ecf463126de3fce2818f1b18d543a2079380e82a0096be5313071ecaa650d7497916ec33e092ab9a2f4e5bde03c3336778cc5e70d42484ebb02824266d609390764bf87ffb1d2742fe561a328bd54a050dac13f7d2d96b41a6c3b6055126b7ddc762115dcc286203f16a6551a62cfb82a8523196d846edeb8a37dcdfbd6e16d254090e359b42208cc183a1f2347631b2f6a8601012008a2f7ff4859eedc79b0ccfd9ee010ed34d3c15585bb2f265fde6d42da4f799c5bf1603bb28e881fe1bdcc8b97279ae6afaaacf759bc6b15e0e2c08ea1408420bd3dcde8d1de2b638ff4a9e8fe27ed0b5b7cc4c2264aa9e5a2eec16d919540dc45253416cb04f950f1bdb519d6f8383f65da15ce26fc8ac968d2aa045256c1c4099939d5edb61995e52c7eb94130ffcd9f997dc3309a91c3afb7ae5fde09e48afff8d952a232d98e69b03cfaf37af90941b8a283effdfb83bc8fc87d6ab1ee3c46cae07427809ff1da53274ca2d13158914b4de1cf78fe915072b5ce2fc869f752cec8cd2d462538e22b6771d88acb026e54dfe17b67304620c16112a2396d64fd04ef7630fecf071a05f859dc9e20dd9a92b0a11c7732c31a3737cf26b6eae9d74255ab3649980903b7bdb948c18214c231fe2463447ec676adfec4be79cd837ceda314871cc118efb5c1c2bfbe3e9ba571a245c738bec729223a1ce3f65beb060b856b031d90e6ede1a56d2d78faa696634e0b2c2a1ba8ca7263fb2d3515f92c91224e6de598201d2be62abae7c265998abeb92eecbcdbfca47725e48a3771d349a3c3b00fa6ce50635db9610dd01c36ceda796be132664fab7615e4b8d261f610e7d013c10b703bfb5f1ebe91902e0a6ee3d235a4d4da22539b25cf52daad3dc27bbfce79ddfc15e80424815dd194a0f5c3be8b1d72687f59a83d68e5cd134119675223d23d498f3836109aa1eb4fd92cea511959bc13a76ad0c99959cbb791a50efc0171899e40f6ad58e4f379610a1668fc0040ac67b13e3cd0c2a645f0f38ad57bf25f1b60339bee8fa8183dff8c4905dd23ba6424341f1047c3c0ee373e9d70faafa6052877f61fc8fcf4e380bed7611b163233e0c54b348fbca70556a8069ef099a449fd5686fdfb12c81bc5a3c9987c0ad90b7912ddaa977b3f188fa3576380875a503cd0a68d754dd19582fea80bca1e69e559ad21d0ef5ea1da15317ad5958e6532342404b55d1e2ce8483c0bef1edcae9a6442d60fa175705599b73444c1884f4aca06a11cdc66cf107a36ab95bc5a603d8db3b437e22e65e8c19d8a5865f1549bdc18ac44abb861ef0ecbe3ad47502f65e9d957b5a0c288de220ac99111e1b94b8666cea7839adaa26cf2df96de74f002da00f6c4cd215efadc3fd2d3863225898e8328a0055b8db8a455c36c50d322a54c2194be80b9157d3af47bbf36cbe2b17e2a2c78fce5e4ae78d9ff4e8d61d2792f5fafc5467fe7debad314829754be3b479873048d413ebbd788962af245087ab09b455bbc74e04b98b346ee2f98cbf1fb3ed4a06a55a9dabdf155ad3ab94611795f0ab3616ba9bcab9e74031ed7af50d34b529efe58495870787f7601bf9a0dfca6980fe282341614e95e5a5d0474ceb78038f0ba9947e5ff1465fd73be452b477e7dc6f1669e40e3b3da7f55cc013e9de1017da8f00e821f9067f3c44723caeb879ec229648ac3d52fb3c3c1085b9fa1e52866643252a6e880fe9bd6b6c6937dda01f476d67587e02f7e9f654852fc18c2151b562af2f39bc1f3816ea3b48e08e83b5618eb189109cdbd159033107c348457a55922a4555657eedcd89077f668d90ae61246b1ac302dd8fb400efb70ca260cf8aa39f958e8d13c1082e80115fc75c553c733973fbf526e021d515068ae5c89c503c4a2dfd7e1c91401d9fce0260a4f2c642b33d1094b72404cd0ce6e997f7ec3b0664f3a7b72ff9f29411b90162e8fd24ba56daff07717700fb609975483a48322aaae09b9de71da55260ffdd1852ad07bf9a1c7895677f684ce0e71fbfdfbf314d2fc213f9bbfa48dbfa15aebbfb1f0cc5aca13b38a65fd82298957fef04cebe0564cd30fe11ec2906fa2cfe287f4d9ebe497fc5e2cd5c024160190aa2ee6ee6b45e6efbe9bc52af9c575d0afdcfa0749cc03c481262a6972b33f80a6b53ce70e7ada276cfd6af475cf990a458c3a0877d200c6601ff900ce91ec0e6d37809e80ece91e9f0fb4b7604011d571c0eada1a0924c588bba4c252a8619fa91525daaf44ec4b8572cebee53006ac9a331b0a7e2941ddd453a10feff49b6b1a52834c1258c9acbb089a0fb22f59fdce3934b53398450a1d8ff586f3d77c532889230d238a51352886a209b51820ca3299ef510802f646bcf0cca17321180b2cb635852615c45fc8df03b2afcaef87d106b16d5ece8fa7bfb3aece7c3d0084963e4eb05915a34a9c330077bd2c27860e86f02f7e146c51bc6e3b6bd7052e5a402b88af6323ca9700c41a497e6941490f17f5e8450986da93990b1ae6faf413c1b14a92f7484e2364e929eeb0a67e1b083577564b994eaf5720b12c0cc16f4aef6df2ae3aca88e9575ebbcfb7853559e87f3bf764f664c94e0daf19ffb34c3a9796dc30f51cfcc0978c4d036607367a77e46b3ec5c7e5e60932986ee1f5bc3b20f1d8643d227ea825c330799067fb044425389582d3f4f9ca93f3ea0ead901413cb31eeff2ce12ddb5990887ef4fd78d8fddcea30baba10979688bf6b1580cf16bc6ef325a", 0x1000)
+
+[   21.331767] syz-executor.1 uses obsolete (PF_INET,SOCK_PACKET)
+05:41:33 executing program 1:
+r0 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r0, 0x0, 0x7, &(0x7f0000000100)="ab", 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x6, &(0x7f00000000c0)='n', 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffc8)
+accept4$inet(r0, &(0x7f0000000000)={0x2, 0x0, @initdev}, &(0x7f0000000040)=0x10, 0x80800)
+r1 = socket$inet(0x2, 0x1, 0x0)
+setsockopt$inet_buf(r1, 0x0, 0x4, &(0x7f0000000080)="7e0b6eec6b4749bdb80a00001f", 0xd)
+
+05:41:33 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x2, &(0x7f0000000080)='$', 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000100)="b116a58d9ff4cd60d925231522eb8c013d120894fc", 0x15)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+r1 = accept$inet(0xffffffffffffffff, &(0x7f0000000000)={0x2, 0x0, @initdev}, &(0x7f0000000040)=0x10)
+setsockopt$inet_buf(r1, 0x0, 0x23, &(0x7f00000000c0)="b2fb", 0x2)
+
+05:41:33 executing program 3:
+r0 = socket$inet(0x2, 0x0, 0x0)
+setsockopt$inet_buf(r0, 0x0, 0x25, &(0x7f0000000040)="ab85917d22d9470842cf11e8c45c7c44da4f4a0c85c21a6eb4c7bc27c1201ee4a8ae76154cc58c8a820d9cc47f3c9f17768d48b1c298f186b10dcc76841eb437ac6f99f32c9064162412d15b045c76d1291ee5211c3137c9631bbe4f7bfc668c2f3bf4374505dcd1a169749563f95cd4c3d95d732c9ec2680831970f2c185ac00cb2d572334899472efcb1ed88f5fbea6a8796d9df2bf4e8f65eec0909eecc704b3673d0eeedf6c6522ccf872fbde6ac", 0xb0)
+r1 = socket$inet(0x2, 0x5, 0x0)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x4e23, @initdev={0xac, 0x1e, 0x0, 0x0}}, 0x10)
+
+05:41:33 executing program 0:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000000c0)={0x2, 0x4e24, @multicast1}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000100)="ab", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x6, &(0x7f00000000c0)="fb", 0x1)
+recvfrom$inet(r0, 0x0, 0x0, 0x0, 0x0, 0x0)
+r2 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r2, 0x0, 0x30, &(0x7f0000000100), 0x0)
+setsockopt$inet_buf(r2, 0x0, 0x6, &(0x7f00000000c0)='n', 0x1)
+recvfrom$inet(r2, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffc8)
+r3 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r3, 0x0, 0x7, &(0x7f0000000100)="ab", 0x1)
+setsockopt$inet_buf(r3, 0x0, 0x6, &(0x7f00000000c0)='n', 0x1)
+recvfrom$inet(r3, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffc8)
+getsockopt$inet_buf(r3, 0x0, 0x20, &(0x7f0000019200)=""/102400, &(0x7f00000001c0)=0x19000)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000000)="441405010f81d9a3d4ffde00e2edff1e00", 0x11)
+r4 = socket$inet(0x2, 0x800, 0x2)
+accept$inet(r4, 0x0, &(0x7f0000000180))
+connect$inet(r0, &(0x7f0000000040)={0x2, 0x4e24, @dev={0xac, 0x14, 0x14, 0xb}}, 0x10)
+accept4$inet(r0, 0x0, &(0x7f0000000080), 0x400)
+
+05:41:33 executing program 3:
+r0 = socket$inet(0x2, 0x3, 0x5)
+bind$inet(r0, &(0x7f0000000000)={0x2, 0x0, @loopback}, 0x10)
+
+05:41:33 executing program 2:
+r0 = socket$inet(0x2, 0x2, 0x0)
+getsockopt$inet_buf(r0, 0x0, 0x42, &(0x7f0000000000)=""/30, &(0x7f0000000040)=0x1e)
+setsockopt$inet_buf(r0, 0x0, 0x11, &(0x7f0000000080)="251cdeda43c1f65eee308246d9493fa177369423adf011900400348396064435c95e9bc5650b4b147bbb1798bbab7791a43249f343f343bf5d170805403f6c551602d936b78e98534a84a71c40af83acc4e8d03845f35ea56ddb138f3fc7a11858e58f662fec7a99bfe5be4cbd9cdfae470db941f2e069f5855b6e8591df8c32fcedf61b1f318499f36eb4c182271839c54e6bb2351346445934ab63ad7a90c50ccad8acbe2f3dce7a2f74b515373cac7bc6f223d9c17c175110436596ca5ba09ce28deb6237dab4d693214a50c9d15bca94112bca892a3cb31a1c5e6ae58543d0d983f3bfffc1805bc76320", 0xec)
+
+05:41:34 executing program 3:
+r0 = socket$inet(0x2, 0x1, 0x0)
+bind$inet(r0, &(0x7f00000001c0)={0x2, 0x4e24, @multicast2}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000100)="ab", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x6, &(0x7f00000000c0)='n', 0x1)
+socket$inet(0x2, 0x80000, 0x4)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffc8)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x4e20, @initdev={0xac, 0x1e, 0x1, 0x0}}, 0x10)
+setsockopt$inet_buf(r0, 0x0, 0x2, &(0x7f0000000080)='$', 0x1)
+setsockopt$inet_buf(r0, 0x0, 0x4, &(0x7f0000000100)="b116a58d9ff4cd60d925231522eb8c013d120894fc", 0x15)
+connect$inet(r0, &(0x7f0000000140)={0x2, 0x4e24, @loopback}, 0x10)
+
+05:41:34 executing program 2:
+r0 = socket$inet(0x2, 0x3, 0x5)
+connect$inet(r0, &(0x7f00000000c0)={0x2, 0x4e21, @remote}, 0x10)
+r1 = socket$inet(0x2, 0x3, 0x6)
+setsockopt$inet_buf(r1, 0x0, 0x7, &(0x7f0000000100)="ab", 0x1)
+setsockopt$inet_buf(r1, 0x0, 0x6, &(0x7f00000000c0)='n', 0x1)
+recvfrom$inet(r1, 0x0, 0x0, 0x0, 0x0, 0xffffffffffffffc8)
+connect$inet(r1, &(0x7f0000000000)={0x2, 0x4e22, @rand_addr=0x7}, 0x10)
+
+[   21.557209] ------------[ cut here ]------------
+[   21.558730] Found leaking site of ip_options
+[   21.560165] WARNING: CPU: 1 PID: 3488 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020
+[   21.562421] Modules linked in:
+[   21.563214] CPU: 1 PID: 3488 Comm: syz-executor.3 Not tainted 5.5.3 #19
+[   21.567817] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   21.577420] RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020
+[   21.582365] Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b eb b0 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+[   21.583149] ------------[ cut here ]------------
+[   21.589205] RSP: 0018:ffff8880670ef900 EFLAGS: 00010246
+[   21.589215] RAX: cd33083661a03800 RBX: ffff888067187b74 RCX: ffffc9000061b000
+[   21.589220] RDX: ffffffffade00000 RSI: 0000000000000555 RDI: 0000000000000556
+[   21.589224] RBP: ffff8880670efaf0 R08: dffffc0000000000 R09: 0000000000000003
+[   21.589229] R10: ffffed100ce1de99 R11: 0000000000000004 R12: ffff888068738f40
+[   21.589238] R13: dffffc0000000000 R14: 0000000000000018 R15: ffff8880670ef9f0
+[   21.590912] Found leaking site of ip_options
+[   21.590997] WARNING: CPU: 0 PID: 3493 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020
+[   21.590999] Modules linked in:
+[   21.591009] CPU: 0 PID: 3493 Comm: syz-executor.0 Not tainted 5.5.3 #19
+[   21.591013] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   21.591021] RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020
+[   21.591029] Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b eb b0 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+[   21.591032] RSP: 0018:ffff88806b72f900 EFLAGS: 00010246
+[   21.591038] RAX: c25f04ed3f21f400 RBX: ffff888069b04034 RCX: ffffc90001422000
+[   21.591042] RDX: ffffffffade00000 RSI: 0000000000022ab4 RDI: 0000000000022ab5
+[   21.591047] RBP: ffff88806b72faf0 R08: dffffc0000000000 R09: ffffed100da442d4
+[   21.591051] R10: ffffed100da442d4 R11: 0000000000000000 R12: ffff888068738000
+[   21.591056] R13: dffffc0000000000 R14: 0000000000000018 R15: ffff88806b72f9f0
+[   21.591061] FS:  00007f0c0d8d3700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   21.591066] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   21.591070] CR2: 00007ffebf396b5c CR3: 000000006a0d2005 CR4: 00000000001606f0
+[   21.591076] Call Trace:
+[   21.591090]  ? iov_iter_init+0x140/0x140
+[   21.591098]  ? local_bh_enable+0x20/0x20
+[   21.591107]  ? do_futex+0x3ec/0x3bd0
+[   21.591117]  ? __skb_recv_datagram+0x260/0x260
+[   21.591123]  ? skb_copy_datagram_iter+0x150/0x150
+[   21.591135]  ? skb_copy_datagram_iter+0x138/0x150
+[   21.591142]  raw_recvmsg+0x43b/0x860
+[   21.591150]  ? raw_sendmsg+0x1eb0/0x1eb0
+[   21.591158]  ? __fget+0x31f/0x360
+[   21.591165]  inet_recvmsg+0x53e/0x550
+[   21.591172]  ? inet_sendpage+0x120/0x120
+[   21.591181]  ? security_socket_recvmsg+0xae/0xd0
+[   21.591187]  ? inet_sendpage+0x120/0x120
+[   21.591195]  __sys_recvfrom+0x4e4/0x590
+[   21.591204]  ? __switch_to_asm+0x34/0x70
+[   21.591211]  ? __switch_to_asm+0x40/0x70
+[   21.591218]  ? __switch_to_asm+0x34/0x70
+[   21.591225]  ? __ia32_sys_send+0xb0/0xb0
+[   21.591231]  ? __switch_to_asm+0x40/0x70
+[   21.591237]  ? get_timespec64+0x1a0/0x1a0
+[   21.591242]  ? __schedule+0xb4a/0x10b0
+[   21.591248]  ? __x64_sys_clock_gettime+0x180/0x1d0
+[   21.591252]  ? switch_fpu_return+0x10/0x10
+[   21.591258]  ? __ia32_sys_clock_settime+0x1e0/0x1e0
+[   21.591264]  __x64_sys_recvfrom+0xda/0xf0
+[   21.591270]  do_syscall_64+0xa5/0x130
+[   21.591277]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   21.591282] RIP: 0033:0x467519
+[   21.591289] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   21.591292] RSP: 002b:00007f0c0d8d2c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   21.591298] RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+[   21.591300] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000006
+[   21.591304] RBP: 00007f0c0d8d36bc R08: 0000000000000000 R09: ffffffffffffffc8
+[   21.591307] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   21.591310] R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+[   21.591315] ---[ end trace 6573b2cac2ad32f9 ]---
+[   21.646636] ------------[ cut here ]------------
+[   21.647574] FS:  00007fda4692b700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   21.647581] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   21.647588] CR2: 000000000074c000 CR3: 0000000069b40005 CR4: 00000000001606e0
+[   21.647598] Call Trace:
+[   21.648867] Found leaking site of ip_options
+[   21.649719]  ? iov_iter_init+0x140/0x140
+[   21.649740]  ? local_bh_enable+0x20/0x20
+[   21.650813] WARNING: CPU: 0 PID: 3496 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020
+[   21.651504]  ? do_futex+0x3ec/0x3bd0
+[   21.652407] Modules linked in:
+[   21.653328]  ? __skb_datagram_iter+0x57a/0x6c0
+[   21.654466] CPU: 0 PID: 3496 Comm: syz-executor.0 Tainted: G        W         5.5.3 #19
+[   21.655518]  ? __skb_recv_datagram+0x260/0x260
+[   21.655530]  ? skb_copy_datagram_iter+0x150/0x150
+[   21.655550]  ? skb_copy_datagram_iter+0x138/0x150
+[   21.656593] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   21.657618]  raw_recvmsg+0x43b/0x860
+[   21.658672] RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020
+[   21.659678]  ? raw_sendmsg+0x1eb0/0x1eb0
+[   21.660723] Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b eb b0 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+[   21.661940]  ? __fget+0x31f/0x360
+[   21.661955]  inet_recvmsg+0x53e/0x550
+[   21.663043] RSP: 0018:ffff888067f57900 EFLAGS: 00010246
+[   21.664039]  ? inet_sendpage+0x120/0x120
+[   21.666006] RAX: aa1f53d31085d500 RBX: ffff888068030534 RCX: ffffc90001824000
+[   21.667061]  ? security_socket_recvmsg+0xae/0xd0
+[   21.667071]  ? inet_sendpage+0x120/0x120
+[   21.669310] RDX: ffffffffade00000 RSI: 000000000000c712 RDI: 000000000000c713
+[   21.670343]  __sys_recvfrom+0x4e4/0x590
+[   21.670359]  ? __switch_to_asm+0x34/0x70
+[   21.671909] RBP: ffff888067f57af0 R08: dffffc0000000000 R09: 0000000000000003
+[   21.671914] R10: ffffed100cfeae99 R11: 0000000000000004 R12: ffff888068738000
+[   21.673337]  ? __switch_to_asm+0x40/0x70
+[   21.673348]  ? __switch_to_asm+0x34/0x70
+[   21.674204] R13: dffffc0000000000 R14: 0000000000000018 R15: ffff888067f579f0
+[   21.679145]  ? __ia32_sys_send+0xb0/0xb0
+[   21.681974] FS:  00007f0c0d8b2700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   21.683843]  ? __switch_to_asm+0x40/0x70
+[   21.683858]  ? get_timespec64+0x1a0/0x1a0
+[   21.687485] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   21.689297]  ? __schedule+0xb4a/0x10b0
+[   21.689311]  ? __x64_sys_clock_gettime+0x180/0x1d0
+[   21.692873] CR2: 00007f0c0d86fdb8 CR3: 000000006a0d2005 CR4: 00000000001606f0
+[   21.694701]  ? switch_fpu_return+0x10/0x10
+[   21.694714]  ? __ia32_sys_clock_settime+0x1e0/0x1e0
+[   21.696966] Call Trace:
+[   21.698160]  __x64_sys_recvfrom+0xda/0xf0
+[   21.698174]  do_syscall_64+0xa5/0x130
+[   21.702250]  ? iov_iter_init+0x140/0x140
+[   21.703723]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   21.703737] RIP: 0033:0x467519
+[   21.707816]  ? local_bh_enable+0x20/0x20
+[   21.708425] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   21.708430] RSP: 002b:00007fda4692ac48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   21.710603]  ? do_futex+0x1635/0x3bd0
+[   21.711609] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   21.711613] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000004
+[   21.711617] RBP: 00007fda4692b6bc R08: 0000000000000000 R09: ffffffffffffffc8
+[   21.711626] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   21.713668]  ? __skb_recv_datagram+0x260/0x260
+[   21.715994] R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+[   21.716003] ---[ end trace 6573b2cac2ad32fa ]---
+[   21.717738]  ? skb_copy_datagram_iter+0x150/0x150
+[   21.811070]  ? skb_copy_datagram_iter+0x138/0x150
+[   21.813551]  raw_recvmsg+0x43b/0x860
+[   21.815568]  ? raw_sendmsg+0x1eb0/0x1eb0
+[   21.817758]  ? __fget+0x31f/0x360
+[   21.819494]  inet_recvmsg+0x53e/0x550
+[   21.821078]  ? inet_sendpage+0x120/0x120
+[   21.823329]  ? security_socket_recvmsg+0xae/0xd0
+[   21.824965]  ? inet_sendpage+0x120/0x120
+[   21.826947]  __sys_recvfrom+0x4e4/0x590
+[   21.828686]  ? __ia32_sys_send+0xb0/0xb0
+[   21.830488]  ? get_timespec64+0x1a0/0x1a0
+[   21.832351]  ? __x64_sys_clock_gettime+0x180/0x1d0
+[   21.834542]  ? switch_fpu_return+0x10/0x10
+[   21.836535]  ? __ia32_sys_clock_settime+0x1e0/0x1e0
+[   21.838538]  __x64_sys_recvfrom+0xda/0xf0
+[   21.840599]  do_syscall_64+0xa5/0x130
+[   21.842550]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   21.844524] RIP: 0033:0x467519
+[   21.846109] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   21.855035] RSP: 002b:00007f0c0d8b1c48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+[   21.858742] RAX: ffffffffffffffda RBX: 000000000074c040 RCX: 0000000000467519
+[   21.862396] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000006
+[   21.865940] RBP: 00007f0c0d8b26bc R08: 0000000000000000 R09: ffffffffffffffc8
+[   21.869584] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   21.872964] R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+[   21.876271] ---[ end trace 6573b2cac2ad32fb ]---

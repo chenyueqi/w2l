@@ -1,0 +1,80 @@
+------------[ cut here ]------------
+Found leaking site of ip_options
+WARNING: CPU: 1 PID: 17023 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_retopts net/ipv4/ip_sockglue.c:101 [inline]
+WARNING: CPU: 1 PID: 17023 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020 net/ipv4/ip_sockglue.c:212
+Modules linked in:
+CPU: 1 PID: 17023 Comm: syz-executor.3 Not tainted 5.5.3 #19
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:ip_cmsg_recv_retopts net/ipv4/ip_sockglue.c:101 [inline]
+RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020 net/ipv4/ip_sockglue.c:212
+Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b 8b a5 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+RSP: 0018:ffff88804e327900 EFLAGS: 00010246
+RAX: 5f120b86ad073400 RBX: ffff8880656c72b4 RCX: ffffc90000603000
+RDX: ffffffffa2800000 RSI: 0000000000000551 RDI: 0000000000000552
+RBP: ffff88804e327af0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed1009c64e99 R11: 0000000000000004 R12: ffff888063920f40
+R13: dffffc0000000000 R14: 0000000000000090 R15: ffff88804e3279f0
+FS:  00007fd66533f700(0000) GS:ffff888068d00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000748000 CR3: 000000004cf78003 CR4: 00000000001606e0
+Call Trace:
+ ip_cmsg_recv include/net/ip.h:749 [inline]
+ raw_recvmsg+0x43b/0x860 net/ipv4/raw.c:792
+ inet_recvmsg+0x53e/0x550 net/ipv4/af_inet.c:838
+ sock_recvmsg_nosec net/socket.c:873 [inline]
+ sock_recvmsg net/socket.c:891 [inline]
+ __sys_recvfrom+0x4e4/0x590 net/socket.c:2042
+ __do_sys_recvfrom net/socket.c:2060 [inline]
+ __se_sys_recvfrom net/socket.c:2056 [inline]
+ __x64_sys_recvfrom+0xda/0xf0 net/socket.c:2056
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fd66533ec48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007fd66533f6bc R08: 0000000000000000 R09: ffffffffffffffc8
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+---[ end trace 26c6a7baf24dee6c ]---
+------------[ cut here ]------------
+Found leaking site of ip_options
+WARNING: CPU: 0 PID: 17034 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_retopts net/ipv4/ip_sockglue.c:101 [inline]
+WARNING: CPU: 0 PID: 17034 at net/ipv4/ip_sockglue.c:101 ip_cmsg_recv_offset+0x50b/0x1020 net/ipv4/ip_sockglue.c:212
+Modules linked in:
+CPU: 0 PID: 17034 Comm: syz-executor.3 Tainted: G        W         5.5.3 #19
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:ip_cmsg_recv_retopts net/ipv4/ip_sockglue.c:101 [inline]
+RIP: 0010:ip_cmsg_recv_offset+0x50b/0x1020 net/ipv4/ip_sockglue.c:212
+Code: 80 0b 08 eb 63 e8 85 c9 1f fe e9 b4 07 00 00 e8 7b c9 1f fe 4c 89 ff e8 13 b3 fe ff 48 c7 c7 da 5b 8b a5 31 c0 e8 05 3a f9 fd <0f> 0b 49 8d 7f 08 48 89 f8 48 c1 e8 03 42 8a 04 28 84 c0 44 8b 64
+RSP: 0018:ffff88804b8ff900 EFLAGS: 00010246
+RAX: 119c3eb5dd4f7100 RBX: ffff888064229df4 RCX: ffffc90000804000
+RDX: ffffffffa2800000 RSI: 000000000000053f RDI: 0000000000000540
+RBP: ffff88804b8ffaf0 R08: dffffc0000000000 R09: 0000000000000003
+R10: ffffed100971fe99 R11: 0000000000000004 R12: ffff888063920f40
+R13: dffffc0000000000 R14: 0000000000000090 R15: ffff88804b8ff9f0
+FS:  00007fd66531e700(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffd38c1df10 CR3: 000000004cf78001 CR4: 00000000001606f0
+Call Trace:
+ ip_cmsg_recv include/net/ip.h:749 [inline]
+ raw_recvmsg+0x43b/0x860 net/ipv4/raw.c:792
+ inet_recvmsg+0x53e/0x550 net/ipv4/af_inet.c:838
+ sock_recvmsg_nosec net/socket.c:873 [inline]
+ sock_recvmsg net/socket.c:891 [inline]
+ __sys_recvfrom+0x4e4/0x590 net/socket.c:2042
+ __do_sys_recvfrom net/socket.c:2060 [inline]
+ __se_sys_recvfrom net/socket.c:2056 [inline]
+ __x64_sys_recvfrom+0xda/0xf0 net/socket.c:2056
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fd66531dc48 EFLAGS: 00000246 ORIG_RAX: 000000000000002d
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007fd66531e6bc R08: 0000000000000000 R09: ffffffffffffffc8
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 000000000000088d R14: 00000000004c9a71 R15: 0000000000701660
+---[ end trace 26c6a7baf24dee6d ]---

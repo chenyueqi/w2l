@@ -1,0 +1,986 @@
+Warning: Permanently added '[localhost]:37947' (ECDSA) to the list of known hosts.
+[   17.191365] audit: type=1400 audit(1586977664.507:11): avc:  denied  { map } for  pid=1585 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/15 19:07:44 fuzzer started
+2020/04/15 19:07:45 dialing manager at 10.0.2.10:43091
+2020/04/15 19:07:45 syscalls: 166
+2020/04/15 19:07:45 code coverage: enabled
+2020/04/15 19:07:45 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/04/15 19:07:45 extra coverage: enabled
+2020/04/15 19:07:45 setuid sandbox: enabled
+2020/04/15 19:07:45 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/15 19:07:45 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/15 19:07:45 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/15 19:07:45 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/15 19:07:45 net packet injection: /dev/net/tun does not exist
+2020/04/15 19:07:45 net device setup: enabled
+2020/04/15 19:07:45 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/15 19:07:45 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/15 19:07:45 USB emulation: /dev/raw-gadget does not exist
+19:07:48 executing program 3:
+r0 = accept4(0xffffffffffffffff, &(0x7f0000000000)=@generic, &(0x7f0000000080)=0x80, 0x80000)
+getpeername(0xffffffffffffffff, &(0x7f00000000c0)=@pppol2tp={0x18, 0x1, {0x0, <r1=>0xffffffffffffffff, {0x2, 0x0, @broadcast}}}, &(0x7f0000000140)=0x80)
+r2 = accept(0xffffffffffffffff, 0x0, &(0x7f0000000180))
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+r4 = socket$netlink(0x10, 0x3, 0x7)
+r5 = socket$netlink(0x10, 0x3, 0x5)
+r6 = accept(0xffffffffffffffff, &(0x7f0000000280)=@x25={0x9, @remote}, &(0x7f0000000300)=0x80)
+r7 = accept(0xffffffffffffffff, &(0x7f0000000340)=@x25={0x9, @remote}, &(0x7f00000003c0)=0x80)
+r8 = socket$nl_generic(0x10, 0x3, 0x10)
+r9 = accept4(0xffffffffffffffff, &(0x7f00000004c0)=@un=@abs, &(0x7f0000000540)=0x80, 0x800)
+r10 = socket$netlink(0x10, 0x3, 0x5)
+ioctl$FIDEDUPERANGE(r0, 0xc0189436, &(0x7f0000000580)={0x800, 0x18, 0xa, 0x0, 0x0, [{{r1}, 0x8}, {{r2}, 0x6}, {{r3}, 0x8}, {{r4}, 0xa5}, {{r5}, 0x5}, {{r6}, 0x6}, {{r7}, 0x1}, {{r8}}, {{r9}, 0x6}, {{r10}, 0x2}]})
+r11 = accept(r10, &(0x7f0000000b00)=@in6={0xa, 0x0, 0x0, @local}, &(0x7f0000000b80)=0x80)
+getsockopt$sock_timeval(r11, 0x1, 0x42, &(0x7f0000000bc0), &(0x7f0000000c00)=0x10)
+getpeername(r10, &(0x7f0000000c40)=@caif=@dgm, &(0x7f0000000cc0)=0x80)
+r12 = socket$nl_generic(0x10, 0x3, 0x10)
+r13 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000d40)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r12, &(0x7f0000000e00)={&(0x7f0000000d00)={0x10, 0x0, 0x0, 0x801000}, 0xc, &(0x7f0000000dc0)={&(0x7f0000000d80)={0x34, r13, 0xc1d, 0x70bd28, 0x25dfdbfc, {}, [@NL80211_ATTR_TX_NO_CCK_RATE={0x4}, @NL80211_ATTR_SCHED_SCAN_RSSI_ADJUST={0x6, 0xf7, {0x3, 0x2}}, @NL80211_ATTR_MEASUREMENT_DURATION={0x6, 0xeb, 0x101}, @NL80211_ATTR_TX_NO_CCK_RATE={0x4}, @NL80211_ATTR_BG_SCAN_PERIOD={0x6, 0x98, 0x8}]}, 0x34}, 0x1, 0x0, 0x0, 0x20000080}, 0x801)
+r14 = socket$netlink(0x10, 0x3, 0x4)
+ioctl$FS_IOC_SETFLAGS(r14, 0x40086602, &(0x7f0000000e40))
+
+19:07:48 executing program 0:
+r0 = accept(0xffffffffffffffff, &(0x7f0000000000)=@tipc=@name, &(0x7f0000000080)=0x80)
+ioctl$FS_IOC_SET_ENCRYPTION_POLICY(r0, 0x800c6613, &(0x7f00000000c0)=@v1={0x0, @aes256, 0x8, "548474d490a2cb8a"})
+accept(0xffffffffffffffff, &(0x7f0000000100)=@pppol2tp={0x18, 0x1, {0x0, <r1=>0xffffffffffffffff, {0x2, 0x0, @dev}}}, &(0x7f0000000180)=0x80)
+ioctl$EXT4_IOC_MIGRATE(r1, 0x6609)
+ioctl$sock_ifreq(r1, 0x8916, &(0x7f0000000200)={'ipvlan0\x00', @ifru_data=&(0x7f00000001c0)="8dd72bae217c9ba891abb490288ac8121651c56e0798f99f292b09005002c153"})
+ioctl$sock_TIOCINQ(r1, 0x541b, &(0x7f0000000240))
+getsockopt$IP_SET_OP_GET_BYNAME(0xffffffffffffffff, 0x1, 0x53, &(0x7f0000000280)={0x6, 0x7, 'syz0\x00'}, &(0x7f00000002c0)=0x28)
+r2 = socket$netlink(0x10, 0x3, 0x15)
+recvmsg(r2, &(0x7f0000000a00)={&(0x7f0000000300)=@l2tp6={0xa, 0x0, 0x0, @empty}, 0x80, &(0x7f0000000940)=[{&(0x7f0000000380)=""/31, 0x1f}, {&(0x7f00000003c0)=""/254, 0xfe}, {&(0x7f00000004c0)=""/33, 0x21}, {&(0x7f0000000500)=""/153, 0x99}, {&(0x7f00000005c0)=""/187, 0xbb}, {&(0x7f0000000680)=""/85, 0x55}, {&(0x7f0000000700)=""/247, 0xf7}, {&(0x7f0000000800)=""/98, 0x62}, {&(0x7f0000000880)=""/149, 0x95}], 0x9}, 0x0)
+setsockopt$netlink_NETLINK_PKTINFO(r0, 0x10e, 0x3, &(0x7f0000000a40)=0x7, 0x4)
+r3 = accept4(r1, 0x0, &(0x7f0000000a80), 0x0)
+sendmsg$NL80211_CMD_NEW_STATION(r3, &(0x7f0000000b80)={&(0x7f0000000ac0)={0x10, 0x0, 0x0, 0x400}, 0xc, &(0x7f0000000b40)={&(0x7f0000000b00)={0x30, 0x0, 0x400, 0x70bd29, 0x25dfdbfe, {}, [@NL80211_ATTR_MAC={0xa, 0x6, @link_local={0x1, 0x80, 0xc2, 0x0, 0x0, 0xe}}, @NL80211_ATTR_PEER_AID={0x6, 0xb5, 0x376}, @NL80211_ATTR_VLAN_ID={0x6, 0x11a, 0x1}]}, 0x30}, 0x1, 0x0, 0x0, 0x4084}, 0x800)
+r4 = accept(0xffffffffffffffff, 0x0, &(0x7f0000000bc0))
+ioctl$sock_inet_SIOCSIFADDR(r4, 0x8916, &(0x7f0000000c00)={'sit0\x00', {0x2, 0x4e24, @multicast2}})
+ioctl$FIGETBSZ(r1, 0x2, &(0x7f0000000c40))
+getsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000000c80)={<r5=>0x0}, &(0x7f0000000cc0)=0xc)
+getsockopt$sock_cred(r1, 0x1, 0x11, &(0x7f0000000d00)={0x0, <r6=>0x0}, &(0x7f0000000d40)=0xc)
+getsockopt$sock_cred(0xffffffffffffffff, 0x1, 0x11, &(0x7f0000000d80)={0x0, 0x0, <r7=>0x0}, &(0x7f0000000dc0)=0xc)
+setsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000000e00)={r5, r6, r7}, 0xc)
+ioctl$sock_netdev_private(0xffffffffffffffff, 0x89f4, &(0x7f0000000e80)="ad52d066316f046ba3d5d2e27549ee27deed1fd867ac13b55b510fb9f88c1b1f083aeffb0c7f4362df8efcb8aa3d841df7fef932ef8444688a646e2e8f654627fee2456fe62994eceda66fdb735e7915cf5399a2410251f40cd3e80500b5494719e85121957ff371c17e96c407be84abdedd2d061da89b1c15f59d3953f97ed3584b388c904c87c70ee53586de7fb09c8618ac16da9190821f09930f660844eda77e99b619a982db2aa19363f8d8191f4300fb258e4b0c9ff47e755cd960f03d8aaa82aba2fc7bd723459f9700b38d9699ae281419cf6bda862a1ef0d525411e96a77775b02937658e9079da14a7de7f1161f08725eb0bce9710bfefca29e1434ff0357fedc70e66e29bca029557c3d8ba3be0a850a6569d8e1c3c4dd5b8a143b2a65b5f7756c4291d6a464f171522a9f634e91078a728d40e931e244273509a6fbc6d00cae9246e939464be3050b930358c28a595ed154917b56767fe76b8bf40a0eccbcd9505dc0067cb6d1f69c6865c018970029b7ec7e5e261825d146740053832905c144f467e8c7632a807de060e1485d970a970f8d2c2f68f0d611efa5fd078e90ec77a7c3ca997082f9ba8e7b2189ead1405020d749df6d518b3ac8204562e9b7d766f7f358b41a8e7522787165a2e4c56c83b8d97bcb687ae73e76f2965817096a66cafabc48840a8cd86dc21ec44e1b8cf3dc4b8eae114713936c05e36c7446b002624bdf83d8080a77fa1f008654c72413c396be0c2e5b0024ee5b03ffc8a11cb2ea80a4c1f861b8b98a50ab814f7a2c5887a73e2d32dc79e2a87835eed1fe0fcf159f4de55252e5274654a391f5a3fdc474a640587f0f72b42668206f259149a58b81ee997dcb0ec9e96ac5f795377e04b612e1021c4fa3a89cfc04bfd95f045fd5d55e29b0bc0e1325e3ffe6b2215a17ddaabecba0597ee2edde954846b0204965e9f429e69ee8777ed4df973baeb5fbc875024af97be78e2c1cf033a342d0776c38b0b61fe949d5f8a5f325c4b4318928475d2c494a2652680d24fe6be98de904973cd4394065f0f6e87d67c5c0226288bb93ed4ef49edba2d5bbba35d8a3bab68664b4edaed8b597ac0595b569078a01ba2325416e171e4094b72b40848ee195f7e0a77c3983d98e893d854165a7ca6b5d2283df5ab5da92e4d812ec421d92a160bedbce7d4a61e3ce874e5120aebcb8869b4cd204e1096c45580b90c224e4229e52f071c47ba04fca163ae43ff6b37e7d55a376d95522f513c07bef0aa3b0a68cb755f39d91ce48003aa5c763d181a0cf07407de7f117ca11bacff350c390f106e0fabea56501e646911f91958174dad1306aa9ce0a646b78e3ac4404ff13cbcee1c92ce0184fe3fc359733ccfabcf5ca6ed8ebf12fbdd65c392c3b960935f1110eb056c9b816c35945728576809d6630c695c50f625596f3e00bf8a237da264355047038af1d46d46f968b8628d491f065c21678d990d5ed1eff4d8ccfff8d5a6e4db3b6909f8fb6479be0bd0837cb01c3591263680adc24d1549eabdc62c52795b69e5c2313acb1b9162e7945e9ee201ed022e210b667c72b0b85113310f8981a7344ec7ceb186ccbbcc2b4e5f87ae09a814b71e96a0b43c9deebf0e2e144234f5e052f82df8390a51ff60b532b67e4a9ea227d704a467def1ca3c732e710eea469a3530f376c6db3a073f1253847416f500a21698b7a16a5c6b0eb4b1d06b97abe35a897e3df217078d3b219b526acc10e08d098a53bf8ac1ee6482cc09253e42f94fa044591d632eb4d85add6d0afecbf19c5bca5e558918c32b5bfe6775a5aad34bd76d12a768b2baabeae004f389e4e8057c6cb3a371802d95c0d951d42b675ab504ed236d902e3a38f05f846da86b787ea18f89cb4b4b3757e961cdef7e5fca988646ee3498c9714b11e552e6914d4ab3d27d5f9586beeeed233fc7042e50c7efb97a8627d5cd0648cab44db2bcd5bd16bfacd8fdf981c3151a67be06b8816badf5b67e338d90b4493cb5e3e66b71ea8bafa15c45bb3816203adf49c16b078677cdf5408cdcc403d4283eb7dbc2b866e846c7b7cc4694472a8d557d6aa31d11475d1b945804199f6b7aec99a6c6ce1878adb8cf79fad5f738762b041de02c49b9a9ed0a5769e7372c7c9cd8fa9a452078601de674ca6364c01269eedc1aa9b547ed792ec86783321c43a9ac7b7b4f47b3f21d25a0e22cf30a9c269cf20f1cb3e98a7aab76fce5bdfc418f36f7c1b9276db1e252e7ff54e79bcb50709559add814000dc41e2374a29f60bfc4da58dbafc0bde0b52d35585495c8b34a8737d851d4a4a6eaa58fef77517a6c5fcd614fb75488c7d85716c9a6d247c289f3969711271fb8a83c76b88c94999618db3b4aa8a22da278cb49d67a710f69075d42d556adbdea6c77d61d20aa7fd9c24bae6d35a7833471b23d9416170638c73882f7072eb7f84d848712c0958914038612b8d530ddfdcfd1f6f3d8ae998e2ecd9ba62111a5a5f2d9caf936ad6b2daa4ebc825320bd4d55e9483323aa5aeeabc340347b516cd6e3c1afd1a2761496dd05d11a4ccce0a41a9925d291e7ce131543265eaad0312f103ca76f6815a6ee916903efa9bd73de3a3638eb493fc94bb57439ba08c8b20affb615b42d4179395a6e604b4a33df5e624e37e69ffe9ec8346a852b26872ed0881edff0033e75cca7d46c1fddcd41574a5c26bc85372bcb418a35bc05bb42ac34698550019732cc2f325f0f16b2b6a983f387ae0f75f56685963a05e32ee81bd71195bb228b57625098ab8c88292b1c7ff336c50a44ea46def09b755dee22095b478043dde0cb53eb840e400ec6da8ff547054b28dafc471abc087d65cbe65c315d61aa3c15637d759a3f8632d1b301ebad12e01a718db4ee155643fa2116feda31ae4c084ce912c96e7ca71dc21824a22956f6fb2fcc91008122e362a9e775fd1fb2c43d0cd367badb113fd6588901a90a129fa8df41aa0c71954ca953aa7e35a31d6f17c5dba2454fba5a3268e5997fc9197a753fab68157518169338ac0d27c9d16a03e2a84a43b0b9ccde18a553716a4bd3fa9f6512bfb6f01f086848ecce4741e3b9c6c761c303445c2ab69e949434bd6deccde7a26189e0372416bf7bc8a6672a4e7035b941de71eac6a10f9e490d69ea50ea3fa1ea8770fc602cd015c20ee2ad1785b14a133f4053cae6b6fa617110261624a25547821c1f672e7f82cb6cff92dfc17115235507b11f926d5f287a33dc1c4c7f6adab76f9634f0bb2079c2ca328b994a4f009c838bea7d5588b017c6c4640e85b14b4c6683d5d4ba66a82a3c168b8443cf18123af81340a6b746f3138b73d79b0235568233507cfd7cda7404484c130cebf8c8f4e96d67a000677ed7411a72b38766868436ab9f3fc85a2f9bbbf189d5896de78f64e273ddc7a64c9c6252d1f6bd8d690e649d1048b59019dab3e8a08df67cc2a69adc7c46822306338a2383117cd6fdbd4d24dcc19d4aa9e9ebae65064211c1d42a6a037522c9008d0729ec386923c6099772f47197bc28fd6d28c6b7e67656a74ecaa1841a71e8cb67e44251f2d448fc460e0c92eb64e6c212be48f1d288a69132d21ed70276531b0e07d427f6ab5d5beae008ae4570bd35556873aecf028643f7bf5f0c3a13af87d57776df28409b11e07a0c87b0cf315ba3a5306270355a8d744aaf63b0adae7564f188cc5e8c21909fc3fa9cd714a89e4fa0d655109c74dcb504047de929ed551ebadac8fa014e0bee0a84657b3215cadf8e03857df5e22da2f8c3c3e2f2b12597ebbd1ad60a90caf20ec9e8dae75810da6f2539b0989fa9e5bc2711f1c0a2b882922a4a9a68120f4fed87fa7c2541764a50ff2657cc9057f0b60975416764245e2a5ace1cb729d7676317119cec9a6a90e9d1377c1add93e8b01748e30108fcf70c8ed9779d6676b0b6128e5361b3cc852eaca314f619a426fcada026202254aee0a5ea525c68deb649919aa0a8de7e697f3c8e69d51d48218cefa6f752daa78640a81598567382a4248f75cf49f55d9e5b28c0f36881eedbc63007e822e05871c84886a9f2517af5a2c9322f1cac405525629df0b493d2b032315ac4524784ba9b1f4130c80b0b11a5bf24f7abf420e0b80529c89684daf66c600c1693f8da2fee13b4d0ca5b660277b3296b0d2fc7b11c2f8d33e94488de32b4802fcdfae384b20a276f061bd3fa61baa3ec65c4eb05959e1543635cfb7db68d8862fafd8390bd03868ddd51c7038ff5d2d070032015e700e33b03468ebadb40dfb8e888fdbd62e08ec4e5284131f8f8ccd8fcdbbbe5989a84563a4300532cfd95b25a943df0083f297912b466c803be4aebd0090d0214e6e7fb14309348babeb464a036e5a756b8a6b22fdeb5ba15fe8763204f47d04df78f8beffdc14d46a9aae7b8145d42e1ac1b953b65c7fde8591c6bcfe4f216b9b91a0e5084844c1379cba98338bb47294d59494d0f7eb2b8e177ca82889ded2e4aef43b60c03ca70b2fa37a733ca9757972e6a63a8645403f411db47ee9c7f5f5083e92a57cfb0b2db63d61a8293b93ae98d1a5479e44cd9ce8c94d76c49845a071bc4e4e3d0d7fedfa3cdd9bae3a5df5d9916926f4b06011b09ba77c5dc119343817c700af3bfc753d8c481959a0bd202d6edcbce389c83c41ac611f9636de29b9127648f0efe580ae98c7ab55e4e0fe334ed684a92edda2779baf3d0df8eef2f96f50a6aa41cd278ffb250f568385de2039e25ec98f660cc5aa0ff0bc6cf788d34c08fc2c765d15ee1886b1d47545e276f2cf265ad785fd4fd0c9a85998bee84c111aee08bc3aa89803c8d2393d2bba40c76762e3acddeae1a748701a13a84b8b62e6696300ba25fd9caa52a0edd9544e246b739b1285ae581432d04d225c0178b96eb52842a850bdc33bb9f5f64c7e5fa753ba44d7179e50a80835ad8b91cd7d942ad262a177e3393dedc5b27e5a49b37e3cfeff5769722d64fc1f99b9baa09262f9b6d65b8670e319cb351f5ca2448144bd7d60d6a72f0bee5f34947b73b6035c03254ac6b5004f3e8c1f57d15770a0b9742378970b8fcf64e5166baf3ed2527974a64c7497b638974b876609d9176bc7447d26d3412a4496fb5700a5038401e06e5b3a673363f844329fcc828af06521ae9d1f4bf5e9e36dd642702e0eee37da970f3b8da75f48757a1d875a2cb17fed3c515a98e81f57551459b26a8b9a3a020a70977f58c9212baaa6ca8f7f22b6ae60d1b50460929c2f919edfa5cd524d0d1437986f7d205cd39588b47b3d1dbadc6fcb2506c83a176ac18aeb5191ee2f34afabff160eb458e8db83ea20107752127512cd9e2f8f5fe15667a48552f93dfeef0d3ba6528925a7d838b91f232d87389d8ffc269ac78ea788a50d1541ba8323ea3a786c045d6c7d868870281a0c97a8a3916a1863add99ca540b79d81c92ceef7b130f874f5cc9d009340b9a51863cba06956bc965851e003a9488f4e113f22c7f3a923487ea68cb05507cdd520f2eead51e4f2a385006963d8c69aac4402eb6a9f7cf4cca482bb192c27612c323d1e6f302e19301efaf7a27816665d2620d093e6a327b0780a8c546add3838bbc42c50d40ffd7c1e63311c6713b208526ebfaa9d48122a5ebb12e16614159844551c337f1f1e5cccf1167bef216353892ed5ca68876fbf503de04cfab8171bd2a596a78348dcf0f05b9168e5a7927babea487bd82377b42d1bfa33f7558de9a12d99627a1fc154ba9d5888256b0510abd6f5fdc5c2a477489aca618e9")
+
+19:07:48 executing program 1:
+r0 = accept(0xffffffffffffffff, &(0x7f0000000000)=@l2tp6={0xa, 0x0, 0x0, @empty}, &(0x7f0000000080)=0x80)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_REALDEV_NAME_CMD(r0, 0x8982, &(0x7f00000000c0)={0x8, 'tunl0\x00', {'batadv0\x00'}, 0xffff})
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffffff, 0x8933, &(0x7f0000000100)={'xfrm0\x00', <r1=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r0, 0x8933, &(0x7f0000000140)={'wg2\x00', r1})
+ioctl$sock_SIOCGIFVLAN_DEL_VLAN_CMD(r0, 0x8982, &(0x7f0000000180)={0x1, 'erspan0\x00', {}, 0x8000})
+r2 = accept(r0, &(0x7f00000001c0), &(0x7f0000000240)=0x80)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r2, 0x8933, &(0x7f0000000280)={'batadv_slave_0\x00'})
+setsockopt$netlink_NETLINK_DROP_MEMBERSHIP(r0, 0x10e, 0x2, &(0x7f00000002c0)=0x2, 0x4)
+getsockopt$IP_VS_SO_GET_DESTS(0xffffffffffffffff, 0x0, 0x484, &(0x7f0000000300)=""/149, &(0x7f00000003c0)=0x95)
+ioctl$sock_inet_SIOCSIFNETMASK(r0, 0x891c, &(0x7f0000000400)={'batadv_slave_1\x00', {0x2, 0x4e23, @empty}})
+ioctl$sock_SIOCSIFVLAN_ADD_VLAN_CMD(r2, 0x8983, &(0x7f0000000440)={0x0, 'veth0_virt_wifi\x00', {0x3}, 0x1})
+r3 = socket$netlink(0x10, 0x3, 0xb)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_EGRESS_PRIORITY_CMD(r3, 0x8982, &(0x7f0000000480)={0x3, 'veth1_to_team\x00', {0xffff}, 0x8})
+r4 = accept(0xffffffffffffffff, &(0x7f00000004c0)=@nfc_llcp, &(0x7f0000000540)=0x80)
+ioctl$FIGETBSZ(r4, 0x2, &(0x7f0000000580))
+r5 = accept4(r0, 0x0, &(0x7f00000005c0), 0x80000)
+ioctl$sock_ifreq(r5, 0x8926, &(0x7f0000000600)={'batadv_slave_1\x00', @ifru_ivalue=0x67bb52c6})
+r6 = accept4(0xffffffffffffffff, &(0x7f0000000700)=@rc, &(0x7f0000000780)=0x80, 0x0)
+ioctl$sock_SIOCGIFINDEX(r6, 0x8933, &(0x7f00000007c0)={'veth1\x00'})
+getsockopt$IP_SET_OP_GET_FNAME(r2, 0x1, 0x53, &(0x7f0000000800)={0x8, 0x7, 0x0, 'syz2\x00'}, &(0x7f0000000840)=0x2c)
+
+19:07:48 executing program 2:
+setsockopt$netlink_NETLINK_LISTEN_ALL_NSID(0xffffffffffffffff, 0x10e, 0x8, &(0x7f0000000000)=0x2, 0x4)
+setsockopt$netlink_NETLINK_NO_ENOBUFS(0xffffffffffffffff, 0x10e, 0x5, &(0x7f0000000040)=0x59, 0x4)
+r0 = accept4(0xffffffffffffffff, &(0x7f0000002780)=@generic, &(0x7f0000002800)=0x80, 0x0)
+ioctl$sock_SIOCGIFCONF(r0, 0x8912, &(0x7f0000002840)=@buf)
+getsockopt$IP_VS_SO_GET_SERVICE(r0, 0x0, 0x483, &(0x7f0000002880), &(0x7f0000002900)=0x68)
+r1 = accept4(0xffffffffffffffff, &(0x7f0000002940)=@l2tp6={0xa, 0x0, 0x0, @dev}, &(0x7f00000029c0)=0x80, 0x80000)
+ioctl$sock_SIOCINQ(r1, 0x541b, &(0x7f0000002a00))
+getsockname(0xffffffffffffffff, &(0x7f0000002a40)=@pppol2tpv3={0x18, 0x1, {0x0, <r2=>0xffffffffffffffff}}, &(0x7f0000002ac0)=0x80)
+ioctl$sock_SIOCSIFVLAN_SET_VLAN_EGRESS_PRIORITY_CMD(r2, 0x8983, &(0x7f0000002b00)={0x3, 'bridge_slave_1\x00', {0x5}, 0x7})
+ioctl$sock_SIOCBRDELBR(r1, 0x89a1, &(0x7f0000002b40)='batadv0\x00')
+ioctl$sock_SIOCGIFCONF(r2, 0x8912, &(0x7f0000002c40)=@buf={0xaf, &(0x7f0000002b80)="92b7188208cb80d2440de6830fcd8a65954bdcf49fb816da214e206a2816321b61a0b56496ee7d8e278ec6abfa8efecb26cad805b8845facdc8598da5495288078c751a0a0e942b959bb3f3cb32a5f6929237b878d38077f054807db94d3b2d6114070a34acc1ab90a48b73bcba870a1b59f721882bc2e73f10fbcded17a9d0eed6b97473d651c7734e4489cac3b4dfb870d0f499559411bf501568d48996c5d3af91361d1fb15b4f80f53b6d7a982"})
+recvmsg(r1, &(0x7f0000004200)={&(0x7f0000002c80)=@rxrpc=@in6={0x21, 0x0, 0x2, 0x1c}, 0x80, &(0x7f00000040c0)=[{&(0x7f0000002d00)=""/4096, 0x1000}, {&(0x7f0000003d00)=""/106, 0x6a}, {&(0x7f0000003d80)=""/158, 0x9e}, {&(0x7f0000003e40)=""/223, 0xdf}, {&(0x7f0000003f40)=""/175, 0xaf}, {&(0x7f0000004000)=""/168, 0xa8}], 0x6, &(0x7f0000004140)=""/185, 0xb9}, 0x40000100)
+r3 = accept(r0, &(0x7f0000004240)=@ax25={{}, [@netrom, @remote, @remote, @bcast, @netrom, @netrom, @remote, @bcast]}, &(0x7f00000042c0)=0x80)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000004340)={0x8, &(0x7f0000004300)=[{0x4ae, 0x3, 0x5, 0x4}, {0x8001, 0x1, 0x5, 0x10000}, {0x0, 0xcd, 0x5, 0x2}, {0xff, 0x8, 0x7, 0x80}, {0x20, 0x0, 0x80, 0x1}, {0x1182, 0x2, 0x7, 0x7}, {0x400, 0x5, 0x2, 0x7fffffff}, {0x5, 0x80, 0x8, 0x7}]}, 0x10)
+ioctl$sock_inet_SIOCGIFDSTADDR(r1, 0x8917, &(0x7f0000004380)={'veth0\x00', {0x2, 0x4e20, @local}})
+r4 = socket$netlink(0x10, 0x3, 0x5)
+ioctl$sock_ifreq(r4, 0x8917, &(0x7f00000043c0)={'veth0_virt_wifi\x00', @ifru_mtu=0x653})
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_inet_SIOCSIFPFLAGS(r5, 0x8934, &(0x7f0000004400)={'netdevsim0\x00', 0x8})
+ioctl$sock_inet_SIOCGIFNETMASK(0xffffffffffffffff, 0x891b, &(0x7f0000004440)={'vlan0\x00', {0x2, 0x4e23, @local}})
+
+[   21.432735] audit: type=1400 audit(1586977668.748:12): avc:  denied  { map } for  pid=1604 comm="syz-executor.3" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   21.499823] cgroup1: Unknown subsys name 'perf_event'
+[   21.503286] cgroup1: Unknown subsys name 'perf_event'
+[   21.505503] cgroup1: Unknown subsys name 'net_cls'
+[   21.506885] cgroup1: Unknown subsys name 'perf_event'
+[   21.508238] cgroup1: Unknown subsys name 'net_cls'
+[   21.510682] cgroup1: Unknown subsys name 'perf_event'
+[   21.514208] cgroup1: Unknown subsys name 'net_cls'
+[   21.517710] cgroup1: Unknown subsys name 'net_cls'
+[   22.306303] audit: type=1400 audit(1586977669.621:13): avc:  denied  { create } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.317037] audit: type=1400 audit(1586977669.622:14): avc:  denied  { write } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   22.328156] audit: type=1400 audit(1586977669.633:15): avc:  denied  { read } for  pid=1610 comm="syz-executor.2" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.355066] audit: type=1400 audit(1586977671.670:16): avc:  denied  { associate } for  pid=1611 comm="syz-executor.0" name="syz0" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   24.412957] audit: type=1400 audit(1586977671.728:17): avc:  denied  { create } for  pid=3341 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_crypto_socket permissive=1
+19:07:51 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000080)=[{}, {0x15}, {0x16}]}, 0x10)
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000340)={&(0x7f00000002c0)={0x14, 0x0, 0x105}, 0x14}}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+getsockopt(r1, 0x3, 0x1, &(0x7f00000000c0)=""/157, &(0x7f0000000000)=0x9d)
+
+[   24.443958] audit: type=1400 audit(1586977671.759:18): avc:  denied  { ioctl } for  pid=3349 comm="syz-executor.2" path="socket:[11014]" dev="sockfs" ino=11014 ioctlcmd=0x8934 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.450050] audit: type=1400 audit(1586977671.759:19): avc:  denied  { setopt } for  pid=3362 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   24.458463] audit: type=1400 audit(1586977671.774:20): avc:  denied  { getopt } for  pid=3362 comm="syz-executor.0" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+19:07:51 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000000c0)={0x3, &(0x7f0000000000)=[{0xc}, {0x5c}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000100)=ANY=[@ANYBLOB="14000000", @ANYRES16=r1, @ANYBLOB="110700660c0c9fcc5caa7f000000"], 0x14}}, 0x0)
+
+19:07:51 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000080)=[{0x64}, {0x50}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f00000002c0)={&(0x7f0000000100)=ANY=[@ANYBLOB="3f054b0900005aeb165bc2ef83315ef703", @ANYRES16=0x0, @ANYBLOB="1c3100000000a29ffb45a1fac23c"], 0x14}}, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_NAME_TYPE_CMD(r0, 0x8982, &(0x7f0000000000)={0x6, 'bond_slave_0\x00', {0x1}, 0x8001})
+
+19:07:51 executing program 2:
+r0 = accept(0xffffffffffffffff, &(0x7f0000000000)=@phonet, &(0x7f0000000080)=0x80)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_EGRESS_PRIORITY_CMD(r0, 0x8982, &(0x7f0000000100)={0x3, 'gre0\x00', {0x1}, 0x80})
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000180)=ANY=[@ANYBLOB="cc0100002a0029444c48decb01e8e4570aa43b3d010000009bcd926600000000000000000047112beec114e1f2ed0824d56c3985f41f3ee836070be8e1fe95ff172acf172493662553130e000000f13b7a9976a7ff38e8a9673752c497271778880b147ae230df4ed47ae8681b8490f91d685919bc496ab96b0cc298ecfaab5d58e3d213e61f57cae12cef4fb7152589e9e6ed0372d9b8e9c7728c2dea5849647eb14696a8bf5e3f99e0e484b2afa5b38f4850ea80cae1ae1f6f17ca59e782e074d6fab6cf872cda26a3f3d2d3b523cee0aa381b535bcb0c945fc4867b1ecc0f84dcff57791eefa94e4298f14656ca2710bea2cd8953b23b3a5bf7c5cfdfd0ce767e033aff4d51d0d217b09e4830c913c2032830d21027dc5495800b9987e2e02cecf9297215f8e459e2471effedf2d11e41666538c4b48870d37c049d1998a7389620711ed1875618e50411957441bad4c394b3ac2e4d56a42677e0c1f269515e57feed4f0ba396facaf57391f092f1301f41cf0b5b8aaddd1f27f56608064dccdee3688858ec2e881bca59e9259b6fa36b636b7d73530005172c07b8ce6e37375ec0f85ccaf5ff0c464bc582", @ANYRES16, @ANYBLOB="01000000a01a4941917208be700b0087000600eb00070000000000ff0066000300d4c249af3c47f8b0f2ea088cb328335007700085463258f18ac102a415674205b1707a55480899b27c019d5ced92b819dd5fe446fa7706aef2b4783803324e7fc519ff4868b0208472de1f55ce1c02120788f1455005296d92d17e2a444d64de8255", @ANYRES32=0x0, @ANYBLOB="20002d8005000000090000000a0000b86d3bef010000010007044fa3bc0000000c009900008e0000000000000a00f50091699880e01300007053a8446e547362b32c13bc7ea2294199d74e31ac78c1bd716be429d1f4dc001d0b598903dff347e203d343309bc9dd476fa58cd1ea91d1f1ede885b5105113749930fbc3cf13ac53603df79a66a45f"], 0x1cc}}, 0x0)
+
+[   24.536372] netlink: 424 bytes leftover after parsing attributes in process `syz-executor.2'.
+[   24.611405] audit: type=1400 audit(1586977671.926:21): avc:  denied  { create } for  pid=3424 comm="syz-executor.1" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_connector_socket permissive=1
+[   24.623482] audit: type=1400 audit(1586977671.937:22): avc:  denied  { ioctl } for  pid=3424 comm="syz-executor.1" path="socket:[10204]" dev="sockfs" ino=10204 ioctlcmd=0x8982 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_connector_socket permissive=1
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCETHTOOL(r0, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f0000000000)=@ethtool_cmd={0x4b, 0x2f, 0x0, 0x0, 0x0, 0x0, 0x0, 0xff}})
+
+19:07:52 executing program 2:
+r0 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_FLAG_CMD(r0, 0x8982, &(0x7f0000000000)={0x7, 'veth0_to_team\x00', {0x8000}, 0x3})
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f00000005c0)=ANY=[@ANYBLOB="cc0100004a00293e4c48decb01e8e4570aa43b3d080000009bcd9266000018000b74f744a873165ca7cedd74ae88bf994c040047112beec114f3d2ed0824d56c3985f41f3ee836070be8e1fe95ff172acf172493662553130e0000000769831a06a206e225c19a36fa9fef20ecd46002f86891271e8a0d5bf9d8c67695eff0defc812b99ab8a2fb8a7020287b8d8022c9a5a54b078b175faf6f3c81993c1dcd21ce75042ef40f979692ccb6a2bfba536b7c45b3a872c190ab820c536872583bffad7ae0b2449c8931635be36e5b5bec84019cee02dfb9558a0", @ANYRES16, @ANYBLOB="01000000a01a4941917208be700b0087000600eb00070000000000ff0066000300d4c249af3c47f8b0f2ea088cb328335007700085463258f18ac102a415674205b1707a55480899b27c019d5ced92b819dd5fe446fa7706aef2b4783803324e7fc519ff4868b0208472de1f55ce1c02120788f1455005296d92d17e2a444d64de8255", @ANYRES32=0x0, @ANYPTR=&(0x7f0000000000)=ANY=[]], 0x5}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+getsockopt$sock_buf(r2, 0x1, 0x2b, &(0x7f00000002c0)=""/189, &(0x7f0000000240)=0xbd)
+sendmsg$NL80211_CMD_DEL_STATION(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+getsockopt$IP_SET_OP_GET_BYNAME(0xffffffffffffffff, 0x1, 0x53, &(0x7f00000001c0)={0x6, 0x7, 'syz0\x00'}, &(0x7f0000000200)=0x28)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+getsockopt$sock_buf(r4, 0x1, 0x1c, &(0x7f0000000100)=""/53, &(0x7f0000000180)=0x35)
+getsockopt$IP_VS_SO_GET_VERSION(r0, 0x0, 0x480, &(0x7f0000000040), &(0x7f0000000080)=0x40)
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCSIFVLAN_DEL_VLAN_CMD(r0, 0x8983, &(0x7f0000000380)={0x1, 'team_slave_1\x00', {}, 0x1000})
+ioctl$FS_IOC_GET_ENCRYPTION_PWSALT(r5, 0x40106614, &(0x7f0000000280))
+socket$nl_generic(0x10, 0x3, 0x10)
+
+19:07:52 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x3d, 0x0, 0x1}, {0x84}, {0x6}]}, 0x10)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f00000000c0)=ANY=[]}, 0x1, 0x0, 0x0, 0x20004895}, 0x0)
+
+19:07:52 executing program 1:
+r0 = socket$netlink(0x10, 0x3, 0x4)
+ioctl$int_in(r0, 0x5452, &(0x7f00000001c0)=0xfffffffffffffffb)
+r1 = socket$netlink(0x10, 0x3, 0x6)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(r1, 0x10e, 0x1, &(0x7f0000000000)=0x4, 0x4)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r1, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={0x0}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000100)={0x2, &(0x7f0000000180)=[{0x30, 0x0, 0x0, 0xfffff010}, {0x6}]}, 0x10)
+r2 = socket$netlink(0x10, 0x3, 0x7)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r2, &(0x7f0000000340)={&(0x7f0000000200)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000300)={&(0x7f0000000040)=ANY=[@ANYBLOB="aafeffff", @ANYRES16=0x0, @ANYBLOB="00000000000000000000080000000000990000000000000000000800010000000000a5b92e722bf4fd5ba78d8e83aaf8408a9ae579cf5d5e2c08515a9a07df5c201dfdd510d0702700e01d7aa82755550656e254fe9b4aa5383301"], 0x30}}, 0x0)
+
+19:07:52 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)=ANY=[@ANYBLOB="14000000", @ANYRES16=r2, @ANYBLOB="0100000002000000000014000000"], 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000000)={0x0, &(0x7f0000000100)}, 0x10)
+ioctl$sock_TIOCINQ(r0, 0x541b, &(0x7f00000000c0))
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000040)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+
+19:07:52 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x3, &(0x7f0000000000)=[{0x24}, {0x3}, {0x6}]}, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_NEW_STATION(r1, &(0x7f0000000140)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f0000000100)={&(0x7f00000000c0)={0x28, r4, 0x10, 0x70bd25, 0x25dfdbfe, {}, [@NL80211_ATTR_MAC={0xa}, @NL80211_ATTR_MGMT_SUBTYPE={0x5, 0x29, 0xa}]}, 0x28}}, 0x80)
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000200)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+
+19:07:52 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x4c}, {0x64}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000300)={0x0, 0xffffffffffffff8f, &(0x7f00000002c0)={&(0x7f0000000280)={0x14, 0x0, 0x5d867b6af9c311c}, 0x14}}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f0000000240)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x40000000}, 0xc, &(0x7f0000000200)={&(0x7f0000000140)={0x2c, r4, 0x1, 0x70bd29, 0x25dfdbfb, {}, [@NL80211_ATTR_LOCAL_MESH_POWER_MODE={0x8, 0xa4, 0x1}, @NL80211_ATTR_STA_PLINK_STATE={0x5, 0x74, 0x6}, @NL80211_ATTR_STA_SUPPORTED_OPER_CLASSES={0x8, 0xbe, "bd7db4cf"}]}, 0x2c}, 0x1, 0x0, 0x0, 0x4004080}, 0x4004)
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r5, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r5, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)=ANY=[@ANYBLOB="14000000", @ANYRES16=r6, @ANYBLOB="0100000000100000000014000000"], 0x14}}, 0x0)
+r7 = accept(r5, 0x0, &(0x7f0000000340))
+setsockopt$sock_void(r7, 0x1, 0x0, 0x0, 0x0)
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+getsockopt$IP_VS_SO_GET_DESTS(r1, 0x0, 0x484, &(0x7f0000000080)=""/21, &(0x7f00000000c0)=0x15)
+
+19:07:52 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_GET_SCAN(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000300)={0x14, r1, 0x1}, 0x14}, 0x1, 0x0, 0x0, 0x4008002}, 0x0)
+recvmsg(r0, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000002c0)=[{&(0x7f00000000c0)=""/103, 0x67}], 0x1}, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="0800e7ff6800ff"]})
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f0000000000)=0x38, 0x4)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r2, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+
+19:07:52 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = accept(r0, &(0x7f00000004c0)=@tipc, &(0x7f0000000580)=0x80)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x0, &(0x7f0000000040)}, 0x10)
+r2 = accept4(r0, 0x0, &(0x7f0000000000), 0x800)
+ioctl$FS_IOC_REMOVE_ENCRYPTION_KEY_ALL_USERS(r2, 0xc0406619, &(0x7f00000000c0)={{0x2, 0x0, @identifier="26106a7cb984cbccf1c3ee9a6426fa3e"}})
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f0000000200)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+r3 = accept(r2, &(0x7f0000000100)=@nfc, &(0x7f0000000180)=0x80)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCSIFVLAN_DEL_VLAN_CMD(r4, 0x8983, &(0x7f0000000240)={0x1, 'team_slave_1\x00', {}, 0x7})
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc, 0x0, 0x3}, {0x44}, {0xdf07}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r6, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r7, 0x1}, 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r6, 0x8933, &(0x7f0000000300)={'batadv_slave_1\x00', <r8=>0x0})
+sendmsg$NL80211_CMD_SET_STATION(r3, &(0x7f0000000400)={&(0x7f00000001c0)={0x10, 0x0, 0x0, 0x20000000}, 0xc, &(0x7f00000003c0)={&(0x7f0000000340)={0x4c, r5, 0x8, 0x70bd2d, 0x25dfdbfe, {}, [@NL80211_ATTR_REASON_CODE={0x6}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x5f9b, 0x4}}, @NL80211_ATTR_STA_PLINK_STATE={0x5, 0x74, 0x4}, @NL80211_ATTR_STA_FLAGS2={0xc, 0x43, {0x6, 0x9}}, @NL80211_ATTR_MESH_PEER_AID={0x6, 0xed, 0x26c}, @NL80211_ATTR_IFINDEX={0x8, 0x3, r8}]}, 0x4c}, 0x1, 0x0, 0x0, 0x4000}, 0x4044040)
+
+[   24.926615] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3473 comm=syz-executor.1
+19:07:52 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_GET_STATION(r1, &(0x7f0000000240)={&(0x7f0000000180)={0x10, 0x0, 0x0, 0x800000}, 0xc, &(0x7f0000000200)={&(0x7f00000001c0)={0x14, r4, 0x100, 0x70bd2b, 0x25dfdbfd}, 0x14}, 0x1, 0x0, 0x0, 0x8404}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x4, &(0x7f0000000000)=[{0x25, 0x0, 0x2}, {}, {}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r6, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r7, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCGIFINDEX(r6, 0x8933, &(0x7f0000000640)={'team0\x00', <r8=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r1, 0x8933, &(0x7f0000000680)={'batadv0\x00', r8})
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000100)={&(0x7f00000000c0)={0x14, r5, 0x1}, 0x14}}, 0x0)
+
+19:07:52 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = accept4(0xffffffffffffffff, &(0x7f0000000400)=@in6={0xa, 0x0, 0x0, @mcast1}, &(0x7f0000000480)=0x80, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x5, &(0x7f0000000000)=[{0x400, 0x80, 0x8, 0xed08}, {0x2, 0x9, 0x4, 0x3}, {0x5, 0x9, 0xd4, 0x4}, {0x81, 0x4, 0x1f, 0xb4fb}, {0x5, 0x1, 0x1, 0x200}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x9, &(0x7f0000000200)=[{0x3, 0x7, 0x20}, {0xf12b, 0x9, 0x6, 0x6240}, {0x4, 0x6, 0x9, 0x5}, {0x40, 0xd, 0x5, 0x5}, {0x5, 0x9, 0x39, 0x7}, {0x9, 0x3, 0xfa, 0x10000}, {0x3f, 0x40, 0x8, 0x2}, {0x3ff, 0x0, 0x6, 0xabd5}, {0x7ff, 0xf8, 0xcc, 0x4}]}, 0x10)
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000002c0)=ANY=[@ANYBLOB="14000000", @ANYRES16=r2, @ANYBLOB="0100000000000000000011000000856e830124ab1362d68e223171e4e9b128e061095d3296bfe24f6ae5a00ac6e5edabc2ab7a7dd6a316087d05737bfedc4007b9e0b11677643d7806f2b2c60745fc040dd43ea181f93fa784dd1eac72229844d8bc3f38d9d737c6726e920498a464b10075092d00ed47977f2c42b3796fd759c1c44d4a1ba31d340f19192492eaf66077eda58901bc0ac5c8bed1f699140e6e8a146df8197be56a0d8f5e23f70fc4bd8293fe61"], 0x14}}, 0x0)
+
+19:07:52 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000080)=[{0x34, 0x0, 0x0, 0xffffffff}, {0x15}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000000040)={0x0, 0x0, &(0x7f0000000200)={&(0x7f00000000c0)=ANY=[@ANYBLOB="14000000bc63a0df461e24f6f397b81a7e3eaac3508072da2901", @ANYRES16=0x0, @ANYBLOB="0200000000000000000012000000"], 0x14}}, 0x0)
+
+19:07:52 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x2, &(0x7f0000000080)=[{0x28, 0x0, 0x0, 0xfffff024}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_GET_INTERFACE(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000001c0)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000440)=ANY=[@ANYBLOB="140000005b0d2d810e09edf40e2aa224a0e64329541e1c3175cc023280e7836b2c22dbd87f2816dca1f6ed839a60ba72f90dd86305d7b406c15db517e0cb43272b828e203364513e09cd594f9921494685c25269c86738d69758", @ANYRESHEX, @ANYRESOCT], 0x3}, 0x1, 0x0, 0x0, 0x20000005}, 0x0)
+r2 = accept4(r1, &(0x7f00000000c0)=@vsock={0x28, 0x0, 0x0, @local}, &(0x7f0000000000)=0x80, 0x0)
+getsockopt$netlink(r2, 0x10e, 0x5, &(0x7f00000002c0)=""/184, &(0x7f0000000140)=0xb8)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCADDRT(0xffffffffffffffff, 0x890b, &(0x7f00000005c0)={0x0, @rc={0x1f, @any, 0x7}, @nl=@unspec, @xdp={0x2c, 0xd, <r6=>0x0, 0x1c}, 0xa585, 0x0, 0x0, 0x0, 0x2293, &(0x7f0000000580)='ip6erspan0\x00', 0xffffffffffff7fff, 0x512, 0x4b1})
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r1, &(0x7f00000006c0)={&(0x7f0000000200)={0x10, 0x0, 0x0, 0x800}, 0xc, &(0x7f0000000680)={&(0x7f0000000640)={0x3c, r4, 0x2, 0x70bd2a, 0x25dfdbfc, {}, [@NL80211_ATTR_IFINDEX={0x8, 0x3, r6}, @NL80211_ATTR_MEASUREMENT_DURATION_MANDATORY={0x4}, @NL80211_ATTR_SCHED_SCAN_RSSI_ADJUST={0x6, 0xf7, {0x3, 0x5}}, @NL80211_ATTR_SCHED_SCAN_DELAY={0x8, 0xdc, 0xfffff99a}, @NL80211_ATTR_BG_SCAN_PERIOD={0x6, 0x98, 0xfc00}, @NL80211_ATTR_SCHED_SCAN_MULTI={0x4}]}, 0x3c}, 0x1, 0x0, 0x0, 0x48090}, 0x40000)
+ioctl$sock_SIOCADDDLCI(0xffffffffffffffff, 0x8980, &(0x7f0000000400)={'virt_wifi0\x00', 0x1ff})
+
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r6, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)=ANY=[@ANYBLOB="8c000000", @ANYRES16=r7, @ANYBLOB="0100000000000000000014000000"], 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_mesh(r6, 0x8933, &(0x7f0000001a80)={'batadv0\x00', <r8=>0x0})
+sendmsg$NL80211_CMD_DEL_STATION(r5, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000001ac0)={0x2c, r2, 0x1, 0x0, 0x0, {}, [@NL80211_ATTR_IFINDEX={0x8, 0x3, r8}, @NL80211_ATTR_STA_CAPABILITY={0x6}, @NL80211_ATTR_REASON_CODE={0x6, 0x36, 0x401}]}, 0x2c}}, 0x20044000)
+ioctl$sock_SIOCGIFVLAN_GET_VLAN_VID_CMD(r1, 0x8982, &(0x7f00000000c0))
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000280)={0x3, &(0x7f00000002c0)=[{0x14}, {0x94, 0x0, 0x0, 0x1ff}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000080)={&(0x7f0000000040)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+r9 = socket$netlink(0x10, 0x3, 0xc)
+ioctl$sock_TIOCOUTQ(r9, 0x5411, &(0x7f0000000240))
+
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x0, &(0x7f0000000080)}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000000)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000340)=ANY=[@ANYBLOB="14000000", @ANYRES16=r1, @ANYBLOB="010000e6ff00000000004c0000b8"], 0x14}}, 0x0)
+
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x24}, {0x35}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000280)=ANY=[@ANYBLOB="14000000", @ANYRES16=r1, @ANYBLOB="01000000005487661052f70a036603422a2ece67bc31837786b8dcd170aef349550d380168aaa4af4385241e6d77880e1b908d797b53d03ef6c74592fd41fae9c8968e300394868886c08e48b664f0f859c21325cfaa4a2d3f0d895d71dba35cc9669c5275718447ca61b1330f748a47515c610be8ec131d2f02ae40b7acded26a6358d0160000000000"], 0x14}}, 0x0)
+
+19:07:52 executing program 3:
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_REALDEV_NAME_CMD(0xffffffffffffffff, 0x8983, &(0x7f0000000140)={0x8, 'ip6gre0\x00', {'bond_slave_0\x00'}, 0x400})
+sendmsg$NL80211_CMD_DEL_STATION(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r0, 0x1}, 0x14}}, 0x0)
+ioctl$FS_IOC_SETFLAGS(0xffffffffffffffff, 0x40086602, &(0x7f0000000100))
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f00000000c0)=[{0x45, 0x0, 0x0, 0x80000000}, {0x5c}, {0x16}]}, 0x10)
+ioctl$sock_SIOCOUTQNSD(r1, 0x894b, &(0x7f0000000080))
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_GET_SCAN(r2, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000040)=ANY=[@ANYBLOB="14000000", @ANYRES16=r3, @ANYBLOB="010100000000000000074c6b1eef66de64c27626940e0020000000"], 0x14}}, 0x0)
+recvmsg(r2, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000002c0)=[{&(0x7f00000000c0)=""/103, 0x67}], 0x1}, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="0800e7ff6800ff"]})
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f00000000c0)=0x38, 0x4)
+r4 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r4, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+sendmsg$NL80211_CMD_GET_STATION(r1, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000000)={&(0x7f0000000200)=ANY=[@ANYBLOB="14000000", @ANYRES16=0x0, @ANYBLOB="0404000000000000080011000000"], 0x14}}, 0x0)
+
+[   25.507686] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3520 comm=syz-executor.3
+[   25.523509] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3520 comm=syz-executor.3
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x14}, {0x2d}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r5, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r5, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r6, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r3, &(0x7f0000000300)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x20000}, 0xc, &(0x7f00000002c0)={&(0x7f0000000200)={0xb8, r6, 0x2, 0x70bd2a, 0x25dfdbfe, {}, [@NL80211_ATTR_MEASUREMENT_DURATION_MANDATORY={0x4}, @NL80211_ATTR_SCHED_SCAN_MATCH={0x94, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x18, 0x1, "b1917096d6b5897f6f9bb6aeefcd1fe16f333ca1"}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x19, 0x1, "cf74c40f86caf77ef5e7fe0aa0988a6c225db9ef04"}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x3c, 0x6, 0x0, 0x1, [@NL80211_BAND_6GHZ={0x8, 0x3, 0x2}, @NL80211_BAND_6GHZ={0x8, 0x3, 0x1}, @NL80211_BAND_5GHZ={0x8, 0x1, 0x1}, @NL80211_BAND_5GHZ={0x8, 0x1, 0xfffffab5}, @NL80211_BAND_2GHZ={0x8, 0x0, 0x7}, @NL80211_BAND_5GHZ={0x8, 0x1, 0x5}, @NL80211_BAND_5GHZ={0x8, 0x1, 0x81}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_RSSI={0x8, 0x2, 0x101}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x18, 0x1, "9aed382add53e7550d440845c04bcbea48befb02"}]}, @NL80211_ATTR_SCHED_SCAN_RSSI_ADJUST={0x6, 0xf7, {0xcc, 0x5}}, @NL80211_ATTR_TX_NO_CCK_RATE={0x4}]}, 0xb8}, 0x1, 0x0, 0x0, 0x8000}, 0x8080)
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000100)={0x14, r2, 0x713}, 0x14}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000080)=[{}, {0x30}, {0x6}]}, 0x10)
+
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$int_in(r0, 0x5452, &(0x7f0000000000)=0x100000001)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000080)=[{0x7c}, {0x28}, {0x6}]}, 0x10)
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f00000002c0)={0x0, 0x0, &(0x7f0000000280)={&(0x7f00000000c0)={0xa0, 0x0, 0x4, 0x0, 0x0, {}, [@NL80211_ATTR_STA_SUPPORTED_OPER_CLASSES={0x6d, 0xbe, "52b0099ae92f97e9e60184669a378ff7b1d9cca7f596c328768c42c3e26067786ca967b322d036bdae63c7d37eb48c4fb48f4dc8cbf99024ec3ee3a1c63f0138ab07a5f034ea26742c33f88261b01da7cccbe75bf668ac8b09fc5fc394f87442f09e5e83f41283a123"}, @NL80211_ATTR_REASON_CODE={0x6, 0x36, 0x3}, @NL80211_ATTR_STA_FLAGS2={0xc, 0x43, {0x4008001, 0x59af}}, @NL80211_ATTR_PEER_AID={0xfffffffffffffffa, 0xb5, 0x109}]}, 0xa0}}, 0x0)
+
+19:07:52 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000200), 0x10)
+getsockopt$bt_hci(0xffffffffffffffff, 0x0, 0x3, &(0x7f0000000400)=""/104, &(0x7f0000000480)=0x68)
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000000380)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000080)=ANY=[@ANYBLOB="14000000", @ANYRES16=0x0, @ANYBLOB="0400000000fcff00000013000000470aca55e74ac7602d3ffedb50805d86fda6a0d78163f4b241a0aade34fbaa5dd390581fa7d9973fd768d82114653a4119e8c224"], 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6, 0x0, 0x0, 0x3}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r5 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x5, &(0x7f0000000500)=[{0x1, 0x5, 0x1, 0x6}, {0xb93, 0x0, 0x9, 0x1000}, {0x1cc9, 0x6, 0x8, 0x3}, {0x4, 0xff, 0x20, 0x9}, {0x0, 0x81, 0x7, 0x8}]}, 0x10)
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r5, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000600)=ANY=[@ANYBLOB="14000000", @ANYRES16=r6, @ANYBLOB="010000000000000000000e56bd39faacd78ffb78ef9746b09fbb6509300943cd401032b1f8769107087cb4bf8bf6442f4d6ec806e3c1eae6d4086f8fbe059717954743eeae12f7a2fe6a0f98ed32c117257c75b0c602ef9af7c9f4f82b8cf9a419f19cf815967a478b815708f3cf0325f6cfff721014cdf2e5e13b52e252d5f031"], 0x14}}, 0x0)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000280)='nl80211\x00')
+sendmsg$NL80211_CMD_NEW_INTERFACE(r5, &(0x7f00000003c0)={&(0x7f0000000240)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000300)={&(0x7f00000002c0)=ANY=[@ANYBLOB='\f\x00\x00\x00', @ANYRES16=r7, @ANYBLOB="200027bd7000fbdbdf250700000008000500020000000c009900ffff000003000000"], 0x28}, 0x1, 0x0, 0x0, 0x81}, 0x20000001)
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r0, 0x8933, &(0x7f0000000100)={'batadv_slave_1\x00', <r8=>0x0})
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r3, 0x8933, &(0x7f0000000140)={'batadv_slave_0\x00', r8})
+
+19:07:52 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000000c0)={0x1, &(0x7f0000000080)=[{0x7, 0x0, 0x20}]}, 0x10)
+getsockopt$sock_cred(r0, 0x1, 0x11, &(0x7f0000000040), &(0x7f0000000100)=0xc)
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000340)={&(0x7f00000002c0)={0x14, 0x0, 0x105}, 0x14}}, 0x840)
+
+19:07:53 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x3d}, {0x84}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+ioctl$FS_IOC_SET_ENCRYPTION_POLICY(r0, 0x800c6613, &(0x7f00000000c0)=@v1={0x0, @adiantum, 0x8, "fec9d847983ef752"})
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCGIFINDEX(0xffffffffffffffff, 0x8933, &(0x7f0000000200)={'nr0\x00', <r4=>0x0})
+r5 = socket$netlink(0x10, 0x3, 0x2)
+ioctl$ifreq_SIOCGIFINDEX_team(r5, 0x8933, &(0x7f0000000140)={'team0\x00', r4})
+sendmsg$NL80211_CMD_DEL_INTERFACE(r2, &(0x7f0000000300)={&(0x7f0000000100)={0x10, 0x0, 0x0, 0x4000}, 0xc, &(0x7f00000002c0)={&(0x7f0000000240)={0x60, r1, 0x200, 0x71, 0x25dfdbfb, {}, [@NL80211_ATTR_WIPHY={0x8, 0x1, 0x4}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'veth0_macvtap\x00'}, @NL80211_ATTR_IFINDEX={0x8, 0x3, r4}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'bond_slave_0\x00'}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'ipvlan1\x00'}]}, 0x60}, 0x1, 0x0, 0x0, 0x20000000}, 0x82)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000440)={0x14, r1, 0x1}, 0x14}}, 0x0)
+
+19:07:53 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000000c0)=ANY=[@ANYBLOB="14000000", @ANYRES16=r5, @ANYBLOB="01000000000000000000140000009d8731ccfabffc5cc724ee8f164688d718cba0112030d31aa59aa6fbdb59b8f4c8ebfe83c010d297a03090f20f0afd525602aa486801b0643612261bbf1d9cfee44605b6829dbef21d45b7026040797574a1081ea8beac4767aa853a6cd059223686809989a0aef870a5ca20e7d33c291287c4be322658138105ab402695e1faf4e5726a07c5e806dbd54fdc5e13e94ead414b970264d5a628a528f90fb9"], 0x14}}, 0x0)
+ioctl$sock_SIOCGPGRP(r4, 0x8904, &(0x7f0000000000)=<r6=>0x0)
+ioctl$sock_SIOCSPGRP(r2, 0x8902, &(0x7f0000000040)=r6)
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000001140)={0x0, 0x0, &(0x7f0000001100)={&(0x7f00000010c0)={0x14, r1, 0x200}, 0x14}, 0x1, 0x0, 0x0, 0x800}, 0x0)
+recvmsg(r0, &(0x7f00000008c0)={&(0x7f0000000380)=@phonet, 0x80, &(0x7f0000000840), 0x58}, 0x0)
+
+19:07:53 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(r0, 0x8933, &(0x7f00000002c0)={'batadv_slave_0\x00', <r3=>0x0})
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f00000003c0)={&(0x7f00000001c0)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000380)={&(0x7f0000000300)={0x60, r2, 0x20, 0x70bd2d, 0x25dfdbfd, {}, [@NL80211_ATTR_SCAN_SSIDS={0x14, 0x2d, 0x0, 0x1, [{0x5, 0x0, [0xe]}, {0x8, 0x0, [0x1a, 0x1b, 0x12, 0x1]}]}, @NL80211_ATTR_MEASUREMENT_DURATION={0x6, 0xeb, 0xa0}, @NL80211_ATTR_SCHED_SCAN_MULTI={0x4}, @NL80211_ATTR_SCHED_SCAN_MULTI={0x4}, @NL80211_ATTR_SCHED_SCAN_INTERVAL={0x8, 0x77, 0x4}, @NL80211_ATTR_SCHED_SCAN_INTERVAL={0x8, 0x77, 0x1000}, @NL80211_ATTR_SCHED_SCAN_RSSI_ADJUST={0x6, 0xf7, {0x3c, 0x5}}, @NL80211_ATTR_SCHED_SCAN_INTERVAL={0x8, 0x77, 0xfff}, @NL80211_ATTR_IFINDEX={0x8, 0x3, r3}]}, 0x60}, 0x1, 0x0, 0x0, 0x4}, 0x10)
+setsockopt$SO_BINDTODEVICE_wg(r0, 0x1, 0x19, &(0x7f00000000c0)='wg1\x00', 0x4)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f00000004c0)={0x4, &(0x7f0000000000)=[{0x35, 0x0, 0x2}, {0x40, 0x0, 0x0, 0x2}, {}, {0x6, 0x6}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(0xffffffffffffffff, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(0xffffffffffffffff, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+r5 = accept4(0xffffffffffffffff, &(0x7f0000000200)=@isdn, &(0x7f0000000280)=0x80, 0x800)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r6, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r7, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r5, &(0x7f0000000480)={&(0x7f0000000400)={0x10, 0x0, 0x0, 0x4}, 0xc, &(0x7f0000000440)={&(0x7f0000000580)={0x644, r7, 0x400, 0x70bd2a, 0x25dfdbfe, {}, [@NL80211_ATTR_MAC={0xa, 0x6, @dev={[], 0x32}}, @NL80211_ATTR_IE={0x55b, 0x2a, "53350f93983fc7982ddcf4ac52392eac4c4d4294fa0dcd769eae91334b60e3e2004f6b4e1ea664600f15d83605d1d4abe455a6c2da6ffe98da02c7cad85a885ceaef8b4204ce22625d0c640afd8843821f0ced843647851cf4942760601fbd532399eabd3a905d7a3c2ec2e040223e028f803f2fa2eba9e160d788ebabfb3855bbfaf3141da583485aaad03b220771ac27d1e71b9189a909c38617645af2964be4c46f875575e8aba0dfe837d5027cdb8d1ffd4a401b8345dd52f286d935e7c4cd53c8c01839b17cb869bd1a55001a2d606f03c5b87e4cb90e749dbb44330b6d710df5b9fb46f5bbefb1093a2b3f7d43bf9991806e7fc1d5ab2785b8c31ee4f23f57fb20a0a3ad8b845568770b73f1d15dd9dafcc835cada0b9cffc962303bef201735854fe1df4fe7900496788725475c0d45e209cdb2230f2e177bc4fddd7d1cf60781945b93a33788b1152f28a2ba4dbf004d74e7efb91d2b4c7c3f1846cf55719e11bb6882bc6ef6acf4436ec19338f1585938412e590961602bebd20448e1c6b87dbbe15cc90b839045207732589b35090f62ec43412c4eed8203ed3cf7cdc530fc153c1e58c3ddbf3a7a33d23d34b2ae3137a7da2f9c2bf5f35c83ff793650fcaf398cf399119c58ea06d961b0b75afa6a93463c4aced0d95b78ae42d587d02fe305c1ae9f97b44b30d521121f3c31983e54aa6677d533f1bfb21ad15b4c22557a85946762d21b1e541e482504990ffb26c3f9fcf2af8df4bd3d92be54a86e4c005bac2ed001375268f40e5bf7a54cefff834bd97bd230f2c7ebb2a32f16d2d3e87ad2ee23e410c754e8bdd1e5310477872814d0313aad233c57562ef5f05d52998d3c7f1d9612d89fb56ec4921d9805981f89df206aff29f7542651c2e3a33f77ff9ca23e6ee29866fdbf7de89d878892ecba7936cbd34e689fa8d31d4727780dde844fa04d9159eb0b466f5c04bb4a66439a5813edea3e205a3886f6d61e6fe8c19421165d5f0b36169a858ef9757f9f9be26e5371998804e63f2e1daaaa6e1810178f96f59f0cfb62ea5a6aa76febc16daecb7225af19a6226b6cf7e4acb9edb33c560757bd6bc6c12ef65f7a4a6d959508da44b4c5a2f78a060cf35861cf135f7575b55c6da849be57bf1ec4ac33047ea8663d459ff2969c007ccd049a05ea467807c82ddc6a1e0668f562c8a85241673ba7994b6ac88a72cdb0103d2c25172ad6a05586a3252faf49288ccfca591acf58168bba95dc3ad0f05de5aa531e547afed8c7b16e95a17f7a6eadd029864845b1bfb16d865d5c63da3c9adfa5091ced805db0bf7ce97d91426221dc4875ecf4ce3e6dcc9a0d98035216c5cda3cc06cfc656c70999df828e1bcbbee72f78a82af0ee2b78be8af6091ae26654b1f23b80f8ab7ad701dfa87b1897ca53b4bad1055358bce5e3220fe89fe22830d76b01fd8b068e4fe5ea93d9f5a9a0aa93def0958e6cf2324cb1c749c1a72db077f9a72289a2ebe10dafa9d0ecb6c44e53cc635a9bbf448635c820f7012d47eff48f38c52c47fdf290cfc8b8ae20b8ff9dd95a95acf0dcfb1e9b1c39d8c441851d22d8d6ce9e7ab569bee7d398d249203852e91127c850e37b6162c16d9ed1fa1bcab5c7fe2817c30dfdd0482be703319953a1a0537aabf7a435805322aa8580a311011b33d5a4c134da461a35bf6d9f562c3231beb1985ee3b940d4bf38527e2ee2022874ebd47fa439c206c8e4335dd23cec8faee7c0c6339134a9e0deaf6226a67744cc2f5d0d102487b6860380eedd43dff6f92f774d26697f504e36def1cbc1995554f4a64d3ece2e5657fbe7e37a3daf9b569ef4798e0544cb5feb7fbf197ca085b7a5c9513d83c861ce50a1a33016958a90dd1385691196e8ff09616fbc6bdc7be932b5e492302b0b516cd4b6dbb6fce7919f"}, @NL80211_ATTR_SCHED_SCAN_MULTI={0x4}, @NL80211_ATTR_SCHED_SCAN_MATCH={0xa0, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x17, 0x1, "479a66e55d4b2f383f8bf2b3b8e0b013533f57"}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x3c, 0x6, 0x0, 0x1, [@NL80211_BAND_6GHZ={0x8, 0x3, 0x401}, @NL80211_BAND_60GHZ={0x8, 0x2, 0xfff}, @NL80211_BAND_5GHZ={0x8, 0x1, 0x204}, @NL80211_BAND_2GHZ={0x8, 0x0, 0x7622}, @NL80211_BAND_6GHZ={0x8}, @NL80211_BAND_5GHZ={0x8, 0x1, 0xffffffff}, @NL80211_BAND_60GHZ={0x8}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0xd, 0x1, "8afc4b071dd749b15b"}, @NL80211_SCHED_SCAN_MATCH_ATTR_BSSID={0xa, 0x5, @dev={[], 0x11}}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x24, 0x6, 0x0, 0x1, [@NL80211_BAND_6GHZ={0x8, 0x3, 0x40}, @NL80211_BAND_2GHZ={0x8, 0x0, 0xd4}, @NL80211_BAND_5GHZ={0x8, 0x1, 0xee}, @NL80211_BAND_60GHZ={0x8, 0x2, 0x2}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_RSSI={0x8, 0x2, 0x8}]}, @NL80211_ATTR_SCHED_SCAN_MATCH={0x18, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x11, 0x1, "8ab0810d76f21da88d58109460"}]}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x87, 0x2}}]}, 0x644}, 0x1, 0x0, 0x0, 0x1}, 0x8800)
+r8 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000100)={0x14, r8, 0x711}, 0x14}}, 0x0)
+
+19:07:53 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xfff, 0x40, 0x3f, 0x4067}, {0x400, 0x4, 0x3, 0x7fffffff}, {0x4007, 0x99, 0x8, 0x6}, {0x8, 0x1, 0x5, 0x3c4}]}, 0xfffffffffffffd5c)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+getpeername(r2, &(0x7f00000000c0)=@xdp, &(0x7f0000000140)=0x80)
+sendmsg$NL80211_CMD_SET_STATION(r0, &(0x7f0000000200)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000280)={0x48, r1, 0x20, 0x70bd28, 0x0, {}, [@NL80211_ATTR_STA_AID={0x6, 0x10, 0x22}, @NL80211_ATTR_STA_SUPPORT_P2P_PS={0x5, 0xe4, 0x1}, @NL80211_ATTR_STA_CAPABILITY={0x6}, @NL80211_ATTR_STA_SUPPORTED_RATES={0x1a, 0x13, "2aeb2508206a13fb23f76a5af14e4930080e591adf8a"}]}, 0x48}}, 0x0)
+
+19:07:53 executing program 2:
+r0 = socket$netlink(0x10, 0x3, 0x9)
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f00000001c0)={0xfffffffffffffff0}, 0x14}}, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000300)={0x4, &(0x7f00000002c0)=[{0xf801, 0x81, 0x0, 0x6}, {0x0, 0x0, 0xfc, 0x10000}, {0x2, 0x2, 0x0, 0x7}, {0x8001, 0x0, 0x86, 0xffffff75}]}, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r3 = accept4(0xffffffffffffffff, 0x0, &(0x7f00000000c0), 0x80800)
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r3, &(0x7f0000000280)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x80}, 0xc, &(0x7f0000000200)={&(0x7f0000000580)={0x16e0, r2, 0x20, 0x70bd27, 0x25dfdbfc, {}, [@NL80211_ATTR_WIPHY={0x8, 0x1, 0x4}, @NL80211_ATTR_MAC={0xa, 0x6, @random="d87bd248b767"}, @NL80211_ATTR_BG_SCAN_PERIOD={0x6, 0x98, 0x1ff}, @NL80211_ATTR_MEASUREMENT_DURATION_MANDATORY={0x4}, @NL80211_ATTR_SCAN_SUPP_RATES={0x126c, 0x7d, 0x0, 0x1, [@NL80211_BAND_6GHZ={0xc0, 0x3, "50a9153f5922ae8c5b3ffe4b9245f817a2cdef835c331589820016a335c4d2255c2d50d75fd92b5fabf532473fc4bdc685618856ee65652a3d20e7ed351cb6f1403cd8e19471c1aaa3b0c228759bc602bae23b2a202f18542785ab0074189e6157174611cb580a6953851d95dcbb4fb36bc82ff4e6b297e521c77b640c356c35f0b99ae36afd181f1cf29b902715faab80f1458d2f30aeb45aa37e2f077c882d954bde58070af2e4bd9f22dd2064cc90d20b6ddf773879d53237aa65"}, @NL80211_BAND_2GHZ={0x1004, 0x0, "e7badb9feabf3499b8a2b3c0e6b9c916e552c35725123f2823a2106fcc22cf34a4a4c6594ac14754831e69adf39b4edfbe2b6f672ae5dbeef593adae0e68d30e401814f417c217c394bf77604ee0a5e51c49a2c893f141cd7f283a10af75f6a1024164db74ece0a68ffa40cd2b3608af6f3cad581d6c1abcfb5c5b7d3f09daa9e21b8d3a7bdab141d2cf4e2d3486e4bfb187ba132faf0a28a60f637fcc3b475953e43dedb6e77fd3f9fa761537064beb66ccf4820c59e92a82b31fcb381e941e7a6b4d7397c5e0ef64762411cb6c1f0a3f1033b017f5ca996059ebe1588eb20119fb1ef4f0042e2caa4c43a3a1fa2b55a73daf3873b8b8038178f2da250190333e70d6757426cf371273953116bda9a4a5ed7d3af916f520a2d7e238c5901edd838947232cd3743c3f5580b0e44dc995af36a788d75d74069006302c9af525472225ffd5eeec8b2a66d9f014878a3a1cc6a71f6c7d3d4fdef12ab898f386acb6d489ec96985abbd3a7cb16c506378107a440a658ffaa5ffd762caef6dad1da77a030ceac60505e03b2cc6e6c3708cf5472119239ce82e304b6ee7f697e923f340697a38ac638e66ec9cd2664f0e253cb2528309807f5903dd0a26e768a34a0f7ea7d683a8fa254fc66039cced7b7a08ce20baea2d3a850d1bc22c1398f49d662754ba3869fcb3655b3643641354006d706ea5e4cbe8a94191e35263c6fc2e8feaea2ce3994609db72728f040f3a9a722fcec7e8a57712bb048c8ccae89f92f2bc42afc5112a7775172f34b7557089690fcb08f260474dd6e7ae7dbe7896df1fb3d2b890cc65c9fff09cf3604934c27759ce65f68d5078e559e0cfb7970e7e322d6a147092cb1d60781a4eb9e51bc9c920997e112a8d883df75b73be2e8d66c25ab6b9af11a47fee31bdfd9a29229b198a31098f9913c3e5497607b7cd50a170f6d8606aafbe54677c42e4ecd4a24785b7da960377b0806659603ddd5dae683550d8903a484e89c1f3810709aac93e3103398d586a7aa5e5059c281dcd7b26183a86f462a7d85e922a10b50f5c0740888e92f5ed335aaf3dd6516e3037d7d9a5abb44d714333e5d8e14944b5e43baae4fcba225da937d8a1f6a46f3285e88c7218d4a5f165038608f266cd9981ba9036e3cf8da1447dd41d8aa5dd4a403090aaf8c1ba57f2b33a188babd8a7ce1b5c29939ec64fcc57e5f2077fbaa5b05238066e6725cd38fa53ea1c9333d12361a8b880f54dc402021d279df63dcb02f6f9a1f1c50ba0de51c15c234f6672030b16b1b5c52f3724e8e4d8ee94c0c7498b770d3bea3e687e51c66a42d877502061027ddb78cf283e84bc437a17dc64153f7db4ce56a3ff99136dbad30adc8e40d5bed2896b3e2034ee4e5124be6074b6c860a8441024435d605ad111cc72eb8e4a606d3943aa814ac6089a0112075cf87ffa80f1f8db9250b1b18bdaa8b7ad3e5d049bf83ecdcdf0ac37b2d30830bd692e4b299cc34ddb57de77af0230714cadfff14a92d3ced33bea10a1db2e7a669e1f10b79badf7e7adf7e33f43ce19f0ae40ae0109aea676409bf4dbfbee0faf93fcab4703c0726f85c62358749683c9d04ad457c5264fdb444ba55876996e1c70b66454fb30ca6efe89873446c2ad833b9c50097d0ab76bf82c28b8fa910ddf18d21ada946e55fb9ceee8e565e20519fc0bf2d0dba1e0cbb8e747204b02900e5eae932fd7efe961e35bf5345db8c1c17fef08ae4e4c67ce8d1141651656b8fb0ba7980989330a4fd4a4dc801f2258899741d1fae94d9fbd671155a4472984304c3fbb6745a9be4a4faf2d84ecf5feebff4ff5b26b880c4342d1281aec0886155ba69255649879061c7a6e3b33da11db76976f4e631a1ba845fdc38d3b2a5e3ec7d4082bc1973666ab9a8c4ab2903dd66deea79f5a818b2b324d35b980a20e41c887f649c5571ff9aa2664e6254093f3db4ed1a7f1361e2b976e782a0ce3c909a25ccced3c6b27a4deca5497bf3432efd710fd482478d21edcc29701ea141cedc3dc3758db2752aa1f2234b454d348cbea74fbae695aae224372e0f0652087b57c24025137f17f19b60cd153b37ee3c37ff757242525b3eb640083832a9b83d4b879810a6349fd46105e7d74a47cc8bc0622694ddeb87a2f38b98dbb14dfe992050e5f0de517a61e1f2d8b987cce79b4a14ead86d004c1fccefbf2979cb95a142b7cf4c4090f779566b08c0b25b886c6eb0a792bb0a2c8adf46adb92f9a44ec893e74fa35e875d7908a0ced559ae15dc893831417f7c28813cb4249d5cb9ed2656587f99982613dbecf3d90062485f3caedd13fe8883150095e1d947ee55fdfd1216786e6b3f0165fa1f0d8a6a8e307709a3a75fb0fb4e539eff6c2fc6399ad0fee7d888f61c608006cff1dacff404cb3e71ed40f771ad933613fe30926472ecb895bc0f6eebca33f876db5586e8ea6800407bd78787dcb3555b6547fd119b6479d45c5254ff84a274eb34ca55c82ecf6118730e051ab5e56249076815a24be19e10fd0dbc34a4071e11aef3ad19f9d5ae07df2abfc5d36ef5565dc6ab1cccd853447e8576b976b548b42040506e7ad9f3341b430070cdf4b6b815a251eeb3927e8314026ecaf29d42c0eaeab5422de61a65e228f0fe44b49a6e45060eddee621c349f86eb3dc668305a3901834ba5ec765c1adb11946956bd051ec508e85daae331228886f199317af41d1d12003174948154db7886d75753bd9c48b4b8bcf84b11df78f6f761e9fe2b3a2ecff41ff8bf9687231a7147a2cd3c79828cce45dd4324cba298177b57b9aafa138136585e2b9a3dad358d17519260a0d8395ff29cc4dd2da842af3cbb7db9f3248c30016275772c80db370e61750bfd1eee72b5e29b98714e2567b4d507a6fd5c3b5e7e365689cf66686a56f789ff12041434df6609b069172c2edf997bd6ba11459ed04cdfaa68a3ab3aa4eac5dc475aebe4333353843e7e9cfdb6ee53242cca1f2aaab9b4e7d0e2cad8fa2b56d08c0fcaaee432f46973c740a70c53e225f6c1d488829fa0c9cb6f8bbd2a956422f1d5caed6fc1596b1023ea9939c0174900448d9fbf48b56c5ce33b4f9f8dac568716b160d8c56bd424b362d60feff82292f5f6da9546208c535ef51f889e9e12b886e8ad2a66512f301f492e5d24a6a63cebcadc0ae4aa67134435bd18013992e2e8798f337a7493f8a8dc46e30160affb0b5669c6fc406c3ceea38102dbaae9e9b95e2700f05a4e00129d3bb7152176e6bd12e34de46478d978cfc2fafaf905e78fb0be3b36dc02892e42229e5f7e554498ecfe9cefa68587e09f08d234f4d12eb732e0f35a213c0ccda33fed19d5fa96ad230aa3944bd682439942e329275a9c327c6b0c38dab1e58d277ee0084cf5c42929b474824ad394238d240601ba3feca1de9150e5d42f4f4229026273599473523435b752f564be2094a89de0882ceb622331222ddbc97ecbbe2dece25e97314c58ef56e33b4e0d25a1a78a9a4e4d38a1d3d53ca17ac0034e9cbb77b8e8d7244bd28e8990b27c0a41b3b2851a39b56b35c41886ee25dcffaa35deee930556a004f8aaf3c7fbc97f712fb39e46cf0ce8afb41362120e1fe523e6057af0f6d508a9bd7e2fb096d1711a93d4de8441aaf9638b58c09119202b61803b1ab495f32968b6090c66c119bfbebb597430c01f3d8df8ef8b51bcd42dda9fdbb45feef7f5aae7345378d15dbcd7f4a1916225c319851fd8fd3f3ccd14b7ab4e27fac014a6c790eaa152b29a184df78e6669f75ef9d85e091a8e32a3eac0426cbd71d864413240beee30904cc2fa7ccded284f90ef5f3677691ae733e34b2e5b86e104a4f70a8cddfae715acbc3994a84933b2da970beb4d124b5cbf054dccae0b7cc0450f0d2a6664dd6b463f9efbb740ebebeaacef29325fd30bc29fe4daed829c5339f9e8c573613c5a72b02ae9d55c9ae99c6d5165d1706fac108cd2472fa3967961f2df7a4959929e617eda336e941913bf6bf146d7d480efc6f0ca48f109752a8e86b44f963d6b082c74612ea84c545788eb92e7e983710ab9b28c059e6ad4d0bb1a93e7bfdbdbcde9c2d15ba2a76f49d8a153d1e824adb6e1605a03abb6c2d90c803c786dcd51a81635e47aa64910f0a7a46785cc218d654bc85a7095ddd4cf4bf7e6d6fae8c103ca9489c92491a253071b741334090f6c9d0a662a59d7b322e64e1259da1bb4e169777c8e0174be3b90e763758906c5990b29d3a874a096297703b0c06fcf6d1ef0d29271c2afb5acacf6edae8b4c490cba8858a16e3a9a805f3ce124e0955547b9f3348d68ce0ac93e9c2d29f7a13cf5c93e6e48c6b7ab222ad8c640ccb4abada9362e89c1c9e1d3a213d6a4a6fad452a1a00b85bb178ce047fb3e7fd06886fcea18b47cce0b333a95b45adcd6845337f7c6ba301d4b41baf78dd43debb17f4a7a3ae24f93e539e1b96aceb759d1e9fba30da8d6d6a3ae3452725ec1f1a8cb8f37fc042ed230086dd2700b8538fed681c387c62f956adf141a105a709232e297150a73b3e4c69de3fcd9e0c6624ca5a5319534558d74809a58b1f2a866acea6d29650f17bbcc0d864c6b6deb47094882061122cab5fc44c2e268785e26ebc96fa15921521eeea7f5235f61b9eaee0200f9c1250f2f448819fdef37ac8ccbdc85dfb505168e867a3b7fae63589dfb7c892af511901449d2bfb04928fb24deb6d9b1f2d316920a7a85b926b4036308116ab2f702dc854e8a36e2af4e3d1984661a8240abc2d69703779d371470dfa374599ccee3920f5a5e7d248e89ce4e02ded5f822b08f8ca824de1858f3a5ae4b5d9fc75c7201e32a5e9bd498d51810ec705b6a8d41177aefc75da043b936967288827ff2450538575a86f496cfa1c293f6f2f624a66e6bf9b267ffbd0843f4133dac59a100121ec9a7490e90c1a0a23e0a9f6802f0d70cecbe594bac83eadd1463cbdd7378bade7ea50a0688d3cbb898b15eb7ea9bc903d6fcec7749fe348fa44105280bc9b72fe3adf3fd0a365ca2abe1cc95838a49a0d1a78f3571f26bb59c38798045df6efe41b9607982084d6442dce600a7831304d285739723bea1f1fa77c20385ab57c73823f18979f713d2c017124d5568c57c3aeb372dd05dd979529110a2dae209fd712752a47e5bf50624fb2e4cc15c5c601a239d1951b8816f8b089814667b874737ca5fb6ee99b06a59f8f6d5f5d643dbd50e00bfab4d8c02e53f21fb7612fc3f07d00f48eeb3899f2d7f629b247f03106b81e04b4f73962625dbeec9a064b3a9bda4b9e5c3fae3f5635da7d73be0a3f758ab50a3dd581b828c29bd9d10e9c78aab2100dbaa7e858398939bc7d1a24aeae6ec778a120e0cba8f2a84e68e0a3123e2eb170cc1ba8067624b561fabbfae8dcdd7aacdedd0989958411351c9e917ce217bf031382a69189ff951de9f6d9b2afbc805cbe77d5f46bcd4d3072362391f499567ec0f81d58dcb5a291b34e7ba366f2d4750eb33d1f1d4c110d36254981a0454e916557cda9555e860d5a7f1608077ac970117d6e9e082be26136e5170a632c9d3d6324cdd602664ba9af77d1d81b1bd83866ae1fcb88bc4abedd8c25b82660be0affde85710690fc1629738e993327f6d366d5f833d13770c318ec67e6d6ee8b67ed50dc198f50bc4118a3fe15bde8bcd02e979993f42f32504494dd3ce55f48ff988e568f7f2d7944aee2864b741f8c14484d114f80c2b138e0ce6daa2456de11e49b3d0a0a18220b98cec763ae64adac40515be93a51e94f72fbdd"}, @NL80211_BAND_5GHZ={0xbc, 0x1, "f8e72d6a3e7b91642a0e5f47c8ac7acb512f77d7c5bc6d5474a3c19c005ce8eafa325f7f81b9cbda2fc66100c360cb1da440189ded07224d4ec17ade4631a518737e68de39166a46dbbf569b1839a5b18c12276cdcf68a6a516ffa249d8261909554b3ccd68cecda67166433bb6510794e44ec7d7e86840364f3445b5b3470d7d8ec4ccdfae020156ae4e966dad29b0fdc761b9a189b2ac4491366aba8523eb926265b83831c3cd9deb2688810bf20827567d4c919d202a8"}, @NL80211_BAND_60GHZ={0xe8, 0x2, "2abac99e3f32849c92ada9d19a8cc56a43b3714e85e3714d31a5dda576c875141a0081e7042777eb637fd1ff7362435a92091dfda067c905bd11e309623df9030aebee90b11f15ce5c0e7c3b5371385cab3939b10ff005184ca001a3b81158d56721b3a9690011823a87792351306478fd09cbc5da5127cf21ac7e42048fb1332de6c6abb63c524e02de48369d5859f3108222fd13ecef6f3308d757a26e5a1c4c27571e9c2702fae08044031eb7a4fa40d8658abf801907fe23fef90bfe8939260896a720a21f103ad27f085a372fd0432314f80998df0716455eeb852fb56c38f2dd85"}]}, @NL80211_ATTR_MEASUREMENT_DURATION={0x6, 0xeb, 0x3d8}, @NL80211_ATTR_SCAN_FREQUENCIES={0x14, 0x2c, 0x0, 0x1, [{0x8, 0x0, 0x1}, {0x8, 0x0, 0x101}]}, @NL80211_ATTR_IE={0x423, 0x2a, "6b9a4ad9d99526fb7d43791fd261f8fa4bd0692139e25516df8877a43477d99dbf497bf0f9b5b83b973a0450e7b7d662eeaa48e3e5378df0230a1d600ff9c64bf9c931a2858285e1526513f0ebb920b2ba37f4398fc9303d6949c62e264c17d89e6c1eb53303292bb1496208f42447a80e755d9946d5d0f3733368ef74e1f0693d5d737e42afe50826a2c0fdbc2fb9eec5bdac08694f67516881d45e16369e6b1ad4e89d57cef561e46f4f5424069f1e138de53a0bc40a4039e5e12de95ff9ce5f5456ca49af440daa425d8893f9e7a169d5e8b6a17cd643af494ef205b4879d685a1dc50505f2a870ab904719d677b862d6aaf910da91051352bfba38551cd1fb36c671883cc9e8c199c6e66dbd048ec2db7223c5256321dc9d58e404bcc8d3cde6e04597547c6db10a4cc0b89a2382effe02a11754383c58d414e2025040e6210e2cbd4ab901a6c326b2ed78828c292f2483fb40c5b4097ee512bcc28546e61cfdea668815aca28b9aefa3d49d148decb96da09d372aa01715c9330868878a03a07e7a97e73c99f830444bf9d71ee96c4849620ff3cffad683b13c380fa1f14a71f7e6ba79406d69b421d501cf48f74182f69b46c0cf07e31ef6c977763604971196b000e61632105a915f70eeefaa028d3b1c75ffec965cac21a6bf3051409479570bb4b469c5b2e2512549a723e2bab58275e3a12cf4a3502bd44b378d1cb3a3af1083cf5baa0c1175beb34353a50a213f5d18a9dee9f8fb6c46efc8f4345f05fe871bcebe4228f3e3b6cf89eb7d3f06d9bdcb63ce9d92a8b42813d37b989b53ba2a6746db9e21abf604cb19e5663444537c09b4f4166945a02c96ab10f7c47afd5d9167c1324cf804e51dbb8091b6851f2348dd2b8c2a023f231bad3ad4d768a966555673c1db1c65b0ebdeca75344b8363b224d860a415905445bf2218b39eeacfe495d52260ea749cf659c25c283faa86afeab7aab72fe3482119a7e6635f37299f70ec81504627ebedbf1e4479f4abdd86d1d98965784a054060572c08750c7dcc5a0812391da9ddd6781f17fe4082c15b1c06d1478641685ce8123eb6a252d943d9031064f3a54fdaea56a1a998debad58e10948fee3f5e1dac12b3fa61eb880d5cb7882b5684ff3fd6695e0947bca004f1116e8b76e5e86b562754d85cccdec3bd0c3f4823efcdfe8b8bdd6f454dcb05f84ceef0e1652f5ae8eae19dfbb5dcb9d29db5b02f2b0ee99b3ad2d2369dc383f4889dcfa4dc09a2e68e4e7796cbb778c54adc9677c2f8be3e2f2ad2da0ac0ba8e92cb96f0ff68012bc4ec836109ce1db3cb9b86560309d6d1e8523c379a2b94999e530772a736223c3fde5912a6329b5b8d4244a6d3b7e536a6949fd100d460ca1104961a792f54754922e5f86f42c4c26ad2baa9c443dc5f4ac47452d81b719c55de96ea5ae2ed77696a88f5273c3a9b896f86695c4237a4df54c0ad3e999a13e0e62f5bbd1dc611ef"}]}, 0x16e0}, 0x1, 0x0, 0x0, 0x5}, 0x4048001)
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+ioctl$FS_IOC_REMOVE_ENCRYPTION_KEY_ALL_USERS(r1, 0xc0406619, &(0x7f0000000000)={{0x2, 0x0, @identifier="52cd040b07bc20537a7f3fedef9af52c"}})
+
+[   26.271045] SELinux: unrecognized netlink message: protocol=9 nlmsg_type=0 sclass=netlink_audit_socket pig=3561 comm=syz-executor.2
+[   26.288554] SELinux: unrecognized netlink message: protocol=9 nlmsg_type=0 sclass=netlink_audit_socket pig=3561 comm=syz-executor.2
+19:07:53 executing program 1:
+sendmsg$NL80211_CMD_START_SCHED_SCAN(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000000c0)=ANY=[@ANYBLOB="2400cd954df2e5"], 0x1}}, 0x0)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)=ANY=[@ANYBLOB='@\x00\x00\x00', @ANYRES16=0x0, @ANYBLOB="0000000000000000000007000000080005000000000008000527be95b30b9888053e4a0000000000140004007465616d30000000000000000000"], 0x98}}, 0x0)
+
+19:07:53 executing program 2:
+socket$nl_generic(0x10, 0x3, 0x10)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+recvmsg(r0, &(0x7f0000000140)={&(0x7f00000000c0)=@pppol2tpv3in6={0x18, 0x1, {0x0, <r2=>0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, {0xa, 0x0, 0x0, @initdev}}}, 0x80, &(0x7f0000000780)=[{&(0x7f0000000200)=""/185, 0xb9}, {&(0x7f0000000580)=""/175, 0xaf}, {&(0x7f0000000380)=""/142, 0x8e}, {&(0x7f0000000440)=""/208, 0xd0}, {&(0x7f0000000980)=""/242, 0xf2}, {&(0x7f0000000680)=""/80, 0x50}, {&(0x7f0000000700)=""/93, 0x5d}], 0x7, &(0x7f00000002c0)=""/88, 0x58}, 0x100)
+ioctl$SIOCGSTAMPNS(r2, 0x8907, &(0x7f0000000880))
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+ioctl$sock_inet_SIOCSIFFLAGS(r3, 0x8914, &(0x7f0000000080)={'vlan1\x00'})
+
+[   26.314921] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3565 comm=syz-executor.1
+[   26.332581] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3568 comm=syz-executor.1
+19:07:53 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000080)=[{0x2c}, {0x1d}, {0x16}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040)='nl80211\x00')
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r0, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000500)={&(0x7f00000000c0)={0x14, r1, 0x800, 0x0, 0xfffffffd}, 0x1}}, 0x0)
+
+19:07:53 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$int_out(0xffffffffffffffff, 0x5460, &(0x7f0000000340))
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x0, 0x0, 0x100}, 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r3, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000300)='nl80211\x00')
+ioctl$ifreq_SIOCGIFINDEX_wireguard(r1, 0x8933, &(0x7f00000032c0)={'wg2\x00', <r5=>0x0})
+sendmsg$NL80211_CMD_GET_INTERFACE(0xffffffffffffffff, &(0x7f0000003380)={&(0x7f00000002c0)={0x10, 0x0, 0x0, 0x100}, 0xc, &(0x7f0000003340)={&(0x7f0000003300)={0x1c, r4, 0x8, 0x70bd2b, 0x25dfdbfc, {}, [@NL80211_ATTR_IFINDEX={0x8, 0x3, r5}]}, 0x1c}, 0x1, 0x0, 0x0, 0x4040000}, 0x4000c810)
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r3, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r6, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r3, &(0x7f0000000280)={&(0x7f0000000200)={0x10, 0x0, 0x0, 0x80}, 0xc, &(0x7f0000000240)={&(0x7f0000000580)={0x7b8, r2, 0x100, 0x70bd26, 0x25dfdbfe, {}, [@NL80211_ATTR_SCHED_SCAN_MATCH={0x60, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x5, 0x1, "03"}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x16, 0x1, "29809c148559a9c2952ce7fd601799c70c52"}, @NL80211_SCHED_SCAN_MATCH_ATTR_BSSID={0xa, 0x5, @random="c34c6175c570"}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x14, 0x6, 0x0, 0x1, [@NL80211_BAND_60GHZ={0x8, 0x2, 0x100}, @NL80211_BAND_6GHZ={0x8, 0x3, 0x2}]}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x14, 0x6, 0x0, 0x1, [@NL80211_BAND_60GHZ={0x8, 0x2, 0x5}, @NL80211_BAND_60GHZ={0x8, 0x2, 0xfffffff7}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_RSSI={0x8, 0x2, 0x7fffffff}]}, @NL80211_ATTR_IE={0x683, 0x2a, "f1d8d40fd448b637003c9b3d677ebce0180b9bd402bb7e114f09108a42be9c5606e7901ba94dc512e0758d667f106bd3212dfe5193fbb0970640f66f65bc949b9d3812b1c279d5e5c6a30f99a1f1d570220622601b0033d58997605a41374333e0a796a96c542ea9a125be171a04d488fc08c5280886afde4c82584af2b785ab9db0baaf408280cfa88d14729d96840dcb6800e6f1cb29a6554658a171ec3ce1ded6983d301088d77766a9b2a92c0a95250bc3c533424c80331a6f4165ae3a5c7d6dc6ff7de3452c4b9899c71864566cebd24a27149bd5cae0ce1cb27b83e91dc426f2be0e486f40f7f5758e0d7be4ed738ab5d2c23ec3c43b91c08d56515f5599a94a93a73fd1375b53e862813f87038b47d320cc20754ee3e2688ed084041a129b06079d34ea5a3e172991ebd631441263ff0621e273bc5eeb94e38c985e8fc8f9d1241b3f32848b7c38b003c859664b8a7dc13b1fc73b21717bf5fe9e37120c4e8190a50865cf7d3ea4cbb101428a4958c8db8338c5e7795f0f5097756a972648821e9ef93d4ea03c98f8730fcc96cc948eb7e470e8bc3ecc4d6512158d795e2274ded26c2e33bbfee12fc6b20940bc4c1fd77b8154fb3d0e36bc243d5aa08220f1590d04f30d48c27d40c2a4f42c125fe494c89ef800b7fb593382ff54444affa9eb3fd09f16c180bbaa3f1e62414bae2abeb05e4bd9a846ae36d0c7a5648a87100f7b84d3efab38f2d8271d5eb1489a53d763d1a6f1fba7b45e28f101db8273ac5b13ab4d302ffc64c169b7c44668cce40fe16e02fa31312bdcf523f5db476cb301e5bbf5b8c924303777712fe8b45a01ca4c3399a7ca75ea446afc9f4a3f1f9a5209f256c877bdafe373bb7f501ea823834c231ab4d98dc8e7894d574972d9747128484ba65d06c58e6002498cc5259a151a4e90448e96acfdb407ab69cfde465031ba55af5f4d66ee56e885b08081838fdf0642b7ca1b58236709e6eae752f68c2ba92af521fb2551c0f9c556a84748f9dfbce23f90a10d6ff8474f91dccc0e2516496da08ecc6df6ca060c20ac4be59ab66977f55d1a222d967bff4017e3ec5bcf3936c24052f85863db5cca6f4d4d4451c804060a1b7a5787617adb1f0e99d0bba8fdf18a956fcdc37f5dedaecd9ac0f7e8762dfe4caee04452d4886d5b8af35751aff9f0a7c03858d9106966fc3e753fa880314a8ab28689d7c7c891ffeea80a1d6bf5fbb3d86c83f1002a92124066727f4039abe04b7f6777d591ec24b0c0b7367e58cc021eb3bdbb926aac71e096549c04a991f1e95127bf9212859649b6554cd21cc0c747afc60d6ef6f44ca08170f8f67620da42658d8efb92fe0112289845d6bff56ee70924a9932f43b02e79c4f191a354304cbcc62b90ec9f2b66e7f31d0b837c2999817fc4de1b266a84f395fe05ab6ddb31800b57806a42212ab807e59c32f33e49e8dfa0bcbb8d36bb67dd233473d1760e1d95bd7bdfeb61a65b4845d64dc9875c3cfc7b8d8d3b03a2616fb4a9b5ede4c8f1cd18c3a8ec57b8da9196ff38aebaf6eefea7931f3798193a52a32a573f9edd91fffd3e9af1760cbafa12982c693d62d9a4e7890f62e4d65179b00f669cb011005e85cd839d3e6e5312bfaf6f360fa1b4362bbe3e5dd034912fb931b08af8df14d6b397d9d66072c5524a55cdcec22961c356a7466c866195e9eff49d91ab0cb2ac6558ad168e9faa73c7c06d33d0beb6200cdf1a3b21855e4bb2f9af4cbe5671577cf30609b72157c11097eeaa1abfadbf10b755113a40803583619a1a28274e892a2eadfa6cbbb5adeaae64f9d4c98868910701ecc5b009bf499d674e4b62b1f1c68aa40e83c2e6110718556ff7c7cf165b142426335b86172b8467eed6f754844c0d6a5a4928b9abdc5537825adb93f8d9386ff3d2f26f44088b5c52d0e78d6afee7aa0323f3e87488656aa937f7406c5cc8ade83eba5e82ff19a347e495e93b1fc2a81efcb592f977a29afb0b7dd47fbc727b5038ff653b88edaebce4f0e6060bb42b99e8c48be2deb321574b3038ede71cfed615d5b16ed27b9f578049b2398b1f38455a2f6bb355e4ef506a1890a3ad90eac056f51129b4016b4e7e4f262df69ecb3febe23d95ca0bc6b26b71132deae7a077e94e76f3c6b929df946be66c51233dec5af096cd08a0226262d8ee5cf72122fa9aed2baea360cf3f3c39571764240603feed484f950993d63555865a85f5ce543cfd87d8a2ab6d86bbb38efaa747b44f8d1a4ea323ae019088587718626733d4de3cbdb7b088c212b4dbe6ea78447b911e8bf955e03b7f9a9cb8c72d26ba74e0be8bd00ba8fc37e1b8558cfee83b"}, @NL80211_ATTR_SCHED_SCAN_MATCH={0x1c, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0xc, 0x6, 0x0, 0x1, [@NL80211_BAND_2GHZ={0x8, 0x0, 0x3}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_BSSID={0xa, 0x5, @multicast}]}, @NL80211_ATTR_SCHED_SCAN_DELAY={0x8}, @NL80211_ATTR_SCHED_SCAN_MATCH={0x78, 0x84, 0x0, 0x1, [@NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0xe, 0x1, "69b2d3ef8d9a2aebc3b3"}, @NL80211_SCHED_SCAN_MATCH_ATTR_BSSID={0xa, 0x5, @multicast}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0x7, 0x1, "0d74e2"}, @NL80211_SCHED_SCAN_MATCH_PER_BAND_RSSI={0x3c, 0x6, 0x0, 0x1, [@NL80211_BAND_2GHZ={0x8, 0x0, 0x7}, @NL80211_BAND_6GHZ={0x8, 0x3, 0x571c}, @NL80211_BAND_6GHZ={0x8, 0x3, 0x3}, @NL80211_BAND_60GHZ={0x8, 0x2, 0x6}, @NL80211_BAND_6GHZ={0x8, 0x3, 0x3}, @NL80211_BAND_5GHZ={0x8, 0x1, 0x6}, @NL80211_BAND_2GHZ={0x8, 0x0, 0xef}]}, @NL80211_SCHED_SCAN_MATCH_ATTR_SSID={0xa, 0x1, "3d14988fc34d"}, @NL80211_SCHED_SCAN_MATCH_ATTR_RSSI={0x8, 0x2, 0x8}]}, @NL80211_ATTR_SCHED_SCAN_INTERVAL={0x8, 0x77, 0x8}, @NL80211_ATTR_SCAN_FREQUENCIES={0x1c, 0x2c, 0x0, 0x1, [{0x8, 0x0, 0x7cff}, {0x8, 0x0, 0x3ff}, {0x8, 0x0, 0x1}]}]}, 0x7b8}, 0x1, 0x0, 0x0, 0x20048800}, 0x882)
+r7 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r7, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r8 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r7, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)=ANY=[@ANYBLOB="000005cc4207853817e2a3f60090d7d409a61d552085aa1407c2137f40656bb44aff1ab0fee755d3e9915ca607f8", @ANYRES16=r8, @ANYBLOB="0100000000000000000014000000"], 0x14}}, 0x0)
+ioctl$int_in(r7, 0x5421, &(0x7f00000000c0)=0x2)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000100)={0x2, &(0x7f0000000000)=[{0x30, 0x0, 0x0, 0xfffff010}, {0x6}]}, 0x10)
+
+19:07:54 executing program 3:
+r0 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000940)=ANY=[@ANYBLOB="cc0100005e002bc0e6eacc56b1833b5707000000017f000000000020000018000b8cb3a8be994c040047112beec114f3d2ed5524d5133985f41f3ee836070be8b7684ccb172acf17249366255317", @ANYRES16, @ANYBLOB="01000000a01a4940917208be700b0087000600eb00070000000000ff0066000300d4c249af3c47f8b0f2ea088cb328335007700085463258f18ac102a415674205b1707a55480899b27c019d5ced92b819dd5fe446fa7706aef2b4783803324e7fc519ff4868b0208472de1f55e91c0212c588f1455005296d92d17e2a444d64de8255df00000000aa05bf0d73b5565f11cac069919f09a9552bba5aa62c496d412e91cb2e15e608ba230fd7747b0868a3fab1c96aeb3cf1100cc2244f37808afef081688d9059b08bd97315b9e3db8dece3e6ca4359190233c324805787ff47615dee0f2daac6cbc5ba5831f1d8dde108bb846970263425062a91595b8df34db707a35247290e668f33020bc8335c4db3605ae29511a4494d5d1a9f0feb43a1282b95e4340dfdeb631f3890953b5de8bc3d556176a331e98f62b50fa1d4e4dd74162648605f91ea0c1cc604bc14acc72fa33982f9295ff1c1ed1e196a934007567bf56c94bfe9fb5e5cce56022c532a759184fe83d921a938afdb3e0b3b5a191e4d02a6a24711dea5799c4a865ec4b35b2df918eea494a3c8a673a67132576fb986484631050817ee5302b9c9c4cc5029354cb252736db47b299b7020ba9699c4f981c6407d75a6f8b00c110b10a87865f67a20dcadf0", @ANYRES32=0x0, @ANYBLOB="20002d8005000000090000000a0000b86d3bef010000010007044fa3bc0000000c009900008e0000000000000a00f50091699880e01300007053a8446e547362b32c13bc7ea2294199d74e31ac78c1bd716be429d1f4dc001d0b598903dff347e203e5ce96bac9dd476fa58cd1ea91d1f1ede885b5105113749930fbc3cf13ac53603df79a66a45f"], 0x1cc}}, 0x0)
+ioctl$FS_IOC_GETFSMAP(r0, 0xc0c0583b, &(0x7f0000000180)={0x0, 0x0, 0x1, 0x0, [], [{0x8, 0x200000, 0x5, 0x4b, 0x1000, 0xf8}, {0x7fff, 0x800, 0x5, 0x7, 0x2, 0x100000000}], [[]]})
+ioctl$sock_inet_SIOCSIFDSTADDR(r0, 0x8918, &(0x7f0000000280)={'macsec0\x00', {0x2, 0x4e23, @dev={0xac, 0x14, 0x14, 0x42}}})
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000100)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x200000}, 0xc, &(0x7f0000000080)={&(0x7f0000000040)={0x1c, 0x0, 0x400, 0x70bd2a, 0x25dfdbfc, {}, [@NL80211_ATTR_WIPHY={0x8}]}, 0x1c}}, 0xc0)
+
+19:07:54 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+accept4(r0, &(0x7f0000000000)=@pppol2tp={0x18, 0x1, {0x0, 0xffffffffffffffff, {0x2, 0x0, @empty}}}, &(0x7f0000000140)=0x80, 0x0)
+r2 = socket$netlink(0x10, 0x3, 0x8)
+ioctl$sock_inet_SIOCGIFNETMASK(r2, 0x891b, &(0x7f00000000c0)={'virt_wifi0\x00', {0x2, 0x1, @initdev={0xac, 0x1e, 0x2, 0x0}}})
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB='D\x00\x00\x00 \x00']})
+r3 = socket$netlink(0x10, 0x3, 0x0)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+r6 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000280)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f0000000340)={&(0x7f0000000200)={0x10, 0x0, 0x0, 0x4000000}, 0xc, &(0x7f0000000300)={&(0x7f00000002c0)={0x1c, r6, 0x800, 0x70bd26, 0x25dfdbfb, {}, [@NL80211_ATTR_STA_SUPPORT_P2P_PS={0x5, 0xe4, 0x1}]}, 0x1c}, 0x1, 0x0, 0x0, 0x20004001}, 0x80)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r3, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+
+19:07:54 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000100)=[{0x3d}, {0x74}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCDELRT(r0, 0x890c, &(0x7f0000000280)={0x0, @nfc={0x27, 0x1, 0x0, 0x2}, @sco={0x1f, @fixed={[], 0x10}}, @l2tp={0x2, 0x0, @initdev={0xac, 0x1e, 0x0, 0x0}, 0x4}, 0x5, 0x0, 0x0, 0x0, 0x8, &(0x7f0000000240)='veth0_vlan\x00', 0x7, 0x4, 0x8001})
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000200)=ANY=[@ANYBLOB="14000000ce01a3fc24ca09d1", @ANYRES16=r5, @ANYBLOB="0100000000000000000014000000"], 0x14}}, 0x0)
+ioctl$sock_SIOCDELRT(0xffffffffffffffff, 0x890c, &(0x7f0000000580)={0x0, @nl=@unspec, @can={0x1d, <r6=>0x0}, @isdn={0x22, 0x9, 0x3, 0x7f, 0x4}, 0x200, 0x0, 0x0, 0x0, 0x1, &(0x7f00000003c0)='rose0\x00', 0xff, 0xbf, 0x3})
+sendmsg$NL80211_CMD_SET_STATION(r2, &(0x7f0000000480)={&(0x7f0000000140)={0x10, 0x0, 0x0, 0x8000000}, 0xc, &(0x7f0000000400)={&(0x7f0000000300)={0x64, r5, 0x400, 0x70bd2d, 0x25dfdbfe, {}, [@NL80211_ATTR_STA_FLAGS={0x2c, 0x11, 0x0, 0x1, [@NL80211_STA_FLAG_WME={0x4}, @NL80211_STA_FLAG_MFP={0x4}, @NL80211_STA_FLAG_TDLS_PEER={0x4}, @NL80211_STA_FLAG_AUTHORIZED={0x4}, @NL80211_STA_FLAG_WME={0x4}, @NL80211_STA_FLAG_TDLS_PEER={0x4}, @NL80211_STA_FLAG_ASSOCIATED={0x4}, @NL80211_STA_FLAG_AUTHENTICATED={0x4}, @NL80211_STA_FLAG_TDLS_PEER={0x4}, @NL80211_STA_FLAG_WME={0x4}]}, @NL80211_ATTR_STA_FLAGS2={0xc, 0x43, {0x4, 0x20}}, @NL80211_ATTR_IFINDEX={0x8, 0x3, r6}, @NL80211_ATTR_STA_PLINK_STATE={0x5, 0x74, 0x3}, @NL80211_ATTR_VLAN_ID={0x6, 0x11a, 0x1}]}, 0x64}, 0x1, 0x0, 0x0, 0x8000}, 0x0)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000500)={0x0, 0x0, &(0x7f00000004c0)={&(0x7f0000000440)=ANY=[@ANYBLOB="14000006", @ANYRES16=r1, @ANYBLOB="0100000000000000000008000000"], 0x14}}, 0x0)
+r7 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r7, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r8 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r7, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r8, 0x1}, 0x14}}, 0x0)
+getsockopt$IP_VS_SO_GET_TIMEOUT(r7, 0x0, 0x486, &(0x7f0000000000), &(0x7f00000000c0)=0xc)
+
+[   27.002577] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3589 comm=syz-executor.3
+[   27.010451] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3592 comm=syz-executor.3
+19:07:54 executing program 3:
+sendmsg$NL80211_CMD_SET_STATION(0xffffffffffffffff, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f00000000c0)=ANY=[@ANYBLOB="1400001c", @ANYRES16=0x0, @ANYBLOB='\b\r'], 0x3}}, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="e6a6919c320077"]})
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f00000000c0)=0x14, 0x4)
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+ioctl$FS_IOC_MEASURE_VERITY(r0, 0xc0046686, &(0x7f0000000000)={0x2, 0x5, "806dcee57a"})
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r2, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFINDEX={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'veth1_virt_wifi\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x40}}, 0x0)
+
+[   27.034966] SELinux: unrecognized netlink message: protocol=0 nlmsg_type=0 sclass=netlink_route_socket pig=3590 comm=syz-executor.0
+[   27.042309] netlink: 40 bytes leftover after parsing attributes in process `syz-executor.0'.
+19:07:54 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x4, &(0x7f0000000180)=[{0x0, 0x0, 0x0, 0x6}, {0x25, 0x0, 0x1}, {0xa4}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000280)='nl80211\x00')
+sendmsg$NL80211_CMD_GET_INTERFACE(r0, &(0x7f00000003c0)={0x0, 0x0, &(0x7f0000000300)={&(0x7f00000002c0)={0x14, r1, 0x1}, 0x14}}, 0x0)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r2, &(0x7f0000000100)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x100000}, 0xc, &(0x7f00000000c0)={&(0x7f0000000080)={0x1c, r1, 0x200, 0x70bd25, 0x25dfdbfe, {}, [@NL80211_ATTR_WIPHY={0x8, 0x1, 0x1}]}, 0x1c}, 0x1, 0x0, 0x0, 0x10}, 0x40000)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_INGRESS_PRIORITY_CMD(r4, 0x8982, &(0x7f0000000140)={0x2, 'gre0\x00', {0xffff}, 0x9})
+
+19:07:54 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000200)=ANY=[@ANYBLOB='\v\x00\x00\x00', @ANYRES16=r1, @ANYPTR], 0x3}}, 0x0)
+setsockopt$netlink_NETLINK_RX_RING(r0, 0x10e, 0x6, &(0x7f0000000000)={0x7ff, 0x10001, 0x3, 0x20}, 0x10)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x2, &(0x7f0000000080)=[{0x28, 0x0, 0x0, 0xfffff00c}, {0x6}]}, 0x10)
+
+19:07:54 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$sock_SIOCOUTQ(r0, 0x5411, &(0x7f0000000080))
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x3}, {0x2c}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000180)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_INTERFACE(r0, &(0x7f0000000180)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000100)={0x14, r1, 0x1}, 0x14}}, 0x0)
+
+19:07:54 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xac}, {0x15}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)=ANY=[@ANYBLOB="0d7bd5c2697942dc4e2883cbd261bb5fa65096bf1f6b3d7afad7f6eb33bca99fb1c5b1e7c1c3", @ANYRES16=r3, @ANYBLOB="0100000000000000000014000000"], 0x14}}, 0x0)
+r4 = accept4(r2, &(0x7f00000001c0)=@llc={0x1a, 0x0, 0x0, 0x0, 0x0, 0x0, @remote}, &(0x7f0000000240)=0x80, 0x80000)
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f0000000340)={&(0x7f0000000280)={0x10, 0x0, 0x0, 0x20000}, 0xc, &(0x7f0000000300)={&(0x7f00000002c0)={0x24, r1, 0x200, 0x70bd2d, 0x25dfdbfd, {}, [@NL80211_ATTR_STA_SUPPORT_P2P_PS={0x5, 0xe4, 0x1}, @NL80211_ATTR_STA_PLINK_STATE={0x5, 0x74, 0x2}]}, 0x24}, 0x1, 0x0, 0x0, 0x2000c811}, 0x8000)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f0000000100)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000380)={0x14, r1, 0x1}, 0x14}}, 0x0)
+
+19:07:54 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x2, &(0x7f0000000080)=[{0x28, 0x0, 0x0, 0xfffff024}, {0x6}]}, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r1, &(0x7f0000000180)={&(0x7f0000000000)={0x10, 0x0, 0x0, 0x20080000}, 0xc, &(0x7f0000000140)={&(0x7f0000000100)={0x18, r3, 0x100, 0x70bd2b, 0x25dfdbfb, {}, [@NL80211_ATTR_SCHED_SCAN_MULTI={0x4}]}, 0x18}}, 0x40)
+sendmsg$NL80211_CMD_GET_INTERFACE(r0, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000240)={&(0x7f00000001c0)={0x14, 0x0, 0x4}, 0x14}}, 0x0)
+
+19:07:54 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000100)='nl80211\x00')
+sendmsg$NL80211_CMD_STOP_SCHED_SCAN(r0, &(0x7f0000000540)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x2}, 0xc, &(0x7f0000000500)={&(0x7f0000000200)={0x2e4, r1, 0x10, 0x70bd27, 0x25dfdbff, {}, [@NL80211_ATTR_IE={0x28c, 0x2a, "ce4e54a8316575adbda224d560eb3259bc5d4447e56433ab5e29cd28d1a386422a5a7adfe816e81aba9923b6bd1724cdb6f4e7e5b32ee57a5fa7a89ecc13c9e9f21997dbfbbdbdc89d6a493c647d78ec0df4f2d49526f313526307f113da36718249e7a4f07a1f9a6dc6afff05542bcc3c9a73ae79e87b13394b6cc232a6c9f00b0a1ee87a0f766aee71418ca41b1795c6dff2cbd06b42f2fb50fd94fe61a701eaf82d656d52bc0507244cc6a0f694d35c2a7502fc44e32af4997066f9b50bbc0f3521970787afc63d63d646f4fdcbd47dec3506887650f4cf9fff9539456a111e18536b23d349b60440f3f5d198dc617910d3c71bc9a45e4ead0f953a85fd29a65a0dec4b478bb1af25cb6c72deaaab9e9f81dc580830de2699f395d07d653f6a19113528324d9301e77574620234b4bbaf474e8a31b8430d54acf2ac2bd68deb0f33906b1e1ece02cc00bc3033662decec65da59d70e5e63404cdda2bcfa9adb09a10ed0e8ef14114cfb3a71f709e0456f35d801c3199d657f9a782158008831356c02d6df125aeed7421f9521c00f312bd18f7b4b8251c981a3221e495bb1bda0eb065c0f1bd4fc0e29664a8780935a5eba23bac214c3fa70572afaba51e02f482214c6c06a0e8b61916d568ccc367d8676755d3341f86cab690839a27d19cb354733b247b080c784f2c1fc9f55bf1c3f2795578972975c9ac3984af53cd4368174165263d72034101788d817d326ad712d6ea7aaeedb486e4437a9ecd981a189d23e86f7b9f68f0d5ab7851746abd40fcee5ae18ae91af97ca56bafe0689496fb11fd9d561d1f4dbd037232cc2975663c015fd0967d95af16c1ebf9483347c4194963fcf85cb018716adc8d415b7f82051867204944e3ede75cdddf83a333abf4e1deee9ddd3"}, @NL80211_ATTR_MAC={0xa}, @NL80211_ATTR_WIPHY={0x8, 0x1, 0x1}, @NL80211_ATTR_BSSID={0xa, 0xf5, @remote}, @NL80211_ATTR_BG_SCAN_PERIOD={0x6, 0x98, 0x7fff}, @NL80211_ATTR_SCAN_SSIDS={0x1c, 0x2d, 0x0, 0x1, [{0x7, 0x0, [0x18, 0x1b, 0x5]}, {0x5, 0x0, [0x14]}, {0x8, 0x0, [0x5, 0x3, 0x1f, 0x8]}]}]}, 0x2e4}}, 0x20020000)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000080)={0x4, &(0x7f0000000000)=[{0x7c}, {0x3d, 0x0, 0x1}, {}, {0x6}]}, 0x10)
+syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f00000005c0)='nl80211\x00')
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000140)={0x14, r2, 0x4ca1037647a24c61}, 0x14}}, 0x0)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000580)='nl80211\x00')
+
+19:07:54 executing program 2:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x4, &(0x7f0000000000)=[{0x0, 0x0, 0x0, 0xcb1}, {0x25}, {0x74}, {0x6}]}, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+r3 = accept4(r1, &(0x7f0000000180)=@ax25={{0x3, @rose}, [@netrom, @netrom, @netrom, @bcast, @bcast, @default, @default, @rose]}, &(0x7f0000000080)=0x80, 0x80000)
+accept4(r3, &(0x7f0000000280)=@ipx, &(0x7f0000000100)=0x80, 0x800)
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f00000000c0)='nl80211\x00')
+sendmsg$NL80211_CMD_TRIGGER_SCAN(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000140)=ANY=[@ANYBLOB="e8060000", @ANYRES16=r4, @ANYBLOB="0100000000000000000021000000"], 0x14}}, 0x0)
+
+19:07:54 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x2, &(0x7f0000000080)=[{0x30, 0x0, 0x0, 0xfffff021}, {0x1}]}, 0x10)
+
+19:07:54 executing program 2:
+r0 = socket$netlink(0x10, 0x3, 0x4)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000140)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}, 0x1, 0x0, 0x0, 0x854}, 0x0)
+ioctl$FS_IOC_GETFSLABEL(r1, 0x81009431, &(0x7f0000000040))
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(r0, 0x10e, 0x1, &(0x7f0000000000)=0x2, 0x4)
+
+19:07:54 executing program 2:
+r0 = socket$netlink(0x10, 0x3, 0x2dde6e25d1504f4e)
+getsockopt$sock_int(r0, 0x1, 0x7, &(0x7f0000000000), &(0x7f0000000040)=0x4)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_GET_SCAN(r1, &(0x7f0000000280)={0x0, 0x0, &(0x7f0000000200)={&(0x7f0000000300)={0x14, r2, 0x1}, 0x14}}, 0x0)
+recvmsg(r1, &(0x7f0000000400)={0x0, 0x0, &(0x7f00000002c0)=[{&(0x7f00000000c0)=""/103, 0x67}], 0x1}, 0x0)
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="0800e7ff6800ff"]})
+getsockopt$SO_TIMESTAMPING(0xffffffffffffffff, 0x1, 0x25, &(0x7f0000000140), &(0x7f0000000180)=0x4)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f00000000c0)=0x38, 0x4)
+r3 = socket$netlink(0x10, 0x3, 0x0)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+ioctl$FIBMAP(r4, 0x1, &(0x7f00000001c0)=0xffff1a3e)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r3, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+
+[   27.373210] netlink: 'syz-executor.2': attribute type 1 has an invalid length.
+19:07:54 executing program 2:
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000180)={'lo\x00', &(0x7f00000001c0)=ANY=[@ANYPTR]})
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f0000000000)=ANY=[@ANYBLOB="44000000409d86"]})
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f00000000c0)=0x1c, 0x4)
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+ioctl$sock_SIOCGIFVLAN_SET_VLAN_NAME_TYPE_CMD(r1, 0x8982, &(0x7f0000000040)={0x6, 'ip6_vti0\x00', {}, 0x5})
+sendmsg$NL80211_CMD_NEW_INTERFACE(r0, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+
+19:07:54 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = accept4(r0, 0x0, &(0x7f00000006c0), 0xf97107c721dcc1b)
+ioctl$sock_SIOCOUTQNSD(r1, 0x894b, &(0x7f0000000880))
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040), 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000008c0)=ANY=[@ANYBLOB="14000000", @ANYRES16=r5, @ANYBLOB="1400000000000000000000000000fc72a669df93f49f3c8c21fe0e79682b71bbf9243fd000000000000094f77028b143eb9fe2de21cb8d1a5f100033453e678287770f4ced574f36bd38ddc1f5c07e8845bf8f9499bc563457ee23580e88ad80f05306f6f39ef259b648038c4264884867ed0b620bbd1ad86a564bc2d4adc98abe43fbd1840aed702ca6338fa3ac5cac1e45163f598b1ace58138fe3e6e83d4a055467412280e43ddb84c3c88ff65e8e378fe648d1313d42eb46ad5be3e834245550242d529268366ce4"], 0x14}}, 0x0)
+ioctl$sock_SIOCDELDLCI(r4, 0x8981, &(0x7f0000000100)={'tunl0\x00', 0x200})
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f0000000180)={&(0x7f00000004c0)=ANY=[@ANYRESDEC, @ANYRES32, @ANYRES16=r2], 0x3}}, 0x20044010)
+ioctl$ifreq_SIOCGIFINDEX_team(r0, 0x8933, &(0x7f00000001c0)={'team0\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f0000000340)={&(0x7f00000000c0)={0x10, 0x0, 0x0, 0x20000}, 0xc, &(0x7f0000000300)={&(0x7f0000000200)={0x100, r3, 0x200, 0x70bd26, 0x25dfdbfd, {}, [@NL80211_ATTR_MESH_PEER_AID={0x6, 0xed, 0xcd}, @NL80211_ATTR_VLAN_ID={0x6, 0x11a, 0x4}, @NL80211_ATTR_OPMODE_NOTIF={0x5, 0xc2, 0x80}, @NL80211_ATTR_STA_VLAN={0x8, 0x14, r6}, @NL80211_ATTR_STA_EXT_CAPABILITY={0xc9, 0xac, "29daf599f8f7d15239548bf2430219e5d9a6c06e600e1833612a8d42695a9b395ad7fdce606f4f3495994819aca4b4f7db0aa9cb3db390fb8780c49a3a53a2062230289b6ef389bc9399cdbfdcafde3d286947a3b1c8c036dffd628d36490906985e780c0887f68a76e9aece13d937518820f3f4ee51b8e87068ce85903d25aa6db6762e7a9dd65d0f81ae2cbe7052da6356a8ce0f84eaacbc4c385440868ec56149f2a40711c520775574bcd43e655edd39683f4b2962fbf50ec61e947a79720375254e61"}]}, 0x100}}, 0x20008080)
+r7 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r7, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r8 = accept(r7, &(0x7f00000003c0)=@xdp, &(0x7f0000000380)=0x80)
+setsockopt$sock_int(r8, 0x1, 0x1, &(0x7f0000000780)=0x9, 0x4)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0x3d, 0x0, 0x1}, {0x14}, {0x6}]}, 0x10)
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+
+19:07:54 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000700)=ANY=[@ANYBLOB="6cc413a805ffffffff26192202f4ba9f12026977040de2a8c6917a04a1cff4e8462bdf964f967526ea13aaa3a0ed7a22c90f77cf28b6b40aa1c10000000000000000000000000000000000000000c09bc4f77eb893119504f0e2f320192c2f353f981310ecc16e665dc156a0195df0aa8016803c8ff8cf41e402debc079526c9e67d8eb35f1ebf6d73a09b7dd7cf1f06f2693f1e49c44ae3a1a8b4ca138f88ac1f009748180ff6f950196eb6be3c6325eebb4bf9bee31bc7f9bd12c1abf9258a1a5cb9c96be3923191b818875710", @ANYRES16=r3, @ANYBLOB="0100000000000000000014000000"], 0x14}}, 0x0)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+ioctl$ifreq_SIOCGIFINDEX_team(r4, 0x8933, &(0x7f0000000800)={'team0\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_NEW_INTERFACE(r0, &(0x7f00000008c0)={&(0x7f0000000240)={0x10, 0x0, 0x0, 0x340000}, 0xc, &(0x7f0000000880)={&(0x7f0000000840)={0x1c, r3, 0x200, 0x70bd29, 0x25dfdbff, {}, [@NL80211_ATTR_IFINDEX={0x8, 0x3, r6}]}, 0x1c}, 0x1, 0x0, 0x0, 0x4008010}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+ioctl$sock_SIOCGSKNS(r1, 0x894c, &(0x7f0000000200)=0x7fff)
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r7, 0x1}, 0x14}}, 0x0)
+r8 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000100)='nl80211\x00')
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r1, &(0x7f0000000180)={&(0x7f0000000040)={0x10, 0x0, 0x0, 0x80000000}, 0xc, &(0x7f0000000140)={&(0x7f0000000380)={0x368, r8, 0x10, 0x70bd2b, 0x25dfdbfd, {}, [@NL80211_ATTR_MEASUREMENT_DURATION_MANDATORY={0x4}, @NL80211_ATTR_SCHED_SCAN_MULTI={0x4}, @NL80211_ATTR_SCAN_SSIDS={0x1c, 0x2d, 0x0, 0x1, [{0x9, 0x0, [0x1a, 0x1f, 0x6, 0xb, 0x4]}, {0xa, 0x0, [0x11, 0x1c, 0xb, 0x3, 0x19, 0x1b]}]}, @NL80211_ATTR_SCAN_SUPP_RATES={0x1b8, 0x7d, 0x0, 0x1, [@NL80211_BAND_60GHZ={0x21, 0x2, "feeab90e470b07fbda2a8fb3d64bed31ee38ff4c05ef1c3a6684c88014"}, @NL80211_BAND_5GHZ={0x9e, 0x1, "3b7562583c8ddf16de56008de47e7c1662ec3b7f4fb787d6e33f1f949b02b6ac8f7ac34d951514194ae24d78bc0cc90c4b53af38cc977725166cceed34c5fef854b4fc84077649cd8decea93fdb9c7f0af9e75d966f4649278e52313a74f79f99a962cb2e42aeff329a2cc558147ccad26457ca245a50e97adf8da9e5fd967b1f2c6cfcf5683824d08d96d3f3d539f0f976e90f1796893231dc6"}, @NL80211_BAND_5GHZ={0xf0, 0x1, "b2d39f60d09c7b951b6e138c3071e8d6f128a7c0f5921d17613879fdb901ef98c67f392d5bc39d5d4f722257583b295172708fe7111f129c6fa4f88371a20de86214ce3b805212ec5444a92790b197f6214a77edad2da9e91e0de5131039ca4a1c524727d1afd1e2f94ada197ee494756ab35f98573237c4691e1f2667d7a5e1c63dd1b6811a123c95da6f6c47a2044a3d7a893064cd123762e3380e7667267c30d2e3100b8a892e850dcd982731a497949b02cd8c96dd929ca43a6233dbb39c20be7e81dcf306733bd1109ce0a24dd194e06029a6252b045ca1b782dbf121b76392af5bfb32fbbf898b969d"}]}, @NL80211_ATTR_MAC={0xa}, @NL80211_ATTR_SCHED_SCAN_INTERVAL={0x8, 0x77, 0x401}, @NL80211_ATTR_SCAN_FREQUENCIES={0x4}, @NL80211_ATTR_IE={0x15d, 0x2a, "0aee1bde814d40a2ad81fc7b56d3df28fdaf2cda7a616e49a38064ded9898ff2c7339f348a11dd4beb540f78699337dfa7c381a2a520d9fb163fa14ad9e8377619b0379c877e5e1c7d14a567ddbb9c884527bbd51e7a41de4a3d695d3e22ba587592f41019a4f0ceeb077f813f56ef4d8671de385ff55c8580864698f1f7a3ebd6a561f99f3241b0b1dd9a2c91936cfa8d6b325b12924982840a8e5cc60daed06afcae6673821fef1e769053094269b4f39e08ccdf0df7f43f5b6badbbe99c321ee0b0f116895c3dcd3863cae9b35a65ac9f964fdd4c572ef63fba3e76e6aa19738ea5fd6c0a12cb7bf37358122b5779cb6375e776607bf0d5a7a0307d3021971c3b6714de29b46ce3b5713c85a69a383c596815781779f286d871efa5f9a034a9457bda01c0dd118e488ffb8bd2642e51a09a512751e0ada26ed65d814201761dfb63903913b1ca747fd3c467a011ba403fd2234e5a1ebeed"}]}, 0x368}, 0x1, 0x0, 0x0, 0x20000000}, 0x20000100)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000080)=[{0x5}, {0x5}, {0x16}]}, 0x10)
+sendmsg$NL80211_CMD_NEW_STATION(0xffffffffffffffff, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000340)={&(0x7f0000000280)=ANY=[@ANYBLOB, @ANYRESDEC, @ANYBLOB="0507000004000000000013000000db3711e716057728a00507ab6957cbc6910d159f73bd003e9eea2bc86a0ac109a577bb5bd65fa1caec1b32a217fd543d1900d74af1351fd0ab753210c7a59de2061dba0b74815506f7dc2b9f245f25777f8506fc55a653929d9f6c7f4cdd82d1eacbc467f4a259a3faea11f1f7547552e2f614c69cd653d606f5914c66bec5b9588b65ad63525bb92ed1a365ac33d09ea10500c24d5d8967d4c12f"], 0x3}}, 0x80)
+
+19:07:54 executing program 3:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000080)=[{0x5}, {0x5}, {0x1a}]}, 0x10)
+sendmsg$NL80211_CMD_NEW_STATION(r0, &(0x7f00000000c0)={0x0, 0x0, &(0x7f0000000340)={&(0x7f00000002c0)=ANY=[@ANYBLOB="14000000", @ANYRES16=0x0, @ANYBLOB="0501000000000000f900130000ef"], 0x14}}, 0x0)
+
+19:07:54 executing program 1:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+ioctl$sock_ifreq(r0, 0xdb, &(0x7f0000000000)={'vlan0\x00', @ifru_ivalue=0xfffffff7})
+r2 = socket$netlink(0x10, 0x3, 0x6)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r2, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000180)=ANY=[@ANYBLOB="cc010000100029e8ecb8ab2598515bf6adf1a30d3e4c32e3da489bcd9266e093de890b994c069347112beec114f3d2ed6c24d56c3985f41f3ee836070be8e1fe95b8599e34a7c6f9c52fcf20b6ffaaff172acf172493662553170e", @ANYRES16, @ANYBLOB="01000000a01a49419172eddb0000000087000600eb00070000000000ff0066000300", @ANYRES32=0x0, @ANYBLOB="20002d8005000000090000000a0000b86d3bef010000010007000000000000000c009900008e0000000000000a00f50091699880e0130000"], 0x1cc}}, 0x0)
+
+[   27.614431] netlink: 220 bytes leftover after parsing attributes in process `syz-executor.1'.
+[   27.620032] netlink: 220 bytes leftover after parsing attributes in process `syz-executor.1'.
+19:07:54 executing program 3:
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+sendmsg$NL80211_CMD_GET_INTERFACE(r1, &(0x7f0000000000)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f0000000040)={0x38, r0, 0x321, 0x0, 0x0, {}, [@NL80211_ATTR_WDEV={0xa, 0x99, {0x0, 0xffffffffffffffff}}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x3f, 0x3}}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x0, 0x3}}]}, 0x38}}, 0x20048000)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_NEW_STATION(r1, &(0x7f0000000200)={&(0x7f00000000c0)={0x10, 0x0, 0x0, 0x8}, 0xc, &(0x7f0000000180)={&(0x7f0000000100)={0x54, r3, 0x400, 0x70bd25, 0x25dfdbff, {}, [@NL80211_ATTR_STA_FLAGS2={0xc, 0x43, {0x8, 0x5}}, @NL80211_ATTR_STA_FLAGS2={0xc, 0x43, {0xfc3, 0x400}}, @NL80211_ATTR_STA_PLINK_ACTION={0x5, 0x19, 0x2}, @NL80211_ATTR_LOCAL_MESH_POWER_MODE={0x8, 0xa4, 0x2}, @NL80211_ATTR_STA_EXT_CAPABILITY={0x16, 0xac, "2a9f0857ba5b2be88d44c283ea658013ab30"}]}, 0x54}, 0x1, 0x0, 0x0, 0x2408a850}, 0x40080)
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+r6 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r6, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r7 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r6, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r7, 0x1}, 0x14}}, 0x0)
+accept(r6, &(0x7f0000000280)=@xdp={0x2c, 0x0, <r8=>0x0}, &(0x7f0000000300)=0x80)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r4, &(0x7f00000003c0)={&(0x7f0000000240)={0x10, 0x0, 0x0, 0x40}, 0xc, &(0x7f0000000380)={&(0x7f0000000400)=ANY=[@ANYBLOB="3000e691ffffffffffff01000000dd9948f309be", @ANYRES16=r0, @ANYBLOB="d86727bd7000fbdbdf250700000008000300", @ANYRES32=r8, @ANYBLOB="1400040076657468305f6d616376746170000000"], 0x30}}, 0x815)
+
+[   27.654197] netlink: 'syz-executor.3': attribute type 153 has an invalid length.
+19:07:54 executing program 1:
+r0 = socket$netlink(0x10, 0x3, 0x0)
+ioctl$sock_SIOCDELDLCI(r0, 0x8981, &(0x7f0000000000)={'vxcan1\x00', 0xfffa})
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f0000000140)={0x0, 0x0, &(0x7f00000000c0)={&(0x7f0000000380)=ANY=[@ANYBLOB="cc0100001a0031a84c48decb01e8e4570240e718f42b183a4a1e03000047102beec114f3d2ed0824d56c3985f41f3ee836070be8e1fe95ff172acf9724936625534747ccba65bcb268b2a7a6cd6fb01ee421eb29271d05c49ee96348794216c15c9181125434004042023ded1f80e1eb66d69b4297ad64d6c7861928da28ad6c4f224a9c96f9e2539986449a9074ef5ca700252209d50716b7e40809da8054b1d4ea94bc9e68a63f6c0e65f763dc6471bd84bfade29e18869b678b5b57e0e8706a00ac63cb45ad0000000000000000", @ANYRES16, @ANYBLOB="01000000a01a4941917208be700b0087000600eb00070000000000ff0066000300d4c249af3c47f8b0f2ea088cb328335007700085463258f18ac102a415674205b1707a55480899b27c019d5ced92b819dd5fe446fa7706aef2b4783803324e7fc519ff4868b0208472de1f55ce1c02120788f1455005296d92d17e2a444d64de8255", @ANYRES32=0x0, @ANYBLOB="20002d8005000000090000000a0000b86d3bef010000010007044fa3bc0000000c009900008e0000000000000a00f50091699880e01300007053a8446e547362b32c13bc7ea2294199d74e31ac78c1bd716be429d1f4dc001d0b8e48b3ed683d6cea598903dff347e203d343309bc9dd476fa58cd1ea91d1f1ede885b5105113749930fbc3eb13ac53603df79a66a45f"], 0x1cc}}, 0x0)
+
+[   27.665061] netlink: 'syz-executor.3': attribute type 153 has an invalid length.
+[   27.690834] netlink: 432 bytes leftover after parsing attributes in process `syz-executor.1'.
+19:07:55 executing program 3:
+ioctl$sock_SIOCETHTOOL(0xffffffffffffffff, 0x8946, &(0x7f0000000080)={'lo\x00', &(0x7f00000000c0)=ANY=[@ANYBLOB="440000002e00ff"]})
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r1 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r0, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r1, 0x1}, 0x14}}, 0x0)
+getpeername$netlink(r0, &(0x7f0000000000), &(0x7f0000000040)=0xc)
+setsockopt$netlink_NETLINK_ADD_MEMBERSHIP(0xffffffffffffffff, 0x10e, 0x1, &(0x7f00000000c0)=0x14, 0x4)
+r2 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r2, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)={0x40, 0x0, 0x0, 0x0, 0x0, {}, [@NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFTYPE={0x8}, @NL80211_ATTR_IFNAME={0x14, 0x4, 'team0\x00'}, @NL80211_ATTR_IFTYPE={0x8}]}, 0x98}}, 0x0)
+
+[   27.697566] netlink: 432 bytes leftover after parsing attributes in process `syz-executor.1'.
+19:07:55 executing program 3:
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000140)='nl80211\x00')
+sendmsg$NL80211_CMD_START_SCHED_SCAN(0xffffffffffffffff, &(0x7f0000000200)={0x0, 0x0, &(0x7f00000001c0)={&(0x7f00000000c0)=ANY=[@ANYBLOB='8\x00\x00\x00', @ANYRES16=r0, @ANYBLOB="010001007000fc24ac6b80"], 0x3}}, 0x0)
+r1 = socket$netlink(0x10, 0x3, 0x0)
+sendmsg$NL80211_CMD_NEW_INTERFACE(r1, &(0x7f0000000240)={0x0, 0x0, &(0x7f0000000100)={&(0x7f0000000080)=ANY=[@ANYBLOB='@\x00\x00\x00', @ANYRES16=0x0, @ANYBLOB="000000000000000000000700000008000500000000000800050000000000140004007465616d3000000001000000000000000800050000000000"], 0x98}}, 0x0)
+
+19:07:55 executing program 1:
+r0 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000040)='nl80211\x00')
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000080)={0x4, &(0x7f0000000000)=[{}, {0x15, 0x0, 0x1}, {}, {0x6, 0x0, 0x0, 0xffffffff}]}, 0x10)
+sendmsg$NL80211_CMD_DEL_INTERFACE(r1, &(0x7f0000000c40)={0x0, 0x0, &(0x7f0000000c00)={&(0x7f0000000b80)={0x14, r0, 0x1}, 0x14}}, 0x0)
+
+[   27.783013] netlink: 28 bytes leftover after parsing attributes in process `syz-executor.3'.
+19:07:55 executing program 0:
+r0 = socket$nl_generic(0x10, 0x3, 0x10)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+recvfrom(r1, &(0x7f00000000c0)=""/184, 0xb8, 0x40012240, 0x0, 0x0)
+r2 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r2, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r3 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r2, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r3, 0x1}, 0x14}}, 0x0)
+ioctl$sock_ifreq(r2, 0x91, &(0x7f0000000040)={'geneve0\x00', @ifru_flags=0x1000})
+r4 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r4, 0x1}, 0x14}}, 0x0)
+setsockopt$SO_ATTACH_FILTER(r0, 0x1, 0x1a, &(0x7f0000000000)={0x3, &(0x7f0000000080)=[{0x25, 0x0, 0x0, 0xfffffffe}, {0x3}, {}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f00000002c0)='nl80211\x00')
+ioctl$ifreq_SIOCGIFINDEX_batadv_hard(0xffffffffffffffff, 0x8933, &(0x7f0000000cc0)={'batadv_slave_1\x00', <r6=>0x0})
+sendmsg$NL80211_CMD_GET_STATION(r0, &(0x7f0000000300)={0x0, 0x0, &(0x7f0000000240)={&(0x7f0000000d00)={0x30, r5, 0x400, 0x0, 0xfffffffc, {}, [@NL80211_ATTR_VLAN_ID={0x6, 0x11a, 0x4}, @NL80211_ATTR_IFINDEX={0x8, 0x3, r6}, @NL80211_ATTR_WDEV={0xc, 0x99, {0x2, 0x4}}]}, 0x30}}, 0x80)
+r7 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r7, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+getsockopt$sock_buf(r7, 0x1, 0x1a, &(0x7f0000000340)=""/253, &(0x7f0000000200)=0xfd)
+r8 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r7, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)=ANY=[@ANYBLOB="14000000", @ANYRES16=r8, @ANYBLOB="00000000000000000014000000"], 0x14}}, 0x0)
+ioctl$sock_SIOCSIFVLAN_GET_VLAN_REALDEV_NAME_CMD(r7, 0x8983, &(0x7f0000000280)={0x8, 'veth0_to_bridge\x00', {'veth0_to_bridge\x00'}, 0x5})
+
+19:07:55 executing program 3:
+r0 = socket$netlink(0x10, 0x3, 0x0)
+r1 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r1, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r2 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r1, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r2, 0x1}, 0x14}}, 0x0)
+r3 = socket$nl_generic(0x10, 0x3, 0x10)
+ioctl$FICLONERANGE(r1, 0x4020940d, &(0x7f0000000000)={{r3}, 0x3f, 0x0, 0xd7a})
+syz_genetlink_get_family_id$nl80211(&(0x7f0000000140)='nl80211\x00')
+r4 = socket$nl_generic(0x10, 0x3, 0x10)
+setsockopt$SO_ATTACH_FILTER(r4, 0x1, 0x1a, &(0x7f0000000040)={0x3, &(0x7f0000000000)=[{0xc}, {0x44}, {0x6}]}, 0x10)
+r5 = syz_genetlink_get_family_id$nl80211(&(0x7f0000000080)='nl80211\x00')
+sendmsg$NL80211_CMD_DEL_STATION(r4, &(0x7f00000001c0)={0x0, 0x0, &(0x7f0000000180)={&(0x7f0000000540)={0x14, r5, 0x1}, 0x14}}, 0x0)
+sendmsg$NL80211_CMD_START_SCHED_SCAN(r0, &(0x7f0000000200)={&(0x7f0000000140), 0xc, &(0x7f00000001c0)={&(0x7f0000000040)=ANY=[@ANYBLOB='8\x00\x00\x00', @ANYRES16=r4, @ANYBLOB="01002dbd7000fcdbdf00026fe7200000000006000000080001000200005059becf000600000002ffffff20f20f94ad9850ebd75faf8a05a160a6b6415126e17be61c995f7a861b3f0551677f37b7d9af061c785a5e1f8b7f0d8ae55870300a1f3358951c108f16b118499af30aeb711194b89b21d668eebf"], 0x3}, 0x1, 0x0, 0x0, 0x4000045}, 0x6000014)
+
+[   27.860806] ------------[ cut here ]------------
+[   27.862013] Found leaking site of sock_fprog_kern
+[   27.863342] WARNING: CPU: 0 PID: 3682 at net/core/filter.c:8677 sk_get_filter+0xf5/0x1d0
+[   27.865357] Modules linked in:
+[   27.866122] CPU: 0 PID: 3682 Comm: syz-executor.0 Not tainted 5.5.3 #19
+[   27.881800] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   27.889971] RIP: 0010:sk_get_filter+0xf5/0x1d0
+[   27.892762] Code: 36 fe 31 ed e9 83 00 00 00 e8 17 28 36 fe bd f3 ff ff ff eb 77 e8 0b 28 36 fe eb 70 48 c7 c7 59 f5 8a ae 31 c0 e8 9b 98 0f fe <0f> 0b 43 8a 04 2e 84 c0 0f 85 8b 00 00 00 45 0f b7 27 49 c1 e4 03
+[   27.901907] RSP: 0018:ffff888068307c40 EFLAGS: 00010246
+[   27.904501] RAX: 0c957aeee28c9900 RBX: ffff888066ef0000 RCX: ffffc900023ba000
+[   27.914473] RDX: ffffffffab800000 RSI: 0000000000000539 RDI: 000000000000053a
+[   27.917788] RBP: 0000000000000003 R08: dffffc0000000000 R09: 0000000000000003
+[   27.920124] R10: ffffed100d060f01 R11: 0000000000000004 R12: 00000000000000fd
+[   27.921927] R13: dffffc0000000000 R14: 1ffff1100d33dfdc R15: ffff8880699efee0
+[   27.923740] FS:  00007fef38a36700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   27.926823] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   27.928858] CR2: 00007fff538d0f98 CR3: 0000000067e92006 CR4: 00000000001606f0
+[   27.931464] Call Trace:
+[   27.932637]  sock_getsockopt+0x986/0x2ef0
+[   27.933931]  ? __switch_to_asm+0x40/0x70
+[   27.935676]  ? release_sock+0x190/0x190
+[   27.937596]  ? selinux_socket_getsockopt+0x20f/0x2e0
+[   27.940036]  ? __switch_to_asm+0x34/0x70
+[   27.941992]  ? __switch_to_asm+0x40/0x70
+[   27.943893]  ? selinux_socket_getpeername+0x2e0/0x2e0
+[   27.946385]  ? __fget+0x31f/0x360
+[   27.947992]  ? _copy_to_user+0x6f/0x90
+[   27.949804]  ? __schedule+0xb4a/0x10b0
+[   27.951611]  ? security_socket_getsockopt+0x9a/0xb0
+[   27.953930]  __sys_getsockopt+0x140/0x1f0
+[   27.955866]  __x64_sys_getsockopt+0xb1/0xc0
+[   27.957878]  do_syscall_64+0xa5/0x130
+[   27.959661]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   27.962097] RIP: 0033:0x467519
+[   27.963556] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   27.968974] RSP: 002b:00007fef38a35c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+[   27.970841] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   27.972594] RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000006
+[   27.974424] RBP: 00007fef38a366bc R08: 0000000020000200 R09: 0000000000000000
+[   27.977311] R10: 0000000020000340 R11: 0000000000000246 R12: 00000000ffffffff
+[   27.979222] R13: 00000000000001e7 R14: 00000000004c27af R15: 0000000000701660
+[   27.981124] ---[ end trace 205f46abad0502d3 ]---
+[   28.026458] ------------[ cut here ]------------
+[   28.028847] Found leaking site of sock_fprog_kern
+[   28.031338] WARNING: CPU: 0 PID: 3691 at net/core/filter.c:8677 sk_get_filter+0xf5/0x1d0
+[   28.035177] Modules linked in:
+[   28.036678] CPU: 0 PID: 3691 Comm: syz-executor.0 Tainted: G        W         5.5.3 #19
+[   28.040460] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   28.045939] RIP: 0010:sk_get_filter+0xf5/0x1d0
+[   28.048065] Code: 36 fe 31 ed e9 83 00 00 00 e8 17 28 36 fe bd f3 ff ff ff eb 77 e8 0b 28 36 fe eb 70 48 c7 c7 59 f5 8a ae 31 c0 e8 9b 98 0f fe <0f> 0b 43 8a 04 2e 84 c0 0f 85 8b 00 00 00 45 0f b7 27 49 c1 e4 03
+[   28.053618] RSP: 0018:ffff888068377c40 EFLAGS: 00010246
+[   28.054950] RAX: ee08e7bca3255300 RBX: ffff8880523cb000 RCX: ffffc90002bbe000
+[   28.056780] RDX: ffffffffab800000 RSI: 0000000000000537 RDI: 0000000000000538
+[   28.058627] RBP: 0000000000000003 R08: dffffc0000000000 R09: 0000000000000003
+[   28.060478] R10: ffffed100d06ef01 R11: 0000000000000004 R12: 00000000000000fd
+[   28.062328] R13: dffffc0000000000 R14: 1ffff1100d33df84 R15: ffff8880699efc20
+[   28.064986] FS:  00007fef389f4700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   28.068674] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   28.071376] CR2: 00007f1925ebf1c4 CR3: 0000000067e92004 CR4: 00000000001606f0
+[   28.074744] Call Trace:
+[   28.075734]  sock_getsockopt+0x986/0x2ef0
+[   28.076788]  ? __switch_to_asm+0x40/0x70
+[   28.077794]  ? release_sock+0x190/0x190
+[   28.079137]  ? selinux_socket_getsockopt+0x20f/0x2e0
+[   28.080672]  ? __switch_to_asm+0x34/0x70
+[   28.081925]  ? __switch_to_asm+0x40/0x70
+[   28.083818]  ? selinux_socket_getpeername+0x2e0/0x2e0
+[   28.086240]  ? __fget+0x31f/0x360
+[   28.087836]  ? _copy_to_user+0x6f/0x90
+[   28.089634]  ? __schedule+0xb4a/0x10b0
+[   28.091460]  ? security_socket_getsockopt+0x9a/0xb0
+[   28.093801]  __sys_getsockopt+0x140/0x1f0
+[   28.095737]  __x64_sys_getsockopt+0xb1/0xc0
+[   28.097759]  do_syscall_64+0xa5/0x130
+[   28.099540]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   28.101763] RIP: 0033:0x467519
+[   28.102654] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   28.107802] RSP: 002b:00007fef389f3c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+[   28.109916] RAX: ffffffffffffffda RBX: 000000000074c040 RCX: 0000000000467519
+[   28.111892] RDX: 000000000000001a RSI: 0000000000000001 RDI: 0000000000000006
+[   28.113886] RBP: 00007fef389f46bc R08: 0000000020000200 R09: 0000000000000000
+[   28.115900] R10: 0000000020000340 R11: 0000000000000246 R12: 00000000ffffffff
+[   28.117879] R13: 00000000000001e7 R14: 00000000004c27af R15: 0000000000701660
+[   28.119737] ---[ end trace 205f46abad0502d4 ]---

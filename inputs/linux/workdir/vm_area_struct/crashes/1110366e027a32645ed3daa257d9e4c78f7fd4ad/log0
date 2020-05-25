@@ -1,0 +1,214 @@
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+2020/04/20 20:30:36 fuzzer started
+2020/04/20 20:30:37 dialing manager at 10.0.2.10:38933
+2020/04/20 20:30:37 checking machine...
+2020/04/20 20:30:37 checking revisions...
+2020/04/20 20:30:37 testing simple program...
+syzkaller login: [   15.410304] audit: type=1400 audit(1587414637.418:8): avc:  denied  { execmem } for  pid=344 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+2020/04/20 20:30:37 building call list...
+[   15.913426] audit: type=1400 audit(1587414637.920:9): avc:  denied  { create } for  pid=321 comm="syz-fuzzer" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=dccp_socket permissive=1
+2020/04/20 20:30:38 syscalls: 2
+2020/04/20 20:30:38 code coverage: enabled
+2020/04/20 20:30:38 comparison tracing: enabled
+2020/04/20 20:30:38 extra coverage: enabled
+2020/04/20 20:30:38 setuid sandbox: enabled
+2020/04/20 20:30:38 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 20:30:38 Android sandbox: enabled
+2020/04/20 20:30:38 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 20:30:38 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 20:30:38 net packet injection: /dev/net/tun does not exist
+2020/04/20 20:30:38 net device setup: enabled
+2020/04/20 20:30:38 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 20:30:38 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 20:30:38 USB emulation: /dev/raw-gadget does not exist
+20:30:38 executing program 0:
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000ffa000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffc000/0x2000)=nil, 0x2000)
+munmap(&(0x7f0000ffc000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ffd000/0x2000)=nil, 0x2000, &(0x7f0000000000)=""/4096)
+munmap(&(0x7f0000ffa000/0x2000)=nil, 0x2000)
+munmap(&(0x7f0000ffe000/0x1000)=nil, 0x1000)
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+mincore(&(0x7f0000ffe000/0x1000)=nil, 0x1000, &(0x7f0000001000)=""/118)
+munmap(&(0x7f0000ffc000/0x3000)=nil, 0x3000)
+mincore(&(0x7f0000ffd000/0x2000)=nil, 0x2000, &(0x7f0000001080)=""/4096)
+mincore(&(0x7f0000ffc000/0x2000)=nil, 0x2000, &(0x7f0000002080)=""/213)
+mincore(&(0x7f0000ffa000/0x4000)=nil, 0x4000, &(0x7f0000002180)=""/253)
+mincore(&(0x7f0000ffc000/0x4000)=nil, 0x4000, &(0x7f0000002280)=""/87)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+mincore(&(0x7f0000ffa000/0x3000)=nil, 0x3000, &(0x7f0000002300)=""/4096)
+mincore(&(0x7f0000ffb000/0x3000)=nil, 0x3000, &(0x7f0000003300)=""/184)
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffd000/0x1000)=nil, 0x1000)
+mincore(&(0x7f0000ffc000/0x2000)=nil, 0x2000, &(0x7f00000033c0)=""/106)
+
+20:30:38 executing program 3:
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffe000/0x1000)=nil, 0x1000)
+mincore(&(0x7f0000fff000/0x1000)=nil, 0x1000, &(0x7f0000000000)=""/221)
+mincore(&(0x7f0000ffd000/0x3000)=nil, 0x3000, &(0x7f0000000100)=""/4096)
+mincore(&(0x7f0000ffc000/0x4000)=nil, 0x4000, &(0x7f0000001100)=""/120)
+mincore(&(0x7f0000ff1000/0xe000)=nil, 0xe000, &(0x7f0000001180)=""/190)
+mincore(&(0x7f0000ffe000/0x2000)=nil, 0x2000, &(0x7f0000001240)=""/1)
+mincore(&(0x7f0000ff8000/0x2000)=nil, 0x2000, &(0x7f0000001280)=""/4096)
+mincore(&(0x7f0000ffc000/0x4000)=nil, 0x4000, &(0x7f0000002280)=""/5)
+munmap(&(0x7f0000ff9000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ff2000/0x1000)=nil, 0x1000, &(0x7f00000022c0)=""/239)
+munmap(&(0x7f0000ffa000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000ff2000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000fff000/0x1000)=nil, 0x1000)
+mincore(&(0x7f0000ff1000/0x4000)=nil, 0x4000, &(0x7f00000023c0)=""/255)
+munmap(&(0x7f0000ff2000/0xe000)=nil, 0xe000)
+munmap(&(0x7f0000ff8000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ff9000/0x3000)=nil, 0x3000, &(0x7f00000024c0)=""/152)
+mincore(&(0x7f0000ffb000/0x4000)=nil, 0x4000, &(0x7f0000002580)=""/171)
+munmap(&(0x7f0000ffc000/0x3000)=nil, 0x3000)
+
+20:30:38 executing program 1:
+munmap(&(0x7f0000ffe000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ffd000/0x3000)=nil, 0x3000, &(0x7f0000000000)=""/5)
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffd000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ffd000/0x1000)=nil, 0x1000, &(0x7f0000000040)=""/4096)
+mincore(&(0x7f0000ffa000/0x3000)=nil, 0x3000, &(0x7f0000001040)=""/37)
+mincore(&(0x7f0000ffa000/0x2000)=nil, 0x2000, &(0x7f0000001080)=""/187)
+munmap(&(0x7f0000ffa000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+mincore(&(0x7f0000ffd000/0x2000)=nil, 0x2000, &(0x7f0000001140)=""/160)
+mincore(&(0x7f0000ff8000/0x3000)=nil, 0x3000, &(0x7f0000001200)=""/161)
+mincore(&(0x7f0000ffd000/0x3000)=nil, 0x3000, &(0x7f00000012c0)=""/32)
+mincore(&(0x7f0000ff9000/0x2000)=nil, 0x2000, &(0x7f0000001300)=""/188)
+munmap(&(0x7f0000ffa000/0x3000)=nil, 0x3000)
+mincore(&(0x7f0000ffd000/0x3000)=nil, 0x3000, &(0x7f00000013c0)=""/196)
+munmap(&(0x7f0000ffd000/0x2000)=nil, 0x2000)
+munmap(&(0x7f0000ff8000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ff0000/0x10000)=nil, 0x10000)
+munmap(&(0x7f0000ff3000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000a00000/0x600000)=nil, 0x600000, &(0x7f00000014c0)=""/222)
+
+20:30:38 executing program 2:
+munmap(&(0x7f0000ffd000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000ffc000/0x4000)=nil, 0x4000, &(0x7f0000000000)=""/77)
+munmap(&(0x7f0000ffb000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+mincore(&(0x7f0000ffe000/0x2000)=nil, 0x2000, &(0x7f0000000080)=""/83)
+mincore(&(0x7f0000ffa000/0x3000)=nil, 0x3000, &(0x7f0000000100)=""/4096)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+munmap(&(0x7f0000ffc000/0x2000)=nil, 0x2000)
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+munmap(&(0x7f0000ffc000/0x2000)=nil, 0x2000)
+mincore(&(0x7f0000fff000/0x1000)=nil, 0x1000, &(0x7f0000001100)=""/183)
+munmap(&(0x7f0000ffd000/0x3000)=nil, 0x3000)
+mincore(&(0x7f0000fff000/0x1000)=nil, 0x1000, &(0x7f00000011c0)=""/248)
+mincore(&(0x7f0000ffd000/0x3000)=nil, 0x3000, &(0x7f00000012c0)=""/138)
+munmap(&(0x7f0000ffd000/0x2000)=nil, 0x2000)
+munmap(&(0x7f0000ffc000/0x1000)=nil, 0x1000)
+mincore(&(0x7f0000ffc000/0x3000)=nil, 0x3000, &(0x7f0000001380)=""/72)
+munmap(&(0x7f0000ffc000/0x4000)=nil, 0x4000)
+mincore(&(0x7f0000ffa000/0x3000)=nil, 0x3000, &(0x7f0000001400)=""/140)
+
+[   16.627740] cgroup1: Unknown subsys name 'perf_event'
+[   16.630783] cgroup1: Unknown subsys name 'net_cls'
+[   16.682706] cgroup1: Unknown subsys name 'perf_event'
+[   16.684768] cgroup1: Unknown subsys name 'net_cls'
+[   16.692813] cgroup1: Unknown subsys name 'perf_event'
+[   16.694890] cgroup1: Unknown subsys name 'net_cls'
+[   16.706340] ------------[ cut here ]------------
+[   16.708154] Found leaking site of nlattr
+[   16.708345] WARNING: CPU: 1 PID: 448 at lib/nlattr.c:522 nla_strlcpy+0xa0/0x1e0
+[   16.712576] Kernel panic - not syncing: panic_on_warn set ...
+[   16.715234] CPU: 1 PID: 448 Comm: syz-executor.3 Not tainted 5.5.3 #56
+[   16.717572] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   16.721722] Call Trace:
+[   16.722893]  dump_stack+0x15e/0x1ae
+[   16.723081] cgroup1: Unknown subsys name 'perf_event'
+[   16.724618]  panic+0x228/0x700
+[   16.724622]  ? nla_strlcpy+0xa0/0x1e0
+[   16.724624]  __warn+0x1fe/0x200
+[   16.724626]  ? nla_strlcpy+0xa0/0x1e0
+[   16.724629]  report_bug+0x359/0x480
+[   16.724632]  ? nla_strlcpy+0xa0/0x1e0
+[   16.724634]  do_invalid_op+0x6e/0x110
+[   16.724637]  invalid_op+0x1e/0x30
+[   16.724640] RIP: 0010:nla_strlcpy+0xa0/0x1e0
+[   16.724643] Code: 81 c7 48 06 00 00 48 c7 c6 6f 20 1e a5 e8 d8 24 b8 01 48 85 c0 74 1e e8 9e b6 57 ff 48 c7 c7 05 03 20 a5 31 c0 e8 b0 05 31 ff <0f> 0b eb 0c e8 87 b6 57 ff eb 05 e8 80 b6 57 ff 49 83 c7 04 31 ff
+[   16.724645] RSP: 0018:ffff8880558574f0 EFLAGS: 00010246
+[   16.724647] RAX: da8d7c694d6da500 RBX: 000000000000000a RCX: 0000000000000000
+[   16.724649] RDX: ffff8880674e0000 RSI: 0000000000000224 RDI: 0000000000000224
+[   16.724650] RBP: 0000000000000002 R08: dffffc0000000000 R09: fffffbfff4be8bc3
+[   16.724652] R10: fffffbfff4be8bc3 R11: 0000000000000000 R12: 0000000000000010
+[   16.724653] R13: dffffc0000000000 R14: ffff8880558575d0 R15: ffff88806a460820
+[   16.724657]  ? rtnl_newlink+0x2cb/0x1c00
+[   16.724661]  rtnl_newlink+0x2e0/0x1c00
+[   16.726901] cgroup1: Unknown subsys name 'net_cls'
+[   16.727814]  ? arch_stack_walk+0x7d/0xf0
+[   16.727818]  ? __is_insn_slot_addr+0xb0/0xd0
+[   16.727821]  ? stack_trace_save+0x150/0x150
+[   16.727823]  ? kernel_text_address+0xa9/0xf0
+[   16.727826]  ? __kernel_text_address+0x9/0x40
+[   16.727829]  ? unwind_get_return_address+0x48/0x90
+[   16.727833]  ? avc_has_perm_noaudit+0x29c/0x360
+[   16.727835]  ? stack_trace_save+0x150/0x150
+[   16.727838]  ? __is_insn_slot_addr+0xb0/0xd0
+[   16.727841]  ? cred_has_capability+0x136/0x330
+[   16.727843]  ? cred_has_capability+0x236/0x330
+[   16.727845]  ? arch_stack_walk+0x98/0xf0
+[   16.727849]  ? mutex_lock+0x71/0xc0
+[   16.727851]  ? rtnl_setlink+0x490/0x490
+[   16.727854]  rtnetlink_rcv_msg+0xa1d/0xb90
+[   16.727859]  ? __kasan_kmalloc+0x11d/0x1b0
+[   16.797404]  ? __kmalloc_node_track_caller+0x15f/0x370
+[   16.800285]  ? __alloc_skb+0xde/0x4f0
+[   16.801954]  ? netlink_sendmsg+0x76d/0xd10
+[   16.804027]  ? __sys_sendto+0x608/0x620
+[   16.805930]  ? __x64_sys_sendto+0xda/0xf0
+[   16.808082]  ? do_syscall_64+0xd1/0x160
+[   16.810101]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   16.812704]  ? do_syscall_64+0xd1/0x160
+[   16.814686]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   16.817432]  ? __switch_to_asm+0x40/0x70
+[   16.819487]  ? __switch_to_asm+0x34/0x70
+[   16.821684]  ? __switch_to_asm+0x40/0x70
+[   16.823396]  ? __switch_to_asm+0x34/0x70
+[   16.824962]  ? __switch_to_asm+0x40/0x70
+[   16.827053]  ? __switch_to_asm+0x34/0x70
+[   16.828885]  ? __switch_to_asm+0x40/0x70
+[   16.830242]  ? __switch_to_asm+0x34/0x70
+[   16.831856]  ? __switch_to_asm+0x40/0x70
+[   16.833490]  ? __switch_to_asm+0x34/0x70
+[   16.835444]  ? __switch_to_asm+0x40/0x70
+[   16.837313]  ? __switch_to_asm+0x34/0x70
+[   16.839041]  ? __switch_to_asm+0x40/0x70
+[   16.840899]  ? __switch_to_asm+0x34/0x70
+[   16.842736]  ? __switch_to_asm+0x40/0x70
+[   16.844648]  ? __switch_to_asm+0x34/0x70
+[   16.846507]  ? __switch_to_asm+0x40/0x70
+[   16.848418]  ? __switch_to_asm+0x34/0x70
+[   16.850377]  ? rhashtable_jhash2+0x1cf/0x2f0
+[   16.852570]  ? jhash+0x7c0/0x7c0
+[   16.854352]  ? rht_key_hashfn+0xba/0x150
+[   16.856196]  netlink_rcv_skb+0x196/0x3c0
+[   16.858190]  ? rtnetlink_bind+0x80/0x80
+[   16.860167]  netlink_unicast+0x872/0xbe0
+[   16.862088]  netlink_sendmsg+0x9ed/0xd10
+[   16.864059]  ? netlink_getsockopt+0x930/0x930
+[   16.866189]  __sys_sendto+0x608/0x620
+[   16.867953]  ? fd_install+0xe6/0x230
+[   16.869753]  ? sock_alloc_file+0x19d/0x240
+[   16.871722]  __x64_sys_sendto+0xda/0xf0
+[   16.873799]  do_syscall_64+0xd1/0x160
+[   16.875591]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   16.877963] RIP: 0033:0x4168c4
+[   16.879577] Code: c0 ff ff ff ff eb b5 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 8b 05 ae 1a 87 00 41 89 ca 85 c0 75 13 b8 2c 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 74 f3 c3 66 90 41 57 41 56 4d 89 c7 41 55 41
+[   16.888176] RSP: 002b:00007ffc96451ca8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[   16.891864] RAX: ffffffffffffffda RBX: 0000000000c82200 RCX: 00000000004168c4
+[   16.895013] RDX: 0000000000000044 RSI: 0000000000c82250 RDI: 0000000000000003
+[   16.898488] RBP: 0000000000000000 R08: 00007ffc96451cbc R09: 000000000000000c
+[   16.901761] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[   16.904945] R13: 0000000000000000 R14: 0000000000c82250 R15: 0000000000000003
+[   16.908703] Dumping ftrace buffer:
+[   16.910425]    (ftrace buffer empty)
+[   16.912029] Kernel Offset: 0x21200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   16.916940] Rebooting in 1 seconds..

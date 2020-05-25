@@ -1,0 +1,865 @@
+[    7.929423] apt-get (279) used greatest stack depth: 26272 bytes left
+[[0;32m  OK  [0m] Started Daily apt download activities.
+         Starting Daily apt upgrade and clean activities...
+[[0;32m  OK  [0m] Started Daily apt upgrade and clean activities.
+
+Warning: Permanently added '[localhost]:28074' (ECDSA) to the list of known hosts.
+Debian GNU/Linux 9 syzkaller ttyS0
+
+2020/04/20 19:25:37 fuzzer started
+2020/04/20 19:25:38 dialing manager at 10.0.2.10:45239
+2020/04/20 19:25:38 syscalls: 35
+2020/04/20 19:25:38 code coverage: enabled
+2020/04/20 19:25:38 comparison tracing: enabled
+2020/04/20 19:25:38 extra coverage: enabled
+2020/04/20 19:25:38 setuid sandbox: enabled
+2020/04/20 19:25:38 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 19:25:38 Android sandbox: enabled
+2020/04/20 19:25:38 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 19:25:38 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 19:25:38 net packet injection: /dev/net/tun does not exist
+2020/04/20 19:25:38 net device setup: enabled
+2020/04/20 19:25:38 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 19:25:38 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 19:25:38 USB emulation: /dev/raw-gadget does not exist
+19:25:39 executing program 3:
+keyctl$KEYCTL_CAPABILITIES(0x1f, &(0x7f0000000000)=""/117, 0x75)
+r0 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffff9)
+keyctl$reject(0x13, 0x0, 0x9, 0x3, r0)
+r1 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_MOVE(0x1e, 0x0, r1, r0, 0x1)
+add_key$user(&(0x7f0000000180)='user\x00', &(0x7f00000001c0)={'syz', 0x3}, &(0x7f0000000200)="28ab4ca8885718d5c2008841133951233132a361862d5edc", 0x18, 0xfffffffffffffffa)
+r2 = add_key(&(0x7f0000000240)='cifs.idmap\x00', &(0x7f0000000280)={'syz', 0x1}, &(0x7f00000002c0)="38cc8c2b9202bccd97b6451f6a6f156ac5db87fc2c53a1858875e4e7bd7fe6e5bfe7042b9e6a1b0a64da570adb9e169924708f7e32334933127bb84f721124eb2d04f270e84e5bf4038b0a6526560ae26adfeed0c736c75ea97a4dd93fe82186c4a02853a9ee10019f624a713cd28f9f727285e0b8cc973b7377c18ae9cfee799c0ddec42b4ef8bf1a37c98b8a930321f5748d2ddbb8baabc347b929e98eb760c350c06328bceab0e48cfadfafcc11dfd64828e50313a79421925aaabf17b50fa7113ccb", 0xc4, r0)
+keyctl$KEYCTL_MOVE(0x1e, r2, 0xfffffffffffffffc, r1, 0xa130e684c22a0456)
+r3 = request_key(&(0x7f00000003c0)='asymmetric\x00', &(0x7f0000000400)={'syz', 0x1}, &(0x7f0000000440)='syz', 0xfffffffffffffffd)
+r4 = request_key(&(0x7f0000000480)='.dead\x00', &(0x7f00000004c0)={'syz', 0x0}, &(0x7f0000000500)='user\x00', r1)
+keyctl$link(0x8, r3, r4)
+r5 = add_key(&(0x7f0000000540)='blacklist\x00', &(0x7f0000000580)={'syz', 0x3}, &(0x7f00000005c0)="aec8641809d765a216a459ddc61478d41a6de7b5ee29f62918c3c19773a9c4ceda37f0fdfc3c168199088a3d528c36a750defef86b4aa0511495b595f786de8fd0dff0ceeee1c97675d4b8330024444e1880636062c3aa67b4e812d4e3080d766c", 0x61, 0xfffffffffffffffc)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r5, &(0x7f0000000640)='.request_key_auth\x00', &(0x7f0000000680)=@chain={'key_or_keyring:', 0x0, ':chain\x00'})
+r6 = add_key$user(&(0x7f00000006c0)='user\x00', &(0x7f0000000700)={'syz', 0x1}, &(0x7f0000000740)="47bae8dfce129ab5303fe509bdd7ca71043b3ad0c255cb5bbc556af3e6e841b2088916ca6f0318af380ca737ee8201c95585d067f36b0b582702e122eb67ff46f7266bc0523bc3ee3e52017475401960db9b20bca6cbec2d13c0e2b36fca3b833e663623d7b2ca0262b97682145575448219b4351b5c5401fcac", 0x7a, r0)
+r7 = add_key(&(0x7f00000007c0)='pkcs7_test\x00', &(0x7f0000000800)={'syz', 0x3}, &(0x7f0000000840)="11c57bd8ddc923ce70f56e4c7bc04a259c35dc8beb7e1bb634d9e55ab77bdce943bf524c25f20cb3fe857e2abbeb", 0x2e, 0xffffffffffffffff)
+keyctl$unlink(0x9, r6, r7)
+keyctl$reject(0x13, r2, 0x65, 0x2, r1)
+r8 = add_key$keyring(&(0x7f0000000a00)='keyring\x00', &(0x7f0000000a40)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffb)
+add_key$user(&(0x7f0000000880)='user\x00', &(0x7f00000008c0)={'syz', 0x2}, &(0x7f0000000900)="750198da896e83ef79cb289f3264e03bb4596c7df25d2a7f9deb01589a9228a9bad40a2332777950786871b5ace228d219c9ba8a33972dfa04ba3f9fa8a1273365b2db557c6a6291daa4bfaa4a8d1da1bb4591bbffe1c8ffecf6c8b8d78bb69647f0226314c6c2a2f692dd7ddd08baadb927db7707820f3aaeccd8d0cc037d506d345a512a6726b4bfc8c060bb419b9b6e1b8d823d684fc5da38761bc3c5e1336dc53a023e62c98047fa329c29e1b088d58696e53ac32213f99cd8f795ee5dffe4ebeb2bbbb0f8f6c887f079c8c9a62d558cf76c0cdce1", 0xd7, r8)
+keyctl$revoke(0x3, r2)
+
+19:25:39 executing program 0:
+keyctl$KEYCTL_CAPABILITIES(0x1f, &(0x7f0000000000)=""/177, 0xb1)
+r0 = add_key$keyring(&(0x7f0000000240)='keyring\x00', &(0x7f0000000280)={'syz', 0x0}, 0x0, 0x0, 0x0)
+add_key$user(&(0x7f00000000c0)='user\x00', &(0x7f0000000100)={'syz', 0x2}, &(0x7f0000000140)="e7a43400934a16dbfb2280b4a4a8358318365a36d496db24dcb7cbf112555746bdb7853d52d2cb6a24bc226eff4b08fa19be452f9915e5e928366bc66aa3b9c012c7529d72eb25c0589c9d823b70f80b1fde006d1651439440c5262ad6d130042771c81ba220dbacb7a3a9dcf54ab780326371c2275a4bf4eec12be3188377f752d5f0a25e51ae3f12b170b72172d275c9dbb1f3ad8fee77aa8d51fad471720d25d7399abe802b8c6388de0791f33259867e8c08d99c847dd340d910168875d2820b9a570dc9c15436800e7148b31d3ff1b9060e42bff6a56dd8b06cc07cc37256d9bf4065ec7abbb77942d9e45dfc64d627", 0xf2, r0)
+r1 = add_key$user(&(0x7f00000002c0)='user\x00', &(0x7f0000000300)={'syz', 0x2}, &(0x7f0000000340)="ff439fb76796a43a938ef15af98d24bd12e18c18acf815bf6c398e0979e1a0a3a14d5f49c73fa8be786e3b09af5e291c9bfe86f47f46aa91cdf0a22faa60075b3a7f6151af2362d0ed3bf9679ef78a50864c2627789e4dedc2e25aee8b030fb940ee62f63bedb8ee5dba81a4528f39663f8c4228ffa95ac2c135c102950f08e7deb7346f769019d3701c9deab7b1beff27", 0x91, 0x0)
+keyctl$reject(0x13, r1, 0x1, 0xff, r0)
+r2 = add_key$keyring(&(0x7f0000000480)='keyring\x00', &(0x7f00000004c0)={'syz', 0x0}, 0x0, 0x0, r0)
+r3 = add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f0000000440)={'syz', 0x2}, 0x0, 0x0, r2)
+r4 = add_key$user(&(0x7f0000000500)='user\x00', &(0x7f0000000540)={'syz', 0x1}, &(0x7f0000000580)="76d83eef3b04c156ca6fb18074e72de7497630330a0a1eabff6a22ad143b1d29cdc5bbeca6e9e79ff35b69028190499f797c76fbfb0d955025e307ffece652211b0a4313b0ce5bb3e619b656cc58238c7834de7c2053051180c657ba9ecae2e1b0189b5cc2f9eef3b51126db66", 0x6d, 0xfffffffffffffffd)
+r5 = add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$reject(0x13, r4, 0xffffffff, 0x101, r5)
+r6 = add_key$keyring(&(0x7f0000000680)='keyring\x00', &(0x7f00000006c0)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$clear(0x7, r6)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, 0x0, 0x0, &(0x7f0000000700)=@builtin='builtin_trusted\x00')
+add_key$keyring(&(0x7f0000000740)='keyring\x00', &(0x7f0000000780)={'syz', 0x2}, 0x0, 0x0, 0xffffffffffffffff)
+r7 = request_key(&(0x7f0000000940)='asymmetric\x00', &(0x7f0000000980)={'syz', 0x2}, &(0x7f00000009c0)='syz', r2)
+add_key$user(&(0x7f00000007c0)='user\x00', &(0x7f0000000800)={'syz', 0x3}, &(0x7f0000000840)="d272c1158f44ebf8a1886d39c8c9f9a509d1e162b5d92c0cba202528a9c91f0576cb91904413991dda3fb0ae0bb3a02676decf987dd52824b91b8ef453236b48250426562f599979550d3416c8c6cca5ed6d873a1e6c1844de2efab1c1b0cd9d07bd1c416eeb92ba38444aa2a5172ff6e49a28a2d9a09fa608d457af1e006f662bfc340587ff638a788a92fe70ce90a1ea7df0d1c0401cd3308d53f730f0c014b9f45b764d71c5fb3ce5f45a4092aadfd1c02c443559815b2489fdf85826cf167f92a90e3e28742709942baab7cf05ca886597323ca1416f7a1382fd97ca3de2961bf88a34cdccbc69b43b30033feff6d4535511cfe6ab5983262ea184", 0xfd, r7)
+r8 = request_key(&(0x7f0000000ac0)='pkcs7_test\x00', &(0x7f0000000b00)={'syz', 0x2}, &(0x7f0000000b40)='posix_acl_accessem0keyring\x00', 0xfffffffffffffffb)
+request_key(&(0x7f0000000a00)='logon\x00', &(0x7f0000000a40)={'syz', 0x1}, &(0x7f0000000a80)='\x00', r8)
+r9 = add_key$keyring(&(0x7f0000000b80)='keyring\x00', &(0x7f0000000bc0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffa)
+keyctl$KEYCTL_MOVE(0x1e, r3, 0xffffffffffffffff, r9, 0x1)
+
+19:25:39 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffe)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, 0x0, 0x0, &(0x7f0000000080)=@keyring={'key_or_keyring:', r0})
+r1 = add_key(&(0x7f00000000c0)='.dead\x00', &(0x7f0000000100)={'syz', 0x1}, 0x0, 0x0, r0)
+keyctl$invalidate(0x15, r1)
+r2 = add_key$user(&(0x7f0000000140)='user\x00', &(0x7f0000000180)={'syz', 0x2}, &(0x7f00000001c0)="682f2b270d9d8be80223473a2fe48399465162a2e3233ffc7460c58cfcffc380bbc76cff1c2b11bb7cc0cfbe807341556e727b16c932b39863849837c31b162142fb98a4380b036c8ffb37d79612f0a8c4ec2e285f6fb72c0fdbf71f3bda38c82fc441a64726cc85a6c53a0c710ecd79f5e793d60c481ec4adbb26427c40e62ba4fc1a979517e2076c705e614f94a82246deae4c56d6f6a6023cca9cbe602063f1a6823a80efbf67c5199b2c", 0xac, 0xfffffffffffffffc)
+keyctl$instantiate(0xc, r2, 0x0, 0x0, 0xffffffffffffffff)
+r3 = add_key$keyring(&(0x7f0000000280)='keyring\x00', &(0x7f00000002c0)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffff9)
+r4 = request_key(&(0x7f0000000300)='cifs.spnego\x00', &(0x7f0000000340)={'syz', 0x0}, &(0x7f0000000380)='.dead\x00', r0)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r3, 0x0, &(0x7f00000003c0)=@chain={'key_or_keyring:', r4, ':chain\x00'})
+r5 = add_key(&(0x7f0000000480)='rxrpc_s\x00', &(0x7f00000004c0)={'syz', 0x3}, &(0x7f0000000500)="75f1faf42536d64ea9939feacaa0800d2b5157747986b4f5be27429e6bd4f2769f79142c058752a3df686544f8d59898f1d314c89b90da82e30427506b6c06", 0x3f, 0xfffffffffffffffc)
+keyctl$search(0xa, r4, &(0x7f0000000400)='trusted\x00', &(0x7f0000000440)={'syz', 0x3}, r5)
+r6 = add_key(&(0x7f00000005c0)='pkcs7_test\x00', &(0x7f0000000600)={'syz', 0x3}, &(0x7f0000000640)="ca17c828e2f03c779a7d17aa1400cbe90fe937a379d4248e2bdeb821caa16817b68736a0c4ee85f48efc031234ef9efc4f05a65c30a01d4ebab4c529a158bb32e23cdf18ff156f425c9d72bdd035e0efe59ff88405dfe13f82db2b9cbea844f757f64d4bf74d55701b2998936a9c98a07a4266e4e1153abc36012127fdd28cbcb79882170b29ce44dd445c8acb7590c2a1e5c6de76977a6cff3abf532ac0f7698f72b2807abd3544abcda37cd52841d392a4", 0xb2, 0xfffffffffffffff8)
+add_key$keyring(&(0x7f0000000540)='keyring\x00', &(0x7f0000000580)={'syz', 0x1}, 0x0, 0x0, r6)
+r7 = add_key$keyring(&(0x7f00000007c0)='keyring\x00', &(0x7f0000000800)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$user(&(0x7f0000000700)='user\x00', &(0x7f0000000740)={'syz', 0x2}, &(0x7f0000000780)="67d48411b89981ae978c4fc643bb2474f9e33ed0007a8f21bf3a0070", 0x1c, r7)
+keyctl$KEYCTL_PKEY_SIGN(0x1b, &(0x7f0000000840)={0x0, 0x55, 0x75}, 0x0, &(0x7f0000000880)="dc61800acabcf727ddabe77f73e6003599763bbe1bddf22466b3cbf25fbed4adfb2dad461c4bb1cc5be275498554b8dab8e44a5c3083b6a462b2806a45c44d7d77548a5e107766ced810c903a1e7f277e140c29bb7", &(0x7f0000000900)=""/117)
+add_key$keyring(&(0x7f0000000980)='keyring\x00', &(0x7f00000009c0)={'syz', 0x3}, 0x0, 0x0, r4)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r4, 0x0, &(0x7f0000000a00)='keyring\x00', &(0x7f0000000a40))
+r8 = add_key(&(0x7f0000000a80)='cifs.spnego\x00', &(0x7f0000000ac0)={'syz', 0x3}, &(0x7f0000000b00), 0x0, r5)
+keyctl$link(0x8, r8, 0x0)
+
+19:25:39 executing program 2:
+keyctl$describe(0x6, 0x0, &(0x7f0000000000)=""/112, 0x70)
+r0 = add_key(&(0x7f0000000080)='trusted\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$setperm(0x5, r0, 0x4310001)
+r1 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, r0)
+keyctl$KEYCTL_MOVE(0x1e, 0x0, 0xfffffffffffffffc, r1, 0x0)
+r2 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, r1)
+keyctl$negate(0xd, r1, 0x9, r2)
+keyctl$search(0xa, r0, &(0x7f0000000200)='syzkaller\x00', &(0x7f0000000240)={'syz', 0x0}, r1)
+add_key(&(0x7f0000000280)='cifs.idmap\x00', &(0x7f00000002c0)={'syz', 0x0}, &(0x7f0000000300)="3f329bd803d93bf91acb61273ded59418540231319c224c045fe5ac4e11f4c9889be46d31f208657cf6bf2c3c75302481f348acfa490d17b3e67e5c46d586555bea74f47cd83d549ab66ddd506a3eb92ded213ecfcf636657ccf804fb8aaaacbad2754d1581b9e7319d1637914127d746af7577df51f196ccd39bef451fe7a3a9ca8edef665fa83e971008dee27f0f6260a7de16264f8acd05cab247416c99910f819db3229cddabdff7d2af67e7", 0xae, 0xfffffffffffffffe)
+add_key$user(&(0x7f00000003c0)='user\x00', &(0x7f0000000400)={'syz', 0x3}, &(0x7f0000000440)="0eec983dc4e8f7a6d3fc42fac15792", 0xf, 0xfffffffffffffffe)
+r3 = add_key(&(0x7f0000000480)='id_resolver\x00', &(0x7f00000004c0)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffd)
+r4 = add_key(&(0x7f0000000500)='blacklist\x00', &(0x7f0000000540)={'syz', 0x3}, &(0x7f0000000580)="80d1100fff907e1e85a0f449520e2174bd618f48bca2dcf48aca99b68f9a036378cae2fb3de1fba281b651e6e656409f79bc659203f732504e4ff2dd961b5705009bd3764b514cd5affb668c010ea44e29db1a41234bef460a9968962f9668e52b83ed5e7d7025e79f71b8416084322496d800881c38c84d99", 0x79, 0xffffffffffffffff)
+keyctl$KEYCTL_MOVE(0x1e, r4, r3, 0xfffffffffffffffe, 0x0)
+r5 = add_key$keyring(&(0x7f0000000680)='keyring\x00', &(0x7f00000006c0)={'syz', 0x3}, 0x0, 0x0, r3)
+add_key$keyring(&(0x7f0000000600)='keyring\x00', &(0x7f0000000640)={'syz', 0x1}, 0x0, 0x0, r5)
+r6 = request_key(&(0x7f0000000700)='big_key\x00', &(0x7f0000000740)={'syz', 0x2}, &(0x7f0000000780)='nodev', 0xfffffffffffffff8)
+keyctl$unlink(0x9, r0, r6)
+r7 = add_key$keyring(&(0x7f00000007c0)='keyring\x00', &(0x7f0000000800)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$KEYCTL_PKEY_ENCRYPT(0x19, &(0x7f0000000840)={r7, 0x89, 0x25}, &(0x7f0000000880)={'enc=', 'raw', ' hash=', {'sha384-ssse3\x00'}}, &(0x7f0000000900)="6bfb285d56703d6b16fe070b66df4b77ebe28c8467d0f069f4ee3f63f10e43bf2b6fb3b6f1f0d45dfb2a53985b346b1499248220ccaa5b01e71af4f3783a779486982ccb52ae65930b87f857d7c2e29029f4c151a1fab9a6bbd434952a3656f40f9d6edf5aa1806e8cd411a2ced1af8b1037f11d6d90388c1dd84af2f9b11e7e924ffed545e004ce2e", &(0x7f00000009c0)=""/37)
+keyctl$KEYCTL_MOVE(0x1e, r7, 0x0, 0x0, 0x0)
+
+syzkaller login: [   11.198701] audit: type=1400 audit(1587410739.208:8): avc:  denied  { execmem } for  pid=429 comm="syz-executor.3" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   11.366640] cgroup1: Unknown subsys name 'perf_event'
+[   11.373414] cgroup1: Unknown subsys name 'net_cls'
+[   11.393557] cgroup1: Unknown subsys name 'perf_event'
+[   11.398001] cgroup1: Unknown subsys name 'net_cls'
+[   11.406185] cgroup1: Unknown subsys name 'perf_event'
+[   11.408794] cgroup1: Unknown subsys name 'net_cls'
+[   11.414179] cgroup1: Unknown subsys name 'perf_event'
+[   11.419428] cgroup1: Unknown subsys name 'net_cls'
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, r0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000080)={'syz', 0x1}, 0x0, 0x0, r1)
+r3 = add_key(&(0x7f00000000c0)='user\x00', &(0x7f0000000040)={'syz', 0x3}, &(0x7f0000000100)="9a", 0x1, r2)
+keyctl$describe(0x6, r3, 0x0, 0x0)
+add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x0}, 0x0, 0x0, 0xffffffffffffffff)
+
+19:25:40 executing program 0:
+request_key(&(0x7f0000000540)='asymmetric\x00', &(0x7f0000000580)={'syz', 0x3}, 0x0, 0xfffffffffffffffc)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, r0)
+keyctl$KEYCTL_PKEY_ENCRYPT(0x19, &(0x7f0000000100)={r1, 0xfe, 0xf0}, &(0x7f00000001c0)=ANY=[@ANYBLOB="656e633d706b637331206861d29fdf9ce9dc98542d76942f8773683d766d000400000000000000000000000000000000227500000000000000000000000000000051f558022ff052171a9265331ea0981d6684"], &(0x7f0000000580)="5f80c902000000be012b64ad2e03b2a44c58f4c5ee1dac4f54358f09ef2bffe31e6550393f912adbef487c59042a1bfb6a9c62b47225c9233d67cbee8dc2957d62bc9aae95bc0c5dbb56436f6c2302c0e7d33216cd344781d8efc2a1a8302dcd12aa6aa35db5d9e088096dd6c52acd7f4eea6b537d8e659a712604b8c8217c16e62443611f1093d5c069c3ef6277337e2c108f0a869984a2e7002ff48ee02f8d6da1b4a0fa0183e10b6d0acba7551f4cb21d2348133bef8d733737d82da22b4371b28ec46410b90668a927c3725eaac8fdc33c7b2e1bc8c4462e85d931017325b5a18302d615b7e02c018220f16bc2eaa85b31688335b9d9b9b8cdc4d97a", &(0x7f0000000380)=""/240)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x2, r2)
+
+19:25:40 executing program 0:
+keyctl$assume_authority(0x10, 0x0)
+r0 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000000c0)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffa)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$restrict_keyring(0x1d, r1, 0x0, 0x0)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, r0)
+keyctl$reject(0x2, 0x0, 0x400000000000, 0x201, 0x0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x2}, 0x0, 0x0, r2)
+
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+r1 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x0}, 0x0, 0x0, r0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+r4 = add_key$user(&(0x7f0000000200)='user\x00', &(0x7f0000000600)={'syz', 0x3}, &(0x7f00000017c0)="a3f3d5b3481edd562394aad278517979d43d409efc7f42eed8a233b21da768e1c74cba8deb8bddbaadb104988b38dee208a6c3ac66700328e3f724bc8c64d9fc2777e756be61a0e092c20f0041baecec4b1cb059efcaf44ce6ceecbf6c01bad39ae3236861095ecaeb6ef4a49b5982a92ff4a8d1e6b117dd7b1c6f050dd3467caf75fb9ad8658968de90ef942fede8c3ecc692bb0981f1352dc4a9d566726ae100fbf79c175a4a4453ea4a1cb2d2c74bf9cf530437d6e02bc0642afb1f7c00f9f3076c8b65a79e3cd21b196af8fd80d4a3e7138e2222ad046942b1fa5f6c9ee8c471f94d91666452df175e5a94", 0xfffffffffffffeef, 0x0)
+keyctl$read(0xb, r4, &(0x7f0000000700)=""/43, 0x2b)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+r5 = add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x0}, 0x0, 0x0, r3)
+r6 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f00000001c0)={0x0, 0xf4, 0xdc}, &(0x7f0000000540)=ANY=[@ANYBLOB="656e633d6f61657020686173683d7878686173683634000000000000000000000000000000000000000000000000b6073c1d6e7ffa00000000000000000000000000000000000000000000000000000000000000001b29476503000000297183dc209a94cdee122f77842df3f324fb3c5f1dbe6b4af4d6036fd28a90392771334062fcd483b49baf2e3e4b6318ea4325cc42516e2f361cfd0d93e918c47a5b7fb55b8c032f3c761d8b4e159719ce3792"], &(0x7f0000000280)="8677852475d31237b76a662c9b2b338d4dddebc5750f275a75cc70955574541959ceb16789765c47b369e13556d3ded3204306dc742c851f2f1e7a98e33b8f96554a36230c75d556dc35c2ff6fbe3ee96637db3c0347ba641ca7d3b52f77299160f2b39d1ee0286ed54ee157714f4e9959606b4e25831692b6afd1295a20c89354980d325288b0055cac3ffa11af9ef0fadd0befeb80f90145bda7f93d3e2b4c8917fb45eed411a1dc65b768bbadf7a1969fa96332c9e3d0d3d2f7a0df51c6d48568d7f74d6fd035af6c84937ce7e1e510de6b938ebc912e0dfe11e817e12f8c100bb04b1138a3dfa24c6caf6b3d8a18dbfc785c", &(0x7f0000000380)="701497ce0235d0c39c917943ef9bf3439b07a29e129744b963f5d26d19b2dfc2223df280182411628a09bef9a2692724418fde7a8825fd27cf9e4187de2e5ad325720239d32ad0cc117a12411ade17a5ea933d8a860912473e8217a89a6dc36096e67c39dfb9509ab9637a63f6620ccc90eeb0a2724ed97be496b654e0c74df669961c23a5f56a1f5af5a2cec253820494a20f85a637b56443b568d144d75a2763c9386e24c9bc5c758a33ffe028930814b8afa984fee586640bc482ff6a5339b160637b9dfd8257f9837bcfc8d03c350f9ad75fb2d24fcecf53d60c")
+keyctl$read(0xb, 0x0, &(0x7f00000007c0)=""/4096, 0x1000)
+keyctl$set_timeout(0xf, r6, 0x2)
+keyctl$read(0xb, r6, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_MOVE(0x1e, r2, r5, r6, 0x1)
+r7 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000080)={'syz', 0x2}, 0x0, 0x0, r1)
+keyctl$search(0x4, r7, 0x0, 0x0, 0x0)
+keyctl$read(0xb, r1, &(0x7f0000000480)=""/173, 0xad)
+
+19:25:40 executing program 3:
+r0 = request_key(&(0x7f00000008c0)='id_resolver\x00', &(0x7f0000000900)={'syz', 0x2}, &(0x7f0000000940)='-\x00', 0xfffffffffffffffe)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffb)
+keyctl$KEYCTL_MOVE(0x1e, r1, r2, r0, 0x1)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffd)
+add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, r0)
+r1 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x0}, 0x0, 0x0, r0)
+keyctl$set_timeout(0xf, r1, 0x0)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$revoke(0x3, r0)
+request_key(&(0x7f0000000280)='rxrpc\x00', &(0x7f00000002c0)={'syz', 0x3}, &(0x7f0000000300)='load ', 0xffffffffffffffff)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x3}, 0x0, 0x0, r1)
+keyctl$join(0x1, &(0x7f0000000000)={'syz', 0x1})
+keyctl$get_security(0x11, r0, &(0x7f0000000080)=""/25, 0x19)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r3, &(0x7f0000000200)='encrypted\x00', &(0x7f0000000240)=@chain={'key_or_keyring:', r4, ':chain\x00'})
+keyctl$instantiate(0xc, r2, &(0x7f0000000340)=ANY=[@ANYBLOB="6c6f616420656372797074667320744f75737465643a6d643573756d5c656d3127766d6e65743123203030303030303030303030303030303031303233206131630083e5396554cdb63b2c55d1c35229fd0fa84cd2d4fa7738ed70b032e459010a1097c7d1ba69431c74c0a3eb6af9839b3b9834e0a8178a9faa084c908c986c"], 0x42, r0)
+
+19:25:40 executing program 0:
+add_key$user(0x0, 0x0, &(0x7f0000000380)="f683652e8216e52240eda8f1ffd7e794a988abf3e573f44ce0845a59d82eada15dde8c37ae15b3d70a659e81f4c271d380d445524ef63d0eb35db543c4d2e5779721282817da3f4096655a49ecc8ae0f7ebfd2cc62b8c9098e4ebe8075231e7d290c76ccd67c31148b3679651b59672d4393f07d467bbbf0a7d3ab5ae3aebc1febf7200a26d487ba09d18a1adb6eaea52431041b5943dc18a35a52df69968231d530f27ed53cd8c0c5c7fbcfd7a9808ae177784a68823cbf3c328df146383fbcc05f927355003cea06dce4ae23", 0xcd, 0x0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x1}, &(0x7f0000000040)="00003f96c38b80d2de6c627b50b23ec49a67845817f6efd1a7c0", 0x1a, 0xffffffffffffffff)
+
+19:25:40 executing program 1:
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, 0x0, 0x0, 0x0, 0x0)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x6)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r0, &(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, r1)
+
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f0000000440)={'syz', 0x0}, 0x0, 0x0, r1)
+r2 = add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, r0)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r0, &(0x7f0000000200)='asymmetric\x00', &(0x7f0000000180)=@chain={'key_or_keyring:', r2, ':chain\x00'})
+keyctl$update(0x2, r0, &(0x7f0000000080)="988ce929aa37e571ee038c23caeef6118cc8356d0ad3c7f0c7156bcd78d55320b591abbe3ade0145c1d9d2a3564ab1c04ec9d0316258b8bec3ca4cd4101be03240278d571ac8e8d0069a4f762eec902b6781156f45d546ec3285134d9e2208daf1283b6d5b17", 0x66)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000100)={r2, 0x73, 0xa6}, &(0x7f0000000240)={'enc=', 'raw', ' hash=', {'blake2s-128-x86\x00'}}, &(0x7f00000002c0)="68b4a0331b8475be774c4caf359dc15e89425686fe26343279e6e8c3975c07a90fe66dc59a9b88ad06677962a3ebe84a8dd088da57d45303f158d7395978ee2acbeb506ef676b1b81db16a2c986eb579fa11bbc5aacaded1bc2c5ff9280e7fedd2640224bb9ebb591890c15baeea425bd34b1b", &(0x7f0000000340)="039319fbe52dfb2098b1eab0dcf0949faac54cb41a1d94cc11a3947e42c1eed5655e3dd68c69d4697edca1fcfe0b44ae3ba80e8766ed7ec473f92d7cc2309d0827041008adf9dbdb65d599b58affcc957a57ca9cff1c1fa1d1e2d1cdd9d663d858e8f4c6d5a9a4ce3ee0a601cbfee376137e92d23aeceed074cbc28e34a96d8b5f9c40e7054fa8ec8b7259a70a686af38d03a92bbeaf12b4e2f325885e3568256ef59e92cd5f")
+
+19:25:40 executing program 2:
+add_key(&(0x7f00000007c0)='asymmetric\x00', 0x0, &(0x7f0000000000)="938278e8261ad3c2fbc7a85db897028f9b788db67eebb384a440e107290342ed0c242afc96771aae07edda9726b3af361852fa795a5d0a6215714dfb431db1dbe6b25dcca0e962892bb852b5e3d63ca487616d45c4e1d11bcfc7c6eb1e4519c9cbe595b897d0135ab86dfc841b1e2ef6da2dd69072dd8bf3c6b41660fd16de4ec606303641bdfd20", 0x88, 0xffffffffffffffff)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+request_key(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x1}, &(0x7f0000000140)='Z\x83[\x00\x04\x00\x00\x00\x00\x00\x00', r0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000200)={'syz', 0x3}, 0x0, 0x0, r2)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$get_security(0x11, r1, &(0x7f0000000240)=""/131, 0x83)
+keyctl$read(0xb, r3, &(0x7f0000000180)=""/82, 0x52)
+
+[   12.557359] dns_resolver: Unsupported server list version (63)
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+request_key(&(0x7f0000000300)='user\x00', &(0x7f0000000340)={'syz', 0x3}, &(0x7f0000000380)='\'vmnet1^#\'em1GPL],\x00', r0)
+keyctl$KEYCTL_CAPABILITIES(0x1f, &(0x7f0000000080)=""/156, 0x9c)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$revoke(0x3, r1)
+
+19:25:40 executing program 3:
+r0 = request_key(&(0x7f0000000080)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0)
+r1 = add_key$user(&(0x7f0000000180)='user\x00', &(0x7f00000001c0)={'syz', 0x3}, &(0x7f0000000200)='*', 0x1, r0)
+r2 = add_key$keyring(&(0x7f0000000240)='keyring\x00', &(0x7f0000000140)={'syz', 0x3}, 0x0, 0x0, 0xffffffffffffffff)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x1}, 0x0, 0x0, r3)
+keyctl$restrict_keyring(0x1d, r2, 0x0, 0x0)
+keyctl$KEYCTL_MOVE(0x1e, r1, r0, r2, 0x0)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x1}, 0x0, 0x0, r0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000100)={'syz', 0x2}, 0x0, 0x0, r1)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r2, &(0x7f00000001c0)='asymmetric\x00', &(0x7f0000000240)=@chain={'key_or_keyring:', 0x0, ':chain\x00'})
+
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f0000000440)={'syz', 0x2}, 0x0, 0x0, r2)
+keyctl$get_keyring_id(0x0, r3, 0x4b8)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r4 = add_key$user(&(0x7f00000001c0)='user\x00', &(0x7f0000000240)={'syz', 0x3}, &(0x7f0000000280)="2863133a6c83cc3efb0cb167dc9acc25aa9f56d04627a526ebde2f9bee878f1f8c2c95a83a30a5c772a90783523b5619b8bc844c5ef12bb73d08e8563d1faa39b144cd2398bfa55e", 0x48, r1)
+keyctl$read(0xb, r4, &(0x7f0000000300)=""/221, 0xdd)
+r5 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r5, 0x2)
+keyctl$read(0xb, r5, &(0x7f0000000080)=""/56, 0x38)
+keyctl$set_timeout(0xf, r5, 0x3)
+r6 = add_key(&(0x7f0000000040)='.request_key_auth\x00', &(0x7f0000000080)={'syz', 0x0}, &(0x7f00000000c0)="f40092b24f43b742a521412e3f78c6901d6086863adeb30c11c1ac67c59580e1f7d0dfde808b034ea1e17d97def6fc50271bd23dc749f98de357f30ae84c25eb8c286d57a62d874df4c93764f97c09c01f95892ddb1df9e8a6694e9e242531c534b94ff56a3354271c0589c4a10a11b87bd10177b92e581f1eedef0663411fe3e33394dfac60363b0603b18715dd49ab8e5ef8deb618bc55c6db991e67eaf5f670b26e5340debb5e24bc365f7257b6c114d059fe03a1264f5c393e7c9258a7145765ede3bc69a878dbc31f262f94c18b", 0xd0, r0)
+r7 = add_key$user(&(0x7f0000000980)='user\x00', &(0x7f0000000000)={'syz', 0x0}, &(0x7f0000000200)='8!\rLc\n', 0x6, r6)
+keyctl$search(0xa, r7, &(0x7f0000000b00)='dns_resolver\x00', &(0x7f0000000b40)={'syz', 0x1}, 0x0)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$update(0x2, r0, &(0x7f00000000c0)="fe8775664243c3a818e3819486b0ad27d27edc3f782590eabc76282207f4125a06ad4116ec689db274ef66b2b6a3690fde9096c97098c7fba6dfe1b93ad01ff5b117d6f52e640c5fb3892b1926541d8e7a331021b0b423173de6a1fb7b8047a238ec249de1eb3a43490152442824604b8c86923aff377956007b6fb2702ae7a31b47d87d", 0x84)
+add_key(&(0x7f0000000080)='pkcs7_test\x00', 0x0, 0x0, 0x0, 0xfffffffffffffffe)
+keyctl$join(0x1, &(0x7f0000001640)={'syz', 0x2})
+
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffd)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_PKEY_DECRYPT(0x1a, &(0x7f0000000400)={r1, 0x0, 0xf6}, &(0x7f0000000440)={'enc=', 'raw', ' hash=', {'xcbc(twofish)\x00'}}, &(0x7f00000004c0), &(0x7f0000000500)=""/246)
+r2 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+r3 = add_key$keyring(&(0x7f00000001c0)='keyring\x00', &(0x7f0000000640)={'syz', 0x2}, 0x0, 0x0, r2)
+add_key$keyring(&(0x7f00000004c0)='keyring\x00', &(0x7f0000000600)={'syz', 0x2}, 0x0, 0x0, r2)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r2, &(0x7f0000000140)='asymmetric\x00', &(0x7f0000000240)=@builtin='builtin_trusted\x00')
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_MOVE(0x1e, r2, r0, r4, 0x0)
+r5 = add_key$user(&(0x7f00000000c0)='user\x00', &(0x7f0000000100)={'syz', 0x3}, &(0x7f0000000280)="4a8127e82a558db8e9db53cb915964cab9ace5d9024a4de54928c1c3c131866842314b4621", 0x25, r4)
+r6 = add_key(&(0x7f00000002c0)='.request_key_auth\x00', &(0x7f0000000300)={'syz', 0x1}, &(0x7f0000000340)="5714a11ab3cbedac0eff457f1b2dcda6549e559738ebcbd66a72e5286ed88351780a42e0db0f3314a498a79b2b9a4a05fac88a623b8174de8a28d0be2dc86c5f32f90a0550cc81b01ff8f26891d338223200e7eb542affebf7cbae25fa93cf67520dad279a0ee016c40e1dd0200bf36daa177e93cf3a2f1621edbb0cd4fc6d1992d7b804979e1cbc416743c6c56d244635067b9b7ac641f89805ca474dbeadd1c2daa46c3924850969cc98e4fc096f4340975058199d63e4df1d4453ce", 0xbd, r0)
+keyctl$KEYCTL_MOVE(0x1e, r5, r3, r6, 0x1)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f00000000c0)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffe)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$KEYCTL_MOVE(0x1e, r0, r0, r1, 0x0)
+
+19:25:40 executing program 3:
+keyctl$set_reqkey_keyring(0xe, 0x5)
+r0 = request_key(&(0x7f0000000000)='id_legacy\x00', &(0x7f0000000040)={'syz', 0x1}, &(0x7f0000000080)='{\x00', 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$negate(0xd, r0, 0x100000001, r1)
+
+19:25:40 executing program 2:
+add_key(&(0x7f0000000040)='asymmetric\x00', 0x0, &(0x7f00000001c0)="30f5de", 0x3, 0xfffffffffffffffc)
+r0 = request_key(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x3}, &(0x7f0000000280)='F.\x00\x01\xff\xff\xe2\xe4\b\x9b\xe7/s\xc5n\n;I\xdd\xb6\x91f\xfd&l\xf9/N\xc9\xa1\xba\x82a\xd2\x93\xa0_d\x83jW\xa2\xf9\x9d\xba\xa0\x00\x9e_\x9c\xe9x\xfe\x8e\xb0\xc8=\xbb&b\xe4\xe2M\xbdr\x8e\x06\xb7.U\xdd:\x9b\xadt\xc4Q\xcc\x01\x9e\xdf\x00\xec\xa7\x95\x04\x00\x8d?\xe5\xf0\xad\'F\xb4\xc1\x06\xd6`\xfb&\xe5[\xc2\xb1\xe8\x0fU?\xd8\x1c\xc7J\xdd#3\xc1@u\xa3\xbe\x1b+3\xc5xW\xe3\xb4:\x96\x9b\xd9\x86r\xf9\aA\xcdd\x11,U\xfa\"c\xb6\xdd\xf8\x91\r\t\xa2&\xd1P\x91\"\t\x94d\x1b\x84\x12\x80<\x1ds\xec\xfd\xfe\xd4\b\x13\xcaB\t\x94X\xa8BI\x10^\xef\x90:e\xda\xb2\xf0\v\x81\xbe-\xc4!\x14K\xd7\x86\xbb\x86\xf5\xc5%\xe2\xe96\xd16\xa1\xa0\xeb\xf8#\x0e\xa2\x8f;\xd0\xd7\x13\xc9u=\xb3\xc1\xe9\x9au\x81(\xce\x00\n\xf1\xc9\x84k\xf3&~\x8b}\xad=\x17H\x05\x03k\x02,6a(L\r\x86R\xef\xba$\xf6\xf1I\a\xcd\\}%J\x13a=\xf5N\xe5\xab\xd6\xc8#I1\x154\x19\xf1\vc3\x928a\x03v\xe4J\fM\r\x86', 0xfffffffffffffffe)
+request_key(&(0x7f0000000000)='rxrpc_s\x00', &(0x7f0000000080)={'syz', 0x0}, &(0x7f00000000c0)='asymmetric\x00', r0)
+
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000040)='keyring\x00', &(0x7f0000000080)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$KEYCTL_MOVE(0x1e, r0, 0xfffffffffffffffd, r0, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key(&(0x7f0000000380)='logon\x00', &(0x7f00000003c0)={'syz', 0x1}, &(0x7f0000000400)="24d02118deb308d1408c9fe825b96d17e83bc7d16faee4c992cb66d6e2aef4e688e40649bb03a9e04f41b2bbd5c2f26f78d9dc9fa198f453aa6a85563fb240a2acb707e06e7eafe5c1ff9185382bbb03180c4cf19b1301d0ed7e834862f38e8c78267f9f71f6025fbea9dff973b30566bca06aee2643add4d32b0cea94d41a3386a1e7c5d00a47538456a587b30a3ad40bfa34f10eb64590bbbbbcb6eda13914212a67e36f580c988a727b44db50d3f383bc0fa0d7b96e02c3a38a6e7ec7d921922467b60802ceaf44b0918226b9a042823413c2c97a18061d4e814002f386b7a307bb4bb5ebf299591f4a7a96dc2b6f305d46a1def27224aa577f79d943d98f87c992a5e52c0b08811ca6bfded6202144475cd732ed09b20a3a86e5ac7b2de34b2e70a628ec6248cebe116b37ee5a0eccadf5fb960397ec036dfea1ff9bce255f0b0e9b01daba3801d6112a6dcb55229601be8bd28c407c8ff52162e2fd168628b90d6228edab97919da257e6b584226c0ce4ed0aa37eaad030a732a5ed56b09469486fa35c73a77370ce14534b450df751a05d0c43a33b5dc15b7eca90b8cd85c299aec3a6d25974d82e360d1a2b4086ff81db396ee2004ccaf1954921204fb3ba70323f05b663ac274b8395bc0986969b7d30d69aa2c79333b0ff4846987fcd750bc76351ac9ee8cdd1b459f0de2ba7323ee09029751fe83c3fa3deed55a1f2db9c97d3b8545e458d94ef0f17be4f93eb5b01e5d809053747a16a7af51455acc5991d037fa67c7813d2fb42e39021785325c07cc89197f4a389c943c879ee1f514f82dcca31199e0b44d109365bee74e52de29d1e3b936386ec110a61867af2b81a9c3eda5d80082fdd461c4f15ffc2f08b7c110db63d63f7738406db9b0d0773569ff0b383cdeb82eb7df4985ccf8a7108e90798b01d11f9c70dc693edf1c5ff320fdcbb29653bee4693a98693d1d9d1b334c1c577bfd7f72091299ba6a466059ff3d23bcda1a92bc464494f88ddef1ea89676ecda898eb811df57afef90287d604e3b1eee261d39ba630a831aa37a0266197da9e1685aa483bf569204ff550f15ad399cc2ff9264801af4b1e1d85d017c745042ba1702cffb13b7e9385174faa26404b3884eb6c8cac8231b379689bf8763971b85c3cbf954d5efc89a3428349fdbac6f61ebb63f1e20a66e38a94b66f32e744feedb711e841e14e3c5e3b8078a120ea826bcaf0a46cae72a83cbc24e904d89488c68ba8f148ac24932602d3397b368735585fb7462ab7261e967bafc6eeca288a0873aea24eb18c2bdbcdb990c0ac4c2d0b2f4232334d91cb584f3838a049b1c37b95a5c512891c00dbc8ae634dc226d5d085d794f0746aebe13b04af3aa9650e69dd1515e6a519f001d46378d4bf3e9944ef95dcc652b9dbde7e1c9db6c92df5a4be778b785f4c2509f6513b029c05002564088db90d982d28affd7ea4f1b1b9c0eca83f9c93c14009492ce34bc7906a5673e4e5291d0c16fcfedf12b78ffa77b1c8166c8130ebb9a050b9587eab444ba6e909caeadc5cef4426667152f05218f4a27f6e2fd0dfb102a84e8fec7e6c8ae3369050d9435d33259cf13086feb17ae5d045174c1bffb7f2f915b6c93cc2fc5047c8d8b576d536aabb453f3147cfa0b4a29853ea674eb4f09b9097f4bb7d4a13f927ebb2e2174b132a1087baa28ff553439e0342e966096a83d0d1fc9def99d40e837a36d78a6bfcfad156346e9d9aac000d0fd56e3e2bbc58606e9e35d191dd220bcce5202ae6f8b8f4f2094e4a407a547c06b93f8198e82e613d8b828bc44953a2e0c610c88942a71194772ee370fd94d611a052c802738909ecabc8be9bc463a8ee84219c5f2efb23a64aba95490341f502eaa40c051984d4e406797edcd98553ccad296295f140772ae059396ac1412145c053fc9cd4a517c144eccc82121aea711d6aeeed36e2b015c4e09a1e0b0036519c57d6e24a65471770d2373666426ce1998dcf79209ef18be03af52f390fed0627a20088893e0542f9f84dde5c18947a5e415ac949a70ac38f39aa5b0135d179dd011e75869392b1a8a524fbc043e7faa1b59192b58f6cd5ba8126b6157d0fcc165b7ab07ed0245c9cbba3e5ea635637b70b7cc4a75c2f5f38c6bfea158bd45a8e715c06a4a249c5ae456b456fcc86bf544afae9e8205701874d460759ef18b569e2119451f11a5f56adf4b406d539c6960b3ea93d8838348610c71878d9798f939e219e23827408658953da28a91ecb55947fda7336129bbd246f139b5110dc2be95e6c8c428b89b6e5596eced9deda535871254cc213bcb306a69d6eba5a7714debaf82653c60bdd655af081fff56f6e986ed3d129880ea77b49e8fe8cbeee1285377fc9e9e7603724869c0842dac7e2749144aeffaf58335c113270cb86c44b2e025d619836e731ebc48d919196babd2a44441277c429b06a200acc055b2416a16d849bcb4626027d8d770dde55b542fb92157bc41f65945c5c589872b730af05b06d6047f4140aa610d3d33d77974c95bc6f30b53a04683e4ace88fdcfc998ca54556db90253af66d71a05dd594f9cf44e1e9f23474ecde438a0c413d51f24c436fb019de6d67a67b2a43a84a66ebfbe752a4718848d46afc9ce2e94afc7fae73d6808e4639e1e38f8a8673e31e6ece46291139de702a8aa665703a4eb7f2d1b5af4be56becf7561a26b0117a8dea8a12dd9f35a0a10b662ae5e328702d0137a9d7858a60d9e781648237e52495c17851b28b03104d7b9709f47dd2988ab2bef1165e9b6b0f4450fde235d5b4c943f3a0b394021bdfbd7dc09df9dd7e32302940c8eb9599f450be790865d28f6f4a1d62a8e238d572661079cb686eae48d6743742b537107196dd23ab8713cfd0581f9cf0a146b0b735db5011209b4b744985b1b4302c366e2a98d2a0b0270f8718f2a5d19e4da8ebcd4c61cec9705a97fab07a4cceec38fe40a61da13042a5b9c1aa198ee4720ed2fad3a41c8300edf24d01bc529cc90de22c2b1f5298ab5540412e5d115985ff5eaeb643042977ff3abc90e88c4922dfd3da0ad6e6d2c3d7b718a6bc4987ce69b34d04c8a1b447a973c7cda4f516c67526f9a0a4cd6f751426874834510ae6b41bac2d729d3748f2e653575f1a77b4bcabbcd12df6e11ac03dbf3ad046e380d7373faeb9d4ceda7d25162ea22319d063d8b6122dc8bcf833751cb6167edb8415836b055d09f030c171979e945e4681aed9e5ae79394f961b2c701f898231af2d93a657f14ab73f7f14823845730a24b524d6f124292b3906f747edcaf2dbac6fd174cd997e6106da50f22ecbee8d53b00913a624d2acafccaec6b4d2d20810e39143056ca6295cb5afa91cb0ef9264b44f7d5be0e1505a7a62bca9c8af5df069536511d708e275a8eecce674b4ece9aa39551b27e461ff0cf8090172d27e7e96cbb21d95e3271014c9045b156c63663cd059c92f0c49ffae946faf1f48669f0e4a91f63d87b6ba7294d4fa1fb4df512095ff3bb8f8111b6661b59a8170545624e73662369e3030d1b30f75e91c2b4f6ccf8e59d569e5496868b0290c4158b9726e3fe1f811f02c2635acc68e9c093b5dfc05d08794ef15c583e9e951206256ce2a70efa3f60ce821cdea6136e81e9dbe71e4a33a26206b08c20723ecd976250472a2978e1e07aa6c372087b6b58775a1bf90eed5ff51f075256d54d7ae2763c516198c718d405af7a323fef6870918817a6f66b1f3b9f82c0ece460d5236421be92acd6c017c9bcec3e76d5df8dc945e94ec38b1882ff1fdc1e172b7130195d57885b7e9f155bb9606a9844d40bfb67cd672cfbfc625ccc9d5741de9fadf713836a4fee5b20d37f2fb962c01bc1173823b75b049d6330bfbb3c3320b783adeb0ce4b433fe170105523f29e26ca923429fef10c49086107e8ea5acbbf70eb9402bad357fb8ab18ebd3035551e2308cee06b0fe4ae68860552ad7de1179882bd570a2a776ebfdde2fc19da4804c9d41f028bfb9ee58511cd25e107bba71a68f5d5fe209d7809019e911ff1aa4606aad9feba85cf5f4b163b1f88ee3705913a9df90cc4edf7c53013610dc402b31e2fd63cabc593c6c1245c8767c2ac80283736ac27d160b16833390daf4714b91776ec67f2db4ff7983b839316b1b25f39a44b65d26186b7128e0a42eff0ad614566b19ee81faa8996a021695dba7b575651a248c0dcde76e822da7c73f2240d7b5e93c1b69185e0360c8799aea55edb5eac7bc7e74c4db92b4bdbfac89937e6f862e51805ea7327a0e07c095f246470a54829ffdc1b87ef711976d1ec456f3822d627655c83026344895f232cdf549d85c2161871624c6b6522f89a27a79c96f7eaa3525645e2707fda4343b1b45cb8581ff80638ee323c15b5e3813557f1d8d369d5c46458f5075d526a064249feec9ebf1c483e9c7de050783c70cb4e7cd30fcd989afedd4c82e7dbf5964bf715221675fe00ad9a688ad3a9452a72c9f9959ec5f6a891cb0c87d2d43cfc15d234ed2f3c7b5e09896a6dfe42a7bab39d6868e7ae460bf6c036860803042faf44c75b88a82cc8b8759137caf197c48c5bb103606fd21cb7268dd130e14fe94ab9ff7643be7a7dec84fe865dd2db4b811b0256b8f20a0fb420fed6e91d499cdc3b504be88d375d9ebcd4647c5c7783b2e472a52f5cc40071acdb4d143ee24b45092f6918940f5d095b69b5707c7b5bb958e010aff944528e22ab239e711eab5d59b315d0d69a729e9a85c4e18f3066364fda264b8c49f7f845373b9e1d9dcddb001661c3676b8f98bb537fb9eb0f9a3c976722f46ca08857224ae56756caeaedac661556cc25a2c5764b0b5fc9d70f7193fbdff6357889fc4b7fed9ba1cf26312e7013fd949bf4c82f43158870665bedbf183a97093a36e3d9e9b5843a612fa8eaa3f9a284a852d0e4b8fcb61c6512f3b1f8e68a5fe5d88e4b3c525b2778ff8739dcd93a971cfaee17d8f6056aeefe315e7316ed30266c583b7c96c1e065f1fc337b3bfb0358dd703ad71165f360388c899c96b29a2c207c48466a059ec6d43e2e3bc9f6d1a584dd5023c36fefba563d6a16abc8ab55c5ef8e3ba0c1f8162a0017343fbc2ac02c9edbdcd76f7a6be6459440ab77b5ee9f5d12c126a45e988f8b9ac0806e758c25137f35a85414ee89134b393838eacdc8139b1e9809190f3c7a9035ede40b8512eaa48daf0860f0f2918a435dfffa1f7ce8a7e7cae6a30c89c3cd4c53feef3bb1772f8895a37e22047d2306447dd359ff4cbd36a168f377a9a4ecacb7f9b35178d261ba3a2dc1aa2d7e25bdb2c73a1fa6301c669fd7acb3b00909d40e5c895f9272f6d50ffca051ebc880ce7b9f313fadc6fa9faacb416603d1654ca252698e30f6c2a97ad9689b188f649b62ea410f4f9ea7c1e0156a220f7d54e4253ede63e4950e7f105c9c625330ef319b38c9ee5cab6b2253a4bed904103de15a6942294149ed1598729d439746036eec32c73a754d9db2c5f5b817472196e02839ae138c5c31773e821be14b74fe3fefdd3376fed1eecc49e7375f349342b451cd4748d6237d508f148574c9955aa1e5e6295d133495c72c20260b4d4b459f13349a6cbe166e6cc85a160a42d99ef498e048e633f6af6a26b2404cfd059384c9abe962f2ba9f3df08c778db3410c0ea1249a3ba99b1c462190f8ab97dae43a137fecdde41d7b27c568afbb244304e8ca44d4135cdef2e471b0cbc783193994cc0f3a2607dd0a10271b319c53c3e99fe3ac8d9f", 0x1000, 0xfffffffffffffff9)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r3 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000300)={'syz', 0x0}, 0x0, 0x0, 0x0)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r2, &(0x7f0000001400)='encrypted\x00', &(0x7f0000001440)=@keyring={'key_or_keyring:', r3})
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$describe(0x6, r1, &(0x7f0000000240)=""/141, 0x8d)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$instantiate(0xc, r1, &(0x7f0000001600)=ANY=[@ANYBLOB="6c6f616420656372797074667320747275737465643a73797a20313834343637343430373337303935353136313020004ca261ae06a3dbbf9b4d1a085c3371e04badf29be79da3863ea73e26cc4b385c44308f7f3b0dedb456300c0ad75bb15b2569107994b01788b09abac184da6ede914441409acda75d038702809e08dec8c928224f702133aa6fdfe90756441c1cf29fd9c9ef2d3245cdded6385f4052000000000000fa00cda7b57eb7290f937f800010b15aafd1cfdab3df591cc15fd3ac83ccb48c4dc3a38d511a791eb82142231fb6f75dc1bd58611564794eb9b14051e504c581e5b742459e948e064ef4b0aaeade479b50bbf86ea532e1d9778ab465a326486e9fb69276aac831cdc501484cd3f20b3a7529c05cd4102161117f783262d0a4734cbfaeab2d26adf93de94d5ba6d94379eb41a592fe390aa0a9a056a401e4dabafb94a762e538b1327db3bc6e"], 0x30, r4)
+request_key(&(0x7f0000000000)='rxrpc\x00', &(0x7f0000000100)={'syz', 0x2}, &(0x7f0000000140)='4\bz`\x19n\xd9\x93>\xa0Q\xc2\x1b\xe6K\xa8\xd2\xfb\x00\xc5W+\x8e@9\xed\xa2\x8c\xd9\f\",Dkp\xbe\x84\xd1\x11\\\xf0\x90\x9c\xfb\xe9~\xe8\xf9\x02\x00\x00\x00\x00\x00\x00\x00\'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\x00\"\xa3\x06u\x1b\x15\x9d\xfdY1gf\xa2$;\n\x05\xac\x9c\xe7, /\x84\xf1C\xa5AH\x7fNg\xf4]\x03/5v1\xa9\x1c\x1b\xcf\x86\xbe\x16r\xbe\x7f\x1f\xd3\xb0\x1b\xf7I\'\x82H\xd0\x9fs\xd3/\x7f\xe8\xf8\x9f~{\xeb\xe6\xe6\xedo\xe4\xb9\x14x\xf3\xfa\x14\x1d\x94\x8e\x9eD\xba\'\xb5\xe7\xd6\xe9X\x16\xb3~\xbf\xf5\xb4\x04\xe7\x10Q\xfcp\xa10n\x98\xaev\xfa5\xa5&\xbe\xdaV\x93\xf6O\'\xb6\xfd\x95>\xaf\xc7\x98B\x1c{p\xe6\xba\x9c\xaa\xd7\xea:\xc4B\x15o\ahr(\f\x87H3Rx%\x00'/247, 0xfffffffffffffffe)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$invalidate(0x15, r0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$unlink(0x9, r1, 0xfffffffffffffffd)
+add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, r1)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffff9)
+add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+
+19:25:40 executing program 0:
+keyctl$session_to_parent(0x12)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffd)
+keyctl$invalidate(0x15, r0)
+keyctl$get_security(0x7, r0, 0x0, 0x0)
+add_key(&(0x7f0000000080)='dns_resolver\x00', &(0x7f0000000140)={'syz', 0x2}, &(0x7f0000000180)="685b0933430f5a1583d145f59f6511f269be4e95bf47316de7e7b969b21374c446797f42d3ae4cd64a1542eb931ec6b87a347e11533fc95255b4fa3ea96355cf2e16b334d6a9004be532a4fa1f3a52c16e608c8d5d27125fec34bf8d22b18ad1a0a66378853e0140cd6b66d124adc7ecf695f0c52eb34ff7f249255e5688eb25cbb3b56775c12740a286aa7d069eb366414e72bcc010783e5de5d4b3016c26eb54a9661cfef8b4a67742aff8922853b23223662c44f2eb9bba9ec96a7669e09cede37d7d54a30a554dc62bba76fe60944cb6dfcd", 0xd4, r0)
+add_key(&(0x7f00000000c0)='trusted\x00', &(0x7f0000000100)={'syz', 0x1}, &(0x7f0000000480)="61c3ec29c8ca812d9181eb974d17858ad73df3fa6a68d58eadd99a74fa17f13a68e42aa1d21bb859a6b78efbeb78f586cc81d6b9bb4df454e06ca7803d92f244b388c7a7fc02db01e7f82a87ba659234f0af639d513e5d2a26e3c40fa1ed78d232a85ec11b5ba2869738496075da651bd9c7a3aae5e7e1bef32913c03d9acca08923b2c1343f110dd4ad239d3f43020075b1e135c174914ad0d9dfca24d2c3fa80d84f1a6bcd8ae8671df2d787fc18d9bbe578458a14f7db538de4898a3d54eb07610e68881cfd22276201bacf5d705047cc855c581ecb70511ca29b711d1e0aaa866415287662518d17bf", 0xeb, r0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0xfffff, 0xffffffffffffffff)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000140)={'syz', 0x2}, 0x0, 0x0, r0)
+keyctl$KEYCTL_MOVE(0x11, r1, r1, r1, 0x0)
+add_key$keyring(&(0x7f0000000200)='keyring\x00', &(0x7f0000000240)={'syz', 0x1}, 0x0, 0x0, r1)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffffd)
+r3 = add_key$user(&(0x7f0000000040)='user\x00', &(0x7f00000000c0)={'syz', 0x2}, &(0x7f0000000080)="80", 0x1, r2)
+keyctl$reject(0x2, r3, 0x7e0ffd, 0x201, 0x0)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r4, &(0x7f0000000100)='encrypted\x00', 0x0)
+add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffd)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$update(0x2, r0, &(0x7f0000000080)="f993764618a36713cbcc3a65b197", 0xe)
+request_key(&(0x7f0000000000)='dns_resolver\x00', &(0x7f0000000040)={'syz', 0x0}, &(0x7f00000000c0)='\x00\x04\x00\x00iKg\x00B\tfRo\xbek\xcch\x86\x8d\xce;\x95f\xa9Rq\xf9\x1dU\xc7\x01\xbe\xd8:(.\xd3\xa2\xd8+\xde\x18\x8d\xd8\xea\xf4\x18\xea\xe2\xdb~qZ\xb3\x80\xdb\x13-9y\x985\xc6\a\xbf\xa0\x03{\x9ep\v\xcb\xc9\x81\x1f\f\xb0\x00%\xba\xab\x8a\x80\'\x00\x043\xc4\x13\x02\x00\xe3\xa8\x96\xf5K\x97\x13A\xcc\f\xed\xfb`;}i\xfeu\xed\x8f0\xfd\x9d\'x;\x12x\xe5\x1a]\xdc\xa6\xfbH\xc8$\xb7\xc2Yp5\xaaC\x1b\xcb\f\xeb\x8a\x01\x9e\xbf\x87(\x8dp24\v=\x1b8\xd6\xfe$}\xa9\xc3rA', 0xfffffffffffffffb)
+
+19:25:40 executing program 1:
+add_key(&(0x7f0000000000)='asymmetric\x00', 0x0, &(0x7f00000000c0)="1007104dd5a88d90070b9b09b5b8ca8948fd1565be907391772b9546828d7e1530a57e01da787f9665c3f901e7b877964c09c49cea8dc15b6048e24f3984651dab4b1879c757f6621a40ef85520ff92b7609c7b5c557969f45240d4be2235c", 0x5f, 0xffffffffffffffff)
+
+19:25:40 executing program 3:
+add_key(&(0x7f0000000080)='asymmetric\x00', 0x0, &(0x7f0000000040)="308253aa", 0xfefb, 0xfffffffffffffffd)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$read(0xb, r0, &(0x7f00000000c0)=""/225, 0xe1)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffd)
+r1 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, r0)
+add_key(&(0x7f00000000c0)='rxrpc\x00', &(0x7f0000000100)={'syz', 0x0}, &(0x7f0000000140)="2fc4af877283bbaf411720e025d01ba1f2e338b6c41d5bd28db4b6cb", 0x1c, r1)
+r2 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, r0)
+keyctl$KEYCTL_MOVE(0x1e, r2, 0xfffffffffffffffd, r0, 0x0)
+
+19:25:40 executing program 2:
+add_key(0x0, 0x0, &(0x7f0000000000)="c3543993f40dd2514632455d209a097a0800000000000000c6c4a7ef210ebeab632904be1875c8eaf8a24bac2375d514ac68e20e6cca7464662f57c3e85275b895c45070b322a45cd794cdf381b11d4d33d75679e9e40d5640c459fa0af8dbbae323", 0xfffffffffffffdb0, 0x0)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)=ANY=[@ANYBLOB="656e633d72617720686173683d7368613232342d73737365330000000000000000000000000000000000ec0441c9482a81b400"/77], 0x0, 0x0)
+add_key$user(&(0x7f00000001c0)='user\x00', &(0x7f0000000200)={'syz', 0x3}, &(0x7f0000000380)="f683652e8216e52240eda8f1ffd7e794a988abf3e573f44ce0845a59d82eada15dde8c37ae15b3d70a659e81f4c271d380d445524ef63d0eb35db543c4d2e5779721282817da3f4096655a49ecc8ae0f7ebfd2cc62b8c9098e4ebe8075231e7d290c76ccd67c31148b3679651b59672d4393f07d467bbbf0a7d3ab5ae3aebc1febf7200a26d487ba09d18a1adb6eaea52431041b5943dc18a35a52df69968231d530f27ed53cd8c0c5c7fbcfd7a9808ae177784a68823cbf3c328df146383fbcc05f927355003cea06dce4ae23346405b62675e70cb1fc0cb2d6582e08f00c36ef6c72d036ce337a16f679bfbaa3fdd88796c7ff30", 0xf5, 0x0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x1001, 0xffffffffffffffff)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = request_key(&(0x7f0000000240)='.dead\x00', &(0x7f0000000300)={'syz', 0x0}, &(0x7f0000000480)='user\x00', 0xfffffffffffffff8)
+keyctl$search(0xa, r1, &(0x7f0000000140)='big_key\x00', &(0x7f0000000180)={'syz', 0x1}, r2)
+
+19:25:40 executing program 1:
+add_key(0x0, 0x0, &(0x7f0000000000)="c3543993f40dd2514632455d209a097a0800000000000000c6c4a7ef210ebeab632904be1875c8eaf8a24bac2375d514ac68e20e6cca7464662f57c3e85275b895c45070b322a45cd794cdf381b11d4d33d75679e9e40d5640c459fa0af8dbbae323", 0xfffffffffffffdb0, 0x0)
+add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)=ANY=[@ANYBLOB="656e633d72617720686173683d7368613232342d7373736533000000e200"/77], 0x0, 0x0)
+add_key$user(&(0x7f00000001c0)='user\x00', &(0x7f0000000200)={'syz', 0x3}, &(0x7f0000000380)="f683652e8216e52240eda8f1ffd7e794a988abf3e573f44ce0845a59d82eada15dde8c37ae15b3d70a659e81f4c271d380d445524ef63d0eb35db543c4d2e5779721282817da3f4096655a49ecc8ae0f7ebfd2cc62b8c9098e4ebe8075231e7d290c76ccd67c31148b3679651b59672d4393f07d467bbbf0a7d3ab5ae3aebc1febf7200a26d487ba09d18a1adb6eaea52431041b5943dc18a35a52df69968231d530f27ed53cd8c0c5c7fbcfd7a9808ae177784a68823cbf3c328df146383fbcc05f927355003cea06dce4ae23346405b62675e70cb1fc0cb2d6582e08f00c36ef6c72d036ce337a16f679bfbaa3fdd88796c7ff30", 0xf5, 0x0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x1001, 0xffffffffffffffff)
+
+[   12.657067] Option '       })vÌÖ|1‹6yeYg-C“ð}F{»ð§Ó«Zã®¼ë÷ 
+[   12.657067] &Ô‡º	ÑŠÛn®¥$1YCÜ£ZRßi–‚1Õ0ò~Õ<ØÀÅÇûÏ×©€ŠáwxJh‚<¿<2ñF8?¼À_’sU' to dns_resolver key: bad/missing value
+[   12.668751] Option '       })vÌÖ|1‹6yeYg-C“ð}F{»ð§Ó«Zã®¼ë÷ 
+[   12.668751] &Ô‡º	ÑŠÛn®¥$1YCÜ£ZRßi–‚1Õ0ò~Õ<ØÀÅÇûÏ×©€ŠáwxJh‚<¿<2ñF8?¼À_’sU' to dns_resolver key: bad/missing value
+[   12.678464] Option '       })vÌÖ|1‹6yeYg-C“ð}F{»ð§Ó«Zã®¼ë÷ 
+[   12.678464] &Ô‡º	ÑŠÛn®¥$1YCÜ£ZRßi–‚1Õ0ò~Õ<ØÀÅÇûÏ×©€ŠáwxJh‚<¿<2ñF8?¼À_’sU' to dns_resolver key: bad/missing value
+[   12.822096] Option '²Á4?Ô­' to dns_resolver key: bad/missing value
+[   12.826203] Option '²Á4?Ô­' to dns_resolver key: bad/missing value
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$search(0xa, r0, &(0x7f0000000440)='asymmetric\x00', &(0x7f00000000c0)={'syz', 0x2}, r0)
+
+19:25:40 executing program 3:
+request_key(&(0x7f0000000300)='.request_key_auth\x00', 0x0, 0x0, 0xfffffffffffffffe)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000280)={r1, 0xcc, 0x39}, &(0x7f0000000340)={'enc=', 'raw', ' hash=', {'michael_mic-generic\x00'}}, &(0x7f00000003c0)="f4e557d41af707776a6fce0d49c2b121ab21b9b61d7f21496bfb34112126b4c8504e25c6c941dab574297795f4db2754df81b4c4a79133f9100f6639a0f4847bdb3920329d952a102239d9db775cf089b4ddcd8acb98e39c6880cd052889fa2fba193ef9f2a80ca94bc336971aa0d8854a5d82c62919ba185a620db2b838b5534ba46d0c7eb4796c6970296630e71a9d74a7d9c552eeeccdc84744bb8133397a6d3ab14c760b44a34802085e4a9ded2094a3302b2d2e1e2e61d0f6076ab99cce88f1b95b2e19729e9a6b667a", &(0x7f00000002c0)="6c1ed4ff999d005c8a4a8080f55b5cb6db1e037394d201ef03a807eba33ee0e247beb0da353e9d40c027b8808906cba95127956bb88205437a")
+request_key(&(0x7f0000000000)='.request_key_auth\x00', &(0x7f0000000040)={'syz', 0x0}, &(0x7f0000000080)=':\'\x00', r0)
+r2 = add_key$user(&(0x7f00000000c0)='user\x00', &(0x7f0000000100)={'syz', 0x3}, &(0x7f0000000140)="5d0703039556ec3357a9705e6c1208bc838553f76405c64601d3b57929ca382d8979770f301a64f31d74343be257655e87d1e531ab50c8de2e17165c03ea8c4c17c8f3dbcf03a66566a2b3e41eaeff15a6c949f834068e3753dc4b183f4374ba3a25e8070d331b4fdd56983caaf346d51b75f41edbeafa500d7a7518b7303976f2fb650f30d966715eaabcf13c38752b61a041e711add882848c5dd5180483ddf573a5f5153d64e5c5b87b1836d646c9695f34ffddd55d3dd79a45", 0xbb, 0xfffffffffffffffc)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r2, &(0x7f0000000200)='logon\x00', &(0x7f0000000240)={'syz', 0x2}, r3)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$update(0x2, r0, &(0x7f0000000000)="b08defc59be49db9b5ca2d4491b3ac4284916b7c1394fce06930507415357829d8c1afcaf36d7561521990d8463e93ee7ae374ca458befa0f4e32efcbc4e3fcb88ffd2231ba87803e23144812097a39d2b050a0366f2f014441410f787ad089aeedb6c32648c9bef02fb7e1a44cd59f1dfa449a06d55d280109c330c87997bf290141150f0f84dbbe24761356a37a690be57fd4b6eaf2d789d5daf5895cd28ded067ee2d341178ba08b4956bfd11e2c94e6aee63bbca78556d207f0edb7c945b58f93241d082f5b10f9190ebe793b2dfb934b586cbdf79b7e61509394ebc6c7ddf4b1f4a979281e596769cc68dffb7db3b195dd63716b7015b", 0xf9)
+keyctl$KEYCTL_PKEY_DECRYPT(0x1a, 0x0, 0x0, &(0x7f0000000300)="b7b43f3a8742d025cc7fa60c9fc66a92eb5e1bbdbe495bede94eadcc3eb67f2323", 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000200)='keyring\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, r2)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, r1, &(0x7f0000000100)='trusted\x00', &(0x7f00000001c0)=@keyring={'key_or_keyring:', r3})
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x1001, 0xffffffffffffffff)
+
+19:25:40 executing program 2:
+r0 = add_key(&(0x7f0000001080)='id_legacy\x00', 0x0, &(0x7f0000000000)="cc5e3e98e09d2c9d347d842a668c82d4fa035afb96be4e771c5d823beac2070191d607121da7da62bd6e20253ecd2bbd14d69cbcfadd8b912a693d74ccf7e2951c3c45da21b6c7d619c14d30f1eb33434431751383da8e4681952081575d7856af79cd80f6f50d82f9542e53e0af444460ff0b836e1f1e0fc506cfd3cc910283021e84aeb53f9d6506c10ec5fe23a2ce829f1b0868468551c4726af24bba52dbb60adfdc583b7436a1044d375b828b32149a538e13557fcfcc79cf970cbc134363ac64517a7e45c390af6b7c40587a37ad831791aeee53fbcc252f1b0a8abf26b534f95e17588ba856e8d6741a552323707edabd1e66a750203e0b41dc62e89549d4fa49d705155feb3c1b3a9c39f32ac925c1c8fd6bfb3e7b79b5de936dd3003372914340e29fb3e06999218fd73377e24492d1400da0bc0753a97121eb7823b6389a8cdb410ad32c770d355bf5fb8f6f6a6dd8fca7ae237967d1955f1c1c7a63f65836014d84bcbc9fffe59d316edb3636e0b3db3182d65989e7e1b81365d89375626ad34246f014a844de2b3dd75e1897fb1232c15299ad56800b6522ccba5a81b065f382dc56abd103946b07e28ed2a16ef7f52a4923cf4cf2bee2cd89718ce35581de96bc563a9b319bdd5f98acb874c8d32cba4d310cc542c0e6caf8b59df2b1b32cd1a644a8b7984322af3d344bf49fea5c1d7f02cc7435e03328afdb2b44baea3b29bd90fcd8eeeede2ffe2f56fff69f4a7aa3422decbb48e90243aacc53b32a580b97faabceebd07b225a19c95c97f9f1737be2679f127eefac27c53dd5a0a275550f7820813c2ce177fd97f814f7b70de0db0741dc7bc8abb1a9c8eead024e752845e3a1fd923722e1f1167ebef2eff44fc4a01a3fdbe9a7a53200b23e48fe5ab6943f4479ae25aee4d179ae30315c475fd4705a521c11d60ed3f49a5e711cc9fa986c5afa8772f6996510eccf95344081c85eeccc525af1e45d92089f2164ec02ad4377fe9fd26d2611ea709867c3a0fca5815c096efd2de0e39acb3d227e13ca1f54f31a8b40e388997a55b8fb1afab1236bb612aae4fd748af33f2ad0f825d054210719ab9163bf5ac4767fd3cd3fbaf88a0acc70fbabf27261dbba50711d8f3e33f19968fba16439f12de4e46218ac07641fdbe9f55b3b49104ec3bbaf517d1cd1cb3e142dd313cf97441892bf081da52fb62bc3188eca0d466bf25ecebd2240c7445c1618019fdb72edaf75ffb97167c05d56dc25a4f6e22589100232d29303a509b3606ac1da1d15454410890cfa729b92edebcf11260787b249bc0d9e513300e768877707d19d425e08366ec4781e11d42c90e68f1313c90745059681c43e85feebb1f08b60c094c8e852fd956fd806cc5edf57e5d3fea55fd3023a06e7ecba2aa1e89a3b043efc31c75055406663cdab7426f062b043f3fc051eee9cd608cf3cbaa616ebe0035d94ad21c5226ef4236df9d88e5eec30e7a8cc00b164fc1132253c684d5b439f2ad5a48e7d2c6bc14af8345a4fc69919d7e3df971134bff0af1bb71e0ba499709404edad17ccd080e846001e485683effadcfe02cee8c6aea207a51aa1478cfa63466291a94960646db4ffa4001b4549a8c5a1dace0b516c138f48275748ff0fac822009f4a64d766a451c325017e9a05aeae6e686de1b72931ccf1acc470fbeff9caa00c9ee7a5874dc63303329b09a8bf06156ab96095bbf0f6663b2c881299288f934fae6466558c4dad55995be6072d311e6adb42aae1c7f7a848d3bb64dadd5902f499ada57460c46b2bfa90ef9d95aa3e31950d8d3bec732e61c89c8c02fc3913a5e6f6535f59b8e1498fa49720bfcb6120ec7d0b16c210ccb46b570d6a07f0f90a1ad0a7e6e3c9439952d3ede6a67f822a1474bbfb56584753dd85f146e8fdff991c2572aa7c1c69b1c802f8dafbfd4e5d2e821f28702f1928107b1476679afcc4289e051b96e78a0c593b9eed51e96d4af38879456071cfb46645537778caa03f27a12b58bee783d8393920f5e6f3dcf5b71c21f42a9594a0664e680e4737da5eea4844a29bee0e7a89754562af1fb79beec2e419cd0f37c32d20523883b6560101dfec9b816ec8c08a9aba6b3a28a2c068ee9eb6f0c25459633b2d3a6b6e39af2a826c5410a6a4a96b4423efff6929ece9bcdda3faf94beba91465158e19011a7916ee9a7ea571976309d92c774c928bb23adea34e04d7fa0f9bade3af34fb4a87da0d67ecb0164b019b3153573814a96889ac4a80f242f74996c3a1031b84d6208aa196a298b74d8ed1b521074adcd9668cb26666168dc87fc838c225de19a0841dd445f80da7ff06d3798f0327961313e9a1276f5d6c5fb0932e4c379ac14001afad28d8b616cc1df7d2c1b5624bb37b26ac1d1430d84e21c0327134b1c559c2bf1aa6543c8a1a08a53e15de3754b8db5522652ced9812e3591b89c8d83a4c21f519cf59c75f497781bade92915336c61891159003e43d507b95728d4ab7fd2540554318c3f755c7fd30dbe8c9c69780d1abae210243791a57342dbaaf75c8c48f342b7a3dfc7e76b2bd241b9383ca7b1ed2df80e4e0ae2f7592f1ac1a9c30e028806af0eb5a6155e5a2db14bdafc69d22cbc55f84f8f9f676661ebc6a3cbe470e0e1d1eec2e4d883934694b315d19e3adb69e09d10a8fea0ae4b16a2ae0c3dfb9ec0c2f57501d7d16f8f89d96fef61d8f24a666b4b20346144d817ffc21b0e3bbc094e0b2f6bf339e79d4cbc9c4e5b4cdaaf3711009f4421f3ecbbfa50b57e8edd128398df2a0512a9b2e6e831ef3ebd1d78ad56d549a951d1ba5b0dafb7d56e060c95ca6e9f15e82367d6326133dd49b3a8a31297bb58ecb0933a942c08ae7e1715ffd23ec1d7681617c766a407f0947347fe8bd645da4300b7803b318b0dfd584479c2f8cdcfe6fb9d34d623b549ba8a9012ab1f1299ed8eb30ea61a4859a67ba543e49b56b38d9e0dd2a5edb052f8eef813d4534cd9c73200e394e6cca590976dc7c042e643e2a566577e647266b24b209065ac7c751fd4eb2824c4bd630c24835438b686d99c3375c0dfca692febe6d2a10f7516fa92afa982d98d1820000000000000003ae877794c994959a3a9006418733aa4056073f7cf040afe56066545d8c386d88d6074046069c7e71e49b54473eb756726899fcb10c7823a301b027df888d6c5b7e0eac2ecd56ee1f570807d026b9069a848cce7e18347624dd71b4133057e599bd619cbea5f5063bb1940e9590c5721ddda8f2a63e3bb4132e23fd88ac62d77cf2e245d9af687bf416024aa1252442602609e972bb77ae5d59b57802c88a0b68bb59b78dc24da86aae3b7d4a58128715d6ce5c6e17e24c004574d1f84524aafcbadd5f08c80fe5fd9bf4a7a7eebf7d48bb62480104edbf0bb5af403c36f2c94e7a0f115a460616c6e50391d91a242997e33cc4d3669a3d96cb8f195e056b68a7454bf60f55cd6f7ea99bf056965f66f63a049623ff0652ec9838ad253db57122798a608aae4d5a839326f45e2e86c84793bab8aa60e7605e2bc0a7739e9ec4c38961829a47fb7e413236568e944a90b27fbb801c1aff07d1db279cf8831d784a38fe518a47dd2a2ae2887535233a4c37a8fc2d5c63a15cef2982bc38139365c34878d751294d3f9fe505aec2f5f10d6c8a1e87f6b4aae5c2d476db97580f1590f26c875ca8cea582f8843fa93c444f9a33b48d50c082c8805c2f9b6a6e44300d97483ac2c86851554779e4caa5b9824f2cc64562cbe0c0b5c3103c33d76b8c6ba87545857330424ab45eb07afe282c681765300bcbfa8bb12e9f57d022df8f6261c409ef32419f5d25ab1056934a39052a755a3f5db297b87820686c5ac4b3a520906a0e1a462cbe015a31a380057cc31fc84cf2d6fa239b45db5c47e996f4521acb16c697078a6f0c98fab86afffe7dfe83f9b02329824e6c2947bd0b940e3f39e75059b0b0893261d169143c2d5dce41787b41dae7c29a9136d6017d90c3223ee94223e8e223318a7dc9eaff7a05de5d3529d3d95cf031501ce53750625c7b6b364d454da2ca3cdaec46f2505ea99a1dc0eaaf811ee38304bca7700111ddfcfbc0733345c6ce8a145ab52c3fd0520da689ee790e8c7b8f794502912d7d268521729ff4cb37d4e6c80dc1615819dbb27591f7f10d219d9c002c617904f990e7b1cee30249745539ecabe9bff2b9e56620be3221c18e41d4c1f7a3557b3e36e3d2897e124f33a033bd1fc8471bd81d6f1768a17efbd951d26d518678a64943f6d2311292f8edc1089ee7a4766c033ed78edfae8d50c49e45fe15e70013d39743b9e4935f8d82982bda5c7fde0c728a3833d01b5f50039d217b1f06a6d9ad5fd758b1f3299f356b55b19595049845d856dcf793a30b59304f0221e16889c43d9f3fefdf71df579e2267b6ab7971e114cc36fb4258444574956467d4ca1fc898d2987f5b228cbb49d61b79e1caba5d5986f9291cd6e492b5f80cd092d8cfa5a3aa868deb17c63e2c5085281808822ad9b0a3a96954afa10aa95d93a519607dbace2f0cee90cfb2a486203fd59dcd4483d49c4f2fb3951204b1598806480422b78cae6b810a8a12d3995eb6b2491f0d7d63ba27ec49f30ff97343f943afa2a843c5e46cfe14bf3e2c124cee8d84aeffa7f6c7c745eb7590ab98bed0cef021b3f10e7c8a4a5cd8b1b90413f112154b004c42b8daa2b017aad8adee25957cc1ae7bbcb286ac56707f9fa5a4da13b2c0b1310ddd7eab8c97e321f3be2aba95b83cd7fcda5c5888323c23399ff29b5195fa5baf63a70d80105eb397550318cd87e676dd8c00f77d96ea5b03c1261a4f45db0cf18b6f5b7d7f88603b5d05b907d43065c6cb8242c573f0dfa051c474b66f8c7d6a6f686adea644e6e0feb6f769edd595a495f5781a07c88f09ac7fbfb345a932c7bfe6bf9b418fa50f72757a639c290c0eb4461866306e169cd48f86f5924cde5147efc635929ed64a2cb781d7e6c181155a9bb97e6ac957dc5e0b364cca24329296d17e31aa733a4f148652e2be8b9b81b6ba713b51a65eddba705f10d4e3bb9453e7b88140ab3b37266324c248f8101499d4b2b02f3f137a2cd9fef75f2f00022558dfe04d52a0b238adc7e4cb5fa8e5843981da6426b2c0711eff58dba652cf0cfe2fefcbec10b6991d85237d7056cb8d702997b8542ecee6a516a5ff02f57d7455be4744ff9c4e3d605b85a4f760a1f613a533d44c8ff3de686ee946d662573f45468064b3e0af12211c02e8d73318e3e1497faaed403949330c6bff524d6a7ea5be00fca047da3c292b0989512324826a3409123aa8c1e65718205b98f99ee773ebcc00b6ebf1b49abdb3562774e659da0aaff636483faecc688c814455263ecb09644c89c6467d2dbdead2ea5418205426021646b269f2b9a857940813a1c9baed38b7f001dfd8449322aa23aa7ddd72f535e4fad3277129632e359ce153b44c8cf676039c119edc18230d804cdc96c62b815ba964fda0c62266d4635660acda24f77b0fcf7191401f111ccca4cf49474b08a184f034a7ab32d033c9c30fa62020413291020cf48c21d8547abfb7f410ac3eb6e495412841131c36d6054e20a1a04d26f6404e2e98fe17262ed33cb387cd78bc87fd70a1bd82b20d3486a6cfe16159ce5e74953c52008452662fc97b761354eb47b41900467870d49642ae83edd7a391827605c7af5eec60c16fb5213a496fbce0673dc629512d3fc391d44ec4a8a0f4dd2736f6963000000000000000000003a", 0xfffffe0b, 0xfffffffffffffffa)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$unlink(0x9, r0, r1)
+
+19:25:40 executing program 0:
+keyctl$set_reqkey_keyring(0xe, 0x6)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key(&(0x7f0000000000)='logon\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, r0)
+keyctl$revoke(0x3, r1)
+
+[   12.845326] Invalid option length (0) for dns_resolver key
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x2}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$read(0xb, r0, &(0x7f0000000280)=""/93, 0x5d)
+
+19:25:40 executing program 0:
+keyctl$set_reqkey_keyring(0xe, 0x7)
+request_key(&(0x7f0000000180)='id_legacy\x00', &(0x7f0000000100)={'syz', 0x0}, &(0x7f0000000140)='s\x01\xbf', 0x0)
+
+19:25:40 executing program 2:
+r0 = add_key$user(&(0x7f0000000980)='user\x00', &(0x7f00000009c0)={'syz', 0x0}, &(0x7f0000000a00)='8', 0x1, 0xfffffffffffffffc)
+keyctl$search(0xa, r0, &(0x7f0000000b00)='dns_resolver\x00', &(0x7f0000000b40)={'syz', 0x1}, 0x0)
+keyctl$set_timeout(0xf, 0x0, 0x2)
+keyctl$read(0xb, 0x0, &(0x7f0000000080)=""/56, 0x38)
+request_key(&(0x7f0000000640)='dns_resolver\x00', &(0x7f0000000680)={'syz', 0x0}, &(0x7f00000006c0)='syz', 0x0)
+r1 = add_key$user(&(0x7f0000000980)='user\x00', &(0x7f00000009c0)={'syz', 0x0}, &(0x7f0000000a00)='8', 0x1, 0xfffffffffffffffc)
+request_key(&(0x7f0000000580)='syzkaller\x00', &(0x7f00000005c0)={'syz', 0x0}, &(0x7f0000000600)='\x00', 0xfffffffffffffffd)
+keyctl$search(0xa, r1, &(0x7f0000000b00)='dns_resolver\x00', &(0x7f0000000b40)={'syz', 0x1}, 0x0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+r4 = add_key$user(&(0x7f0000000400)='user\x00', &(0x7f0000000440)={'syz', 0x2}, &(0x7f0000000480)="11ac3b259eb09319b3c6ef083ac53edfadc298b999140da19e2ac0ea55c313fbc13a276d5c1545bc2f689192f59af68657c43a03215d6b0bd0d5d6d54d72a9b4dd9a87166352afdd2b3f7366b7b2791142eb6f6fae32ec93f5967e00b9ad57f1a208f3349e8cc9be74d1ba845452978f8153822c4bfcf344137056e15e7537087d581de494da85cb00884ea74bb23c9e1ab4965727b02c5a47a6444eb474cfcaaaef22eb6a4e2aa97d4d38d82d2a07b24a453b9ee2051bb6163443ef2e1dbc3307aeaa1b5354ac43bc79fa", 0xcb, r3)
+keyctl$reject(0x13, r4, 0x3, 0x2000000000000005, r2)
+r5 = request_key(&(0x7f00000000c0)='cifs.idmap\x00', &(0x7f0000000100)={'syz', 0x1}, &(0x7f0000000140)='.\x00', r2)
+keyctl$dh_compute(0x17, &(0x7f0000000180)={r0, r1, r5}, &(0x7f00000001c0)=""/245, 0xf5, &(0x7f00000003c0)={&(0x7f00000002c0)={'wp384\x00'}, &(0x7f0000000300)="db66a7b4b4ce12593c014d69359f71f1e98303cfaafd2bd03b861fd02b8b649c8d747df5c454f5ce3394f468403177b765cbdbf69dbe2c68f9c37412df7266b3d965c589dd6c8f27f1a8efa598e4929c4667cc5fa16da58c5fbc0375fe4f5dacdbcecf3d99483a3329cfbc207b19f8ad5c2e88cdc3ccc928366a37815cba8e45553841e07fcecef59c4d93020fc348aa0c29", 0x92})
+keyctl$reject(0x13, r2, 0x8, 0x3ff, r3)
+add_key(&(0x7f0000000000)='rxrpc\x00', &(0x7f0000000040)={'syz', 0x1}, &(0x7f0000000080)="75f9651fb8a310c5ee9adf0f36e3ee82756223357ee9f995", 0x18, 0x0)
+
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$describe(0x6, r0, &(0x7f0000000000)=""/255, 0xff)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$get_keyring_id(0x0, r1, 0x7)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key(&(0x7f00000000c0)='ceph\x00', &(0x7f0000000180)={'syz', 0x3}, &(0x7f00000002c0)="0872951b30b2a700882f76df38eee7e7a6334e2a7799b14799e2fea784317fa8dba14a34c711ce985d8b2fbf979dc77b2c30c2a404420af7608dab86237ad06586c41787c811ad2c910044bbeb0401fd1018ae7a0448e6f766e16e5ae9c98c007e9c34858cf13250ff62b5c72d00250833ba793892cb6f1cce6631d1bcfea436a23ffe2ba64f508619118df5a2e171d7a63d602a3e74f0d73e5d6ee542172c9d09d0c2031c4c1d9a98b65edfb3e0fb3ccf7e4291ae3071f77af43ae15f5807652288d58544b359d2d3ca48491346b9a8b7088f7ea86260b7ddde3366f96e3ee66bea0277d6f5fb28ed1c084647ef08c3a5", 0xf1, r1)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_MOVE(0x1e, r0, r1, r0, 0x0)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+add_key(&(0x7f0000000000)='keyring\x00', 0x0, &(0x7f0000000040)="8914", 0x2, r0)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000300)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffff9)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r1}, &(0x7f00000000c0)=ANY=[@ANYBLOB='enc=raw hash=a224-ssse3\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\b\x00'], 0x0, 0x0)
+r2 = add_key(&(0x7f0000000140)='.dead\x00', &(0x7f0000000180)={'syz', 0x1}, &(0x7f0000000380)="c3543993f40dd2514632455d209a097a1a0edd08e790ffc9c6c4a7ef210ebeab632904be1875c8ead727775629e2f664662f57c3e85275b895c45070b322a45cd794cdf381b11d4d33d75679e9e40d5640c459fa0af8dbbae3237d011a74e7def839a548ebf73fb93611f498e89f9d6fda8d46d8df54c8fd271a908b8c7127129f922565216c2bf4457e61d4e52004997c491d871b84e217874a49ce9ffa91eaae8fed4651d1a8615b2993a00bba364406dadda7a396a39c130f87459f0541d0e26976c77b7dbc27b4f22e72e1adf5b8bf6a1ad94549d978c7fe9fa8980007dc9b9ccdd64cc95111a416", 0xea, r1)
+keyctl$negate(0xd, r0, 0x4ed439bf, r2)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r3}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+r4 = add_key$keyring(&(0x7f0000000200)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, r3)
+keyctl$join(0x1, &(0x7f0000000500)={'syz', 0x0})
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r4}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x1001, 0xffffffffffffffff)
+
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r1}, &(0x7f00000000c0)=ANY=[@ANYBLOB='enc=raw hash=a224-ssse3\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\b\x00'], 0x0, 0x0)
+r2 = add_key(&(0x7f0000000140)='rxrpc\x00', &(0x7f0000000180)={'syz', 0x1}, &(0x7f0000000540)="c3543993f40dd2514632455d209a097a1a0edd08e790ffc9c6c4a7ef210ebeab632904be1875c8ead727775629e2f664662f57c3e85275b895c45070b322a45cd794cdf381b11d4d33d75679e9e40d5640c459fa0af8dbbae3237d011a74e7def839a548ebf73fb93611f4b6e89f9d6fda8d46d8df54c8fd271a908b8c7127129f922565216c2bf4457e61d4e52004997c491d871b84e217874a49ce9ffa916aae8fed4651d1a8615b2993a00bba364406dadda7a3e26976c77b7dbc27b4f22e72e1adf5b8bf6a1ad94549d978c7fe9fa8980007dc9b9ccdd64cc95111a416dff71f7172cd4da38193f964ebdfe7fd58207eaf87c79fe6e4646ad83b82762126d31c92f6f7ff567b2b20053fa7cbf2f050e431c197539f6b877a6c9325ec204f9daacc8ec6d3e5ef1862fe1991d25462c06533a1125049ff589452e9f4ded32fc2718c134889dc83b127525049bad127db02558f6ac2e8997765ef9cff", 0x15d, r1)
+keyctl$negate(0xd, r0, 0x4ed439bf, r2)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r3}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+r4 = add_key$keyring(&(0x7f0000000200)='keyring\x00', &(0x7f00000001c0)={'syz', 0x2}, 0x0, 0x0, r3)
+keyctl$join(0x1, &(0x7f0000000500)={'syz', 0x0})
+add_key(&(0x7f0000000240)='big_key\x00', &(0x7f0000000300)={'syz', 0x0}, &(0x7f0000000380)="f8ec55ca36e95ff65b54f652f496479abdeb8dad8774cf8bb53ceea01a644d4c904564edf78331f08e48c41b4cf3cc1498a8f545078588916f59d7fe8e336522913717bebb22d66f5faf866f8caf982c5b64dcd1308eb74290a0016c96bb2b4111c41d85f6bd300755335c17433ab4d15815a26a0dd8328fe6c1aa6ab3967c672ac3325037f7e920f860f51d3ac587407ef4ed7395df9bbaddebdcd5480990c0e3d7f5c8b4b0ae1dd69d758c0073b9ec19a5193580e65e1ce0463dee950abbe1fc76f2894d428b", 0xc7, r0)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r4}, &(0x7f00000000c0)={'enc=', 'raw', ' hash=', {'sha224-ssse3\x00'}}, 0x0, 0x0)
+add_key(&(0x7f0000000340)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x2}, &(0x7f00000002c0)="83e7", 0x1001, 0xffffffffffffffff)
+
+[   12.882814] Invalid option length (3366) for dns_resolver key
+[   12.888051] Invalid option length (3814) for dns_resolver key
+[   12.891533] Invalid option length (3366) for dns_resolver key
+19:25:40 executing program 2:
+request_key(&(0x7f0000000240)='dns_resolver\x00', &(0x7f0000000280)={'syz', 0x3}, &(0x7f00000002c0)=':bdevwlan0vboxnet0&\x00', 0xfffffffffffffffe)
+request_key(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, &(0x7f0000000080)='wlan0nodevsecurity\x00', 0xfffffffffffffff8)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, 0xffffffffffffffff)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+keyctl$invalidate(0x15, r2)
+keyctl$link(0x8, r0, r1)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+r4 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000140)={'syz', 0x0}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$reject(0x13, r3, 0x4, 0xfffffffffffffffa, r4)
+r5 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r6 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, 0xffffffffffffffff)
+keyctl$link(0x8, r5, r6)
+
+19:25:40 executing program 3:
+add_key$user(0x0, 0x0, &(0x7f0000000300)='B', 0x1, 0xffffffffffffffff)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000280)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$read(0x1d, r0, &(0x7f0000000300)=""/164, 0xa4)
+request_key(&(0x7f0000000040)='id_legacy\x00', &(0x7f0000000080)={'syz', 0x1}, &(0x7f00000000c0)='syz', 0xffffffffffffffff)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x0}, 0x0, 0x0, r0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x2}, 0x0, 0x0, r1)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_MOVE(0x11, r3, 0xfffffffffffffffc, r0, 0x0)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$get_keyring_id(0x0, 0x0, 0x7)
+keyctl$clear(0x7, r4)
+r5 = add_key$keyring(&(0x7f00000001c0)='keyring\x00', &(0x7f0000000200)={'syz', 0x1}, 0x0, 0x0, r4)
+keyctl$link(0x8, r2, r5)
+
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key(&(0x7f00000000c0)='syzkaller\x00', &(0x7f0000000100)={'syz', 0x3}, &(0x7f0000000140)="7b045786edfc8efd063f8e85516d869cf69c4ca2f5e04a7539c3bccbdd08955b86d49e0b37ee1feaa06fb1a265aab77998b59f725f8ef801bbfc9ee69d56202489ad9aded694f5b9b2ccbd268730bf9bf87e4d29534453b1198f873d9a7a4c27ae87865b41fb243be800adc8dc341cfcaa7dc67a04892aca646ca6665be38714d8f4d3bfe7856004c1975b49b746e6b46cdbdfa3835a436bed544b1796b756010f72f95e67e8cf6228624a79f7616458877d", 0xb2, r2)
+keyctl$reject(0x13, r1, 0x7, 0x3, r3)
+keyctl$invalidate(0x15, r3)
+keyctl$invalidate(0x15, r1)
+keyctl$set_timeout(0xf, r0, 0x2)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+request_key(&(0x7f0000000280)='encrypted\x00', &(0x7f0000000300)={'syz', 0x1}, &(0x7f0000000340)='!cgroup-U$/\x00', 0xfffffffffffffff8)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$read(0xb, 0x0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r0, &(0x7f0000000380)='trusted\x00', &(0x7f00000003c0)={'syz', 0x0}, 0x0)
+request_key(&(0x7f0000000200)='encrypted\x00', &(0x7f0000000240)={'syz', 0x2}, &(0x7f00000002c0)='s\x00\xe6\b\x00\x00\x00\x00\x00\x00\x00er\x00', r4)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0x14, 0x0, &(0x7f00000004c0)='logon\x00', &(0x7f0000000500)={'syz', 0x3}, 0x0)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+r3 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f0000000100)={'syz', 0x0}, 0x0, 0x0, r2)
+keyctl$restrict_keyring(0x1d, r3, &(0x7f0000000080)='asymmetric\x00', &(0x7f00000000c0)='key_or_keyring:7p\xa7\x8f\xd2a\xb2?\xbc\x11\v)\xd9\x8c\xe2\xb8\xb0e\x98j\xff\xf1\x92\xd6\'\xfd<[\xf2o\xc1\xc7\xf7\xa5T\xe2\x93\xfd\xfc\x13%\xe5M\xd1JF\xf7\x17')
+
+19:25:40 executing program 3:
+r0 = add_key$keyring(&(0x7f0000000080)='keyring\x00', &(0x7f00000000c0)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffff8)
+add_key$user(&(0x7f0000000100)='user\x00', &(0x7f0000001ac0)={'syz', 0x2, 0xe}, &(0x7f0000000040)='\"', 0x1, r0)
+
+19:25:40 executing program 2:
+r0 = add_key(&(0x7f0000000340)='dns_resolver\x00', 0x0, &(0x7f0000000000)="00008549053593e1c84f897b0c3b90c33d588703e9a7cb9a", 0x18, 0xffffffffffffffff)
+r1 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+r2 = add_key$user(&(0x7f0000000140)='user\x00', &(0x7f0000000180)={'syz', 0x2}, &(0x7f00000001c0)="c53877adcf6169a1bdacc8a60346212ccdddbb78bd0277ca47e5fe5ea6adf19ea31ccf18d24c063fe1991d8bffb505bc05276b34", 0x34, 0xfffffffffffffffa)
+keyctl$instantiate(0xc, r2, &(0x7f0000000200)=@encrypted_new={'new ', 'ecryptfs', 0x20, 'user:', 'user/ppp1', 0x20, 0x5}, 0x31, r0)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$unlink(0x9, r3, r1)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+add_key(&(0x7f00000000c0)='rxrpc\x00', &(0x7f0000000080)={'syz', 0x1}, &(0x7f0000000380)="5ab3d5b5c8a5de2710196476338c6466f175596d74bc1de2161a74966586a181b34340b41aadfdb2bd28d9a01b70dde378c1ce40862b37ba8f342cc0b46caa329b667e1e4579383ca6ae60f276f3d3e4e6dc8a91b5234927f7113af2d60445fadbecf638ff44552405c5233300dd792607ed7f16a4c80711a432c1a19d6c1dbf2a495d31133d36306366cd965e6c68ff6dea4f14c36b5a1bca083e392bb9e1e7eed056b58b4242f54256c9e5416d2c6fe2db47f7fad57a6b01e68c9509d056a60b0413915d92baf49adaf3d9e72b66a427e105dd1f4ce8daa5ab9d4ea4a953e5c889282aaaf706c211afcf13f16bb1fb000fb7310ff71a1243d2deddfaf7097e99bef7996f802f5d20552a45b815682869f7c0d9c06ae0b7d4052ea35f86c03b761284bb3724a5abc983acc6a23991ab1f66c0b45f7015c0a6257b16a767732a6f33533c15436abdf05ad71aac6a11afafdcbc265637ba8dbdb4cccbd9d1052f2e5e7d88aa3053eef91a320491b5bc352d5ec5a65d6b2cc614343cfdca42a1f4a7cf0b8a14727df28b7abebe86994d112274cc6f19736815381efc709332bbcde2e9ec72970bc823f11d9228a64c5262ec6824c134639eda40485d95c01728aaa397af46b60b6d989fbe5aaf7dfbe0522f44b4f10f92b0e7195d09f1f33c4eec5993625176bae0348608fc21e95c8daa85fdf61ca3bb7f0a25983a7c01a35ce840d58b4bae71271f47e685c45cb419a51f35df1eda50b56f71ba36bc95c54cadf2509b211ca3aad9ab913c9a2c320dbf7a9d1d58f191279f1e120ce9a94d32e63de50ee13673d3dfd17338878475effefdb8ae399dfce52d4ca82fe52d7ff56c62859284cc355ecba6212bff573d37f7a588cbf245c71369096db1978b323670786d12df545a1de9efeed4576ea8251ab5750f92b54c2d0d26b83a732b31cce977a19212e951af0ec4991172636717a1a96d7aa196e133bf342b0f682cec472e4ee2a023068988a39f637b5d733a3e309722ad540ebd1c11cb605ff81c9bba0a9b8d75c72f45c2144ee7f3675d5c3bbbd7a8a725bcd0d6aa3cc44127dacb447b7adcb3825ee6b0c161ee7d7ce92d123ec487cd862029dc2906d37b8e95b25a24a932c73cb09544504a65931ee8fc6a738ff72eba6e047e508548e0e1447f18d649a2c8c750f853394eee26fd555a4932f5f4171dd8508516b2b051337f8ef489bdf5521dbacd5a058376eee8fa96a75e64235e52efacec32d0d4c48a851879ae0929430316eb73ddedb53453d11dde56d739217150691bc40f6a047cbee1d2954d08b125d520091e68fdd2e6dd3de07bc633c7e949a3de6cc39064eb446896460027f624d2eacf2cd96630a01ee921748c1489fe8f32509dd8dc6146a0142ee5ffa2adc2c68cb0a88b8a1fe69169acdd7e68fc8f3a975bfb334a57879a19291da5c31b3f3084f3c7c8cfede8742d2d30e49f9de7e6fdc1f009be843e9312d7b6d573ce83918ec27be76183f98975058a685e24d7cf617d5eae5356875a36e9c307f149a4744e380458816ac93ed1299ed440be6b83cf0279d1896a27a1b1438908813fc68f0070cdfc3774aee8983313bf9c132d6d703ccbc0ba3384ad46439aafff447af69a8697c40c6ff0bd93d7f34b278135943d8a91eff99edda003031b3be51b57e42348ed3847f289f2ade0d04efb424f22bb4d56c698e30066d3a9420158b8931ea86e848eef90bb287c603ccecc193cece553d8998afebcd3555a9ae29ef4dd59ad1c3f8cad33cfeec62ee35a0f34630ef499d761c6fd4a175d53237e117be5e0eaa61f9444bdbbeeb2bbd38b1f64b220634327f3d8381ad4bc5b7b1384c3a4716fa16154851cf778d1426fd882c7dc41ae9f8ddb47599f944480a117de25531c9275cb45a2bbb4e396f1c06cae1606754af975c99aa94594824da47a88c31d52349063684f055455b4ef0711d50760ef6b2977a178c60a6143bddd4686d9c3c2b2c0873153d91b8018bad392ddb9b27f75ea0be0a4eeb36fd56a219513efd22de877d87f15f7f338e936f9105303f3a86a3afb9d897b7118e7379ec5a119fc1c7cc1d1cdb580dd970e320d665faba7400bda3e59527916d3a22a696512cf2f275fc2418eceddcfd9b1ab31d40310444675712baa9029f1b1c15c7bec0c350a83171201d534addb87f7d9195646fac488bf566ab0f92f012485f8bbfa8144369cf0901d8e23795603f631e7909c8353d6c20c793db5cbbd0ba6b7411186448e68f2562b17fb2deb094021ff0a136d60eb788da8169d2955cd0cb4968488ee478b6812c144b6821e72c1b23144186fa91a13259922ec8e99662d6ac57adf5999eeb2e710d82471507f66cd263c6b5da82440116fda87db34516adbc2c4dc822e00b779428d4a6e2c8599743f61547f72a130614961ea3d98a57b733e7b501992f3183736321237640a4bfbf63bd9ce876d5948818c00392e24daa8e20caadaa141c7a29f4bc84337a9ab957591e748636db1f1b23a2dab7ed3dccde717ef5bf5688f62aa739c1a1c9f9291aa772e5b57c5d16ed999b83513ae313ada720eda196df744e45940b4587d84c1c78714bd311cf0c92aa78cdf4cab5e9013868479dc00f30298267085b9833a8a115146e9538301c9b8f2144544495d63a01085f84d4a929822ecd358180789e03fb6e83a0eaacf9005997cd157dacd3dc5b608bce119bc74791f3fe3066ba89d424842bb9b478e3fc35732c405940008e40462bf7a3a990c5611953bbeca432b4770dae2f779fa2c42dd368f02aed23deec72472d1a73194c998673f934c9482841482b109fe1d90d8aff81d98a7c829417c149c91392de07ad5651bba46deae3bc0c55d59162bd38343397cb30d14cc2a8980b9764be48a70c73121e3680ad6de3b1be3035fa28a0033ef0e3203d730574b912b77d486a33b8f1a95cc22e13ea03a1db61b2447359d37d35688faa7ee27d95743e490df3157f8855cb9fe5790651796c9c051721eac294f62377bdfb6761e86506c6b95039eec9fefcd3b2276bae70b4a810da1fc481b1cd47d9e0044dac1fb1fd7fe3aec1f2913d3d54d0bb5ce61395b93a32535b12feafcefad22eaaec98dd1248d9eba57be851dcd45b6ff12f772c2abf3c84222f43aeb09cb7edaafcf5f216e5f8bbb71f9605402c46004820736ce8de4cccbb7b52700a5c0b65afd646e1c9fbbe52e68fd20499cff74ee65addabdc1d14a9cbb01b0996d2422a0721742f45e11906e60ceb165014c81532e7f08f35aa6ad2deb5b05c9c65fdb48512f54add71c97d9bd136b53197efecd6b301a1898d11d082f3bc848b9a6cbc44b4b15bff7e2c7e781667a0a00348f1d7f0e21bab19681916c84a3033096cb3fa754728b3150b41c9248446b02c90c8a2ea579de163ed96f9c5621b39efe76fde8c9c124b77851865689d075520160c7ccee7e2c3cc8c76594ab095f7e33de1f3c52db165c86a5be5b22b5a4802a37343bf5b2e054265756ac6c03c9662aa9560f98f0c00d3d8bea2ef54d53f392abbe91980a6dcc3df09155edcab72fd00225bb8ac317e7495945ebf6992e6b4e5df9a2401f09632dfaa8869ac126dd9c0759f3c76c55f75bdda1ae503d6e64b05069114dfa396d583dd34b975eb414d48a701a52f1da9a8c3a76c6539a98165ae1605dd4e05dabf4ac7088b63003fae1a8404a80cdab51c6b197dd9457838f9854068411a86ed623b64a2abbe32e181501baa600c798069620f2589da6876c3a6caa7ac23775ebd3dbb4508157776fd9fa64d5bfd1f1b29de114feb7ecedd5803d1637057fdc49ffaeefbd2ae0596ff9ef87a0233263bc1bfa1f5d1907c35dd6c34336d21b9c68cfa551e8ab85ec1f60e0ae52c1461e4bea29f6434c5cd00589a1633d1be271cdaf3ad4054bcacaf1f3d7867f8cb8e26c072a0fbb68c1a0053b86d087f5e656bb0c7e0a75d5f389db8e380cc22f11449701e852660bb88e6b949c1a51658a1748c09dff95e93c473ae28bff39706f6899f813afccabec607974d90d7751207ebe6658f22ced534059cdb4dfc4cbf07f189022156da9ffcd036fcf0eed243d8f7c9c636c998d2ec4a8b139c71dc605067f66911718dc21e47b99682f3aaff4223eb3c30c4d5d676ce74883bdd9cf700f9182ac99c8bbd570f66da66695efd86ac2d0a5104fc7ffa594a14488614cc576bf10e62f553834e18dff166f95c2dee4f93eac67a4011c385929166b98a85e4dec1cec389a2d1787b52cea0e54cc9f5d5c255ac64c65fffbcf7b868a2dff4099e91e35915ed6c01ccc51baa475fdb9f4ab336cbebbc5c83fd3e35ac223620b42dc60cbda2d2a7a74b313c274027510666aee5894be69d41eb914ebabb241259855d4aaccf5e33c2fd9e5a01c9744de3ca58a8a699d97631b317b9a94973b6907c718ac43e8c61cbf8fb7c7571fe4d454ad1339a8af2ecfdd6a0ac8c2d65a7a35ea5a3d11bdd6fc9275f81b4b1417ff725ebd39ddae779135b9060a83822b898faf792a8a5fe8f67ec7c9a8e092b92c1c033ef2354ff8bfd0529eadf1e6639b2931746783a5a74b8f3ee9a7c99909bb9b9a765a11eb39664cf68ebabd705d5ae57a1a3005054a888972c5d3912ed01d4920c8d13cb9f2a58661af90c0ce25bd52fa3e39587d3853d57b0c92be90acdc8999980ef2bb3e2f3016bcd95bc8a761760fa653cad7c3882616972791943fff731282b1b485b2169ad594c2143549945b5094e49ce11a3adaa85a7829c794b3f3478fa8b018c0ad2e23b16b20a94f274a44cf9945d15e376857b74c21897d91241446222219dc4ff74ec7c38a8631296c5596669fb467bd3a71062419286072c2f5885ad3faf91d367500f855bc8480996b716d06899ad70aa9921381d5a2aa47f5076b5678b3294f4b7ca86dab823945ac265360de4fc5c23f21ad9b1524f217c694e00110d46bf44177b1c58f9f103b012b8d73ee0c1de2e65fbef46c647f99983e267e636db670d1f583ad609edfafcccd6199f88f629bf4081525b0a6908023a04e89207ddee877c094f40b55239b997fc8642aef20bc2f2d2b6e1ea68c5bb4bc0df7cbf4fbe14f2d02c039f38ceb90feba4ce19d3accc6bfa316e1d5a6f180ab5b3102e01509552fe4a528082e9d117d200686d8dc7980de55e11e6244d27eb18e550a9a9e0b4bb2796f8495c06e85e0204f4c9451030b103cc6ff9697945bae2a24098986774f5db2d65b4df9c797a0544fb63729f71c161d8f9a9ac02523f5db0a9decb608864426abbc3eaa725fa24b541d9473b80613d3c85280d6e759e6cf038ead2d30cd08e483f6905add7204a69dd70d66e0ec5dc3c6dd8f116ef93a093bea7f41d7e8f0e24020f5f32f12c3c8856759eb7d397ad615668dbae3eebf02b091b75fb43aa2f9fc894bd0c1f48b23f3306c0d1dd21e892efec7f0bd11f491b39d913c164beaea9ccc798b0675e5c21241547d6da623be3090573cadb3613a743e86249b7c5780713c9f28a02fba03d96a55b69115e7ed74520491c7352070db45b609f335593a1d887fd85378d17b651892c0b4a273430eae8308d2f13695a602632e2697cd25710f93f2e828404b0b3f43632ed1c886796b0e4041573f506d0f64654ca88836c6dfc1e504f5bd3bac68d5550ec0d265b0294e63bfb882c465306d8cc180ca9d5af97bed2c7dbf85836a4ce79e36f2210ce468534f65ccd8a197f543dce1e4b37f4a5d287de0664193d6c28aeb69fc72b7e3ca3de9377d1a403990a937f9e1e78198", 0x1000, r1)
+
+19:25:40 executing program 0:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$unlink(0x9, r0, 0xfffffffffffffffb)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000280)={'syz', 0x1}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r1, &(0x7f0000000080)='ceph\x00', &(0x7f0000000100)={'syz', 0x3}, r2)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, 0x0, &(0x7f0000000080)=""/56, 0x38)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_RESTRICT_KEYRING(0x1d, 0x0, &(0x7f0000000200)='logon\x00', &(0x7f0000000240)=@chain={'key_or_keyring:', r4, ':chain\x00'})
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+r5 = add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000140)={'syz', 0x1}, 0x0, 0x0, r3)
+r6 = add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x0}, 0x0, 0x0, r2)
+keyctl$KEYCTL_MOVE(0x1e, r0, r5, r6, 0x1)
+
+[   12.922970] dns_resolver: Unsupported server list version (133)
+19:25:40 executing program 1:
+r0 = request_key(&(0x7f0000000240)='logon\x00', &(0x7f0000000280)={'syz', 0x3}, &(0x7f00000002c0)=':bdevwlan0vboxnet0&\x00', 0xfffffffffffffffe)
+r1 = request_key(&(0x7f0000000380)='.dead\x00', &(0x7f0000000040)={'syz', 0x0}, &(0x7f00000004c0)='wla\xcey\x00?\xb1\x8d\xa7\xf7\xcf\xc46\xe4@0\xe8\x82\xe9\x9f\xfc\xdb\xe2\xc4_\x89\xd3\xa2Ah\b\x91\xed\xb1\x9d\x8e\xa9\xaa\xb8\xe0\x85\x04\xf4\x1d~\x97\xcd\b\x96\xbf6x\xbb\xf0\xf3C\x88DIU\f\x13\x14\b9\xd4\x1d\xd2R\xa7X\x02\xee\x02\xbe\x01\x00F\xa2\'L\tg\xa8\'\xe1\xbe\x97\"P\xc36\x967\xef\x06\xc9\xd09-U`\x1f\xd0 \xe3=\xa2zFk\xc5\x99\xd9-<\xeex_\x9bOK<\x8d\xd3V\xa48\x8d/\xd1\xa1\xcbx\xf8\xf4\xb6\xfc\a\x90e\xf2\'b\xbe\x9c\x1a\xa2\x93\xb6l\xa5\x8d\xe7y\x98\x8c\x10\xac\xa1\xb4\xc5\x16\xad#3H#\x85\xe3\xd1\b\x00\x96\xc8\x02\xaf\x96\f:\a\x9bN\t\x00c\x8e\xed\x81\xc6]r\xf6k\xcd\xbe85!\xdd\xb3K\xf7\x03\xb8X\xfe\xfe\xc0\xd6\xf9OKG\xc0\xd5\xdcM\'6\'R\x19]QN\xd6\xed\xcb\x0e\xdbE\x00'/246, 0xfffffffffffffffa)
+r2 = add_key$keyring(&(0x7f0000000400)='keyring\x00', &(0x7f0000000040)={'syz', 0x1}, 0x0, 0x0, r0)
+keyctl$setperm(0x5, r2, 0x4)
+keyctl$link(0x8, r2, 0x0)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x0}, 0x0, 0x0, 0xffffffffffffffff)
+r5 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r5, 0x20008)
+r6 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f00000003c0)={'syz', 0x2}, 0x0, 0x0, r2)
+keyctl$set_timeout(0xf, r6, 0x2)
+keyctl$read(0xb, r6, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_MOVE(0x1e, r1, r2, r6, 0x1)
+keyctl$read(0xb, r5, &(0x7f0000000080)=""/56, 0x38)
+add_key(&(0x7f0000000100)='trusted\x00', &(0x7f0000000140)={'syz', 0x1}, &(0x7f0000000180)="e51e4d5b91ba4de2cd56bcb3599e0d836f25ca3d70b491f758a82ed57f0f87ba126f83f51631d868703e1c45a54dd31e62c8e578a2db445b2fdec8939785bdabd7441d29ba0f0253aa979e68a836f1d4aa5df50c9e4f99dec47634cb408fbf59c6d3cac17f9f9afb79a3af936237dc0383e7f032d0b69cef83c1498da3cc0e99a7b3fd510f0955593764154da21694d56268268a356312bd2e2cdfbc8d37eef433962388bfbf81395c4b2b6af5218d5d52f4a628", 0xb4, r5)
+keyctl$link(0x8, r3, r4)
+keyctl$set_timeout(0xf, 0x0, 0x2)
+keyctl$read(0xb, 0x0, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000300)='keyring\x00', &(0x7f0000000340)={'syz', 0x1}, 0x0, 0x0, 0x0)
+
+[   12.928904] dns_resolver: Unsupported server list version (133)
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000100)='keyring\x00', &(0x7f00000000c0)={'syz', 0x2}, 0x0, 0x0, r0)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$negate(0xd, r4, 0x2, r3)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r2, &(0x7f00000001c0)=""/57, 0x28)
+keyctl$reject(0x13, 0x0, 0x800, 0x3f, 0x0)
+r5 = add_key(&(0x7f0000000000)='asymmetric\x00', &(0x7f0000000040)={'syz', 0x0}, &(0x7f0000000080)="9a92450f6e643836d8f457d674eda743f859695d91", 0x15, r2)
+keyctl$link(0x8, r1, r5)
+keyctl$set_reqkey_keyring(0xe, 0x7)
+add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000180)={'syz', 0x2}, 0x0, 0x0, r2)
+
+19:25:40 executing program 0:
+keyctl$join(0x1, 0x0)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+add_key$keyring(&(0x7f0000000180)='keyring\x00', &(0x7f00000001c0)={'syz', 0x0}, 0x0, 0x0, r0)
+keyctl$set_timeout(0xf, r0, 0x2)
+add_key$keyring(&(0x7f00000000c0)='keyring\x00', &(0x7f0000000100)={'syz', 0x1}, 0x0, 0x0, r0)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+add_key$keyring(&(0x7f0000000140)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, r0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$set_timeout(0xf, r1, 0xe54)
+
+19:25:40 executing program 3:
+add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x3}, 0x0, 0x0, 0xfffffffffffffff9)
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+add_key(&(0x7f0000000080)='dns_resolver\x00', &(0x7f00000000c0)={'syz', 0x1}, 0x0, 0x0, r0)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_PKEY_DECRYPT(0x1a, &(0x7f0000000100)={r3, 0x39, 0x23}, &(0x7f0000000140)=ANY=[@ANYBLOB="6509000000000000006173683d686d6163287368613338342d8973736533290000000000000000000056001f00"/77], &(0x7f00000001c0)="47a584f36044e169473ded1143b4f8389d2a81d042a9d5f9b200881d5437003c96787bf22120356fdf7666f1420baeb4c890fc1c96130e46dc", &(0x7f0000000200)=""/35)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+keyctl$restrict_keyring(0x4, r2, 0x0, 0x0)
+
+19:25:40 executing program 1:
+r0 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f00000000c0)={r1, 0xb2, 0x21}, &(0x7f0000000100)=ANY=[@ANYBLOB="656e633d706b63733120686173683d63000000000000000374656c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000048000000"], &(0x7f0000000180)="a286a9b7319326aa5b67938314cb79b3b2b4fe4a65b5f85f7d52549e6ee509d952b562429c3b5030314ec0bf3f359277ee1d22ec307fa86d1001f55fef3905cc537543dd77c3b687d57b64c2b6316e6a504f1757227809becdc44b3cf6524a1b945686da41c8cf13b7f6d17e39a708542c6250b3d1318993c3a3493fbf2aa67d30f662ee9f2ef357003364b2c4dd915ac2518713d89a1ec5daf91641a532f4d05f65d6551c220e9b2a5c40440ef2d90e03bb", &(0x7f0000000240)="b14eaea8a5826f9b9101a2d397aab7e4b5a1926f60addfd70097a09bce8b269c5a")
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r2, 0x2)
+keyctl$read(0xb, r2, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r1, &(0x7f0000000280)='pkcs7_test\x00', &(0x7f00000002c0)={'syz', 0x0}, r2)
+r3 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r3, 0x2)
+keyctl$read(0xb, r3, &(0x7f0000000080)=""/56, 0x38)
+keyctl$search(0xa, r0, &(0x7f0000000000)='user\x00', &(0x7f0000000040)={'syz', 0x2}, r3)
+add_key(&(0x7f00000007c0)='asymmetric\x00', 0x0, &(0x7f0000000840)='[ ', 0x2, 0xffffffffffffffff)
+r4 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r4, 0x2)
+keyctl$read(0xb, r4, &(0x7f0000000080)=""/56, 0x38)
+keyctl$read(0xb, r4, &(0x7f0000000280), 0x0)
+
+19:25:40 executing program 2:
+r0 = add_key$keyring(&(0x7f00000001c0)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r1 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+keyctl$set_timeout(0xf, r1, 0x2)
+keyctl$read(0xb, r1, &(0x7f0000000080)=""/56, 0x38)
+keyctl$read(0xb, r1, &(0x7f0000001400)=""/4096, 0x1000)
+keyctl$set_timeout(0xf, r0, 0x2)
+keyctl$KEYCTL_PKEY_QUERY(0x18, r0, 0x0, &(0x7f0000000200)='\x00', &(0x7f0000000280))
+keyctl$read(0xb, r0, &(0x7f0000000080)=""/56, 0x38)
+keyctl$revoke(0x3, r1)
+keyctl$KEYCTL_PKEY_VERIFY(0x1c, &(0x7f0000000080)={r0, 0x86, 0x1c}, 0x0, &(0x7f00000000c0)="53d5d85931366894003f47996db21f7798b7b956617ed443b5f673cf8c89e46a3d7bf53ed1bf9bb50a8fa00c90e81794703868e48cf699bcd2909e382e0fc6b88b51911d59d1f324fafd2110c18f9302a0c7a5e595add65ebb677ca5c0ff844af68f37f518ab3bfc350f9bb8fff087e7f01675b1f53718b64d27ec99b723e1681f5e9843b564", &(0x7f0000000180)="ea243403febfa7be6cdf58aa3fd2703c00fc94c32298ce0fb1dca687")
+r2 = add_key$keyring(&(0x7f0000000000)='keyring\x00', &(0x7f0000000040)={'syz', 0x2}, 0x0, 0x0, 0xfffffffffffffffc)
+r3 = add_key$user(&(0x7f0000000240)='user\x00', &(0x7f0000000300)={'syz', 0x1}, &(0x7f0000002400)="8b748e173a9ef5c367154d76efceacf51291cb1f7598464fa2deccd8321a04dbbf9ed2e5bd30675ae283106419e3357361d1fd3e079cb17c8e13e06dec1e7735f50c1cb3c048fee28b1f2c057c839f74dfdeab6445028585481bbce7abac829322963824e4c87f5f47341c27a535ea2bc8fa194cbeb9ebbc6c61371f345166f9aab9c83a1b3e79e7ac73eb56fe1cd751749be4c5e33fa640a13738808a06fc331a55b1ea950d32844949e0299dfe73b8c361a2603ad658f9bc1b2bc02473e5ac12b6ba56d2b284d395885b445b1f05e186c57efc4b5686f06812aba42a128305741a2eda9609e9a27f6a5dfd9733e696ae9e49693863a3c21f571ce224d4ff25394137dc54c600c47b3cc2789827f1eb6089337e4492466d5339dd1382d90ed8ea8ac1457786525761ba7aee7395601e9d52e619d5b220341bde01009eb5580af09aa19cc68353aa62aa3c6b3d1ecc2971cfd165e9c4ed735784a63f919da0e1529adbc418c956c36af4ae423b8085dbc459fecd24241019cdfa5494bf5dee408c46cf5c01b42cba48f545a25caf46a5cb6a557d44abdf8677958b80c73784bbde6b35a09874dddf6fb0fef00cdb97198deb48d5e4922f4246d9dce3c964a3584e7137001ba252feb9bb9f75b7b4abdbc4bef2b68be24d3cd2860f43357294b6d6bedd354a72421fa88cf414c488aac7bbd96757f6812d1da57d2a04bc03123e40ee70baa63860378542f0ebf1d5b0a6ad565c2ee2dd04584f5c3906039dc2ab5071c269c91cbfe2b021636c869ae513a7bf2d5851d91a68e1b3000302a0225ed1240ee33e688d85002719f372f9be3c712e12f6dfec38e2c3facb500b2056589dffe60c03df875489a4fa950d3e93b3731eb9515d5e18f8a236cce05c405c457a963ebcfe8c7ef29cde5f6d77f4d050128985d7f9b331bbcd286231c1d3e53cb1e81d15c6428e6aa5a39b070466ab649a89cf7aa31ef926fa2b98a99c8e6ebaafc50f2c9e64f2777762008219b48f6c5367bdf5ba065ebe5ff1dad4c71dae55948cf80ef405c9f9b0bddc0e5f0cc40952ba83c074f1b3e457e00c7f1ac0bcc51c6cc3fd652906766686a6c7022fbcd6a0e34eaa90fe311c52b002155ed782c35c67ad2ee066b099e0aba19525097f4870ce6e0dbf4f0d28f55cc68d7e0aa05a2ed59ac4623a7c99d23fb09837e837d0fc1b8e4646e22bacdc1d093ec7721ef87da90b66bce0b0b41e86726378fd0bb7e1d17e2a9e4a4cdb8e66b87d6f1b167e3d346330d7afb679b31d253f75bd5ff99761b0136e1ec09ad19ddefd23cfffc0ebb4264c5a4d5d946609949f508dfc560b824d07d9b3b6e5ee4be32ca4a448feff764ee744f9e1631aa96dd429226a3313ad933450ae7dc072cbf7bfdf08f51bb222c4bfaae7c0a6b3a59436840ec27ac0e90a3db9d48b418f3b3da345e4c7a274875b1c3451d0229555d0185ab2d949b16442a890956b4c504369702ba6870a47d7e36a4ce3fdead7f226bac909b346824f1e39102da3821ff0eed607bac055064d03b880016fb5b4ea708a1629d15b33952d914590582117fc436d9c492778be6cd6357ea71ab1efcc08fb147818cc4fd9d8ee43c0380011578c76013aa85b28a43a47475e2dfdfcf1d33e17552fbe3e6b8db50af217982db42027e0971b311ea544ee7cfca3c1c1ea9051f6e10c71effdaa0638932f218e315aa0c0a7e69a56f18f51e661083f89e8e1f06b3857bb1cb8c7ab465cf28499e689ca158667e4c9526991c1cfa01a9ed1396eb4b05807a538f9bd72dca28ecf16d7550a694a7462deffd080483e31e42a424109f149612c4402ff3a2e77cb4e2efe6da7c96c880fc091e00d830de3af50c68325bb12da7105cd9d71aaa25ddcb2c6edd7785f47d37b5e133fd927533ffcfe4de3ccc313108a0e78a933e6c695c1698a4bd2efedc7f79293ba4c07bfa8bec3469c5820c75b0d176733b0c36d61f2e267d2963b7534fc08b854f45a19abb2edb2808082192a97b1f9975486225ac37f5249b7af5d94d82ff0ef868bead7dd4c57101768184cadec8bd1a8a880dfca2857c315da8a1bfb6466e6e9474ea70095d29dcb5fc86bd41b2e9b333d96a64165510c81b695f080e99f5bfcd6a6a1bf26ff877580fe457966d8b0826a71b77dcf5c3eb47144bccc84540bd070099863b627e307bf55f7b0e6d884372d2c7dc857e7e652ef48d77a2c46f91c919174bc02288f11fc8036a2f5e28e8a437faea60fa58b1ad7c5fd35c477853151560270e94afb9af21f31ddb918e7ca1bb68e7d9f4431aa6f389b6ca743c97a567b1c66d9c43d241ca0520aa0232826985703122fefec2363689f3e77644a319a9b5f87acac7186dcbec5523618e6f7767a099989f46c40d689672e4f31fb060a3b0cca4d957b1b12e3f2c16a758048a8a3e71a4ae8a1378f278423e26b32eb59984de8c63cd0dce12963f3e9a8271ee958a63477960c4626876ca61b638cc830398879807da63b40f5007e35f4917394035ac2e60697a3a69ea48968e3d454432b5c48cec63e4b25604266d2bde73af1fe3af20476cec9a115478601cd3a8c76b7155fb8c21f3e0e0c009f2672a3eba12b78fd8618aff7f5c6d2a034b7b22fa4e251e815c456e4227dfef7f3375328c0216ddac5f3b4450e55fe30ae396026fcffe1d1bfa9367a0c9b7c9d6be1714045a5a91bd3808ea9ad2c61e4eaada6350947a7c99554abfffed46d6cdce80fec8e774d25758424d0ceb039236675f20d4bb67608e76cc12f54e71375a6f965e1cd9ffc755598686b08dadb855524c187075061ab60e741c1ffea349c8a161bf658bb8a2f4f99d20b5116266cab3e9c8138950b93e6f7178f5f511e1ea0b3b712eb8bfd07cbca355698d4ce306e257b1d5d6be1a71af61dffbbf34c9114398b7dd423f685a092db19d5405ba7cdb8a72f8899ffcfc4a1422e910de963b49d0077231df87bb0c544d6d4ff8cea3f826e7a9242ea9efc0e8d2ff53a403979e4391ca15c5f20445378c728de49834bfe07c43158842401a8fb739b0605e40932708d5279c838b8a5fb25c3e416a8e465fe02d2b961ac4463928a2ae4ce56c67938eab5b7edb76f206e83c5fc0a32e4611a604391e73770701e17f0ff8ef23b4d400dc4d934154d19173068ef54bab97073bc5ce906d63992bd840b5be47ca87e4a59de0b63909a4d0ba42a9e29ab00d448b691b74237dbc11fafca16685d84923513fb412f95885238ee18c77f6e509cb9c14ef8554a9d47e548398b9638a5ee6d23c045862c90bb2ead2640162ffc4725e516220bbcc2706ebd433933454ff4d791882fcd7766d1e769b6fdb405c6406631b1ab9779f9570084cbd57dc2ded1f5037eed05d1a593b233ce9ac4a81c4e387d48fea42ee6839e9e276b451b403339f9c26b4a899bd0719c89e28c07b144bfe74468d980fad8e30a31c4833c1b87509f2e4bb7e8c4f35a8751fc84030e79a8ddcc06a0027bc5049100c3f3fe6a388ada81b06bad2b24b52d6cef303c2c9b733d0da5aaf3bf839423cbe58dbf9c2ab1b8610604d957c73c6ab16c3fcf294fb353a185d4f8e5464d0979980a06940fc1d72ddfddb7bb0092ed5f0339cfd3769f81c9724a160249828cd52c3d2667b57d87614a6dabe305b2ed221511eb5d6675757422f0e714d27d2d985bdca045173d7da0a1515b56957cc0d369a5df83ec760f2694c2b46e7d6047bad51c54b87e5351bcaeb263432ead99589a05ece75aee536f5f941fc8c3936d271a2bd9e2a8cc0da03e8344c1c29c73de831212d3e763c292c23b0f2addfe03aa724541a5b2bbe2043de489453eafb809beaec2be8a01e2e219e9b4f7522250c29135fde747954a392c27e456f48c2d704a463ffc72fcbb3306d46d552698513372d33a6f9c28c6b7d5dd6399bba85707e18e71249a2d8372c3b2483de952664e7fc306486239690b8f3d431953c9120583caee68ae70056814174e28da1782ecedf6751d1483635afe8797301979ea7c29e7f696db72da706721a73ea08abe490791ba69a7c05480d7b38b351f76a8cbc106dd758ecdcf35e2d82d1c754446d73cc72971b9007151552a4a06a76c790f3a436cf0723fa14912f94fab2876e725eed2aada547daf98f58c25dbf670baae3d492720088de22facfb45b52f80dfac12c96207aa79ecf16039a1e11246b4005e780c820be36d8d9cb6dde046c27a8d87808d94b48d7fcfe7ea8e48a985f0ea873a524b20c4dd48de5b0e68f592b498b5658773366bbf277d8f6f3ec7c32133c079857e2f846d2f9056d83b7dc5da1b8b1ea9f8753a5bce29ab773c9771a463d383d180f13f056fab92b8081ee5cad6f9813526f289f2b5d4c24273de0784721d2a23109051910805f1471bc43d44cf09e984214793d4e17541786f7b0b3b2a89d7bb091dfb62d954d098d18228ef40d6c89bec3765fbae139a942dae62a44a110b9aa0113acae49b6c2c93893442a64c60ab226ef9a1ecb7bedc555d1699fc36da2f1150caf2d288dda0f7592409158ade8f3f5d852d83800851da31f0534951f24c4f7dba9f80b314a81f425a00891db3308ad65da01c40fffa0c8ee01b14927467e78307fddf6407b252db17ac0b16601dfa172d651ccb231cd005697138abc7396fd6f8fd81628dba4c3cca6d9479021f373a1188aa141a9c16ea35cf99ca4edd33fa581c75b8dda2c95ee7343699d16a18153b78329790e8ad954b55141d387ea722adbcf98a4217680b2f3bf645579abf39570866e6698a02c41c44265d7a0e1f4ecb059793be7f62c2e25abbee901f1d428607f11798e9ec9b952e730bc4304a5d3ccd10c561c36e45314f92418628ae247594c86c339c450d74b06c8e43f68694496a090d5ffc7de01b60a18ef143d7d1a44aca851412bf6e01efca1c67531d0d2cbb105cae24c71f78c790107b64054fef0bf5aafe1b4f8cbb693acd89a4a3ca78a7b31590aa2283750609e73c4ebc65329ff26c8ae2a9c295c5ea543e812587fa5c121811d84c50e51583010dcfe4e8c3ea5ebb046ecd93f1cbcc0c85852b1ba89f2461f1fae2d965c2571957e291c07a28035f47254b4f4fd2bb71ec1c8bddf383578da5f9de3f49e40a7aa5abb512e1d53a89f980df2c2c62fc70cad6c943a78798bcbea407c79f37d04407738459aa992f420bfa16d467452d3ebf10105c47f6b383d0a107d1666c28f540eb23d34ff1a2d208d4a175c9a36cbd6496b9ffb57e9ab9b34e61835143ba5512643e1a682adf4b86cf78881b46e97849fa61d3337e9f9a1de594e85e42c593b7548a8208dbceabf0dcd329c3c2d89cab1b753f19d3a662d791a484ce62b69b78ab139c6c645f71f2e608391c723de3164e9f86570528cf0d813ccdcbab4fc8e47ddeabb47ddd1a6aeb0a3ca42e67764d5c4c9e88439d726424b027947be8803d105b88bbc4e0245bfe89c3f47a54cb813f6598bd5a8d0a12990163fc5ae81b8fe634b843104f7aa976fe47b0818fd2b31482ad106338c84346bda99ac1dcff8f0111dbcc529bb258d58f3c9638011e223a6ddd751f520de5d459fe089ddfffa9d8264cd5798e436c7d3653277b896074e70ed190487be4ea71e0d0b1bfe9c45824d011081b640344b5137dc778a1346431b20920ffbe9ecae9915ae3d7347998673ce8da2596378409812a17d24d8ac301b1c65019a1306e5e21057856035ec4593fead4e13fdaff1d9e18343af0f991fe405c067572be6e6fc62399be012e27ee2044d1228a3ce1cdf03ebd96c7b7", 0x1000, r2)
+keyctl$read(0xb, r3, &(0x7f0000001300)=""/218, 0xda)
+keyctl$clear(0x7, r2)
+
+[   12.958731] Kernel panic - not syncing: Found leaking of user_key_payload
+[   12.962350] CPU: 1 PID: 2459 Comm: syz-executor.2 Not tainted 5.5.3 #53
+[   12.965430] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.970627] Call Trace:
+[   12.971924]  dump_stack+0x15e/0x1ae
+[   12.973658]  panic+0x228/0x700
+[   12.975475]  ? 0xffffffffa8e00000
+[   12.977224]  user_read+0xa0/0xa0
+[   12.978831]  keyctl_read_key+0x1f1/0x240
+[   12.980644]  __se_sys_keyctl+0x4e2/0xcd0
+[   12.982537]  ? _copy_to_user+0x8e/0xb0
+[   12.984286]  ? put_timespec64+0xbe/0xf0
+[   12.986051]  ? fpregs_assert_state_consistent+0xac/0xe0
+[   12.988593]  ? __x64_sys_keyctl+0x1c/0xc0
+[   12.990502]  do_syscall_64+0xd1/0x160
+[   12.992172]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.994414] RIP: 0033:0x467519
+[   12.995767] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   13.003975] RSP: 002b:00007f390d314c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000fa
+[   13.007378] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   13.010505] RDX: 0000000020001300 RSI: 00000000305683c9 RDI: 000000000000000b
+[   13.013536] RBP: 00007f390d3156bc R08: 0000000000000000 R09: 0000000000000000
+[   13.016272] R10: 00000000000000da R11: 0000000000000246 R12: 00000000ffffffff
+[   13.019442] R13: 0000000000000705 R14: 00000000004c83ba R15: 0000000000701640
+[   13.026675] Dumping ftrace buffer:
+[   13.028593]    (ftrace buffer empty)
+[   13.030373] Kernel Offset: 0x27e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   13.035241] Rebooting in 1 seconds..

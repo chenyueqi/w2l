@@ -1,0 +1,28 @@
+Kernel panic - not syncing: Found leaking site of ip_msfilter and ip_sf_socklist
+CPU: 0 PID: 6822 Comm: syz-executor.2 Not tainted 5.5.3 #19
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x195/0x1fe lib/dump_stack.c:118
+ panic+0x201/0x64d kernel/panic.c:221
+ ip_mc_msfget+0x64a/0x650 net/ipv4/igmp.c:2565
+ do_ip_getsockopt+0x1495/0x1d70 net/ipv4/ip_sockglue.c:1467
+ ip_getsockopt+0xa0/0x200 net/ipv4/ip_sockglue.c:1566
+ __sys_getsockopt+0x19d/0x1f0 net/socket.c:2162
+ __do_sys_getsockopt net/socket.c:2177 [inline]
+ __se_sys_getsockopt net/socket.c:2174 [inline]
+ __x64_sys_getsockopt+0xb1/0xc0 net/socket.c:2174
+ do_syscall_64+0xa5/0x130 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007feb9cbfcc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000037
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000029 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007feb9cbfd6bc R08: 0000000020000080 R09: 0000000000000000
+R10: 0000000020000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000171 R14: 00000000004c256d R15: 0000000000701660
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x7a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

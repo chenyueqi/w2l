@@ -1,0 +1,1571 @@
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+[   15.976011] audit: type=1400 audit(1587418783.063:11): avc:  denied  { map } for  pid=1581 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:39:43 fuzzer started
+2020/04/20 21:39:43 dialing manager at 10.0.2.10:34632
+2020/04/20 21:39:43 syscalls: 52
+2020/04/20 21:39:43 code coverage: enabled
+2020/04/20 21:39:43 comparison tracing: enabled
+2020/04/20 21:39:43 extra coverage: enabled
+2020/04/20 21:39:43 setuid sandbox: enabled
+2020/04/20 21:39:43 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:39:43 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:39:43 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:39:43 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:39:43 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:39:43 net device setup: enabled
+2020/04/20 21:39:43 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:39:43 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:39:43 USB emulation: /dev/raw-gadget does not exist
+21:39:44 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:44 executing program 3:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x1, 0x0)
+
+21:39:44 executing program 1:
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x7, 0x0)
+
+21:39:44 executing program 2:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000040)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, 0x0)
+
+[   17.020597] audit: type=1400 audit(1587418784.108:12): avc:  denied  { map } for  pid=1597 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=8630 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   17.078622] cgroup1: Unknown subsys name 'perf_event'
+[   17.081053] cgroup1: Unknown subsys name 'net_cls'
+[   17.082582] cgroup1: Unknown subsys name 'perf_event'
+[   17.084340] cgroup1: Unknown subsys name 'net_cls'
+[   17.087115] cgroup1: Unknown subsys name 'perf_event'
+[   17.088483] cgroup1: Unknown subsys name 'net_cls'
+[   17.095229] cgroup1: Unknown subsys name 'perf_event'
+[   17.097048] cgroup1: Unknown subsys name 'net_cls'
+[   17.575985] audit: type=1400 audit(1587418784.663:13): avc:  denied  { create } for  pid=1603 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.580652] audit: type=1400 audit(1587418784.663:14): avc:  denied  { write } for  pid=1603 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.591959] audit: type=1400 audit(1587418784.673:15): avc:  denied  { read } for  pid=1603 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   18.914071] audit: type=1400 audit(1587418786.001:16): avc:  denied  { associate } for  pid=1603 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[   18.952249] FAT-fs (md0): unable to read boot sector
+[   18.953695] FAT-fs (md0): unable to read boot sector
+21:39:46 executing program 3:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x1, 0x0)
+
+[   18.964884] FAT-fs (md0): unable to read boot sector
+21:39:46 executing program 2:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000040)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, 0x0)
+
+21:39:46 executing program 3:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x1, 0x0)
+
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 2:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000040)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, 0x0)
+
+[   18.977034] FAT-fs (md0): unable to read boot sector
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 1:
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x7, 0x0)
+
+21:39:46 executing program 2:
+mount(&(0x7f00000002c0)=@md0='/dev/md0\x00', &(0x7f0000000040)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, 0x0)
+
+21:39:46 executing program 3:
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x1, 0x0)
+
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+[   18.995554] FAT-fs (md0): unable to read boot sector
+21:39:46 executing program 2:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 1:
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x7, 0x0)
+
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 2:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000080)='\x01\x00\x00\x00\x01\x00\x00\x00\xa7\xaf\xbb\\\xb7\x88\x8cA\xb0C\x85\xf6Fc\xefb\xcbi#\x92\xd8\xd3\x1b\'\x1cpD\x1a\xd4\xb1N\x05\x98\x05\xba\x14\x9d\xb31\x97\xeeH\xad\xb6y\x80\xb5\xc2#\x93\xe2\r\x80\x14}P\x7f\x02\xfe\x8e\xc6\xd0x\xcb\xd1\xf2\x8d\xa1J\xdbJ\x0f\x9b\xb1=\xed\xf2')
+
+21:39:46 executing program 1:
+splice(0xffffffffffffffff, 0x0, 0xffffffffffffffff, 0x0, 0x7, 0x0)
+
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000080)='\x01\x00\x00\x00\x01\x00\x00\x00\xa7\xaf\xbb\\\xb7\x88\x8cA\xb0C\x85\xf6Fc\xefb\xcbi#\x92\xd8\xd3\x1b\'\x1cpD\x1a\xd4\xb1N\x05\x98\x05\xba\x14\x9d\xb31\x97\xeeH\xad\xb6y\x80\xb5\xc2#\x93\xe2\r\x80\x14}P\x7f\x02\xfe\x8e\xc6\xd0x\xcb\xd1\xf2\x8d\xa1J\xdbJ\x0f\x9b\xb1=\xed\xf2')
+
+21:39:46 executing program 0:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 2:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000580)={{0x0, 0xff, 0x0, 0x0, 0x0, 0x6}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+openat$procfs(0xffffffffffffff9c, 0x0, 0x0, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f00000040c0)=""/130, 0x82)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000080)='\x01\x00\x00\x00\x01\x00\x00\x00\xa7\xaf\xbb\\\xb7\x88\x8cA\xb0C\x85\xf6Fc\xefb\xcbi#\x92\xd8\xd3\x1b\'\x1cpD\x1a\xd4\xb1N\x05\x98\x05\xba\x14\x9d\xb31\x97\xeeH\xad\xb6y\x80\xb5\xc2#\x93\xe2\r\x80\x14}P\x7f\x02\xfe\x8e\xc6\xd0x\xcb\xd1\xf2\x8d\xa1J\xdbJ\x0f\x9b\xb1=\xed\xf2')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000080)='\x01\x00\x00\x00\x01\x00\x00\x00\xa7\xaf\xbb\\\xb7\x88\x8cA\xb0C\x85\xf6Fc\xefb\xcbi#\x92\xd8\xd3\x1b\'\x1cpD\x1a\xd4\xb1N\x05\x98\x05\xba\x14\x9d\xb31\x97\xeeH\xad\xb6y\x80\xb5\xc2#\x93\xe2\r\x80\x14}P\x7f\x02\xfe\x8e\xc6\xd0x\xcb\xd1\xf2\x8d\xa1J\xdbJ\x0f\x9b\xb1=\xed\xf2')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/cpuinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000080)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000002080)='/proc/slabinfo\x00', 0x0, 0x0)
+read(r0, &(0x7f00000040c0)=""/130, 0x82)
+read(r0, &(0x7f0000000040)=""/4111, 0xfffffdf0)
+write$binfmt_misc(0xffffffffffffffff, &(0x7f0000001080)=ANY=[@ANYBLOB="73797a31cfb28b722c5e20900bef3d"], 0xf)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000240)='\b \xcf\fy?{K\xde\x7f\xd7\x87\xe4n\x9a\xe1\v\xf2\xea \xa5\xbf\xc5\x9b\x12\xcd\xee\xc1\xd2\xd7\x9d\xcb3\xb2\xfa\xa3\x01fU/ \xfe!\xb3nV\xf7\x9a=\xc5B\xb0\xcd\xd8\x91\'|\xfb\x91\x84\x06zO+A\xed_)5t\xbe\xa9y\xe6\xcc8\xea\xf2\x86\xeb\xc3\\\x90\f#)\x96\xa9\x9b\xe0s\xde\xeb,,C\xebg\xa3\xd2\xce\xb8\x84\"\xc9>\xcb\x9f\n\rPUn\x11?\xb2\xc5\x84\xce\xdc\v5\xed\xfa\xbf\x9ew\xb9\xfaN\tI\xf6r\r\x98f\xe3\x86s\xbe\xf3`[Mq\x13\xcf\x8c\x81|Iw\x9f\x7f\n\xa7\x9d\xad=\b\x88Q\xcf.\x948\xf5\xe9O4\xb9\xeb\xed\xe0\x1e\xa9\xf8\'\f\xd8\xed\xf2kZ\x1a\xb6\xe3\xf6;\x9f3\xe8:\aDqZ\xf5\xbcg\x7ffwD\xba&\xc5\xa8\xad\xc21\tVc\rR}g\x1fB\xe9\xbc\xdd\xf3F+S\x91#\x92G\x98\xb4y)\x82\xb5p\xe14\xa2}\x9c\x1b]\xc1zvVL\xa3\xf0\xb4\xd7\xbb\xec,=\xea\x1coJO\xdfUO\x99k\x8c\x9eC\x9c4\x8e\x9c#|r\x1e/\xce\xfe\x8b\xa0b[\f\xb1\n\xb7#\xd5H\xe5\xd90\xac\xaa\xbf\xf7\x8c\xa58&\xca\xc0\x1c\xd8\xf4\xdd\xaa}\xe6\xbe\x91\x15')
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/stat\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x40, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='devpts\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:39:46 executing program 1:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='devpts\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x1040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 1:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 1:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 2:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='devpts\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:39:46 executing program 1:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000100)='tracefs\x00', 0x0, &(0x7f00000001c0)=',.p\x00\x00\x00\x00\x00\x04\x00\x00\xfd\xae@\x00\x03\x15\xbdH{\xc7\xce\xc3\x8e\x8f\xb7Z\xfdy\x93\xf3\xf6v\x979e*\xc5\x96\x19\xb20]\x8a\x19\xe1\xe0\xd0Xs;\x9b\xa4CwC\xaa\x17c\x93\xb8#8x\x18\x9b\"\xb6\xbe\xca<Q\xd16\xa0\xa8\fz\x9c\xae\xf7\x9c\x9f*\x00y\xea\x15\aa<3\xfe\xf4\x825\xc5\x05\xf7\x80/\xba\xe9k\xb7\xe1\x90{_P{\xf2\xe4\xed\xbd\x01\x7f\xe0\x87|\xa9\x03\x1fDy\x01\x83=/a;o\xfb)\xc3:K\xc4RQ\xe7\xa9A$7_\x02G\\\xcb\xfd\xe6\xc2\xa9\xa8J\xfe\r\xd9\x01\xa5@K\x89\xcf\xd2<\xf0;?2\xa0\xe7X\xd1\r?\x12\x15\x11&,\xe8\x10)\xcc\xf0\x93>x\x16O\xce\xb95OCP]\xea\xfb\xed')
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f00000000c0)='devpts\x00', 0x0, &(0x7f0000000100)=',\x00\x00\x00\x00\xce\xf5\xff\x00\x00\x00\x00\x00\x00\x00+\xc5\x83\x03-a\xa4*\x1fZ\xe5;\"\xcc\xdfz#\x0f\x98\x88\x80\x03\xff\xa5@\xc8\xe30xq#j\x85\x01\"y%\xdc?\x16@\xaf\xbek\a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x81\x9d;\x1b\x94\x98\xfd\xfa#c\x1c\x0e\x03\f\xc4e\xb7\xc0\xb5\x90e&C\"\xcf\xe4eL\xa4pG\xb7\x04\x87\x93\x06\x88\x81:\xa4\x9d,\xec\xffQW\n\x16\xb3\xdf\x1a89$@GD\xe8k6\xe7@\rC\xc2\xf0o4\x1dm\x06\xbf\xb0')
+
+21:39:46 executing program 2:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000100)='tracefs\x00', 0x0, &(0x7f00000001c0)=',.p\x00\x00\x00\x00\x00\x04\x00\x00\xfd\xae@\x00\x03\x15\xbdH{\xc7\xce\xc3\x8e\x8f\xb7Z\xfdy\x93\xf3\xf6v\x979e*\xc5\x96\x19\xb20]\x8a\x19\xe1\xe0\xd0Xs;\x9b\xa4CwC\xaa\x17c\x93\xb8#8x\x18\x9b\"\xb6\xbe\xca<Q\xd16\xa0\xa8\fz\x9c\xae\xf7\x9c\x9f*\x00y\xea\x15\aa<3\xfe\xf4\x825\xc5\x05\xf7\x80/\xba\xe9k\xb7\xe1\x90{_P{\xf2\xe4\xed\xbd\x01\x7f\xe0\x87|\xa9\x03\x1fDy\x01\x83=/a;o\xfb)\xc3:K\xc4RQ\xe7\xa9A$7_\x02G\\\xcb\xfd\xe6\xc2\xa9\xa8J\xfe\r\xd9\x01\xa5@K\x89\xcf\xd2<\xf0;?2\xa0\xe7X\xd1\r?\x12\x15\x11&,\xe8\x10)\xcc\xf0\x93>x\x16O\xce\xb95OCP]\xea\xfb\xed')
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, 0x0, 0x0, 0x0, &(0x7f0000000100)='nodevvbox\x03\x00\x00\x00\x00\x00\x00\x00_type,2%trustedposix_aclDaccess.vmnet0security\x0fPA9\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8.\xa3a\xcb\x87l\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec=\x93\x03\n\xf2*\x92\xf9F\x95e\xfb\x8a\x18\x19\xb4\x8f)\fk\x81\x10D\\\xcbTRf\xa3\xbb\x8c\x96+\xc1G\'\xcei\x04\xf1B\xa4\x11\n\am\x8f\xea\x16\xa1T\x83\xea\xacr\xcd\xeb\xdf\x81\x8e\xe2Q3\xd4\xcb\xe1c\xf4wO\b\xbbN\xb6rw:)\xd6\xd8\xb5\xb9Jbc\xe1\xaet\xf7\r6\xd6s\xf1\x92*S\x0f\xf0\xc5\xb13rxw\xd3/^\xe6\x90\xed\rf\xcf\xa1\xdc\xf1\x84.\xb3$\xec\x97\x8d\xbd\x9fu\xfd_1\x1cvF\x0e\xc7\xb1j\b\x90}LF\xd5\xe8\xc7\x8ft\xa7\t\x7f\x96:\r\xf8\x1ae\xcf\xa2x\xd1\xc7D\xb5t\x8c\x02\xb8\xdd0m\x1d\x1d\xc4\xda\x99\xb7-\xc3\xe8\x1d\x10\x85[?m&\xd6d\xbb\xb6\xef\xe9\xb29\xc4\xe9:\x1an\xad^\xed\x86\x8ap\nx\x16\xab$\xdd5\xa5=\xeca\x96\xb4\xd0\xa5\xd2\x90\xcd\xa6\xf0W\xcc\x1cL\xb8M\xb7b\x8b\x82rj\x1e)uX;<\x9a\xc7\xf2\x00\xa9\xe0\x0f\xe5 \bQ\x9f\xa9i\x00Ei\x82\xa8\x11Kf\x8a\x10\xbc\x9d\x89}\xc8\xa6\x03h6\xc6\xa8sQ\x88\xa4\x98\xb4\x12\xe9NoV\xd6Z\xfb\xe4\xd2\xf5\x89\xd6\xf3\x04\xdeM<2\xc9\xff\x9e\xd1\x15\xee\x9cV\ai\xbd\xc1\x80\xc0P\xd4\"\xa7A\xbbPQ\xf7\x0f\xa8\xf3\xbd\xcc\xfc')
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x1040000000000002}}, 0x14)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000100)='tracefs\x00', 0x0, &(0x7f00000001c0)=',.p\x00\x00\x00\x00\x00\x04\x00\x00\xfd\xae@\x00\x03\x15\xbdH{\xc7\xce\xc3\x8e\x8f\xb7Z\xfdy\x93\xf3\xf6v\x979e*\xc5\x96\x19\xb20]\x8a\x19\xe1\xe0\xd0Xs;\x9b\xa4CwC\xaa\x17c\x93\xb8#8x\x18\x9b\"\xb6\xbe\xca<Q\xd16\xa0\xa8\fz\x9c\xae\xf7\x9c\x9f*\x00y\xea\x15\aa<3\xfe\xf4\x825\xc5\x05\xf7\x80/\xba\xe9k\xb7\xe1\x90{_P{\xf2\xe4\xed\xbd\x01\x7f\xe0\x87|\xa9\x03\x1fDy\x01\x83=/a;o\xfb)\xc3:K\xc4RQ\xe7\xa9A$7_\x02G\\\xcb\xfd\xe6\xc2\xa9\xa8J\xfe\r\xd9\x01\xa5@K\x89\xcf\xd2<\xf0;?2\xa0\xe7X\xd1\r?\x12\x15\x11&,\xe8\x10)\xcc\xf0\x93>x\x16O\xce\xb95OCP]\xea\xfb\xed')
+
+21:39:46 executing program 2:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000340)='nodevvboxnet0Y\x92\x1e\xa6mimg_xype\xcb2%trustecceO#\x02f\x04\x02\xb5\t\xbcxY\f\x9f;q\xd2Nv\ass.vmnet0se{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1=\x93\x03\x02\x00\x00\x00@\ao\xae\xeb\a\x9b<\x10\x90;\x12\\\a\xc5\xd6k\x00\xa4\x0eb\xba\xe5\x11\x1e\xb2\xa2\xc2\xfd\xdc\xdc\xcf\x1b\xf6\xe6Y\xd0\x8f\xac\xcd\x99\\s3\x16\xb8\xfc\x94\xe3\xedl\xc6\x17\xb9\xabm\xe1\x15\f\x7f\xef\xa7 +0\xe2\x9d\x9f$\x01Y\x81\x98\xfa\xf2#\x85`\xdc\x174\xfc\x13\r\x92^\xfd\xb1\x89\xfa\x94g\xba\xceC\xa8\xf5r\xc6\xd6\r\xbc`\xf2\xb2,\xe7Q\xeam\x88\xa8w\x95%\xd9\x8bp\xb1c\x80\xbe\xf1\x7f')
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000080)='.\x00', &(0x7f0000000100)='tracefs\x00', 0x0, &(0x7f00000001c0)=',.p\x00\x00\x00\x00\x00\x04\x00\x00\xfd\xae@\x00\x03\x15\xbdH{\xc7\xce\xc3\x8e\x8f\xb7Z\xfdy\x93\xf3\xf6v\x979e*\xc5\x96\x19\xb20]\x8a\x19\xe1\xe0\xd0Xs;\x9b\xa4CwC\xaa\x17c\x93\xb8#8x\x18\x9b\"\xb6\xbe\xca<Q\xd16\xa0\xa8\fz\x9c\xae\xf7\x9c\x9f*\x00y\xea\x15\aa<3\xfe\xf4\x825\xc5\x05\xf7\x80/\xba\xe9k\xb7\xe1\x90{_P{\xf2\xe4\xed\xbd\x01\x7f\xe0\x87|\xa9\x03\x1fDy\x01\x83=/a;o\xfb)\xc3:K\xc4RQ\xe7\xa9A$7_\x02G\\\xcb\xfd\xe6\xc2\xa9\xa8J\xfe\r\xd9\x01\xa5@K\x89\xcf\xd2<\xf0;?2\xa0\xe7X\xd1\r?\x12\x15\x11&,\xe8\x10)\xcc\xf0\x93>x\x16O\xce\xb95OCP]\xea\xfb\xed')
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+[   19.234159] cgroup1: Unknown subsys name 'nodevvboxnet0Yí¶mimg_xypeÀ2%trustecceO#fµ	ºxYü;q“Nvss.vmnet0se{÷–!Sº—eß~º ÍêﬁòÉxaXèõ˙Û-MÄ%¯G"ûcÏ⁄;Ø*p—‚7Ò'
+[   19.239286] cgroup1: Unknown subsys name 'nodevvboxnet0Yí¶mimg_xypeÀ2%trustecceO#fµ	ºxYü;q“Nvss.vmnet0se{÷–!Sº—eß~º ÍêﬁòÉxaXèõ˙Û-MÄ%¯G"ûcÏ⁄;Ø*p—‚7Ò'
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000340)='nodevvboxnet0Y\x92\x1e\xa6mimg_xype\xcb2%trustecceO#\x02f\x04\x02\xb5\t\xbcxY\f\x9f;q\xd2Nv\ass.vmnet0se{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1=\x93\x03\x02\x00\x00\x00@\ao\xae\xeb\a\x9b<\x10\x90;\x12\\\a\xc5\xd6k\x00\xa4\x0eb\xba\xe5\x11\x1e\xb2\xa2\xc2\xfd\xdc\xdc\xcf\x1b\xf6\xe6Y\xd0\x8f\xac\xcd\x99\\s3\x16\xb8\xfc\x94\xe3\xedl\xc6\x17\xb9\xabm\xe1\x15\f\x7f\xef\xa7 +0\xe2\x9d\x9f$\x01Y\x81\x98\xfa\xf2#\x85`\xdc\x174\xfc\x13\r\x92^\xfd\xb1\x89\xfa\x94g\xba\xceC\xa8\xf5r\xc6\xd6\r\xbc`\xf2\xb2,\xe7Q\xeam\x88\xa8w\x95%\xd9\x8bp\xb1c\x80\xbe\xf1\x7f')
+
+[   19.250774] cgroup1: Unknown subsys name 'nodevvboxnet0Yí¶mimg_xypeÀ2%trustecceO#fµ	ºxYü;q“Nvss.vmnet0se{÷–!Sº—eß~º ÍêﬁòÉxaXèõ˙Û-MÄ%¯G"ûcÏ⁄;Ø*p—‚7Ò'
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/asound/timers\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000080)=0x9040, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000340)='nodevvboxnet0Y\x92\x1e\xa6mimg_xype\xcb2%trustecceO#\x02f\x04\x02\xb5\t\xbcxY\f\x9f;q\xd2Nv\ass.vmnet0se{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1=\x93\x03\x02\x00\x00\x00@\ao\xae\xeb\a\x9b<\x10\x90;\x12\\\a\xc5\xd6k\x00\xa4\x0eb\xba\xe5\x11\x1e\xb2\xa2\xc2\xfd\xdc\xdc\xcf\x1b\xf6\xe6Y\xd0\x8f\xac\xcd\x99\\s3\x16\xb8\xfc\x94\xe3\xedl\xc6\x17\xb9\xabm\xe1\x15\f\x7f\xef\xa7 +0\xe2\x9d\x9f$\x01Y\x81\x98\xfa\xf2#\x85`\xdc\x174\xfc\x13\r\x92^\xfd\xb1\x89\xfa\x94g\xba\xceC\xa8\xf5r\xc6\xd6\r\xbc`\xf2\xb2,\xe7Q\xeam\x88\xa8w\x95%\xd9\x8bp\xb1c\x80\xbe\xf1\x7f')
+
+[   19.271515] cgroup1: Unknown subsys name 'nodevvboxnet0Yí¶mimg_xypeÀ2%trustecceO#fµ	ºxYü;q“Nvss.vmnet0se{÷–!Sº—eß~º ÍêﬁòÉxaXèõ˙Û-MÄ%¯G"ûcÏ⁄;Ø*p—‚7Ò'
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='cgroup\x00', 0x0, &(0x7f0000000340)='nodevvboxnet0Y\x92\x1e\xa6mimg_xype\xcb2%trustecceO#\x02f\x04\x02\xb5\t\xbcxY\f\x9f;q\xd2Nv\ass.vmnet0se{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1=\x93\x03\x02\x00\x00\x00@\ao\xae\xeb\a\x9b<\x10\x90;\x12\\\a\xc5\xd6k\x00\xa4\x0eb\xba\xe5\x11\x1e\xb2\xa2\xc2\xfd\xdc\xdc\xcf\x1b\xf6\xe6Y\xd0\x8f\xac\xcd\x99\\s3\x16\xb8\xfc\x94\xe3\xedl\xc6\x17\xb9\xabm\xe1\x15\f\x7f\xef\xa7 +0\xe2\x9d\x9f$\x01Y\x81\x98\xfa\xf2#\x85`\xdc\x174\xfc\x13\r\x92^\xfd\xb1\x89\xfa\x94g\xba\xceC\xa8\xf5r\xc6\xd6\r\xbc`\xf2\xb2,\xe7Q\xeam\x88\xa8w\x95%\xd9\x8bp\xb1c\x80\xbe\xf1\x7f')
+
+[   19.289813] cgroup1: Unknown subsys name 'nodevvboxnet0Yí¶mimg_xypeÀ2%trustecceO#fµ	ºxYü;q“Nvss.vmnet0se{÷–!Sº—eß~º ÍêﬁòÉxaXèõ˙Û-MÄ%¯G"ûcÏ⁄;Ø*p—‚7Ò'
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='hugetlbfs\x00', 0x0, &(0x7f00000000c0)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mim\xfbee_type,2%trustedp~six_\x04\x00\x00\x00access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\x00\x00\x00\x00\x00\x1c\xe3\xf9\xe6\x12\xf6\x9f\xa5\xf0\x98lf+\xd7\x1db\x14\x04\x1d\x98=\x0e\x9b\a\xbb\x0e1\t/\xf5$N\xac+Q\xba_e')
+
+21:39:46 executing program 2:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+[   19.321440] hugetlbfs: Unknown parameter 'no'
+[   19.322396] hugetlbfs: Unknown parameter 'no'
+21:39:46 executing program 1:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='hugetlbfs\x00', 0x0, &(0x7f00000000c0)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mim\xfbee_type,2%trustedp~six_\x04\x00\x00\x00access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\x00\x00\x00\x00\x00\x1c\xe3\xf9\xe6\x12\xf6\x9f\xa5\xf0\x98lf+\xd7\x1db\x14\x04\x1d\x98=\x0e\x9b\a\xbb\x0e1\t/\xf5$N\xac+Q\xba_e')
+
+21:39:46 executing program 2:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 1:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 3:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+[   19.341982] hugetlbfs: Unknown parameter 'no'
+21:39:46 executing program 1:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='hugetlbfs\x00', 0x0, &(0x7f00000000c0)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mim\xfbee_type,2%trustedp~six_\x04\x00\x00\x00access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\x00\x00\x00\x00\x00\x1c\xe3\xf9\xe6\x12\xf6\x9f\xa5\xf0\x98lf+\xd7\x1db\x14\x04\x1d\x98=\x0e\x9b\a\xbb\x0e1\t/\xf5$N\xac+Q\xba_e')
+
+[   19.350401] blk_update_request: I/O error, dev loop3, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.351902] hugetlbfs: Unknown parameter 'no'
+21:39:46 executing program 2:
+write$P9_RAUTH(0xffffffffffffffff, &(0x7f00000001c0)={0x14, 0x67, 0x0, {0x0, 0x0, 0x40002000000002}}, 0x14)
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='rpc_pipefs\x00', 0x0, 0x0)
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 1:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='../'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+[   19.356915] FAT-fs (loop3): unable to read boot sector
+[   19.358337] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000300)='.\x00', &(0x7f0000000000)='hugetlbfs\x00', 0x0, &(0x7f00000000c0)='no\x00\x00\x00\x00\x00\x00\x00\x00et\x9b%\xb50mim\xfbee_type,2%trustedp~six_\x04\x00\x00\x00access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83a\xcb\x87\xea\xc2E\x8bC*\xd1xaX\x03\x8f\x9b\xfa\xf3-M\x1e\x80\x05%\xf8\vG\"\x9ec\xec\xda;\x03\xaf*p\xd1\xe27\xf1\x00\x00\x00\x00\x00\x1c\xe3\xf9\xe6\x12\xf6\x9f\xa5\xf0\x98lf+\xd7\x1db\x14\x04\x1d\x98=\x0e\x9b\a\xbb\x0e1\t/\xf5$N\xac+Q\xba_e')
+
+[   19.362451] blk_update_request: I/O error, dev loop3, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.364316] FAT-fs (loop3): unable to read boot sector
+21:39:46 executing program 1:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='../'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+[   19.373316] hugetlbfs: Unknown parameter 'no'
+21:39:46 executing program 3:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+21:39:46 executing program 2:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+21:39:46 executing program 1:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='../'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+[   19.382186] blk_update_request: I/O error, dev loop3, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.384051] FAT-fs (loop3): unable to read boot sector
+[   19.385744] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+21:39:46 executing program 0:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+21:39:46 executing program 3:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+21:39:46 executing program 1:
+mount(&(0x7f00000002c0)=ANY=[@ANYBLOB='../'], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+[   19.394176] blk_update_request: I/O error, dev loop0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.394969] blk_update_request: I/O error, dev loop3, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.396046] FAT-fs (loop0): unable to read boot sector
+21:39:46 executing program 2:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+[   19.397758] FAT-fs (loop3): unable to read boot sector
+[   19.401571] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+[   19.403133] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+21:39:46 executing program 0:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+21:39:46 executing program 3:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+[   19.413814] blk_update_request: I/O error, dev loop1, sector 2 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.414011] blk_update_request: I/O error, dev loop0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.415555] EXT4-fs (loop1): unable to read superblock
+[   19.417216] FAT-fs (loop0): unable to read boot sector
+21:39:46 executing program 2:
+mount(0x0, 0x0, &(0x7f00000000c0)='cgroup\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x900d, 0x0)
+
+[   19.421965] blk_update_request: I/O error, dev loop1, sector 2 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.422212] blk_update_request: I/O error, dev loop3, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.424113] EXT4-fs (loop1): unable to read superblock
+[   19.425393] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+[   19.427430] FAT-fs (loop3): unable to read boot sector
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+[   19.431783] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+21:39:46 executing program 0:
+mount(&(0x7f0000000040)=@loop={'/dev/loop', 0x0}, &(0x7f0000000080)='.\x00', &(0x7f00000000c0)='vfat\x00', 0x0, 0x0)
+mount(&(0x7f0000000000)=@md0='/dev/md0\x00', &(0x7f0000000180)='.\x00', &(0x7f00000001c0)='iso9660\x00', 0x0, 0x0)
+
+[   19.434658] blk_update_request: I/O error, dev loop1, sector 2 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 0
+[   19.436270] EXT4-fs (loop1): unable to read superblock
+[   19.440394] FAT-fs (loop0): unable to read boot sector
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+[   19.443807] isofs_fill_super: bread failed, dev=md0, iso_blknum=16, block=32
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+[   19.452406] EXT4-fs (loop2): unable to read superblock
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+[   19.464547] EXT4-fs (loop1): unable to read superblock
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+[   19.467492] EXT4-fs (loop2): unable to read superblock
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+[   19.472730] EXT4-fs (loop1): unable to read superblock
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/crypto\x00', 0x0, 0x0)
+mount(&(0x7f0000000080)=@loop={'/dev/loop', 0x0}, &(0x7f0000000000)='.\x00', &(0x7f00000000c0)='ext4\x00', 0x0, 0x0)
+close(r0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+[   19.480535] EXT4-fs (loop2): unable to read superblock
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f00000010c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+vmsplice(r0, &(0x7f0000003500)=[{0x0}, {0x0}, {&(0x7f0000000040)="c7", 0x1}, {0x0}, {&(0x7f0000000080)="1af2ccdf8b61a358444aea0b787ab28d2f2971a44358f2ec738aab64819de46e32a0733e73a8003414eea54169cc95728024ad9a80e549f05765628fabbf28ba863e5428c6060faff0012383cda994309380e03d9a635bb2d805554b0c8e18f667d32eea455c9b73e3cb10bcf5e773ccedf108b6bb235ad8997e594a5c51def32eb731ba76f5f115f3ee41bfe8920b9edd2f681ce2114d5007ccf337ad1d03cb4123546de1e1f8dd7f661eca1289bb201d262d22be9161d8a883cda0a0f3309d495903d202da819735d8381b95bc03821958cc5c290daf8511d920dd367348cc71b4971ad65f6b7fe96e68b42f5f1b1eca1b8f6e1ee5331cf4a4999a58c2c5dcbb818d1457cdc9a723623105070c26f67f73371c3b5196fcf2b11f159dfeadb6d5f995ed7b02b0de225ebd28b10a9ad95647462fd539c92d3831cd6faabcc0b2bfd0d6a0093d29cdb141ce2e8fe3498579733a782e88b25a3892ae73200f8a9ebe1d32ac8060c9c8f5dacbadd3e6679b57cf4fb9ac8568e64efe6e176f78e3745d22df9f35027b1c39b081037f03c914dc0e93c89331c992451df4e72288b8ecab5c94bc5c5d4cfe39757f51cd84fce31171e8f7745ee0dd56e1002293a03faec28dd02ee782e4f61e5780a16f4af9ca074046ae1ce415e73c69c84c5ee6c74739db63032fac305f1165cbab7d83d288d3a7956000e9c785f3eff1ea9bcc88c726ee6da13c121a7af8a85d58f0511ed88091a6d3db127e6eb8f7ff2c762fa55c73b62bcbcbcb1b0e7666211df76afbf6c007bdc4327f178220d6e231637ac6386ee12392ecc1f38cf8171018e8632f31dbff90c9c25fce9b962b9c1071464f64774652c5d9d1e1f6a4229d26eed39cb9c72fc27604724d3d52a03f4c4ab8559a3cca0dc261adb97dd4f340d8e305ea63980bbd5f847ff3d3829b402cc2a8bd4f53303659cea3e0b99368a0c290b6b84c6c8c9a2e1fb70f25048fc18bdfe67b64b63f5c2e5310d1c4a8669ef60a076d2ca0cb448c52425b7d7478a2dcf24e3e278239fbbca40ef909d67e29b1df6a84a577a2f846157cfc382c059d79c9804f14ac27157742f8c647eb12b9037456eca5ed54112c339deac2fec648fe4b21ef68328364a8ad5daab446f11395e97ab2beb4401255d97b512de79643589140366daa572294239eff01f0888b12917e999154fe4f41771fdde73091b169daae40eab36914e7978b06f2fec830a31c983dced7af638d1670ced3a8c4383b259c8971b25d1d3d78b5506f9c10c9f057e592abe282fae3fc2bdaf1afa163ea94a4b8aa346fabc79dad4da41551cacf100c2d37c28da964e281fd194c42dcc1d11a55766a9f381a8fe98005ffcf3c94714781d23305f908b3bcf61fc2167d0e6fee7bca4f7f6a7a8fce5f942ef67b21e0bc621a3516018fee6da03e26cb654c3a985630020b5e54a3627a36adab566afec5646186941e89d522d61c29eb354da4b304af33be83f8af1794091a7e68b84944ecf6a97832818dc345e61d0f3e727bb0c2eb99184441020adb6392b342c0dc64c90a1440b7227deb23f3f0e27326de1a45bf7fc29f8c54929ad6908eeaa2bbf986c07c5a3df0fa15f9bfeafdf5a7d3c1f5b085037a2e58327f4539cae230a52192497970214fbd903770467e422c6b1d1e008c0514e6a4efb7d309bfb94c4ec3d593aac4386d266b49e4d0b1613c166071a57e15528336c378a13be968cb956dd41ca62c153d8ddd26d3a63f1b874dc7e2bd9d41c85bb56d39ca1303ef6113595114d60ddeeff982a1e1306e233eca9d0cb64b6c70d032cf2734a7c68df603f2e4c3bd9d3a7e0cb3877ec56e363650792a1ba1e2c3729aa6e67e83c7e13f5412e0a57a784ad53b0a950981bc5a5b06876c6f2fa435d68f86cc1b6546c11ddc0056398e915f59befe420768302d0b412c78753229b7fa1b44320e05aae6e77ccbc0331490eed22a3f55989cd88c36c4aa61b944e002ea4da4c940b0fd92de218580a9f1975953aaa95f67dc7d237371dc8e3da19b0444eebd9128f9d191d3aa04ae72ffdc478c0682d7e865ba2994fa8fae89fdbeabcff92d5e47ac00547ed4532f4854e1a269f40596206674248e671edf867ac46a8df2de4dc2e36f30726cdf72c4409724c486905ee96c76ed8305cb04868381d47b9c4627b733fa3e334af7d5ce43f5d1525130e8737683885e1158694f63f6b8c9678db8874e0103a87ed24c5e219aeb762e90c6a99500d6502ed0dd2f24e5f3d9a39a9ec3fffdde3a1769a1a2853133234330c5f2e6cb92fbb633315844ece602bb3935efb2bf9b2bd1a68dff0a50b38c1df1605cfa3af88a9a817bf3f197899de9be4870160491d67ab0a00b3176618fae938be74fef700d8fe37119c235d95b5e850df21a1e3effd83ae6a37e59be822f11b0820a6df76fedf0c42e359e699b1fa05867764f5de48d81502ae33baea5e5f2ed4844a2a8273fc904b44cce10fb9b734acfeb48a4c9aff96858f79b13271e2a4f9341269c9b8f8be0ffca557dc9b43e6468a826c23c46da5fae4abceffae7e52af76894365593bb9d54e495780815cad2245cdf4f1dcce575107b783345a78d605fc76988506f6190e99fe9f6a0e3685bd9ac8461eaaa80e4b33d03d4ec5c457cce32223ba9d8231fed0ff50266f26a646db974c195ee9af7eef57e6af3b643b7fa5ee9f6eca5fcc12ee1cdc34e330470e324dc7a4d9d7b26f56c3c6cc5a87fc8ca2d7160975de71fd0b0674df0167aaef02d100c4c0de61cffab218e975aa08c7522482a7f2b51b019cc3653d9c66220b62df054743bae23d8bf237193da7538f5400385218eef3a940ae626fc4aaf339e46d780caadbf73f54ba622baa5fbda264d0ebb15a63e3709f4fbdf02e5af534864d2f947a03efddfdc11e2834b8b26c922d1babdcbf5645d6df68ce828452dd7f8bd120ba8c304f13586fe6c0dabea3898816eb63cab6cefd4e6062623f45043cef7dbf530e225d080c4ae7c314251c74f9a0867b6af066735117f713384fcafc8715685a0aef262e2e0475497dbdedbf141d3d2ee58e95ae4ad48d2806fcb05fb619174bef15ae2c9cc44f2def9ad06e4fa2da81d7aab4bdb5f16105f4642c7c70cab7700ff8aa402e48b9121dc6d95bbc00cc2803e3e61eb92244ad08f903e34bd74fb25b850ba6980c370cb26be1af0257beff5b6a2156f49c15b5123e54efad1d900d22efb6c0b6c76d48fd597828db6e410ad1ed9362a2501803fb2eef5458b0d94508de1b562b27d0f1495325db65c42e737646d337e45ad0124a3f29d1980b5483e1c1f47991b9b72db158e7179a0e552d4ad7751c045819ae0587bd5803d4b1db0a404638ae80e24507287916a6a926b8010e1f025fe8d62bb95aafaed12d74f41165e5023250b67575e7b6444ffc6ea413e02d6f85ae95c1e69ff3abb405f9fb7636865d318f3ef60e0ce926f84b101d54edbfaccbf6d285a3ad35a8b46e4d828022ee84eaf4c7255dc1475ea03b5849a1fec999a044a7dfb8649270a7c56fa5d772d34e05685da8e888aee282ba919f7e7e732872dcef6743c0ae2f66b72186a1cac0e51dc0e6ada19ee13bf5a6837e8f2ffabd3585d8c4e3ec6c5939a03f2f6ca1d8558b9bd5c21cb27103e6f0a39e501a6aeebb68c4471344b5f4e0ad07d955b3d2c57efd887765c9932a09ea2443879b02a2dbf18e6210eb3d448fa6a921248a2c2f7e3ff2796bb7ec8e33c53f15be7aef85f6aeaf3d4a3bbec6363b132a97ef0be010782d9ede15fcdcca8d0a344a573cb46b00d34ac84367422560a6fad452f375cf7c7f60808a197bb29f69b4b23523d4bda3e16e3b0249d894a7ae2e3fb1f5bbf7a3c9f6aac0123f593ad9a872e6963f9ce2080f6528bdde6418856328c82cf7ae158e159d9613b68dd4f445247d112e228290649598e854fba9f680b52c9b0ffcb1fadf02242efdd24148f931568876e67ed6eb01ce1b61f6bd169367297018f5ee97e69bbd481859f5d8331352c09177c048decb10a5cceb26b30f235bb102eae26586b304f3c84c9fac6343770ad76184a2aab5caa93037a9f747233e5bc96a393a8bbb991408a2d0b18b0ec7ecde7f9633fd984b1c453f1d0a37e3d9d11abdc7afe8907017149a64be99716b16e03ae09a67cdf7f784e81f00ebf63ed0de7e222e9493af5af1407a9df1c2497ef7dde92a84e83de22d40647a7404f87dd255afe8f896b428e081bb6fbf3c5eb445a4cdcf73515a6ef35cce2efb0e57f8d88053577df72b7cfddac2cca9434627a2a633e764b58141d7bc77c07a8bbada42ad51889e718ebfe0a01bb75b6e64c956f6cf37ae7c37dcd36c1fc3c91c1fdb737bbda434ac592ccb9d4ef6b89230c3105d9dce504b3e2defedc9abafa5e6a0c5f9c57921676a0328778cb6317d967433dfda59b94751345a8f6e265e3e046c18a84822444996f6aee6cb1886771deb814f330e1e6817e25db8d1f01e3cd71d786a455850b0095ef335e2ab5a424eb89c73821ec33d5664f7c1a23e144d443085ddc36800216122017f0c52887708d1bccffc843f8fd0f3eaa7f99bc28bee78ed37d052863cd4bc25e27f8a38fee48e648104dd3334458a5f2ba4e607ae383ed4cdc25c9d994e372970670269524b1c63d9639e2fb15e6d926e71bda10c36cbf72f15a467fecf0d0477263c72bfbf8f97f69ecfc3a0bb5744984e49f70d5420b0fab0c5e26e9e67260e45c836bfb25f785573bd195d6a3780e422b22f70bf287125dbb35bf66ee4bbc4e21ed02cc704d35", 0xd41}, {0x0, 0x47}, {0x0}, {0x0}, {0x0}], 0x9, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000440)='/proc/bus/input/devices\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001080)=""/4093, 0xffd)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f00000010c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+vmsplice(r0, &(0x7f0000003500)=[{0x0}, {0x0}, {&(0x7f0000000040)="c7", 0x1}, {0x0}, {&(0x7f0000000080)="1af2ccdf8b61a358444aea0b787ab28d2f2971a44358f2ec738aab64819de46e32a0733e73a8003414eea54169cc95728024ad9a80e549f05765628fabbf28ba863e5428c6060faff0012383cda994309380e03d9a635bb2d805554b0c8e18f667d32eea455c9b73e3cb10bcf5e773ccedf108b6bb235ad8997e594a5c51def32eb731ba76f5f115f3ee41bfe8920b9edd2f681ce2114d5007ccf337ad1d03cb4123546de1e1f8dd7f661eca1289bb201d262d22be9161d8a883cda0a0f3309d495903d202da819735d8381b95bc03821958cc5c290daf8511d920dd367348cc71b4971ad65f6b7fe96e68b42f5f1b1eca1b8f6e1ee5331cf4a4999a58c2c5dcbb818d1457cdc9a723623105070c26f67f73371c3b5196fcf2b11f159dfeadb6d5f995ed7b02b0de225ebd28b10a9ad95647462fd539c92d3831cd6faabcc0b2bfd0d6a0093d29cdb141ce2e8fe3498579733a782e88b25a3892ae73200f8a9ebe1d32ac8060c9c8f5dacbadd3e6679b57cf4fb9ac8568e64efe6e176f78e3745d22df9f35027b1c39b081037f03c914dc0e93c89331c992451df4e72288b8ecab5c94bc5c5d4cfe39757f51cd84fce31171e8f7745ee0dd56e1002293a03faec28dd02ee782e4f61e5780a16f4af9ca074046ae1ce415e73c69c84c5ee6c74739db63032fac305f1165cbab7d83d288d3a7956000e9c785f3eff1ea9bcc88c726ee6da13c121a7af8a85d58f0511ed88091a6d3db127e6eb8f7ff2c762fa55c73b62bcbcbcb1b0e7666211df76afbf6c007bdc4327f178220d6e231637ac6386ee12392ecc1f38cf8171018e8632f31dbff90c9c25fce9b962b9c1071464f64774652c5d9d1e1f6a4229d26eed39cb9c72fc27604724d3d52a03f4c4ab8559a3cca0dc261adb97dd4f340d8e305ea63980bbd5f847ff3d3829b402cc2a8bd4f53303659cea3e0b99368a0c290b6b84c6c8c9a2e1fb70f25048fc18bdfe67b64b63f5c2e5310d1c4a8669ef60a076d2ca0cb448c52425b7d7478a2dcf24e3e278239fbbca40ef909d67e29b1df6a84a577a2f846157cfc382c059d79c9804f14ac27157742f8c647eb12b9037456eca5ed54112c339deac2fec648fe4b21ef68328364a8ad5daab446f11395e97ab2beb4401255d97b512de79643589140366daa572294239eff01f0888b12917e999154fe4f41771fdde73091b169daae40eab36914e7978b06f2fec830a31c983dced7af638d1670ced3a8c4383b259c8971b25d1d3d78b5506f9c10c9f057e592abe282fae3fc2bdaf1afa163ea94a4b8aa346fabc79dad4da41551cacf100c2d37c28da964e281fd194c42dcc1d11a55766a9f381a8fe98005ffcf3c94714781d23305f908b3bcf61fc2167d0e6fee7bca4f7f6a7a8fce5f942ef67b21e0bc621a3516018fee6da03e26cb654c3a985630020b5e54a3627a36adab566afec5646186941e89d522d61c29eb354da4b304af33be83f8af1794091a7e68b84944ecf6a97832818dc345e61d0f3e727bb0c2eb99184441020adb6392b342c0dc64c90a1440b7227deb23f3f0e27326de1a45bf7fc29f8c54929ad6908eeaa2bbf986c07c5a3df0fa15f9bfeafdf5a7d3c1f5b085037a2e58327f4539cae230a52192497970214fbd903770467e422c6b1d1e008c0514e6a4efb7d309bfb94c4ec3d593aac4386d266b49e4d0b1613c166071a57e15528336c378a13be968cb956dd41ca62c153d8ddd26d3a63f1b874dc7e2bd9d41c85bb56d39ca1303ef6113595114d60ddeeff982a1e1306e233eca9d0cb64b6c70d032cf2734a7c68df603f2e4c3bd9d3a7e0cb3877ec56e363650792a1ba1e2c3729aa6e67e83c7e13f5412e0a57a784ad53b0a950981bc5a5b06876c6f2fa435d68f86cc1b6546c11ddc0056398e915f59befe420768302d0b412c78753229b7fa1b44320e05aae6e77ccbc0331490eed22a3f55989cd88c36c4aa61b944e002ea4da4c940b0fd92de218580a9f1975953aaa95f67dc7d237371dc8e3da19b0444eebd9128f9d191d3aa04ae72ffdc478c0682d7e865ba2994fa8fae89fdbeabcff92d5e47ac00547ed4532f4854e1a269f40596206674248e671edf867ac46a8df2de4dc2e36f30726cdf72c4409724c486905ee96c76ed8305cb04868381d47b9c4627b733fa3e334af7d5ce43f5d1525130e8737683885e1158694f63f6b8c9678db8874e0103a87ed24c5e219aeb762e90c6a99500d6502ed0dd2f24e5f3d9a39a9ec3fffdde3a1769a1a2853133234330c5f2e6cb92fbb633315844ece602bb3935efb2bf9b2bd1a68dff0a50b38c1df1605cfa3af88a9a817bf3f197899de9be4870160491d67ab0a00b3176618fae938be74fef700d8fe37119c235d95b5e850df21a1e3effd83ae6a37e59be822f11b0820a6df76fedf0c42e359e699b1fa05867764f5de48d81502ae33baea5e5f2ed4844a2a8273fc904b44cce10fb9b734acfeb48a4c9aff96858f79b13271e2a4f9341269c9b8f8be0ffca557dc9b43e6468a826c23c46da5fae4abceffae7e52af76894365593bb9d54e495780815cad2245cdf4f1dcce575107b783345a78d605fc76988506f6190e99fe9f6a0e3685bd9ac8461eaaa80e4b33d03d4ec5c457cce32223ba9d8231fed0ff50266f26a646db974c195ee9af7eef57e6af3b643b7fa5ee9f6eca5fcc12ee1cdc34e330470e324dc7a4d9d7b26f56c3c6cc5a87fc8ca2d7160975de71fd0b0674df0167aaef02d100c4c0de61cffab218e975aa08c7522482a7f2b51b019cc3653d9c66220b62df054743bae23d8bf237193da7538f5400385218eef3a940ae626fc4aaf339e46d780caadbf73f54ba622baa5fbda264d0ebb15a63e3709f4fbdf02e5af534864d2f947a03efddfdc11e2834b8b26c922d1babdcbf5645d6df68ce828452dd7f8bd120ba8c304f13586fe6c0dabea3898816eb63cab6cefd4e6062623f45043cef7dbf530e225d080c4ae7c314251c74f9a0867b6af066735117f713384fcafc8715685a0aef262e2e0475497dbdedbf141d3d2ee58e95ae4ad48d2806fcb05fb619174bef15ae2c9cc44f2def9ad06e4fa2da81d7aab4bdb5f16105f4642c7c70cab7700ff8aa402e48b9121dc6d95bbc00cc2803e3e61eb92244ad08f903e34bd74fb25b850ba6980c370cb26be1af0257beff5b6a2156f49c15b5123e54efad1d900d22efb6c0b6c76d48fd597828db6e410ad1ed9362a2501803fb2eef5458b0d94508de1b562b27d0f1495325db65c42e737646d337e45ad0124a3f29d1980b5483e1c1f47991b9b72db158e7179a0e552d4ad7751c045819ae0587bd5803d4b1db0a404638ae80e24507287916a6a926b8010e1f025fe8d62bb95aafaed12d74f41165e5023250b67575e7b6444ffc6ea413e02d6f85ae95c1e69ff3abb405f9fb7636865d318f3ef60e0ce926f84b101d54edbfaccbf6d285a3ad35a8b46e4d828022ee84eaf4c7255dc1475ea03b5849a1fec999a044a7dfb8649270a7c56fa5d772d34e05685da8e888aee282ba919f7e7e732872dcef6743c0ae2f66b72186a1cac0e51dc0e6ada19ee13bf5a6837e8f2ffabd3585d8c4e3ec6c5939a03f2f6ca1d8558b9bd5c21cb27103e6f0a39e501a6aeebb68c4471344b5f4e0ad07d955b3d2c57efd887765c9932a09ea2443879b02a2dbf18e6210eb3d448fa6a921248a2c2f7e3ff2796bb7ec8e33c53f15be7aef85f6aeaf3d4a3bbec6363b132a97ef0be010782d9ede15fcdcca8d0a344a573cb46b00d34ac84367422560a6fad452f375cf7c7f60808a197bb29f69b4b23523d4bda3e16e3b0249d894a7ae2e3fb1f5bbf7a3c9f6aac0123f593ad9a872e6963f9ce2080f6528bdde6418856328c82cf7ae158e159d9613b68dd4f445247d112e228290649598e854fba9f680b52c9b0ffcb1fadf02242efdd24148f931568876e67ed6eb01ce1b61f6bd169367297018f5ee97e69bbd481859f5d8331352c09177c048decb10a5cceb26b30f235bb102eae26586b304f3c84c9fac6343770ad76184a2aab5caa93037a9f747233e5bc96a393a8bbb991408a2d0b18b0ec7ecde7f9633fd984b1c453f1d0a37e3d9d11abdc7afe8907017149a64be99716b16e03ae09a67cdf7f784e81f00ebf63ed0de7e222e9493af5af1407a9df1c2497ef7dde92a84e83de22d40647a7404f87dd255afe8f896b428e081bb6fbf3c5eb445a4cdcf73515a6ef35cce2efb0e57f8d88053577df72b7cfddac2cca9434627a2a633e764b58141d7bc77c07a8bbada42ad51889e718ebfe0a01bb75b6e64c956f6cf37ae7c37dcd36c1fc3c91c1fdb737bbda434ac592ccb9d4ef6b89230c3105d9dce504b3e2defedc9abafa5e6a0c5f9c57921676a0328778cb6317d967433dfda59b94751345a8f6e265e3e046c18a84822444996f6aee6cb1886771deb814f330e1e6817e25db8d1f01e3cd71d786a455850b0095ef335e2ab5a424eb89c73821ec33d5664f7c1a23e144d443085ddc36800216122017f0c52887708d1bccffc843f8fd0f3eaa7f99bc28bee78ed37d052863cd4bc25e27f8a38fee48e648104dd3334458a5f2ba4e607ae383ed4cdc25c9d994e372970670269524b1c63d9639e2fb15e6d926e71bda10c36cbf72f15a467fecf0d0477263c72bfbf8f97f69ecfc3a0bb5744984e49f70d5420b0fab0c5e26e9e67260e45c836bfb25f785573bd195d6a3780e422b22f70bf287125dbb35bf66ee4bbc4e21ed02cc704d35", 0xd41}, {0x0, 0x47}, {0x0}, {0x0}, {0x0}], 0x9, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f00000010c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+vmsplice(r0, &(0x7f0000003500)=[{0x0}, {0x0}, {&(0x7f0000000040)="c7", 0x1}, {0x0}, {&(0x7f0000000080)="1af2ccdf8b61a358444aea0b787ab28d2f2971a44358f2ec738aab64819de46e32a0733e73a8003414eea54169cc95728024ad9a80e549f05765628fabbf28ba863e5428c6060faff0012383cda994309380e03d9a635bb2d805554b0c8e18f667d32eea455c9b73e3cb10bcf5e773ccedf108b6bb235ad8997e594a5c51def32eb731ba76f5f115f3ee41bfe8920b9edd2f681ce2114d5007ccf337ad1d03cb4123546de1e1f8dd7f661eca1289bb201d262d22be9161d8a883cda0a0f3309d495903d202da819735d8381b95bc03821958cc5c290daf8511d920dd367348cc71b4971ad65f6b7fe96e68b42f5f1b1eca1b8f6e1ee5331cf4a4999a58c2c5dcbb818d1457cdc9a723623105070c26f67f73371c3b5196fcf2b11f159dfeadb6d5f995ed7b02b0de225ebd28b10a9ad95647462fd539c92d3831cd6faabcc0b2bfd0d6a0093d29cdb141ce2e8fe3498579733a782e88b25a3892ae73200f8a9ebe1d32ac8060c9c8f5dacbadd3e6679b57cf4fb9ac8568e64efe6e176f78e3745d22df9f35027b1c39b081037f03c914dc0e93c89331c992451df4e72288b8ecab5c94bc5c5d4cfe39757f51cd84fce31171e8f7745ee0dd56e1002293a03faec28dd02ee782e4f61e5780a16f4af9ca074046ae1ce415e73c69c84c5ee6c74739db63032fac305f1165cbab7d83d288d3a7956000e9c785f3eff1ea9bcc88c726ee6da13c121a7af8a85d58f0511ed88091a6d3db127e6eb8f7ff2c762fa55c73b62bcbcbcb1b0e7666211df76afbf6c007bdc4327f178220d6e231637ac6386ee12392ecc1f38cf8171018e8632f31dbff90c9c25fce9b962b9c1071464f64774652c5d9d1e1f6a4229d26eed39cb9c72fc27604724d3d52a03f4c4ab8559a3cca0dc261adb97dd4f340d8e305ea63980bbd5f847ff3d3829b402cc2a8bd4f53303659cea3e0b99368a0c290b6b84c6c8c9a2e1fb70f25048fc18bdfe67b64b63f5c2e5310d1c4a8669ef60a076d2ca0cb448c52425b7d7478a2dcf24e3e278239fbbca40ef909d67e29b1df6a84a577a2f846157cfc382c059d79c9804f14ac27157742f8c647eb12b9037456eca5ed54112c339deac2fec648fe4b21ef68328364a8ad5daab446f11395e97ab2beb4401255d97b512de79643589140366daa572294239eff01f0888b12917e999154fe4f41771fdde73091b169daae40eab36914e7978b06f2fec830a31c983dced7af638d1670ced3a8c4383b259c8971b25d1d3d78b5506f9c10c9f057e592abe282fae3fc2bdaf1afa163ea94a4b8aa346fabc79dad4da41551cacf100c2d37c28da964e281fd194c42dcc1d11a55766a9f381a8fe98005ffcf3c94714781d23305f908b3bcf61fc2167d0e6fee7bca4f7f6a7a8fce5f942ef67b21e0bc621a3516018fee6da03e26cb654c3a985630020b5e54a3627a36adab566afec5646186941e89d522d61c29eb354da4b304af33be83f8af1794091a7e68b84944ecf6a97832818dc345e61d0f3e727bb0c2eb99184441020adb6392b342c0dc64c90a1440b7227deb23f3f0e27326de1a45bf7fc29f8c54929ad6908eeaa2bbf986c07c5a3df0fa15f9bfeafdf5a7d3c1f5b085037a2e58327f4539cae230a52192497970214fbd903770467e422c6b1d1e008c0514e6a4efb7d309bfb94c4ec3d593aac4386d266b49e4d0b1613c166071a57e15528336c378a13be968cb956dd41ca62c153d8ddd26d3a63f1b874dc7e2bd9d41c85bb56d39ca1303ef6113595114d60ddeeff982a1e1306e233eca9d0cb64b6c70d032cf2734a7c68df603f2e4c3bd9d3a7e0cb3877ec56e363650792a1ba1e2c3729aa6e67e83c7e13f5412e0a57a784ad53b0a950981bc5a5b06876c6f2fa435d68f86cc1b6546c11ddc0056398e915f59befe420768302d0b412c78753229b7fa1b44320e05aae6e77ccbc0331490eed22a3f55989cd88c36c4aa61b944e002ea4da4c940b0fd92de218580a9f1975953aaa95f67dc7d237371dc8e3da19b0444eebd9128f9d191d3aa04ae72ffdc478c0682d7e865ba2994fa8fae89fdbeabcff92d5e47ac00547ed4532f4854e1a269f40596206674248e671edf867ac46a8df2de4dc2e36f30726cdf72c4409724c486905ee96c76ed8305cb04868381d47b9c4627b733fa3e334af7d5ce43f5d1525130e8737683885e1158694f63f6b8c9678db8874e0103a87ed24c5e219aeb762e90c6a99500d6502ed0dd2f24e5f3d9a39a9ec3fffdde3a1769a1a2853133234330c5f2e6cb92fbb633315844ece602bb3935efb2bf9b2bd1a68dff0a50b38c1df1605cfa3af88a9a817bf3f197899de9be4870160491d67ab0a00b3176618fae938be74fef700d8fe37119c235d95b5e850df21a1e3effd83ae6a37e59be822f11b0820a6df76fedf0c42e359e699b1fa05867764f5de48d81502ae33baea5e5f2ed4844a2a8273fc904b44cce10fb9b734acfeb48a4c9aff96858f79b13271e2a4f9341269c9b8f8be0ffca557dc9b43e6468a826c23c46da5fae4abceffae7e52af76894365593bb9d54e495780815cad2245cdf4f1dcce575107b783345a78d605fc76988506f6190e99fe9f6a0e3685bd9ac8461eaaa80e4b33d03d4ec5c457cce32223ba9d8231fed0ff50266f26a646db974c195ee9af7eef57e6af3b643b7fa5ee9f6eca5fcc12ee1cdc34e330470e324dc7a4d9d7b26f56c3c6cc5a87fc8ca2d7160975de71fd0b0674df0167aaef02d100c4c0de61cffab218e975aa08c7522482a7f2b51b019cc3653d9c66220b62df054743bae23d8bf237193da7538f5400385218eef3a940ae626fc4aaf339e46d780caadbf73f54ba622baa5fbda264d0ebb15a63e3709f4fbdf02e5af534864d2f947a03efddfdc11e2834b8b26c922d1babdcbf5645d6df68ce828452dd7f8bd120ba8c304f13586fe6c0dabea3898816eb63cab6cefd4e6062623f45043cef7dbf530e225d080c4ae7c314251c74f9a0867b6af066735117f713384fcafc8715685a0aef262e2e0475497dbdedbf141d3d2ee58e95ae4ad48d2806fcb05fb619174bef15ae2c9cc44f2def9ad06e4fa2da81d7aab4bdb5f16105f4642c7c70cab7700ff8aa402e48b9121dc6d95bbc00cc2803e3e61eb92244ad08f903e34bd74fb25b850ba6980c370cb26be1af0257beff5b6a2156f49c15b5123e54efad1d900d22efb6c0b6c76d48fd597828db6e410ad1ed9362a2501803fb2eef5458b0d94508de1b562b27d0f1495325db65c42e737646d337e45ad0124a3f29d1980b5483e1c1f47991b9b72db158e7179a0e552d4ad7751c045819ae0587bd5803d4b1db0a404638ae80e24507287916a6a926b8010e1f025fe8d62bb95aafaed12d74f41165e5023250b67575e7b6444ffc6ea413e02d6f85ae95c1e69ff3abb405f9fb7636865d318f3ef60e0ce926f84b101d54edbfaccbf6d285a3ad35a8b46e4d828022ee84eaf4c7255dc1475ea03b5849a1fec999a044a7dfb8649270a7c56fa5d772d34e05685da8e888aee282ba919f7e7e732872dcef6743c0ae2f66b72186a1cac0e51dc0e6ada19ee13bf5a6837e8f2ffabd3585d8c4e3ec6c5939a03f2f6ca1d8558b9bd5c21cb27103e6f0a39e501a6aeebb68c4471344b5f4e0ad07d955b3d2c57efd887765c9932a09ea2443879b02a2dbf18e6210eb3d448fa6a921248a2c2f7e3ff2796bb7ec8e33c53f15be7aef85f6aeaf3d4a3bbec6363b132a97ef0be010782d9ede15fcdcca8d0a344a573cb46b00d34ac84367422560a6fad452f375cf7c7f60808a197bb29f69b4b23523d4bda3e16e3b0249d894a7ae2e3fb1f5bbf7a3c9f6aac0123f593ad9a872e6963f9ce2080f6528bdde6418856328c82cf7ae158e159d9613b68dd4f445247d112e228290649598e854fba9f680b52c9b0ffcb1fadf02242efdd24148f931568876e67ed6eb01ce1b61f6bd169367297018f5ee97e69bbd481859f5d8331352c09177c048decb10a5cceb26b30f235bb102eae26586b304f3c84c9fac6343770ad76184a2aab5caa93037a9f747233e5bc96a393a8bbb991408a2d0b18b0ec7ecde7f9633fd984b1c453f1d0a37e3d9d11abdc7afe8907017149a64be99716b16e03ae09a67cdf7f784e81f00ebf63ed0de7e222e9493af5af1407a9df1c2497ef7dde92a84e83de22d40647a7404f87dd255afe8f896b428e081bb6fbf3c5eb445a4cdcf73515a6ef35cce2efb0e57f8d88053577df72b7cfddac2cca9434627a2a633e764b58141d7bc77c07a8bbada42ad51889e718ebfe0a01bb75b6e64c956f6cf37ae7c37dcd36c1fc3c91c1fdb737bbda434ac592ccb9d4ef6b89230c3105d9dce504b3e2defedc9abafa5e6a0c5f9c57921676a0328778cb6317d967433dfda59b94751345a8f6e265e3e046c18a84822444996f6aee6cb1886771deb814f330e1e6817e25db8d1f01e3cd71d786a455850b0095ef335e2ab5a424eb89c73821ec33d5664f7c1a23e144d443085ddc36800216122017f0c52887708d1bccffc843f8fd0f3eaa7f99bc28bee78ed37d052863cd4bc25e27f8a38fee48e648104dd3334458a5f2ba4e607ae383ed4cdc25c9d994e372970670269524b1c63d9639e2fb15e6d926e71bda10c36cbf72f15a467fecf0d0477263c72bfbf8f97f69ecfc3a0bb5744984e49f70d5420b0fab0c5e26e9e67260e45c836bfb25f785573bd195d6a3780e422b22f70bf287125dbb35bf66ee4bbc4e21ed02cc704d35", 0xd41}, {0x0, 0x47}, {0x0}, {0x0}, {0x0}], 0x9, 0x0)
+
+21:39:46 executing program 0:
+mount(&(0x7f00000001c0)=ANY=[@ANYBLOB="2e2e2f2f96707c2b8eea5814d31f4a17d96c"], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+21:39:46 executing program 3:
+openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x210d00d, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001140)='/proc/mdstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+read(r0, &(0x7f0000000080)=""/4111, 0x100f)
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f00000010c0)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+vmsplice(r0, &(0x7f0000003500)=[{0x0}, {0x0}, {&(0x7f0000000040)="c7", 0x1}, {0x0}, {&(0x7f0000000080)="1af2ccdf8b61a358444aea0b787ab28d2f2971a44358f2ec738aab64819de46e32a0733e73a8003414eea54169cc95728024ad9a80e549f05765628fabbf28ba863e5428c6060faff0012383cda994309380e03d9a635bb2d805554b0c8e18f667d32eea455c9b73e3cb10bcf5e773ccedf108b6bb235ad8997e594a5c51def32eb731ba76f5f115f3ee41bfe8920b9edd2f681ce2114d5007ccf337ad1d03cb4123546de1e1f8dd7f661eca1289bb201d262d22be9161d8a883cda0a0f3309d495903d202da819735d8381b95bc03821958cc5c290daf8511d920dd367348cc71b4971ad65f6b7fe96e68b42f5f1b1eca1b8f6e1ee5331cf4a4999a58c2c5dcbb818d1457cdc9a723623105070c26f67f73371c3b5196fcf2b11f159dfeadb6d5f995ed7b02b0de225ebd28b10a9ad95647462fd539c92d3831cd6faabcc0b2bfd0d6a0093d29cdb141ce2e8fe3498579733a782e88b25a3892ae73200f8a9ebe1d32ac8060c9c8f5dacbadd3e6679b57cf4fb9ac8568e64efe6e176f78e3745d22df9f35027b1c39b081037f03c914dc0e93c89331c992451df4e72288b8ecab5c94bc5c5d4cfe39757f51cd84fce31171e8f7745ee0dd56e1002293a03faec28dd02ee782e4f61e5780a16f4af9ca074046ae1ce415e73c69c84c5ee6c74739db63032fac305f1165cbab7d83d288d3a7956000e9c785f3eff1ea9bcc88c726ee6da13c121a7af8a85d58f0511ed88091a6d3db127e6eb8f7ff2c762fa55c73b62bcbcbcb1b0e7666211df76afbf6c007bdc4327f178220d6e231637ac6386ee12392ecc1f38cf8171018e8632f31dbff90c9c25fce9b962b9c1071464f64774652c5d9d1e1f6a4229d26eed39cb9c72fc27604724d3d52a03f4c4ab8559a3cca0dc261adb97dd4f340d8e305ea63980bbd5f847ff3d3829b402cc2a8bd4f53303659cea3e0b99368a0c290b6b84c6c8c9a2e1fb70f25048fc18bdfe67b64b63f5c2e5310d1c4a8669ef60a076d2ca0cb448c52425b7d7478a2dcf24e3e278239fbbca40ef909d67e29b1df6a84a577a2f846157cfc382c059d79c9804f14ac27157742f8c647eb12b9037456eca5ed54112c339deac2fec648fe4b21ef68328364a8ad5daab446f11395e97ab2beb4401255d97b512de79643589140366daa572294239eff01f0888b12917e999154fe4f41771fdde73091b169daae40eab36914e7978b06f2fec830a31c983dced7af638d1670ced3a8c4383b259c8971b25d1d3d78b5506f9c10c9f057e592abe282fae3fc2bdaf1afa163ea94a4b8aa346fabc79dad4da41551cacf100c2d37c28da964e281fd194c42dcc1d11a55766a9f381a8fe98005ffcf3c94714781d23305f908b3bcf61fc2167d0e6fee7bca4f7f6a7a8fce5f942ef67b21e0bc621a3516018fee6da03e26cb654c3a985630020b5e54a3627a36adab566afec5646186941e89d522d61c29eb354da4b304af33be83f8af1794091a7e68b84944ecf6a97832818dc345e61d0f3e727bb0c2eb99184441020adb6392b342c0dc64c90a1440b7227deb23f3f0e27326de1a45bf7fc29f8c54929ad6908eeaa2bbf986c07c5a3df0fa15f9bfeafdf5a7d3c1f5b085037a2e58327f4539cae230a52192497970214fbd903770467e422c6b1d1e008c0514e6a4efb7d309bfb94c4ec3d593aac4386d266b49e4d0b1613c166071a57e15528336c378a13be968cb956dd41ca62c153d8ddd26d3a63f1b874dc7e2bd9d41c85bb56d39ca1303ef6113595114d60ddeeff982a1e1306e233eca9d0cb64b6c70d032cf2734a7c68df603f2e4c3bd9d3a7e0cb3877ec56e363650792a1ba1e2c3729aa6e67e83c7e13f5412e0a57a784ad53b0a950981bc5a5b06876c6f2fa435d68f86cc1b6546c11ddc0056398e915f59befe420768302d0b412c78753229b7fa1b44320e05aae6e77ccbc0331490eed22a3f55989cd88c36c4aa61b944e002ea4da4c940b0fd92de218580a9f1975953aaa95f67dc7d237371dc8e3da19b0444eebd9128f9d191d3aa04ae72ffdc478c0682d7e865ba2994fa8fae89fdbeabcff92d5e47ac00547ed4532f4854e1a269f40596206674248e671edf867ac46a8df2de4dc2e36f30726cdf72c4409724c486905ee96c76ed8305cb04868381d47b9c4627b733fa3e334af7d5ce43f5d1525130e8737683885e1158694f63f6b8c9678db8874e0103a87ed24c5e219aeb762e90c6a99500d6502ed0dd2f24e5f3d9a39a9ec3fffdde3a1769a1a2853133234330c5f2e6cb92fbb633315844ece602bb3935efb2bf9b2bd1a68dff0a50b38c1df1605cfa3af88a9a817bf3f197899de9be4870160491d67ab0a00b3176618fae938be74fef700d8fe37119c235d95b5e850df21a1e3effd83ae6a37e59be822f11b0820a6df76fedf0c42e359e699b1fa05867764f5de48d81502ae33baea5e5f2ed4844a2a8273fc904b44cce10fb9b734acfeb48a4c9aff96858f79b13271e2a4f9341269c9b8f8be0ffca557dc9b43e6468a826c23c46da5fae4abceffae7e52af76894365593bb9d54e495780815cad2245cdf4f1dcce575107b783345a78d605fc76988506f6190e99fe9f6a0e3685bd9ac8461eaaa80e4b33d03d4ec5c457cce32223ba9d8231fed0ff50266f26a646db974c195ee9af7eef57e6af3b643b7fa5ee9f6eca5fcc12ee1cdc34e330470e324dc7a4d9d7b26f56c3c6cc5a87fc8ca2d7160975de71fd0b0674df0167aaef02d100c4c0de61cffab218e975aa08c7522482a7f2b51b019cc3653d9c66220b62df054743bae23d8bf237193da7538f5400385218eef3a940ae626fc4aaf339e46d780caadbf73f54ba622baa5fbda264d0ebb15a63e3709f4fbdf02e5af534864d2f947a03efddfdc11e2834b8b26c922d1babdcbf5645d6df68ce828452dd7f8bd120ba8c304f13586fe6c0dabea3898816eb63cab6cefd4e6062623f45043cef7dbf530e225d080c4ae7c314251c74f9a0867b6af066735117f713384fcafc8715685a0aef262e2e0475497dbdedbf141d3d2ee58e95ae4ad48d2806fcb05fb619174bef15ae2c9cc44f2def9ad06e4fa2da81d7aab4bdb5f16105f4642c7c70cab7700ff8aa402e48b9121dc6d95bbc00cc2803e3e61eb92244ad08f903e34bd74fb25b850ba6980c370cb26be1af0257beff5b6a2156f49c15b5123e54efad1d900d22efb6c0b6c76d48fd597828db6e410ad1ed9362a2501803fb2eef5458b0d94508de1b562b27d0f1495325db65c42e737646d337e45ad0124a3f29d1980b5483e1c1f47991b9b72db158e7179a0e552d4ad7751c045819ae0587bd5803d4b1db0a404638ae80e24507287916a6a926b8010e1f025fe8d62bb95aafaed12d74f41165e5023250b67575e7b6444ffc6ea413e02d6f85ae95c1e69ff3abb405f9fb7636865d318f3ef60e0ce926f84b101d54edbfaccbf6d285a3ad35a8b46e4d828022ee84eaf4c7255dc1475ea03b5849a1fec999a044a7dfb8649270a7c56fa5d772d34e05685da8e888aee282ba919f7e7e732872dcef6743c0ae2f66b72186a1cac0e51dc0e6ada19ee13bf5a6837e8f2ffabd3585d8c4e3ec6c5939a03f2f6ca1d8558b9bd5c21cb27103e6f0a39e501a6aeebb68c4471344b5f4e0ad07d955b3d2c57efd887765c9932a09ea2443879b02a2dbf18e6210eb3d448fa6a921248a2c2f7e3ff2796bb7ec8e33c53f15be7aef85f6aeaf3d4a3bbec6363b132a97ef0be010782d9ede15fcdcca8d0a344a573cb46b00d34ac84367422560a6fad452f375cf7c7f60808a197bb29f69b4b23523d4bda3e16e3b0249d894a7ae2e3fb1f5bbf7a3c9f6aac0123f593ad9a872e6963f9ce2080f6528bdde6418856328c82cf7ae158e159d9613b68dd4f445247d112e228290649598e854fba9f680b52c9b0ffcb1fadf02242efdd24148f931568876e67ed6eb01ce1b61f6bd169367297018f5ee97e69bbd481859f5d8331352c09177c048decb10a5cceb26b30f235bb102eae26586b304f3c84c9fac6343770ad76184a2aab5caa93037a9f747233e5bc96a393a8bbb991408a2d0b18b0ec7ecde7f9633fd984b1c453f1d0a37e3d9d11abdc7afe8907017149a64be99716b16e03ae09a67cdf7f784e81f00ebf63ed0de7e222e9493af5af1407a9df1c2497ef7dde92a84e83de22d40647a7404f87dd255afe8f896b428e081bb6fbf3c5eb445a4cdcf73515a6ef35cce2efb0e57f8d88053577df72b7cfddac2cca9434627a2a633e764b58141d7bc77c07a8bbada42ad51889e718ebfe0a01bb75b6e64c956f6cf37ae7c37dcd36c1fc3c91c1fdb737bbda434ac592ccb9d4ef6b89230c3105d9dce504b3e2defedc9abafa5e6a0c5f9c57921676a0328778cb6317d967433dfda59b94751345a8f6e265e3e046c18a84822444996f6aee6cb1886771deb814f330e1e6817e25db8d1f01e3cd71d786a455850b0095ef335e2ab5a424eb89c73821ec33d5664f7c1a23e144d443085ddc36800216122017f0c52887708d1bccffc843f8fd0f3eaa7f99bc28bee78ed37d052863cd4bc25e27f8a38fee48e648104dd3334458a5f2ba4e607ae383ed4cdc25c9d994e372970670269524b1c63d9639e2fb15e6d926e71bda10c36cbf72f15a467fecf0d0477263c72bfbf8f97f69ecfc3a0bb5744984e49f70d5420b0fab0c5e26e9e67260e45c836bfb25f785573bd195d6a3780e422b22f70bf287125dbb35bf66ee4bbc4e21ed02cc704d35", 0xd41}, {0x0, 0x47}, {0x0}, {0x0}, {0x0}], 0x9, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x210d00d, 0x0)
+
+21:39:46 executing program 0:
+mount(&(0x7f00000001c0)=ANY=[@ANYBLOB="2e2e2f2f96707c2b8eea5814d31f4a17d96c"], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x210d00d, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+mount(&(0x7f00000001c0)=ANY=[@ANYBLOB="2e2e2f2f96707c2b8eea5814d31f4a17d96c"], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/locks\x00', 0x0, 0x0)
+mount(&(0x7f00000000c0)=ANY=[], &(0x7f0000000080)='.\x00', 0x0, 0x210d00d, 0x0)
+
+21:39:46 executing program 0:
+mount(&(0x7f00000001c0)=ANY=[@ANYBLOB="2e2e2f2f96707c2b8eea5814d31f4a17d96c"], &(0x7f0000000300)='.\x00', 0x0, 0x109405, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f00000000c0)='/proc/tty/drivers\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/locks\x00', 0x0, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000080)='/proc/diskstats\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000140)=""/4096, 0x1000)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000040)=0x1040, r1, 0x0, 0xfffffffffffffdf6, 0x0)
+read(r0, 0x0, 0x0)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x7f, 0x0, 0x0, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x7f, 0x0, 0x0, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:39:46 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000180)='/proc/sysvipc/sem\x00', 0x0, 0x0)
+close(r0)
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+pipe2(&(0x7f0000000040)={<r2=>0xffffffffffffffff, <r3=>0xffffffffffffffff}, 0x0)
+r4 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000500)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+splice(r4, 0x0, r3, 0x0, 0x200000000a3c, 0x0)
+splice(r2, 0x0, r1, 0x0, 0x5, 0x0)
+write$P9_RUNLINKAT(r1, &(0x7f0000000680)={0x7}, 0x7)
+read(r0, &(0x7f0000000040)=""/120, 0x78)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000080)='ccgroup@\xc3\x00')
+
+21:39:46 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x7f, 0x0, 0x0, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040)='tracefs\x00', 0x810011, 0x0)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000080)='ccgroup@\xc3\x00')
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040)='tracefs\x00', 0x810011, 0x0)
+
+21:39:46 executing program 1:
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f0000000300)={{0x0, 0x7f, 0x0, 0x0, 0x0, 0x46f9}}, 0x20)
+vmsplice(r0, &(0x7f00000002c0)=[{&(0x7f0000000080)=' ', 0x1}], 0x10000000000003c1, 0xb)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000080)='ccgroup@\xc3\x00')
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f00000010c0)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f0000000080)=""/4111, 0x100f)
+splice(r1, 0x0, r0, 0x0, 0x200, 0x0)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040)='tracefs\x00', 0x810011, 0x0)
+
+21:39:46 executing program 3:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000100)='ramfs\x00', 0x0, &(0x7f0000000080)='ccgroup@\xc3\x00')
+
+21:39:46 executing program 1:
+write$binfmt_elf64(0xffffffffffffffff, &(0x7f0000000140)={{0x7f, 0x45, 0x4c, 0x46, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x40}, [{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x100000000}]}, 0x78)
+write$binfmt_aout(0xffffffffffffffff, &(0x7f00000001c0)=ANY=[@ANYBLOB="000000000000000000000000020000c97fff"], 0x12)
+mount(0x0, &(0x7f0000000100)='.\x00', &(0x7f0000000140)='nfs\x00', 0x0, &(0x7f0000000180)='\x04\x00\x00\x00\x00\x00\x00\x00')
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f00000010c0)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f0000000080)=""/4111, 0x100f)
+splice(r1, 0x0, r0, 0x0, 0x200, 0x0)
+
+21:39:46 executing program 0:
+mount(0x0, &(0x7f0000000000)='.\x00', &(0x7f0000000040)='tracefs\x00', 0x810011, 0x0)
+
+21:39:46 executing program 2:
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f00000010c0)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f0000000080)=""/4111, 0x100f)
+splice(r1, 0x0, r0, 0x0, 0x200, 0x0)
+
+21:39:46 executing program 3:
+pipe2$9p(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f00000010c0)='/proc/vmallocinfo\x00', 0x0, 0x0)
+read(r1, &(0x7f0000000080)=""/4111, 0x100f)
+splice(r1, 0x0, r0, 0x0, 0x200, 0x0)
+
+[   19.767140] ------------[ cut here ]------------
+[   19.768164] Found allocation of ip_options
+[   19.768912] WARNING: CPU: 1 PID: 3871 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0
+[   19.770677] Modules linked in:
+[   19.771376] CPU: 1 PID: 3871 Comm: syz-executor.1 Not tainted 5.5.3 #60
+[   19.774303] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.778352] RIP: 0010:ip_setup_cork+0x4f1/0x8c0
+[   19.779907] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 9e 90 e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 21 82 a8 90 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+[   19.785985] RSP: 0018:ffff888068d09720 EFLAGS: 00010246
+[   19.787652] RAX: af66f63a93f01000 RBX: 0000000000000002 RCX: 0000000000000301
+[   19.789905] RDX: ffff8880686f8e80 RSI: 0000000000000001 RDI: 0000000000000000
+[   19.792151] RBP: 1ffff1100cee3e3d R08: dffffc0000000000 R09: ffffed100d1a42d4
+[   19.794365] R10: ffffed100d1a42d4 R11: 0000000000000000 R12: dffffc0000000000
+[   19.796988] R13: ffff88806771f1e0 R14: ffff88806771f1e8 R15: ffff888068d099b8
+[   19.799355] FS:  00007f382ea5a700(0000) GS:ffff888068d00000(0000) knlGS:0000000000000000
+[   19.801718] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.803411] CR2: 00007ffc4588cdb8 CR3: 00000000659d8002 CR4: 00000000001606e0
+[   19.805466] Call Trace:
+[   19.806172]  <IRQ>
+[   19.806766]  ip_append_data+0x155/0x1a0
+[   19.807856]  ? icmp_err+0x280/0x280
+[   19.808847]  icmp_push_reply+0x100/0x420
+[   19.809961]  __icmp_send+0x1129/0x2210
+[   19.811026]  ? __is_insn_slot_addr+0xb0/0xd0
+[   19.812305]  ? udp4_lib_lookup2+0x606/0x640
+[   19.813482]  ? stack_trace_save+0x150/0x150
+[   19.814656]  ? kernel_text_address+0xa9/0xf0
+[   19.815847]  ? __udp4_lib_lookup+0x24e/0x340
+[   19.816976]  __udp4_lib_rcv+0x19fd/0x2d00
+[   19.818063]  ? udp_v4_early_demux+0x1260/0x1260
+[   19.819270]  ip_protocol_deliver_rcu+0x36c/0x670
+[   19.820494]  ip_local_deliver+0x399/0x4f0
+[   19.821565]  ? ip_local_deliver+0x4f0/0x4f0
+[   19.822679]  ip_rcv+0x22b/0x280
+[   19.823526]  ? ip_rcv_core+0xa50/0xa50
+[   19.824532]  ? ip_local_deliver_finish+0x210/0x210
+[   19.825798]  __netif_receive_skb+0x353/0x490
+[   19.826931]  process_backlog+0x32b/0x6a0
+[   19.827918]  napi_poll+0x24d/0x6b0
+[   19.828783]  net_rx_action+0x2bd/0x870
+[   19.829738]  __do_softirq+0x242/0x5be
+[   19.830667]  do_softirq_own_stack+0x2a/0x40
+[   19.831718]  </IRQ>
+[   19.832269]  __local_bh_enable_ip+0xfa/0x110
+[   19.833348]  ip_finish_output2+0xae0/0x1610
+[   19.834404]  ? ip_finish_output+0x4f1/0x6e0
+[   19.835458]  ip_output+0x31c/0x400
+[   19.836325]  ? ip_mc_finish_output+0x190/0x190
+[   19.837442]  ip_local_out+0x351/0x480
+[   19.838345]  ? __ip_local_out+0x410/0x410
+[   19.839304]  ip_send_skb+0x41/0xd0
+[   19.840120]  udp_send_skb+0x8e9/0x1120
+[   19.841022]  udp_sendmsg+0x1c53/0x2ac0
+[   19.841926]  ? ip_do_fragment+0x2170/0x2170
+[   19.842920]  ? inet_send_prepare+0x1b0/0x470
+[   19.843937]  ? inet_send_prepare+0x470/0x470
+[   19.844952]  sock_sendmsg+0x145/0x170
+[   19.845828]  xs_sendpages+0x34d/0x950
+[   19.846704]  ? __switch_to_asm+0x40/0x70
+[   19.847646]  ? __set_cyc2ns_scale+0x2d0/0x2d0
+[   19.848645]  xs_udp_send_request+0x162/0x3d0
+[   19.849622]  xprt_request_transmit+0x14d/0xcf0
+[   19.850633]  xprt_transmit+0x132/0x420
+[   19.851490]  call_transmit+0x1a9/0x1f0
+[   19.852346]  ? call_encode+0x880/0x880
+[   19.853197]  ? call_encode+0x880/0x880
+[   19.854053]  __rpc_execute+0x2d5/0xce0
+[   19.854910]  rpc_run_task+0x4ee/0x620
+[   19.855748]  rpc_create_xprt+0x2f6/0x700
+[   19.856646]  ? xprt_create_transport+0x2da/0x370
+[   19.857693]  rpc_create+0x5df/0x8a0
+[   19.858508]  ? _raw_spin_lock+0x5d/0x110
+[   19.859359]  nfs_create_rpc_client+0x5a0/0x740
+[   19.860339]  nfs_init_client+0x53/0xf0
+[   19.861153]  nfs_create_server+0x7fe/0x2310
+[   19.862063]  ? __se_sys_mount+0xd3/0x100
+[   19.862917]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.864045]  ? link_path_walk+0x16ad/0x1790
+[   19.864954]  nfs_try_mount+0x399/0xf70
+[   19.865774]  ? memcpy+0x38/0x50
+[   19.866467]  ? _raw_spin_lock+0x5d/0x110
+[   19.867322]  nfs_fs_mount+0x1853/0x2810
+[   19.868162]  ? nfs_free_parsed_mount_data+0x100/0x100
+[   19.869255]  ? nfs_fill_super+0x860/0x860
+[   19.870103]  legacy_get_tree+0xe8/0x190
+[   19.870899]  ? init_once+0x2e0/0x2e0
+[   19.871649]  vfs_get_tree+0x8c/0x270
+[   19.872398]  do_mount+0x1714/0x2290
+[   19.873124]  ? copy_mount_options+0x1f8/0x330
+[   19.874025]  ? copy_mount_options+0x2a6/0x330
+[   19.874928]  __se_sys_mount+0xd3/0x100
+[   19.875712]  do_syscall_64+0xd1/0x160
+[   19.876482]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.877522] RIP: 0033:0x467519
+[   19.878164] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.881894] RSP: 002b:00007f382ea59c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[   19.883374] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.884764] RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+[   19.886160] RBP: 00007f382ea5a6bc R08: 0000000020000180 R09: 0000000000000000
+[   19.887555] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.888945] R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+[   19.890343] ---[ end trace a3edc36550d04999 ]---
+[   20.003998] ------------[ cut here ]------------
+[   20.005812] Found allocation of ip_options
+[   20.007470] WARNING: CPU: 0 PID: 3886 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0
+[   20.010366] Modules linked in:
+[   20.011447] CPU: 0 PID: 3886 Comm: syz-executor.1 Tainted: G        W         5.5.3 #60
+[   20.014174] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   20.018072] RIP: 0010:ip_setup_cork+0x4f1/0x8c0
+[   20.019541] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 9e 90 e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 21 82 a8 90 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+[   20.025457] RSP: 0018:ffff888068c09720 EFLAGS: 00010246
+[   20.027136] RAX: 4cab658f6cd18200 RBX: 0000000000000002 RCX: 0000000000000301
+[   20.029373] RDX: ffff888064f48000 RSI: 00000000000002bb RDI: 00000000000002bb
+[   20.031514] RBP: 1ffff1100cee3db5 R08: dffffc0000000000 R09: ffffed100d1812a1
+[   20.033652] R10: ffffed100d1812a1 R11: 0000000000000000 R12: dffffc0000000000
+[   20.035796] R13: ffff88806771eda0 R14: ffff88806771eda8 R15: ffff888068c099b8
+[   20.037934] FS:  00007f382ea39700(0000) GS:ffff888068c00000(0000) knlGS:0000000000000000
+[   20.040322] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   20.041955] CR2: 000000000074c000 CR3: 00000000659d8006 CR4: 00000000001606f0
+[   20.043962] Call Trace:
+[   20.044686]  <IRQ>
+[   20.045290]  ip_append_data+0x155/0x1a0
+[   20.046394]  ? icmp_err+0x280/0x280
+[   20.047399]  icmp_push_reply+0x100/0x420
+[   20.048521]  __icmp_send+0x1129/0x2210
+[   20.056184]  ? udp4_lib_lookup2+0x606/0x640
+[   20.057324]  ? __udp4_lib_lookup+0x24e/0x340
+[   20.058480]  __udp4_lib_rcv+0x19fd/0x2d00
+[   20.059566]  ? udp_v4_early_demux+0x1260/0x1260
+[   20.060776]  ip_protocol_deliver_rcu+0x36c/0x670
+[   20.061957]  ip_local_deliver+0x399/0x4f0
+[   20.062988]  ? ip_local_deliver+0x4f0/0x4f0
+[   20.064060]  ip_rcv+0x22b/0x280
+[   20.064878]  ? ip_rcv_core+0xa50/0xa50
+[   20.065846]  ? ip_local_deliver_finish+0x210/0x210
+[   20.067069]  __netif_receive_skb+0x353/0x490
+[   20.068164]  process_backlog+0x32b/0x6a0
+[   20.069174]  napi_poll+0x24d/0x6b0
+[   20.070055]  net_rx_action+0x2bd/0x870
+[   20.071030]  __do_softirq+0x242/0x5be
+[   20.071979]  do_softirq_own_stack+0x2a/0x40
+[   20.073000]  </IRQ>
+[   20.073536]  __local_bh_enable_ip+0xfa/0x110
+[   20.074585]  ip_finish_output2+0xae0/0x1610
+[   20.075606]  ip_output+0x31c/0x400
+[   20.076446]  ? ip_mc_finish_output+0x190/0x190
+[   20.077526]  ip_local_out+0x351/0x480
+[   20.078422]  ? __ip_local_out+0x410/0x410
+[   20.079399]  ip_send_skb+0x41/0xd0
+[   20.080230]  udp_send_skb+0x8e9/0x1120
+[   20.081151]  udp_sendmsg+0x1c53/0x2ac0
+[   20.082079]  ? ip_do_fragment+0x2170/0x2170
+[   20.083096]  ? select_task_rq_fair+0x5f5/0x3350
+[   20.084154]  ? inet_send_prepare+0x1b0/0x470
+[   20.085155]  ? inet_send_prepare+0x470/0x470
+[   20.086152]  sock_sendmsg+0x145/0x170
+[   20.087011]  xs_sendpages+0x34d/0x950
+[   20.087873]  ? __switch_to_asm+0x40/0x70
+[   20.088795]  ? __set_cyc2ns_scale+0x2d0/0x2d0
+[   20.089810]  xs_udp_send_request+0x162/0x3d0
+[   20.090810]  xprt_request_transmit+0x14d/0xcf0
+[   20.091847]  xprt_transmit+0x132/0x420
+[   20.092730]  call_transmit+0x1a9/0x1f0
+[   20.093575]  ? call_encode+0x880/0x880
+[   20.094422]  ? call_encode+0x880/0x880
+[   20.095262]  __rpc_execute+0x2d5/0xce0
+[   20.096101]  rpc_run_task+0x4ee/0x620
+[   20.096923]  rpc_create_xprt+0x2f6/0x700
+[   20.097810]  ? xprt_create_transport+0x2da/0x370
+[   20.098840]  rpc_create+0x5df/0x8a0
+[   20.099632]  ? _raw_spin_lock+0x5d/0x110
+[   20.100512]  nfs_create_rpc_client+0x5a0/0x740
+[   20.101502]  nfs_init_client+0x53/0xf0
+[   20.102340]  nfs_create_server+0x7fe/0x2310
+[   20.103278]  ? __se_sys_mount+0xd3/0x100
+[   20.104128]  ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   20.105243]  ? link_path_walk+0x16ad/0x1790
+[   20.106140]  nfs_try_mount+0x399/0xf70
+[   20.106948]  ? memcpy+0x38/0x50
+[   20.107638]  ? _raw_spin_lock+0x5d/0x110
+[   20.108485]  nfs_fs_mount+0x1853/0x2810
+[   20.109307]  ? nfs_free_parsed_mount_data+0x100/0x100
+[   20.110380]  ? nfs_fill_super+0x860/0x860
+[   20.111237]  legacy_get_tree+0xe8/0x190
+[   20.112060]  ? init_once+0x2e0/0x2e0
+[   20.112840]  vfs_get_tree+0x8c/0x270
+[   20.113617]  do_mount+0x1714/0x2290
+[   20.114351]  ? copy_mount_options+0x2a6/0x330
+[   20.115242]  __se_sys_mount+0xd3/0x100
+[   20.116018]  do_syscall_64+0xd1/0x160
+[   20.116776]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   20.117810] RIP: 0033:0x467519
+[   20.118449] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   20.122215] RSP: 002b:00007f382ea38c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[   20.123745] RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+[   20.125169] RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+[   20.126560] RBP: 00007f382ea396bc R08: 0000000020000180 R09: 0000000000000000
+[   20.127969] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   20.129379] R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+[   20.130770] ---[ end trace a3edc36550d0499a ]---

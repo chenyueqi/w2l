@@ -1,0 +1,143 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:57773' (ECDSA) to the list of known hosts.
+2020/04/21 21:10:47 fuzzer started
+2020/04/21 21:10:48 dialing manager at 10.0.2.10:39009
+2020/04/21 21:10:48 syscalls: 49
+2020/04/21 21:10:48 code coverage: enabled
+2020/04/21 21:10:48 comparison tracing: enabled
+2020/04/21 21:10:48 extra coverage: enabled
+2020/04/21 21:10:48 setuid sandbox: enabled
+2020/04/21 21:10:48 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/21 21:10:48 Android sandbox: enabled
+2020/04/21 21:10:48 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/21 21:10:48 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/21 21:10:48 net packet injection: /dev/net/tun does not exist
+2020/04/21 21:10:48 net device setup: enabled
+2020/04/21 21:10:48 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/21 21:10:48 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/21 21:10:48 USB emulation: /dev/raw-gadget does not exist
+21:10:49 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:49 executing program 3:
+read(0xffffffffffffffff, 0x0, 0x0)
+write$P9_RMKNOD(0xffffffffffffffff, &(0x7f0000000000)={0xfffffffffffffe48, 0x13, 0x0, {0x0, 0x0, 0x4}}, 0xffffff3b)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+vmsplice(r0, &(0x7f0000000000), 0x1000000000000094, 0x0)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+21:10:49 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000200)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+syzkaller login: [   11.062785] audit: type=1400 audit(1587503449.073:8): avc:  denied  { execmem } for  pid=410 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+21:10:49 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+[   11.144726] cgroup1: Unknown subsys name 'perf_event'
+[   11.147175] cgroup1: Unknown subsys name 'net_cls'
+[   11.215031] cgroup1: Unknown subsys name 'perf_event'
+[   11.217719] cgroup1: Unknown subsys name 'net_cls'
+[   11.231630] cgroup1: Unknown subsys name 'perf_event'
+[   11.234668] cgroup1: Unknown subsys name 'perf_event'
+[   11.239017] cgroup1: Unknown subsys name 'net_cls'
+[   11.242307] cgroup1: Unknown subsys name 'net_cls'
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 3:
+read(0xffffffffffffffff, 0x0, 0x0)
+write$P9_RMKNOD(0xffffffffffffffff, &(0x7f0000000000)={0xfffffffffffffe48, 0x13, 0x0, {0x0, 0x0, 0x4}}, 0xffffff3b)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r0=>0xffffffffffffffff})
+vmsplice(r0, &(0x7f0000000000), 0x1000000000000094, 0x0)
+pipe(&(0x7f0000000040)={0xffffffffffffffff, <r1=>0xffffffffffffffff})
+vmsplice(r1, &(0x7f0000000200)=[{0x0}, {&(0x7f00000002c0)=' ', 0xffffff40}, {&(0x7f0000000100)="474f2b153bf7930193f527b4a28e6eda93f749f39923d511d7ebe0c060a7add29919f6d38f98907ef8e07fbfefe0b1c23fa5c15699b7253ce41a67a89d4d4cd783f785a44952d711a37da3e0ebdf93f41d4df4bbc9ffd029bb3142e6a40e565b01b95411a5b3160bc13974ae1b008d15f22965b62ddd080c11fd4afb1ab6bd5378e56041433c3d4f00d0af55399a6639b3016ca71ccd122f6aadedd88d081311393a4ce3546a14a6a6862e877a41784a60576e2ee48d68827abf30ceb8973648984c9ca806512a040fd72a2b0cd2c76777d3699fc40ae52e2971f40fb31dc077e8715e361ebc684533c5b705"}], 0x2, 0x0)
+
+[   12.359660] ------------[ cut here ]------------
+21:10:50 executing program 1:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmstat\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000200)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+21:10:50 executing program 0:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000000)='/proc/meminfo\x00', 0x0, 0x0)
+read(r0, &(0x7f0000000040)=""/99, 0x63)
+read(r0, 0x0, 0x2)
+
+21:10:50 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/keys\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001240)=""/4096, 0x1000)
+
+[   12.361667] Found leaking site of fname
+[   12.361853] WARNING: CPU: 0 PID: 424 at fs/ext4/dir.c:532 call_filldir+0x27d/0x5c0
+[   12.366952] Kernel panic - not syncing: panic_on_warn set ...
+[   12.369890] CPU: 0 PID: 424 Comm: syz-executor.1 Not tainted 5.5.3 #74
+[   12.372907] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   12.378383] Call Trace:
+[   12.379589]  dump_stack+0x15e/0x1ae
+[   12.381272]  panic+0x228/0x700
+[   12.382628]  ? call_filldir+0x27d/0x5c0
+[   12.384330]  __warn+0x1fe/0x200
+[   12.385663]  ? call_filldir+0x27d/0x5c0
+[   12.387450]  report_bug+0x359/0x480
+[   12.388972]  ? call_filldir+0x27d/0x5c0
+[   12.390566]  do_invalid_op+0x6e/0x110
+[   12.392243]  invalid_op+0x1e/0x30
+[   12.393762] RIP: 0010:call_filldir+0x27d/0x5c0
+[   12.395644] Code: 81 c7 48 06 00 00 48 c7 c6 12 a2 5e ac e8 bb 39 13 02 48 85 c0 74 2d e8 21 dc b2 ff 48 c7 c7 2b 55 5e ac 31 c0 e8 33 2b 8c ff <0f> 0b eb 1f 0f 1f 44 00 00 66 2e 0f 1f 84 00 00 00 00 00 e8 fb db
+[   12.404060] RSP: 0018:ffff88804f80fc40 EFLAGS: 00010246
+[   12.406481] RAX: 98beed4d55292d00 RBX: 0000000000000002 RCX: 0000000000000000
+[   12.410014] RDX: ffff888066c42b80 RSI: 0000000000000222 RDI: 0000000000000222
+[   12.414131] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff5a68bc3
+[   12.417440] R10: fffffbfff5a68bc3 R11: 0000000000000000 R12: ffff8880699f93a0
+[   12.420726] R13: dffffc0000000000 R14: ffff88806917bf00 R15: ffff88804f80fec0
+[   12.424157]  ? kmem_cache_alloc_trace+0x188/0x200
+[   12.426317]  ext4_readdir+0x2492/0x2a40
+[   12.427745]  ? memset+0x1f/0x40
+[   12.429337]  ? down_read_killable+0xcd/0x1c0
+[   12.431245]  iterate_dir+0x2a6/0x510
+[   12.432912]  __se_sys_getdents+0x191/0x3f0
+[   12.434777]  ? fillonedir+0x250/0x250
+[   12.436184]  do_syscall_64+0xd1/0x160
+[   12.437866]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   12.440167] RIP: 0033:0x4656a8
+[   12.441718] Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+[   12.450144] RSP: 002b:00007ffea5ca1210 EFLAGS: 00000202 ORIG_RAX: 000000000000004e
+[   12.453525] RAX: ffffffffffffffda RBX: 0000000000fa4c10 RCX: 00000000004656a8
+[   12.456817] RDX: 0000000000008000 RSI: 0000000000fa4c10 RDI: 0000000000000003
+[   12.460135] RBP: 0000000000fa4c10 R08: 0000000000000076 R09: 0000000000000000
+[   12.463388] R10: 0000000000000804 R11: 0000000000000202 R12: ffffffffffffffbc
+[   12.466712] R13: 0000000000000016 R14: 0000000000000003 R15: 00000000ffffffff
+[   12.474372] Dumping ftrace buffer:
+[   12.475958]    (ftrace buffer empty)
+[   12.477662] Kernel Offset: 0x28600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.482410] Rebooting in 1 seconds..

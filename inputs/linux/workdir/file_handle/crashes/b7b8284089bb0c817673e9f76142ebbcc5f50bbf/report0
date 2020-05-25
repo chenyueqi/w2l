@@ -1,0 +1,46 @@
+audit: type=1400 audit(1587345280.154:8): avc:  denied  { execmem } for  pid=420 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+------------[ cut here ]------------
+Found allocation of fname
+WARNING: CPU: 1 PID: 421 at fs/ext4/dir.c:456 ext4_htree_store_dirent+0xb6/0x680 fs/ext4/dir.c:456
+Kernel panic - not syncing: panic_on_warn set ...
+CPU: 1 PID: 421 Comm: syz-executor.0 Not tainted 5.5.3 #44
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ __warn+0x1fe/0x200 kernel/panic.c:582
+ report_bug+0x359/0x480 lib/bug.c:195
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+RIP: 0010:ext4_htree_store_dirent+0xb6/0x680 fs/ext4/dir.c:456
+Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f de 8a e8 b2 85 13 02 48 85 c0 74 1e e8 f8 16 b3 ff 48 c7 c7 e1 a1 de 8a 31 c0 e8 0a 66 8c ff <0f> 0b eb 0c e8 e1 16 b3 ff eb 05 e8 da 16 b3 ff 4d 8d 74 24 08 4c
+RSP: 0018:ffff88805acbfa20 EFLAGS: 00010246
+RAX: 155cee6043d36400 RBX: 0000000000000002 RCX: 0000000000000000
+RDX: ffff888067f70e80 RSI: 000000000000021a RDI: 000000000000021a
+RBP: 0000000000000001 R08: dffffc0000000000 R09: fffffbfff1768bc3
+R10: fffffbfff1768bc3 R11: 0000000000000000 R12: ffff88805acbfb20
+R13: 0000000040df084e R14: ffff88806c89c608 R15: dffffc0000000000
+ htree_dirblock_to_tree+0x448/0x690 fs/ext4/namei.c:1039
+ ext4_htree_fill_tree+0x53f/0x11a0 fs/ext4/namei.c:1116
+ ext4_dx_readdir fs/ext4/dir.c:585 [inline]
+ ext4_readdir+0x28a9/0x34d0 fs/ext4/dir.c:128
+ iterate_dir+0x2a6/0x510 fs/readdir.c:67
+ __do_sys_getdents fs/readdir.c:285 [inline]
+ __se_sys_getdents+0x191/0x3f0 fs/readdir.c:267
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x4656a8
+Code: 5d 41 5c 41 5d c3 31 d2 64 41 83 3c 24 02 75 bb eb b2 41 57 41 56 b8 4e 00 00 00 41 55 41 54 55 53 48 89 f3 48 83 ec 08 0f 05 <48> 3d 00 f0 ff ff 77 58 4c 8d 2c 06 49 89 c4 4c 39 ee 73 36 0f 1f
+RSP: 002b:00007fff1ef3cb60 EFLAGS: 00000206 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 0000000000f2cc10 RCX: 00000000004656a8
+RDX: 0000000000008000 RSI: 0000000000f2cc10 RDI: 0000000000000003
+RBP: 0000000000f2cc10 R08: 0000000000000076 R09: 0000000000000000
+R10: 0000000000000804 R11: 0000000000000206 R12: ffffffffffffffbc
+R13: 0000000000000016 R14: 0000000000000001 R15: 00000000ffffffff
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x6e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

@@ -1,0 +1,102 @@
+------------[ cut here ]------------
+Found allocation of file_handle
+WARNING: CPU: 1 PID: 2154 at fs/fhandle.c:201 handle_to_path fs/fhandle.c:201 [inline]
+WARNING: CPU: 1 PID: 2154 at fs/fhandle.c:201 do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+------------[ cut here ]------------
+Kernel panic - not syncing: panic_on_warn set ...
+Found allocation of file_handle
+WARNING: CPU: 0 PID: 2161 at fs/fhandle.c:201 handle_to_path fs/fhandle.c:201 [inline]
+WARNING: CPU: 0 PID: 2161 at fs/fhandle.c:201 do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+CPU: 1 PID: 2154 Comm: syz-executor.1 Not tainted 5.5.3 #35
+Modules linked in:
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+CPU: 0 PID: 2161 Comm: syz-executor.0 Not tainted 5.5.3 #35
+Call Trace:
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:handle_to_path fs/fhandle.c:201 [inline]
+RIP: 0010:do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+Code: 8b 1d 63 50 bb 02 bf 02 00 00 00 89 de e8 57 d8 bc ff 83 fb 02 75 17 e8 3d d4 bc ff 48 c7 c7 b1 7a be 89 31 c0 e8 4f 23 96 ff <0f> 0b eb 05 e8 26 d4 bc ff 44 89 64 24 08 42 8a 44 2d 00 84 c0 0f
+ panic+0x228/0x700 kernel/panic.c:221
+RSP: 0018:ffff88805069feb0 EFLAGS: 00010246
+RAX: 0f2f52ef5c5f3900 RBX: 0000000000000002 RCX: ffffc90000165000
+RDX: ffffffff86c00000 RSI: 0000000000005f3e RDI: 0000000000005f3f
+ __warn+0x1fe/0x200 kernel/panic.c:582
+RBP: 1ffff1100a0d3fdb R08: dffffc0000000000 R09: fffffbfff1528bc3
+R10: fffffbfff1528bc3 R11: 0000000000000000 R12: 0000000000008001
+ report_bug+0x359/0x480 lib/bug.c:195
+R13: dffffc0000000000 R14: 0000000000000003 R15: 0000000020001740
+FS:  00007f6437a68700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+ fixup_bug arch/x86/kernel/traps.c:174 [inline]
+ do_error_trap arch/x86/kernel/traps.c:267 [inline]
+ do_invalid_op+0x6e/0x110 arch/x86/kernel/traps.c:286
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ invalid_op+0x1e/0x30 arch/x86/entry/entry_64.S:1027
+CR2: 0000001b30a21000 CR3: 000000006a490002 CR4: 00000000003606f0
+RIP: 0010:handle_to_path fs/fhandle.c:201 [inline]
+RIP: 0010:do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+Call Trace:
+Code: 8b 1d 63 50 bb 02 bf 02 00 00 00 89 de e8 57 d8 bc ff 83 fb 02 75 17 e8 3d d4 bc ff 48 c7 c7 b1 7a be 89 31 c0 e8 4f 23 96 ff <0f> 0b eb 05 e8 26 d4 bc ff 44 89 64 24 08 42 8a 44 2d 00 84 c0 0f
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+RSP: 0018:ffff8880673d7eb0 EFLAGS: 00010246
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RAX: 4e6f2a9620461500 RBX: 0000000000000002 RCX: ffffc90000969000
+RIP: 0033:0x467519
+RDX: ffffffff86c00000 RSI: 00000000000002e7 RDI: 00000000000002e8
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RBP: 1ffff1100ce7afdb R08: dffffc0000000000 R09: fffffbfff1528bc3
+RSP: 002b:00007f6437a67c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000130
+R10: fffffbfff1528bc3 R11: 0000000000000000 R12: 0000000000288040
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000001 RSI: 0000000020001740 RDI: 0000000000000003
+R13: dffffc0000000000 R14: 00000000ffffffff R15: 0000000020000140
+RBP: 00007f6437a686bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000775 R14: 00000000004c88f3 R15: 0000000000701640
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+---[ end trace 9ff1408b4d441bbf ]---
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+------------[ cut here ]------------
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f14d2490c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000130
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000280040 RSI: 0000000020000140 RDI: ffffffffffffffff
+RBP: 00007f14d24916bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000775 R14: 00000000004c88f3 R15: 0000000000701640
+Found allocation of file_handle
+WARNING: CPU: 0 PID: 2161 at fs/fhandle.c:201 handle_to_path fs/fhandle.c:201 [inline]
+WARNING: CPU: 0 PID: 2161 at fs/fhandle.c:201 do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+Modules linked in:
+CPU: 0 PID: 2161 Comm: syz-executor.0 Tainted: G        W         5.5.3 #35
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:handle_to_path fs/fhandle.c:201 [inline]
+RIP: 0010:do_handle_open+0x121/0x7d0 fs/fhandle.c:234
+Code: 8b 1d 63 50 bb 02 bf 02 00 00 00 89 de e8 57 d8 bc ff 83 fb 02 75 17 e8 3d d4 bc ff 48 c7 c7 b1 7a be 89 31 c0 e8 4f 23 96 ff <0f> 0b eb 05 e8 26 d4 bc ff 44 89 64 24 08 42 8a 44 2d 00 84 c0 0f
+RSP: 0018:ffff88805069feb0 EFLAGS: 00010246
+RAX: 0f2f52ef5c5f3900 RBX: 0000000000000002 RCX: ffffc90000165000
+RDX: ffffffff86c00000 RSI: 0000000000008dac RDI: 0000000000008dad
+RBP: 1ffff1100a0d3fdb R08: dffffc0000000000 R09: fffffbfff1528bc3
+R10: fffffbfff1528bc3 R11: 0000000000000000 R12: 0000000000008001
+R13: dffffc0000000000 R14: 0000000000000009 R15: 0000000020001740
+FS:  00007f6437a68700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f6437a25db8 CR3: 000000006a490002 CR4: 00000000003606f0
+Call Trace:
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:294
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f6437a67c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000130
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000000000001 RSI: 0000000020001740 RDI: 0000000000000009
+RBP: 00007f6437a686bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000775 R14: 00000000004c88f3 R15: 0000000000701640
+---[ end trace 9ff1408b4d441bc0 ]---
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x5c00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

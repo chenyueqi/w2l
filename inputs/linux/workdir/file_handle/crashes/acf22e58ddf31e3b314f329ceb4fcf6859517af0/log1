@@ -1,0 +1,1361 @@
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:51727' (ECDSA) to the list of known hosts.
+2020/04/20 01:30:59 fuzzer started
+2020/04/20 01:31:00 dialing manager at 10.0.2.10:41885
+2020/04/20 01:31:00 syscalls: 8
+2020/04/20 01:31:00 code coverage: enabled
+2020/04/20 01:31:00 comparison tracing: enabled
+2020/04/20 01:31:00 extra coverage: enabled
+2020/04/20 01:31:00 setuid sandbox: enabled
+2020/04/20 01:31:00 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 01:31:00 Android sandbox: enabled
+2020/04/20 01:31:00 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 01:31:00 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 01:31:00 net packet injection: /dev/net/tun does not exist
+2020/04/20 01:31:00 net device setup: enabled
+2020/04/20 01:31:00 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 01:31:00 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 01:31:00 USB emulation: /dev/raw-gadget does not exist
+01:31:00 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "040c"}, 0x2f00)
+
+01:31:00 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='sessionid\x00')
+read(r0, 0x0, 0x0)
+
+01:31:00 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:00 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+name_to_handle_at(r0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+syzkaller login: [   10.572651] audit: type=1400 audit(1587346260.580:8): avc:  denied  { execmem } for  pid=425 comm="syz-executor.1" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   10.625892] cgroup1: Unknown subsys name 'perf_event'
+[   10.630518] cgroup1: Unknown subsys name 'net_cls'
+[   10.665059] cgroup1: Unknown subsys name 'perf_event'
+[   10.667364] cgroup1: Unknown subsys name 'net_cls'
+[   10.722563] cgroup1: Unknown subsys name 'perf_event'
+[   10.722586] cgroup1: Unknown subsys name 'perf_event'
+[   10.725146] cgroup1: Unknown subsys name 'net_cls'
+[   10.731674] cgroup1: Unknown subsys name 'net_cls'
+01:31:01 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "040c"}, 0x2f00)
+
+01:31:01 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "040c"}, 0x2f00)
+
+01:31:01 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0xa, 0x2, "040c"}, 0x2f00)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='schedstat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='schedstat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='schedstat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='sessionid\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+name_to_handle_at(r0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:01 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+name_to_handle_at(r0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='schedstat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='sessionid\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+name_to_handle_at(r0, &(0x7f00000000c0)='./file0\x00', 0x0, 0x0, 0x0)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='sessionid\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 2:
+openat$dir(0xffffffffffffff9c, 0x0, 0x501000, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 3:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/ipv6_route\x00')
+read(r0, &(0x7f0000000040)=""/174, 0xae)
+read(r0, &(0x7f0000000340)=""/109, 0x6d)
+read(r0, &(0x7f0000000140)=""/242, 0xf2)
+read(r0, &(0x7f0000000440)=""/175, 0xaf)
+read(r0, &(0x7f0000000240)=""/230, 0xe6)
+
+01:31:01 executing program 2:
+openat$dir(0xffffffffffffff9c, 0x0, 0x501000, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='net/if_inet6\x00')
+read(r0, &(0x7f00000001c0)=""/240, 0xf0)
+read(r0, &(0x7f0000000540)=""/4096, 0x1000)
+
+01:31:01 executing program 1:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 2:
+openat$dir(0xffffffffffffff9c, 0x0, 0x501000, 0x0)
+
+01:31:01 executing program 3:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+
+01:31:01 executing program 1:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 3:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+
+01:31:01 executing program 0:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 2:
+openat$dir(0xffffffffffffff9c, 0x0, 0x501000, 0x0)
+
+01:31:01 executing program 0:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 3:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+
+01:31:01 executing program 1:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000080)='net/softnet_stat\x00')
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/netlink\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 0:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 1:
+syz_open_procfs$namespace(0x0, &(0x7f00000015c0)='ns/net\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000000)='ns/net\x00')
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/netlink\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000080)='net/softnet_stat\x00')
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/netlink\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000080)='net/softnet_stat\x00')
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/netlink\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000080)='net/softnet_stat\x00')
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 2:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='net/ip6_tables_matches\x00')
+
+01:31:01 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:01 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='attr/exec\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "02"}, 0x149c00)
+
+01:31:01 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:01 executing program 2:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/exec\x00')
+
+01:31:01 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "02"}, 0x149c00)
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='attr/exec\x00')
+read(r0, 0x0, 0x0)
+
+01:31:01 executing program 2:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/exec\x00')
+
+01:31:01 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='attr/exec\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "02"}, 0x149c00)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f00000000c0)={0x9, 0x2, "02"}, 0x149c00)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 2:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/exec\x00')
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='attr/exec\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 2:
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/exec\x00')
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='attr/prev\x00')
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='attr/prev\x00')
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce10"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+read(r1, &(0x7f0000000080)=""/31, 0x1f)
+
+01:31:02 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000080)='./file0\x00', 0x20a000, 0x0)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='attr/prev\x00')
+
+01:31:02 executing program 1:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf24c0, 0x0)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='fdinfo/3\x00')
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='attr/prev\x00')
+
+01:31:02 executing program 1:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf24c0, 0x0)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='fdinfo/3\x00')
+
+01:31:02 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000080)='./file0\x00', 0x20a000, 0x0)
+
+01:31:02 executing program 1:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf24c0, 0x0)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='fdinfo/3\x00')
+
+01:31:02 executing program 1:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf24c0, 0x0)
+syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='fdinfo/3\x00')
+
+01:31:02 executing program 0:
+open$dir(&(0x7f0000000000)='./file1\x00', 0xc0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000200)='net/protocols\x00')
+read(r0, &(0x7f0000000280)=""/211, 0xd3)
+
+01:31:02 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000080)='./file0\x00', 0x20a000, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000080)='./file0\x00', 0x20a000, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000200)='net/protocols\x00')
+read(r0, &(0x7f0000000280)=""/211, 0xd3)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000200)='net/protocols\x00')
+read(r0, &(0x7f0000000280)=""/211, 0xd3)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000200)='net/protocols\x00')
+read(r0, &(0x7f0000000280)=""/211, 0xd3)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f00000001c0)='net/snmp6\x00')
+read(r0, &(0x7f0000000080)=""/102, 0x66)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9950"}, 0x4542)
+
+01:31:02 executing program 0:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf2040, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000400)='./file1\x00', 0x68440, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf2040, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000400)='./file1\x00', 0x68440, 0x0)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)='net/ptype\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ip6_tables_targets\x00')
+read(r0, &(0x7f0000000000)=""/39, 0x27)
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf2040, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000400)='./file1\x00', 0x68440, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='smaps\x00')
+read(r0, &(0x7f0000004280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/174, 0x200000ee)
+read(r0, &(0x7f0000001280)=""/4096, 0x1000)
+read(r0, &(0x7f0000002280)=""/4096, 0x1000)
+read(r0, &(0x7f0000003280)=""/4096, 0x1000)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)='net/ptype\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000040)='./file1\x00', 0x401c0, 0x0)
+open_by_handle_at(r0, &(0x7f00000001c0)={0xe, 0x2, "fb000000002b"}, 0x0)
+
+01:31:02 executing program 0:
+openat$dir(0xffffffffffffff9c, &(0x7f00000000c0)='./file0\x00', 0xf2040, 0x0)
+openat$dir(0xffffffffffffff9c, &(0x7f0000000400)='./file1\x00', 0x68440, 0x0)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000040)='./file1\x00', 0x401c0, 0x0)
+open_by_handle_at(r0, &(0x7f00000001c0)={0xe, 0x2, "fb000000002b"}, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='smaps\x00')
+read(r0, &(0x7f0000004280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/174, 0x200000ee)
+read(r0, &(0x7f0000001280)=""/4096, 0x1000)
+read(r0, &(0x7f0000002280)=""/4096, 0x1000)
+read(r0, &(0x7f0000003280)=""/4096, 0x1000)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)='net/ptype\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='smaps\x00')
+read(r0, &(0x7f0000004280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/174, 0x200000ee)
+read(r0, &(0x7f0000001280)=""/4096, 0x1000)
+read(r0, &(0x7f0000002280)=""/4096, 0x1000)
+read(r0, &(0x7f0000003280)=""/4096, 0x1000)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000040)='./file1\x00', 0x401c0, 0x0)
+open_by_handle_at(r0, &(0x7f00000001c0)={0xe, 0x2, "fb000000002b"}, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0x0, &(0x7f0000000180)='net/ptype\x00')
+read(r0, &(0x7f0000000340)=""/4096, 0x1000)
+read(r0, 0x0, 0x2f00)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='smaps\x00')
+read(r0, &(0x7f0000004280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000280)=""/4096, 0x1000)
+read(r0, &(0x7f0000000040)=""/174, 0x200000ee)
+read(r0, &(0x7f0000001280)=""/4096, 0x1000)
+read(r0, &(0x7f0000002280)=""/4096, 0x1000)
+read(r0, &(0x7f0000003280)=""/4096, 0x1000)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000040)='./file1\x00', 0x401c0, 0x0)
+open_by_handle_at(r0, &(0x7f00000001c0)={0xe, 0x2, "fb000000002b"}, 0x0)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/sockstat6\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r0, &(0x7f0000001200)=""/4072, 0xfe78)
+r1 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='pagemap\x00')
+read(r1, &(0x7f0000001200)=""/4072, 0xfe78)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/netlink\x00')
+read(r0, &(0x7f00000000c0)=""/4096, 0x1000)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/sockstat6\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/sockstat6\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/sockstat6\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+open_by_handle_at(r0, &(0x7f00000002c0)={0x8}, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+open_by_handle_at(r0, &(0x7f00000002c0)={0x8}, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+open_by_handle_at(r0, &(0x7f00000002c0)={0x8}, 0x0)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000080)='oom_score_adj\x00')
+open_by_handle_at(r0, &(0x7f00000002c0)={0x8}, 0x0)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x1054c2, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000080)=""/45, 0x2d)
+read(r0, &(0x7f00000001c0)=""/234, 0xea)
+
+01:31:02 executing program 0:
+r0 = syz_open_procfs(0x0, &(0x7f0000000040)='net/ipv6_route\x00')
+read(r0, &(0x7f00000022c0)=""/4124, 0x101c)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x1054c2, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000080)=""/45, 0x2d)
+read(r0, &(0x7f00000001c0)=""/234, 0xea)
+
+01:31:02 executing program 1:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='smaps_rollup\x00')
+read(r0, 0x0, 0x0)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='net/psched\x00')
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000080)=""/45, 0x2d)
+read(r0, &(0x7f00000001c0)=""/234, 0xea)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x1054c2, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/ptype\x00')
+read(r0, &(0x7f0000000080)=""/45, 0x2d)
+read(r0, &(0x7f00000001c0)=""/234, 0xea)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='net/psched\x00')
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x1054c2, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='net/psched\x00')
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000000)='net/psched\x00')
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:02 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x8a41, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0xa, 0x2, "9b50"}, 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:02 executing program 1:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:03 executing program 3:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 1:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 1:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 0:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 3:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:03 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:03 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/fib_triestat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:04 executing program 2:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:04 executing program 3:
+syz_open_procfs(0x0, &(0x7f0000000140)='mountinfo\x00')
+name_to_handle_at(0xffffffffffffffff, &(0x7f0000000040)='./file0\x00', 0x0, 0x0, 0x0)
+open$dir(&(0x7f0000000100)='./file0\x00', 0x0, 0xa)
+read(0xffffffffffffffff, &(0x7f00000004c0)=""/157, 0x9d)
+r0 = open$dir(&(0x7f0000000000)='./file0\x00', 0x40, 0x0)
+read(r0, &(0x7f0000000180)=""/122, 0x7a)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/fib_triestat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/fib_triestat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000100)='net/fib_triestat\x00')
+read(r0, 0x0, 0x0)
+
+01:31:04 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:04 executing program 3:
+open$dir(&(0x7f0000000040)='\x00', 0x0, 0x0)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 3:
+open$dir(&(0x7f0000000040)='\x00', 0x0, 0x0)
+
+01:31:04 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 3:
+open$dir(&(0x7f0000000040)='\x00', 0x0, 0x0)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="2a000000020000009c50"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+r2 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000040)='stat\x00')
+read(r1, &(0x7f0000000200)=""/4096, 0x1000)
+read(r2, 0x0, 0x0)
+
+01:31:04 executing program 3:
+open$dir(&(0x7f0000000040)='\x00', 0x0, 0x0)
+
+01:31:04 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 2:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000080)='net/ip6_tables_names\x00')
+read(r0, &(0x7f0000000040)=""/1, 0x1)
+read(r0, &(0x7f0000000300)=""/102, 0x66)
+
+01:31:04 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000280)='./file0/file0\x00', 0x0, 0x0)
+
+01:31:04 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000040)='environ\x00')
+
+01:31:04 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000280)='./file0/file0\x00', 0x0, 0x0)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/unix\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000040)='environ\x00')
+
+01:31:05 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000280)='./file0/file0\x00', 0x0, 0x0)
+
+01:31:05 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000040)='environ\x00')
+
+01:31:05 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/unix\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 3:
+openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='./file0\x00', 0x0, 0x0)
+open$dir(&(0x7f0000000280)='./file0/file0\x00', 0x0, 0x0)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 2:
+syz_open_procfs(0x0, &(0x7f0000000040)='environ\x00')
+
+01:31:05 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/unix\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='net/mcfilter6\x00')
+read(r0, &(0x7f0000000000)=""/55, 0x37)
+read(r0, &(0x7f0000000100)=""/240, 0xf0)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 1:
+r0 = syz_open_procfs(0x0, &(0x7f0000000000)='net/unix\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='net/mcfilter6\x00')
+read(r0, &(0x7f0000000000)=""/55, 0x37)
+read(r0, &(0x7f0000000100)=""/240, 0xf0)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='net/mcfilter6\x00')
+read(r0, &(0x7f0000000000)=""/55, 0x37)
+read(r0, &(0x7f0000000100)=""/240, 0xf0)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)={0x9, 0x2, "10"}, 0x0)
+syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 2:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f00000000c0)='net/mcfilter6\x00')
+read(r0, &(0x7f0000000000)=""/55, 0x37)
+read(r0, &(0x7f0000000100)=""/240, 0xf0)
+
+01:31:05 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 2:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 0:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 3:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 2:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 0:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000000)='ns/ipc\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+
+01:31:05 executing program 1:
+r0 = open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+open_by_handle_at(r0, &(0x7f0000000040)=ANY=[@ANYBLOB="0a00000002000000ce"], 0x0)
+r1 = syz_open_procfs(0x0, &(0x7f0000000100)='fd/4\x00')
+read(r1, &(0x7f0000000140)=""/136, 0x88)
+
+01:31:05 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 2:
+r0 = open$dir(&(0x7f00000000c0)='./file0\x00', 0x141, 0x0)
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 0:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000000)='ns/ipc\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+
+01:31:05 executing program 1:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000000)='ns/ipc\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+
+01:31:05 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+read(r0, 0x0, 0x0)
+
+01:31:05 executing program 2:
+open$dir(&(0x7f0000000000)='./file1\x00', 0x40, 0x0)
+name_to_handle_at(0xffffffffffffff9c, &(0x7f00000000c0)='./file1\x00', &(0x7f0000000100)={0x8}, 0xffffffffffffffff, 0x0)
+
+01:31:05 executing program 0:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000000)='ns/ipc\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+
+01:31:05 executing program 3:
+r0 = syz_open_procfs(0xffffffffffffffff, &(0x7f0000000000)='attr/sockcreate\x00')
+read(r0, 0x0, 0x0)
+
+[   15.760329] ------------[ cut here ]------------
+[   15.762572] Found leaking site of file_handle
+01:31:05 executing program 1:
+syz_open_procfs$namespace(0xffffffffffffffff, &(0x7f0000000000)='ns/ipc\x00')
+syz_open_procfs$namespace(0x0, &(0x7f0000000080)='ns/ipc\x00')
+
+[   15.762753] WARNING: CPU: 1 PID: 2803 at fs/fhandle.c:78 __se_sys_name_to_handle_at+0x3b2/0x600
+[   15.769015] Kernel panic - not syncing: panic_on_warn set ...
+[   15.772272] CPU: 1 PID: 2803 Comm: syz-executor.2 Not tainted 5.5.3 #48
+[   15.775388] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   15.781418] Call Trace:
+[   15.782960]  dump_stack+0x15e/0x1ae
+[   15.784604]  panic+0x228/0x700
+[   15.786112]  ? 0xffffffff8f200000
+[   15.787708]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   15.790150]  __warn+0x1fe/0x200
+[   15.791644]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   15.794118]  report_bug+0x359/0x480
+[   15.795749]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   15.798216]  do_invalid_op+0x6e/0x110
+[   15.800015]  invalid_op+0x1e/0x30
+[   15.801595] RIP: 0010:__se_sys_name_to_handle_at+0x3b2/0x600
+[   15.804260] Code: 81 c7 48 06 00 00 48 c7 c6 a2 4f 1e 92 e8 56 35 1d 02 48 85 c0 74 2d e8 9c d6 bc ff 48 c7 c7 61 7b 1e 92 31 c0 e8 ae 25 96 ff <0f> 0b eb 1b e8 85 d6 bc ff bd f4 ff ff ff e9 b8 00 00 00 e8 76 d6
+[   15.813005] RSP: 0018:ffff88804a9b7ea8 EFLAGS: 00010246
+[   15.815550] RAX: 1ed852dfc5d64f00 RBX: 0000000000000002 RCX: ffffc90001d8b000
+[   15.818968] RDX: ffffffff8f200000 RSI: 000000000000039d RDI: 000000000000039e
+[   15.822357] RBP: 0000000000000000 R08: dffffc0000000000 R09: fffffbfff25e8bc4
+[   15.825725] R10: fffffbfff25e8bc4 R11: 0000000000000000 R12: ffffffffffffffff
+[   15.829138] R13: dffffc0000000000 R14: 0000000020000100 R15: ffff88804a9b7ec0
+[   15.832558]  ? 0xffffffff8f200000
+[   15.834244]  ? __se_sys_name_to_handle_at+0x3b2/0x600
+[   15.836491]  do_syscall_64+0xd1/0x160
+[   15.838413]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   15.840885] RIP: 0033:0x467519
+[   15.842452] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   15.851521] RSP: 002b:00007fa90380ac48 EFLAGS: 00000246 ORIG_RAX: 000000000000012f
+[   15.855102] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   15.858546] RDX: 0000000020000100 RSI: 00000000200000c0 RDI: ffffffffffffff9c
+[   15.862042] RBP: 00007fa90380b6bc R08: 0000000000000000 R09: 0000000000000000
+[   15.865150] R10: ffffffffffffffff R11: 0000000000000246 R12: 00000000ffffffff
+[   15.868597] R13: 0000000000000770 R14: 00000000004c88cd R15: 0000000000701640
+[   15.872660] Dumping ftrace buffer:
+[   15.874521]    (ftrace buffer empty)
+[   15.876270] Kernel Offset: 0xe200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   15.881282] Rebooting in 1 seconds..

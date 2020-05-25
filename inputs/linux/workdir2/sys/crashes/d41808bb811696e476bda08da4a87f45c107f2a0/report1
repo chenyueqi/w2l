@@ -1,0 +1,442 @@
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 sock_flag include/net/sock.h:842 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2434 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 3404 Comm: syz-executor.1 Not tainted 5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+RIP: 0010:test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+RIP: 0010:sock_flag include/net/sock.h:842 [inline]
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2434 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e 9a e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 41 82 48 9a 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+RSP: 0018:ffff88806d209720 EFLAGS: 00010246
+RAX: deefdb980d27b800 RBX: 0000000000000002 RCX: 0000000000000301
+RDX: ffff888068011d00 RSI: 0000000000000226 RDI: 0000000000000226
+RBP: 1ffff1100d224395 R08: dffffc0000000000 R09: ffffed100da412a1
+R10: ffffed100da412a1 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888069121ca0 R14: ffff888069121ca8 R15: ffff88806d2099b8
+FS:  00007f6b47797700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020001000 CR3: 000000006a1c4006 CR4: 00000000001606f0
+Call Trace:
+------------[ cut here ]------------
+ <IRQ>
+Found allocation of pipe_buffer
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+WARNING: CPU: 1 PID: 3416 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0 fs/pipe.c:798
+Modules linked in:
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+CPU: 1 PID: 3416 Comm: syz-executor.3 Not tainted 5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+RIP: 0010:alloc_pipe_info+0x259/0x4f0 fs/pipe.c:798
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e 9a e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e 9a 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+RSP: 0018:ffff888066e47dc0 EFLAGS: 00010246
+RAX: fe9a4fc16e7aba00 RBX: 0000000000000002 RCX: ffffc900018bc000
+RDX: ffffffff97400000 RSI: 000000000000352c RDI: 000000000000352d
+RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100cdc8f75
+R10: ffffed100cdc8f75 R11: 0000000000000000 R12: ffff88806a108e00
+R13: dffffc0000000000 R14: ffffffff9a647fb0 R15: 0000000000000010
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+FS:  00007f28df635700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+CR2: 0000000000745f88 CR3: 000000006a324002 CR4: 00000000001606e0
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+Call Trace:
+ get_pipe_inode fs/pipe.c:854 [inline]
+ create_pipe_files+0x85/0x6e0 fs/pipe.c:886
+ __do_pipe_flags+0x46/0x200 fs/pipe.c:926
+ ip_rcv_finish net/ipv4/ip_input.c:427 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_rcv+0x22b/0x280 net/ipv4/ip_input.c:538
+ do_pipe2+0x41/0x230 fs/pipe.c:968
+ __do_sys_pipe2 fs/pipe.c:991 [inline]
+ __se_sys_pipe2 fs/pipe.c:989 [inline]
+ __x64_sys_pipe2+0x56/0x60 fs/pipe.c:989
+ __netif_receive_skb+0x353/0x490 net/core/dev.c:5149
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ input_queue_head_incr include/linux/netdevice.h:3057 [inline]
+ process_backlog+0x32b/0x6a0 net/core/dev.c:6098
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+RIP: 0033:0x467519
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+RSP: 002b:00007f28df634c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+ do_softirq_own_stack+0x2a/0x40 arch/x86/entry/entry_64.S:1082
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+ </IRQ>
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+RBP: 00007f28df6356bc R08: 0000000000000000 R09: 0000000000000000
+ native_save_fl arch/x86/include/asm/irqflags.h:35 [inline]
+ arch_local_save_flags arch/x86/include/asm/irqflags.h:79 [inline]
+ arch_local_irq_save arch/x86/include/asm/irqflags.h:120 [inline]
+ do_softirq kernel/softirq.c:332 [inline]
+ __local_bh_enable_ip+0xfa/0x110 kernel/softirq.c:189
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+ arp_hashfn include/net/arp.h:18 [inline]
+ ___neigh_lookup_noref include/net/neighbour.h:293 [inline]
+ __ipv4_neigh_lookup_noref include/net/arp.h:27 [inline]
+ ip_neigh_gw4 include/net/route.h:366 [inline]
+ ip_neigh_for_gw include/net/route.h:386 [inline]
+ ip_finish_output2+0xae0/0x1610 net/ipv4/ip_output.c:222
+---[ end trace f1f45d6444294970 ]---
+------------[ cut here ]------------
+ ip_output+0x31c/0x400 net/ipv4/ip_output.c:427
+ nf_hook include/linux/netfilter.h:262 [inline]
+ __ip_local_out net/ipv4/ip_output.c:114 [inline]
+ ip_local_out+0x351/0x480 net/ipv4/ip_output.c:123
+Found allocation of pipe_buffer
+ ip_send_skb+0x41/0xd0 net/ipv4/ip_output.c:1564
+ udp_send_skb+0x8e9/0x1120 net/ipv4/udp.c:899
+ udp_sendmsg+0x1c53/0x2ac0 net/ipv4/udp.c:1146
+WARNING: CPU: 1 PID: 3417 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0 fs/pipe.c:798
+Modules linked in:
+CPU: 1 PID: 3417 Comm: syz-executor.3 Tainted: G        W         5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+ sock_sendmsg+0x145/0x170 net/socket.c:677
+ xs_sendpages+0x34d/0x950 net/sunrpc/xprtsock.c:754
+RIP: 0010:alloc_pipe_info+0x259/0x4f0 fs/pipe.c:798
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e 9a e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e 9a 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+RSP: 0018:ffff88806832fdc0 EFLAGS: 00010246
+ xs_udp_send_request+0x162/0x3d0 net/sunrpc/xprtsock.c:1042
+RAX: 96e5c02941cc1200 RBX: 0000000000000002 RCX: ffffc90001ebf000
+RDX: ffffffff97400000 RSI: 000000000000ab05 RDI: 000000000000ab06
+ xprt_request_transmit+0x14d/0xcf0 net/sunrpc/xprt.c:1467
+RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100d065f75
+R10: ffffed100d065f75 R11: 0000000000000000 R12: ffff88806a108d00
+ xprt_transmit+0x132/0x420 net/sunrpc/xprt.c:1519
+R13: dffffc0000000000 R14: ffffffff9a647fb0 R15: 0000000000000010
+ call_transmit+0x1a9/0x1f0 net/sunrpc/clnt.c:2179
+FS:  00007f28df614700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2fa21000 CR3: 000000006a324002 CR4: 00000000001606e0
+ constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+ test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+ __rpc_execute+0x2d5/0xce0 net/sunrpc/sched.c:915
+Call Trace:
+ rpc_run_task+0x4ee/0x620 net/sunrpc/clnt.c:1136
+ get_pipe_inode fs/pipe.c:854 [inline]
+ create_pipe_files+0x85/0x6e0 fs/pipe.c:886
+ rpc_call_sync net/sunrpc/clnt.c:1150 [inline]
+ rpc_ping net/sunrpc/clnt.c:2719 [inline]
+ rpc_create_xprt+0x2f6/0x700 net/sunrpc/clnt.c:482
+ __do_pipe_flags+0x46/0x200 fs/pipe.c:926
+ do_pipe2+0x41/0x230 fs/pipe.c:968
+ rpc_create+0x5df/0x8a0 net/sunrpc/clnt.c:596
+ __do_sys_pipe2 fs/pipe.c:991 [inline]
+ __se_sys_pipe2 fs/pipe.c:989 [inline]
+ __x64_sys_pipe2+0x56/0x60 fs/pipe.c:989
+ nfs_create_rpc_client+0x5a0/0x740 fs/nfs/client.c:523
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ nfs_mark_client_ready fs/nfs/client.c:446 [inline]
+ nfs_init_client+0x53/0xf0 fs/nfs/client.c:648
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+ nfs_init_timeout_values fs/nfs/client.c:484 [inline]
+ nfs_init_server fs/nfs/client.c:680 [inline]
+ nfs_create_server+0x7fe/0x2310 fs/nfs/client.c:973
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f28df613c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+ nfs_try_mount+0x399/0xf70 fs/nfs/super.c:1904
+RBP: 00007f28df6146bc R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+---[ end trace f1f45d6444294971 ]---
+ nfs23_validate_mount_data fs/nfs/super.c:2756 [inline]
+ nfs_validate_mount_data fs/nfs/super.c:2161 [inline]
+ nfs_fs_mount+0x1853/0x2810 fs/nfs/super.c:2752
+ legacy_get_tree+0xe8/0x190 fs/fs_context.c:647
+ vfs_get_tree+0x8c/0x270 fs/super.c:1548
+ __write_once_size include/linux/compiler.h:223 [inline]
+ queued_spin_unlock include/asm-generic/qspinlock.h:94 [inline]
+ do_raw_spin_unlock include/linux/spinlock.h:210 [inline]
+ __raw_spin_unlock include/linux/spinlock_api_smp.h:151 [inline]
+ spin_unlock include/linux/spinlock.h:378 [inline]
+ read_sequnlock_excl include/linux/seqlock.h:513 [inline]
+ unlock_mount fs/namespace.c:2164 [inline]
+ do_loopback fs/namespace.c:2314 [inline]
+ do_mount+0x1714/0x2290 fs/namespace.c:3136
+ __do_sys_mount fs/namespace.c:3355 [inline]
+ __se_sys_mount+0xd3/0x100 fs/namespace.c:3328
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f6b47796c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+RBP: 00007f6b477976bc R08: 0000000020000180 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+---[ end trace f1f45d6444294972 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 sock_flag include/net/sock.h:842 [inline]
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2434 [inline]
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 1 PID: 3420 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 1 PID: 3420 Comm: syz-executor.1 Tainted: G        W         5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+RIP: 0010:test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+RIP: 0010:sock_flag include/net/sock.h:842 [inline]
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2434 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e 9a e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 41 82 48 9a 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+RSP: 0018:ffff88806d309720 EFLAGS: 00010246
+RAX: a54ec39ac7bdd500 RBX: 0000000000000002 RCX: 0000000000000301
+RDX: ffff88806c766580 RSI: 00000000000002d0 RDI: 00000000000002d0
+RBP: 1ffff1100d22441d R08: dffffc0000000000 R09: ffffed100da612a1
+R10: ffffed100da612a1 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff8880691220e0 R14: ffff8880691220e8 R15: ffff88806d3099b8
+FS:  00007f6b47776700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2f921000 CR3: 000000006a1c4005 CR4: 00000000001606e0
+Call Trace:
+ <IRQ>
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ ip_rcv_finish net/ipv4/ip_input.c:427 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_rcv+0x22b/0x280 net/ipv4/ip_input.c:538
+ __netif_receive_skb+0x353/0x490 net/core/dev.c:5149
+ input_queue_head_incr include/linux/netdevice.h:3057 [inline]
+ process_backlog+0x32b/0x6a0 net/core/dev.c:6098
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ do_softirq_own_stack+0x2a/0x40 arch/x86/entry/entry_64.S:1082
+ </IRQ>
+ native_save_fl arch/x86/include/asm/irqflags.h:35 [inline]
+ arch_local_save_flags arch/x86/include/asm/irqflags.h:79 [inline]
+ arch_local_irq_save arch/x86/include/asm/irqflags.h:120 [inline]
+ do_softirq kernel/softirq.c:332 [inline]
+ __local_bh_enable_ip+0xfa/0x110 kernel/softirq.c:189
+ arp_hashfn include/net/arp.h:18 [inline]
+ ___neigh_lookup_noref include/net/neighbour.h:293 [inline]
+ __ipv4_neigh_lookup_noref include/net/arp.h:27 [inline]
+ ip_neigh_gw4 include/net/route.h:366 [inline]
+ ip_neigh_for_gw include/net/route.h:386 [inline]
+ ip_finish_output2+0xae0/0x1610 net/ipv4/ip_output.c:222
+ ip_output+0x31c/0x400 net/ipv4/ip_output.c:427
+ nf_hook include/linux/netfilter.h:262 [inline]
+ __ip_local_out net/ipv4/ip_output.c:114 [inline]
+ ip_local_out+0x351/0x480 net/ipv4/ip_output.c:123
+ ip_send_skb+0x41/0xd0 net/ipv4/ip_output.c:1564
+ udp_send_skb+0x8e9/0x1120 net/ipv4/udp.c:899
+ udp_sendmsg+0x1c53/0x2ac0 net/ipv4/udp.c:1146
+ sock_sendmsg+0x145/0x170 net/socket.c:677
+ xs_sendpages+0x34d/0x950 net/sunrpc/xprtsock.c:754
+ xs_udp_send_request+0x162/0x3d0 net/sunrpc/xprtsock.c:1042
+ xprt_request_transmit+0x14d/0xcf0 net/sunrpc/xprt.c:1467
+ xprt_transmit+0x132/0x420 net/sunrpc/xprt.c:1519
+ call_transmit+0x1a9/0x1f0 net/sunrpc/clnt.c:2179
+ constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+ test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+ __rpc_execute+0x2d5/0xce0 net/sunrpc/sched.c:915
+ rpc_run_task+0x4ee/0x620 net/sunrpc/clnt.c:1136
+ rpc_call_sync net/sunrpc/clnt.c:1150 [inline]
+ rpc_ping net/sunrpc/clnt.c:2719 [inline]
+ rpc_create_xprt+0x2f6/0x700 net/sunrpc/clnt.c:482
+ rpc_create+0x5df/0x8a0 net/sunrpc/clnt.c:596
+ nfs_create_rpc_client+0x5a0/0x740 fs/nfs/client.c:523
+ nfs_mark_client_ready fs/nfs/client.c:446 [inline]
+ nfs_init_client+0x53/0xf0 fs/nfs/client.c:648
+ nfs_init_timeout_values fs/nfs/client.c:484 [inline]
+ nfs_init_server fs/nfs/client.c:680 [inline]
+ nfs_create_server+0x7fe/0x2310 fs/nfs/client.c:973
+ nfs_try_mount+0x399/0xf70 fs/nfs/super.c:1904
+ nfs23_validate_mount_data fs/nfs/super.c:2756 [inline]
+ nfs_validate_mount_data fs/nfs/super.c:2161 [inline]
+ nfs_fs_mount+0x1853/0x2810 fs/nfs/super.c:2752
+ legacy_get_tree+0xe8/0x190 fs/fs_context.c:647
+ vfs_get_tree+0x8c/0x270 fs/super.c:1548
+ __write_once_size include/linux/compiler.h:223 [inline]
+ queued_spin_unlock include/asm-generic/qspinlock.h:94 [inline]
+ do_raw_spin_unlock include/linux/spinlock.h:210 [inline]
+ __raw_spin_unlock include/linux/spinlock_api_smp.h:151 [inline]
+ spin_unlock include/linux/spinlock.h:378 [inline]
+ read_sequnlock_excl include/linux/seqlock.h:513 [inline]
+ unlock_mount fs/namespace.c:2164 [inline]
+ do_loopback fs/namespace.c:2314 [inline]
+ do_mount+0x1714/0x2290 fs/namespace.c:3136
+ __do_sys_mount fs/namespace.c:3355 [inline]
+ __se_sys_mount+0xd3/0x100 fs/namespace.c:3328
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f6b47775c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+RBP: 00007f6b477766bc R08: 0000000020000180 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+---[ end trace f1f45d6444294973 ]---
+------------[ cut here ]------------
+Found allocation of ip_options
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 sock_flag include/net/sock.h:842 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 _sock_tx_timestamp include/net/sock.h:2434 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 sock_tx_timestamp include/net/sock.h:2441 [inline]
+WARNING: CPU: 0 PID: 3404 at net/ipv4/ip_output.c:1252 ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Modules linked in:
+CPU: 0 PID: 3404 Comm: syz-executor.1 Tainted: G        W         5.5.3 #59
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+RIP: 0010:constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+RIP: 0010:test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+RIP: 0010:sock_flag include/net/sock.h:842 [inline]
+RIP: 0010:_sock_tx_timestamp include/net/sock.h:2434 [inline]
+RIP: 0010:sock_tx_timestamp include/net/sock.h:2441 [inline]
+RIP: 0010:ip_setup_cork+0x4f1/0x8c0 net/ipv4/ip_output.c:1281
+Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e 9a e8 f7 47 76 00 48 85 c0 74 1e e8 bd d9 15 fe 48 c7 c7 41 82 48 9a 31 c0 e8 cf 28 ef fd <0f> 0b eb 0c e8 a6 d9 15 fe eb 05 e8 9f d9 15 fe 48 8b 04 24 48 8d
+RSP: 0018:ffff88806d209720 EFLAGS: 00010246
+RAX: deefdb980d27b800 RBX: 0000000000000002 RCX: 0000000000000301
+RDX: ffff888068011d00 RSI: 0000000000000333 RDI: 0000000000000333
+RBP: 1ffff1100d224395 R08: dffffc0000000000 R09: ffffed100da412a1
+R10: ffffed100da412a1 R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888069121ca0 R14: ffff888069121ca8 R15: ffff88806d2099b8
+FS:  00007f6b47797700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f633a995190 CR3: 000000006a1c4006 CR4: 00000000001606f0
+Call Trace:
+ <IRQ>
+ sk_page_frag include/net/sock.h:2259 [inline]
+ ip_append_data+0x155/0x1a0 net/ipv4/ip_output.c:1319
+ icmp_push_reply+0x100/0x420 net/ipv4/icmp.c:371
+ skb_dst include/linux/skbuff.h:928 [inline]
+ icmp_route_lookup net/ipv4/icmp.c:506 [inline]
+ __icmp_send+0x1129/0x2210 net/ipv4/icmp.c:718
+ __udp4_lib_rcv+0x19fd/0x2d00 net/ipv4/udp.c:2323
+ ip_protocol_deliver_rcu+0x36c/0x670 net/ipv4/ip_input.c:212
+ __skb_pull include/linux/skbuff.h:2258 [inline]
+ ip_local_deliver_finish net/ipv4/ip_input.c:228 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_local_deliver+0x399/0x4f0 net/ipv4/ip_input.c:252
+ ip_rcv_finish net/ipv4/ip_input.c:427 [inline]
+ NF_HOOK include/linux/netfilter.h:307 [inline]
+ ip_rcv+0x22b/0x280 net/ipv4/ip_input.c:538
+ __netif_receive_skb+0x353/0x490 net/core/dev.c:5149
+ input_queue_head_incr include/linux/netdevice.h:3057 [inline]
+ process_backlog+0x32b/0x6a0 net/core/dev.c:6098
+ napi_poll+0x24d/0x6b0 net/core/dev.c:6534
+ __list_splice include/linux/list.h:412 [inline]
+ list_splice_init include/linux/list.h:450 [inline]
+ net_rx_action+0x2bd/0x870 net/core/dev.c:6589
+ __do_softirq+0x242/0x5be kernel/softirq.c:292
+ do_softirq_own_stack+0x2a/0x40 arch/x86/entry/entry_64.S:1082
+ </IRQ>
+ native_save_fl arch/x86/include/asm/irqflags.h:35 [inline]
+ arch_local_save_flags arch/x86/include/asm/irqflags.h:79 [inline]
+ arch_local_irq_save arch/x86/include/asm/irqflags.h:120 [inline]
+ do_softirq kernel/softirq.c:332 [inline]
+ __local_bh_enable_ip+0xfa/0x110 kernel/softirq.c:189
+ arp_hashfn include/net/arp.h:18 [inline]
+ ___neigh_lookup_noref include/net/neighbour.h:293 [inline]
+ __ipv4_neigh_lookup_noref include/net/arp.h:27 [inline]
+ ip_neigh_gw4 include/net/route.h:366 [inline]
+ ip_neigh_for_gw include/net/route.h:386 [inline]
+ ip_finish_output2+0xae0/0x1610 net/ipv4/ip_output.c:222
+ ip_output+0x31c/0x400 net/ipv4/ip_output.c:427
+ nf_hook include/linux/netfilter.h:262 [inline]
+ __ip_local_out net/ipv4/ip_output.c:114 [inline]
+ ip_local_out+0x351/0x480 net/ipv4/ip_output.c:123
+ ip_send_skb+0x41/0xd0 net/ipv4/ip_output.c:1564
+ udp_send_skb+0x8e9/0x1120 net/ipv4/udp.c:899
+ udp_sendmsg+0x1c53/0x2ac0 net/ipv4/udp.c:1146
+ sock_sendmsg+0x145/0x170 net/socket.c:677
+ xs_sendpages+0x34d/0x950 net/sunrpc/xprtsock.c:754
+ xs_udp_send_request+0x162/0x3d0 net/sunrpc/xprtsock.c:1042
+ xprt_request_transmit+0x14d/0xcf0 net/sunrpc/xprt.c:1467
+ xprt_transmit+0x132/0x420 net/sunrpc/xprt.c:1519
+ call_transmit+0x1a9/0x1f0 net/sunrpc/clnt.c:2179
+ constant_test_bit arch/x86/include/asm/bitops.h:207 [inline]
+ test_bit include/asm-generic/bitops/instrumented-non-atomic.h:111 [inline]
+ __rpc_execute+0x2d5/0xce0 net/sunrpc/sched.c:915
+ rpc_run_task+0x4ee/0x620 net/sunrpc/clnt.c:1136
+ rpc_call_sync net/sunrpc/clnt.c:1150 [inline]
+ rpc_ping net/sunrpc/clnt.c:2719 [inline]
+ rpc_create_xprt+0x2f6/0x700 net/sunrpc/clnt.c:482
+ rpc_create+0x5df/0x8a0 net/sunrpc/clnt.c:596
+ nfs_create_rpc_client+0x5a0/0x740 fs/nfs/client.c:523
+ nfs_mark_client_ready fs/nfs/client.c:446 [inline]
+ nfs_init_client+0x53/0xf0 fs/nfs/client.c:648
+ nfs_init_timeout_values fs/nfs/client.c:484 [inline]
+ nfs_init_server fs/nfs/client.c:680 [inline]
+ nfs_create_server+0x7fe/0x2310 fs/nfs/client.c:973
+ nfs_try_mount+0x399/0xf70 fs/nfs/super.c:1904
+ nfs23_validate_mount_data fs/nfs/super.c:2756 [inline]
+ nfs_validate_mount_data fs/nfs/super.c:2161 [inline]
+ nfs_fs_mount+0x1853/0x2810 fs/nfs/super.c:2752
+ legacy_get_tree+0xe8/0x190 fs/fs_context.c:647
+ vfs_get_tree+0x8c/0x270 fs/super.c:1548
+ __write_once_size include/linux/compiler.h:223 [inline]
+ queued_spin_unlock include/asm-generic/qspinlock.h:94 [inline]
+ do_raw_spin_unlock include/linux/spinlock.h:210 [inline]
+ __raw_spin_unlock include/linux/spinlock_api_smp.h:151 [inline]
+ spin_unlock include/linux/spinlock.h:378 [inline]
+ read_sequnlock_excl include/linux/seqlock.h:513 [inline]
+ unlock_mount fs/namespace.c:2164 [inline]
+ do_loopback fs/namespace.c:2314 [inline]
+ do_mount+0x1714/0x2290 fs/namespace.c:3136
+ __do_sys_mount fs/namespace.c:3355 [inline]
+ __se_sys_mount+0xd3/0x100 fs/namespace.c:3328
+ __read_once_size include/linux/compiler.h:199 [inline]
+ syscall_return_slowpath arch/x86/entry/common.c:260 [inline]
+ do_syscall_64+0xd1/0x160 arch/x86/entry/common.c:304
+ entry_SYSCALL_64_after_hwframe+0x44/0xa9
+RIP: 0033:0x467519
+Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f6b47796c48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+RDX: 0000000020000140 RSI: 0000000020000100 RDI: 0000000000000000
+RBP: 00007f6b477976bc R08: 0000000020000180 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+R13: 0000000000000749 R14: 00000000004c878f R15: 0000000000701660
+---[ end trace f1f45d6444294974 ]---

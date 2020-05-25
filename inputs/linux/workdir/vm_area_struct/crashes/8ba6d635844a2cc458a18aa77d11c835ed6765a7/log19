@@ -1,0 +1,60 @@
+Warning: Permanently added '[localhost]:63397' (ECDSA) to the list of known hosts.
+2020/04/20 20:14:43 fuzzer started
+2020/04/20 20:14:43 dialing manager at 10.0.2.10:43235
+2020/04/20 20:14:43 checking machine...
+2020/04/20 20:14:43 checking revisions...
+2020/04/20 20:14:43 testing simple program...
+syzkaller login: [   16.955926] audit: type=1400 audit(1587413683.963:8): avc:  denied  { execmem } for  pid=322 comm="syz-executor.0" scontext=system_u:system_r:kernel_t:s0 tcontext=system_u:system_r:kernel_t:s0 tclass=process permissive=1
+[   17.026006] ------------[ cut here ]------------
+[   17.028982] Found leaking site of nlattr
+[   17.029488] WARNING: CPU: 1 PID: 323 at net/ipv6/addrconf.c:5557 inet6_fill_ifla6_attrs+0x11ac/0x1e10
+[   17.036775] Kernel panic - not syncing: panic_on_warn set ...
+[   17.039811] CPU: 1 PID: 323 Comm: syz-executor.0 Not tainted 5.5.3 #55
+[   17.043144] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   17.049477] Call Trace:
+[   17.051108]  dump_stack+0x15e/0x1ae
+[   17.053609]  panic+0x228/0x700
+[   17.055666]  ? inet6_fill_ifla6_attrs+0x11ac/0x1e10
+[   17.058941]  __warn+0x1fe/0x200
+[   17.061057]  ? inet6_fill_ifla6_attrs+0x11ac/0x1e10
+[   17.064264]  report_bug+0x359/0x480
+[   17.066540]  ? inet6_fill_ifla6_attrs+0x11ac/0x1e10
+[   17.069590]  do_invalid_op+0x6e/0x110
+[   17.071934]  invalid_op+0x1e/0x30
+[   17.074003] RIP: 0010:inet6_fill_ifla6_attrs+0x11ac/0x1e10
+[   17.077362] Code: 81 c7 48 06 00 00 48 c7 c6 6f 20 5e a2 e8 3c 89 4d 00 48 85 c0 74 32 e8 62 1a ed fd 48 c7 c7 05 03 60 a2 31 c0 e8 74 69 c6 fd <0f> 0b eb 20 e8 4b 1a ed fd e9 56 f0 ff ff e8 41 1a ed fd e9 4c f0
+[   17.088275] RSP: 0018:ffff88805cc177a0 EFLAGS: 00010246
+[   17.091514] RAX: 97d7232fd4988b00 RBX: 0000000000000002 RCX: 0000000000000000
+[   17.095299] RDX: ffff888066870e80 RSI: 000000000000021a RDI: 000000000000021a
+[   17.099037] RBP: ffff88805cc17960 R08: dffffc0000000000 R09: fffffbfff4668bc3
+[   17.102791] R10: fffffbfff4668bc3 R11: 0000000000000000 R12: ffff88806c53c508
+[   17.106434] R13: ffff88805cc70800 R14: ffff88806c53c508 R15: ffff88805cc708d0
+[   17.110765]  inet6_fill_link_af+0x5e/0x90
+[   17.112839]  rtnl_fill_ifinfo+0x3483/0x4190
+[   17.115132]  ? kmem_cache_alloc_node+0x133/0x230
+[   17.118179]  rtmsg_ifinfo_build_skb+0xe2/0x180
+[   17.120580]  rtmsg_ifinfo+0x73/0x120
+[   17.122478]  register_netdevice+0x14b5/0x1770
+[   17.124896]  register_netdev+0x37/0x50
+[   17.126814]  loopback_net_init+0x6c/0x140
+[   17.128785]  ops_init+0x277/0x350
+[   17.130450]  setup_net+0x1cb/0x960
+[   17.132239]  copy_net_ns+0x29e/0x4b0
+[   17.134022]  create_new_namespaces+0x456/0x6c0
+[   17.136255]  unshare_nsproxy_namespaces+0xf5/0x160
+[   17.139030]  ksys_unshare+0x408/0x880
+[   17.141122]  __x64_sys_unshare+0x34/0x40
+[   17.143239]  do_syscall_64+0xd1/0x160
+[   17.144874]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   17.147559] RIP: 0033:0x468ed7
+[   17.149133] Code: 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 b8 10 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   17.159564] RSP: 002b:00007ffcae825ff8 EFLAGS: 00000246 ORIG_RAX: 0000000000000110
+[   17.163370] RAX: ffffffffffffffda RBX: 000000000074c988 RCX: 0000000000468ed7
+[   17.167168] RDX: 0000000000467519 RSI: 00007ffcae825fc0 RDI: 0000000040000000
+[   17.171461] RBP: 00000000000000f8 R08: 0000000000718018 R09: 0000000000718018
+[   17.176523] R10: 0000000000000015 R11: 0000000000000246 R12: 000000000074c988
+[   17.180457] R13: 0000000000000000 R14: 0000000000718018 R15: 0000000000000000
+[   17.184279] Dumping ftrace buffer:
+[   17.186007]    (ftrace buffer empty)
+[   17.187460] Kernel Offset: 0x1e600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   17.191928] Rebooting in 1 seconds..

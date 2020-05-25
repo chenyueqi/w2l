@@ -1,0 +1,26 @@
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+CPU: 0 PID: 1 Comm: systemd Not tainted 5.5.3 #39
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ do_exit+0x212c/0x2130 kernel/exit.c:770
+ do_group_exit+0x155/0x2d0 kernel/exit.c:899
+ get_signal+0x133b/0x1f40 kernel/signal.c:2734
+ do_signal+0x29/0x5e0 arch/x86/kernel/signal.c:815
+ exit_to_usermode_loop arch/x86/entry/common.c:160 [inline]
+ prepare_exit_to_usermode+0x269/0x390 arch/x86/entry/common.c:195
+ ret_from_intr+0x20/0x20
+RIP: 0033:0x7f2203ffcf10
+Code: Bad RIP value.
+RSP: 002b:00007ffe4be45578 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 000055de7ac63d10 RCX: 00007f220402d2e3
+RDX: 00007ffe4be45700 RSI: 00007ffe4be45830 RDI: 0000000000000007
+RBP: 0000000000000007 R08: 1fe84e0fec0e57a4 R09: 0000000000000630
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007ffe4c643310
+R13: 0000000000000001 R14: ffffffffffffffff R15: 0000000000000002
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x22a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..

@@ -1,0 +1,235 @@
+Warning: Permanently added '[localhost]:24803' (ECDSA) to the list of known hosts.
+[   16.214807] audit: type=1400 audit(1587418081.351:11): avc:  denied  { map } for  pid=1581 comm="syz-fuzzer" path="/syz-fuzzer" dev="sda" ino=19947 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:object_r:file_t:s0 tclass=file permissive=1
+2020/04/20 21:28:01 fuzzer started
+2020/04/20 21:28:01 dialing manager at 10.0.2.10:42445
+2020/04/20 21:28:01 syscalls: 52
+2020/04/20 21:28:01 code coverage: enabled
+2020/04/20 21:28:01 comparison tracing: enabled
+2020/04/20 21:28:01 extra coverage: enabled
+2020/04/20 21:28:01 setuid sandbox: enabled
+2020/04/20 21:28:01 namespace sandbox: /proc/self/ns/user does not exist
+2020/04/20 21:28:01 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/04/20 21:28:01 fault injection: CONFIG_FAULT_INJECTION is not enabled
+2020/04/20 21:28:01 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/04/20 21:28:01 net packet injection: /dev/net/tun does not exist
+2020/04/20 21:28:01 net device setup: enabled
+2020/04/20 21:28:01 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/04/20 21:28:01 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/04/20 21:28:01 USB emulation: /dev/raw-gadget does not exist
+21:28:02 executing program 0:
+mount(0x0, &(0x7f0000000040)='.\x00', &(0x7f0000000200)='ramfs\x00', 0x0, &(0x7f0000000340)='nodevvbo\xb2\x83X\a\xcf3,SXu\xdbxnet\x9b\x80\x00\x00\x000mime_type,2%trustedr~six_acl_access.vmnet0security\x0fP\x019\x84\xd8{\xd6\xd0!S\xbc\xd1e\xa7~\x7f\xbc\xca\xea\x90\xde\x98\x1f\x83p\xba8/\xa3axaX\x03\x8f\x9b\xfa\xf3\"\x9ec\xec\xda;\x03\xaf*q\xd1\xe2\x00\x00\x00\x00\x00\x00\x00')
+
+21:28:02 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001080)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/41, 0x29)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+
+21:28:02 executing program 1:
+pipe2(0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r0=>0xffffffffffffffff}, 0x0)
+r1 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/vmallocinfo\x00', 0x0, 0x0)
+splice(r1, 0x0, r0, 0x0, 0xfffffffffffffffa, 0x0)
+
+21:28:02 executing program 2:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000000040)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+pipe2(&(0x7f0000000000)={0xffffffffffffffff, <r1=>0xffffffffffffffff}, 0x0)
+splice(r0, &(0x7f0000000100)=0x103f, r1, 0x0, 0xfffffffffffffffa, 0x0)
+
+[   17.264923] audit: type=1400 audit(1587418082.401:12): avc:  denied  { map } for  pid=1597 comm="syz-executor.0" path="/sys/kernel/debug/kcov" dev="debugfs" ino=1137 scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=system_u:object_r:debugfs_t:s0 tclass=file permissive=1
+[   17.288748] cgroup1: Unknown subsys name 'perf_event'
+[   17.290817] cgroup1: Unknown subsys name 'net_cls'
+[   17.318593] cgroup1: Unknown subsys name 'perf_event'
+[   17.319908] cgroup1: Unknown subsys name 'net_cls'
+[   17.324375] cgroup1: Unknown subsys name 'perf_event'
+[   17.325606] cgroup1: Unknown subsys name 'net_cls'
+[   17.327911] cgroup1: Unknown subsys name 'perf_event'
+[   17.329126] cgroup1: Unknown subsys name 'net_cls'
+[   17.780104] audit: type=1400 audit(1587418082.916:13): avc:  denied  { create } for  pid=1604 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.784717] audit: type=1400 audit(1587418082.917:14): avc:  denied  { write } for  pid=1604 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   17.789241] audit: type=1400 audit(1587418082.921:15): avc:  denied  { read } for  pid=1604 comm="syz-executor.3" scontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tcontext=unconfined_u:system_r:insmod_t:s0-s0:c0.c1023 tclass=netlink_generic_socket permissive=1
+[   19.103145] audit: type=1400 audit(1587418084.240:16): avc:  denied  { associate } for  pid=1604 comm="syz-executor.3" name="syz3" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+21:28:04 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001080)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/41, 0x29)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+
+21:28:04 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001080)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/41, 0x29)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+
+21:28:04 executing program 3:
+r0 = openat$procfs(0xffffffffffffff9c, &(0x7f0000001080)='/proc/tty/ldiscs\x00', 0x0, 0x0)
+read(r0, &(0x7f0000001100)=""/41, 0x29)
+read(r0, &(0x7f0000000000)=""/18, 0x12)
+
+[   19.162261] ------------[ cut here ]------------
+[   19.163057] Found allocation of pipe_buffer
+[   19.163755] WARNING: CPU: 1 PID: 3390 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.164937] Modules linked in:
+[   19.165485] CPU: 1 PID: 3390 Comm: syz-executor.1 Not tainted 5.5.3 #59
+[   19.166721] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.168630] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.169427] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e b5 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e b5 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.173052] RSP: 0018:ffff888053627dc0 EFLAGS: 00010246
+[   19.173950] RAX: e2823e38ebba4100 RBX: 0000000000000002 RCX: ffffc90002824000
+[   19.175168] RDX: ffffffffb2400000 RSI: 000000000000056c RDI: 000000000000056d
+[   19.176361] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100da642d4
+[   19.177560] R10: ffffed100da642d4 R11: 0000000000000000 R12: ffff8880698a8e00
+[   19.178760] R13: dffffc0000000000 R14: ffffffffb5647fb0 R15: 0000000000000010
+[   19.179955] FS:  00007f0a018bd700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   19.181315] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.182288] CR2: 000000000047dde0 CR3: 000000006726c002 CR4: 00000000001606e0
+[   19.183487] Call Trace:
+[   19.183920]  create_pipe_files+0x85/0x6e0
+[   19.184609]  __do_pipe_flags+0x46/0x200
+[   19.185274]  do_pipe2+0x41/0x230
+[   19.185833]  ? put_timespec64+0xbe/0xf0
+[   19.186487]  __x64_sys_pipe2+0x56/0x60
+[   19.187124]  do_syscall_64+0xd1/0x160
+[   19.187742]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.188591] RIP: 0033:0x467519
+[   19.189120] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.192206] RSP: 002b:00007f0a018bcc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.193470] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.194651] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[   19.195846] RBP: 00007f0a018bd6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.197051] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.198248] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.199448] ---[ end trace cb5a8d4fec8ff6da ]---
+[   19.202780] ------------[ cut here ]------------
+[   19.203584] Found allocation of pipe_buffer
+[   19.204310] WARNING: CPU: 1 PID: 3390 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.205566] Modules linked in:
+[   19.206090] CPU: 1 PID: 3390 Comm: syz-executor.1 Tainted: G        W         5.5.3 #59
+[   19.207404] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.209273] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.210048] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e b5 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e b5 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.213080] RSP: 0018:ffff888053627dc0 EFLAGS: 00010246
+[   19.213930] RAX: e2823e38ebba4100 RBX: 0000000000000002 RCX: ffffc90002824000
+[   19.215089] RDX: ffffffffb2400000 RSI: 0000000000000569 RDI: 000000000000056a
+[   19.216247] RBP: 0000000000000120 R08: dffffc0000000000 R09: ffffed100a6c4f75
+[   19.217405] R10: ffffed100a6c4f75 R11: 0000000000000000 R12: ffff8880698a8c00
+[   19.218567] R13: dffffc0000000000 R14: ffffffffb5647fb0 R15: 0000000000000010
+[   19.218775] ------------[ cut here ]------------
+[   19.219733] FS:  00007f0a018bd700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   19.219736] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.219738] CR2: 0000000000748000 CR3: 000000006726c002 CR4: 00000000001606e0
+[   19.219741] Call Trace:
+[   19.219747]  create_pipe_files+0x85/0x6e0
+[   19.219754]  __do_pipe_flags+0x46/0x200
+[   19.220551] Found allocation of pipe_buffer
+[   19.221854]  do_pipe2+0x41/0x230
+[   19.221857]  ? put_timespec64+0xbe/0xf0
+[   19.221864]  __x64_sys_pipe2+0x56/0x60
+[   19.222855] WARNING: CPU: 0 PID: 3415 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.223978]  do_syscall_64+0xd1/0x160
+[   19.224392] Modules linked in:
+[   19.225055]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.225695] CPU: 0 PID: 3415 Comm: syz-executor.2 Tainted: G        W         5.5.3 #59
+[   19.226390] RIP: 0033:0x467519
+[   19.226931] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.227565] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.228192] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.229406] RSP: 002b:00007f0a018bcc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.230035] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e b5 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e b5 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.230537] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.231380] RSP: 0018:ffff88806a86fdc0 EFLAGS: 00010246
+[   19.232674] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.233198] RAX: 41dbb745aa918b00 RBX: 0000000000000002 RCX: ffffc90004231000
+[   19.235051] RBP: 00007f0a018bd6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.238092] RDX: ffffffffb2400000 RSI: 0000000000014066 RDI: 0000000000014067
+[   19.238865] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.240103] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100d50df75
+[   19.243093] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.244292] R10: ffffed100d50df75 R11: 0000000000000000 R12: ffff88806913c300
+[   19.245139] ---[ end trace cb5a8d4fec8ff6db ]---
+[   19.246304] R13: dffffc0000000000 R14: ffffffffb5647fb0 R15: 0000000000000010
+[   19.249346] ------------[ cut here ]------------
+[   19.249821] FS:  00007f1add865700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   19.249824] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.249829] CR2: 0000000000745f88 CR3: 0000000066d2a003 CR4: 00000000001606f0
+[   19.251026] Found allocation of pipe_buffer
+[   19.252235] Call Trace:
+[   19.252242]  create_pipe_files+0x85/0x6e0
+[   19.252247]  __do_pipe_flags+0x46/0x200
+[   19.253446] WARNING: CPU: 1 PID: 3390 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.254598]  do_pipe2+0x41/0x230
+[   19.255363] Modules linked in:
+[   19.256538]  ? put_timespec64+0xbe/0xf0
+[   19.257307] CPU: 1 PID: 3390 Comm: syz-executor.1 Tainted: G        W         5.5.3 #59
+[   19.258637]  __x64_sys_pipe2+0x56/0x60
+[   19.259578] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.260751]  do_syscall_64+0xd1/0x160
+[   19.261446] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.261860]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.262526] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e b5 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e b5 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.263165] RIP: 0033:0x467519
+[   19.264413] RSP: 0018:ffff888053627dc0 EFLAGS: 00010246
+[   19.264956] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.265456] RAX: e2823e38ebba4100 RBX: 0000000000000002 RCX: ffffc90002824000
+[   19.266108] RSP: 002b:00007f1add864c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.267395] RDX: ffffffffb2400000 RSI: 000000000000f305 RDI: 000000000000f306
+[   19.268021] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.269833] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100a6c4f75
+[   19.269848] R10: ffffed100a6c4f75 R11: 0000000000000000 R12: ffff8880698a8a00
+[   19.270487] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.271261] R13: dffffc0000000000 R14: ffffffffb5647fb0 R15: 0000000000000010
+[   19.272110] RBP: 00007f1add8656bc R08: 0000000000000000 R09: 0000000000000000
+[   19.275109] FS:  00007f0a018bd700(0000) GS:ffff88806d300000(0000) knlGS:0000000000000000
+[   19.275644] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.276505] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.276509] CR2: 0000001b2fb21000 CR3: 000000006726c002 CR4: 00000000001606e0
+[   19.279536] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.280730] Call Trace:
+[   19.281989] ---[ end trace cb5a8d4fec8ff6dc ]---
+[   19.283151]  create_pipe_files+0x85/0x6e0
+[   19.297757]  __do_pipe_flags+0x46/0x200
+[   19.298411]  do_pipe2+0x41/0x230
+[   19.298942]  ? put_timespec64+0xbe/0xf0
+[   19.299586]  __x64_sys_pipe2+0x56/0x60
+[   19.300207]  do_syscall_64+0xd1/0x160
+[   19.300814]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.301662] RIP: 0033:0x467519
+[   19.302189] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.305180] RSP: 002b:00007f0a018bcc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.306444] RAX: ffffffffffffffda RBX: 000000000074bf00 RCX: 0000000000467519
+[   19.307628] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[   19.308772] RBP: 00007f0a018bd6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.309923] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.311067] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.312216] ---[ end trace cb5a8d4fec8ff6dd ]---
+[   19.318986] ------------[ cut here ]------------
+[   19.319782] Found allocation of pipe_buffer
+[   19.320579] WARNING: CPU: 0 PID: 3417 at fs/pipe.c:792 alloc_pipe_info+0x259/0x4f0
+[   19.321839] Modules linked in:
+[   19.322390] CPU: 0 PID: 3417 Comm: syz-executor.1 Tainted: G        W         5.5.3 #59
+[   19.323716] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+[   19.325602] RIP: 0010:alloc_pipe_info+0x259/0x4f0
+[   19.326406] Code: 81 c7 48 06 00 00 48 c7 c6 4f 20 3e b5 e8 2f b8 35 02 48 85 c0 74 59 e8 f5 49 d5 ff 48 c7 c7 17 54 3e b5 31 c0 e8 07 99 ae ff <0f> 0b eb 47 e8 de 49 d5 ff eb 40 bf 15 00 00 00 e8 32 be b0 ff 84
+[   19.329446] RSP: 0018:ffff8880697cfdc0 EFLAGS: 00010246
+[   19.330330] RAX: b531a1640146c000 RBX: 0000000000000002 RCX: ffffc90002a25000
+[   19.331505] RDX: ffffffffb2400000 RSI: 0000000000000569 RDI: 000000000000056a
+[   19.332703] RBP: 0000000000000130 R08: dffffc0000000000 R09: ffffed100d2f9f75
+[   19.334153] R10: ffffed100d2f9f75 R11: 0000000000000000 R12: ffff88806913c500
+[   19.335386] R13: dffffc0000000000 R14: ffffffffb5647fb0 R15: 0000000000000010
+[   19.336604] FS:  00007f0a0189c700(0000) GS:ffff88806d200000(0000) knlGS:0000000000000000
+[   19.337981] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   19.338981] CR2: 000000000071f0e8 CR3: 000000006726c004 CR4: 00000000001606f0
+[   19.340206] Call Trace:
+[   19.340664]  create_pipe_files+0x85/0x6e0
+[   19.341385]  __do_pipe_flags+0x46/0x200
+[   19.342051]  do_pipe2+0x41/0x230
+[   19.342616]  ? put_timespec64+0xbe/0xf0
+[   19.343309]  __x64_sys_pipe2+0x56/0x60
+[   19.343922]  do_syscall_64+0xd1/0x160
+[   19.344598]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   19.345490] RIP: 0033:0x467519
+[   19.346045] Code: f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 bc ff ff ff f7 d8 64 89 01 48
+[   19.349052] RSP: 002b:00007f0a0189bc48 EFLAGS: 00000246 ORIG_RAX: 0000000000000125
+[   19.350300] RAX: ffffffffffffffda RBX: 000000000074bfa0 RCX: 0000000000467519
+[   19.351460] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000020000000
+[   19.352623] RBP: 00007f0a0189c6bc R08: 0000000000000000 R09: 0000000000000000
+[   19.353782] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000ffffffff
+[   19.354940] R13: 000000000000081d R14: 00000000004c93b2 R15: 0000000000701660
+[   19.356118] ---[ end trace cb5a8d4fec8ff6de ]---

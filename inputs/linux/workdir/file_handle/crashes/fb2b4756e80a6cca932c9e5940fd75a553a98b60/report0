@@ -1,0 +1,26 @@
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+CPU: 1 PID: 1 Comm: systemd Not tainted 5.5.3 #39
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0-59-gc9ba5276e321-prebuilt.qemu.org 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:77 [inline]
+ dump_stack+0x15e/0x1ae lib/dump_stack.c:118
+ panic+0x228/0x700 kernel/panic.c:221
+ do_exit+0x212c/0x2130 kernel/exit.c:770
+ do_group_exit+0x155/0x2d0 kernel/exit.c:899
+ get_signal+0x133b/0x1f40 kernel/signal.c:2734
+ do_signal+0x29/0x5e0 arch/x86/kernel/signal.c:815
+ exit_to_usermode_loop arch/x86/entry/common.c:160 [inline]
+ prepare_exit_to_usermode+0x269/0x390 arch/x86/entry/common.c:195
+ ret_from_intr+0x20/0x20
+RIP: 0033:0x5563ffd85466
+Code: 00 00 00 00 41 57 41 56 41 55 41 54 55 53 89 fd 48 81 ec 48 01 00 00 64 48 8b 04 25 28 00 00 00 48 89 84 24 38 01 00 00 31 c0 <e8> f5 bf f7 ff 83 f8 01 0f 84 b7 00 00 00 48 8d 9c 24 a0 00 00 00
+RSP: 002b:00007ffc7a47df80 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 00007ffc7a47e760 RCX: 00007f34c8080469
+RDX: 00007ffc7a47e100 RSI: 00007ffc7a47e230 RDI: 0000000000000007
+RBP: 0000000000000007 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000006de3
+R13: 0000000000000000 R14: ffffffffffffffff R15: 0000000000000003
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+Kernel Offset: 0x2e200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+Rebooting in 1 seconds..
