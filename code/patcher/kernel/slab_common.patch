@@ -1,0 +1,67 @@
+--- linux-5.3.18-allyes/mm/slab_common.c	2019-12-18 15:06:00.000000000 +0000
++++ linux-5.3.18-test-mitigation/mm/slab_common.c	2020-02-03 21:22:17.718804388 +0000
+@@ -1755,3 +1755,64 @@
+ 	return 0;
+ }
+ ALLOW_ERROR_INJECTION(should_failslab, ERRNO);
++
++
++
++static inline size_t get_cookie(void)
++{
++	// can be random value
++	return 0xdeadbeef;
++}
++
++/*
++ * mem: 
++ *  ------------
++ * |   data     |
++ * |------------|
++ * |   cookie   |
++ * |------------|
++ * |   length   |
++ * |------------|
++ *
++ */
++
++// offset starts from 1
++inline bool store_flexible_len(void *addr, size_t flexible_len, size_t size, size_t offset)
++{
++	size_t mem_size, cookie;
++    
++	mem_size = ksize(addr);
++	
++	if(mem_size == 0) return false;
++	if(mem_size < 0x8*(size+1)) return false;
++
++	cookie = get_cookie();
++	*(size_t *)(addr+mem_size-0x8*(size+1)) = cookie;
++	*(size_t *)(addr+mem_size-0x8*(offset))  = flexible_len;
++	return true;
++}
++EXPORT_SYMBOL(store_flexible_len);
++
++/* return 0 if the memory is not instrumented;
++*  return -1 if the cookie is corrupted.
++*  offset starts from 1
++*/
++inline size_t get_flexible_len(void *addr, size_t size, size_t offset)
++{
++	size_t mem_size, cookie;
++
++	mem_size = ksize(addr);
++	
++	if(mem_size == 0) return 0;
++	if(mem_size < 0x10) return 0;
++
++	cookie = *(size_t *)(addr+mem_size-0x8*(size+1));
++
++	if(cookie != get_cookie()){
++		return -1;
++	}
++
++	return *(size_t *)(addr+mem_size-0x8*(offset));
++}
++EXPORT_SYMBOL(get_flexible_len);
++
