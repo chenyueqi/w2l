@@ -70,6 +70,40 @@ bool LeakerAnalyzerPass::doModulePass(Module* M) {
     return false;
 }
 
+// check if the function is called by a priviledged device
+// return true if the function is priviledged.
+bool LeakerAnalyzerPass::isPriviledged(llvm::Function *F) {
+    return false;
+    SmallVector<Function*, 4> workList;
+    workList.clear();
+    workList.push_back(F);
+
+    FuncSet seen;
+    seen.clear();
+
+    while (!workList.empty()) {
+        Function* F = workList.pop_back_val();
+
+        // check if the function lies in the deny list
+        if (Ctx->devDenyList.find(F) != Ctx->devDenyList.end()) {
+            return true;
+        }
+
+        if (!seen.insert(F).second)
+            continue;
+
+        CallerMap::iterator it = Ctx->Callers.find(F);
+        if (it != Ctx->Callers.end()) {
+            for (auto calleeInst: it->second) {
+                Function* F = calleeInst->getParent()->getParent();
+                workList.push_back(F);
+            }
+        }
+    }
+    return false;
+}
+
+
 // start analysis from calling to allocation or leak functions
 void LeakerAnalyzerPass::runOnFunction(Function *F) {
     if(!IgnoreReachable){
@@ -294,20 +328,20 @@ void LeakerAnalyzerPass::analyzeAlloc(llvm::CallInst* callInst) {
     M = callInst->getModule();
     F = callInst->getCalledFunction();
 
-    if(!F){
-        if(Function *FF = dyn_cast<Function>(callInst->getCalledValue()->stripPointerCasts())){
+    if (!F) {
+        if (Function *FF = dyn_cast<Function>(callInst->getCalledValue()->stripPointerCasts())) {
             F = FF;
         }
     }
 
-    if(F){
+    if (F) {
         Type *baseType = F->getReturnType();
         stType = dyn_cast<StructType>(baseType);
     }
 
-    if(!stType){
-        for (auto *callUser : callInst->users()){
-            if(auto *BCI = dyn_cast<BitCastInst>(callUser)){
+    if (!stType) {
+        for (auto *callUser : callInst->users()) {
+            if (auto *BCI = dyn_cast<BitCastInst>(callUser)) {
                 KA_LOGS(1, "Found BitCast: "<< *BCI << "\n");
                 PointerType* ptrType = dyn_cast<PointerType>(BCI->getDestTy());
                 Type* baseType = ptrType->getElementType();
@@ -315,15 +349,15 @@ void LeakerAnalyzerPass::analyzeAlloc(llvm::CallInst* callInst) {
                 if (stType == nullptr)
                     continue;
                 break;
-            }else if(auto *SI = dyn_cast<StoreInst>(callUser)){
+            } else if (auto *SI = dyn_cast<StoreInst>(callUser)) {
 
-            }else if(auto *LI = dyn_cast<LoadInst>(callUser)){
+            } else if (auto *LI = dyn_cast<LoadInst>(callUser)) {
 
             }
         }
     }
 
-    if(!stType)
+    if (!stType)
         return;
 
     // compose allocInst map
@@ -331,27 +365,30 @@ void LeakerAnalyzerPass::analyzeAlloc(llvm::CallInst* callInst) {
 
     
     KA_LOGS(1, "We found " << structName << "\n");
-
-    if(structName.find("struct") == string::npos)
+    if (structName.find("struct") == string::npos)
         return;
 
-
+    Function *body = callInst->getFunction();
+    if (isPriviledged(body)) {
+        outs() << body->getName() << " is priviledged function for allocating\n";
+        return;
+    }
 
     LeakStructMap::iterator it = Ctx->leakStructMap.find(structName);
-    if(it != Ctx->leakStructMap.end()){
+    if (it != Ctx->leakStructMap.end()) {
 
         it->second->allocaInst.insert(callInst);
 
-    }else{
+    } else {
         StructInfo *stInfo = Ctx->structAnalyzer.getStructInfo(stType, M);
-        if(!stInfo) return;
+        if (!stInfo) return;
         stInfo->allocaInst.insert(callInst);
         Ctx->leakStructMap.insert(std::make_pair(structName, stInfo));
     }
 }
 
-static bool argContainType(Function *F, string typeName){
-    for(auto arg = F->arg_begin(); arg != F->arg_end(); ++arg) {
+static bool argContainType(Function *F, string typeName) {
+    for (auto arg = F->arg_begin(); arg != F->arg_end(); ++arg) {
         PointerType* ptrType = dyn_cast<PointerType>(arg->getType());
         if (ptrType == nullptr)
             continue;
@@ -361,34 +398,34 @@ static bool argContainType(Function *F, string typeName){
         if (stType == nullptr)
             continue;
 
-        if(stType->getName() == typeName)
+        if (stType->getName() == typeName)
             return true;
     }
     return false;
 }
 
-static bool argContainMbuf(Function *F){
+static bool argContainMbuf(Function *F) {
     return argContainType(F, "struct.mbuf");
 }
 
-static bool addToFuncSet(Function *F, FuncSet &markedFuncSet){
-    if(F && markedFuncSet.find(F) == markedFuncSet.end()){
+static bool addToFuncSet(Function *F, FuncSet &markedFuncSet) {
+    if (F && markedFuncSet.find(F) == markedFuncSet.end()) {
         markedFuncSet.insert(F);
         return true;
     }
     return false;
 }
 
-static bool addToCallInstSet(CallInst *CI, CallInstSet &CISet){
-    if(CI && CISet.find(CI) == CISet.end()){
+static bool addToCallInstSet(CallInst *CI, CallInstSet &CISet) {
+    if (CI && CISet.find(CI) == CISet.end()) {
         CISet.insert(CI);
         return true;
     }
     return false;
 }
 
-static bool isSndbuf(Value *V){
-    if(auto *GEP = dyn_cast<GetElementPtrInst>(V)){
+static bool isSndbuf(Value *V) {
+    if (auto *GEP = dyn_cast<GetElementPtrInst>(V)) {
         PointerType* ptrType = dyn_cast<PointerType>(GEP->getPointerOperandType());
         if(!ptrType)
             return false;
@@ -396,15 +433,15 @@ static bool isSndbuf(Value *V){
         Type* baseType = ptrType->getElementType();
         StructType* stType = dyn_cast<StructType>(baseType);
 
-        if(stType->getName() != "struct.socket")
+        if (stType->getName() != "struct.socket")
             return false;
 
-        if(GEP->getNumIndices() != 2)
+        if (GEP->getNumIndices() != 2)
             return false;
 
-        if(auto *offset1 = dyn_cast<ConstantInt>(GEP->getOperand(1))){
-            if(auto *offset2 = dyn_cast<ConstantInt>(GEP->getOperand(2))){
-                if(offset1->getZExtValue() == 0 && offset2->getZExtValue() == 19){
+        if (auto *offset1 = dyn_cast<ConstantInt>(GEP->getOperand(1))) {
+            if (auto *offset2 = dyn_cast<ConstantInt>(GEP->getOperand(2))) {
+                if (offset1->getZExtValue() == 0 && offset2->getZExtValue() == 19) {
                     return true;
                 }
             }
@@ -421,24 +458,24 @@ bool LeakerAnalyzerPass::isMbufData(Value *buf) {
     for (std::vector<llvm::Value*>::iterator i = srcBufSet.begin(),
          e = srcBufSet.end(); i != e; i++) {
         Value *V = *i;
-        if(auto *callInst = dyn_cast<CallInst>(V)){
+        if (auto *callInst = dyn_cast<CallInst>(V)) {
 
-        }else if(auto *GEP = dyn_cast<GetElementPtrInst>(V)){
+        } else if (auto *GEP = dyn_cast<GetElementPtrInst>(V)) {
             if (GEP->getNumIndices() == 1)
                 continue;
 
             PointerType* ptrType = dyn_cast<PointerType>(GEP->getPointerOperandType());
-            if(ptrType == nullptr)
+            if (ptrType == nullptr)
                 continue;
             Type* baseType = ptrType->getElementType();
             StructType* stType = dyn_cast<StructType>(baseType);
             if (stType == nullptr)
                 continue;
             ConstantInt *CI = dyn_cast<ConstantInt>(GEP->getOperand(2));
-            if(CI->getZExtValue() != 2)
+            if (CI->getZExtValue() != 2)
                 continue;
 
-            if(stType->getName() == "struct.mbuf"){
+            if (stType->getName() == "struct.mbuf") {
                 return true;
             }
         }
@@ -447,7 +484,7 @@ bool LeakerAnalyzerPass::isMbufData(Value *buf) {
 
 }
 
-void LeakerAnalyzerPass::composeMbufLeakAPI(){
+void LeakerAnalyzerPass::composeMbufLeakAPI() {
 
     CallInstSet LeakInst;
     FuncSet trackedFuncSet;
@@ -572,8 +609,8 @@ void LeakerAnalyzerPass::analyzeLeak(llvm::CallInst* callInst, std::string calle
         len = callInst->getArgOperand(2);
         buf = callInst->getArgOperand(1);
 
-    } else if (calleeName == "_copy_to_user"){
-        if (callInst->getFunction()->getName() == "copy_to_user"){
+    } else if (calleeName == "_copy_to_user") {
+        if (callInst->getFunction()->getName() == "copy_to_user") {
             return;
         }
         if (callInst->getNumArgOperands() != 3) { 
@@ -648,13 +685,25 @@ void LeakerAnalyzerPass::analyzeLeak(llvm::CallInst* callInst, std::string calle
 
     }
 #define XNU
+#define FREEBSD
 #ifdef XNU
-    else if (calleeName == "copyout"){
+    else if (calleeName == "copyout") {
         if (callInst->getNumArgOperands() != 3) { 
             KA_LOGS(1, "[-] Weird copyout(): ");
             KA_LOGV(1, callInst);
             return;
         }
+
+#ifdef FREEBSD
+        // discard this copyout if it is called
+        // by uiomove since we have marked uiomove
+        // as a leaking channel
+        Function *F = callInst->getFunction();
+        if (F->getName() == "uiomove_faultflag") {
+            return;
+        }
+#endif
+
         len = callInst->getArgOperand(2);
         buf = callInst->getArgOperand(0);
     } else if (Ctx->LeakAPIs.find(F) != Ctx->LeakAPIs.end()){
@@ -675,6 +724,13 @@ void LeakerAnalyzerPass::analyzeLeak(llvm::CallInst* callInst, std::string calle
         return;
     }
 #endif
+
+#ifdef FREEBSD
+    else if (calleeName == "uiomove") {
+        buf = callInst->getArgOperand(0);
+        len = callInst->getArgOperand(1);
+    }
+#endif
     else {
         RES_REPORT(calleeName << "\n");
         assert(false && "callee is not a leak channel");
@@ -688,6 +744,13 @@ void LeakerAnalyzerPass::analyzeLeak(llvm::CallInst* callInst, std::string calle
     // std::vector<Value *> srcBufSet;
     // std::set<Value *> trackedBufSet;
     // findSources(buf, srcBufSet, trackedBufSet);
+
+    // check permission
+    Function *body = callInst->getFunction();
+    if (isPriviledged(body)) {
+        outs() << body->getName() << " is priviledged function for leaking\n";
+        return;
+    }
 
     KA_LOGS(1, "----- Tracing Length --------\n");
     std::vector<Value *> srcLenSet;

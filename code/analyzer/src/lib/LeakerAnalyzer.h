@@ -28,6 +28,7 @@ private:
     void analyzeAlloc(llvm::CallInst* callInst);
     void analyzeLeak(llvm::CallInst* callInst, std::string calleeName);
 
+    bool isPriviledged(llvm::Function *F);
 
     SmallPtrSet<Value *, 16> getAliasSet(llvm::Value *V, llvm::Function *F);
     void composeMbufLeakAPI(void);

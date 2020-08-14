@@ -158,6 +158,13 @@ StructInfo& StructAnalyzer::addStructInfo(const StructType* st, const Module* M,
 	}
     */
 
+    // check if the structure has integer field
+	for (auto subType : st->elements()) {
+		if (isa<IntegerType>(subType)) {
+			stInfo.flexibleStructFlag = true;
+		}
+	}
+
 	stInfo.setRealType(st);
 	stInfo.setDataLayout(layout);
 	stInfo.setModule(M);
@@ -286,4 +293,29 @@ void StructAnalyzer::printStructInfo() const
         errs() << "\n";
 	}
 	errs() << "----------End of print------------\n";
+}
+
+void StructAnalyzer::printFlexibleSt() const
+{
+	errs() << "----------Print Flexible Structure------------\n";
+	for (auto const& mapping: structInfoMap) {
+		const StructInfo& info = mapping.second;
+		if (!info.flexibleStructFlag) {
+			continue;
+		}
+		// errs() << "Struct " << mapping.first << " ";
+        if (!mapping.first->isLiteral()) {
+			string name = mapping.first->getStructName().str();
+
+			if (name.find("struct") != 0) {
+				continue;
+			}
+
+			if (name.find("struct.anon") == 0) {
+				continue;
+			}
+            errs() << name << "\n";
+		}
+	}
+	errs() << "----------Print Flexible Structure Done--------\n";
 }

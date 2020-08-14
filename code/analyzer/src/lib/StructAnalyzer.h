@@ -246,7 +246,7 @@ public:
 
 		RES_REPORT("[+] "<<name<<"\n");
 		
-		KA_LOGS(0,"AllocaInst:\n");
+		KA_LOGS(0,"AllocInst:\n");
 		dumpAllocInst();
 		KA_LOGS(0,"LeakInst:\n");
 		for( auto const &leak : leakInfo){
@@ -559,6 +559,7 @@ public:
 	void run(llvm::Module* M, const llvm::DataLayout* layout);
 
 	void printStructInfo() const;
+	void printFlexibleSt() const;
 };
 
 #endif

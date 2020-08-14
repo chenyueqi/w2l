@@ -6,6 +6,7 @@ set (KASource
   LeakerAnalyzer.cc
   LeakerChecker.cc
   PointerAnalysis.cc
+  PermissionAnalysis.cc
 )
 
 # Build libraries.

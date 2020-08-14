@@ -173,6 +173,10 @@ public:
   // mbuf leak api
   FuncSet LeakAPIs;
 
+  // device permission allow function list and deny function list
+  FuncSet devAllowList;
+  FuncSet devDenyList;
+
   /**************** End Flexible Structural Object Identification ************/
   
   /****************** Flexible Structural Object Evaluation **************/

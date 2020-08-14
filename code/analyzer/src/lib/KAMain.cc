@@ -34,6 +34,7 @@
 #include "PointerAnalysis.h"
 #include "LeakerAnalyzer.h"
 #include "LeakerChecker.h"
+#include "PermissionAnalysis.h"
 
 using namespace llvm;
 
@@ -46,6 +47,9 @@ cl::opt<unsigned> VerboseLevel(
 
 cl::opt<bool> DumpLeakers(
     "dump-leakers", cl::desc("Dump leakers"), cl::NotHidden, cl::init(false));
+
+cl::opt<bool> DumpFlexibleStruts(
+    "dump-flexible-st", cl::desc("Dump flexible st"), cl::NotHidden, cl::init(false));
 
 cl::opt<bool> AnalyzeLeakers(
     "check-leakers", cl::desc("Analyze leakers"), cl::NotHidden, cl::init(false));
@@ -193,6 +197,9 @@ int main(int argc, char **argv) {
     PointerAnalysisPass PAPass(&GlobalCtx);
     PAPass.run(GlobalCtx.Modules);
 
+    PermissionAnalysisPass PermissionPass(&GlobalCtx);
+    PermissionPass.run(GlobalCtx.Modules);
+
     if(DumpAlias){
         PAPass.dumpAlias();
     }
@@ -209,10 +216,14 @@ int main(int argc, char **argv) {
         LCPass.dumpChecks();
     }
 
-    if(DumpSimplified){
+    if (DumpSimplified) {
         LeakerAnalyzerPass LAPass(&GlobalCtx);
         LAPass.run(GlobalCtx.Modules);
         LAPass.dumpSimplifiedLeakers();
+    }
+
+    if (DumpFlexibleStruts) {
+        GlobalCtx.structAnalyzer.printFlexibleSt();
     }
     
     return 0;
