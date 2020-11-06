@@ -10,6 +10,15 @@ kernels - The IR code of FreeBSD, Linux 5.5.3 (ting, defconfig), and xnu-4906.24
 human-study - PoCs and environments for vulnerabilities used in human study  
 defense - Hardend kernel using the isolation mechanism described in the paper  
 
+### Build
+Please run 
+```bash
+cd code
+bash ../scripts/build_essential.sh  ### Haven't tested yet. Really appreciate if you can help testing
+```
+to 1) download and compile llvm; 2) download and compile linux kernel;  
+It takes a very long time to finish, especially to compile llvm and to compile kernel using clang.
+
 ### Notes
 The method of identifying the elastic objects and the design of the hardening technique described in the paper and implemented in this code repo are in the proccess of applying for a patent.
 
