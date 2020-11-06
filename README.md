@@ -14,10 +14,10 @@ defense - Hardend kernel using the isolation mechanism described in the paper
 Please run 
 ```bash
 cd code
-bash ../scripts/build_essential.sh  ### Haven't tested yet. Really appreciate if you can help testing
+bash ../scripts/build_essential.sh  # Haven't tested yet. Really appreciate if you can help test
 ```
-to 1) download and compile llvm; 2) download and compile linux kernel;  
-It takes a very long time to finish, especially to compile llvm and to compile kernel using clang.
+to 1) download and compile llvm;  2) download and compile linux kernel;  
+It takes a very long time to finish, especially to compile llvm and to compile kernel using Clang.
 
 ### Notes
 The method of identifying the elastic objects and the design of the hardening technique described in the paper and implemented in this code repo are in the proccess of applying for a patent.
