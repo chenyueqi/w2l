@@ -1,0 +1,20 @@
+#!/bin/sh
+#KERNEL=`pwd`/kernel-orig/arch/x86/boot/bzImage
+KERNEL=`pwd`/kernel/arch/x86/boot/bzImage
+IMAGE=`pwd`/img/wheezy.img
+MONITOR_PORT=9257
+SSH_PORT=10069
+GDB_PORT=8888
+qemu-system-x86_64 \
+  -kernel $KERNEL \
+  -append "console=ttyS0 root=/dev/sda debug earlyprintk=serial oops=panic panic_on_warn=1 noaslr" \
+  -hda $IMAGE \
+  -net user,hostfwd=tcp::${SSH_PORT}-:22 -net nic \
+  -nographic \
+  -enable-kvm \
+  -m 1G \
+  -smp 1 \
+  -monitor tcp::${MONITOR_PORT},server,nowait,nodelay \
+  -pidfile vm.pid \
+  -gdb tcp::${GDB_PORT} \
+  2>&1 | tee vm.log

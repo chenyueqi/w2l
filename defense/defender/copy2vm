@@ -1,0 +1,10 @@
+#!/bin/sh
+IMAGE=`pwd`/img/
+if [ $# -eq 0 ]
+then
+    echo $#
+    echo "please specify the ssh port and the path to the file you want to copy"
+    exit
+else
+  scp -r -i $IMAGE/id_rsa -P 10069 -o "StrictHostKeyChecking no" $1 root@localhost:~
+fi
