@@ -1,0 +1,8 @@
+IMAGE=`pwd`/img/
+if [ $# -eq 0 ]
+then
+  ssh -i $IMAGE/stretch.id_rsa -p 10069 -o "StrictHostKeyChecking no" root@localhost
+  exit
+else
+  ssh -i $IMAGE/stretch.id_rsa -p $1 -o "StrictHostKeyChecking no" root@localhost
+fi
