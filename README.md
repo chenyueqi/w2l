@@ -11,13 +11,9 @@ vm - Scripts to setup virtual Machine for kernel fuzzing and exploitation
 human-study - PoCs and environments for vulnerabilities used in human study  
 
 ### Build
-Please run 
-```bash
-cd code
-bash ../scripts/build_essential.sh  # Haven't tested yet. Really appreciate if you can help test
-```
-to 1) download and compile llvm;  2) download and compile linux kernel;  
-It takes a very long time to finish, especially to compile llvm and to compile kernel using Clang.
+Please check `scripts/build_essential.sh` for the setup of the environment.
+
+Please see [this patch](https://github.com/Markakd/LLVM-O0-BitcodeWriter) to build a clang that will generate a complete set of O0 bitcode for Linux kernel.
 
 ### Notes
 The method of identifying the elastic objects and the design of the hardening technique described in the paper and implemented in this code repo are in the proccess of applying for a patent.
